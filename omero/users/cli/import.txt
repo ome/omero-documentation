@@ -9,6 +9,16 @@ supports the same file formats and functions in much the same way. Visit
 :bf_doc:`Supported Formats <supported-formats.html>` for a detailed list of
 supported formats.
 
+Overview
+^^^^^^^^
+
+Visit :doc:`overview` to get a basic overview of the |CLI|.
+
+Installation
+^^^^^^^^^^^^
+
+Visit :doc:`installation` to install the |CLI|.
+
 Import command
 ^^^^^^^^^^^^^^
 
@@ -22,22 +32,26 @@ Some of the options available to the import command are:
 
 .. option:: -h, --help
 
-    Display the help for the import command
+Examples of options available to the import command,
 
-.. option:: --java-help
+.. option:: -s SERVER, -p PORT, -U USERNAME, -g GROUPNAME
 
-    Display the help for the Java options of the import command
+    To avoid prompts for servername, port, username and group, use::
 
-    Java options can be passed after ``--``, e.g.::
+        $ bin/omero import -s SERVER -p PORT -u USER -g GROUP image.tif
 
-       bin/omero import image.tif -- --name=test --description=description
+.. option:: -d DATASET_ID, -T TARGET, --target TARGET
+    
+    To import images into a Dataset ::
 
-.. option:: --advanced-help
+        $ bin/omero import image.tif -d 2  
+        $ bin/omero import image.tif -T Dataset:id:2
+        $ bin/omero import image.tif -T Dataset:name:Sample01
 
-    Display the advanced help for the import command
+    See :doc:`import-target` for more information on import targets.
 
-    Some advanced import options are described in the :ref:`inplace_import`
-    section.
+Scanning folders prior to Import
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. option:: -f
 
@@ -54,7 +68,12 @@ Some of the options available to the import command are:
 
     Set the number of directories to scan down for files (default: 4)::
 
-        $ bin/omero import --depth 1 images_folder
+        $ bin/omero import --depth 7 images_folder
+
+    The above example changes the depth to 7 folders.
+
+Managing performance of imports
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. option:: --skip SKIP
 
@@ -101,9 +120,8 @@ Some of the options available to the import command are:
 
         $ bin/omero import large_image --skip checksum --skip minmax
 
-.. option:: -T, --target TARGET
-
-    Select an import target. See :doc:`import-target` for more information.
+Troubleshoot and report issues
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. option:: --debug DEBUG
 
@@ -140,6 +158,48 @@ Some of the options available to the import command are:
 
         $ bin/omero import broken_image --report --logs --email my.email@domain.com
 
+Advanced import commands
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. option:: --java-help
+
+    Display the help for the Java options of the import command
+
+    Java options can be passed after ``--`` ::
+
+       $ bin/omero import image.tif -- --name=test --description=TestDescription
+
+    The above command will import the image "image.tif" with the name "test" into OMERO and with the OMERO
+    description property set to "TestDescription". Visit :doc:`containers-annotations` to get a basic overview of how 
+    annotations can be created and linked to OMERO objects (object being an image, in this case).
+
+.. option:: --advanced-help
+
+    Display the advanced help for the import command, e.g.
+
+    ::
+
+    $ bin/omero import -- --advanced-help
+
+    Examples of usage,
+
+    To upload and remove the raw file from the local file-system after a successful import into OMERO, use::
+
+        $ bin/omero import -- --transfer=upload_rm my_file.dv
+
+    As an OMERO administrator, to import images for other users, use::
+
+       $ bin/omero login --sudo root -s servername -u username -g groupname
+       $ bin/omero import image.tif
+
+    As an OMERO group owner, to import images for others, use::
+
+       $ bin/omero login --sudo owner -s servername -u username -g groupname
+       $ bin/omero import image.tif
+
+    Some advanced import options are described in the :doc:`/sysadmins/in-place-import`
+    section. Visit :doc:`sessions` to get a basic overview of how user sessions 
+    are managed.
 
 Command Line Importer
 ^^^^^^^^^^^^^^^^^^^^^
@@ -162,4 +222,12 @@ arguments to run. These options will also be displayed on the command line by pa
 
 .. literalinclude:: /downloads/cli/help.out
 
-.. seealso:: :doc:`/sysadmins/import-scenarios`
+.. seealso:: 
+    
+    :doc:`/sysadmins/import-scenarios`
+
+    :doc:`/sysadmins/in-place-import`
+
+    :doc:`/sysadmins/dropbox`
+    
+    :doc:`index`

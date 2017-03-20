@@ -45,8 +45,11 @@ apt-get -y install ice-services python-zeroc-ice
 
 
 # install Postgres
+apt-get -y install apt-transport-https
+add-apt-repository -y "deb https://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main 9.6"
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 apt-get update
-apt-get -y install postgresql
+apt-get -y install postgresql-9.6
 service postgresql start
 
 #end-step01
@@ -92,12 +95,8 @@ OMERO.server/bin/omero db script -f OMERO.server/db.sql --password "$OMERO_ROOT_
 psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < OMERO.server/db.sql
 #end-step04
 
-#start-step05: As root, install a Web server: Nginx or Apache
+#start-step05: As root, install Nginx
 #start-nginx
-# require to install more recent version of nginx
-# w/o the version installed is 1.4.6
-add-apt-repository -y ppa:nginx/stable
-
 apt-get update
 apt-get -y install nginx
 
@@ -114,30 +113,6 @@ ln -s /etc/nginx/sites-available/omero-web /etc/nginx/sites-enabled/
 service nginx start
 #end-nginx
 
-#start-apache
-#start-copy
-cp setup_omero_apache24.sh ~omero
-#end-copy
-#start-configure-apache: As the omero system user, configure OMERO.web
-OMERO.server/bin/omero config set omero.web.application_server wsgi
-OMERO.server/bin/omero web config apache24 --http "$OMERO_WEB_PORT" > OMERO.server/apache.conf.tmp
-OMERO.server/bin/omero web syncmedia
-#end-configure-apache
-#start-apache-install
-apt-get -y install apache2 libapache2-mod-wsgi
-
-# Install OMERO.web requirements
-pip install -r ~omero/OMERO.server/share/web/requirements-py27-apache.txt
-
-# Modify the default value set for the ``WSGISocketPrefix`` directive in ``apache.conf.tmp``
-sed -i -r -e 's|(WSGISocketPrefix run/wsgi)|#\1|' -e 's|# (WSGISocketPrefix /var/run/wsgi)|\1|' ~omero/OMERO.server/apache.conf.tmp
-cp ~omero/OMERO.server/apache.conf.tmp /etc/apache2/sites-available/omero-web.conf
-a2dissite 000-default.conf
-a2ensite omero-web.conf
-
-service apache2 start
-#end-apache-install
-#end-apache
 #end-step05
 
 #start-step06: As root, run the scripts to start OMERO and OMERO.web automatically

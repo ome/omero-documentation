@@ -4,7 +4,7 @@ Webclient Plugins
 The webclient UI can be configured to include content from other web apps.
 This allows you to extend the webclient UI with your own functionality.
 This is used by the :partner_plone:`webtagging app <omero.webtagging>`
-and there are also some examples in the `OMERO.webtest <https://github.com/openmicroscopy/omero-webtest/>`_ repository.
+and there are also some examples in the `omero-webtest <https://github.com/openmicroscopy/omero-webtest/>`_ repository.
 
 
 Currently you can add content in the following locations:
@@ -52,14 +52,13 @@ URLs. For example:
 ::
 
     # Webtagging: Tag images within the selected dataset
-    url( r'^auto_tag/dataset/(?P<datasetId>[0-9]+)/$', views.auto_tag ),
+    url(r'^auto_tag/dataset/(?P<datasetId>[0-9]+)/$', views.auto_tag),
 
     # Webtest: Show a panel of ROI thumbnails for an image
-    url( r'^image_rois/(?P<imageId>[0-9]+)/', views.image_rois ),
+    url(r'^image_rois/(?P<imageId>[0-9]+)/', views.image_rois, name='webtest_image_rois'),
 
 These URLs should simply display the content that you want to show in the
-webclient.
-NB: when these pages load in the webclient, they will have all the webclient
+webclient. When these pages load in the webclient, they will have all the webclient
 CSS and JavaScript (such as jQuery) available so you do not need to include
 these in your page.
 
@@ -72,7 +71,7 @@ Choose an element ID
 
 You will need to specify an ID for the `<div>` element that is added to the
 webclient, so that you can refer to this element in the JavaScript. For
-example, "image_roi_tab" or "auto_tag_panel".
+example, ``image_roi_tab`` or ``auto_tag_panel``.
 
 Create a JavaScript file
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -80,14 +79,14 @@ Create a JavaScript file
 This will contain the JavaScript snippet that is injected into the main
 webclient page `<head>` when the page is generated. This is added using
 Django's templates, so it should be placed within your app's
-`/templates/<app-name>/` directory and named `.html`, e.g.
-/templates/<app-name>/webclient_plugins/right_plugin_rois.html.
+`/templates/<organization_appname>/` directory and named `.html`, e.g.
+/templates/<organization_appname>/webclient_plugins/right_plugin_rois.html.
 All the JavaScript should be within `<script>` and `</script>` tags.
 Your plugin initialization should happen after the page has loaded, so you use
 the jQuery on-ready function.
 
-You use custom jQuery functions, called 'omeroweb_right_plugin' or
-'omeroweb_center_plugin', to initialize the webclient plugin. These will
+You use custom jQuery functions, called ``omeroweb_right_plugin`` or
+``omeroweb_center_plugin``, to initialize the webclient plugin. These will
 handle all the selection change events.
 You simply need to specify how the panel is loaded, based on the selected
 object(s) and what objects are supported. The plugin will be disabled when
@@ -158,7 +157,7 @@ Plugin installation
 -------------------
 
 Now you need to add your plugin to the appropriate plugin list, stating the
-displayed name of the plugin, the path/to/js_snippet.html and the ID of the
+displayed name of the plugin, the ``path/to/js_snippet.html`` and the ``ID`` of the
 plugin element. Plugin lists are:
 
 - :property:`omero.web.ui.center_plugins`
@@ -206,7 +205,7 @@ Refreshing content
 
 If you now edit the :file:`views.py` or HTML template for your plugin and want
 to refresh the plugin within the webclient, all you need to do is to select a
-different object (e.g. dataset, image etc). If you select an object that
+different object (e.g. dataset, image etc.). If you select an object that
 is not supported by your plugin, then nothing will be displayed, and for the
 right-tab plugin, the tab selection will change to the first tab.
 

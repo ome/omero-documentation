@@ -7,7 +7,8 @@ OMERO.server installation on OS X with Homebrew
     This walk-through demonstrates how to install OMERO on a clean Mac
     OS X system (10.9 or later) using Homebrew.  Note that this
     demonstrates how to install OMERO.server *from the source code*
-    via Homebrew, in addition to all its prerequisites.
+    via Homebrew, in addition to all its prerequisites. It is aimed at **developers**
+    since typically MacOS X is not suited for serious server deployment.
 
 These instructions are implemented in a series of `automated scripts
 <https://github.com/ome/omero-install/tree/develop/osx>`_ which
@@ -33,12 +34,12 @@ After installing JDK 7 or JDK 8, check your installation works by
 running::
 
     $ java -version
-    java version "1.8.0_31"
-    Java(TM) SE Runtime Environment (build 1.8.0_31-b13)
+    java version "1.8.0_51"
+    Java(TM) SE Runtime Environment (build 1.8.0_51-b16)
     Java HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)
     
     $ javac -version
-    javac 1.8.0_31
+    javac 1.8.0_51
 
 Requirements
 ------------
@@ -114,9 +115,9 @@ OMERO |release| server
 
 To install and deploy the |release| release of OMERO.server, run::
 
-    $ brew install omero52 --with-nginx --with-cpp
-    $ export PYTHONPATH=$(brew --prefix omero52)/lib/python
-    $ export ICE_CONFIG=$(brew --prefix omero52)/etc/ice.config
+    $ brew install omero53 --with-nginx --with-cpp
+    $ export PYTHONPATH=$(brew --prefix omero53)/lib/python
+    $ export ICE_CONFIG=$(brew --prefix omero53)/etc/ice.config
 
 This will install the OMERO server to /usr/local/Cellar/omero, which means you
 will find the log files in :file:`/usr/local/Cellar/omero/|release|/var/log`.
@@ -125,9 +126,13 @@ The binaries will be linked to :file:`/usr/local/bin`::
     $ which omero
     /usr/local/bin/omero
 
+Install Ice extension for Python::
+
+    $ pip install "zeroc-ice>3.5,<3.7"
+
 Install OMERO python dependencies::
 
-    $ pip install -r $(brew --prefix omero52)/share/web/requirements-py27-nginx.txt
+    $ pip install -r $(brew --prefix omero53)/share/web/requirements-py27-nginx.txt
     $ cd /usr/local
     $ bash bin/omero_python_deps
 
@@ -170,17 +175,12 @@ OMERO dependencies::
     $ brew install --only-dependencies omero
 
 The default version of Ice installed by the OMERO formula is currently
-Ice 3.5.
+Ice 3.6.
 
 Prepare a place for your OMERO code to live, e.g.::
 
     $ mkdir -p ~/code/projects
     $ cd ~/code/projects
-
-If you installed Ice 3.5, you will need to set :envvar:`SLICEPATH` to be
-able to build the server, i.e.
-``export SLICEPATH=/usr/local/share/Ice-3.5/slice``.
-
 
 If you want the development version of OMERO.server, you can clone the source
 code from the project's GitHub account to build locally::
@@ -221,12 +221,12 @@ OMERO.web
 Basic setup for OMERO using Nginx::
 
     $ export HTTPPORT=${HTTPPORT:-8080}
-    $ omero web config nginx-development --http $HTTPPORT > $(brew --prefix omero52)/etc/nginx.conf
+    $ omero web config nginx-development --http $HTTPPORT > $(brew --prefix omero53)/etc/nginx.conf
 
 See installation script :download:`step03_nginx.sh <walkthrough/osx/step03_nginx.sh>`
 
 For detailed instructions on how to deploy OMERO.web in a production
-environment such as Apache or Nginx please see :doc:`install-web`.
+environment such as Nginx please see :doc:`install-web`.
 
 .. note::
     The internal Django webserver can be used for evaluation and development.
@@ -249,7 +249,7 @@ Start OMERO::
 Start OMERO.web::
 
     $ omero web start
-    $ nginx -c $(brew --prefix omero52)/etc/nginx.conf
+    $ nginx -c $(brew --prefix omero53)/etc/nginx.conf
 
 Now connect to your OMERO.server using OMERO.insight or OMERO.web with the following credentials:
 
@@ -260,7 +260,7 @@ Now connect to your OMERO.server using OMERO.insight or OMERO.web with the follo
 
 Stop OMERO.web::
 
-    $ nginx -c $(brew --prefix omero52)/etc/nginx.conf -s stop
+    $ nginx -c $(brew --prefix omero53)/etc/nginx.conf -s stop
     $ omero web stop
 
 Stop OMERO::

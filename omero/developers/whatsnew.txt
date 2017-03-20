@@ -23,6 +23,36 @@ by :javadoc:`Chmod2
 Java Gateway
 ^^^^^^^^^^^^
 
-OMERO model
+-  Added :ref:`javagateway` documentation
+-  Added :javadoc:`TablesFacility <omero/gateway/facility/TablesFacility.html>`
+   for easier handling of :doc:`Tables` 
+
+OMERO Model
 ^^^^^^^^^^^
 
+-  Added ``Folder``, ``FolderImageLink`` and ``FolderRoiLink``
+   (see this `blog post
+   <http://blog.openmicroscopy.org/data-model/future-plans/2016/05/23/folders-upcoming/>`_
+   and :doc:`Model/Containers` for further information)
+-  Added ``ProjectionDef`` to ``RenderingDef``
+-  Added "Arrow" ``markerStart`` and ``markerEnd`` to ``Line`` and
+   ``Polyline``
+-  Moved ``CodomainMapContext`` from ``RenderingDef`` to ``ChannelBinding``
+-  Removed ``g``, ``vectorEffect``, ``visibility`` and various stroke and font
+   properties from ``Shape`` (considering removing ``fontFamily`` in future)
+-  Removed various ``Label`` properties and ``Rectangle.rx``
+-  Removed ``keywords`` and ``namespaces`` from ``Roi``
+-  Adjusted ``Shape.transform`` from string to six separate numerical
+   properties using ``AffineTransform``
+-  Renamed ``Ellipse`` and ``Point`` properties
+-  ``Units.PASCAL`` is now wholly capitalized
+
+Deprecations
+------------
+
+-  ``Ishare``
+-  Search bridges
+-  OMERO reader
+-  Enumeration getters in ``IPixels`` in favor of ``ITypes``
+-  ``DiskUsage`` in favor of ``DiskUsage2``
+-  Analysis namespace ``openmicroscopy.org/omero/analysis/flim``

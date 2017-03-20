@@ -1,4 +1,4 @@
-OMERO.web deployment
+Setting up OMERO.web
 ====================
 
 OMERO.web is the web application component of the OMERO platform which
@@ -16,8 +16,8 @@ with:
 -  the built-in Django lightweight development server (for **testing**
    only; see the :doc:`/developers/Web/Deployment` page)
 
-If you need help configuring your firewall rules, see the
-:doc:`/sysadmins/server-security` page.
+If you need help configuring your firewall rules, see
+:doc:`/sysadmins/server-security` for more details.
 
 
 .. _omero_web_deployment:
@@ -25,13 +25,11 @@ If you need help configuring your firewall rules, see the
 Deployment
 ----------
 
-There are a number of good ways to easily deploy OMERO.web.
-
-Deploying OMERO.web separately from OMERO.server is recommended as they
+Deploying OMERO.web **separately** from OMERO.server is **recommended** as they
 perform best under different circumstances and require a different set of
-dependencies. Please consider using :doc:`OMERO.web trial deployment <install-web/install-web-trial>`.
+dependencies. See :doc:`install-web/web-deployment` for more details.
 
-If you have installed Nginx or Apache, OMERO can automatically generate a
+If you have installed Nginx, OMERO can automatically generate a
 configuration file for your web server. The location of the file will depend
 on your system, please refer to your web server's manual. See
 :ref:`customizing_your_omero_web_installation` for additional
@@ -40,18 +38,38 @@ customization options.
 .. toctree::
     :maxdepth: 1
     :titlesonly:
+    :hidden:
 
-    install-web/install-nginx
-    install-web/install-apache
-    install-web/install-web-trial
+    install-web/web-deployment
+
+Depending upon which platform you are using, you may find a
+more specific walk-through listed below.
+
+.. seealso::
+
+    :doc:`install-web/walkthrough/omeroweb-install-centos7-ice3.6`
+        Instructions for installing OMERO.web from scratch on
+        CentOS 7 with Ice 3.6.
+
+    :doc:`install-web/walkthrough/omeroweb-install-ubuntu-ice3.6`
+        Instructions for installing OMERO.web from scratch on
+        Ubuntu 16.04 with Ice 3.6.
+
+    :doc:`install-web/walkthrough/omeroweb-install-osx-ice3.6`
+        Instructions for installing OMERO.web from scratch on
+        on Mac OS X with Homebrew. It is aimed at **developers**
+        since typically MacOS X is not suited for serious deployment.
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+    :hidden:
+
     install-web/walkthrough/omeroweb-install-centos7-ice3.6
-    install-web/walkthrough/omeroweb-install-centos7-ice3.5
     install-web/walkthrough/omeroweb-install-ubuntu-ice3.6
-    install-web/walkthrough/omeroweb-install-ubuntu-ice3.5
     install-web/walkthrough/omeroweb-install-osx-ice3.6
 
-.. note:: Support for Apache deployment has been deprecated and is likely to
-    be dropped during the 5.3.x line.
+.. note:: Support for Apache deployment has been dropped in 5.3.0.
     
     If your organization's policies only allow Apache to be used as the external-facing web-server you should configure Apache to proxy connections to an Nginx instance running on your OMERO server i.e. use Apache as a reverse proxy. For more details see
     `Apache mod_proxy documentation <https://httpd.apache.org/docs/current/mod/mod_proxy.html>`_.
@@ -76,6 +94,10 @@ to access the OMERO.webclient:
 
 OMERO.web maintenance
 ---------------------
+
+If an attempt is made to access OMERO.web whilst
+it is not running, the generated Nginx configuration file will automatically
+display a maintenance page.
 
 -  Session cookies :property:`omero.web.session_expire_at_browser_close`:
 
@@ -131,16 +153,15 @@ OMERO.web maintenance
 
           $ bin/omero config set omero.web.caches '{"default": {"BACKEND": "django.core.cache.backends.memcached.MemcachedCache", "LOCATION": "127.0.0.1:11211", "TIMEOUT": "86400"}}'
 
-.. note::
-    The generated Nginx and Apache configuration files will automatically
-    display a maintenance page if an attempt is made to access OMERO.web whilst
-    it is not running.
-
 
 .. _customizing_your_omero_web_installation:
 
 Customizing your OMERO.web installation
 ---------------------------------------
+
+OMERO.web offers a number of configuration options.
+The configuration changes will not be applied until
+gunicorn is restarted using ``bin/omero web restart``.
 
 By default OMERO.web expects to be run from the root URL of the web server.
 This can be changed by setting :property:`omero.web.prefix` and
@@ -154,7 +175,7 @@ This can be changed by setting :property:`omero.web.prefix` and
 
 and regenerate your web-server configuration (see :ref:`omero_web_deployment`).
 
-The front-end webserver (Nginx, Apache) can be setup to run on a different
+The front-end webserver e.g. Nginx can be setup to run on a different
 host from OMERO.web. You will need to set
 :property:`omero.web.application_server.host` to ensure OMERO.web is
 accessible on an external IP.
@@ -167,16 +188,11 @@ All configuration options can be found on various sections of
 
 	$ bin/omero web -h
 
-.. Note:: Depending on the deployment choice, OMERO.web will not activate
-    configuration changes until either gunicorn is restarted using
-    ``bin/omero web restart`` (nginx) or the Apache webserver has been
-    reloaded.
-
 The most popular configuration options include:
 
 -  Debug mode, see :property:`omero.web.debug`.
 
--  Customizing OMERO clients e.g to add your own logo to the login page
+-  Customizing OMERO clients e.g. to add your own logo to the login page
    (:property:`omero.web.login_logo`) or use an index page as an alternative
    landing page for users (:property:`omero.web.index_template`). See
    :doc:`/sysadmins/customization` for further information.

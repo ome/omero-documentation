@@ -1,5 +1,5 @@
-Structured annotations
-======================
+Working with annotations
+========================
 
 Structured annotations permit the attachment of data and metadata
 outside the OMERO data model to certain types within the model. The
@@ -167,3 +167,6 @@ than IQuery.
 .. seealso::
 
     |ExtendingOmero|
+    
+    :doc:`KeyValuePairs`
+

@@ -41,7 +41,7 @@ Service Level 1 (direct database and Hibernate connections)
    :source:`src <components/common/src/ome/api/IAdmin.java>`,
    :javadoc:`API <slice2html/omero/api/IAdmin.html>`
    for working with Experimenters, Groups and the current Context
-   (switching groups etc).
+   (switching groups etc.).
 -  ConfigService:
    :source:`src <components/common/src/ome/api/IConfig.java>`,
    :javadoc:`API <slice2html/omero/api/IConfig.html>`
@@ -61,6 +61,7 @@ Service Level 1 (direct database and Hibernate connections)
    for pixels stats and creating Images with existing or new Pixels.
 -  ProjectionService
    :javadoc:`API <slice2html/omero/api/IProjection.html>`
+   for performing projections of Pixels sets.
 -  QueryService:
    :source:`src <components/common/src/ome/api/IQuery.java>`,
    :javadoc:`API <ome/api/IQuery.html>`
@@ -73,7 +74,7 @@ Service Level 1 (direct database and Hibernate connections)
    disk space stats.
 -  RoiService
    :javadoc:`API <slice2html/omero/api/IRoi.html>`
-   working with ROIs.
+   working with ROIs (now deprecated).
 -  ScriptService
    :javadoc:`API <slice2html/omero/api/IScript.html>`
    for uploading and launching Python scripts.
@@ -81,7 +82,7 @@ Service Level 1 (direct database and Hibernate connections)
    :javadoc:`API <slice2html/omero/api/ISession.html>`
    for creating and working with OMERO sessions.
 -  ShareService
-   :javadoc:`API <slice2html/omero/api/IShare.html>`
+   :javadoc:`API <slice2html/omero/api/IShare.html>` (now deprecated).
 -  TimelineService
    :javadoc:`API <slice2html/omero/api/ITimeline.html>`
    for queries based on time.
@@ -91,7 +92,7 @@ Service Level 1 (direct database and Hibernate connections)
 -  UpdateService:
    :source:`src <components/common/src/ome/api/IUpdate.java>`,
    :javadoc:`API <ome/api/IUpdate.html>`
-   for saving and deleting omero.model objects.
+   for saving and editing omero.model objects.
 
 Service Level 2
 ^^^^^^^^^^^^^^^
@@ -170,8 +171,8 @@ been collected in the
 :source:`IContainer <components/common/src/ome/api/IContainer.java>`
 interface. IContainer simplifies a few very common queries, and there is a
 related package ("omero.gateway.model.\*") for working with the returned graphs.
-OMERO.insight works almost exclusively with the IContainer interface for its
-non-binary needs.
+OMERO.insight works almost exclusively with the IContainer interface mostly 
+indirectly via the :ref:`javagateway`.
 
 Examples
 --------
@@ -217,7 +218,7 @@ OMERO annotations for validation
 The server-side implementation of these interfaces makes use of ((JDK5))
 :doc:`/developers/Model/StructuredAnnotations` and an
 :doc:`AOP </developers/Server/Aop>` interceptor to validate all method
-parameters. Calls to ``pojos.findContainerHierarches`` are first caught by a
+parameters. Calls to ``pojos.findContainerHierarchies`` are first caught by a
 method interceptor, which checks for annotations on the parameters and, if
 available, performs the necessary checks. The interceptor also makes proactive
 checks. For a range of parameter types (such as Java Collections) it requires
@@ -227,7 +228,7 @@ An API call of the form:
 
 ::
 
-        pojos.findContainerHierarches(Class,Set,Map)
+        pojos.findContainerHierarchies(Class,Set,Map)
 
 is implemented as
 

@@ -73,6 +73,21 @@ rst_epilog += """
 .. |iceversion| replace:: 3.5.1
 .. |postgresversion| replace:: 9.4
 .. |javaversion| replace:: 1.7
+
+.. |Broken| image:: /images/broken.png
+             :alt: Broken
+.. |Deprecated| image:: /images/deprecated.png
+                 :alt: Deprecated
+.. |Dropped| image:: /images/dropped.png
+              :alt: Dropped
+.. |Recommended| image:: /images/recommended.png
+                  :alt: Recommended
+.. |Supported| image:: /images/supported.png
+                :alt: Supported
+.. |Unsupported| image:: /images/unsupported.png
+                  :alt: Unsupported
+.. |Upcoming| image:: /images/upcoming.png
+               :alt: Upcoming
 """ % (previousversion, conf_autogen.current_dbver,
        conf_autogen.previous_dbver)
 
@@ -128,3 +143,6 @@ linkcheck_ignore += [r'http://localhost:\d+/?', 'http://localhost/',
     r'https?://www\.openmicroscopy\.org/site/team/.*',
     r'.*[.]?example\.com/.*',
     r'https://spreadsheets.google.com/.*']
+
+exclude_patterns = ['sysadmins/unix/walkthrough/requirements*',
+                    'downloads/inplace', 'downloads/cli']

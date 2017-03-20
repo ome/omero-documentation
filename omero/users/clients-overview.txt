@@ -66,6 +66,11 @@ For more information and guides to using OMERO.web, see our
 OMERO.insight
 -------------
 
+.. note:: With the release of OMERO 5.3.0, the OMERO.insight desktop client
+    has entered **maintenance mode**, meaning it will only be updated if a
+    major bug is discovered. Instead, the OME team will be focusing on
+    developing and extending the web clients.
+
 OMERO.insight provides a number of tools for accessing and using data in an
 OMERO server. Figures :ref:`omero_insight_screenshot_5_2` and
 :ref:`omero_insight_5_2_viewer` present the user interface. To find out more,

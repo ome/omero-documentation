@@ -95,3 +95,15 @@ Once you are done with your work, you can terminate the current session if you
 wish using the :program:`omero logout` command::
 
     $ bin/omero logout
+
+Visit :doc:`sessions` to get a basic overview of how user sessions are managed.
+
+.. seealso:: 
+
+    :doc:`/sysadmins/import-scenarios`
+
+    :doc:`/sysadmins/in-place-import`
+    
+    :doc:`/sysadmins/dropbox`
+    
+    :doc:`index`

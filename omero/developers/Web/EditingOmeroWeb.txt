@@ -61,5 +61,5 @@ follow a few steps (commands are shown below):
        Quit the server with CONTROL-C.
 
    .. note:: Default port number is 8000. To specify port, use 
-       E.g: $ python manage.py runserver 0.0.0.0:4080
+       for example: $ python manage.py runserver 0.0.0.0:4080
 

@@ -5,8 +5,8 @@ The OMERO clients offer a flexible user interface that can be customized.
 The sections below describe how to set up these features.
 
 Note that depending on the deployment choice, OMERO.web will not activate
-configuration changes until either gunicorn is restarted using ``bin/omero web
-restart`` (nginx) or the Apache webserver has been reloaded.
+configuration changes until gunicorn is restarted using ``bin/omero web
+restart``.
 
 Index page
 ----------
@@ -48,10 +48,18 @@ Top links menu
 
 :property:`omero.web.ui.top_links` adds links to the top header::
 
-    $ bin/omero config append omero.web.ui.top_links '["Figure", "webfigure"]'
-    $ bin/omero config set omero.web.ui.top_links '["GRE", "http://lifesci.dundee.ac.uk/gre"]'
+    $ bin/omero config append omero.web.ui.top_links '["Figure", "figure_index", {"title": "Open Figure in new tab", "target": "_blank"}]'
+    $ bin/omero config append omero.web.ui.top_links '["GRE", "http://lifesci.dundee.ac.uk/gre"]'
 
 .. figure:: /images/topLink.png
+
+Open With option
+----------------
+
+:property:`omero.web.open_with` adds entry to the Open with right-click menu in tree::
+
+    $ bin/omero config append omero.web.open_with '["omero_figure", "new_figure",
+      {"supported_objects":["images"], "target": "_blank", "label": "OMERO.figure"}]'
 
 
 Group and Users in dropdown menu
@@ -60,12 +68,12 @@ Group and Users in dropdown menu
 Customize the groups and users dropdown menu by changing the labels or hiding
 the entire list::
 
-    $ bin/omero config set omero.client.ui.menu.dropdown.leaders "Owners"
+    $ bin/omero config set omero.client.ui.menu.dropdown.leaders.label "Owners"
+    $ bin/omero config set omero.client.ui.menu.dropdown.leaders.enabled true
+    $ bin/omero config set omero.client.ui.menu.dropdown.colleagues.label "Members"
     $ bin/omero config set omero.client.ui.menu.dropdown.colleagues.enabled true
-    $ bin/omero config set omero.client.ui.menu.dropdown.colleagues "Members"
-    $ bin/omero config set omero.client.ui.menu.dropdown.colleagues.enabled true
-    $ bin/omero config set omero.client.ui.menu.dropdown.all "All Members"
-    $ bin/omero config set omero.client.ui.menu.dropdown.colleagues.enabled true
+    $ bin/omero config set omero.client.ui.menu.dropdown.everyone.label "All Members"
+    $ bin/omero config set omero.client.ui.menu.dropdown.everyone.enabled false
 
 .. figure:: /images/dropdownMenu.png
 

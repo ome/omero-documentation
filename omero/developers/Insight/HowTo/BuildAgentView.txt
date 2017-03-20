@@ -1,6 +1,12 @@
 How to build an agent's view
 ============================
 
+.. note:: With the release of OMERO 5.3.0, the OMERO.insight desktop client
+    has entered **maintenance mode**, meaning it will only be updated if a
+    major bug is discovered. Instead, the OME team will be focusing on
+    developing the web clients. As a result, coding against this client is no
+    longer recommended.
+
 This section explains how a view of the agent is created. All our
 agents follow the same approach. To see the code while
 reading the notes, go to
