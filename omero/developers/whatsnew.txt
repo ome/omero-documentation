@@ -12,8 +12,7 @@ OMERO.web
 Python BlitzGateway
 ^^^^^^^^^^^^^^^^^^^
 
--  getObjects() supports many more filtering and query options
-   via an additional 'opts' parameter
+-  getObjects() supports many more filtering and query options via an additional 'opts' parameter
 
 Graphs
 ^^^^^^
