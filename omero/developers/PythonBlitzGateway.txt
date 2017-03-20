@@ -7,7 +7,7 @@ This page provides some background information on the OMERO Python client
 The Blitz Gateway is a Python client-side library that facilitates working
 with the OMERO API, handling connection to the server, loading of data objects
 and providing convenience methods to access the data. It was originally
-designed as part of the |OmeroWeb| framework, to provide connection and data
+designed as part of the |OmeroWeb|, to provide connection and data
 retrieval services to various web clients. However, we have now decided to
 encourage its use for all access to the OMERO Python API.
 
@@ -19,8 +19,7 @@ Connection wrapper
 The BlitzGateway class (see :pythondoc:`API of development code <omero/omero.gateway.html#omero.gateway._BlitzGateway>`)
 is a wrapper for the OMERO client and session objects. It provides
 various methods for connecting to the OMERO server, querying the status
-or context of the current connection and as a starting point for
-retrieving data objects from OMERO.
+or context of the current connection and retrieving data objects from OMERO.
 
 
 Model object wrappers
@@ -136,7 +135,7 @@ call to server (no lazy loading)
 Stateful services, reconnection, error handling etc
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The Blitz gateway was designed for use in the |OmeroWeb| framework and it is
+The Blitz gateway was designed for use in the |OmeroWeb| and it is
 not expected that stateful services will be maintained on the client for
 significant time.
 There is various error-handling functionality in the Blitz gateway that
