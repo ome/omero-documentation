@@ -3,9 +3,14 @@ What's new for OMERO 5.3 for users
 
 Updates and new features for OMERO 5.3 include:
 
-- ROI Folders in OMERO.insight which allow you to organize your ROIs into a
-  hierarchical tree structure of folders so they can be sorted e.g. by
-  phenotypes or ontologies (support for these is still upcoming for OMERO.web)
+- ROI Folders in OMERO.insight and the |CLI| which allow you to organize your
+  ROIs into a hierarchical tree structure of folders so they can be sorted
+  e.g. by phenotypes or ontologies. Support for these is still upcoming for
+  OMERO.web. There are also some permissions issues in OMERO.insight meaning
+  that at present, even in groups where the permissions should allow this, you
+  cannot add ROIs created by other people to Folders. You can perform this
+  action using the CLI however, and OMERO.insight will then display the Folder
+  contents correctly
 - support for lookup tables (LUT) and reverse/inverted intensity rendering
 - support for histograms
 - the clients UI for viewing Screen Plate Well data has been redesigned to
