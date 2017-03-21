@@ -125,7 +125,7 @@ their ``omero:details``. For example, ``/api/v0/m/projects/`` loads
 Projects but does not also load their child Datasets.
 However, it is sometimes useful to load a number of closely related objects.
 For example, loading Images also loads their Pixels data (but not Channels)
-and loading Wells also loads WellSamples and Images (but not Pixels).
+and loading Wells also loads WellSamples (fields) and Images (but not Pixels).
 The number of objects loaded when listing Images or Wells is kept to
 a minimum to avoid requesting too much data. This restriction is relaxed when
 a single Image or Well is loaded. For example, loading a single Image will also
@@ -329,7 +329,7 @@ The EventContext for this session will be returned to you.
     server                Number      ID of the server
     username              String      User's username
     password              String      User's password
-    csrfmiddlewaretoken   String      CSRF token (can be provied in header)
+    csrfmiddlewaretoken   String      CSRF token (can be provided in header)
 
 
 **Response**
@@ -966,7 +966,7 @@ Get a single Plate
 
 **Response**
 
-The response for a single Plate includes information on the Well Samples (fields) for
+The response for a single Plate includes information on the WellSamples (fields) for
 each Well such as the min/max WellSampleIndex for the Plate.
 
 ::
@@ -1004,7 +1004,7 @@ each Well such as the min/max WellSampleIndex for the Plate.
 List Plate Acquisitions
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-A Plate Acquisition is a collection of WellSamples, grouped by an acquisition time.
+A Plate Acquisition (run) is a collection of WellSamples, grouped by an acquisition time.
 A Plate may contain zero, one or more Plate Acquisitions.
 
 ::
@@ -1171,11 +1171,11 @@ Creating and Saving Objects
 
 The JSON API currently supports creating and saving of a limited number of
 object types, namely Projects, Datasets and Screens.
-This is due to technical issues with saving unloaded objects, such as an Image
+It is not yet possible to save objects with unloaded objects, such as an Image
 without Pixels or Channels loaded. We will be working to resolve these issues
 in future releases.
 
-Creating and saving of JSON objects is handled by a single ``save`` URL
+Creating and saving of JSON objects are handled by a single ``save`` URL
 and objects are identified by their ``@type`` and ``@id`` attributes.
 
 
