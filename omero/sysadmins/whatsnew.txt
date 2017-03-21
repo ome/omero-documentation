@@ -34,3 +34,8 @@ What's new for OMERO 5.3 for sysadmins
 
 - New options have been added for customizing the tree in the clients, see
   :ref:`client configuration properties <client_configuration>`.
+
+- The default output when importing data via the |CLI| has been updated to
+  give an Image or Plate ID list in the form of ``Image:1,2,3,4`` or
+  ``Plate:101`` to be more usable by scripts etc. The previous behaviour can
+  be restored by using ``--output legacy``.
