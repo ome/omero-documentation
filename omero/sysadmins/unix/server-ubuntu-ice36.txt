@@ -55,14 +55,11 @@ To install PostgreSQL 9.6 on Ubuntu 16.04:
     :start-after: #end-supported-ice
     :end-before: #end-step01
 
-See :download:`requirements.txt<walkthrough/requirements.txt>`
-
 Create an omero system user, and a directory for the OMERO repository:
 
 .. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
     :start-after: #start-step02
     :end-before: #end-step02
-
 
 Create a database user and initialize a new database for OMERO:
 

@@ -49,10 +49,6 @@ To install PostgreSQL 9.6:
     :start-after: #end-supported-ice
     :end-before: #end-step01
 
-See :download:`requirements.txt<walkthrough/requirements.txt>`
-
-
-
 Create an omero system user, and a directory for the OMERO repository:
 
 .. literalinclude:: walkthrough/walkthrough_centos7.sh
