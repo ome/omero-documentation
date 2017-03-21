@@ -37,5 +37,5 @@ What's new for OMERO 5.3 for sysadmins
 
 - The default output when importing data via the |CLI| has been updated to
   give an Image or Plate ID list in the form of ``Image:1,2,3,4`` or
-  ``Plate:101`` to be more usable by scripts etc. The previous behaviour can
+  ``Plate:101`` to be more usable by scripts etc. The previous behavior can
   be restored by using ``--output legacy``.
