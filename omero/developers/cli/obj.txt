@@ -6,6 +6,8 @@ Working with objects
 The :omerocmd:`obj` command allows to create and update OMERO objects. More
 information can be displayed using ``bin/omero obj -h``.
 
+A complete :doc:`/developers/Model/EveryObject` is available for reference.
+
 Object creation
 ^^^^^^^^^^^^^^^
 
