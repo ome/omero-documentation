@@ -188,6 +188,14 @@ Default: `${omero.data.dir}/ManagedRepository`
 Client
 ------
 
+.. property:: omero.client.browser.thumb_default_size
+
+omero.client.browser.thumb_default_size
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The default thumbnail size
+
+Default: `96`
+
 .. property:: omero.client.download_as.max_size
 
 omero.client.download_as.max_size
@@ -223,7 +231,7 @@ omero.client.ui.menu.dropdown.colleagues.label
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Client dropdown menu colleagues label.
 
-Default: `${omero.client.ui.menu.dropdown.colleagues}`
+Default: `Members`
 
 .. property:: omero.client.ui.menu.dropdown.everyone.enabled
 
@@ -239,7 +247,7 @@ omero.client.ui.menu.dropdown.everyone.label
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Client dropdown menu all users label.
 
-Default: `${omero.client.ui.menu.dropdown.everyone}`
+Default: `All Members`
 
 .. property:: omero.client.ui.menu.dropdown.leaders.enabled
 
@@ -255,7 +263,7 @@ omero.client.ui.menu.dropdown.leaders.label
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Client dropdown menu leader label.
 
-Default: `${omero.client.ui.menu.dropdown.leaders}`
+Default: `Owners`
 
 .. property:: omero.client.ui.tree.orphans.description
 
@@ -1881,7 +1889,7 @@ Default: `weblogin`
 
 omero.web.open_with
 ^^^^^^^^^^^^^^^^^^^
-A list of viewers that can be used to display selected Images or other objects. Each viewer is defined as ``["Name", "url", options]``. Url is reverse(url). Selected objects are added to the url as ?image=:1&image=2Objects supported must be specified in options withE.g. ``{"supported_objects":["images"]}`` to enable viewer for one or more images.
+A list of viewers that can be used to display selected Images or other objects. Each viewer is defined as ``["Name", "url", options]``. Url is reverse(url). Selected objects are added to the url as ?image=:1&image=2Objects supported must be specified in options with e.g. ``{"supported_objects":["images"]}`` to enable viewer for one or more images.
 
 Default: `[["Image viewer", "webindex", {"supported_objects": ["image"],"script_url": "webclient/javascript/ome.openwith_viewer.js"}]]`
 

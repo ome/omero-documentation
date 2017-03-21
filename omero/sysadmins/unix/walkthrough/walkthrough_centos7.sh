@@ -121,6 +121,14 @@ systemctl start nginx
 #end-step05
 
 #start-step06: As root, run the scripts to start OMERO and OMERO.web automatically
+cp omero-systemd.service /etc/systemd/system/omero.service
+
+cp omero-web-systemd.service /etc/systemd/system/omero-web.service
+
+systemctl daemon-reload
+
+systemctl enable omero.service
+systemctl enable omero-web.service
 #end-step06
 
 #start-step07: As root, secure OMERO
