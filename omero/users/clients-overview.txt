@@ -30,6 +30,26 @@ modules for OMERO, integrating additional functionality, particularly for more
 complex image analysis. See the :partner_plone:`Partner Projects <>` page for
 more details.
 
+Features
+--------
+
+Among many features, the noteworthy elements of the two main clients
+(OMERO.insight and OMERO.web) are:
+
+- DataManager, a traditional tree-based view of the data hierarchies in an
+  OMERO.server. DataManager supports access to all image metadata,
+  annotations, tags etc.
+- ImageViewer, for visualization of 5D images (space, channel, time). The
+  ImageViewer makes use of the OMERO.server's Rendering Engine, and provides
+  high-performance viewing of multi-dimensional images on standard
+  workstations (e.g. scrolling through space and time), without requiring
+  installation of high-powered graphics cards. Most importantly, image viewing
+  at remote locations is enabled. Image rendering settings are saved and
+  chosen by user ID
+- Working Area, for viewing, annotating, and manipulating large sets of image
+  data
+- user and group administration
+
 .. _omero-web:
 
 OMERO.web
@@ -56,10 +76,19 @@ views.
     :alt: OMERO.web image viewer
     
     OMERO.web image viewer
-    
+
+OMERO.web features almost all of the functionality of OMERO.insight barring
+import and Measurement Tool. Work is ongoing to introduce new functionality,
+including a new image viewer OMERO.iviewer, which will feature improved ROI
+support, allowing you to draw and edit ROIs from the web.
 
 For more information and guides to using OMERO.web, see our
 :help:`help website <>`.
+
+There are also additional apps for OMERO.web such as
+`OMERO.figure <http://figure.openmicroscopy.org>`_, which provides all the
+tools you need to build figures from your images for publications and
+presentations.
 
 .. _omero-insight:
 
@@ -92,23 +121,11 @@ see the :help:`OMERO.insight user guides <>`.
 
     OMERO.insight ImageViewer and Measurement Tool
 
-Among many features, the noteworthy OMERO.insight elements are:
+The two main additional features of OMERO.insight which are not available as
+yet for OMERO.web are:
 
-- DataManager, a traditional tree-based view of the data hierarchies in an
-  OMERO server. DataManager supports access to all image metadata,
-  annotations, tags
-- ImageViewer, for visualization of 5D images (space, channel, time). The
-  ImageViewer makes use of the OMERO server's Rendering Engine, and provides
-  high-performance viewing of multi-dimensional images on standard
-  workstations (e.g. scrolling through space and time), without requiring
-  installation of high-powered graphics cards. Most importantly, image viewing
-  at remote locations is enabled. Image rendering settings are saved and
-  chosen by user ID
 - Measurement Tool, a sub-application of ImageViewer that enables size and
   intensity measurements of defined regions-of-interest (ROIs)
-- Working Area, for viewing, annotating, and manipulating large sets of image
-  data
-- user administration
 - image import
 
 Our user assistance :help:`help website <>` features a number of
@@ -127,7 +144,7 @@ running OMERO server. This tool uses a standard file browser to select the
 image files for import into an OMERO server.
 
 The tool uses Bio-Formats for translation of proprietary file formats in
-preparation for upload to an OMERO Server. Visit
+preparation for upload to an OMERO.server. Visit
 :bf_doc:`Supported Formats <supported-formats.html>`
 for a detailed list of supported formats.
 
