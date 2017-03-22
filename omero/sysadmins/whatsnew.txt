@@ -18,14 +18,14 @@ What's new for OMERO 5.3 for sysadmins
 
 - OMERO.web has been decoupled from the server and can now be deployed
   separately. It now requires Python 2.7 meaning systems still running on
-  CentOS 6 will require upgrading.
+  CentOS 6 may require upgrading.
   
 - Support for deploying OMERO.web using Apache has been dropped; if your
   organization’s policies only allow Apache to be used as the external-facing
   web-server you should configure Apache to proxy connections to an Nginx
   instance running on your OMERO server i.e. use Apache as a reverse proxy.
 
-- jquery cache is now disabled by default.
+- JQuery cache is now disabled by default.
 
 - A new script is available to allow users to migrate annotations from Images
   to Wells which you may wish to run server-side when upgrading. These
