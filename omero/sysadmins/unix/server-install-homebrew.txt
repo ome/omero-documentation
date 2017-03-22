@@ -4,7 +4,7 @@ OMERO.server installation on OS X with Homebrew
 
 .. topic:: Overview
 
-    This walk-through demonstrates how to install OMERO on a clean Mac
+    This walkthrough demonstrates how to install OMERO on a clean Mac
     OS X system (10.9 or later) using Homebrew.  Note that this
     demonstrates how to install OMERO.server *from the source code*
     via Homebrew, in addition to all its prerequisites. It is aimed at **developers**
@@ -126,13 +126,9 @@ The binaries will be linked to :file:`/usr/local/bin`::
     $ which omero
     /usr/local/bin/omero
 
-Install Ice extension for Python::
+Install Ice 3.6 extension for Python and OMERO python dependencies::
 
-    $ pip install "zeroc-ice>3.5,<3.7"
-
-Install OMERO python dependencies::
-
-    $ pip install -r $(brew --prefix omero53)/share/web/requirements-py27-nginx.txt
+    $ pip install -r $(brew --prefix omero53)/share/web/requirements-py27-all.txt
     $ cd /usr/local
     $ bash bin/omero_python_deps
 
