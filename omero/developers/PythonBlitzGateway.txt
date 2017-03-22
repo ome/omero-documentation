@@ -147,16 +147,18 @@ use and close the stateful services in the shortest practicable time.
 
 ::
 
-    image = conn.getObject("Image", image_id)
-    # Initializes the Rendering engine and sets rendering settings
-    image.setActiveChannels([1, 2], [[20, 300], [50, 500]], ['00FF00', 'FF0000'])
-    pil_image = image.renderImage(0, 0)
-    # Now we close the rendering engine
-    image._re.close
+    try:
+        image = conn.getObject("Image", image_id)
+        # Initializes the Rendering engine and sets rendering settings
+        image.setActiveChannels([1, 2], [[20, 300], [50, 500]], ['00FF00', 'FF0000'])
+        pil_image = image.renderImage(0, 0)
+        # Now we close the rendering engine
+        image._re.close
 
     # Can continue to use the connection until done,
     # then close ALL services:
-    conn.close()
+    finally:
+        conn.close()
 
 Overwriting and extending omero.gateway classes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
