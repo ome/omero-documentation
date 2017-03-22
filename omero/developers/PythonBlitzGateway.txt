@@ -8,7 +8,7 @@ The Blitz Gateway is a Python client-side library that facilitates working
 with the OMERO API, handling connection to the server, loading of data objects
 and providing convenience methods to access the data. It was originally
 designed as part of the |OmeroWeb|, to provide connection and data
-retrieval services to various web clients. However, we have now decided to
+retrieval services to various web clients. However, we
 encourage its use for all access to the OMERO Python API.
 
 
@@ -38,14 +38,14 @@ the use of rtypes.
 ::
 
     import omero
-    from omero.model import *
+    from omero.model import ProjectI
     from omero.rtypes import rstring
-    p = omero.model.ProjectI()
+    p = ProjectI()
     p.setName(rstring("Omero Model Project"))   # attributes are all rtypes
     print p.getName().getValue()                # getValue() to unwrap the rtype
     print p.name.val                            # short-hand
 
-    from omero.gateway import *
+    from omero.gateway import ProjectWrapper
     project = ProjectWrapper(obj=p)             # wrap the model.object
     project.setName("Project Wrapper")          # Don't need to use rtypes
     print project.getName()
@@ -59,7 +59,7 @@ loading).
 
 ::
 
-    >>> from omero.gateway import *
+    >>> from omero.gateway import BlitzGateway
 
     >>> conn = BlitzGateway("username", "password", host="localhost", port=4064)
     >>> conn.connect()
@@ -148,7 +148,7 @@ use and close the stateful services in the shortest practicable time.
 ::
 
     image = conn.getObject("Image", image_id)
-    # Initialises the Rendering engine and sets rendering settings
+    # Initializes the Rendering engine and sets rendering settings
     image.setActiveChannels([1, 2], [[20, 300], [50, 500]], ['00FF00', 'FF0000'])
     pil_image = image.renderImage(0, 0)
     # Now we close the rendering engine

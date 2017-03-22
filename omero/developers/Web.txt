@@ -23,7 +23,7 @@ OMERO Python API
 
 The OMERO.web framework is all based on the OMERO Python API. Code-generated
 omero.model objects communicate remotely with their counterparts on the
-OMERO.server using ICE.
+OMERO.server using `ICE, from ZeroC <https://zeroc.com/products/ice>`_.
 
 BlitzGateway
 ^^^^^^^^^^^^
@@ -45,8 +45,8 @@ It also includes utilities for creating and retrieving connections to OMERO
 -  **webclient:** Main web client for browsing, viewing and annotating images.
    More information available under :ref:`OMERO.web <omero-web>`.
 
--  **webgateway:** Provides rendered images and JSON data for other applications,
-   or as an external API.
+-  **webgateway:** Provides rendered images and JSON data for other OMERO.web apps or
+   for external applications hosted elsewhere.
    See :doc:`/developers/Web/WebGateway`.
 
 -  **webadmin:** Tool for OMERO.server Administrators to manage users and groups.
@@ -55,7 +55,7 @@ It also includes utilities for creating and retrieving connections to OMERO
 
 **Additional apps**
 
--  **omero-figure:** The `OMERO.figure <http://figure.openmicroscopy.org/>`_ app
+-  **omero-figure:** The `OMERO.figure <https://github.com/ome/omero-figure/>`_ app
    allows you to create scientific figures.
 
 -  **omero-webtest:** `webtest <https://github.com/openmicroscopy/omero-webtest/>`_
@@ -63,11 +63,18 @@ It also includes utilities for creating and retrieving connections to OMERO
    the following pages.
 
 -  **omero-iviewer:** The `OMERO.iviewer <https://github.com/ome/omero-iviewer>`_
-   is a new image viewer that supports ROI creation and editing.
+   is a new (currently unreleased) image viewer that supports ROI creation and editing.
 
 -  **webtagging:** The `webtagging <https://github.com/MicronOxford/webtagging>`_ app
    was developed externally by Douglas Russell. It supports 'auto' tagging based on
    image name and Tag-based filtering of data.
+
+-  **omero-mapr:** The `OMERO.mapr <https://github.com/ome/omero-mapr/>`_ app
+   is a new tool that allows browsing data through Map Annotations
+   linked to images.
+
+-  **omero-gallery:** `OMERO.gallery <https://github.com/ome/omero-gallery/>`_
+   provides a simple interface for browsing Projects, Datasets and Images.
 
 .. note::
     Although it is possible to access functionality from any installed app,

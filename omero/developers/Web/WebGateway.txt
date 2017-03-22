@@ -233,8 +233,8 @@ JSON methods
        {"data": [ 24354, 93878, 87555, 45323, 27365, 14690, 9346, 2053, 60, 7, 19, 14, 15, 9, 5, 5, 3, 0, 2, 1]}
 
 
-Saving etc
-""""""""""
+Saving etc.
+"""""""""""
 
 -  ``webgateway/saveImgRDef/<imageId>/``
 -  ``webgateway/compatImgRDef/<imageId>/``
