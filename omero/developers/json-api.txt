@@ -178,16 +178,27 @@ same group as the Project.
 Error handling
 ^^^^^^^^^^^^^^
 
-Invalid parameters or invalid JSON will result in a ``400 Bad Request``.
-For example, ``?limit=foo`` will give a response of:
+Errors will result in responses with an appropriate status and may include
+JSON content with a ``message`` to provide more information:
 
-::
+ -  **404 Not Found**: Caused by an invalid URL or when a specified
+    object can not be found in OMERO.
 
-    {"message": "invalid literal for int() with base 10: 'foo'"}
+ -  **400 Bad Request**: May be caused by invalid query parameters or
+    submitting invalid JSON content. For example,
+    ``?limit=foo`` will give a response of:
+    ::
 
+        {"message": "invalid literal for int() with base 10: 'foo'"}
 
-Unhandled exceptions are handled with a ``500`` error response with an
-error "message" and may also include a "stacktrace".
+ -  **405 Method Not Allowed**: This will be returned if you try to use the
+    wrong http method for a url, such as ``POST`` to ``/api/v0/m/projects/``.
+    It can also be caused by trying to create or update an unsupported object,
+    such as an Image.
+
+ -  **500 Internal Server Error**: Generated from any unhandled exceptions.
+    See the ``message`` returned and check whether a ``stacktrace`` is also included.
+
 
 
 Getting Started
