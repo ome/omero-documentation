@@ -55,14 +55,11 @@ To install PostgreSQL 9.6 on Ubuntu 16.04:
     :start-after: #end-supported-ice
     :end-before: #end-step01
 
-See :download:`requirements.txt<walkthrough/requirements.txt>`
-
 Create an omero system user, and a directory for the OMERO repository:
 
 .. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
     :start-after: #start-step02
     :end-before: #end-step02
-
 
 Create a database user and initialize a new database for OMERO:
 
@@ -97,33 +94,20 @@ Configure:
     :start-after: #end-release-ice36
     :end-before: #end-step04
 
-Installing Nginx
-----------------
+Installing OMERO.web
+--------------------
 
-OMERO.web is deployed using Nginx see :doc:`install-web/web-deployment`.
+OMERO.web is deployed using Nginx, for more details
+see :doc:`install-web/walkthrough/omeroweb-install-ubuntu-ice3.6`.
 
 **The following steps are run as root.**
 
-Install the latest stable version of Nginx, copy the Nginx OMERO configuration file into the
-Nginx configuration directory, and disable the default configuration:
-
-To install the latest stable version on Ubuntu 14.04:
+To install the latest stable version of Nginx on Ubuntu 14.04, run
+the following commands:
 
 .. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
     :start-after: #start-nginx
-    :end-before: #start-configure-nginx
-
-To install the latest stable version on Ubuntu 16.04:
-
-.. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
-    :start-after: #start-nginx
-    :end-before: #start-configure-nginx
-
-Configure and start Nginx:
-
-.. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
-    :start-after: #start-configure-nginx
-    :end-before: #end-nginx
+    :end-before: #start-requirements
 
 Running OMERO
 -------------
