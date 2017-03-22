@@ -23,7 +23,7 @@ OMERO Python API
 
 The OMERO.web framework is all based on the OMERO Python API. Code-generated
 omero.model objects communicate remotely with their counterparts on the
-OMERO.server using `ICE, from ZeroC <https://zeroc.com/products/ice>`_.
+OMERO.server using `Ice, from ZeroC <https://zeroc.com/products/ice>`_.
 
 BlitzGateway
 ^^^^^^^^^^^^
@@ -76,7 +76,7 @@ It also includes utilities for creating and retrieving connections to OMERO
 -  **omero-gallery:** `OMERO.gallery <https://github.com/ome/omero-gallery/>`_
    provides a simple interface for browsing Projects, Datasets and Images.
 
-.. note::
+.. warning::
     Although it is possible to access functionality from any installed app,
     **ONLY webgateway** and **api** should be considered as a stable public API. URLs and methods
     within other web apps are purely designed to provide internal functionality for

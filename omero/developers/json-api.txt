@@ -4,7 +4,7 @@ JSON API
 Overview
 --------
 
-The OMERO json API described here provides create, read, update and delete
+The OMERO JSON API described here provides create, read, update and delete
 access to an underlying OMERO server. It is implemented as a Django app
 named ``api`` in the OMERO.web framework.
 
@@ -13,7 +13,7 @@ Omero-marshal and Projection-based APIs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The majority of the API URLs use `omero-marshal <https://github.com/openmicroscopy/omero-marshal>`_
-to generate json dictionaries from OMERO **model** objects.
+to generate JSON dictionaries from OMERO **model** objects.
 All these URLs are under the ``m`` prefix:
 
 ::
@@ -91,7 +91,7 @@ parameters:
     <server>/api/v0/m/projects/?limit=100&offset=100
 
 
-Pagination details will be returned in a ``meta`` json object, including
+Pagination details will be returned in a ``meta`` JSON object, including
 the ``totalCount`` of objects for that query, the current ``offset`` and
 ``limit`` as well as the ``maxLimit`` that you can use.
 
@@ -148,13 +148,13 @@ are also loaded (for example Pixels within an Image), the ``omero:details``
 of these objects will not be affected by the ``?normalize=true`` parameter.
 
 
-Child Counts
+Child counts
 ^^^^^^^^^^^^
 
 For container objects such as Projects, Datasets and Screens it is
 often useful to know the number of children within them. This can be
 specified with ``?childCount=true`` parameter.
-This will add an ``omero:childCount`` value to the json data.
+This will add an ``omero:childCount`` value to the JSON data.
 
 
 Filtering by Owner and Group
@@ -162,7 +162,7 @@ Filtering by Owner and Group
 
 Most data in OMERO has an ``Owner`` and is assigned to a permissions
 ``Group``. By default, queries will return data from all owners
-accross all groups that are accessible to the current user.
+across all groups that are accessible to the current user.
 Use the query strings to filter by owner and/or group:
 
 ::
@@ -201,7 +201,7 @@ JSON content with a ``message`` to provide more information:
 
 
 
-Getting Started
+Getting started
 ---------------
 
 You may find this
@@ -368,7 +368,7 @@ The EventContext for this session will be returned to you.
 Projects, Datasets and Images
 -----------------------------
 
-OMERO organises Images in two types of many-to-many hierarchies:
+OMERO organizes Images in two types of many-to-many hierarchy:
 ``screen/plate/[run]/well/image`` for HCS data and ``project/dataset/image``
 for other data. Plates, Datasets and Images can also be ``Orphaned`` if not
 contained within any parent container.
@@ -1180,7 +1180,7 @@ with Pixels loaded.
     GET   /api/v0/m/wells/{well_id}/
 
 
-Creating and Saving Objects
+Creating and saving objects
 ---------------------------
 
 The JSON API currently supports creating and saving of a limited number of
@@ -1193,7 +1193,7 @@ Creating and saving of JSON objects are handled by a single ``save`` URL
 and objects are identified by their ``@type`` and ``@id`` attributes.
 
 
-Object Types
+Object types
 ^^^^^^^^^^^^
 
 The object ``@type`` must be based on the currently supported Schema URL
@@ -1222,7 +1222,7 @@ object name, such as:
     http://www.openmicroscopy.org/Schemas/OME/2016-06#Project
 
 
-Creating Objects
+Creating objects
 ^^^^^^^^^^^^^^^^
 
 To create an object, POST the JSON for that object, including the ID of the
@@ -1263,7 +1263,7 @@ Currently only creation of Projects, Datasets and Screens is supported.
     }
 
 
-Updating Objects
+Updating objects
 ^^^^^^^^^^^^^^^^
 
 The API supports PUT to replace existing objects with the submitted data.
@@ -1314,7 +1314,7 @@ For example, to edit the Name of the Project in the previous example:
     }
 
 
-Deleting Objects
+Deleting objects
 ^^^^^^^^^^^^^^^^
 
 To delete a Project, Dataset or Screen, simply DELETE using the URL to that
