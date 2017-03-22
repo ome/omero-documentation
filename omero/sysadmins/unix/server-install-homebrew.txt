@@ -114,7 +114,7 @@ OMERO |release| server
 
 To install and deploy the |release| release of OMERO.server, run::
 
-    $ brew install omero52 --with-nginx --with-cpp
+    $ brew install omero52 --with-nginx --with-cpp --with-ice36
     $ export PYTHONPATH=$(brew --prefix omero52)/lib/python
     $ export ICE_CONFIG=$(brew --prefix omero52)/etc/ice.config
 
