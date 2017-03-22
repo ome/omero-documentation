@@ -25,7 +25,7 @@ What's new for OMERO 5.3 for sysadmins
   web-server you should configure Apache to proxy connections to an Nginx
   instance running on your OMERO server i.e. use Apache as a reverse proxy.
 
-- JQuery cache is now disabled by default.
+- jQuery cache is now disabled by default.
 
 - A new script is available to allow users to migrate annotations from Images
   to Wells which you may wish to run server-side when upgrading. These
