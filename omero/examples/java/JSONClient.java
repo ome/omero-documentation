@@ -306,25 +306,21 @@ public class JSONClient {
      */
     private JsonStructure get(String urlString, Map<String, String> params)
             throws Exception {
-        JsonReader reader = null;
-        try {
-            HttpGet httpGet = null;
-            if (params == null || params.isEmpty())
-                httpGet = new HttpGet(urlString);
-            else {
-                URIBuilder builder = new URIBuilder(urlString);
-                for (Entry<String, String> e : params.entrySet()) {
-                    builder.addParameter(e.getKey(), e.getValue());
-                }
-                httpGet = new HttpGet(builder.build());
+        HttpGet httpGet = null;
+        if (params == null || params.isEmpty())
+            httpGet = new HttpGet(urlString);
+        else {
+            URIBuilder builder = new URIBuilder(urlString);
+            for (Entry<String, String> e : params.entrySet()) {
+                builder.addParameter(e.getKey(), e.getValue());
             }
-            HttpResponse res = httpClient.execute(httpGet);
-            reader = Json.createReader(new BufferedReader(
-                    new InputStreamReader(res.getEntity().getContent())));
+            httpGet = new HttpGet(builder.build());
+        }
+
+        HttpResponse res = httpClient.execute(httpGet);
+        try (JsonReader reader = Json.createReader(new BufferedReader(
+                new InputStreamReader(res.getEntity().getContent())))) {
             return reader.read();
-        } finally {
-            if (reader != null)
-                reader.close();
         }
     }
 
@@ -410,20 +406,16 @@ public class JSONClient {
 
         for (int i = 0; i < args.length; i++) {
             try {
-                if (args[i].trim().startsWith("--omero.webhost")) {
-                    baseURL = args[i].substring(args[i].indexOf('=') + 1)
-                            .trim();
+                if (args[i].startsWith("--omero.webhost")) {
+                    baseURL = args[i].substring(args[i].indexOf('=') + 1);
                     baseURL += "/api";
                 }
-                if (args[i].trim().startsWith("--omero.servername"))
-                    servername = args[i].substring(args[i].indexOf('=') + 1)
-                            .trim();
-                if (args[i].trim().startsWith("--omero.user"))
-                    username = args[i].substring(args[i].indexOf('=') + 1)
-                            .trim();
-                if (args[i].trim().startsWith("--omero.pass"))
-                    password = args[i].substring(args[i].indexOf('=') + 1)
-                            .trim();
+                else if (args[i].startsWith("--omero.servername"))
+                    servername = args[i].substring(args[i].indexOf('=') + 1);
+                else if (args[i].startsWith("--omero.user"))
+                    username = args[i].substring(args[i].indexOf('=') + 1);
+                else if (args[i].startsWith("--omero.pass"))
+                    password = args[i].substring(args[i].indexOf('=') + 1);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -478,7 +470,11 @@ public class JSONClient {
         }
         JsonObject modifiedDataset = builder.build();
         System.out.println("Update name of dataset: " + dataset);
-        dataset = client.update(modifiedDataset);
+        modifiedDataset = client.update(modifiedDataset);
+        System.out.println(modifiedDataset);
+        
+        System.out.println("Revert name change again");
+        dataset = client.update(dataset);
         System.out.println(dataset);
     }
 }
