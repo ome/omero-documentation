@@ -78,6 +78,7 @@ loading).
        CENP
        live-cell
        survivin
+    >>> conn.close()
 
 Wrapper coverage
 """"""""""""""""
@@ -106,11 +107,11 @@ The gateway handles creation and reuse of the API services, so that new
 ones are not created unnecessarily. Services can be accessed using the
 methods of the underlying :javadoc:`Service
 Factory <slice2html/omero/api/ServiceFactory.html>`
-with the Gateway handling reuse as needed. Stateless services (those
+with the Gateway handling reuse as needed. **Stateless** services (those
 retrieved with getXXX methods e.g.
 :javadoc:`getQueryService <slice2html/omero/api/ServiceFactory.html#getQueryService>`)
 are always reused for each call, e.g. conn.getQueryService() whereas
-stateful services e.g.
+**stateful** services e.g.
 :javadoc:`createRenderingEngine <slice2html/omero/api/ServiceFactory.html#createRenderingEngine>`
 may be created each time.
 
@@ -132,17 +133,16 @@ call to server (no lazy loading)
         for d in p.linkedDatasetList():
             print d.getName().getValue()
 
-Stateful services, reconnection, error handling etc
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Stateful services, reconnection, error handling etc.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The Blitz gateway was designed for use in the |OmeroWeb| and it is
 not expected that stateful services will be maintained on the client for
 significant time.
-There is various error-handling functionality in the Blitz gateway that
+There are various error-handling functionalities in the Blitz gateway that
 will close existing services and recreate them in order to maintain a
 working connection. If this happens then any stateful services that you
-have on the client-side will become stale. We will attempt to document
-this a little better in due course, but our general advice is to create,
+have on the client-side will become stale. Our general advice is to create,
 use and close the stateful services in the shortest practicable time.
 
 ::

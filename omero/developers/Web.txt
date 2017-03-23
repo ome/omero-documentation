@@ -29,7 +29,7 @@ BlitzGateway
 ^^^^^^^^^^^^
 
 The Blitz Gateway wraps omero.model objects to facilitate many loading
-and update operations (see |OmeroPy|).
+and update operations (see :doc:`/developers/PythonBlitzGateway`).
 
 OMERO.web
 ^^^^^^^^^
@@ -119,7 +119,7 @@ have OMERO.web running and webtest installed, you can view the page under
 
        url( r'^dataset/(?P<dataset_id>[0-9]+)/$', views.dataset, name="webtest_dataset" ),
 
--  **View** function, in omeroweb/omero_webtest/views.py. NB: @login\_required
+-  **view** function, in omeroweb/omero_webtest/views.py. N.B.: @login\_required
    decorator retrieves connection to OMERO as 'conn' passed in args to
    method. See :doc:`/developers/Web/WritingViews` for more
    details.
@@ -134,7 +134,7 @@ have OMERO.web running and webtest installed, you can view the page under
            # generate html from template
            return render(request, 'webtest/dataset.html', {'dataset': ds})
 
--  **Template:** The template web page, in
+-  **template:** The template web page, in
    omero-webtest/omero_webtest/templates/webtest/dataset.html
 
    ::
