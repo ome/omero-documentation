@@ -29,7 +29,7 @@ OMERO model objects, e.g. omero.model.Project, omero.model.Pixels etc.
 (see :javadoc:`full list <slice2html/omero/model.html>`)
 are code-generated and mapped to the OMERO database schema. They are
 language agnostic and their data is in the form of omero.rtypes as
-described in :ref:`about model objects <AdvancedClientDevelopment#Objects>`).
+described in :ref:`about model objects <AdvancedClientDevelopment#Objects>`.
 
 To facilitate work in Python, particularly in web page templates, these
 Python model objects are wrapped in Blitz Object Wrappers. This hides
@@ -107,9 +107,9 @@ ones are not created unnecessarily. Services can be accessed using the
 methods of the underlying :javadoc:`Service
 Factory <slice2html/omero/api/ServiceFactory.html>`
 with the Gateway handling reuse as needed. Stateless services (those
-retrieved with get… methods e.g.
+retrieved with getXXX methods e.g.
 :javadoc:`getQueryService <slice2html/omero/api/ServiceFactory.html#getQueryService>`)
-are always reused for each call, e.g. blitzon.getQueryService() whereas
+are always reused for each call, e.g. conn.getQueryService() whereas
 stateful services e.g.
 :javadoc:`createRenderingEngine <slice2html/omero/api/ServiceFactory.html#createRenderingEngine>`
 may be created each time.
@@ -168,9 +168,9 @@ When working with
 or wrapper classes such as
 :pythondoc:`omero.gateway.ImageWrapper <omero/omero.gateway.html#omero.gateway.ImageWrapper>`
 you might want to add your own functionality or customize an existing
-one. NB: Note the call to ``omero.gateway.refreshWrappers()`` to ensure
-that your subclasses are returned by calls to getObjects() For example:
-
+one. NB: The call to ``omero.gateway.refreshWrappers()`` is important to update the
+dictionary of classes used by conn.getObjects(). This will ensure that instances of
+your class are returned by conn.getObjects().
 ::
 
     class MyBlitzGateway (omero.gateway.BlitzGateway):

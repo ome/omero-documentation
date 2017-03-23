@@ -142,7 +142,7 @@ within the list. In order to avoid this duplication, we can remove objects from
 within each ``omero:details`` and place them under top-level ``experimenters``
 and ``experimenterGroups`` lists.
 You can specify this with the ``?normalize=true`` query parameter.
-NB: Currently this normalizing will only apply to the top-level objects
+N.B.: Currently this normalizing will only apply to the top-level objects
 being listed, such as Projects, Datasets and Images. Where child objects
 are also loaded (for example Pixels within an Image), the ``omero:details``
 of these objects will not be affected by the ``?normalize=true`` parameter.
@@ -182,7 +182,7 @@ Errors will result in responses with an appropriate status and may include
 JSON content with a ``message`` to provide more information:
 
  -  **404 Not Found**: Caused by an invalid URL or when a specified
-    object can not be found in OMERO.
+    object cannot be found in OMERO.
 
  -  **400 Bad Request**: May be caused by invalid query parameters or
     submitting invalid JSON content. For example,
@@ -191,7 +191,7 @@ JSON content with a ``message`` to provide more information:
 
         {"message": "invalid literal for int() with base 10: 'foo'"}
 
- -  **405 Method Not Allowed**: This will be returned if you try to use the
+ -  **405 Method Not Allowed**: Returned if you try to use the
     wrong http method for a url, such as ``POST`` to ``/api/v0/m/projects/``.
     It can also be caused by trying to create or update an unsupported object,
     such as an Image.
@@ -428,8 +428,8 @@ These query parameters are also supported (see above):
         {
           "Name": "New data",
           "Description": "Example Project",
-          "url:project": "http://localhost:4080/api/v0/m/projects/11601/",
-          "url:datasets": "http://localhost:4080/api/v0/m/projects/11601/datasets/",
+          "url:project": "http://server.openmicroscopy.org/api/v0/m/projects/11601/",
+          "url:datasets": "http://server.openmicroscopy.org/api/v0/m/projects/11601/datasets/",
           "@id": 11601,
           "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Project",
           "omero:details": {
@@ -522,7 +522,7 @@ Get a single Project
         "@id": 3872,
         "Name": "RNAi experiments",
         "Description": "Knockout assays",
-        "url:datasets": "http://localhost:4080/api/v0/m/projects/3872/datasets/",
+        "url:datasets": "http://server.openmicroscopy.org/api/v0/m/projects/3872/datasets/",
         "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Project",
         "omero:details": {
           # omitted for brevity
@@ -565,9 +565,9 @@ These query parameters are also supported (see above):
         {
           "Name": "Test data",
           "Description": "This is the Dataset description",
-          "url:dataset": "http://localhost:4080/api/v0/m/dataset/112/",
-          "url:images": "http://localhost:4080/api/v0/m/datasets/112/images/",
-          "url:projects": "http://localhost:4080/api/v0/m/datasets/112/projects/",
+          "url:dataset": "http://server.openmicroscopy.org/api/v0/m/dataset/112/",
+          "url:images": "http://server.openmicroscopy.org/api/v0/m/datasets/112/images/",
+          "url:projects": "http://server.openmicroscopy.org/api/v0/m/datasets/112/projects/",
           "@id": 112,
           "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Project",
           "omero:details": {
@@ -605,7 +605,7 @@ Get a single Dataset
         "@id": 9702,
         "Name": "My data",
         "Description": "An example set",
-        "url:images": "http://localhost:4080/api/v0/m/datasets/9702/images/",
+        "url:images": "http://server.openmicroscopy.org/api/v0/m/datasets/9702/images/",
         "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Dataset",
         "omero:details": {
           # omitted for brevity
@@ -658,7 +658,7 @@ These query parameters are also supported (see above):
           "omero:details": {
             # omitted for brevity
           },
-          "url:image": "http://localhost:4080/api/v0/m/images/16783/",
+          "url:image": "http://server.openmicroscopy.org/api/v0/m/images/16783/",
           "Pixels": {
             "@id": 12801,
             "SizeX": 512,
@@ -872,8 +872,8 @@ These query parameters are also supported (see above):
           "@id": 582,
           "Name": "Test data",
           "Description": "This is the Screen description",
-          "url:screen": "http://localhost:4080/api/v0/m/screen/582/",
-          "url:plates": "http://localhost:4080/api/v0/m/screen/582/plates/",
+          "url:screen": "http://server.openmicroscopy.org/api/v0/m/screen/582/",
+          "url:plates": "http://server.openmicroscopy.org/api/v0/m/screen/582/plates/",
           "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Screen",
           "omero:details": {
             # omitted for brevity
@@ -899,7 +899,7 @@ Get a single Screen
         "@id": 582,
         "Name": "Test data",
         "Description": "This is the Screen description",
-        "url:plates": "http://localhost:4080/api/v0/m/screen/582/plates/",
+        "url:plates": "http://server.openmicroscopy.org/api/v0/m/screen/582/plates/",
         "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Screen",
         "omero:details": {
           # omitted for brevity
@@ -948,9 +948,9 @@ These query parameters are also supported (see above):
           "RowNamingConvention": "letter",
           "ColumnNamingConvention": "number",
           "ExternalIdentifier": "003857",
-          "url:plate": "http://localhost:4080/api/v0/m/plates/5067/",
-          "url:plateacquisitions": "http://localhost:4080/api/v0/m/plates/5067/plateacquisitions/",
-          "url:wells": "http://localhost:4080/api/v0/m/plates/5067/wells/",
+          "url:plate": "http://server.openmicroscopy.org/api/v0/m/plates/5067/",
+          "url:plateacquisitions": "http://server.openmicroscopy.org/api/v0/m/plates/5067/plateacquisitions/",
+          "url:wells": "http://server.openmicroscopy.org/api/v0/m/plates/5067/wells/",
           "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Plate",
           "omero:details": {
             # omitted for brevity
@@ -994,14 +994,14 @@ each Well such as the min/max WellSampleIndex for the Plate.
         "RowNamingConvention": "letter",
         "ColumnNamingConvention": "number",
         "ExternalIdentifier": "003857",
-        "url:plate": "http://localhost:4080/api/v0/m/plates/5067/",
-        "url:plateacquisitions": "http://localhost:4080/api/v0/m/plates/5067/plateacquisitions/",
-        "url:wells": "http://localhost:4080/api/v0/m/plates/5067/wells/",
+        "url:plate": "http://server.openmicroscopy.org/api/v0/m/plates/5067/",
+        "url:plateacquisitions": "http://server.openmicroscopy.org/api/v0/m/plates/5067/plateacquisitions/",
+        "url:wells": "http://server.openmicroscopy.org/api/v0/m/plates/5067/wells/",
         "url:wellsampleindex_wells": [
-          "http://localhost:4080/api/v0/m/plates/5068/wellsampleindex/0/wells/",
-          "http://localhost:4080/api/v0/m/plates/5068/wellsampleindex/1/wells/",
-          "http://localhost:4080/api/v0/m/plates/5068/wellsampleindex/2/wells/",
-          "http://localhost:4080/api/v0/m/plates/5068/wellsampleindex/3/wells/"
+          "http://server.openmicroscopy.org/api/v0/m/plates/5068/wellsampleindex/0/wells/",
+          "http://server.openmicroscopy.org/api/v0/m/plates/5068/wellsampleindex/1/wells/",
+          "http://server.openmicroscopy.org/api/v0/m/plates/5068/wellsampleindex/2/wells/",
+          "http://server.openmicroscopy.org/api/v0/m/plates/5068/wellsampleindex/3/wells/"
         ],
         "omero:wellsampleIndex": [
           0,
@@ -1035,15 +1035,15 @@ A Plate may contain zero, one or more Plate Acquisitions.
         {
           "@id": 4217,
           "url:wellsampleindex_wells": [
-            "http://localhost:4080/api/v0/m/plateacquisitions/4217/wellsampleindex/0/wells/"
-            "http://localhost:4080/api/v0/m/plateacquisitions/4217/wellsampleindex/1/wells/"
-            "http://localhost:4080/api/v0/m/plateacquisitions/4217/wellsampleindex/2/wells/"
+            "http://server.openmicroscopy.org/api/v0/m/plateacquisitions/4217/wellsampleindex/0/wells/"
+            "http://server.openmicroscopy.org/api/v0/m/plateacquisitions/4217/wellsampleindex/1/wells/"
+            "http://server.openmicroscopy.org/api/v0/m/plateacquisitions/4217/wellsampleindex/2/wells/"
           ],
           "omero:details": {
             # omitted for brevity
           },
           "MaximumFieldCount": 3,
-          "url:plateacquisition": "http://localhost:4080/api/v0/m/plateacquisitions/4217/",
+          "url:plateacquisition": "http://server.openmicroscopy.org/api/v0/m/plateacquisitions/4217/",
           "omero:wellsampleIndex": [
             0,
             2
@@ -1095,7 +1095,7 @@ The following query parameters can be used (as described above)
           "omero:details": {
             # omitted for brevity
           },
-          "url:well": "http://localhost:4080/api/v0/m/wells/139/",
+          "url:well": "http://server.openmicroscopy.org/api/v0/m/wells/139/",
           "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Well",
           "WellSamples": [
             {
@@ -1120,7 +1120,7 @@ The following query parameters can be used (as described above)
                 "omero:details": {
                   # omitted for brevity
                 },
-                "url:image": "http://localhost:4080/api/v0/m/images/2942/",
+                "url:image": "http://server.openmicroscopy.org/api/v0/m/images/2942/",
                 "omero:series": 120,
                 "@id": 2942,
                 "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Image",
@@ -1254,7 +1254,7 @@ Currently only creation of Projects, Datasets and Screens is supported.
         "@id": 567,
         "Name": "My new Project",
         "Description": "Created via the JSON API",
-        "url:datasets": "http://localhost:4080/api/v0/m/projects/3872/datasets/",
+        "url:datasets": "http://server.openmicroscopy.org/api/v0/m/projects/3872/datasets/",
         "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Project",
         "omero:details": {
           # omitted for brevity
@@ -1288,7 +1288,7 @@ For example, to edit the Name of the Project in the previous example:
       "@id": 567,
       "Name": "Edited Project Name",
       "Description": "Created via the JSON API",
-      "url:datasets": "http://localhost:4080/api/v0/m/projects/3872/datasets/",
+      "url:datasets": "http://server.openmicroscopy.org/api/v0/m/projects/3872/datasets/",
       "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Project",
       "omero:details": {
         # omitted for brevity
@@ -1305,7 +1305,7 @@ For example, to edit the Name of the Project in the previous example:
         "@id": 567,
         "Name": "Edited Project Name",
         "Description": "Created via the JSON API",
-        "url:datasets": "http://localhost:4080/api/v0/m/projects/3872/datasets/",
+        "url:datasets": "http://server.openmicroscopy.org/api/v0/m/projects/3872/datasets/",
         "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Project",
         "omero:details": {
           # omitted for brevity
@@ -1334,7 +1334,7 @@ object. The deleted object will be returned. For example, to delete a Project:
         "@id": 567,
         "Name": "Edited Project Name",
         "Description": "Created via the JSON API",
-        "url:datasets": "http://localhost:4080/api/v0/m/projects/3872/datasets/",
+        "url:datasets": "http://server.openmicroscopy.org/api/v0/m/projects/3872/datasets/",
         "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Project",
         "omero:details": {
           # omitted for brevity

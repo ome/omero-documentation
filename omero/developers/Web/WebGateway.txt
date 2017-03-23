@@ -125,7 +125,7 @@ image and will not be saved unless specified.
 
 Individual parameters are:
 
--  **Channels on/off** e.g. for a 4 channel image, to turn on all channels
+-  **Channels on/off** e.g. for an image with 4 channels, to turn on all channels
    except 2:
 
    ::
@@ -136,7 +136,7 @@ Individual parameters are:
        ?c=3         # only Channel 3 is active
        ?c=3,4       # Channels 3 and 4 are active
 
--  **Channel colour** e.g. to set the colours for channels 1 to red and 2
+-  **Channel color** e.g. to set the colors for channels 1 to red and 2
    to green and 3 to blue:
 
    ::
@@ -161,19 +161,19 @@ Individual parameters are:
        ?p=intmean
        ?p=normal
 
--  **Rendering 'Mode'**: greyscale or colour.
+-  **Rendering 'Mode'**: greyscale or color.
 
    ::
 
        ?m=g    # greyscale (only the first active channel will be shown in grey)
-       ?m=c    # colour
+       ?m=c    # color
 
 -  **Codomain maps**: OMERO's rendering engine supports mapping from input -> output
    pixel intensity via application of "codomain maps". Currently only the 'reverse'
    intensity map is supported, but the use of JSON encoding for the ``maps`` query
    parameter is designed to support more maps in future.
    In the case of the 'reverse' map, we only need to specify whether it is enabled
-   for each channel. For a 2 channel image, to enable ``reverse`` map for the
+   for each channel. For an image with 2 channels, to enable ``reverse`` map for the
    first channel, we can use this query string:
 
    ::

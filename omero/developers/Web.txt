@@ -23,7 +23,7 @@ OMERO Python API
 
 The OMERO.web framework is all based on the OMERO Python API. Code-generated
 omero.model objects communicate remotely with their counterparts on the
-OMERO.server using `Ice, from ZeroC <https://zeroc.com/products/ice>`_.
+OMERO.server using `Ice from ZeroC <https://zeroc.com/products/ice>`_.
 
 BlitzGateway
 ^^^^^^^^^^^^
@@ -117,7 +117,7 @@ have OMERO.web running and webtest installed, you can view the page under
 
    ::
 
-       url( r'^dataset/(?P<datasetId>[0-9]+)/$', views.dataset ),
+       url( r'^dataset/(?P<dataset_id>[0-9]+)/$', views.dataset, name="webtest_dataset" ),
 
 -  **View** function, in omeroweb/omero_webtest/views.py. NB: @login\_required
    decorator retrieves connection to OMERO as 'conn' passed in args to
@@ -127,10 +127,10 @@ have OMERO.web running and webtest installed, you can view the page under
    ::
 
        from omeroweb.webclient.decorators import login_required
-       # handles login (or redirects). Was @isUserConnected before OMERO 4.4
+       # handles login (or redirects)
        @login_required()
-       def dataset(request, datasetId, conn=None, **kwargs):
-           ds = conn.getObject("Dataset", datasetId)
+       def dataset(request, dataset_id, conn=None, **kwargs):
+           ds = conn.getObject("Dataset", dataset_id)
            # generate html from template
            return render(request, 'webtest/dataset.html', {'dataset': ds})
 
