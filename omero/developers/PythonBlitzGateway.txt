@@ -168,7 +168,7 @@ When working with
 or wrapper classes such as
 :pythondoc:`omero.gateway.ImageWrapper <omero/omero.gateway.html#omero.gateway.ImageWrapper>`
 you might want to add your own functionality or customize an existing
-one. NB: The call to ``omero.gateway.refreshWrappers()`` is important to update the
+one. N.B. The call to ``omero.gateway.refreshWrappers()`` is important to update the
 dictionary of classes used by conn.getObjects(). This will ensure that instances of
 your class are returned by conn.getObjects().
 ::

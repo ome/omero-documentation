@@ -209,7 +209,8 @@ You may find this
 It uses the python ``requests`` library to connect to the JSON api, login, query data, create and delete Projects.
 These steps are covered in more detail below.
 
-For an example how to use the API with Java, see `JSONClient.java <https://github.com/openmicroscopy/ome-documentation/blob/develop/omero/examples/java/JSONClient.java>`_.
+For an example how to use the API with Java,
+see :omedocs:`blob/develop/omero/examples/java/JSONClient.java`.
 
 
 List supported versions
