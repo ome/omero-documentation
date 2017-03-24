@@ -218,7 +218,7 @@ JSON methods
 -  Lots of metadata for the image. See
    below: ``webgateway/imgData/<imageId>/``
 
--  Histogram of pixel intensity data for an image plane. Channel index is **zero-based**.
+-  **Histogram** of pixel intensity data for an image plane. Channel index is zero-based.
    By default the Z and T index are 0 and the number of histogram bins is 256, but these
    can be specified in the query string.
    The range of the histogram will be the pixel intensity range for that channel of the
