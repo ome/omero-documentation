@@ -7,17 +7,13 @@ OMERO.web framework
 
 
 OMERO.web is a framework for building web applications for OMERO. It
-uses `Django <https://www.djangoproject.com/>`_ to generate HTML pages
+uses `Django <https://www.djangoproject.com/>`_ to generate HTML and JSON
 from data retrieved from the OMERO server. OMERO.web acts as a Python
 client of the OMERO server using the OMERO API, as well as being a web
 server itself (see 'infrastructure' info below). It uses Django 'apps'
-to provide modular web tools, such as the webclient (working with image
-data, administrator management). This modular framework
+to provide modular web tools, such as the webclient, webgateway and
+the JSON api app. This modular framework
 makes it possible to extend OMERO.web with your own apps.
-
-One of the apps, :doc:`/developers/Web/WebGateway`, provides
-utility methods for accessing data and rendering images, as well as
-handling the connection to OMERO server.
 
 OMERO.web infrastructure
 ------------------------
@@ -25,49 +21,67 @@ OMERO.web infrastructure
 OMERO Python API
 ^^^^^^^^^^^^^^^^
 
-The OMERO.web framework is all based on the OMERO Python API, using the
-Blitz Gateway (see |OmeroPy|). The OMERO.web framework provides functionality
-for creating and retrieving connections to OMERO (see example below and
-:doc:`/developers/Web/WritingViews` for more details)
+The OMERO.web framework is all based on the OMERO Python API. Code-generated
+omero.model objects communicate remotely with their counterparts on the
+OMERO.server using `Ice from ZeroC <https://zeroc.com/products/ice>`_.
 
-Web gateway
-^^^^^^^^^^^
+BlitzGateway
+^^^^^^^^^^^^
 
-The webgateway is a Django app that provides utility functionality for the
-other web components. This includes a full image viewer, as well as methods
-for rendering images etc. You can browse the :pythondoc:`webgateway
-URLs <omeroweb/omeroweb.webgateway.html#module-omeroweb.webgateway.urls>`,
-or see the :doc:`/developers/Web/WebGateway` page for more info.
+The Blitz Gateway wraps omero.model objects to facilitate many loading
+and update operations (see :doc:`/developers/PythonBlitzGateway`).
 
-Web apps
-^^^^^^^^
+OMERO.web
+^^^^^^^^^
 
-The OMERO.web framework consists of several Django apps denoted by
-folders named 'web....'. These include webgateway, as
-discussed above, as well as released tools (webclient) and
-other apps in development:
+The OMERO.web framework consists of several Django apps that are
+included in the OMERO.server release, as well as others that can be installed
+independently (see below).
+It also includes utilities for creating and retrieving connections to OMERO
+(see example below and :doc:`/developers/Web/WritingViews` for more details).
 
-.. glossary::
-    webclient
-        Main web client for viewing images, annotating, administration
-        of user and group settings etc. More information available
-        under :ref:`OMERO.web <omero-web>`.
+**Included apps**
 
-    webgateway
-        A web services interface, providing rendered images and
-        data. See :doc:`/developers/Web/WebGateway`.
+-  **webclient:** Main web client for browsing, viewing and annotating images.
+   More information available under :ref:`OMERO.web <omero-web>`.
 
-.. note::
+-  **webgateway:** Provides rendered images and JSON data for other OMERO.web apps or
+   for external applications hosted elsewhere.
+   See :doc:`/developers/Web/WebGateway`.
+
+-  **webadmin:** Tool for OMERO.server Administrators to manage users and groups.
+
+-  **api:** New in 5.3.0, this provides a JSON API for OMERO. See :doc:`/developers/json-api`.
+
+**Additional apps**
+
+-  **omero-figure:** The `OMERO.figure <https://github.com/ome/omero-figure/>`_ app
+   allows you to create scientific figures.
+
+-  **omero-webtest:** `webtest <https://github.com/openmicroscopy/omero-webtest/>`_
+   is an example app that contains several code samples mentioned in
+   the following pages.
+
+-  **omero-iviewer:** The `OMERO.iviewer <https://github.com/ome/omero-iviewer>`_
+   is a new (currently unreleased) image viewer that supports ROI creation and editing.
+
+-  **webtagging:** The `webtagging <https://github.com/MicronOxford/webtagging>`_ app
+   was developed externally by Douglas Russell. It supports 'auto' tagging based on
+   image name and Tag-based filtering of data.
+
+-  **omero-mapr:** The `OMERO.mapr <https://github.com/ome/omero-mapr/>`_ app
+   is a new tool that allows browsing data through Map Annotations
+   linked to images.
+
+-  **omero-gallery:** `OMERO.gallery <https://github.com/ome/omero-gallery/>`_
+   provides a simple interface for browsing Projects, Datasets and Images.
+
+.. warning::
     Although it is possible to access functionality from any installed app,
-    **ONLY webgateway** should be considered as a stable public API. URLs and methods
+    **ONLY webgateway** and **api** should be considered as a stable public API. URLs and methods
     within other web apps are purely designed to provide internal functionality for
     the app itself and may change in minor releases without warning.
 
-Additional apps can be easily added to your OMERO.web deployment.
-One example is the
-`OMERO.webtest app <https://github.com/openmicroscopy/omero-webtest/>`_
-that contains several code samples mentioned in the following pages.
-You will find install instructions on the OMERO.webtest repository itself.
 
 Getting started
 ---------------
@@ -94,8 +108,8 @@ repository.
 
 There are 3 parts to each page: url, view and template. For example, this code
 below is for generating an HTML page of a Dataset (see screen-shot). If you
-have OMERO.web running, you can view the page under
-`http://servername.example.org/webtest/dataset/`\ `<datasetId>`.
+have OMERO.web running and webtest installed, you can view the page under
+`http://`\ `<servername>/webtest/dataset/`\ `<datasetId>`.
 
 -  **url** goes in omeroweb/omero_webtest/urls.py This maps the URL
    'webtest/dataset/<datasetId>/' to the View function
@@ -103,9 +117,9 @@ have OMERO.web running, you can view the page under
 
    ::
 
-       url( r'^dataset/(?P<datasetId>[0-9]+)/$', views.dataset ),
+       url( r'^dataset/(?P<dataset_id>[0-9]+)/$', views.dataset, name="webtest_dataset" ),
 
--  **View** function, in omeroweb/omero_webtest/views.py. NB: @login\_required
+-  **view** function, in omeroweb/omero_webtest/views.py. N.B.: @login\_required
    decorator retrieves connection to OMERO as 'conn' passed in args to
    method. See :doc:`/developers/Web/WritingViews` for more
    details.
@@ -113,14 +127,14 @@ have OMERO.web running, you can view the page under
    ::
 
        from omeroweb.webclient.decorators import login_required
-       # handles login (or redirects). Was @isUserConnected before OMERO 4.4
+       # handles login (or redirects)
        @login_required()
-       def dataset(request, datasetId, conn=None, **kwargs):
-           ds = conn.getObject("Dataset", datasetId)
+       def dataset(request, dataset_id, conn=None, **kwargs):
+           ds = conn.getObject("Dataset", dataset_id)
            # generate html from template
            return render(request, 'webtest/dataset.html', {'dataset': ds})
 
--  **Template:** The template web page, in
+-  **template:** The template web page, in
    omero-webtest/omero_webtest/templates/webtest/dataset.html
 
    ::

@@ -125,7 +125,7 @@ image and will not be saved unless specified.
 
 Individual parameters are:
 
--  **Channels on/off** e.g. for a 4 channel image, to turn on all channels
+-  **Channels on/off** e.g. for an image with 4 channels, to turn on all channels
    except 2:
 
    ::
@@ -136,14 +136,14 @@ Individual parameters are:
        ?c=3         # only Channel 3 is active
        ?c=3,4       # Channels 3 and 4 are active
 
--  **Channel colour** e.g. to set the colours for channels 1 to red and 2
+-  **Channel color** e.g. to set the colors for channels 1 to red and 2
    to green and 3 to blue:
 
    ::
 
        ?c=1|$FF0000,2|$00FF00,3|$0000FF
 
--  **Rendering levels** e.g. to set the cut-in and cut-out values for a 3 Channel image.
+-  **Rendering levels** e.g. to set the cut-in and cut-out values for an image with 3 Channels.
 
    ::
 
@@ -161,12 +161,24 @@ Individual parameters are:
        ?p=intmean
        ?p=normal
 
--  **Rendering 'Mode'**: greyscale or colour.
+-  **Rendering 'Mode'**: greyscale or color.
 
    ::
 
        ?m=g    # greyscale (only the first active channel will be shown in grey)
-       ?m=c    # colour
+       ?m=c    # color
+
+-  **Codomain maps**: OMERO's rendering engine supports mapping from input -> output
+   pixel intensity via application of "codomain maps". Currently only the 'reverse'
+   intensity map is supported, but the use of JSON encoding for the ``maps`` query
+   parameter is designed to support more maps in future.
+   In the case of the 'reverse' map, we only need to specify whether it is enabled
+   for each channel. For an image with 2 channels, to enable ``reverse`` map for the
+   first channel, we can use this query string:
+
+   ::
+
+       ?maps=[{"reverse":{"enabled":true}},{"reverse":{"enabled":false}}]
 
 -  Parameters can be combined, e.g.
 
@@ -206,9 +218,23 @@ JSON methods
 -  Lots of metadata for the image. See
    below: ``webgateway/imgData/<imageId>/``
 
+-  **Histogram** of pixel intensity data for an image plane. Channel index is zero-based.
+   By default the Z and T index are 0 and the number of histogram bins is 256, but these
+   can be specified in the query string.
+   The range of the histogram will be the pixel intensity range for that channel of the
+   image (see "window": "min" and "max" in imgData below)
 
-Saving etc
-""""""""""
+   ::
+
+       URL: webgateway/histogram_json/<imageId>/channel/<index>/?theT=0&theZ=0&bins=20
+
+   ::
+
+       {"data": [ 24354, 93878, 87555, 45323, 27365, 14690, 9346, 2053, 60, 7, 19, 14, 15, 9, 5, 5, 3, 0, 2, 1]}
+
+
+Saving etc.
+"""""""""""
 
 -  ``webgateway/saveImgRDef/<imageId>/``
 -  ``webgateway/compatImgRDef/<imageId>/``
