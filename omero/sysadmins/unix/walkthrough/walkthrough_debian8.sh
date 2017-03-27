@@ -20,14 +20,12 @@ apt-get -y install \
 	python-{pip,pillow,numpy,scipy,tables,virtualenv,yaml,jinja2}
 
 pip install --upgrade pip
-
-pip install -r requirements.txt
 # install Ice
 #start-recommended-ice
 apt-get -y install db5.3-util
 apt-get -y install libssl-dev libbz2-dev libmcpp-dev libdb++-dev libdb-dev
 
-apt-key adv --keyserver keyserver.ubuntu.com --recv 5E6DA83306132997
+apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 5E6DA83306132997
 apt-add-repository "deb http://zeroc.com/download/apt/ubuntu`lsb_release -rs` stable main"
 apt-get update
 apt-get -y install zeroc-ice-all-runtime zeroc-ice-all-dev
@@ -71,13 +69,13 @@ cp settings.env step04_all_omero.sh setup_omero_db.sh ~omero
 #end-copy-omeroscript
 #start-release-ice35
 cd ~omero
-SERVER=http://downloads.openmicroscopy.org/latest/omero5.2/server-ice35.zip
+SERVER=http://downloads.openmicroscopy.org/latest/omero5.3/server-ice35.zip
 wget $SERVER -O OMERO.server-ice35.zip
 unzip -q OMERO.server*
 #end-release-ice35
 #start-release-ice36
 cd ~omero
-SERVER=http://downloads.openmicroscopy.org/latest/omero5.2/server-ice36.zip
+SERVER=http://downloads.openmicroscopy.org/latest/omero5.3/server-ice36.zip
 wget $SERVER -O OMERO.server-ice36.zip
 unzip -q OMERO.server*
 #end-release-ice36
@@ -98,8 +96,6 @@ apt-key add nginx_signing.key
 rm nginx_signing.key
 apt-get update
 apt-get -y install nginx
-
-file=~omero/OMERO.server/share/web/requirements-py27-nginx.txt
 pip install -r $file
 #start-configure-nginx: As the omero system user, configure OMERO.web
 OMERO.server/bin/omero config set omero.web.application_server wsgi-tcp

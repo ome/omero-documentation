@@ -20,7 +20,6 @@ yum -y install \
 	python-pillow numpy scipy python-tables
 pip install --upgrade pip
 
-pip install -r requirements.txt
 # install Ice
 #start-recommended-ice
 cd /etc/yum.repos.d
@@ -78,13 +77,13 @@ cp settings.env step04_all_omero.sh setup_omero_db.sh ~omero
 #end-copy-omeroscript
 #start-release-ice35
 cd ~omero
-SERVER=http://downloads.openmicroscopy.org/latest/omero5.2/server-ice35.zip
+SERVER=http://downloads.openmicroscopy.org/latest/omero5.3/server-ice35.zip
 wget $SERVER -O OMERO.server-ice35.zip
 unzip -q OMERO.server*
 #end-release-ice35
 #start-release-ice36
 cd ~omero
-SERVER=http://downloads.openmicroscopy.org/latest/omero5.2/server-ice36.zip
+SERVER=http://downloads.openmicroscopy.org/latest/omero5.3/server-ice36.zip
 wget $SERVER -O OMERO.server-ice36.zip
 unzip -q OMERO.server*
 #end-release-ice36
@@ -102,8 +101,6 @@ psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < OMERO.server/db.sql
 
 #install nginx
 yum -y install nginx
-
-file=~omero/OMERO.server/share/web/requirements-py27-nginx.txt
 pip install -r $file
 #start-configure-nginx: As the omero system user, configure OMERO.web
 OMERO.server/bin/omero config set omero.web.application_server wsgi-tcp
@@ -122,7 +119,6 @@ systemctl start nginx
 
 #start-step06: As root, run the scripts to start OMERO and OMERO.web automatically
 cp omero-systemd.service /etc/systemd/system/omero.service
-
 cp omero-web-systemd.service /etc/systemd/system/omero-web.service
 
 systemctl daemon-reload

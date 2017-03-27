@@ -1,14 +1,22 @@
 [Unit]
 Description=OMERO.server
-Requires=postgresql-9.4.service
-After=docker-postgresql-9.4.service
+# After: ensures this service starts after the dependency, but only if the
+# dependency is also started (PostgreSQL may be on a different server)
+After=postgresql-9.4.service
+After=postgresql-9.5.service
+After=postgresql-9.6.service
+After=network.service
 
 [Service]
 User=omero
-Type=simple
-Restart=on-failure
+Type=forking
+PIDFile=/home/omero/OMERO.server/var/master/master.pid
+Restart=no
 RestartSec=10
-ExecStart=/home/omero/OMERO.server/bin/omero admin start --foreground
+# Allow up to 5 min for start/stop
+TimeoutSec=300
+ExecStart=/home/omero/OMERO.server/bin/omero admin start
+ExecStop=/home/omero/OMERO.server/bin/omero admin stop
 
 [Install]
 WantedBy=multi-user.target

@@ -5,9 +5,6 @@ OMERO.web walkthrough installation CentOS 7 and IcePy 3.6
 For convenience in this walkthrough the main OMERO.web configuration options have been defined as environment variables. When following this walkthrough you can either use your own values, or alternatively source the following file::
     
     OMERO_USER=omero
-    OMEROVER=OMERO-DEV-latest
-    WEBSESSION=
-    WEBPREFIX=
     WEBPORT=80
     WEBSERVER_NAME=localhost
 
@@ -23,7 +20,7 @@ Create local user omero, homedir :file:`/home/omero` (run as root)::
     
     chmod a+X /home/omero
 
-Install ZeroC IcePy 3.6. IcePy is managed by PyPi and will be installed as a part of OMERO.web requirements (run as root)::
+Install ZeroC IcePy 3.6. IcePy is managed by PyPI and will be installed as a part of OMERO.web requirements (run as root)::
     
     yum -y install \
         gcc \
@@ -37,8 +34,6 @@ Install ZeroC IcePy 3.6. IcePy is managed by PyPi and will be installed as a par
 Install other dependencies (run as root)::
     
     yum -y install epel-release
-    
-    yum -y install git
     
     yum -y install python-pip
     
@@ -55,11 +50,10 @@ Install other dependencies (run as root)::
 Install VirtualEnv - optional (run as root)::
     
     virtualenv /home/omero/omerowebvenv --system-site-packages
-    /home/omero/omerowebvenv/bin/pip install --upgrade omego
 
 Install OMERO.web (run as omero)::
     
-    /home/omero/omerowebvenv/bin/omego download --ice "3.6" --branch "OMERO-DEV-latest" py
+    curl -o OMERO.py.zip https://downloads.openmicroscopy.org/latest/omero5.3/py.zip
     
     zip=$(ls OMERO.py*.zip)
     zipname=${zip%.zip}
@@ -123,17 +117,19 @@ omero-web-systemd.service example::
     
     [Unit]
     Description=OMERO.web
+    # Not mandatory, Nginx may be running on a different server
     Requires=nginx.service
+    After=network.service
     
     [Service]
     User=omero
     Type=forking
     PIDFile=/home/omero/OMERO.py/var/django.pid
-    Restart=on-failure
+    Restart=no
     RestartSec=10
-    Environment="VENVDIR=/home/omero/omerowebvenv" "BINDIR=/home/omero/OMERO.py/bin"
-    ExecStart=/usr/bin/bash -c "source $VENVDIR/bin/activate; $BINDIR/omero web start"
-    ExecStop=/usr/bin/bash -c "source $VENVDIR/bin/activate; $BINDIR/omero web stop"
+    Environment="PATH=/home/omero/omerowebvenv/venv/bin:/bin:/usr/bin" "WEBBINDIR=/home/omero/OMERO.py/bin"
+    ExecStart=/home/omero/omerowebvenv/venv/python $WEBBINDIR/omero web start
+    ExecStop=/home/omero/omerowebvenv/venv/python $WEBBINDIR/omero web stop
     
     [Install]
     WantedBy=multi-user.target

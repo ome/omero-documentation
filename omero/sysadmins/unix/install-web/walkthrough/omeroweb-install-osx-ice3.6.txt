@@ -5,9 +5,6 @@ OMERO.web walkthrough installation Mac OS X and IcePy 3.6
 For convenience in this walkthrough the main OMERO.web configuration options have been defined as environment variables. When following this walkthrough you can either use your own values, or alternatively source the following file::
     
     OMERO_USER=
-    OMEROVER=OMERO-DEV-latest
-    WEBSESSION=
-    WEBPREFIX=
     WEBPORT=80
     WEBSERVER_NAME=localhost
 
@@ -33,11 +30,10 @@ Install other dependencies::
 Install VirtualEnv - optional (run as root)::
     
     virtualenv ~/omerowebvenv 
-    ~/omerowebvenv/bin/pip install --upgrade omego
 
 Install OMERO.web (run as )::
     
-    ~/omerowebvenv/bin/omego download --ice "3.6" --branch "OMERO-DEV-latest" py
+    curl -o OMERO.py.zip https://downloads.openmicroscopy.org/latest/omero5.3/py.zip
     
     zip=$(ls OMERO.py*.zip)
     zipname=${zip%.zip}
