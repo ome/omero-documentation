@@ -22,6 +22,8 @@ yum -y install \
 	python27-jinja2 \
 	hdf5-devel
 
+yum -y install libjpeg-devel zlib-devel
+
 # install pip and virtualenv using Python 2.6 
 yum -y install python-pip
 
@@ -134,13 +136,13 @@ cp settings.env omero-centos6_py27ius.env step04_all_omero.sh setup_omero_db.sh 
 #end-copy-omeroscript
 #start-release-ice35
 cd ~omero
-SERVER=http://downloads.openmicroscopy.org/latest/omero5.2/server-ice35.zip
+SERVER=http://downloads.openmicroscopy.org/latest/omero5.3/server-ice35.zip
 wget $SERVER -O OMERO.server-ice35.zip
 unzip -q OMERO.server*
 #end-release-ice35
 #start-release-ice36
 cd ~omero
-SERVER=http://downloads.openmicroscopy.org/latest/omero5.2/server-ice36.zip
+SERVER=http://downloads.openmicroscopy.org/latest/omero5.3/server-ice36.zip
 wget $SERVER -O OMERO.server-ice36.zip
 unzip -q OMERO.server*
 #end-release-ice36
@@ -172,7 +174,6 @@ source /home/omero/omeroenv/bin/activate
 set -u
 
 # Install OMERO.web requirements
-file=~omero/OMERO.server/share/web/requirements-py27-nginx.txt
 /home/omero/omeroenv/bin/pip2.7 install -r $file
 #start-configure-nginx: As the omero system user, configure OMERO.web
 OMERO.server/bin/omero config set omero.web.application_server wsgi-tcp

@@ -24,6 +24,8 @@ yum -y install \
 	hdf5-devel \
 	expat-devel
 
+yum -y install libjpeg-devel zlib-devel
+
 # TODO: this installs a lot of unecessary packages:
 yum -y groupinstall "Development Tools"
 
@@ -114,13 +116,13 @@ cp settings.env omero-centos6_py27.env /opt/hudson/workspace/OMERO-DEV-latest-do
 #end-copy-omeroscript
 #start-release-ice35
 cd ~omero
-SERVER=http://downloads.openmicroscopy.org/latest/omero5.2/server-ice35.zip
+SERVER=http://downloads.openmicroscopy.org/latest/omero5.3/server-ice35.zip
 wget $SERVER -O OMERO.server-ice35.zip
 unzip -q OMERO.server*
 #end-release-ice35
 #start-release-ice36
 cd ~omero
-SERVER=http://downloads.openmicroscopy.org/latest/omero5.2/server-ice36.zip
+SERVER=http://downloads.openmicroscopy.org/latest/omero5.3/server-ice36.zip
 wget $SERVER -O OMERO.server-ice36.zip
 unzip -q OMERO.server*
 #end-release-ice36
@@ -148,8 +150,6 @@ enabled=1
 EOF
 
 yum -y install nginx
-
-file=~omero/OMERO.server/share/web/requirements-py27-nginx.txt
 pip install -r $file
 #start-configure-nginx: As the omero system user, configure OMERO.web
 OMERO.server/bin/omero config set omero.web.application_server wsgi-tcp

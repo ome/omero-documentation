@@ -5,9 +5,6 @@ OMERO.web walkthrough installation Ubuntu 16.04 and IcePy 3.6
 For convenience in this walkthrough the main OMERO.web configuration options have been defined as environment variables. When following this walkthrough you can either use your own values, or alternatively source the following file::
     
     OMERO_USER=omero
-    OMEROVER=OMERO-DEV-latest
-    WEBSESSION=
-    WEBPREFIX=
     WEBPORT=80
     WEBSERVER_NAME=localhost
 
@@ -23,7 +20,7 @@ Create local user omero, homedir :file:`/home/omero` (run as root)::
     
     chmod a+X /home/omero
 
-Install ZeroC IcePy 3.6. IcePy is managed by PyPi and will be installed as a part of OMERO.web requirements (run as root)::
+Install ZeroC IcePy 3.6. IcePy is managed by PyPI and will be installed as a part of OMERO.web requirements (run as root)::
     
     apt-get -y install db5.3-util
     apt-get -y install libssl-dev libbz2-dev libmcpp-dev libdb++-dev libdb-dev
@@ -32,7 +29,6 @@ Install other dependencies (run as root)::
     
     apt-get update
     apt-get -y install \
-        git \
         python-pip
     
     
@@ -49,11 +45,10 @@ Install other dependencies (run as root)::
 Install VirtualEnv - optional (run as root)::
     
     virtualenv /home/omero/omerowebvenv --system-site-packages
-    /home/omero/omerowebvenv/bin/pip install --upgrade omego
 
 Install OMERO.web (run as omero)::
     
-    /home/omero/omerowebvenv/bin/omego download --ice "3.6" --branch "OMERO-DEV-latest" py
+    curl -o OMERO.py.zip https://downloads.openmicroscopy.org/latest/omero5.3/py.zip
     
     zip=$(ls OMERO.py*.zip)
     zipname=${zip%.zip}
