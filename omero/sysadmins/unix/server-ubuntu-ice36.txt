@@ -97,7 +97,8 @@ Configure:
 Installing OMERO.web
 --------------------
 
-OMERO.web is deployed using Nginx, for more details
+OMERO.web is deployed using Nginx, for more details on how to install
+and run the OMERO.web client
 see :doc:`install-web/walkthrough/omeroweb-install-ubuntu-ice3.6`.
 
 **The following steps are run as root.**
@@ -118,18 +119,13 @@ OMERO should now be set up. To start the server run::
 
     OMERO.server/bin/omero admin start
 
-To start the OMERO.web client run::
-
-    OMERO.server/bin/omero web start
-
 Nginx should already be running so you should be able to log in as the OMERO
 root user by going to http://localhost/ in your web browser.
 
-In addition some example `init.d` scripts are available should you wish to
-start OMERO and OMERO.web automatically:
+In addition an `init.d` script is available should you wish to
+start OMERO automatically:
 
 | :download:`omero-init.d <walkthrough/omero-init.d>`
-| :download:`omero-web-init.d <walkthrough/omero-web-init.d>`
 
 
 Securing OMERO
