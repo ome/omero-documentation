@@ -8,15 +8,11 @@ Cleaning up your binary repository
 
 The OMERO.server does not remove files from disk until a cleanup task
 has been run. A script to do this is included in the OMERO.server
-distribution ``lib/python/omero/util/cleanse.py`` which can be used so:
-
-::
+distribution ``lib/python/omero/util/cleanse.py`` which can be used so::
 
     $ bin/omero admin cleanse /OMERO
 
-This can be performed daily using cron with a script such as:
-
-::
+This can be performed daily using cron with a script such as::
 
     #!sh
     #!/bin/bash
@@ -27,13 +23,14 @@ This can be performed daily using cron with a script such as:
     OMERO_PREFIX=/home/omero/OMERO-CURRENT
     $OMERO_PREFIX/bin/omero -s localhost -u $USERNAME -w $PASSWORD admin cleanse $BINARY_REPOSITORY
 
+Note that only items not listed in the SQL database (i.e. previously failed
+deletes) will be cleaned up by this script.
+
 Managing OMERO.server log files
 -------------------------------
 
 Your OMERO.server will produce log files that are rotated when they
-reach 512MB. These directories will look like:
-
-::
+reach 512MB. These directories will look like::
 
     omero_dist $ ls var/log
     Blitz-0.log     FileServer.log      MonitorServer.log   Processor-0.log     master.out
@@ -46,9 +43,7 @@ OMERO.server log file location
 ------------------------------
 
 The log file directory may also be relocated to different storage by
-modifying the ``etc/grid/default.xml`` file:
-
-::
+modifying the ``etc/grid/default.xml`` file::
 
     ...
     <variable name="OMERO_LOGS"    value="var/log/"/>
@@ -78,9 +73,7 @@ OMERO.server has three main backup sources:
 .. warning:: You must back up *(1)* and *(2)* regularly.
 
 You need to back up *(3)* only before you make changes. You can copy it into 
-``/OMERO/backup`` to ensure it is kept safe:
-
-::
+``/OMERO/backup`` to ensure it is kept safe::
 
     $ bin/omero config get > /OMERO/backup/omero.config
 
@@ -96,9 +89,7 @@ Backing up your PostgreSQL database
 
 Database backups can be achieved using the PostgreSQL ``pg_dump``
 command. Here is an example backup script that can be placed in
-``/etc/cron.daily`` to perform daily database backups:
-
-::
+``/etc/cron.daily`` to perform daily database backups::
 
     #!/bin/bash
 
@@ -135,9 +126,7 @@ make any explicit recommendations about backup software. In the interest
 of providing a working example we will use open source ``rdiff-backup``
 project and like :ref:`backup-and-restore_postgresql` above, provide a
 backup script which can be placed in ``/etc/cron.daily`` to perform
-daily ``/OMERO`` backups:
-
-::
+daily ``/OMERO`` backups::
 
     #!sh
     #!/bin/bash
@@ -148,9 +137,7 @@ daily ``/OMERO`` backups:
     rdiff-backup $FROM $TO
 
 ``rdiff-backup`` can also be used to backup ``/OMERO`` to a remote
-machine:
-
-::
+machine::
 
     #!sh
     #!/bin/bash
@@ -184,9 +171,7 @@ Restoring your configuration
 Once you have retrieved an OMERO.server package from the
 :downloads:`downloads <>` page that **matches** the version you
 originally had installed, all that is required is to restore your backup
-preferences by running:
-
-::
+preferences by running::
 
     $ bin/omero config load /OMERO/backup/omero.config
 
@@ -201,9 +186,7 @@ your configuration, you should follow the first two (*Create a
 non-superuser database user* and *Create a database for OMERO data to
 reside in*) steps of :doc:`unix/server-installation`. Once you have ensured
 that the database user and empty database exist, you can restore the
-``pg_dump`` file as follows:
-
-::
+``pg_dump`` file as follows::
 
     $ sudo -u postgres pg_restore -Fc -d omero_database omero.2010-06-05_16:27:29-GMT.pg_dump
 
