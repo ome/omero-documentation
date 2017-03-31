@@ -117,6 +117,13 @@ working on. This can be done using the ``test`` target. For example:
     ./build.py -f components/tools/OmeroJava/build.xml test -DTEST=integration/chown/PermissionsTest
     ./build.py -f components/tools/OmeroPy/build.xml test -DTEST=test/integration/test_admin.py
 
+.. warning::
+    Some integration tests leak file descriptors. If many tests are run
+    then they may start to fail after the system's open files limit is
+    reached. Depending on your system the limit may be checked or
+    adjusted using :command:`ulimit -n` and :file:`/etc/login.conf` or
+    :file:`/etc/security/limits.conf`.
+
 Running Java tests
 ^^^^^^^^^^^^^^^^^^
 
