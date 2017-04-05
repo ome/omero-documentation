@@ -23,7 +23,7 @@ This can be performed daily using cron with a script such as::
     OMERO_PREFIX=/home/omero/OMERO-CURRENT
     $OMERO_PREFIX/bin/omero -s localhost -u $USERNAME -w $PASSWORD admin cleanse $BINARY_REPOSITORY
 
-Note that only items not listed in the PostgreSQL database (i.e. previously
+Note that only items not listed in the relational database (i.e. previously
 failed deletes) and now empty directories will be cleaned up by this script
 (see :ref:`DeleteBinaryData`).
 
