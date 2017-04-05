@@ -216,22 +216,4 @@ OMERO
         #. Runs the robot framework tests and collect the results
 
 
-Other release jobs
-^^^^^^^^^^^^^^^^^^
-
-.. glossary::
-
-    :jenkinsjob:`FIGURE-release-downloads`
-
-        This job is used to build the OMERO.figure downloads page
-
-        #. Download the :envvar:`RELEASE` artifacts from
-           https://github.com/ome/omero-figure
-        #. Copy the OMERO.figure source zip over SSH to
-           :file:`/ome/www/downloads.openmicroscopy.org/figure/RELEASE`
-        #. Merge PRs opened against `develop`
-        #. Build the OMERO.figure downloads pages using :command:`make figure`
-        #. Copy the OMERO.figure downloads page over SSH to
-           :file:`/ome/www/downloads.openmicroscopy.org/figure/RELEASE`
-
 Documentation release jobs are documented on :doc:`ci-docs`.
