@@ -94,7 +94,7 @@ Configure:
     :start-after: #end-release-ice36
     :end-before: #end-step04
 
-Installing and Running OMERO.web
+Installing and running OMERO.web
 --------------------------------
 
 OMERO.web is deployed using Nginx, for more details on how to install
@@ -110,8 +110,8 @@ the following commands:
     :start-after: #start-nginx
     :end-before: #start-requirements
 
-Running OMERO
--------------
+Running OMERO.server
+--------------------
 
 **The following steps are run as the omero system user.**
 
