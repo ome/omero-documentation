@@ -14,7 +14,7 @@ connection e.g. Python:
     adminService = session.getAdminService()                 # now we can get/create services
 
 -  The :javadoc:`Service factory API <slice2html/omero/api/ServiceFactory.html>`
-   has methods for creating Stateless and Stateful services see below.
+   has methods for creating Stateless and Stateful services, see below.
 
    -  Stateless services are obtained using "getXXX" methods e.g.
       ``getQueryService()``
