@@ -569,3 +569,8 @@ Writing Conventions
   link and stop the link-checker from reporting it as broken (e.g.
   ``\http://your_host/webclient/login/``), unless you use the literal mark-up.
 
+
+
+.. image:: https://badges.gitter.im/Join%20Chat.svg
+   :alt: Join the chat at https://gitter.im/openmicroscopy/ome-documentation
+   :target: https://gitter.im/openmicroscopy/ome-documentation?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
