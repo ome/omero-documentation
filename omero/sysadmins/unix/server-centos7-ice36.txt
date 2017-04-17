@@ -87,14 +87,15 @@ Configure:
     :start-after: #end-release-ice36
     :end-before: #end-step04
 
-Installing OMERO.web
----------------------
+Installing and running OMERO.web
+--------------------------------
 
-OMERO.web is deployed using Nginx, for more details
+OMERO.web is deployed using Nginx, for more details on how to install
+and run the OMERO.web client
 see :doc:`install-web/walkthrough/omeroweb-install-centos7-ice3.6`.
 
-Running OMERO
--------------
+Running OMERO.server
+--------------------
 
 **The following steps are run as the omero system user.**
 
@@ -102,23 +103,12 @@ OMERO should now be set up. To start the server run::
 
     OMERO.server/bin/omero admin start
 
-To start the OMERO.web client run::
-
-    OMERO.server/bin/omero web start
-
-Nginx should already be running so you should be able to log in as the OMERO
-root user by going to http://localhost/ in your web browser.
 Please read the SELinux_ section below.
 
-In addition some example `systemd.service` scripts are available should you wish to
-start OMERO and OMERO.web automatically:
-
-.. literalinclude:: walkthrough/walkthrough_centos7.sh
-    :start-after: #start-step06
-    :end-before: #end-step06
+In addition a `systemd.service` script is available should you wish to
+start OMERO automatically.
 
 | :download:`omero-systemd.service <walkthrough/omero-systemd.service>`
-| :download:`omero-web-systemd.service <walkthrough/omero-web-systemd.service>`
 
 
 Securing OMERO
