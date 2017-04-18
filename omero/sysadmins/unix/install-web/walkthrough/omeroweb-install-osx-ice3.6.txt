@@ -33,12 +33,13 @@ Install VirtualEnv - optional (run as root)::
 
 Install OMERO.web (run as )::
     
-    curl -o OMERO.py.zip https://downloads.openmicroscopy.org/latest/omero5.3/py.zip
+    cd ~
+    curl -o OMERO.py.zip -L https://downloads.openmicroscopy.org/latest/omero5.3/py.zip
+    unzip -q OMERO.py*
     
     zip=$(ls OMERO.py*.zip)
-    zipname=${zip%.zip}
     rm -f $zip
-    mv $(find . -name 'OMERO.py*' -type d) ~/OMERO.py
+    ln -s OMERO.py-* OMERO.py
 
 Install VirtualEnv (run as root)::
     
@@ -69,3 +70,10 @@ Install NGINX::
 
 
 
+
+Start up services::
+    
+    source ~/omerowebvenv/bin/activate
+    
+    # Start OMERO.web
+    ~/OMERO.py/bin/omero web start

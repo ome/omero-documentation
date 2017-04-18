@@ -53,12 +53,13 @@ Install VirtualEnv - optional (run as root)::
 
 Install OMERO.web (run as omero)::
     
-    curl -o OMERO.py.zip https://downloads.openmicroscopy.org/latest/omero5.3/py.zip
+    cd /home/omero
+    curl -o OMERO.py.zip -L https://downloads.openmicroscopy.org/latest/omero5.3/py.zip
+    unzip -q OMERO.py*
     
     zip=$(ls OMERO.py*.zip)
-    zipname=${zip%.zip}
     rm -f $zip
-    mv $(find . -name 'OMERO.py*' -type d) /home/omero/OMERO.py
+    ln -s OMERO.py-* OMERO.py
 
 Install VirtualEnv (run as root)::
     
@@ -105,6 +106,7 @@ Disable SELINUX (run as root)::
 
 Daemon (run as root)::
     
+    Create a file omero-web-systemd.service. See example file below.
     cp omero-web-systemd.service /etc/systemd/system/omero-web.service
     
     systemctl daemon-reload
@@ -133,3 +135,4 @@ omero-web-systemd.service example::
     
     [Install]
     WantedBy=multi-user.target
+
