@@ -105,7 +105,7 @@ Stateful/Binary Services
 
 -  RawFileStore:
    :source:`src <components/common/src/ome/api/RawFileStore.java>`,
-   :javadoc:`API <ome/api/RawFileStore.html>` for reading files
+   :javadoc:`API <ome/api/RawFileStore.html>` for reading and writing files
 -  RawPixelsStore:
    :source:`src <components/common/src/ome/api/RawPixelsStore.java>`,
    :javadoc:`API <ome/api/RawPixelsStore.html>` for reading pixels data
@@ -143,8 +143,8 @@ permissions, otherwise an exception is thrown.
 
 Dirty checks follow the Three Commandments:
 
-#. Any IObject-valued field with unloaded set to true is treated as proxy
-   and is re-loaded from the database.
+#. Any IObject-valued field with unloaded set to true is treated as a proxy
+   and is reloaded from the database.
 #. Any collection-valued field with a null value is re-loaded from the
    database.
 #. Any collection-valued field with the FILTERED flag is assumed to be
@@ -159,7 +159,7 @@ Administration
 
 The :source:`IAdmin <components/common/src/ome/api/IAdmin.java>` interface
 defines all the actions necessary to administer the
-:doc:`/sysadmins/server-security` . It is explained further on the
+:doc:`/sysadmins/server-security`. It is explained further on the
 :doc:`/developers/Modules/Api/AdminInterface` page.
 
 Model Object Java
