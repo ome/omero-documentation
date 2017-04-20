@@ -108,7 +108,7 @@ Stateful/Binary Services
    :javadoc:`API <ome/api/RawFileStore.html>` for reading and writing files
 -  RawPixelsStore:
    :source:`src <components/common/src/ome/api/RawPixelsStore.java>`,
-   :javadoc:`API <ome/api/RawPixelsStore.html>` for reading pixels data
+   :javadoc:`API <ome/api/RawPixelsStore.html>` for reading and writing pixels data
 -  RenderingEngine:
    :source:`src <components/common/src/omeis/providers/re/RenderingEngine.java>`,
    :javadoc:`API <slice2html/omero/api/RenderingEngine.html>` for viewing images,
