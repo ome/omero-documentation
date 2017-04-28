@@ -68,8 +68,8 @@ IDs.
     be deleted then the whole command will fail and none of the specified
     objects will be deleted. The :option:`delete --dry-run` option can be
     useful as a check before trying to delete large numbers of objects.
-    The :option:`delete --force` option is required to delete objects specified
-    using an ID range.
+    The :option:`delete --force` option (deprecated in 5.3.2) 
+    is required to delete objects specified using an ID range.
 
 Deleting lower level objects
 ============================
