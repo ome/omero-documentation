@@ -353,3 +353,24 @@ For example
      Pixels     | 1499341282   | 34
      Annotation | 3000028      | 53
     (3 rows)
+
+Creating directories
+^^^^^^^^^^^^^^^^^^^^
+
+For directory creation in a Managed repository use :omerocmd:`fs mkdir`:
+this creates both the directory on the underlying filesystem and the
+corresponding entry in the OMERO server's database. The new directory
+will be owned by the :literal:`root` user and in the :literal:`user`
+group. The options available to this subcommand are:
+
+.. program:: omero fs mkdir
+
+.. option:: -h, --help
+
+    Display the help for this subcommand.
+
+.. option:: --parents
+
+    Ensure that the whole given path exists in the Managed repository.
+    Analogous to the common :command:`mkdir`'s :literal:`--parents`
+    option, originally simply :literal:`-p` in IEEE Std 1003.1-2008.
