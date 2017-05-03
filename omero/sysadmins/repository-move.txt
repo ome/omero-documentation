@@ -127,8 +127,8 @@ For example, if your :property:`omero.managed.dir` is set to
 :file:`/mnt/omero/ManagedRepository` and, as that volume fills, it would
 be better for new imports to be stored elsewhere then an OMERO
 administrator may use the :omerocmd:`fs mkdir` subcommand to properly
-set up a subdirectory for that new volume in
-the existing Managed Repository:
+set up a subdirectory for that new volume in the existing Managed
+Repository:
 ::
 
     bin/omero fs mkdir volume-B
@@ -140,6 +140,7 @@ Alternatively, if the volume is already mounted elsewhere, such as
 :file:`/mnt/omero/large-volume-B/`, then while the OMERO server is shut
 down you may create a corresponding symbolic link at
 :file:`/mnt/omero/ManagedRepository/volume-B`:
+
 ::
 
     rmdir /mnt/omero/ManagedRepository/volume-B
