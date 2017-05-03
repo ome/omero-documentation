@@ -68,7 +68,7 @@ IDs.
     be deleted then the whole command will fail and none of the specified
     objects will be deleted. The :option:`delete --dry-run` option can be
     useful as a check before trying to delete large numbers of objects.
-    If specifying objects with an IDR range, it is best to pass either 
+    If specifying objects with a range, it is best to pass either 
     :option:`--dry-run` or :option:`--force`. Earlier versions defaulted to 
     :option:`--dry-run` if no flag was passed, but this behavior is deprecated.
     Future versions will default to :option:`--force`.
