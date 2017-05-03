@@ -124,10 +124,10 @@ Extending the Managed Repository
 It is possible to leave the Managed Repository in place yet have newly
 imported image files stored on a different underlying storage volume.
 For example, if your :property:`omero.managed.dir` is set to
-:file:`/mnt/omero/ManagedRepository` and, as it fills, it would be
-better for future images to be imported onto
-:file:`/mnt/omero/large-volume-B/` then an OMERO administrator may use
-the :omerocmd:`fs mkdir` subcommand to properly set up a subdirectory in
+:file:`/mnt/omero/ManagedRepository` and, as that volume fills, it would
+be better for new imports to be stored elsewhere then an OMERO
+administrator may use the :omerocmd:`fs mkdir` subcommand to properly
+set up a subdirectory for that new volume in
 the existing Managed Repository:
 ::
 
@@ -135,14 +135,17 @@ the existing Managed Repository:
 
 This is the correct way to create
 :file:`/mnt/omero/ManagedRepository/volume-B` ready for new imports.
-When the OMERO server is not running, either mount the new storage
-volume directly at that mount point or create a symbolic link:
+The new storage volume may then be mounted at that mount point.
+Alternatively, if the volume is already mounted elsewhere, such as
+:file:`/mnt/omero/large-volume-B/`, then while the OMERO server is shut
+down you may create a corresponding symbolic link at
+:file:`/mnt/omero/ManagedRepository/volume-B`:
 ::
 
     rmdir /mnt/omero/ManagedRepository/volume-B
     ln -s /mnt/omero/large-volume-B /mnt/omero/ManagedRepository/volume-B
 
-Further, the :property:`omero.fs.repo.path` must be updated in the server
+In either case the :property:`omero.fs.repo.path` must be updated in the server
 configuration. An example of adjusting its usual default value is:
 ::
 
