@@ -39,7 +39,7 @@ Basic delete
 
 In the first line, the original file with ID 101 will be deleted. In the
 second, the project with ID 51 will be deleted including any datasets inside
-only that project and any images that are contained within moved datasets only.
+only that project and any images that are contained within deleted datasets only.
 Note that any linked file, tag or term annotations will not be deleted.
 
 Deleting multiple objects
