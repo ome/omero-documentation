@@ -153,5 +153,5 @@ configuration. An example of adjusting its usual default value is:
     bin/omero config set omero.fs.repo.path 'volume-B/%user%_%userId%//%year%-%month%/%day%/%time%'
 
 After the OMERO server is started then new imports should upload onto
-:file:`/mnt/omero/large-volume-B/`. At a later date further storage
+the new storage volume. At a later date further storage
 volumes may be added by using this same workflow.
