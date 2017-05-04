@@ -39,7 +39,7 @@ Basic delete
 
 In the first line, the original file with ID 101 will be deleted. In the
 second, the project with ID 51 will be deleted including any datasets inside
-only that project and any images that are contained within moved datasets only.
+only that project and any images that are contained within deleted datasets only.
 Note that any linked file, tag or term annotations will not be deleted.
 
 Deleting multiple objects
@@ -60,14 +60,18 @@ used to specify an ID range. This form can also be mixed with comma-separated
 IDs.
 ::
 
-    $ bin/omero delete Project:51 Dataset:53-56
-    $ bin/omero delete Dataset:53-56,65,101-105,201,202
+    $ bin/omero delete Project:51 Dataset:53-56 --force
+    $ bin/omero delete Dataset:53-56,65,101-105,201,202 --force
 
 .. note::
     When deleting multiple objects in a single command, if one object cannot
     be deleted then the whole command will fail and none of the specified
     objects will be deleted. The :option:`delete --dry-run` option can be
     useful as a check before trying to delete large numbers of objects.
+    If specifying objects with a range, it is best to pass either 
+    :option:`--dry-run` or :option:`--force`. Earlier versions defaulted to 
+    :option:`--dry-run` if no flag was passed, but this behavior is deprecated.
+    Future versions will default to :option:`--force`.
 
 Deleting lower level objects
 ============================
