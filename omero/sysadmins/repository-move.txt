@@ -124,8 +124,8 @@ Extending the Managed Repository
 It is possible to leave the Managed Repository in place yet have newly
 imported image files stored on a different underlying storage volume.
 For example, if your :property:`omero.managed.dir` is set to
-:file:`/mnt/omero/ManagedRepository` and, as that volume fills, it would
-be better for new imports to be stored elsewhere then an OMERO
+:file:`/mnt/omero/ManagedRepository` then, as that volume fills, it
+would become better for new imports to be stored elsewhere. An OMERO
 administrator may use the :omerocmd:`fs mkdir` subcommand to properly
 set up a subdirectory for that new volume in the existing Managed
 Repository:
