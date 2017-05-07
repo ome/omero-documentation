@@ -54,8 +54,8 @@ OMERO.web configuration
 Since OMERO 5.3, OMERO.web can be deployed **separately** from OMERO.server.
 This is the recommended installation set-up as they
 perform best under different circumstances and require a different set of
-dependencies. Please check :ref:`omero_web_deployment` for the latest advice on how to deploy
-OMERO.web.
+dependencies. Please check :ref:`omero_web_deployment` for the latest advice
+on how to deploy OMERO.web.
 
 If you generated configuration stanzas using :omerocmd:`web config` which
 enables OMERO.web via Nginx, they will include **hard-coded links** to
@@ -76,14 +76,13 @@ there may be fixes which require it.
 OMERO.web dependencies
 ^^^^^^^^^^^^^^^^^^^^^^
 
-While upgrading the server it is recommended to keep OMERO.web dependencies
+While upgrading the server you should keep OMERO.web dependencies
 up to date to ensure that security updates are applied::
 
     $ pip install --upgrade -r share/web/requirements-py27-all.txt
 
-.. note:: This is mainly for new major releases. If carrying out a minor
-    release upgrade, you should check that updates will not break your set-up
-    before performing this on your production system.
+.. warning:: Missing this step can result in OMERO.web failing to start after
+    upgrading.
 
 OMERO.web plugin updates
 ^^^^^^^^^^^^^^^^^^^^^^^^
