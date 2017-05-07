@@ -96,7 +96,7 @@ Since 5.3, all official OMERO.web plugins can be installed from :pypi:`Python Pa
 You should remove all previously installed plugins and install the latest
 versions using `pip <https://pip.pypa.io/en/stable/>`_.
 
-Since 5.3, the `Open with` configuration allows users to open data in other web applications.
+Since 5.3, the `Open with` configuration allows users to open data in other web applications
 e.g. open images in a custom viewer or open images in a new figure with OMERO.figure.
 Below is the command to add OMERO.figure to the `Open with` options, available from context menu on
 the webclient tree::
