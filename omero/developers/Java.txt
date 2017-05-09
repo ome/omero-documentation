@@ -591,108 +591,47 @@ First load the annotations, cf. above.
 How to use OMERO tables
 -----------------------
 
--  **Create a table.**
+-  **Create and read a table.**
 
 In the following example, we create a table with 2 columns.
 
 ::
 
-    /**
-     * Creates a number of empty rows.
-     *
-     * @param rows The number of rows.
-     * @return See above.
-     */
-    private Column[] createColumns(int rows)
-    {
-      Column[] newColumns = new Column[2];
-      newColumns[0] = new LongColumn("Uid", "", new long[rows]);
-      newColumns[1] = new LongColumn("MyLongColumn", "",
-                    new long[rows]);
-      return newColumns;
+    TableDataColumn[] columns = new TableDataColumn[3];
+    columns[0] =  new TableDataColumn("ID", 0, Long.class);
+    columns[1] =  new TableDataColumn("Name", 1, String.class);
+    columns[2] =  new TableDataColumn("Value", 2, Double.class);
+
+    Object[][] data = new Object[3][5];
+    data[0] = new Long[] {1l, 2l, 3l, 4l, 5l};
+    data[1] = new String[] {"one", "two", "three", "four", "five"};
+    data[2] = new Double[] {1d, 2d, 3d, 4d, 5d};
+
+    TableData tableData = new TableData(columns, data);
+
+    TablesFacility fac = gateway.getFacility(TablesFacility.class);
+
+    // Attach the table to the image
+    tableData = fac.addTable(ctx, image, "My Data", tableData);
+
+    // Find the table again
+    Collection<FileAnnotationData> tables = fac.getAvailableTables(ctx, image);
+    long fileId  = tables.iterator().next().getFileID();
+
+    // Request second and third column of the first three rows
+    TableData tableData2 = fac.getTable(ctx, fileId, 0, 2, 1, 2);
+
+    // do something, e.g. print to System.out
+    int nRows = tableData2.getData()[0].length;
+    for (int row = 0; row < nRows; row++) {
+        for (int col = 0; col < tableData2.getColumns().length; col++) {
+            Object o = tableData2.getData()[col][row];
+            System.out.print(o + " ["
+                    + tableData2.getColumns()[col].getType() + "]\t");
+        }
+        System.out.println();
     }
 
-    int rows = 1;
-    String name = UUID.randomUUID().toString();
-    Column[] columns = createColumns(rows);
-
-    //create a new table.
-    SharedResourcesPrx store = gateway.getSharedResources(ctx);
-    try {
-        TablePrx table = store.newTable(1, name);
-        //initialize the table
-        table.initialize(columns);
-        //add data to the table.
-        rows = 2;
-        Column[] newRow = createColumns(rows);
-
-        LongColumn uids = (LongColumn) newRow[0];
-        LongColumn myLongs = (LongColumn) newRow[1];
-        for (int i = 0; i < rows; i++) {
-            uids.values[i] = i;
-            myLongs.values[i] = i;
-        }
-
-        table.addData(newRow);
-
-        OriginalFile file = table.getOriginalFile(); //if you need to interact with the table
-
-        //link table to image.
-        FileAnnotation annotation = new FileAnnotationI();
-        annotation.setFile(file);
-        //Use your desired namespace
-        annotation.setNs(omero.rtypes
-                .rstring(omero.constants.namespaces.NSBULKANNOTATIONS.value));
-        annotation = (FileAnnotation) dm.saveAndReturnObject(ctx, annotation);
-        ImageAnnotationLink link = new ImageAnnotationLinkI();
-
-        //now link the image and the annotation
-        ImageAnnotationLink link = new ImageAnnotationLinkI();
-        link.setChild(annotation);
-        link.setParent(image.asImage());
-        //save the link back to the server.
-        link = (ImageAnnotationLink) dm.saveAndReturnObject(ctx, link);
-    } finally {
-        store.close();
-        table.close();
-    }
-
--  **Read the contents of the table.**
-
-::
-    
-    SharedResourcesPrx store = gateway.getSharedResources(ctx);
-    file = new OriginalFileI(file.getId(), false);
-    try {
-        table = store.openTable(file);
-
-        //read headers
-        Column[] cols = table.getHeaders();
-
-        for (int i = 0; i < cols.length; i++) {
-          String colName = cols[i].name;
-        }
-
-        //Depending on size of table, you may only want to read some blocks.
-        long[] columnsToRead = new long[cols.length];
-        for (int i = 0; i < cols.length; i++) {
-          columnsToRead[i] = i;
-        }
-
-        //The number of columns we wish to read.
-        long[] rowSubset = new long[(int) (table.getNumberOfRows()-1)];
-        for (int j = 0; j < rowSubset.length; j++) {
-          rowSubset[j] = j;
-        }
-        Data data = table.slice(columnsToRead, rowSubset); // read the data.
-        cols = data.columns;
-        for (int j = 0; j < cols.length; j++) {
-          Column c = cols[j];
-        }
-    } finally {
-        store.close();
-        table.close();
-    }  
 
 ROIs
 ----
