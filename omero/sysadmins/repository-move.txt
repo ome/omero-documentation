@@ -117,3 +117,41 @@ to ``/Volumes/imports/ManagedRepository``:
     If :property:`omero.managed.dir` is set then the Managed Repository and
     the OMERO data directory should be treated independently and thus be moved
     separately if necessary.
+
+Extending the Managed Repository
+--------------------------------
+
+It is possible to leave the Managed Repository in place yet have newly
+imported image files stored on a different underlying storage volume.
+For example, if your :property:`omero.managed.dir` is set to
+:file:`/mnt/omero/ManagedRepository` then, as that volume fills, it
+would become better for new imports to be stored elsewhere. An OMERO
+administrator may use the :omerocmd:`fs mkdir` subcommand to properly
+set up a subdirectory for that new volume in the existing Managed
+Repository:
+::
+
+    bin/omero fs mkdir volume-B
+
+This is the correct way to create
+:file:`/mnt/omero/ManagedRepository/volume-B` ready for new imports.
+The new storage volume may then be mounted at that mount point.
+Alternatively, if the volume is already mounted elsewhere, such as
+:file:`/mnt/omero/large-volume-B/`, then while the OMERO server is shut
+down you may create a corresponding symbolic link at
+:file:`/mnt/omero/ManagedRepository/volume-B`:
+
+::
+
+    rmdir /mnt/omero/ManagedRepository/volume-B
+    ln -s /mnt/omero/large-volume-B /mnt/omero/ManagedRepository/volume-B
+
+In either case the :property:`omero.fs.repo.path` must be updated in the server
+configuration. An example of adjusting its usual default value is:
+::
+
+    bin/omero config set omero.fs.repo.path 'volume-B/%user%_%userId%//%year%-%month%/%day%/%time%'
+
+After the OMERO server is started then new imports should upload onto
+the new storage volume. At a later date further storage volumes may be
+added by using this same workflow.
