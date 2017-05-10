@@ -478,6 +478,11 @@ method::
         well = wellList.get(j);
         wellsSampleList = well.copyWellSamples();
         well.getId().getValue()
+        % The wellList returned from the server is not sorted by wellIds, 
+        % please extract the wellRow and wellColumn for every well,
+        % to populate your results appropriately 
+        wellRow = well.getRow().getValue();
+        wellColumn = well.getColumn().getValue();
         for i = 0:wellsSampleList.size()-1,
             ws = wellsSampleList.get(i);
             ws.getId().getValue()
