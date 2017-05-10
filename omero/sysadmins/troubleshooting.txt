@@ -136,8 +136,8 @@ following despite giving the correct username and password:
 
 This is often due to firewall misconfiguration on the machine that runs
 your OMERO server, affecting the ability of remote clients to locate
-it. A common issue is when port ``TCP/4064`` is not opened,
-run ``telnet server-name 4064`` to check if this is
+it. A common issue is when port ``TCP/4064`` and/or ``TCP/4063`` is not opened,
+run ``telnet server-name 4064`` (resp. ``4063``) to check if this is
 the case. The output of the command should be:
 
 ::
