@@ -1195,8 +1195,10 @@ with Pixels loaded.
 ROIs and Shapes
 ---------------
 
-ROIs are linked to Images and contain 1 or more Shapes.
 Support for listing ROIs was added in API version 0.1.
+ROIs are linked to Images and contain 1 or more Shapes. Types of
+shape are Rectangle, Ellipse, Point, Line, Polyline, Polygon and
+Label. The Mask type is not currently supported by omero-marshal.
 
 List ROIs
 ^^^^^^^^^
