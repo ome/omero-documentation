@@ -136,7 +136,17 @@ following despite giving the correct username and password:
 
 This is often due to firewall misconfiguration on the machine that runs
 your OMERO server, affecting the ability of remote clients to locate
-it. Please see the :doc:`/sysadmins/server-security` page.
+it. A common issue is when port ``TCP/4064`` and/or ``TCP/4063`` is not opened,
+run ``telnet server-name 4064`` (resp. ``4063``) to check if this is
+the case. The output of the command should be:
+
+::
+
+    Trying server-name...
+    Connected to server-name.
+    Escape character is '^]'
+
+Please see the :doc:`/sysadmins/server-security` page for more information.
 
 Server crashes with…
 --------------------
