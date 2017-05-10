@@ -1047,7 +1047,7 @@ Create Image
 
     desc = "Image created from a hard-coded arrays"
     i = conn.createImageFromNumpySeq(
-        plane_gen(), "numpy image", size_z, size_c, size_t, description=desc,
+        planeGen(), "numpy image", size_z, size_c, size_t, description=desc,
         dataset=None)
     print 'Created new Image:%s Name:"%s"' % (i.getId(), i.getName())
 
