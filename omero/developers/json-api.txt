@@ -46,7 +46,7 @@ version number can be found in the header:
 
 ::
 
-    X-OMERO-ApiVersion: 0.0
+    X-OMERO-ApiVersion: 0.1
 
 
 JSON format
@@ -1196,6 +1196,7 @@ ROIs and Shapes
 ---------------
 
 ROIs are linked to Images and contain 1 or more Shapes.
+Support for listing ROIs was added in API version 0.1.
 
 List ROIs
 ^^^^^^^^^
