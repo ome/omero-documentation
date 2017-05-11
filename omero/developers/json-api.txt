@@ -710,7 +710,7 @@ These query parameters are also supported (see above):
 **Images in a Dataset**
 
 Images can be filtered by parent Dataset using the ``?dataset=id`` query string but
-you can also show Images in a Screen using this URL:
+you can also show Images in a Dataset using this URL:
 
 
 ::
@@ -1196,7 +1196,7 @@ ROIs and Shapes
 ---------------
 
 Support for listing ROIs was added in API version 0.1.
-ROIs are linked to Images and contain 1 or more Shapes. Types of
+ROIs are linked to Images and contain one or more Shapes. Types of
 shape are Rectangle, Ellipse, Point, Line, Polyline, Polygon and
 Label. The Mask type is not currently supported by omero-marshal.
 
