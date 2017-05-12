@@ -1038,7 +1038,7 @@ Create Image
 
 ::
 
-    def planeGen():
+    def plane_gen():
         """generator will yield planes"""
         for p in planes:
             yield p
@@ -1085,7 +1085,7 @@ Here we set the pixel size X and Y to be 9.8 Angstroms
 
 ::
 
-    def planeGen():
+    def plane_gen():
         """
         set up a generator of 2D numpy arrays.
 
