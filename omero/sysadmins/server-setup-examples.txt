@@ -42,18 +42,18 @@ Biozentrum, University of Basel
 The OMERO server at `Biozentrum <http://www.biozentrum.unibas.ch>`_ has around
 270 users and currently uses 52 TB of data storage space, with an average
 monthly increase of 1 TB. It is run on CentOS 7.1 with data hosted on an
-native mounted GPFS file system (General Parallel File System, IBM).
+native-mounted GPFS file system (General Parallel File System, IBM).
 
 Hardware
 ^^^^^^^^
 
 Remote storage consists of:
 
--  native mounted GPFS volume
+-  native-mounted GPFS volume
 
 Local storage consists of:
 
--  2 x 240 GB SATA SSD, RAID 1. OS and OMERO software
+-  2 x 240 GB SATA SSD, RAID 1, OS and OMERO software
 -  2 x 400 GB SATA SSD, RAID 1, Postgres DB
 
 Computational resources:
