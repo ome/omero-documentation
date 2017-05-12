@@ -26,7 +26,7 @@ queries for browsing Project, Dataset and Image hierarchies.
 These queries use **projections** and typically load a subset of fields for
 OMERO objects in order to improve performance for large data counts.
 These will be made available under the ``p`` prefix in future releases
-but are not yet supported in OMERO 5.3.0.
+but are not yet supported.
 
 ::
 
@@ -46,7 +46,7 @@ version number can be found in the header:
 
 ::
 
-    X-OMERO-ApiVersion: 0.0
+    X-OMERO-ApiVersion: 0.1
 
 
 JSON format
@@ -707,6 +707,17 @@ These query parameters are also supported (see above):
     }
 
 
+**Images in a Dataset**
+
+Images can be filtered by parent Dataset using the ``?dataset=id`` query string but
+you can also show Images in a Dataset using this URL:
+
+
+::
+
+    GET     /api/v0/m/datasets/{dataset_id}/images/
+
+
 Get a single Image
 ^^^^^^^^^^^^^^^^^^
 
@@ -1179,6 +1190,92 @@ with Pixels loaded.
 ::
 
     GET   /api/v0/m/wells/{well_id}/
+
+
+ROIs and Shapes
+---------------
+
+Support for listing ROIs was added in API version 0.1.
+ROIs are linked to Images and contain one or more Shapes. Types of
+shape are Rectangle, Ellipse, Point, Line, Polyline, Polygon and
+Label. The Mask type is not currently supported by omero-marshal.
+
+List ROIs
+^^^^^^^^^
+
+When ROIs are listed, their child Shapes will also be loaded.
+
+
+**Parameters**
+
+::
+
+    Name        Type        Description
+    ------------------------------------------------------------------
+    image       Number      Filter ROIs by Image ID
+
+
+These query parameters are also supported (see above):
+
+::
+
+    offset, limit, owner, group, normalize
+
+::
+
+    GET     /api/v0/m/rois/
+
+**Response**
+
+::
+
+    {
+      "data": [
+        {
+          "@id": 454,
+          "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#ROI",
+          "shapes": [
+            {
+              "FontStyle": "Normal",
+              "Locked": false,
+              "Width": 98,
+              "omero:details": {
+                # omitted for brevity
+              },
+              "Height": 135,
+              "FontFamily": "sans-serif",
+              "StrokeWidth": {},
+              "FontSize": {
+                "Symbol": "pt",
+                "Value": 12,
+                "@type": "TBD#LengthI",
+                "Unit": "POINT"
+              },
+              "FillColor": 1073741824,
+              "Y": 192,
+              "X": 189,
+              "StrokeColor": -993737532,
+              "TheT": 23,
+              "@id": 713,
+              "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Rectangle",
+              "TheZ": 1
+            }
+          ],
+          "omero:details": {
+            # omitted for brevity
+          },
+        },
+      ]
+    }
+
+**ROIs on an Image**
+
+ROIs can be filtered by Image using the ``?image=id`` query string but
+you can also show ROIs on an Image using this URL:
+
+::
+
+    GET     /api/v0/m/images/{image_id}/rois/
 
 
 Creating and saving objects
