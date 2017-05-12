@@ -166,9 +166,7 @@ gunicorn is restarted using ``bin/omero web restart``.
 By default OMERO.web expects to be run from the root URL of the web server.
 This can be changed by setting :property:`omero.web.prefix` and
 :property:`omero.web.static_url`. For example, to make OMERO.web appear at
-`http://example.org/omero/`:
-
-::
+`http://example.org/omero/`::
 
     $ bin/omero config set omero.web.prefix '/omero'
     $ bin/omero config set omero.web.static_url '/omero/static/'
@@ -182,9 +180,7 @@ accessible on an external IP.
 
 All configuration options can be found on various sections of
 :ref:`web_index` developers documentation. For the full list, refer to
-:ref:`web_configuration` properties or:
-
-::
+:ref:`web_configuration` properties or::
 
 	$ bin/omero web -h
 
@@ -210,31 +206,23 @@ with additional configuration of OMERO.web. See the
 `django-cors-headers <https://github.com/ottoyiu/django-cors-headers>`_ page
 for more details on the settings.
 
-Install the app and add it to the list of installed apps:
-
-::
+Install the app and add it to the list of installed apps::
 
   $ pip install django-cors-headers
   $ bin/omero config append omero.web.apps '"corsheaders"'
 
 Add the cors-headers middleware. Configuration of OMERO.web middleware
 was added in OMERO 5.3.2 and uses an 'index' to specify the ordering of middleware classes.
-We want to add the ``CorsMiddleware`` as the first class and ``CorsPostCsrfMiddleware`` as
-the last:
-
-::
+It is important to add the ``CorsMiddleware`` as the first class and
+``CorsPostCsrfMiddleware`` as the last, for example::
 
   $ bin/omero config append omero.web.middleware '{"index": 0.5, "class": "corsheaders.middleware.CorsMiddleware"}'
   $ bin/omero config append omero.web.middleware '{"index": 10, "class": "corsheaders.middleware.CorsPostCsrfMiddleware"}'
 
-Specify which origins we want to allow:
-
-::
+Specify which origins are allowed access::
 
   $ bin/omero config set omero.web.cors_origin_whitelist '["hostname.example.com"]'
 
-Or allow access from all origins:
-
-::
+Or allow access from all origins::
 
   $ bin/omero config set omero.web.cors_origin_allow_all True
