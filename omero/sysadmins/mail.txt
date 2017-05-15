@@ -1,12 +1,17 @@
 OMERO.mail
 ==========
 
-The OMERO server has the ability to send email to any users who have a properly
-configured email address. OMERO system administrators can then use the
-:omerocmd:`admin email` command to contact those users.
+The OMERO server has the ability to send email to any users who have a
+properly configured email address. OMERO system administrators can then use
+the :omerocmd:`admin email` command to contact those users.
 
-In order to activate the subsystem, minimally the :property:`omero.mail.config`
-property will need to be activated.
+In order to activate the subsystem, minimally the
+:property:`omero.mail.config` property will need to be activated.
+
+.. note:: A current limitation of the system is that emails are not in a queue
+    and therefore if you log out or otherwise lose your OMERO.web session
+    before the server has finished sending, the action will abort without
+    completing.
 
 Minimum configuration
 ---------------------
@@ -15,18 +20,15 @@ Minimum configuration
 
     $ bin/omero config set omero.mail.config true
 
-By default, this will use "localhost" as the mail server on port 25 and send as
-the user "omero". Likely you will need to configure OMERO to use your actual mail server.
+By default, this will use "localhost" as the mail server on port 25 and send
+as the user "omero". Likely you will need to configure OMERO to use your
+actual mail server.
 
-For example,
-
-::
+For example::
 
     $ bin/omero config set omero.mail.host smtp.university.example
 
-If authentication is required, then also configure:
-
-::
+If authentication is required, then also configure::
 
     $ bin/omero config set omero.mail.username USER
     $ bin/omero config set omero.mail.password PASS
@@ -34,15 +36,14 @@ If authentication is required, then also configure:
 Setting email addresses
 -----------------------
 
-For the any user to receive email, a valid email address must be configured. By
-default, the `root` OMERO user will *not* have an email address configured. This
-can be done from one of the UIs or via the :omerocmd:`obj` command:
-
-::
+For any user to receive email, a valid email address must be configured.
+By default, the `root` OMERO user will *not* have an email address configured.
+This can be done from one of the UIs or via the :omerocmd:`obj` command::
 
     $ bin/omero obj update Experimenter:0 email=root@university.example
 
-.. note:: Using a mailing list or an alias for the `root` user can simplify configuration.
+.. note:: Using a mailing list or an alias for the `root` user can simplify
+    configuration.
 
 Enabling mail notifications
 ---------------------------
@@ -50,14 +51,14 @@ Enabling mail notifications
 A number of "mail senders" are available for sending notifications of certain
 events on the server. Those available include:
 
-* `ServerUpMailSender` and `ServerDownMailSender` which mail when the server goes up or down
-* `FailedLoginMailSender` which can be configured to send for particular users if a bad password is used
-* `ObjectMailSender` which can be configured to send an email under various conditions. Instances which are configured include:
-   * `newUserMailSender` which sends an email every time a user is created
-   * `newCommentMailSender` which sends an email every time a user's image is commented on by another user.
+- ``ServerUpMailSender`` and ``ServerDownMailSender`` which mail when the server goes up or down
+- ``FailedLoginMailSender`` which can be configured to send for particular users if a bad password is used
+- ``ObjectMailSender`` which can be configured to send an email under various conditions. Instances which are configured include:
+   - ``newUserMailSender`` which sends an email every time a user is created
+   - ``newCommentMailSender`` which sends an email every time a user's image is commented on by another user
 
-To activate the senders, the :file:`etc/blitz/mail-senders.example` can be copied
-to a file ending with ".xml".
+To activate the senders, the :file:`etc/blitz/mail-senders.example` can be
+copied to a file ending with ".xml".
 
 OMERO.web error reporting
 -------------------------
@@ -70,14 +71,14 @@ The :property:`omero.web.admins` will get a description of the error,
 a complete Python traceback, and details about the HTTP request that caused
 the error.
 
-.. note:: Reporting errors requires property :property:`omero.web.debug` set to
-    `False` and works together with :ref:`omeroweb_error_handling`.
+.. note:: Reporting errors requires property :property:`omero.web.debug` set
+    to ``False`` and works together with :ref:`omeroweb_error_handling`.
 
 Other key properties
 --------------------
 
-Along with :property:`omero.mail.host`, a few general connection properties may
-be needed for your particular SMTP server:
+Along with :property:`omero.mail.host`, a few general connection properties
+may be needed for your particular SMTP server:
 
 * :property:`omero.mail.port`
 * :property:`omero.mail.smtp.auth`
@@ -96,8 +97,6 @@ Further configuration
 
 Finally, if the above mail configuration properties do not cover your needs,
 you can add your own implementation as described under |ExtendingOmero|. The
-related property is :property:`omero.mail.bean`:
-
-::
+related property is :property:`omero.mail.bean`::
 
     $ bin/omero config set omero.mail.bean myMailImplementation
