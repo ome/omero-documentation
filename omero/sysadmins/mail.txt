@@ -53,7 +53,7 @@ events on the server. Those available include:
 
 - ``ServerUpMailSender`` and ``ServerDownMailSender`` which mail when the server goes up or down
 - ``FailedLoginMailSender`` which can be configured to send for particular users if a bad password is used
-- ``ObjectMailSender`` which can be configured to send an email under various condition. Instances which are configured include:
+- ``ObjectMailSender`` which can be configured to send an email under various conditions. Instances which are configured include:
    - ``newUserMailSender`` which sends an email every time a user is created
    - ``newCommentMailSender`` which sends an email every time a user's image is commented on by another user
 
