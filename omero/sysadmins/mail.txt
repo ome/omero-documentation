@@ -9,7 +9,7 @@ In order to activate the subsystem, minimally the
 :property:`omero.mail.config` property will need to be activated.
 
 .. note:: A current limitation of the system is that emails are not in a queue
-    and therefore if you log out or otherwise lose your OMERO.web session
+    and therefore if you log out or otherwise lose your OMERO session
     before the server has finished sending, the action will abort without
     completing.
 
