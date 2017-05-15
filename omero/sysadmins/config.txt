@@ -1829,6 +1829,22 @@ Size, in bytes, of the “chunk”
 
 Default: `1048576`
 
+.. property:: omero.web.cors_origin_allow_all
+
+omero.web.cors_origin_allow_all
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+If True, cors_origin_whitelist will not be used and all origins will be authorized to make cross-site HTTP requests.
+
+Default: `false`
+
+.. property:: omero.web.cors_origin_whitelist
+
+omero.web.cors_origin_whitelist
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+A list of origin hostnames that are authorized to make cross-site HTTP requests. Used by the django-cors-headers app as described at https://github.com/ottoyiu/django-cors-headers
+
+Default: `[]`
+
 .. property:: omero.web.databases
 
 omero.web.databases
@@ -1884,6 +1900,14 @@ omero.web.login_view
 
 
 Default: `weblogin`
+
+.. property:: omero.web.middleware
+
+omero.web.middleware
+^^^^^^^^^^^^^^^^^^^^
+Warning: Only system administrators should use this feature. List of Django middleware classes in the form [{"class": "class.name", "index": FLOAT}]. See https://docs.djangoproject.com/en/1.8/topics/http/middleware/. Classes will be ordered by increasing index
+
+Default: `[{"index": 1, "class": "django.middleware.common.BrokenLinkEmailsMiddleware"},{"index": 2, "class": "django.middleware.common.CommonMiddleware"},{"index": 3, "class": "django.contrib.sessions.middleware.SessionMiddleware"},{"index": 4, "class": "django.middleware.csrf.CsrfViewMiddleware"},{"index": 5, "class": "django.contrib.messages.middleware.MessageMiddleware"}]`
 
 .. property:: omero.web.open_with
 
@@ -2100,6 +2124,14 @@ omero.web.template_dirs
 List of locations of the template source files, in search order. Note that these paths should use Unix-style forward slashes.
 
 Default: `[]`
+
+.. property:: omero.web.thumbnails_batch
+
+omero.web.thumbnails_batch
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+Number of thumbnails retrieved to prevent from loading them all at once. Make sure the size is not too big, otherwise you may exceed limit request line, see http://docs.gunicorn.org/en/latest/settings.html?highlight=limit_request_line
+
+Default: `50`
 
 .. property:: omero.web.ui.center_plugins
 
