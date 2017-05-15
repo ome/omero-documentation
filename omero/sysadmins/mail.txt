@@ -36,7 +36,7 @@ If authentication is required, then also configure::
 Setting email addresses
 -----------------------
 
-For the any user to receive email, a valid email address must be configured.
+For any user to receive email, a valid email address must be configured.
 By default, the `root` OMERO user will *not* have an email address configured.
 This can be done from one of the UIs or via the :omerocmd:`obj` command::
 
@@ -52,8 +52,8 @@ A number of "mail senders" are available for sending notifications of certain
 events on the server. Those available include:
 
 - ``ServerUpMailSender`` and ``ServerDownMailSender`` which mail when the server goes up or down
-- ``FailedLoginMailSender`` which can be configured to send for particular  users if a bad password is used
-- ``ObjectMailSender`` which can be configured to send an email under various conditions. Instances which are configured include:
+- ``FailedLoginMailSender`` which can be configured to send for particular users if a bad password is used
+- ``ObjectMailSender`` which can be configured to send an email under various condition. Instances which are configured include:
    - ``newUserMailSender`` which sends an email every time a user is created
    - ``newCommentMailSender`` which sends an email every time a user's image is commented on by another user
 
