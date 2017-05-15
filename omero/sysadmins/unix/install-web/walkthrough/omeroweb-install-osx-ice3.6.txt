@@ -41,14 +41,14 @@ Install OMERO.web (run as )::
     rm -f $zip
     ln -s OMERO.py-* OMERO.py
 
-Install VirtualEnv (run as root)::
+Install in the virtualenv created previously (run as root)::
     
     ~/omerowebvenv/bin/pip install --upgrade -r ~/OMERO.py/share/web/requirements-py27-all.txt
 
 Configure OMERO.web and generate nginx template (run as )::
     
     source ~/omerowebvenv/bin/activate
-    
+    # By default no value is set for WEBPREFIX but for example it can be set to /omero
     if [[ $WEBPREFIX = *[!\ ]* ]]; then
         ~/OMERO.py/bin/omero config set omero.web.prefix "${WEBPREFIX}"
         ~/OMERO.py/bin/omero config set omero.web.static_url "${WEBPREFIX}/static/"
