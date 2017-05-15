@@ -443,9 +443,6 @@ users do not simultaneously edit the same object. That works so:
 Identity and versioning make working with the object model difficult
 sometimes, but guarantee that our data is never corrupted.
 
-.. note:: 
-    There is one exception to this discussed below under :ref:`Model#Links`. 
-
 
 Working with the object model
 -----------------------------
