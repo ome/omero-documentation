@@ -6,10 +6,9 @@ Model graph operations
   When the OMERO server acts on its model objects it must determine the
   impact on related objects. For instance, deleting an image may entail
   deleting users' rendering settings for that image, also the links to
-  any datasets that the image is in.
-  Understanding the details of the implementation
-  substantially assists in debugging or creating server operations that
-  act on the directed graph of model objects.
+  any datasets that the image is in. Understanding the details of the
+  implementation substantially assists in debugging or creating server
+  operations that act on the directed graph of model objects.
 
 Motivation
 ----------
