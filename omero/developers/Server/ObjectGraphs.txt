@@ -27,9 +27,7 @@ objects to a different group, or deleting them, may implicitly include
 many related objects. For example, if one deletes a fileset, one also
 deletes the images from that fileset, and even the comments on those
 images. This section describes how the graph of model objects is
-traversed and how the target set of related objects is determined, under
-the new implementation of graph traversal first offered in version 5.1.0
-of OMERO.
+traversed and how the target set of related objects is determined.
 
 This technical detail is important to understand if one wishes to,
 
