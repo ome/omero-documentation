@@ -6,13 +6,9 @@ Model graph operations
   When the OMERO server acts on its model objects it must determine the
   impact on related objects. For instance, deleting an image may entail
   deleting users' rendering settings for that image, also the links to
-  any datasets that the image is in. Version 5.1.0 of the OMERO server
-  included a new algorithm for determining which model objects to act
-  on. Clients should be :doc:`using the new 5.1 graph requests
-  <GraphsMigration>` because the previous ones will be *removed* in
-  OMERO 5.3. Understanding the details of the new implementation
-  substantially assists in debugging or creating server operations that
-  act on the directed graph of model objects.
+  any datasets that the image is in. Understanding the details of the
+  implementation substantially assists in debugging or creating server
+  operations that act on the directed graph of model objects.
 
 Motivation
 ----------
@@ -31,9 +27,7 @@ objects to a different group, or deleting them, may implicitly include
 many related objects. For example, if one deletes a fileset, one also
 deletes the images from that fileset, and even the comments on those
 images. This section describes how the graph of model objects is
-traversed and how the target set of related objects is determined, under
-the new implementation of graph traversal first offered in version 5.1.0
-of OMERO.
+traversed and how the target set of related objects is determined.
 
 This technical detail is important to understand if one wishes to,
 
