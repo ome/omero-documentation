@@ -488,7 +488,7 @@ OMERO support policies
       - from Oct 2008
       - to Oct 2013
       - |Deprecated|
-      - |Dropped| (Web only)
+      - |Dropped| (Web only) |Supported| (rest) (*)
       - |Dropped|
       - `Reference <http://legacy.python.org/dev/peps/pep-0361/>`__
     * - 2.7
@@ -533,6 +533,10 @@ OMERO support policies
       - |Broken|
       - |Broken|
       - `Reference <https://www.python.org/dev/peps/pep-0494/>`__
+
+(*)
+For OMERO.py and OMERO.server, Python 2.6 is the minimum supported version.
+For OMERO.web, Python 2.7 is the minimum supported version
 
 Version provided by distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
