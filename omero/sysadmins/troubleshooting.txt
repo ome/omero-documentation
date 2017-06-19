@@ -532,7 +532,7 @@ by
 
 In ``lib/python/omero/clients.py``,
 
- depending on the Ice version used, replace line ``207`` (Ice 3.6) or ``209`` (Ice 3.5)
+depending on the Ice version used, replace line ``207`` (Ice 3.6) or ``209`` (Ice 3.5)
 
 ::
 
