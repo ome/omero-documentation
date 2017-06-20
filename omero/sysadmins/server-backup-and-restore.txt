@@ -6,22 +6,14 @@ OMERO.server backup and restore
 Cleaning up your binary repository
 ----------------------------------
 
-The OMERO.server does not remove files from disk until a cleanup task
-has been run. A script to do this is included in the OMERO.server
-distribution ``lib/python/omero/util/cleanse.py`` which can be used so::
+As detailed in :ref:`DeleteBinaryData`, it is possible that some files may be
+left behind when a delete action is performed. This was mostly an issue on
+Windows, which is no longer supported for OMERO server, but is still possible
+on Posix systems. If you think files have been left behind e.g. after a
+hard-reboot, a script to clean these up is included in the OMERO.server
+distribution ``lib/python/omero/util/cleanse.py``, which can be used so::
 
     $ bin/omero admin cleanse /OMERO
-
-This can be performed daily using cron with a script such as::
-
-    #!sh
-    #!/bin/bash
-
-    USERNAME="root"
-    PASSWORD="root_password"
-    BINARY_REPOSITORY="/OMERO"
-    OMERO_PREFIX=/home/omero/OMERO-CURRENT
-    $OMERO_PREFIX/bin/omero -s localhost -u $USERNAME -w $PASSWORD admin cleanse $BINARY_REPOSITORY
 
 Note that only items not listed in the relational database (i.e. previously
 failed deletes) and now empty directories will be cleaned up by this script
