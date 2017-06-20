@@ -107,16 +107,13 @@ so that the app is available from the context menu on the webclient tree::
 Updating 'Open with' config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The default ``Open with`` configuration changed in OMERO 5.3.3 so that
-``Open with > Image Viewer`` *always* uses the ``webgateway`` image viewer instead of
-using the viewer configured by :property:`omero.web.viewer.view`.
-However, the new default ``Open with`` configuration will be ignored if you have previously
-appended any new items to it, since the whole ``open_with`` list
-will then be stored in ``etc/grid/config.xml``.
-
 If you have configured :property:`omero.web.open_with` prior to OMERO 5.3.3 and
-you wish to ensure that ``Open with > Image Viewer`` uses the ``webgateway`` viewer,
-you need to manually update ``open_with`` as
+also set the default viewer with :property:`omero.web.viewer.view`, for example
+as described for `OMERO.iviewer <https://pypi.python.org/pypi/omero-iviewer>`_
+then you will find that ``Open with > Image Viewer`` also opens the OMERO.iviewer
+instead of the ``webgateway`` viewer.
+
+To fix this, you need to manually update ``open_with`` as
 `described on this PR <https://github.com/openmicroscopy/openmicroscopy/pull/5317/>`_.
 
 Memoization files invalidation
