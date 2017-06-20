@@ -108,17 +108,16 @@ Updating 'Open with' config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The default ``Open with`` configuration changed in OMERO 5.3.3 so that
-``Open with > Image Viewer`` *always* uses the old ``webgateway`` image viewer instead of
+``Open with > Image Viewer`` *always* uses the ``webgateway`` image viewer instead of
 using the viewer configured by :property:`omero.web.viewer.view`.
 However, the new default ``Open with`` configuration will be ignored if you have previously
 appended any new items to it, since the whole ``open_with`` list
-will then be stored in /etc/grid.xml.
+will then be stored in ``etc/grid/config.xml``.
 
 If you have configured :property:`omero.web.open_with` prior to OMERO 5.3.3 and
-you wish to have the old ``webgateway`` viewer available via ``Open with > Image Viewer``
-when the :property:`omero.web.viewer.view` is configured to a different viewer,
+you wish to ensure that ``Open with > Image Viewer`` uses the ``webgateway`` viewer,
 you need to manually update ``open_with`` as
-`described on the PR <https://github.com/openmicroscopy/openmicroscopy/pull/5317/>`_.
+`described on this PR <https://github.com/openmicroscopy/openmicroscopy/pull/5317/>`_.
 
 Memoization files invalidation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
