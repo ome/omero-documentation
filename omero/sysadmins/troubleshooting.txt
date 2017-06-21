@@ -504,43 +504,31 @@ The parameter ``@SECLEVEL=0``, enabling the weaker ciphers, needs to be added in
 
 In ``etc/templates/grid/templates.xml``,
 
-replace line ``108``
-
-::
+replace line ``108`` ::
   
   <property name="IceSSL.Ciphers" value="ADH"/>
 
-by 
-
-::
+by ::
     
     <property name="IceSSL.Ciphers" value="ADH:@SECLEVEL=0"/>
 
 
-and line ``478``
-
-::
+and line ``478`` ::
   
   <property name="IceSSL.Ciphers" value="ADH:!LOW:!MD5:!EXP:!3DES:@STRENGTH"/>
 
-by
-
-::
+by ::
     
     <property name="IceSSL.Ciphers" value="ADH:!LOW:!MD5:!EXP:!3DES:@STRENGTH:@SECLEVEL=0"/>
 
 
 In ``lib/python/omero/clients.py``,
 
-depending on the Ice version used, replace line ``207`` (Ice 3.6) or ``209`` (Ice 3.5)
-
-::
+depending on the Ice version used, replace line ``207`` (Ice 3.6) or ``209`` (Ice 3.5) ::
 
     self._optSetProp(id, "IceSSL.Ciphers", "ADH")
 
-by
-
-::
+by ::
 
     self._optSetProp(id, "IceSSL.Ciphers", "ADH:@SECLEVEL=0")
 
