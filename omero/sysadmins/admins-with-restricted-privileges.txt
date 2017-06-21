@@ -235,8 +235,8 @@ Client details:
   see :doc:`/developers/scripts/user-guide` and below).
   Upload of attachments with results, annotating
   (not in private group), creating containers, import of resulting images
-  into groups you are not a member of (in private groups these are invisible for
-  the owner of the original data, unless you transfer their ownership),
+  into groups you are not a member of (in private groups these are invisible
+  for the owner of the original data, unless you transfer their ownership),
   transferring ownership of these containers (any group type),
   transferring ownership of objects
   (images, annotations, ROIs, uploaded attachments with results)
@@ -281,6 +281,8 @@ data owner in OMERO.web conveniently as part of the Move to Group command in
 OMERO.web (:help:`Move to Group <group-owner#move>`). The containers and
 links of data to containers will belong to data owner. For new container
 creation and linking, the :term:`Write Data` privilege is necessary.
+CLI can be used for the move action as well,
+see :doc:`/users/cli/chgrp`.
 
 In case of data owner not being in the group where the data is,
 the Organizer can also add the data owner to the
@@ -331,8 +333,8 @@ Client Details:
   :term:`Create and Edit Groups`, :term:`Create and Edit Users` and
   :term:`Add Users to Groups` privileges are given.
 
-- CLI: Moving data between groups is not recommended in CLI because of
-  the need to be a member of target group. See below for other features::
+- CLI: See examples below for CLI features
+  useful for Group and Data Organizing::
 
     # Create new user and put them into 2 groups
     $ bin/omero user add username firstname lastname group1 group2
@@ -348,6 +350,10 @@ Client Details:
     # the formerowner from group, just unsets the ownership. This works fine
     # with Create and Edit Group privilege only
     $ bin/omero user leavegroup testgroup --name formerowner  --as-owner
+    # Move a Dataset to a group where the prospective owner is member
+    # and include all annotations on objects
+    # linked to that Dataset even if they do not belong to the same user
+    $ bin/omero chgrp 5 Dataset:51 --include Annotation
     # Transfer ownership to user 55 of the whole hierarchy of the Project 112
     # including the links, as long as all the objects and links in the
     # hierarchy belong to the same user
