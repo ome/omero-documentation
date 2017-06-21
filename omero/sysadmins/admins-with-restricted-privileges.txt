@@ -235,9 +235,12 @@ Client details:
   see :doc:`/developers/scripts/user-guide` and below).
   Upload of attachments with results, annotating
   (not in private group), creating containers, import of resulting images
-  into groups you are not a member of, and transferring ownership of these
-  containers (any group type), transferring ownership of objects
-  (annotations, ROIs, uploaded attachments with results) is possible too.::
+  into groups you are not a member of (in private groups these are invisible for
+  the owner of the original data, unless you transfer their ownership),
+  transferring ownership of these containers (any group type),
+  transferring ownership of objects
+  (images, annotations, ROIs, uploaded attachments with results)
+  is possible too.::
 
     # Upload an official script
     $ bin/omero script upload --official /PATH/TO?YOUR_SCRIPT
