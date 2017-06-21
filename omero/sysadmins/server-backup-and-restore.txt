@@ -55,30 +55,31 @@ OMERO.server has three main backup sources:
     (assumed to be :file:`/OMERO`)
 3.  OMERO.server configuration
 
-    .. note::
-        The lib/scripts directory should also be backed up, but restoring it 
-        may pose issues if any of your users have added their own "official 
-        scripts". A github repository is now available under 
-        `<https://github.com/ome/scripts>`_ which provides help for merging 
-        your lib/scripts directories.
-
 .. warning:: You must back up *(1)* and *(2)* regularly.
 
-    Regular backups taken while the server is still running are usually
-    sufficient but you should be aware that they may not be consistent
-    snapshots. The **safest** course of action is to perform
-    backups during server downtime when possible, especially if you think you
-    may need the backup.
+Regular backups taken while the server is still running are usually
+sufficient but you should be aware that they may not be consistent
+snapshots. The **safest** course of action is to perform
+backups during server downtime when possible, especially if you think you
+may need the backup.
 
 You need to back up *(3)* only before you make changes. You can copy it into 
 ``/OMERO/backup`` to ensure it is kept safe::
 
     $ bin/omero config get > /OMERO/backup/omero.config
 
-.. note::
-    If you have edited ``etc/grid/(win)default.xml`` directly for any
-    reason then you will also need to copy that file to somewhere safe, such
-    as ``/OMERO/backup``.
+Other backup sources
+""""""""""""""""""""
+
+If you have edited ``etc/grid/(win)default.xml`` directly for any
+reason then you will also need to copy that file to somewhere safe, such
+as ``/OMERO/backup``.
+
+The lib/scripts directory should also be backed up, but restoring it
+may pose issues if any of your users have added their own "official
+scripts". A github repository is available at
+`<https://github.com/ome/scripts>`_ which provides help for merging
+your lib/scripts directories.
 
 .. _backup-and-restore_postgresql:
 
