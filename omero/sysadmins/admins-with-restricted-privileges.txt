@@ -60,7 +60,7 @@ O
     expect for any workflows mentioned here that all OMERO.clients
     OMERO.web, OMERO.insight, command line interface (CLI) are fully
     equipped to execute them (see details below). New features will
-    be added in OMERO.clients in the 5.3.x series of OMERO releases.
+    be added in OMERO.clients in the 5.4.x series of OMERO releases.
 
 .. note::
     **Group membership** All the workflows here assume that
@@ -292,7 +292,7 @@ privilege to create new Projects or Datasets for the new owners of the
 data and to link the data to those containers or to already
 existing containers owned by the new owner. Note that any links created by
 the Organizer will belong to the Organizer, not the owner of the data. This
-will be addressed in OMERO.web in the 5.3.x series. The ownership transfer
+will be addressed in OMERO.web in the 5.4.x series. The ownership transfer
 of the containers and links can be done later on the CLI. Linking of
 others' data is never possible in Private groups.
 
@@ -306,7 +306,7 @@ piecemeal, i.e. specifying each Project or Dataset to transfer (using
 ``omero chown`` command of CLI), or all of the data of the user can be
 transferred in one step (this functionality is currently available
 only via the API and will appear in
-OMERO clients in the 5.3.x series of OMERO).
+OMERO clients in the 5.4.x series of OMERO).
 
 Quite naturally the Group and Data Organizer can be easily split into two
 separate roles, with the Group Organiser role having
@@ -318,12 +318,12 @@ combination of these privileges as you see fit.
 It is recommended to always grant all three :term:`Create and Edit Groups`,
 :term:`Create and Edit Users`, :term:`Add Users to Groups` privileges
 to prevent poor experience in the OMERO.web client.
-These OMERO.web issues will be addressed in the 5.3.x series.
+These OMERO.web issues will be addressed in the 5.4.x series.
 
 Client Details:
 
 - OMERO.web: All the Data Organizing actions are possible, except transfer
-  of ownership (possible only in CLI, will be addressed in the 5.3.x
+  of ownership (possible only in CLI, will be addressed in the 5.4.x
   series). All the Group Organizing actions possible if all
   :term:`Create and Edit Groups`, :term:`Create and Edit Users` and
   :term:`Add Users to Groups` privileges are given.
