@@ -113,8 +113,19 @@ as described for `OMERO.iviewer <https://pypi.python.org/pypi/omero-iviewer>`_
 then you will find that ``Open with > Image Viewer`` also opens the OMERO.iviewer
 instead of the ``webgateway`` viewer.
 
-To fix this, you need to manually update ``open_with`` as
-`described on this PR <https://github.com/openmicroscopy/openmicroscopy/pull/5317/>`_.
+To fix this, you need to update the ``Image Viewer`` option within
+your :property:`omero.web.open_with` config.
+
+The best way to do this without changing the ordering of the options is to
+``get`` the complete current config, edit the ``Image Viewer`` option, replacing
+``"webindex"`` with ``"webgateway"`` and then ``set`` this as the updated config::
+
+    $ bin/omero config get omero.web.open_with
+    [["Image viewer", "webindex", {"supported_objects": ["image"], "script_url": "we....
+
+    # Replace "webindex" with "webgateway" and paste everything back to set, within single quotes
+
+    $ bin/omero config set omero.web.open_with '[["Image viewer", "webgateway", {"supported_objects": ["image"], "scr....'
 
 Memoization files invalidation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
