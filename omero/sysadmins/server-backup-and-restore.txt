@@ -64,6 +64,12 @@ OMERO.server has three main backup sources:
 
 .. warning:: You must back up *(1)* and *(2)* regularly.
 
+    Regular backups taken while the server is still running are usually
+    sufficient but you should be aware that they may not be consistent
+    snapshots. The **safest** course of action is to perform
+    backups during server downtime when possible, especially if you think you
+    may need the backup.
+
 You need to back up *(3)* only before you make changes. You can copy it into 
 ``/OMERO/backup`` to ensure it is kept safe::
 
