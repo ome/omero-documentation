@@ -39,7 +39,7 @@ Required Privileges             :term:`Data viewer`     :term:`Importer`        
 :term:`Sudo`                                      N                     Y                      N                       N
 :term:`Write Data`                                N                     N                      Y                       Y
 :term:`Delete Data`                               N                     N                      N                       Y
-:term:`Chgrp`                                     N                     N                      Y                       Y
+:term:`Chgrp`                                     N                     N                      N                       Y
 :term:`Chown`                                     N                     N                      Y (O)                   Y
 :term:`Create and Edit Groups`                    N                     N                      N                       Y
 :term:`Create and Edit Users`                     N                     N                      N                       Y
@@ -151,14 +151,17 @@ them also privilege necessary for the Data
 organizers (see :ref:`Workflow 4` below).
 
 If you have any doubts about giving the administrators with restricted
-privilege the :term:`Sudo` privilege (which gives the ability to delete
-users' data), there is a workaround which enables Importer
-to achieve import for others without :term:`Sudo`.
+privilege the :term:`Sudo` privilege (which implicitly gives the ability
+to delete other users' data), there are two workarounds which enable
+import for others without :term:`Sudo`.
 
-The workaround involves importing into the group of the Importer as the
-importer, then moving the data into the group of the future data owner
-and then changing the ownership of the data to the owner (necessary
-tools are described in :ref:`Workflow 3`).
+The first, simpler, workaround involves importing the data as Importer
+into the group of the future data owner and then transferring
+the ownership of the data (see details in :ref:`Workflow 3`).
+The second workaround involves importing into the group of the Importer
+as the importer, then moving the data into the group of the prospective
+data owner and then changing the ownership of the data to the owner
+(necessary tools are described in :ref:`Workflow 3`).
 
 Client details:
 
@@ -201,11 +204,9 @@ Typically, the Analyst role in OMERO is to
   is not possible)
 - create Projects and Datasets for newly imported images in groups they
   are not a member of (enabled by :term:`Write Data` privilege)
-- import new images resulting from image analysis into their own group, then
-  moving the images into the group of the original data owner (enabled by
-  :term:`Chgrp` privilege) into these Projects and Datasets or linking
-  the images to existing Projects and Datasets of the original data owner
-  (enabled by :term:`Write Data` privilege)
+- import new images resulting from image analysis into these Projects and Datasets
+- link new images resulting from image analysis to existing Projects and Datasets
+  of the original data owner (enabled by :term:`Write Data` privilege)
 - (possibly) changing the ownership of the newly created conainers and
   contained result images to the users (enabled by :term:`Chown` privilege)
 - upload, edit and delete official scripts usable by all OMERO users
