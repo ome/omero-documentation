@@ -71,15 +71,15 @@ You need to back up *(3)* only before you make changes. You can copy it into
 Other backup sources
 """"""""""""""""""""
 
-If you have edited ``etc/grid/(win)default.xml`` directly for any
+If you have edited :file:`etc/grid/(win)default.xml` directly for any
 reason then you will also need to copy that file to somewhere safe, such
-as ``/OMERO/backup``.
+as :file:`/OMERO/backup`.
 
-The lib/scripts directory should also be backed up, but restoring it
+The :file:`lib/scripts` directory should also be backed up, but restoring it
 may pose issues if any of your users have added their own "official
 scripts". A github repository is available at
 `<https://github.com/ome/scripts>`_ which provides help for merging
-your lib/scripts directories.
+your scripts directories.
 
 .. _backup-and-restore_postgresql:
 
@@ -88,7 +88,7 @@ Backing up your PostgreSQL database
 
 Database backups can be achieved using the PostgreSQL ``pg_dump``
 command. Here is an example backup script that can be placed in
-``/etc/cron.daily`` to perform daily database backups::
+:file:`/etc/cron.daily` to perform daily database backups::
 
     #!/bin/bash
 
@@ -185,7 +185,7 @@ your configuration, you should follow the first two (*Create a
 non-superuser database user* and *Create a database for OMERO data to
 reside in*) steps of :doc:`unix/server-installation`. Once you have ensured
 that the database user and empty database exist, you can restore the
-``pg_dump`` file as follows::
+:file:`pg_dump` file as follows::
 
     $ sudo -u postgres pg_restore -Fc -d omero_database omero.2010-06-05_16:27:29-GMT.pg_dump
 
