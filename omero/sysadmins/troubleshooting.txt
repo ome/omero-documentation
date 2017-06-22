@@ -494,8 +494,8 @@ Data corruption
 If you are dealing with a data corruption issue, you may find the information
 on :ref:`pixelresolutionorder` useful.
 
-Open SSL version
-^^^^^^^^^^^^^^^^
+OpenSSL version
+^^^^^^^^^^^^^^^
 
 With newer versions of OpenSSL i.e. version 1.0.2k or newer and 1.1.0 on
 Debian 9, weaker ciphers like ADH are disabled by default.
