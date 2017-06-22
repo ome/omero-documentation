@@ -343,20 +343,16 @@ Client Details:
     # Add a user to a group named "testgroup"
     $ bin/omero group adduser --name testgroup --user-name newbieingroup
     $ bin/omero group removeuser --name testgroup --user-name thegoner
-    # Make a user a group owner. Works also when the ownertobe
+    # Make a user a group owner. Works also when the owner-to-be
     # is already a member of the group
     $ bin/omero group adduser --name group --user-name ownertobe --as-owner
     # Remove a group owner from ownership of the group. Does not remove
-    # the formerowner from group, just unsets the ownership. This works fine
-    # with Create and Edit Group privilege only
+    # the formerowner from group, just unsets the ownership.
     $ bin/omero user leavegroup testgroup --name formerowner  --as-owner
-    # Move a Dataset to a group where the prospective owner is member
-    # and include all annotations on objects
-    # linked to that Dataset even if they do not belong to the same user
+    # Move a Dataset hierarchy to group 5 and include all annotations
+    # on the Dataset and objects linked to the Dataset
     $ bin/omero chgrp 5 Dataset:51 --include Annotation
-    # Transfer ownership to user 55 of the whole hierarchy of the Project 112
-    # including the links, as long as all the objects and links in the
-    # hierarchy belong to the same user
+    # Transfer ownership to user 55 of the Project 112
     $ bin/omero chown 55 Project:112
     # Transfer the ownership of a Project-Dataset link. Useful in case the
     # link was created by the Organizer and links objects of others
