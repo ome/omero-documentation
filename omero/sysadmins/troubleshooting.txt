@@ -493,3 +493,48 @@ Data corruption
 
 If you are dealing with a data corruption issue, you may find the information
 on :ref:`pixelresolutionorder` useful.
+
+OpenSSL version
+^^^^^^^^^^^^^^^
+
+With newer versions of OpenSSL i.e. version 1.0.2k or newer and 1.1.0 on
+Debian 9, weaker ciphers like ADH are disabled by default.
+This means that it is not possible to connect to an OMERO.server
+using any OMERO clients e.g. the Java Desktop client,
+the OMERO.web client or the CLI.
+The parameter ``@SECLEVEL=0``, enabling the weaker ciphers, needs to be
+added in two files in order to allow connection.
+
+In ``etc/templates/grid/templates.xml``,
+
+replace line ``108`` ::
+  
+  <property name="IceSSL.Ciphers" value="ADH"/>
+
+by ::
+    
+    <property name="IceSSL.Ciphers" value="ADH:@SECLEVEL=0"/>
+
+
+and line ``478`` ::
+  
+  <property name="IceSSL.Ciphers" value="ADH:!LOW:!MD5:!EXP:!3DES:@STRENGTH"/>
+
+by ::
+    
+    <property name="IceSSL.Ciphers" value="ADH:!LOW:!MD5:!EXP:!3DES:@STRENGTH:@SECLEVEL=0"/>
+
+
+In ``lib/python/omero/clients.py``,
+
+depending on the Ice version used, replace line ``207`` (Ice 3.6) or ``209`` (Ice 3.5) ::
+
+    self._optSetProp(id, "IceSSL.Ciphers", "ADH")
+
+by ::
+
+    self._optSetProp(id, "IceSSL.Ciphers", "ADH:@SECLEVEL=0")
+
+and run ``python -m py_compile clients.py`` to recompile the file.
+
+Restart the OMERO.server as normal for the changes to take effect.
