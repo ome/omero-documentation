@@ -36,7 +36,7 @@ pip install "zeroc-ice>3.5,<3.7"
 #start-supported-ice
 curl -o /etc/yum.repos.d/zeroc-ice-el7.repo \
 http://download.zeroc.com/Ice/3.5/el7/zeroc-ice-el7.repo
-
+yum -y install gcc-c++
 yum -y install ice ice-python ice-servers
 #end-supported-ice
 
@@ -76,10 +76,7 @@ psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 cp settings.env step04_all_omero.sh setup_omero_db.sh ~omero 
 #end-copy-omeroscript
 #start-release-ice35
-cd ~omero
-SERVER=http://downloads.openmicroscopy.org/latest/omero5.3/server-ice35.zip
-wget $SERVER -O OMERO.server-ice35.zip
-unzip -q OMERO.server*
+/home/omero/omeroenv/bin/omego download --ice 3.5 --branch 5.2 server
 #end-release-ice35
 #start-release-ice36
 cd ~omero
@@ -101,6 +98,11 @@ psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < OMERO.server/db.sql
 
 #install nginx
 yum -y install nginx
+
+if [ "$ICEVER" = "ice36" ]; then
+file=~omero/OMERO.server/share/web/requirements-py27.txt
+else
+file=~omero/OMERO.server/share/web/requirements-py27-ice35.txt
 pip install -r $file
 #start-configure-nginx: As the omero system user, configure OMERO.web
 OMERO.server/bin/omero config set omero.web.application_server wsgi-tcp
