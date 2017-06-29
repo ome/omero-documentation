@@ -201,7 +201,7 @@ The main methods on Details are:
     Permissions Details.getPermissions();
     List Details.getUpdates();
     Event Details.getCreationEvent();
-    EventDetails.getUpdatEvent();
+    Event Details.getUpdateEvent();
     Experimenter Details.getOwner();
     ExperimenterGroup Details.getGroup();
     ExternalInfo getExternalInfo();
