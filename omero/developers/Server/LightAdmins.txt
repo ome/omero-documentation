@@ -3,12 +3,14 @@ The server's view of administrator restrictions
 
 OMERO 5.4 introduced the concept of a restricted administrator. These
 are generally more powerful than normal OMERO users and group owners but
-they do not have all the powers of full administrators such as ``root``
-because they are restricted in specific ways by their
+they do not have all the powers of full administrators such as ``root``.
+A restricted administrator is the same as a full administrator except
+that *in specific ways* it is as if they are not an administrator at all.
+Those specific ways are exactly the restrictions listed in their user's
 ``Experimenter.config`` property. For that property, a name of
 ``AdminPrivilege:Dance`` (just an example!) with a value of ``false``
-indicates that the user's ability to dance is not that of a full
-administrator but is instead that of a normal user who is not a member
+indicates that the restricted administrator's ability to dance is not that of a full
+administrator. Their ability to dance is instead that of a normal user who is not a member
 of the ``system`` group. A member of the ``system`` group with an empty
 ``config`` property is a full administrator without restrictions.
 
@@ -114,8 +116,8 @@ Working with restrictions
 Restricted administrators
 """""""""""""""""""""""""
 
-The :javadoc:`admin service <slice2html/omero/api/IAdmin.html>` offers
-new operations for managing restrictions on administrators.
+Since OMERO 5.4 the :javadoc:`admin service <slice2html/omero/api/IAdmin.html>` offers
+operations for managing restrictions on administrators.
 ``createLightSystemUser`` creates a new restricted administrator.
 ``getAdminPrivileges`` and ``setAdminPrivileges`` manage the
 restrictions on an existing administrator.
@@ -124,15 +126,18 @@ Using ``setAdminPrivileges`` to set an empty list of privileges fills
 that user's ``Experimenter.config`` property with a ``false`` value for
 every ``AdminPrivilege`` name. That user does not thus become like a
 normal user: they retain all administrative powers not explicitly
-restricted, such as being able to read all users' images. A normal
-user's restrictions can be set: they simply have no effect if the user
-is not an administrator as there is then nothing to restrict.
+restricted, such as being able to read all users' images.
+
+Even for a normal user who is not a member of the ``system`` group and
+has no administrative powers, restrictions can still be set in their
+``Experimenter.config`` property. Such restrictions have no effect while
+that user is not an administrator as they have no administrative powers
+to restrict.
 
 ``getCurrentAdminPrivileges`` is useful for OMERO clients to find how
 the currently logged-in administrator is restricted.
 ``getAdminsWithPrivileges`` identifies the administrators who are
-sufficiently unrestricted in a given way so that users know which
-administrators may be able to help them.
+sufficiently unrestricted in a given way.
 
 
 Permissions on model objects
@@ -140,7 +145,8 @@ Permissions on model objects
 
 OMERO model objects have a :ref:`details property <model details
 property>` that bears information on :ref:`object permissions
-<permissions object>`; the ``canChgrp`` and ``canChown`` methods were
+<permissions object>`. In addition to the existing methods like
+``canEdit`` and ``canDelete``, the ``canChgrp`` and ``canChown`` methods were
 introduced in OMERO 5.4. Client software may find these permissions
 methods a useful guide as to what the current administrator may do to
 which objects.
@@ -155,7 +161,9 @@ available from the admin service, has additional data members:
 
 * ``adminPrivileges`` that lists the restrictions *not* applying to the
   current session. For non-administrators this list is empty as if they
-  are wholly restricted.
+  are wholly restricted. For restricted administrators it lists only the
+  privileges that they enjoy. For full administrators all privileges are
+  listed.
 
 * ``sudoerId``, ``sudoerName`` that for sudo sessions notes which
   administrator it was who became the current user.
@@ -239,6 +247,6 @@ An example database trigger would be ``user_config_delete_trigger`` on
 the ``experimenter_config`` table. This trigger raises an exception if,
 for example, an ``AdminPrivilege:Dance`` name with a ``false`` value is
 to be removed from the ``config`` of a member of the ``system`` group by
-a user who themself is restricted from dancing. This then prevents the
-restricted administrator from dancing even vicariously by lifting that
-restriction from another administrator.
+a user who themself is restricted from dancing. This prevents the
+administrator whose dancing is restricted from lifting that restriction
+from another administrator so that they may be the one to newly dance.
