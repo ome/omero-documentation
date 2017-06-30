@@ -5,14 +5,15 @@ OMERO 5.4 introduced the concept of a restricted administrator. These
 are generally more powerful than normal OMERO users and group owners but
 they do not have all the powers of full administrators such as ``root``.
 A restricted administrator is the same as a full administrator except
-that *in specific ways* it is as if they are not an administrator at all.
-Those specific ways are exactly the restrictions listed in their user's
-``Experimenter.config`` property. For that property, a name of
+that *in specific ways* it is as if they are not an administrator at
+all. Those specific ways are exactly the restrictions listed in their
+user's ``Experimenter.config`` property. For that property, a name of
 ``AdminPrivilege:Dance`` (just an example!) with a value of ``false``
-indicates that the restricted administrator's ability to dance is not that of a full
-administrator. Their ability to dance is instead that of a normal user who is not a member
-of the ``system`` group. A member of the ``system`` group with an empty
-``config`` property is a full administrator without restrictions.
+indicates that the restricted administrator's ability to dance is not
+that of a full administrator. Their ability to dance is instead that of
+a normal user who is not a member of the ``system`` group. A member of
+the ``system`` group with an empty ``config`` property is a full
+administrator without restrictions.
 
 
 Restrictions
@@ -116,11 +117,12 @@ Working with restrictions
 Restricted administrators
 """""""""""""""""""""""""
 
-Since OMERO 5.4 the :javadoc:`admin service <slice2html/omero/api/IAdmin.html>` offers
-operations for managing restrictions on administrators.
-``createLightSystemUser`` creates a new restricted administrator.
-``getAdminPrivileges`` and ``setAdminPrivileges`` manage the
-restrictions on an existing administrator.
+Since OMERO 5.4 the :javadoc:`admin service
+<slice2html/omero/api/IAdmin.html>` offers operations for managing
+restrictions on administrators. ``createLightSystemUser`` creates a new
+restricted administrator. ``getAdminPrivileges`` and
+``setAdminPrivileges`` manage the restrictions on an existing
+administrator.
 
 Using ``setAdminPrivileges`` to set an empty list of privileges fills
 that user's ``Experimenter.config`` property with a ``false`` value for
@@ -146,8 +148,8 @@ Permissions on model objects
 OMERO model objects have a :ref:`details property <model details
 property>` that bears information on :ref:`object permissions
 <permissions object>`. In addition to the existing methods like
-``canEdit`` and ``canDelete``, the ``canChgrp`` and ``canChown`` methods were
-introduced in OMERO 5.4. Client software may find these permissions
+``canEdit`` and ``canDelete``, the ``canChgrp`` and ``canChown`` methods
+were introduced in OMERO 5.4. Client software may find these permissions
 methods a useful guide as to what the current administrator may do to
 which objects.
 
