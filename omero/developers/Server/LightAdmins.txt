@@ -22,12 +22,12 @@ Restrictions
 The :source:`meta.ome.xml mapping
 <components/model/resources/mappings/meta.ome.xml>` lists all the values
 of the :javadoc:`AdminPrivilege
-<slice2html/omero/model/AdminPrivilege.html>` enumeration. If an
-administrator has any of the below restrictions then their ability to
-perform the corresponding operation does not take account of that they
-are an administrator. It instead becomes as if they were but a normal
+<slice2html/omero/model/AdminPrivilege.html>` enumeration. Each of those
+values corresponds to a kind of operation for which full administrators
+have greater privilege. If an administrator has any of the below
+restrictions then they do *not* have greater privilege for the
+corresponding operation. It instead becomes as if they were but a normal
 user in that respect.
-
 
 ``Chgrp``
     move data to other groups
