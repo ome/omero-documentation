@@ -88,6 +88,50 @@ Configure:
     :start-after: #end-release-ice36
     :end-before: #end-step04
 
+Patching OMERO.server
+---------------------
+
+Weaker ciphers like ADH are disabled by default in OpenSSL 1.1.0,
+version installed on Debian 9.
+This means that it is not possible to connect to an OMERO.server
+using any OMERO clients e.g. the Java Desktop client,
+the OMERO.web client or the CLI.
+The parameter ``@SECLEVEL=0``, enabling the weaker ciphers, needs to be
+added in two files in order to allow connection.
+
+In ``OMERO.server/etc/templates/grid/templates.xml``,
+
+replace line ``108`` ::
+  
+  <property name="IceSSL.Ciphers" value="ADH"/>
+
+by ::
+    
+    <property name="IceSSL.Ciphers" value="ADH:@SECLEVEL=0"/>
+
+
+and line ``478`` ::
+  
+  <property name="IceSSL.Ciphers" value="ADH:!LOW:!MD5:!EXP:!3DES:@STRENGTH"/>
+
+by ::
+    
+    <property name="IceSSL.Ciphers" value="ADH:!LOW:!MD5:!EXP:!3DES:@STRENGTH:@SECLEVEL=0"/>
+
+
+In ``OMERO.server/lib/python/omero/clients.py``,
+
+depending on the Ice version used, replace line ``207`` (Ice 3.6) or ``209`` (Ice 3.5) ::
+
+    self._optSetProp(id, "IceSSL.Ciphers", "ADH")
+
+by ::
+
+    self._optSetProp(id, "IceSSL.Ciphers", "ADH:@SECLEVEL=0")
+
+and run ``python -m py_compile clients.py`` to recompile the file.
+
+
 Installing and running OMERO.web
 --------------------------------
 
@@ -123,7 +167,7 @@ the OMERO data directory:
     :start-after: #start-step07
     :end-before: #end-step07
 
-.. _linux_walkthrough_regular_tasks:
+.. _debian_walkthrough_regular_tasks:
 
 Regular tasks
 -------------
