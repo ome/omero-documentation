@@ -99,37 +99,11 @@ the OMERO.web client or the CLI.
 The parameter ``@SECLEVEL=0``, enabling the weaker ciphers, needs to be
 added in two files in order to allow connection.
 
-In ``OMERO.server/etc/templates/grid/templates.xml``,
+.. literalinclude:: walkthrough/walkthrough_debian9.sh
+    :start-after: #start-seclevel
+    :end-before: #end-seclevel
 
-replace line ``108`` ::
-  
-  <property name="IceSSL.Ciphers" value="ADH"/>
-
-by ::
-    
-    <property name="IceSSL.Ciphers" value="ADH:@SECLEVEL=0"/>
-
-
-and line ``478`` ::
-  
-  <property name="IceSSL.Ciphers" value="ADH:!LOW:!MD5:!EXP:!3DES:@STRENGTH"/>
-
-by ::
-    
-    <property name="IceSSL.Ciphers" value="ADH:!LOW:!MD5:!EXP:!3DES:@STRENGTH:@SECLEVEL=0"/>
-
-
-In ``OMERO.server/lib/python/omero/clients.py``,
-
-depending on the Ice version used, replace line ``207`` (Ice 3.6) or ``209`` (Ice 3.5) ::
-
-    self._optSetProp(id, "IceSSL.Ciphers", "ADH")
-
-by ::
-
-    self._optSetProp(id, "IceSSL.Ciphers", "ADH:@SECLEVEL=0")
-
-and run ``python -m py_compile clients.py`` to recompile the file.
+Run ``python -m py_compile OMERO.server/lib/python/omero/clients.py`` to recompile the file.
 
 
 Installing and running OMERO.web
