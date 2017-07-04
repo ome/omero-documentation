@@ -190,6 +190,10 @@ all ports with 1, use :property:`omero.ports.prefix`::
 
     $ bin/omero config set omero.ports.prefix 1
 
+You can disable unencrypted connections by redirecting clients to the |SSL|
+port using the server property :property:`omero.router.insecure`::
+
+    $ bin/omero config set omero.router.insecure "OMERO.Glacier2/router:ssl -p 4064 -h @omero.host@"
 
 --------------
 
