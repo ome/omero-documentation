@@ -163,6 +163,9 @@ loaded by the server **without** its id. This allows applications to
 record only the string ``"text/plain"`` and not need to know the actual id
 value for ``"text/plain"``.
 
+
+.. _model details property:
+
 Details
 ^^^^^^^
 
