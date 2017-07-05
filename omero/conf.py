@@ -46,8 +46,8 @@ else:
     release = 'UNKNOWN'
 
 rst_prolog = """
-.. note:: **This documentation is for the new OMERO 5.3 version.** See the `latest OMERO 5.2.x
-    version <http://www.openmicroscopy.org/site/support/omero5.2/>`_ or the
+.. note:: **This documentation is for the new OMERO 5.4 version.** See the `latest OMERO 5.3.x
+    version <http://www.openmicroscopy.org/site/support/omero5.3/>`_ or the
     :legacy_plone:`previous versions <>` page to find documentation for the
     OMERO version you are using if you have not upgraded yet.
 """
@@ -99,12 +99,12 @@ omero_extlinks = {
     'commit' : (omero_github_root + 'commit/%s', ''),
     'omedocs' : (doc_github_root + '%s', ''),
     # API links
-    'javadoc' : (downloads_root + '/latest/omero5.3/api/%s', ''),
-    'pythondoc' : (downloads_root + '/latest/omero5.3/api/python/%s', ''),
+    'javadoc' : (downloads_root + '/latest/omero5.4/api/%s', ''),
+    'pythondoc' : (downloads_root + '/latest/omero5.4/api/python/%s', ''),
     # Doc links
     'bf_doc' : (oo_site_root + '/support/bio-formats/%s', ''),
     # Downloads
-    'downloads' : (downloads_root + '/latest/omero5.3/%s', ''),
+    'downloads' : (downloads_root + '/latest/omero5.4/%s', ''),
     # Miscellaneous links
     'springdoc' : ('http://docs.spring.io/spring/docs/%s', ''),
     'ivydoc' : ('http://ant.apache.org/ivy/history/2.3.0/%s', ''),
