@@ -10,9 +10,7 @@ apt-get update
 apt-get -y install unzip wget bc
 
 # install Java
-echo 'deb http://httpredir.debian.org/debian jessie-backports main' > /etc/apt/sources.list.d/jessie-backports.list
-apt-get update
-apt-get -y install -t jessie-backports openjdk-8-jre-headless ca-certificates-java
+apt-get -y install openjdk-8-jre-headless
 
 # install dependencies
 
@@ -22,37 +20,14 @@ apt-get -y install \
 pip install --upgrade pip
 # install Ice
 #start-recommended-ice
-mkdir /tmp/ice-download
-apt-get -y install db5.3-util
-
-apt-get -y install libssl-dev libbz2-dev libmcpp-dev libdb++-dev libdb-dev libdb-java	
-cd /tmp/ice-download		
-
-URL=https://github.com/zeroc-ice/ice/archive/v3.6.3.zip		 
-NAME_ZIP=${URL##*/}	
-wget $URL
-unzip -q $NAME_ZIP
-rm $NAME_ZIP		
-cd ice-3.6.3/cpp		
-make && make install
-
+apt-get -y install libssl-dev libbz2-dev libmcpp-dev libdb++-dev libdb-dev libdb-java
+apt-get -y install zeroc-ice-all-runtime
 pip install "zeroc-ice>3.5,<3.7"
-
-echo /opt/Ice-3.6.3/lib64 > /etc/ld.so.conf.d/ice-x86_64.conf		
-ldconfig
 #end-recommended-ice
-#start-supported-ice
-apt-get -y install ice-services python-zeroc-ice
-#end-supported-ice
 
 
 # install Postgres
-apt-get -y install apt-transport-https
-echo "deb https://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main 9.6" >> /etc/apt/sources.list.d/pgdg.list
-wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
-apt-get update
-apt-get -y install postgresql-9.6
-service postgresql start
+apt-get -y install postgresql
 
 #end-step01
 
@@ -93,26 +68,21 @@ OMERO.server/bin/omero config set omero.db.pass "$OMERO_DB_PASS"
 OMERO.server/bin/omero db script -f OMERO.server/db.sql --password "$OMERO_ROOT_PASS"
 psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < OMERO.server/db.sql
 #end-step04
+#start-patch-openssl
+#start-seclevel
+sed -i 's/\("IceSSL.Ciphers".*ADH\)/\1:@SECLEVEL=0/' OMERO.server/lib/python/omero/clients.py OMERO.server/etc/templates/grid/templates.xml
+#end-seclevel
+#end-patch-openssl
 
 #start-step05: As root, install Nginx
 #start-nginx
-echo "deb http://nginx.org/packages/debian/ jessie nginx" >> /etc/apt/sources.list
-wget http://nginx.org/keys/nginx_signing.key
-apt-key add nginx_signing.key
-rm nginx_signing.key
-apt-get update
 apt-get -y install nginx
-
-if [ "$ICEVER" = "ice36" ]; then
-file=~omero/OMERO.server/share/web/requirements-py27.txt
-else
-file=~omero/OMERO.server/share/web/requirements-py27-ice35.txt
 pip install -r $file
 #start-configure-nginx: As the omero system user, configure OMERO.web
 OMERO.server/bin/omero config set omero.web.application_server wsgi-tcp
 OMERO.server/bin/omero web config nginx --http "$OMERO_WEB_PORT" > OMERO.server/nginx.conf.tmp
 #end-configure-nginx
-mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.disabled
+mv /etc/nginx/sites-available/default /etc/nginx/sites-available/default.disabled
 cp ~omero/OMERO.server/nginx.conf.tmp /etc/nginx/conf.d/omero-web.conf
 
 service nginx start
