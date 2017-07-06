@@ -345,49 +345,28 @@ Write data
 -  **Create a dataset and link it to an existing project.**
 
 ::
-
+    
     DataManagerFacility dm = gateway.getFacility(DataManagerFacility.class);
-        
+    
     //Using IObject directly
     Dataset dataset = new DatasetI();
     dataset.setName(omero.rtypes.rstring("new Name 1"));
     dataset.setDescription(omero.rtypes.rstring("new description 1"));
-        
-    //Using the model object (recommended)
+    ProjectDatasetLink link = new ProjectDatasetLinkI();
+    link.setChild(dataset);
+    link.setParent(new ProjectI(projectId, false));
+    IObject r = dm.saveAndReturnObject(ctx, link);
+    
+    //Using the pojo
     DatasetData datasetData = new DatasetData();
     datasetData.setName("new Name 2");
     datasetData.setDescription("new description 2");
-        
-        
-    ProjectDatasetLink link = new ProjectDatasetLinkI();
-    link.setChild(dataset);
-    link.setParent(new ProjectI(info.getProjectId(), false));
-    IObject r = dm.saveAndReturnObject(ctx, link);
-    //With model object
-    link = new ProjectDatasetLinkI();
-    link.setChild(datasetData.asDataset());
-    link.setParent(new ProjectI(info.getProjectId(), false));
-    r = dm.saveAndReturnObject(ctx, link);
+    BrowseFacility b = gateway.getFacility(BrowseFacility.class);
+    ProjectData projectData = b.getProjects(ctx, Collections.singleton(projectId)).iterator().next();
+    datasetData.setProjects(Collections.singleton(projectData));
+    DataObject r2 = dm.saveAndReturnObject(ctx, datasetData);
 
 - **Import images into a dataset.**
-
-Using the Gateway:
-	
-::
-
-    ImportCallback cb = new ImportCallback();
-    TransferFacility tf = gateway.getFacility(TransferFacility.class);
-    
-    // the uploadImage method will automatically create a dataset with
-    // the same name as the directory, the image file is located in
-    tf.uploadImage(ctx, new File("/pathTo/image.dv"), cb);
-    
-    //wait for the upload to finish
-    while (!cb.isFinished()) {
-        try {
-            Thread.sleep(250);
-        } catch (InterruptedException e) {}
-    }
 
 Using the Java API directly:
 
