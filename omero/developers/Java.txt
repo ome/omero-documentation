@@ -805,7 +805,7 @@ In the following example, we create an image and delete it.
     image.setDescription("descriptionImage1");
     IObject object = dm.saveAndReturnObject(ctx, image.asIObject());
 
-    Response rsp = dm.deleteObject(ctx, object);
+    Response rsp = dm.delete(ctx, object).loop(10, 500);
 
 Render Images
 -------------
