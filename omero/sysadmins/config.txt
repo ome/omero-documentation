@@ -415,7 +415,7 @@ server that is is being used with. Any changes by
 developers to the database schema will result in
 a bump to this value.
 
-Default: `0`
+Default: `2`
 
 .. property:: omero.db.poolsize
 
@@ -500,7 +500,7 @@ of the server that it is being used with. Typically,
 only developers will change this version to bump
 to a new major version.
 
-Default: `OMERO5.3`
+Default: `OMERO5.4DEV`
 
 
 .. _grid_configuration:
