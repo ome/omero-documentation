@@ -1,11 +1,13 @@
 Adjusting administrator restrictions
 ====================================
 
-OMERO 5.4 introduced the concept of a restricted administrator. These
-and each of the specific permissions restrictions are described in
-:doc:`/developers/Server/LightAdmins`. OMERO.web offers easy management
-of restrictions and is recommended for setting up restricted
-administrators via its :help:`Admin tab <facility-manager#lightadmin>`.
+OMERO 5.4 introduced the concept of a :doc:`restricted administrator
+<../admins-with-restricted-privileges>`. The meaning and representation
+of the server's underlying permissions restrictions is described in
+:doc:`developer documentation</developers/Server/LightAdmins>`.
+OMERO.web offers easy management of restrictions and is recommended for
+setting up restricted administrators via its :help:`Admin tab
+<facility-manager#lightadmin>`.
 
 OMERO.cli does not offer easy management of restrictions because support
 is yet to be added. In the meantime it can already manipulate
