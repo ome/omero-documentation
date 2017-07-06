@@ -9,7 +9,7 @@ tab of Jenkins.
 
 	-	* Job task
 		* OMERO 5.2.x series
-		* OMERO 5.3.x series
+		* OMERO 5.4.x series
 
 	-	* Builds the latest OMERO documentation for publishing
 		* :term:`OMERO-5.2-latest-docs`
@@ -163,35 +163,35 @@ The branch for the 5.2.x series of the OMERO documentation is dev_5_2.
 		#. |ssh-doc| :file:`omero-5.2-staging.tmp`
 		#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero5.2-staging/
 
-OMERO 5.3.x series
+OMERO 5.4.x series
 ^^^^^^^^^^^^^^^^^^
 
-The branch for the 5.3.x series of the OMERO documentation is develop.
+The branch for the 5.4.x series of the OMERO documentation is develop.
 
 .. glossary::
 
 	:jenkinsjob:`OMERO-DEV-latest-docs`
 
 		This job is used to review the PRs opened against the develop branch
-		of the OMERO 5.3.x documentation
+		of the OMERO 5.4.x documentation
 
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`omero-5.3.tmp`
-		#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero5.3/
+		#. |ssh-doc| :file:`omero-5.4.tmp`
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero5.4/
 
 	:jenkinsjob:`OMERO-DEV-merge-docs`
 
 		This job is used to review the PRs opened against the develop branch
-		of the OMERO 5.3.x documentation
+		of the OMERO 5.4.x documentation
 
 		#. |merge|
 		#. Pushes the branch to :omedoc_scc_branch:`develop/merge/daily`
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`omero-5.3-staging.tmp`
-		#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero5.3-staging/
+		#. |ssh-doc| :file:`omero-5.4-staging.tmp`
+		#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero5.4-staging/
 
 	:jenkinsjob:`OMERO-DEV-latest-docs-autogen`
 
