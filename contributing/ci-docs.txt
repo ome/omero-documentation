@@ -54,9 +54,6 @@ independent of the current OMERO/Bio-Formats version.
 	-	* Job task
 		*
 
-	-	* Build and publish the OME Model documentation
-		* :term:`MODEL-release-docs`
-
 	-	* Build the latest OME Model documentation
 		* :term:`MODEL-latest-docs`
 
@@ -126,12 +123,6 @@ are then used:
 - for the Bio-Formats and OMERO sets of documentation, the name of the
   Jenkins job is set by :envvar:`JENKINS_JOB`.
 
-All live documentation folders are copied over SSH to
-necromancer.openmicroscopy.org.uk under the
-:file:`/var/www/www.openmicroscopy.org/sphinx-docs` directory using the
-:program:`scc deploy` command. The :jenkinsjob:`OME-docs-deployment-setup` job
-is used to initialize new deployment folders.
-
 OMERO 5.2.x series
 ^^^^^^^^^^^^^^^^^^
 
@@ -178,8 +169,6 @@ The branch for the 5.4.x series of the OMERO documentation is develop.
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`omero-5.4.tmp`
-		#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero5.4/
 
 	:jenkinsjob:`OMERO-DEV-merge-docs`
 
@@ -190,8 +179,6 @@ The branch for the 5.4.x series of the OMERO documentation is develop.
 		#. Pushes the branch to :omedoc_scc_branch:`develop/merge/daily`
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`omero-5.4-staging.tmp`
-		#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero5.4-staging/
 
 	:jenkinsjob:`OMERO-DEV-latest-docs-autogen`
 
@@ -217,24 +204,20 @@ The branch for the 5.4.x series of the OMERO documentation is develop.
 		#. Pushes the auto-generated changes to
 		   :omedoc_scc_branch:`develop/merge/autogen`
 
-Bio-Formats 5.3.x series
+Bio-Formats 5.x series
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-The branch for the 5.3.x series of the Bio-Formats documentation is develop.
+The branch for the 5.x series of the Bio-Formats documentation is develop.
 
 .. glossary::
 
 	:jenkinsjob:`BIOFORMATS-DEV-latest-docs`
 
 		This job is used to build the develop branch of the Bio-Formats
-		documentation and publish the official documentation for the 5.3.x
-		release of Bio-Formats
+		documentation.
 
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. If the build is promoted,
-			#. |ssh-doc| :file:`bf-5.3-release.tmp`
-			#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats5.3/
 
 	:jenkinsjob:`BIOFORMATS-DEV-merge-docs`
 
@@ -244,8 +227,6 @@ The branch for the 5.3.x series of the Bio-Formats documentation is develop.
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`bf-5.3-staging.tmp`
-		#. |deploy-doc| http://www.openmicroscopy.org/site/support/bio-formats5.3-staging/
 
 	:jenkinsjob:`BIOFORMATS-DEV-latest-docs-autogen`
 
@@ -291,8 +272,6 @@ located in the ome-model repository and is built from the master branch.
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`ome-model-staging.tmp`
-		#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model-staging/
 
 	:jenkinsjob:`CONTRIBUTING-merge-docs`
 
@@ -302,8 +281,6 @@ located in the ome-model repository and is built from the master branch.
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`contributing-staging.tmp`
-		#. |deploy-doc| http://www.openmicroscopy.org/site/support/contributing-staging/
 
 	:jenkinsjob:`MODEL-latest-docs`
 
@@ -320,18 +297,6 @@ located in the ome-model repository and is built from the master branch.
 
 		#. |sphinxbuild|
 		#. |linkcheck|
-		#. |ssh-doc| :file:`contributing-release.tmp`
-		#. |deploy-doc| http://www.openmicroscopy.org/site/support/contributing/
-
-	:jenkinsjob:`MODEL-release-docs`
-
-		This job is used to build the master branch of the OME Model
-		documentation and publish the official documentation
-
-		#. |sphinxbuild| from the tag specified by the :envvar:`RELEASE`
-		   parameter
-		#. |ssh-doc| :file:`ome-model-release.tmp`
-		#. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-model/
 
 OME Help
 ^^^^^^^^
@@ -416,9 +381,7 @@ Both are currently built from the master branches despite the build names.
 	    #. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-files-cpp/
 
 The merge and latest builds for this documentation set are detailed on the
-:doc:`ci-ome-files` page. The staging location for reviewing documentation PRs
-opened against either of these repositories is
-https://www.openmicroscopy.org/site/support/ome-files-cpp-staging/
+:doc:`ci-ome-files` page.
 
 Note that because of the bundle nature of these builds, they does not use the
 standard Sphinx configuration described above nor report broken links parsed
