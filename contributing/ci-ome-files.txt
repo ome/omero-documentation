@@ -139,9 +139,7 @@ Breaking jobs
 ^^^^^^^^^^^^^
 
 Breaking jobs are jobs used to review breaking changes, for instance model
-changes. The branch for the breaking series of OME Files is develop. All
-breaking jobs are listed under the :jenkinsview:`Breaking` view tab of
-Jenkins.
+changes. The branch for the breaking series of OME Files is develop.
 
 .. glossary::
         :jenkinsjob:`OME-FILES-CPP-DEV-breaking-trigger`

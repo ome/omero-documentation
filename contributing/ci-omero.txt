@@ -289,9 +289,7 @@ Breaking jobs
 ^^^^^^^^^^^^^
 
 Breaking jobs are jobs containing breaking, irreversible changes typically
-database upgrade. The branch for the breaking series of OMERO is develop. All
-breaking jobs are listed under the :jenkinsview:`Breaking` view tab of
-Jenkins.
+database upgrade. The branch for the breaking series of OMERO is develop.
 
 .. glossary::
 
