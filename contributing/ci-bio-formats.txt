@@ -163,9 +163,7 @@ Breaking jobs
 ^^^^^^^^^^^^^
 
 Breaking jobs are jobs used to review breaking changes, for instance model
-changes. The branch for the breaking series of Bio-Formats is develop. All
-breaking jobs are listed under the :jenkinsview:`Breaking` view tab of
-Jenkins.
+changes. The branch for the breaking series of Bio-Formats is develop.
 
 .. glossary::
         :jenkinsjob:`BIOFORMATS-DEV-breaking-trigger`

@@ -2,7 +2,7 @@ Consortium jobs
 ---------------
 
 This section lists all CI jobs used for building and deploying the partner
-projects.  All jobs are listed under the :jenkinsview:`Consortium` view tab of
+projects.  All jobs are listed under the :jenkinsview:`Release` view tab of
 Jenkins.
 
 .. list-table::
@@ -16,9 +16,6 @@ Jenkins.
 		*
 		* :term:`MTOOLS-release-downloads`
 
-	-	* OMERO.webtagging
-		*
-		* :term:`WEBTAGGING-release-downloads`
 
 FLIMfit
 ^^^^^^^
@@ -44,18 +41,6 @@ OMERO.mtools
 OMERO.webtagging
 ^^^^^^^^^^^^^^^^
 
-.. glossary::
-
-	:jenkinsjob:`WEBTAGGING-release-downloads`
-
-		This job is used to build the OMERO.webtagging downloads page
-
-		#. Download the :envvar:`RELEASE` artifacts from
-		   https://github.com/MicronOxford/webtagging
-		#. Copy the OMERO.webtagging source zip over SSH to
-		   :file:`/ome/www/download.openmicroscopy.org/webtagging/RELEASE`
-		#. Merge PRs opened against `develop`
-		#. Build the OMERO.webtagging downloads pages using
-		   :command:`make webtagging`
-		#. Copy the OMERO.webtagging downloads page over SSH to
-		   :file:`/ome/www/download.openmicroscopy.org/webtagging/RELEASE`
+The source code for OMERO.webtagging is hosted under
+https://github.com/MicronOxford/webtagging/. Since 3.0.0, the Web app is released under https://pypi.python.org/pypi/omero-webtagging-tagsearch and
+https://pypi.python.org/pypi/omero-webtagging-autotag.
