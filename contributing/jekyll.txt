@@ -1,11 +1,13 @@
 Jekyll hosted websites
 ======================
 
-A number of OME websites are produced using Jekyll, including
+A number of OME websites are produced using `Jekyll <http://jekyllrb.com/>`_,
+including:
 
-- `Blog <http://blog.openmicroscopy.org/>`_
-- `Help <http://help.openmicroscopy.org/>`_
-- `Figure <http://figure.openmicroscopy.org/>`_
+- the `OME website <https://www.openmicroscopy.org/>`_
+- the `OME blog <http://blog.openmicroscopy.org/>`_
+- the `OME Help <http://help.openmicroscopy.org/>`_
+- the `OMERO.figure website <http://figure.openmicroscopy.org/>`_
 
 These sites can be built and tested by installing a local copy of Jekyll.
 The help and Figure sites are also built by CI jobs, see :doc:`ci-docs`.
