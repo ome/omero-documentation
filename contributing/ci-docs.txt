@@ -77,11 +77,20 @@ the help builds.
 	-	* Job task
 		*
 
-	-	* Review Figure website PRs
+	-	* Review PRs opened against the OME Website
+		* :term:`WWW-merge`
+
+	-	* Review PRs opened against the OMERO.figure website
 		* :term:`FIGURE-help-staging`
 
-	-	* Publish Figure website
-		* :term:`FIGURE-help-release`
+	-	* Publish the OMERO.figure website
+		* :term:`FIGURE-help-staging`
+
+	-	* Review PRs opened against the OME help website
+		* :term:`OME-help-staging`
+
+	-	* Publish the OME help website
+		* :term:`OME-help-release`
 
 OME Files comprises OME Files C++ and OME CMake Super-Build Sphinx manuals,
 which are taken from separate repositories but built and hosted as a bundle.
@@ -262,25 +271,32 @@ located in the ome-model repository and is built from the master branch.
 		#. |sphinxbuild|
 		#. |linkcheck|
 
-OME Help
-^^^^^^^^
+Jekyll websites
+^^^^^^^^^^^^^^^
 
-The repository for the OME help is https://github.com/openmicroscopy/ome-help.
+The following set of jobs are used to review or publish the content of the
+:doc:`OME Jekyll websites <jekyll>`.
 
 .. glossary::
+
+	:jenkinsjob:`WWW-merge`
+
+		This job is used to review the PRs opened against the master branch of
+		https://github.com/openmicroscopy/www.openmicroscopy.org
+
+		#. |merge| and push the branch to https://github.com/snoopycrimecop/www.openmicroscopy.org/tree/gh-pages
+		#. The GitHub pages deploys the staging website content under http://snoopycrimecop.github.io/www.openmicroscopy.org/
 
 	:jenkinsjob:`OME-help-staging`
 
 		This job is used to review the PRs opened against the master branch
-		of the OME help documentation
+		of https://github.com/openmicroscopy/ome-help
 
 		#. |merge| (and also incorporates :omehelp_scc_branch:`cname_staging`
 		   to allow	 deployment to a non-GitHub URL) then pushes the resulting
 		   branch to :omehelp_scc_branch:`gh-pages`
 		#. The GitHub Pages service updates the content of
 		   http://help.staging.openmicroscopy.org
-
-		.. seealso:: :doc:`jekyll`
 
 	:jenkinsjob:`OME-help-release`
 
@@ -295,25 +311,16 @@ The repository for the OME help is https://github.com/openmicroscopy/ome-help.
 			#. rysnc the content of :file:`/ome/data_repo/public/help-staging`
 			   to :file:`/ome/data_repo/public/help`
 
-OMERO.figure website
-^^^^^^^^^^^^^^^^^^^^
-
-The repository for OMERO.figure is https://github.com/ome/omero-figure.
-
-.. glossary::
-
 	:jenkinsjob:`FIGURE-help-staging`
 
 		This job is used to review the PRs opened against the gh-pages-staging
-		branch of figure repository
+		branch of https://github.com/ome/omero-figure.
 
 		#. |merge| (and also incorporates :figure_scc_branch:`cname_staging` to
 		   allow  deployment to a non-GitHub URL) then pushes the resulting
 		   branch to :figure_scc_branch:`gh-pages`
 		#. The GitHub Pages service updates the content of
 		   http://figure.staging.openmicroscopy.org
-
-		.. seealso:: :doc:`jekyll`
 
 	:jenkinsjob:`FIGURE-help-release`
 
@@ -324,7 +331,6 @@ The repository for OMERO.figure is https://github.com/ome/omero-figure.
 		   to https://github.com/ome/omero-figure/tree/gh-pages. If
 		   this PR is merged, the GitHub Pages service updates the content of
 		   http://figure.openmicroscopy.org
-
 
 OME Files
 ^^^^^^^^^
