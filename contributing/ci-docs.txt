@@ -8,30 +8,25 @@ tab of Jenkins.
 	:header-rows: 1
 
 	-	* Job task
-		* OMERO 5.2.x series
-		* OMERO 5.4.x series
+		* OMERO 5.x series
 
 	-	* Builds the latest OMERO documentation for publishing
-		* :term:`OMERO-5.2-latest-docs`
 		* :term:`OMERO-DEV-latest-docs`
 
 	-	* Builds the OMERO documentation for review
-		* :term:`OMERO-5.2-merge-docs`
 		* :term:`OMERO-DEV-merge-docs`
 
 	-	* Builds the auto-generated OMERO documentation
-		*
 		* :term:`OMERO-DEV-latest-docs-autogen`
 
 	-	* Builds the auto-generated OMERO documentation for review
-		*
 		* :term:`OMERO-DEV-merge-docs-autogen`
 
 .. list-table::
 	:header-rows: 1
 
 	-	* Job task
-		* Bio-Formats 5.3.x series
+		* Bio-Formats 5.x series
 
 	-	* Builds the latest Bio-Formats documentation for publishing
 		* :term:`BIOFORMATS-DEV-latest-docs`
@@ -123,41 +118,10 @@ are then used:
 - for the Bio-Formats and OMERO sets of documentation, the name of the
   Jenkins job is set by :envvar:`JENKINS_JOB`.
 
-OMERO 5.2.x series
-^^^^^^^^^^^^^^^^^^
+OMERO 5.x series
+^^^^^^^^^^^^^^^^
 
-The branch for the 5.2.x series of the OMERO documentation is dev_5_2.
-
-.. glossary::
-
-	:jenkinsjob:`OMERO-5.2-latest-docs`
-
-		This job is used to build the dev_5_2 branch of the OMERO
-		documentation and publish the official documentation for the 5.2.x
-		release of OMERO
-
-		#. |sphinxbuild|
-		#. |linkcheck|
-		#. If the build is promoted,
-			#. |ssh-doc| :file:`omero-5.2-release.tmp`
-			#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero5.2/
-
-
-	:jenkinsjob:`OMERO-5.2-merge-docs`
-
-		This job is used to review the PRs opened against the dev_5_2 branch
-		of the OMERO documentation
-
-		#. |merge|
-		#. |sphinxbuild|
-		#. |linkcheck|
-		#. |ssh-doc| :file:`omero-5.2-staging.tmp`
-		#. |deploy-doc| http://www.openmicroscopy.org/site/support/omero5.2-staging/
-
-OMERO 5.4.x series
-^^^^^^^^^^^^^^^^^^
-
-The branch for the 5.4.x series of the OMERO documentation is develop.
+The branch for the 5.x series of the OMERO documentation is develop.
 
 .. glossary::
 
@@ -205,7 +169,7 @@ The branch for the 5.4.x series of the OMERO documentation is develop.
 		   :omedoc_scc_branch:`develop/merge/autogen`
 
 Bio-Formats 5.x series
-^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 The branch for the 5.x series of the Bio-Formats documentation is develop.
 
