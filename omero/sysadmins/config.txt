@@ -1180,12 +1180,22 @@ Default: `pixelDataEventLogQueue`
 omero.pixeldata.max_plane_height
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+With :property:`omero.pixeldata.max_plane_width` specifies
+the plane size cutoff above which a pixel pyramid should
+either be read directly from the file format or generated
+by the pixeldata service.
+
 Default: `3192`
 
 .. property:: omero.pixeldata.max_plane_width
 
 omero.pixeldata.max_plane_width
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+With :property:`omero.pixeldata.max_plane_height` specifies
+the plane size cutoff above which a pixel pyramid should
+either be read directly from the file format or generated
+by the pixeldata service.
 
 Default: `3192`
 
