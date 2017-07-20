@@ -80,6 +80,16 @@ After that, the following should succeed:
     Detected cores:    8
     …
 
+.. note::
+
+  If the above test fails with::
+
+    ImportError: No module named mock
+
+  then this is fixed by installing the corresponding Python module::
+
+    pip install mock
+
 Once the required Python libraries are installed, starting OMERO will
 automatically start up the OMERO.tables service; there should be no need
 for further configuration or interaction.
