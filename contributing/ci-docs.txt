@@ -284,7 +284,7 @@ The following set of jobs are used to review or publish the content of the
 		This job is used to review the PRs opened against the master branch of
 		https://github.com/openmicroscopy/www.openmicroscopy.org
 
-		#. |merge| and push the branch to https://github.com/snoopycrimecop/www.openmicroscopy.org/tree/gh-pages
+		#. |merge| and pushes the branch to https://github.com/snoopycrimecop/www.openmicroscopy.org/tree/gh-pages
 		#. The GitHub pages deploys the staging website content under http://snoopycrimecop.github.io/www.openmicroscopy.org/
 
 	:jenkinsjob:`OME-help-staging`
