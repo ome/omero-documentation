@@ -32,7 +32,9 @@ Java servers
 Java server components are configured by passing
 ``-Dlogback.configurationFile=etc/logback.xml`` to each Java process.
 :source:`logback.xml <etc/logback.xml>` includes the ``scan`` attribute so
-that changes to the logging configuration do not require a restart.
+that changes to the logging configuration are `automatically reloaded at
+regular intervals
+<https://logback.qos.ch/manual/configuration.html#autoScan>`_.
 
 By default, the output from logback is sent to:
 ``var/log/<servername>.log``. Once files reach a size of 500MB, they are
