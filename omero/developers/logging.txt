@@ -31,10 +31,8 @@ Java servers
 
 Java server components are configured by passing
 ``-Dlogback.configurationFile=etc/logback.xml`` to each Java process.
-:source:`Entry.java <components/blitz/src/ome/services/blitz/Entry.java>`
-guarantees that the :source:`logback.xml <etc/logback.xml>`
-file is read periodically so that changes to your logging configuration
-do not require a restart.
+:source:`logback.xml <etc/logback.xml>` includes the ``scan`` attribute so
+that changes to the logging configuration do not require a restart.
 
 By default, the output from logback is sent to:
 ``var/log/<servername>.log``. Once files reach a size of 500MB, they are
