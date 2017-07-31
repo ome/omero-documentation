@@ -86,7 +86,9 @@ After that, the following should succeed:
 
     ImportError: No module named mock
 
-  then this is fixed by installing the corresponding Python module::
+  then this is fixed by installing the corresponding Python module. Use
+  your operating system's package installer if possible or if you must
+  instead use PyPI directly::
 
     pip install mock
 
