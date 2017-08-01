@@ -111,7 +111,7 @@ Installing and running OMERO.web
 
 OMERO.web is deployed using Nginx, for more details on how to install
 and run the OMERO.web client
-see :doc:`install-web/walkthrough/omeroweb-install-ubuntu-ice3.6`.
+see :doc:`install-web/walkthrough/omeroweb-install-debian-ice3.6`.
 
 Running OMERO.server
 --------------------
