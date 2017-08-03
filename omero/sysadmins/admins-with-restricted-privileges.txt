@@ -309,9 +309,9 @@ privilege).
 Note that the ownership of data of a user can be trasferred either
 piecemeal, i.e. specifying each Project or Dataset to transfer (using
 ``omero chown`` command of CLI), or all of the data of the user can be
-transferred in one step (this functionality is currently available
-only via the API and will appear in
-OMERO clients in the 5.4.x series of OMERO).
+transferred in one step. The transfer of all the data of the user in one
+step has to be considered an advanced feature and might be possibly
+slow in case of larger complexity of the transferred data.
 
 Quite naturally the Group and Data Organizer can be easily split into two
 separate roles, with the Group Organiser role having
@@ -358,6 +358,8 @@ Client Details:
     $ bin/omero chown 55 ProjectDatasetLink:123
     # Transfer the ownership of Dataset-Image link
     $ bin/omero chown 55 DatasetImageLink:154
+    # Transfer all data of user 5 to user 11 (advanced, might be slow)
+    $ bin/omero chown 11 Experimenter:5
 
 Key
 ^^^
