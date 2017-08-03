@@ -320,10 +320,9 @@ separate roles, with the Group Organiser role having
 the Data Organiser role having :term:`Write Data`, :term:`Delete Data`,
 :term:`Chgrp`, :term:`Chown` privileges. It is of course possible to use any
 combination of these privileges as you see fit.
-It is recommended to always grant all three :term:`Create and Edit Groups`,
-:term:`Create and Edit Users`, :term:`Add Users to Groups` privileges
-to prevent poor experience in the OMERO.web client.
-These OMERO.web issues will be addressed in the 5.4.x series.
+It is recommended to always grant :term:`Create and Edit Users` with
+:term:`Add Users to Groups` so that the new restricted administrator is able
+to deactivate users.
 
 Client Details:
 
