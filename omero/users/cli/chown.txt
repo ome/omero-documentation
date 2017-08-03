@@ -1,0 +1,29 @@
+Giving objects to other users
+-----------------------------
+
+The :program:`chown` command transfers objects to the ownership of a
+different user. Further help is available using the :option:`-h`
+option::
+
+    $ bin/omero chown -h
+
+The :program:`chown` command can give entire graphs of objects based on
+the IDs of the topmost objects. The command can be modified to include
+the transfer of objects that would, by default, be excluded or exclude
+objects that would, by default, be included using the :option:`chown
+--include` and :option:`chown --exclude` options.
+
+It is also possible to give objects lower in the hierarchy by specifying
+the type and ID of a topmost object and the type of the lower object.
+For instance, giving all of the images under a given project.
+
+All the data of a given user can be transferred using the
+:program:`chown` command. This is useful when somebody leaves a lab to
+move on to another project or institution and their previous work is to
+be curated or continued by a colleague.
+
+By default the command confirms the transfer of the target objects but
+it can also provide a detailed report of all the given objects via a
+:option:`chown --report` option. A :option:`chown --dry-run` option can
+be used to report on what objects would be given without actually giving
+them.

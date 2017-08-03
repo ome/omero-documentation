@@ -1,0 +1,53 @@
+Changing the ownership of data
+==============================
+
+As described in :doc:`../server-permissions` every imported plate or
+image is in a particular group and owned by a particular user. OMERO
+administrators must sometimes move data to a different group and/or give
+it to a different user.
+
+.. warning::
+
+  Administrators may move data into a group of which the data owner is
+  not a member. Also, administrators may give data to a user who is not
+  a member of the data's group. These actions may be reasonable steps in
+  a larger workflow but do note the potential to confuse users who find
+  that they own data that is not in any of their groups.
+
+
+Moving data to another group
+----------------------------
+
+Who may move data
+^^^^^^^^^^^^^^^^^
+
+* a full administrator
+* a :doc:`restricted administrator
+  <../admins-with-restricted-privileges>` with `Chgrp` privilege
+* the owner of the data *if* they are a member of the target group
+
+
+How to move data
+^^^^^^^^^^^^^^^^
+
+* :doc:`OMERO.cli </users/cli/chgrp>`
+* :help:`OMERO.web <sharing-data#moving>`
+
+
+Giving data to another user
+---------------------------
+
+Who may give data
+^^^^^^^^^^^^^^^^^
+
+* a full administrator
+* a :doc:`restricted administrator
+  <../admins-with-restricted-privileges>` with `Chown` privilege
+* an owner of the group that the data is in *if* the target user is a
+  member of the group
+
+
+How to give data
+^^^^^^^^^^^^^^^^
+
+* :doc:`OMERO.cli </users/cli/chown>`
