@@ -239,6 +239,6 @@ Useful metrics include:
 .. _Check_MK: https://mathias-kettner.de/check_mk.html
 .. _Metrics: http://metrics.dropwizard.io
 .. _JConsole: http://openjdk.java.net/tools/svc/jconsole/
-.. _JVisualVM: http://visualvm.java.net/
+.. _JVisualVM: https://visualvm.github.io/
 .. _Nagios: http://www.nagios.org/
 .. _Zenoss: http://www.zenoss.com/
