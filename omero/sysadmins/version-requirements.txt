@@ -99,7 +99,7 @@ platforms **with the exception of MacOS X (64-bit only)**.
      - OMERO 5.5
    * - 32-bit
      - |Deprecated| for Ice and native code [client]
-     - |Dropped| for Ice and native code [client]
+     - |Deprecated| for Ice and native code [client]
      - |Dropped| for Ice and native code [client]
    * - 64-bit
      - |Recommended|
@@ -118,10 +118,6 @@ Components
        - OMERO 5.3
        - OMERO 5.4
        - OMERO 5.5
-     * - 9.2
-       - |Dropped|
-       - |Dropped|
-       - |Dropped|
      * - 9.3
        - |Deprecated|
        - |Deprecated|
@@ -165,7 +161,9 @@ Components
          - |Recommended|
          - |Recommended|
          - |Recommended|
+         - |Recommended|
        * - 3.x
+         - |Broken|
          - |Broken|
          - |Broken|
          - |Broken|
@@ -186,10 +184,6 @@ Components
          - OMERO 5.3
          - OMERO 5.4
          - OMERO 5.5
-       * - 3.4
-         - |Dropped|
-         - |Dropped|
-         - |Dropped|
        * - 3.5
          - |Deprecated|
          - |Deprecated|
@@ -249,7 +243,7 @@ Components
          - |Recommended|
          - |Recommended|
          - |Supported|
-      * - 1.12
+       * - 1.12
          - |Upcoming|
          - |Upcoming|
          - |Recommended|
@@ -673,7 +667,7 @@ OMERO support policies
       - |Deprecated|
       - |Deprecated|
       - |Dropped|
-      - :zerocforum:`3.5 <announcements/6093-ice-3-5-0-released>`
+      - :zerocforum:`3.5.0 <announcements/6093-ice-3-5-0-released>`,
         :zerocforum:`3.5.1 <announcements/6283-ice-3-5-1-released>`
     * - 3.6
       - from June 2015
@@ -681,9 +675,9 @@ OMERO support policies
       - |Recommended|
       - |Recommended|
       - |Supported|
-      - :zerocforum:`3.6.0, <announcements/6631-ice-3-6-0-and-ice-touch-3-6-0-released>`
-        (:zerocforum:`3.6.1 <announcements/45941-ice-3-6-0-and-ice-touch-3-6-1-released>` |Broken|)
-        :zerocforum:`3.6.2 <announcements/46347-ice-ice-e-and-ice-touch-3-6-2-released>`
+      - :zerocforum:`3.6.0 <announcements/6631-ice-3-6-0-and-ice-touch-3-6-0-released>`
+        (:zerocforum:`3.6.1 <announcements/45941-ice-3-6-0-and-ice-touch-3-6-1-released>` |Broken|),
+        :zerocforum:`3.6.2 <announcements/46347-ice-ice-e-and-ice-touch-3-6-2-released>`,
         :zerocforum:`3.6.3 <announcements/46475-ice-ice-e-and-ice-touch-3-6-3-released>`
     * - 3.7
       - from July 2017
@@ -691,7 +685,7 @@ OMERO support policies
       - |Unsupported|
       - |Unsupported|
       - |Recommended|
-      - :zerocforum:`3.7.0, <announcements/46530-ice-3-7-0-and-ice-touch-3-7-0-released>`
+      - :zerocforum:`3.7.0 <announcements/46530-ice-3-7-0-and-ice-touch-3-7-0-released>`
 
 Version provided by distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -716,10 +710,10 @@ If no version is provided, a suitable repository is indicated.
       - Yes
       - Yes
     * - 3.7
-      - N/A
-      - N/A
-      - N/A
-      - N/A
+      - 7 (`zeroc <https://zeroc.com/distributions/ice/>`__)
+      - 16.04 (`zeroc <https://zeroc.com/distributions/ice/>`__)
+      - Yes
+      - Yes
     * - Details
       -
       - `Reference <http://packages.ubuntu.com/search?keywords=ice&searchon=names&suite=all&section=all>`__
