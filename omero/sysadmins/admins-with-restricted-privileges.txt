@@ -297,10 +297,10 @@ privilege to create new Projects, Datasets or Screens
 for the new owners of the
 data and to link the data to those containers or to already
 existing containers owned by the new owner. Since OMERO 5.4.0,
-OMERO.web enables Organizers with :term:`Write Data` or full
-administrators to create new Projects, Datasets or Screens
-and for others' where the ownership of these objects is
-decided by the tree context in which the creation takes place.
+OMERO.web enables Organizers with :term:`Write Data` privilege
+to create new containers belonging to other users,
+see the :help:`OMERO.web in Data structure <facility-manager#data>`
+section of our Help documentation.
 Except the links created during
 creation of new Datasets inside others' Projects in OMERO.web,
 any links created by the Organizer will belong to the Organizer,
@@ -336,9 +336,9 @@ Client Details:
 
 - OMERO.web: All the Data Organizing actions are possible, except transfer
   of ownership (possible only in CLI, will be addressed in the 5.4.x
-  series). There is a new possibility for administrator or restricted
-  administrator with :term:`Write Data` to create Projects, Datasets
-  or Screens for other users in OMERO.web since OMERO 5.4.0.
+  series). Creation of Projects, Datasets
+  or Screens for other users in OMERO.web is possible since OMERO 5.4.0,
+  see :help:`Data structure (OMERO.web) <facility-manager#data>`.
   All the Group and User Organizing actions are possible if all
   :term:`Create and Edit Groups`, :term:`Create and Edit Users` and
   :term:`Add Users to Groups` privileges are given. It is also reasonable
