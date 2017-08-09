@@ -47,10 +47,13 @@ Operating systems
      * - Linux version
        - OMERO 5.3
        - OMERO 5.4
+       - OMERO 5.5
      * - 6.x
+       - |Deprecated|
        - |Deprecated|
        - |Dropped|
      * - 7.x
+       - |Recommended|
        - |Recommended|
        - |Recommended|
 
@@ -62,13 +65,17 @@ Operating systems
      * - Linux version
        - OMERO 5.3
        - OMERO 5.4
+       - OMERO 5.5
      * - 12.04
+       - |Dropped|
        - |Dropped|
        - |Dropped|
      * - 14.04
        - |Supported|
        - |Supported|
+       - |Supported|
      * - 16.04
+       - |Recommended|
        - |Recommended|
        - |Recommended|
        
@@ -89,10 +96,13 @@ platforms **with the exception of MacOS X (64-bit only)**.
    * - Bitness
      - OMERO 5.3
      - OMERO 5.4
+     - OMERO 5.5
    * - 32-bit
      - |Deprecated| for Ice and native code [client]
      - |Dropped| for Ice and native code [client]
+     - |Dropped| for Ice and native code [client]
    * - 64-bit
+     - |Recommended|
      - |Recommended|
      - |Recommended|
 
@@ -107,19 +117,25 @@ Components
      * - PostgreSQL
        - OMERO 5.3
        - OMERO 5.4
+       - OMERO 5.5
      * - 9.2
        - |Dropped|
        - |Dropped|
+       - |Dropped|
      * - 9.3
+       - |Deprecated|
        - |Deprecated|
        - |Dropped|
      * - 9.4
        - |Supported|
        - |Deprecated|
+       - |Deprecated|
      * - 9.5
        - |Supported|
        - |Supported|
+       - |Supported|
      * - 9.6
+       - |Recommended|
        - |Recommended|
        - |Recommended|
 
@@ -135,8 +151,12 @@ Components
        * - Python
          - OMERO.web 5.3
          - OMERO.server 5.3
-         - OMERO 5.4
+         - OMERO.web 5.4
+         - OMERO.server 5.4
+         - OMERO 5.5
        * - 2.6
+         - |Broken|
+         - |Supported|
          - |Broken|
          - |Supported|
          - |Dropped|
@@ -144,7 +164,9 @@ Components
          - |Recommended|
          - |Recommended|
          - |Recommended|
+         - |Recommended|
        * - 3.x
+         - |Broken|
          - |Broken|
          - |Broken|
          - |Broken|
@@ -163,18 +185,23 @@ Components
        * - Ice
          - OMERO 5.3
          - OMERO 5.4
+         - OMERO 5.5
        * - 3.4
+         - |Dropped|
          - |Dropped|
          - |Dropped|
        * - 3.5
          - |Deprecated|
+         - |Deprecated|
          - |Dropped|
        * - 3.6
+         - |Recommended|
          - |Recommended|
          - |Supported|
        * - 3.7
          - |Upcoming|
          - |Upcoming|
+         - |Supported|
 
 * Java
 
@@ -184,17 +211,21 @@ Components
        * - Java
          - OMERO 5.3
          - OMERO 5.4
+         - OMERO 5.5
        * - 7
+         - |Deprecated|
          - |Deprecated|
          - |Deprecated|
        * - 8
          - |Recommended|
+         - |Recommended|
          - |Supported|
        * - 9
          - |Upcoming|
+         - |Upcoming|
          - |Recommended|
 
-  * Rationale: For 5.3 deprecate 7; this is because security support ended in April 2015.
+  * Rationale: For 5.3 and 5.4 deprecate 7; this is because security support ended in April 2015.
     Currently, Matlab is shipped with Java 7 so it cannot be marked as dropped yet.
 
 * nginx
@@ -205,17 +236,22 @@ Components
        * - nginx
          - OMERO 5.3
          - OMERO 5.4
-       * - 1.4
-         - |Dropped|
-         - |Dropped|
+         - OMERO 5.5
        * - 1.6
          - |Supported|
          - |Supported|
+         - |Deprecated|
        * - 1.8
          - |Supported|
          - |Supported|
+         - |Deprecated|
        * - 1.10
          - |Recommended|
+         - |Recommended|
+         - |Supported|
+      * - 1.12
+         - |Upcoming|
+         - |Upcoming|
          - |Recommended|
 
 .. _support-levels:
@@ -287,17 +323,20 @@ General overview for `RHEL
       - OMERO 5.2
       - OMERO 5.3
       - OMERO 5.4
+      - OMERO 5.5
       - Details
     * - 6
       - from Nov 2010
       - to Nov 2020
       - |Supported|
       - |Deprecated|
+      - |Deprecated|
       - |Dropped|
       - `Reference <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
     * - 7
       - from June 2014
       - to June 2024
+      - |Recommended|
       - |Recommended|
       - |Recommended|
       - |Recommended|
@@ -323,15 +362,18 @@ Linux (Ubuntu)
       - OMERO 5.2
       - OMERO 5.3
       - OMERO 5.4
+      - OMERO 5.5
     * - 14.04 LTS
       - from Apr 2014
       - to Apr 2019
       - |Recommended|
       - |Supported|
       - |Supported|
+      - |Supported|
     * - 16.04 LTS
       - from Apr 2016
       - to Apr 2021
+      - |Recommended|
       - |Recommended|
       - |Recommended|
       - |Recommended|
@@ -389,9 +431,9 @@ OMERO support policies
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.2
       - OMERO 5.3
       - OMERO 5.4
+      - OMERO 5.5
     * - 9.3
       - from Sep 2013
       - to Sep 2018
@@ -407,13 +449,13 @@ OMERO support policies
     * - 9.5
       - from Jan 2016
       - to Jan 2021
-      - |Unsupported|
+      - |Supported|
       - |Supported|
       - |Supported|
     * - 9.6
       - from Sep 2016
       - to Sep 2021
-      - |Unsupported|
+      - |Recommended|
       - |Recommended|
       - |Recommended|
     * - Details
@@ -480,14 +522,15 @@ OMERO support policies
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.2
       - OMERO 5.3
       - OMERO 5.4
+      - OMERO 5.5
       - Details
     * - 2.6
       - from Oct 2008
       - to Oct 2013
-      - |Deprecated|
+      - |Dropped| [1]_ 
+        |Supported| [2]_ 
       - |Dropped| [1]_ 
         |Supported| [2]_ 
       - |Dropped|
@@ -620,14 +663,14 @@ OMERO support policies
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.2
       - OMERO 5.3
       - OMERO 5.4
+      - OMERO 5.5
       - Details
     * - 3.5
       - from Mar 2013
       - to Oct 2013
-      - |Recommended|
+      - |Deprecated|
       - |Deprecated|
       - |Dropped|
       - :zerocforum:`3.5 <announcements/6093-ice-3-5-0-released>`
@@ -635,7 +678,7 @@ OMERO support policies
     * - 3.6
       - from June 2015
       - to TBA
-      - |Supported|
+      - |Recommended|
       - |Recommended|
       - |Supported|
       - :zerocforum:`3.6.0, <announcements/6631-ice-3-6-0-and-ice-touch-3-6-0-released>`
@@ -643,12 +686,12 @@ OMERO support policies
         :zerocforum:`3.6.2 <announcements/46347-ice-ice-e-and-ice-touch-3-6-2-released>`
         :zerocforum:`3.6.3 <announcements/46475-ice-ice-e-and-ice-touch-3-6-3-released>`
     * - 3.7
-      - from TBA
+      - from July 2017
       - to TBA
       - |Unsupported|
-      - |Upcoming|
+      - |Unsupported|
       - |Recommended|
-      -
+      - :zerocforum:`3.7.0, <announcements/46530-ice-3-7-0-and-ice-touch-3-7-0-released>`
 
 Version provided by distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -697,9 +740,9 @@ OMERO support policies
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.2
       - OMERO 5.3
       - OMERO 5.4
+      - OMERO 5.5
       - Details
     * - 7
       - from Jul 2011
@@ -719,7 +762,7 @@ OMERO support policies
       - TBA
       - TBA
       - |Unsupported|
-      - |Upcoming|
+      - |Unsupported|
       - |Recommended|
       - 
 
@@ -774,33 +817,33 @@ OMERO support policies
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.2
       - OMERO 5.3
       - OMERO 5.4
-    * - 1.4
-      - from Apr 2013
-      - to Mar 2014
-      - |Deprecated|
-      - |Dropped|
-      - |Dropped|
+      - OMERO 5.5
     * - 1.6
       - from Apr 2014
       - to Apr 2015
-      - |Supported|
       - |Deprecated|
+      - |Dropped|
       - |Dropped|
     * - 1.8
       - from Apr 2015
       - to Jan 2016
-      - |Supported|
       - |Deprecated|
+      - |Dropped|
       - |Dropped|
     * - 1.10
       - from April 2016
       - TBA
       - |Recommended|
-      - |Recommended|
       - |Supported|
+      - |Supported|
+    * - 1.12
+      - from April 2016
+      - TBA
+      - |Supported|
+      - |Supported|
+      - |Recommended|
 
 Version provided by distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -825,6 +868,11 @@ If no version is provided, a suitable repository is indicated.
       - N/A
       - N/A
     * - 1.10
+      - 6 (`EPEL <https://dl.fedoraproject.org/pub/epel/6/x86_64/>`__), 7 (`EPEL <https://dl.fedoraproject.org/pub/epel/7/x86_64/n/>`__)
+      - 14.04 (`nginx <https://launchpad.net/~nginx/+archive/ubuntu/stable>`__), 16.04
+      - Yes
+      - Yes
+    * - 1.12
       - 6 (`EPEL <https://dl.fedoraproject.org/pub/epel/6/x86_64/>`__), 7 (`EPEL <https://dl.fedoraproject.org/pub/epel/7/x86_64/n/>`__)
       - 14.04 (`nginx <https://launchpad.net/~nginx/+archive/ubuntu/stable>`__), 16.04
       - Yes
