@@ -13,7 +13,8 @@ need.
     config
     admin
     usergroup
-    LightAdmins
+    data-ownership
+    light-admins
     fs
 
 .. seealso::
