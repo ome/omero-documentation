@@ -23,7 +23,7 @@ Additional parameters such as the email address, institution, middle name etc
 can be passed as optional arguments to the :omerocmd:`user add` command.
 
 For managing the permissions of restricted administrators
-:doc:`OMERO.cli does provide means <LightAdmins>` but that functionality
+:doc:`OMERO.cli does provide means <light-admins>` but that functionality
 is not yet offered in a friendly manner by the :omerocmd:`user` command.
 The :help:`OMERO.web Admin interface <facility-manager#lightadmin>` is
 recommended for this task instead.
