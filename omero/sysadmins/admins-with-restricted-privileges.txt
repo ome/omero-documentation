@@ -293,10 +293,18 @@ the new data owner to the data group.
 
 During all data manipulation steps, the Organizer needs
 the :term:`Write Data`
-privilege to create new Projects or Datasets for the new owners of the
+privilege to create new Projects, Datasets or Screens
+for the new owners of the
 data and to link the data to those containers or to already
-existing containers owned by the new owner. Note that any links created by
-the Organizer will belong to the Organizer, not the owner of the data. This
+existing containers owned by the new owner. Since OMERO 5.4.0,
+OMERO.web enables Organizers with :term:`Write Data` or full
+administrators to create new Projects, Datasets or Screens
+and for others' where the ownership of these objects is
+decided by the tree context in which the creation takes place.
+Except the links created during
+creation of new Datasets inside others' Projects in OMERO.web,
+any links created by the Organizer will belong to the Organizer,
+not the owner of the data. This
 will be addressed in OMERO.web in the 5.4.x series. The ownership transfer
 of the containers and links can be done later on the CLI. Linking of
 others' data is never possible in Private groups.
@@ -328,9 +336,16 @@ Client Details:
 
 - OMERO.web: All the Data Organizing actions are possible, except transfer
   of ownership (possible only in CLI, will be addressed in the 5.4.x
-  series). All the Group Organizing actions possible if all
+  series). There is a new possibility for administrator or restricted
+  administrator with :term:`Write Data` to create Projects, Datasets
+  or Screens for other users in OMERO.web since OMERO 5.4.0.
+  All the Group and User Organizing actions are possible if all
   :term:`Create and Edit Groups`, :term:`Create and Edit Users` and
-  :term:`Add Users to Groups` privileges are given.
+  :term:`Add Users to Groups` privileges are given. It is also reasonable
+  to give :term:`Create and Edit Users` and :term:`Add Users to Groups`
+  or :term:`Create and Edit Groups` and :term:`Add Users to Groups`. These
+  combinations give the restricted adiminstrator good user interface
+  experience in OMERO.web.
 
 - CLI: See examples below for CLI features
   useful for Group and Data Organizing::
