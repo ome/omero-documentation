@@ -1,4 +1,4 @@
-Giving objects to other users
+Changing ownership of objects
 -----------------------------
 
 The :program:`chown` command transfers objects to the ownership of a
@@ -96,8 +96,8 @@ necessary to specify intermediate objects in the hierarchy and so::
 
 would have the same effect as the call above.
 
-Transferring lower level objects
-================================
+Transferring all objects belonging to specified users
+=====================================================
 
 Note that this feature is advanced and might be potentially slow.
 To transfer ownership of all objects belonging to a user or group of users
@@ -112,7 +112,7 @@ would be transferred to user 10.
 Including and excluding objects
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. program:: chown
+.. program:: omero chown
 
 .. option:: --include
 
