@@ -1,5 +1,5 @@
 OMERO.web walkthrough installation Mac OS X and IcePy 3.6
-=============================================================
+=========================================================
 
 
 For convenience in this walkthrough the main OMERO.web configuration options have been defined as environment variables. When following this walkthrough you can either use your own values, or alternatively source the following file::
