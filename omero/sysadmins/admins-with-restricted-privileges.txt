@@ -29,6 +29,8 @@ that they still bear useful functionality even when used in
 isolation. For example checking the :term:`Chown` checkbox will
 give the new administrator with restricted
 privileges the power to transfer ownership of other users' data.
+For exact server-side definitions of the privileges displayed
+in OMERO.web interface see :doc:`/sysadmins/mapping-restricted-admins`.
 
 Four suggested workflows
 ------------------------
