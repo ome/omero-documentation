@@ -24,9 +24,9 @@ be curated or continued by a colleague. This feature has to be
 considered as advanced and might be potentially slow.
 
 By default the command confirms the transfer of the target objects but
-it can also provide a detailed report of all the given objects via a
+it can also provide a detailed report of all the transferred objects via a
 :option:`chown --report` option. A :option:`chown --dry-run` option can
-be used to report on what objects would be given without actually
+be used to report on which objects' ownership would change without actually
 transfering them.
 
 Examples
@@ -151,8 +151,8 @@ Further options
     Move the objects in the order specified.
 
     Normally all of the specified objects are grouped into a single transfer
-    command. However, each object can be moved separately and in the order
-    given. Thus::
+    command. However, each object can be transferred separately
+    and in the order given. Thus::
 
         $ bin/omero chown 5 Dataset:53 Project:51 Dataset:54 --ordered
 
