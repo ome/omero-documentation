@@ -17,7 +17,7 @@ apt-get -y install -t jessie-backports openjdk-8-jre-headless ca-certificates-ja
 # install dependencies
 
 apt-get -y install \
-	python-{pip,pillow,numpy,scipy,tables,virtualenv,yaml,jinja2}
+	python-{pip,pillow,numpy,tables,virtualenv,yaml,jinja2}
 
 pip install --upgrade pip
 # install Ice
