@@ -16,7 +16,7 @@ Who may move data
 
 * a full administrator
 * a :doc:`restricted administrator
-  <../admins-with-restricted-privileges>` with `Chgrp` privilege
+  </sysadmins/admins-with-restricted-privileges>` with `Chgrp` privilege
 * the owner of the data *if* they are a member of the target group
 
 
