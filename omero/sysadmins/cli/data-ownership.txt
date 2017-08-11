@@ -3,8 +3,8 @@ Data management - ownership and move between groups
 
 As described in :doc:`../server-permissions` every imported plate or
 image is in a particular group and owned by a particular user. OMERO
-administrators must sometimes move data to a different group and/or give
-it to a different user.
+administrators must sometimes move data to a different group and/or
+change the ownership of the data.
 
 .. warning::
 
