@@ -10,6 +10,20 @@ Changing ownership of objects
   data owner is a member, so that they can view their
   data in the OMERO clients.
 
+
+Who may change ownership of data
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* a full administrator
+* a :doc:`restricted administrator
+  <../admins-with-restricted-privileges>` with `Chown` privilege
+* an owner of the group that the data is in *if* the target user is a
+  member of the group
+
+
+How to change ownership of data
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 The :program:`chown` command transfers objects to the ownership of a
 different user. Further help is available using the :option:`-h`
 option::
