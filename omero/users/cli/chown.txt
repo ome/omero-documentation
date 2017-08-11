@@ -1,6 +1,15 @@
 Changing ownership of objects
 -----------------------------
 
+.. warning::
+
+  Data does not need to be assigned to a group where the data owner is
+  a member, and administrators may wish to change the ownership of data
+  or move it between groups in several steps of a larger workflow. However,
+  it is generally expected that data should end up in a group where the
+  data owner is a member, so that they can view their
+  data in the OMERO clients.
+
 The :program:`chown` command transfers objects to the ownership of a
 different user. Further help is available using the :option:`-h`
 option::
