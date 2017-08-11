@@ -10,6 +10,25 @@ Moving objects between groups
   data owner is a member, so that they can view their
   data in the OMERO clients.
 
+
+Moving data to another group
+----------------------------
+
+Who may move data
+^^^^^^^^^^^^^^^^^
+
+* a full administrator
+* a :doc:`restricted administrator
+  <../admins-with-restricted-privileges>` with `Chgrp` privilege
+* the owner of the data *if* they are a member of the target group
+
+
+How to move data
+^^^^^^^^^^^^^^^^
+
+* CLI: See below
+* :help:`OMERO.web <sharing-data#moving>`
+
 The :omerocmd:`chgrp` command moves objects between groups. Further help is
 available using the :option:`-h` option::
 
