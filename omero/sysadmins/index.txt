@@ -18,6 +18,7 @@ Server Background
     limitations
     server-permissions
     admins-with-restricted-privileges
+    mapping-restricted-admins
 
 *******************
 Server Installation

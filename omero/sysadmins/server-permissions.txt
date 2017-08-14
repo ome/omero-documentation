@@ -44,6 +44,9 @@ lab. The group's owners or server administrator can also choose the
 permission level for that group. See the :help:`Help guide for managing groups
 <sharing-data.html#owner>` for more information about how to administrate them
 in OMERO.
+Version 5.4.0 introduces the ability to create 'Restricted Administrators'
+with a selected subset of permissions,
+see :doc:`/sysadmins/admins-with-restricted-privileges` for further information.
 
 Group permission levels
 -----------------------
