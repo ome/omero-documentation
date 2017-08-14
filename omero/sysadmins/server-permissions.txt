@@ -7,8 +7,8 @@ Groups and permissions system
 Summary
 -------
 
-A user may belong to one or more groups, and the data in a group may
-now **at most** be shared with users in the same group on the same
+A user may belong to one or more groups, and the data in a group
+may **at most** be shared with users in the same group on the same
 OMERO server. The degree to which their data is available to other
 members of the group depends on the permissions settings for that
 group. Whenever a user logs on to an OMERO server, they are connected
