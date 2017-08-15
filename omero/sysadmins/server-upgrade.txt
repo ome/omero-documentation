@@ -3,9 +3,9 @@ OMERO.server upgrade
 
 The OME team is committed to providing frequent, project-wide upgrades both
 with bug fixes and new functionality. We try to make the schedule for these
-releases as public as possible. You may want to take a look at the roadmap_
-for exactly what will go into a release. We always inform our
-:community_plone:`mailing lists <>` of the development status.
+releases as public as possible. You may want to take a look at the `Trello
+boards <https://trello.com/b/4EXb35xQ/getting-started>`_ for exactly what will
+go into a release.
 
 See the full details of OMERO |release| features in the
 :forum:`Announcements <viewforum.php?f=11>` forum.
@@ -31,7 +31,7 @@ to enable successful upgrading of the database, otherwise the upgrade
 script aborts with a message saying that your database server version is
 less than the OMERO prerequisite. If you are upgrading from a version
 earlier than OMERO 5.0 then first review the `5.0 upgrade notes
-<http://www.openmicroscopy.org/site/support/omero5.0/sysadmins/server-upgrade.html>`_
+<http://openmicroscopy.org/site/support/omero5.0/sysadmins/server-upgrade.html>`_
 regarding previous changes in OMERO.
 
 File limits
@@ -146,7 +146,7 @@ Troubleshooting
 
 If you encounter errors during an OMERO upgrade, database upgrade, etc., you
 should retain as much log information as possible and notify the OMERO.server
-team via the mailing lists available on the :community_plone:`community <>`
+team via the mailing lists available on the :community:`support <>`
 page.
 
 Upgrade check

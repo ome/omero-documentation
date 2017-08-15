@@ -27,7 +27,7 @@ tool.
 
 Our partners within the OME consortium are also producing new clients and
 modules for OMERO, integrating additional functionality, particularly for more
-complex image analysis. See the :partner_plone:`Partner Projects <>` page for
+complex image analysis. See the :omero:`features pages <analyze>` for
 more details.
 
 Features

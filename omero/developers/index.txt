@@ -34,7 +34,7 @@ read about how OMERO has developed since the project started in the
 .. _GNU General Public License (GPL): http://www.gnu.org/copyleft/gpl.html
 
 For help with any aspect of OMERO, see details of our
-:community_plone:`forums and mailing lists <>`.
+:community:`forums and mailing lists <>`.
 
 *********************
 Introduction to OMERO

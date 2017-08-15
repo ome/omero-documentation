@@ -50,10 +50,10 @@ OMERO clients
 Additional resources
 ********************
 
--   :omero_plone:`About OMERO <>` introduces OMERO for new users, while
-    the :omero_plone:`Features List <feature-list>` provides an overview
-    of the platform features with those that are new for OMERO 5.3
-    highlighted.
+-   :omero:`OMERO for scientists <scientists>` introduces OMERO for new users,
+    while the :omero:`feature pages <new>` provide an overview of the platform
+    features by type, including community developed apps and integrations
+    which could help OMERO meet your research needs more fully.
 
 -   You can try out OMERO without committing to installing your own server by
     applying for an account on our :help:`demo server <demo-server>`.
@@ -68,20 +68,9 @@ Additional resources
     countries, :doc:`connecting to the community <community-resources>` can
     provide you with a wealth of experience to draw on for help and advice.
 
--   Our partners within the OME consortium are working on
-    integrating additional functions and modules with OMERO. See the
-    :partner_plone:`Partner Projects <>` page for details of the latest
-    extensions which could help OMERO meet your research needs more fully.
-
 -   Our popular OMERO.web app, OMERO.figure, has its own mini website at
     `figure.openmicroscopy.org <http://figure.openmicroscopy.org>`_ where you
     can find demo movies and a full release history.
-
--   You can also extend the functionality of OMERO using
-    OMERO.scripts, our version of plugins. Guides to some of the scripts which
-    ship with OMERO releases are already provided, but you can also check out
-    our :community_plone:`Script Sharing <scripts>` page to find extra ones.
-
 
 .. toctree::
     :maxdepth: 1

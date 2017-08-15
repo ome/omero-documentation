@@ -50,7 +50,7 @@ the following more specific requirements:
     and restarting the server will allow DropBox to be started on an untested 
     version of Windows. If you do successfully run DropBox on an as yet untested
     version of Windows please do let us know via the 
-    :community_plone:`forums and mailing lists <>`.
+    :community:`forums and mailing lists <>`.
 
 Using DropBox
 -------------
