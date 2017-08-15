@@ -89,7 +89,7 @@ The "include" label will be removed until this is completed. The PR will be
 merged once all the builds are green with the "include" label added.
 
 If the code you wish to submit is large enough to require its own submodule,
-you should :community_plone:`contact us <>` to discuss how we might
+you should :community:`contact us <>` to discuss how we might
 incorporate your work into the official distribution.
 
 Examples of contribution templates

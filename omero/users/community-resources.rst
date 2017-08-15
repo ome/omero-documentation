@@ -12,8 +12,8 @@ Web
 ---
 
 The Open Microscopy Environment website is at 
-`<http://www.openmicroscopy.org/site>`_. Bio-Formats can be found at 
-`<http://www.openmicroscopy.org/site/products/bio-formats>`_.
+`<http://www.openmicroscopy.org>`_. Bio-Formats can be found at 
+`<http://www.openmicroscopy.org/bio-formats>`_.
 
 .. _community/resources/mailinglists:
 

@@ -23,21 +23,18 @@ Developers can find more specific and technical information about OMERO in the
 Additional online resources can be found at:
 
 - :downloads:`Downloads <>`
-- :omero_plone:`Features <feature-list>`
-- :omero_plone:`Security vulnerabilities <secvuln>`
+- :secvuln:`Security vulnerabilities <>`
 - OMERO API documentation - :javadoc:`OmeroJava API <>`,
   :pythondoc:`OmeroPy API <>`,
   :javadoc:`OmeroBlitz / Slice API <slice2html/>`
 - :help:`User help website <>`
 - `OME YouTube channel <https://www.youtube.com/channel/UCyySB9ZzNi8aBGYqcxSrauQ>`_
   for tutorials and presentations
-- :community_plone:`Script sharing service <scripts>`
-- :partner_plone:`Partner projects to extend OMERO <>`
 - `Demo server <http://qa.openmicroscopy.org.uk/registry/demo_account/>`_ -
   now managed by the main OME team, providing the latest released version of
   OMERO for you to try out (barring a short lag time for upgrading).
 
-OMERO |release| uses the :schema_plone:`June 2016 schema
+OMERO |release| uses the :schema:`June 2016 schema
 <Documentation/Generated/OME-2016-06/ome.html>` of the :model_doc:`OME Data
 Model <>`. The :doc:`users/history` page details the development of OMERO
 functionality over time.

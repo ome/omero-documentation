@@ -135,6 +135,7 @@ oo_site_root = oo_root + '/site'
 lists_root = 'http://lists.openmicroscopy.org.uk'
 downloads_root = 'http://downloads.openmicroscopy.org'
 help_root = 'http://help.openmicroscopy.org'
+docs_root = 'http://docs.openmicroscopy.org'
 
 extlinks = {
     # Trac links
@@ -150,22 +151,15 @@ extlinks = {
     'ome-users' : (lists_root + '/pipermail/ome-users/%s' ,''),
     'ome-devel' : (lists_root + '/pipermail/ome-devel/%s' ,''),
     'forum' : (oo_root + '/community/%s', ''),
-    # Plone links. Separating them out so that we can add prefixes and
-    # suffixes during testing.
-    'community_plone' : (oo_site_root + '/community/%s', ''),
-    'legacy_plone' : (oo_site_root + '/support/previous/%s', ''),
-    'about_plone' : (oo_site_root + '/about/%s', ''),
-    'team_plone' : (oo_site_root + '/team/%s', ''),
-    'schema_plone' : (oo_root + '/Schemas/%s', ''),
-    'omero_plone' : (oo_site_root + '/products/omero/%s', ''),
-    'secvuln' : (oo_root + '/info/vulnerabilities/%s', ''),
-    'bf_plone' : (oo_site_root + '/products/bio-formats/%s', ''),
-    'partner_plone' : (oo_site_root + '/products/partner/%s', ''),
-    'cpp_plone' : (oo_site_root + '/products/ome-files-cpp/%s', ''),
+    # Website links
+    'community' : (oo_root + '/support/%s', ''),
+    'omero' : (oo_root + '/omero/%s', ''),
+    'bf' : (oo_root + '/bio-formats/%s', ''),
     # One branch only doc links. Branched docs links in conf.py files for
     # individual doc sets
-    'model_doc' : (oo_site_root + '/support/ome-model/%s', ''),
-    'devs_doc' : (oo_site_root + '/support/contributing/%s', ''),
+    'model_doc' : (docs_root + '/ome-model/%s', ''),
+    'devs_doc' : (docs_root + '/contributing/%s', ''),
+    'schema' : (oo_root + '/Schemas/%s', ''),
     # Help links
     'help' : (help_root + '/%s', ''),
     # Miscellaneous links
@@ -175,7 +169,13 @@ extlinks = {
     'zerocdoc' : ('https://doc.zeroc.com/%s', ''),
     'djangodoc' : ('https://docs.djangoproject.com/en/1.8/%s', ''),
     'doi' : ('http://dx.doi.org/%s', ''),
-    'pypi': ('https://pypi.python.org/pypi/%s', '')
+    'pypi': ('https://pypi.python.org/pypi/%s', ''),
+    # Remaining Plone links
+    'community_plone' : (oo_site_root + '/community/%s', ''),
+    'legacy_plone' : (oo_site_root + '/support/previous/%s', ''),
+    'about_plone' : (oo_site_root + '/about/%s', ''),
+    'team_plone' : (oo_site_root + '/team/%s', ''),
+    'secvuln' : (oo_root + '/info/vulnerabilities/%s', '')
     }
 
 rst_epilog = """
@@ -185,7 +185,7 @@ rst_epilog = """
 .. _Jenkins: http://jenkins-ci.org
 .. _roadmap: https://trac.openmicroscopy.org/ome/roadmap
 .. _OME artifactory: http://artifacts.openmicroscopy.org
-.. _Open Microscopy Environment: http://www.openmicroscopy.org/site
+.. _Open Microscopy Environment: http://www.openmicroscopy.org
 .. _Glencoe Software, Inc.: http://www.glencoesoftware.com/
 .. _Pillow: http://pillow.readthedocs.org
 .. _Matplotlib: http://matplotlib.org/

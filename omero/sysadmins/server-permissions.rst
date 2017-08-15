@@ -181,8 +181,7 @@ guide to permissions available on other people's data.
 
 Some of these policies may evolve as the permissions functionality
 matures in response to user feedback. Please let us know any comments or
-suggestions you have via our :community_plone:`mailing lists <mailing-lists>`
-or through the :forum:`forums <>`.
+suggestions you have via our :community:`mailing lists or forums <>`.
 
 Permissions tables
 ------------------
