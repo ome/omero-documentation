@@ -68,7 +68,7 @@ import org.apache.http.protocol.BasicHttpContext;
  * --omero.pass=[PASSWORD]
  * 
  * This example client needs additional dependencies: 
- *   Java API for JSON Processing (https://jsonp.java.net):
+ *   Java API for JSON Processing (https://javaee.github.io/jsonp/):
  *     <dependency org="org.glassfish" name="javax.json" rev="1.0.4"/>
  *   Apache HTTPComponents (https://hc.apache.org/index.html):
  *     <dependency org="org.apache.httpcomponents" name="httpcore" rev="4.4.6">
