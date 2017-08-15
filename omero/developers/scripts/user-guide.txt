@@ -374,7 +374,6 @@ the inputs.
     institutions:
     description:  Edits the descriptions of multiple Images,
     either specified via Image IDs or by the Dataset IDs.
-    See http://www.openmicroscopy.org/site/support/omero4/developers/scripts/user-guide.html for the tutorial that uses this script.
     namespaces:
     stdout:  text/plain
     stderr:  text/plain
