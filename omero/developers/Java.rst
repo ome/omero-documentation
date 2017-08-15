@@ -19,7 +19,7 @@ The required :file:`.jar` files can be obtained in a number of ways:
   `Maven repository
   <http://artifacts.openmicroscopy.org/artifactory/maven/>`_.
 * using the :file:`OMERO.java` ZIP file downloaded from the
-  :downloads:`Java <#java>` section of the OMERO download page.
+  :downloads:`Java <>` section of the OMERO download page.
   The :file:`libs` directory can then be used on the Java classpath (or
   attached to a project in Eclipse).
 * following the example in
