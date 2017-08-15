@@ -46,10 +46,9 @@ else:
     release = 'UNKNOWN'
 
 rst_prolog = """
-.. note:: **This documentation is for the new OMERO 5.4 version.** See the `latest OMERO 5.3.x
-    version <http://www.openmicroscopy.org/site/support/omero5.3/>`_ or the
-    :legacy_plone:`previous versions <>` page to find documentation for the
-    OMERO version you are using if you have not upgraded yet.
+.. note:: **This documentation is for the new OMERO 5.4 version.** See the
+    `documentation index <http://docs.openmicroscopy.org/omero/>`_ to find
+    previous versions you are using if you have not upgraded yet.
 """
 
 rst_epilog += """

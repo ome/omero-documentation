@@ -850,7 +850,7 @@ Screens, Plates and Wells
 -------------------------
 
 For more information on the Screen, Plate, Well data model, please see the
-`documentation page <https://www.openmicroscopy.org/site/support/ome-model/developers/screen-plate-well.html>`_.
+:model_doc:`documentation page <developers/screen-plate-well.html>`.
 
 List Screens
 ^^^^^^^^^^^^
