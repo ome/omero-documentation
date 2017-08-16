@@ -12,10 +12,10 @@ WORKSPACE=${WORKSPACE:-$(pwd)}
 USER=${USER:-$(whoami)}
 
 echo "Copying history"
-cp $WORKSPACE/OMERO.server/history.txt omero/users/
+cp $WORKSPACE/OMERO.server/history.txt omero/users/history.rst
 
 echo "Generating configuration properties page"
-$WORKSPACE/OMERO.server/bin/omero config parse --rst | sed "s|$WORKSPACE|/home/omero|" > omero/sysadmins/config.txt
+$WORKSPACE/OMERO.server/bin/omero config parse --rst | sed "s|$WORKSPACE|/home/omero|" > omero/sysadmins/config.rst
 
 echo "Generating ldap setdn usage page"
 mkdir -p omero/downloads/ldap

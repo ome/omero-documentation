@@ -7,8 +7,8 @@ Groups and permissions system
 Summary
 -------
 
-A user may belong to one or more groups, and the data in a group may
-now **at most** be shared with users in the same group on the same
+A user may belong to one or more groups, and the data in a group
+may **at most** be shared with users in the same group on the same
 OMERO server. The degree to which their data is available to other
 members of the group depends on the permissions settings for that
 group. Whenever a user logs on to an OMERO server, they are connected
@@ -44,6 +44,9 @@ lab. The group's owners or server administrator can also choose the
 permission level for that group. See the :help:`Help guide for managing groups
 <sharing-data.html#owner>` for more information about how to administrate them
 in OMERO.
+Version 5.4.0 introduces the ability to create 'Restricted Administrators'
+with a selected subset of permissions,
+see :doc:`/sysadmins/admins-with-restricted-privileges` for further information.
 
 Group permission levels
 -----------------------

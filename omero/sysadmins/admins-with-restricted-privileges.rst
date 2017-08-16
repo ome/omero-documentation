@@ -29,6 +29,8 @@ that they still bear useful functionality even when used in
 isolation. For example checking the :term:`Chown` checkbox will
 give the new administrator with restricted
 privileges the power to transfer ownership of other users' data.
+For exact server-side definitions of the privileges displayed
+in OMERO.web interface see :doc:`/sysadmins/mapping-restricted-admins`.
 
 Four suggested workflows
 ------------------------
@@ -293,10 +295,18 @@ the new data owner to the data group.
 
 During all data manipulation steps, the Organizer needs
 the :term:`Write Data`
-privilege to create new Projects or Datasets for the new owners of the
+privilege to create new Projects, Datasets or Screens
+for the new owners of the
 data and to link the data to those containers or to already
-existing containers owned by the new owner. Note that any links created by
-the Organizer will belong to the Organizer, not the owner of the data. This
+existing containers owned by the new owner. Since OMERO 5.4.0,
+OMERO.web enables Organizers with :term:`Write Data` privilege
+to create new containers belonging to other users,
+see the :help:`OMERO.web in Data structure <facility-manager#data>`
+section of our Help documentation.
+Except the links created during
+creation of new Datasets inside others' Projects in OMERO.web,
+any links created by the Organizer will belong to the Organizer,
+not the owner of the data. This
 will be addressed in OMERO.web in the 5.4.x series. The ownership transfer
 of the containers and links can be done later on the CLI. Linking of
 others' data is never possible in Private groups.
@@ -309,9 +319,9 @@ privilege).
 Note that the ownership of data of a user can be trasferred either
 piecemeal, i.e. specifying each Project or Dataset to transfer (using
 ``omero chown`` command of CLI), or all of the data of the user can be
-transferred in one step (this functionality is currently available
-only via the API and will appear in
-OMERO clients in the 5.4.x series of OMERO).
+transferred in one step. The transfer of all the data of the user in one
+step has to be considered an advanced feature and might be possibly
+slow in case of larger complexity of the transferred data.
 
 Quite naturally the Group and Data Organizer can be easily split into two
 separate roles, with the Group Organiser role having
@@ -320,18 +330,24 @@ separate roles, with the Group Organiser role having
 the Data Organiser role having :term:`Write Data`, :term:`Delete Data`,
 :term:`Chgrp`, :term:`Chown` privileges. It is of course possible to use any
 combination of these privileges as you see fit.
-It is recommended to always grant all three :term:`Create and Edit Groups`,
-:term:`Create and Edit Users`, :term:`Add Users to Groups` privileges
-to prevent poor experience in the OMERO.web client.
-These OMERO.web issues will be addressed in the 5.4.x series.
+It is recommended to always grant :term:`Create and Edit Users` with
+:term:`Add Users to Groups` so that the new restricted administrator is able
+to deactivate users.
 
 Client Details:
 
 - OMERO.web: All the Data Organizing actions are possible, except transfer
   of ownership (possible only in CLI, will be addressed in the 5.4.x
-  series). All the Group Organizing actions possible if all
+  series). Creation of Projects, Datasets
+  or Screens for other users in OMERO.web is possible since OMERO 5.4.0,
+  see :help:`Data structure (OMERO.web) <facility-manager#data>`.
+  All the Group and User Organizing actions are possible if all
   :term:`Create and Edit Groups`, :term:`Create and Edit Users` and
-  :term:`Add Users to Groups` privileges are given.
+  :term:`Add Users to Groups` privileges are given. It is also reasonable
+  to give :term:`Create and Edit Users` and :term:`Add Users to Groups`
+  or :term:`Create and Edit Groups` and :term:`Add Users to Groups`. These
+  combinations give the restricted adiminstrator good user interface
+  experience in OMERO.web.
 
 - CLI: See examples below for CLI features
   useful for Group and Data Organizing::
@@ -359,6 +375,8 @@ Client Details:
     $ bin/omero chown 55 ProjectDatasetLink:123
     # Transfer the ownership of Dataset-Image link
     $ bin/omero chown 55 DatasetImageLink:154
+    # Transfer all data of user 5 to user 11 (advanced, might be slow)
+    $ bin/omero chown 11 Experimenter:5
 
 Key
 ^^^

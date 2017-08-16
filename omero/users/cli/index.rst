@@ -22,6 +22,7 @@ used as a client against an OMERO server.
     containers-annotations
     tag
     chgrp
+    chown
     delete
 
 .. seealso::

@@ -1,12 +1,37 @@
 Moving objects between groups
 -----------------------------
 
+.. warning::
+
+  Data does not need to be assigned to a group where the data owner is
+  a member, and administrators may wish to change the ownership of data
+  or move it between groups in several steps of a larger workflow. However,
+  it is generally expected that data should end up in a group where the
+  data owner is a member, so that they can view their
+  data in the OMERO clients.
+
+
+Who may move data
+^^^^^^^^^^^^^^^^^
+
+* a full administrator
+* a :doc:`restricted administrator
+  </sysadmins/admins-with-restricted-privileges>` with `Chgrp` privilege
+* the owner of the data *if* they are a member of the target group
+
+
+How to move data
+^^^^^^^^^^^^^^^^
+
+* CLI: See below
+* :help:`OMERO.web <sharing-data#moving>`
+
 The :omerocmd:`chgrp` command moves objects between groups. Further help is
 available using the :option:`-h` option::
 
     $ bin/omero chgrp -h
 
-The :command:`chgrp` command will remove entire graphs of objects based on the
+The :command:`chgrp` command will move entire graphs of objects based on the
 IDs of the topmost objects. The command can be modified to include the movement
 of objects that would, by default, be excluded or exclude objects that would,
 by default, be included using the :option:`chgrp --include` and

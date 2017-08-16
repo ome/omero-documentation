@@ -3,7 +3,8 @@ Command Line Interface as an OMERO admin tool
 
 When first beginning to work with the OMERO server, the :omerocmd:`db`,
 :omerocmd:`config`, and :omerocmd:`admin` commands will be the first you will
-need.
+need. For other important uses of Command Line see the links in
+"See Also" box.
 
 .. toctree::
     :maxdepth: 1
@@ -13,7 +14,7 @@ need.
     config
     admin
     usergroup
-    LightAdmins
+    light-admins
     fs
 
 .. seealso::

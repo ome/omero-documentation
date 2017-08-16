@@ -49,7 +49,7 @@ The OME documentation is organized into multiple folders:
 The structure of each documentation folder follows the Sphinx system
 guidelines. A quick overview:
  
-* source \*.txt files with reST markup live in the root of the folder and
+* source \*.rst files with reST markup live in the root of the folder and
   under subfolders,
 * images/screenshots are placed under ``images``,
 * downloadable files are placed under ``downloads``,
@@ -260,7 +260,7 @@ Title headings
 ==============
 
 Every reST source file should begin with an H2 (level two) title. H1 titles
-are reserved for the index files (``index.txt``).
+are reserved for the index files (``index.rst``).
 
 The following symbols should be used to create headings:
  

@@ -60,7 +60,7 @@ edit_on_github_branch = 'develop'
 templates_path = ['../common/_templates']
 
 # The suffix of source filenames.
-source_suffix = '.txt'
+source_suffix = '.rst'
 
 # The encoding of source files.
 #source_encoding = 'utf-8-sig'
