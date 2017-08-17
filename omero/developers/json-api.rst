@@ -210,7 +210,7 @@ It uses the python ``requests`` library to connect to the JSON api, login, query
 These steps are covered in more detail below.
 
 For an example how to use the API with Java,
-see :omedocs:`blob/develop/omero/examples/java/JSONClient.java`.
+see :omedocs:`JSONClient.java <blob/develop/omero/examples/java/JSONClient.java>`.
 
 
 List supported versions
