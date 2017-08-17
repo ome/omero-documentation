@@ -32,13 +32,6 @@ Things to note about 4.2.x permissions
 .. note:: Queries span only one group at a time. Inserts and updates as other 
           users must be done by creating a session as that user.
 
-.. seealso::
-
-    :legacy_plone:`OMERO 4.2.0 Server Permissions <omero420/server/permissions>`
-    :legacy_plone:`Database upgrade from 4.1 to 4.2 <omero420/server/db-upgrade-41-to-42>`    
-    :doc:`/developers/Modules/Delete`
-
-
 Changes for OMERO 4.4.x
 ^^^^^^^^^^^^^^^^^^^^^^^
 
