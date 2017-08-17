@@ -487,8 +487,3 @@ and configure your server to use it.
 
     $ bin/omero config set omero.db.name omero_from_backup
 
-.. seealso::
-
-    :legacy_plone:`Legacy <>`
-        Legacy part of the OME website containing upgrade instructions for
-        previous versions of the OMERO server.
