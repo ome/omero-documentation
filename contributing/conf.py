@@ -50,9 +50,9 @@ contributing_extlinks = {
     'figure_scc_branch' : (scc_github_root + '/figure/tree/%s', ''),
     
     # Doc links
-    'omero_doc' : (docs_root + '/omero/%s', ''),
-    'bf_doc' : (docs_root + '/bio-formats/%s', ''),
-    'model_doc' : (docs_root + '/ome-model/%s', ''),
+    'omero_doc' : (docs_root + '/latest/omero/%s', ''),
+    'bf_doc' : (docs_root + '/latest/bio-formats/%s', ''),
+    'model_doc' : (docs_root + '/ome-model/5.5.7/%s', ''),
     }
 extlinks.update(contributing_extlinks)
 
