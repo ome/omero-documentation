@@ -18,6 +18,7 @@ used as a client against an OMERO server.
     overview
     import
     import-target
+    export
     sessions
     containers-annotations
     tag
