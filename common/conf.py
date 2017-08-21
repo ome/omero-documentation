@@ -171,9 +171,6 @@ extlinks = {
     'doi' : ('http://dx.doi.org/%s', ''),
     'pypi': ('https://pypi.python.org/pypi/%s', ''),
     # Remaining Plone links
-    'community_plone' : (oo_site_root + '/community/%s', ''),
-    'about_plone' : (oo_site_root + '/about/%s', ''),
-    'team_plone' : (oo_site_root + '/team/%s', ''),
     'secvuln' : (oo_root + '/info/vulnerabilities/%s', '')
     }
 

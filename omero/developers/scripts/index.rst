@@ -40,8 +40,8 @@ Finding scripts
 
 `Core scripts <https://github.com/ome/scripts>`_ are bundled with every
 OMERO.server release and automatically available to all users. You can find
-additional scripts via the new :community_plone:`script sharing <scripts>`
-page.
+additional scripts on GitHub by looking for forks of
+`ome/omero-user-scripts <https://github.com/ome/omero-user-scripts/network/members>`_.
 
 Installing and running scripts
 ------------------------------
@@ -105,9 +105,7 @@ Contributing back to the community
 ----------------------------------
 
 If you have modified one of the core scripts or developed your own that you
-would like to contribute back to the community, please get in touch. We
-can either add your repository to the list on the
-:community_plone:`script sharing <scripts>` page so people can find it, or if
+would like to contribute back to the community, please get in touch. If
 the script is likely to have wide appeal, we can look into adding it to the
 core scripts that are distributed with an OMERO release.
 
