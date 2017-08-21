@@ -1,8 +1,8 @@
 Export images
 -------------
 
-The |CLI| export command allows you to export data in XML and TIFF formats from
-an OMERO.server using the command line.
+The |CLI| export command allows you to export data in XML and OME-TIFF formats
+from an OMERO.server using the command line.
 
 Overview
 ^^^^^^^^
@@ -19,13 +19,13 @@ Export command
 
 .. program:: omero export
 
-To export an image as ome-tiff :file:`image.tif`, use::
+To export an image as OME-TIFF as file :file:`image.tif`, use::
 
-    $ bin/omero export --file image.tif Image:1
+    $ bin/omero export --file image.tif Image:<id>
 
-To export its metadata, use::
+To export its metadata as file :file:`image.xml`, use::
 
-    $ bin/omero export --file image.xml --type XML Image:1
+    $ bin/omero export --file image.xml --type XML Image:<id>
 
 Some of the options available to the export command are:
 
