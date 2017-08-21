@@ -64,8 +64,8 @@ JAR is provided in the OMERO source code under :file:`lib/repository`.
 
     :zerocdoc:`icegridadmin Command Line Tool <display/Ice/icegridadmin+Command+Line+Tool>`
         Chapter of the ZeroC_ manual about the :command:`icegridadmin` CLI
-    :zerocdoc:`IceGrid Admin Graphical Tool <display/Ice/IceGrid+Admin+Graphical+Tool>`
-        Chapter of the ZeroC_ manual about the GridGUI tool
+    :zerocdoc:`IceGrid GUI Tool <display/Ice/IceGrid+GUI+Tool>`
+        Chapter of the ZeroC_ manual about the IceGrid GUI tool
 
 
 How it works
