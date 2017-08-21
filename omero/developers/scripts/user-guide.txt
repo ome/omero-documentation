@@ -41,8 +41,8 @@ Below are two sample scripts. You can find the core scripts that are
 distributed with the OMERO.server under the
 `scripts repository <https://github.com/ome/scripts>`_ or download them from
 OMERO.insight (from the bottom-left of any run-script dialog), or use the
-:community_plone:`script sharing <scripts>` page to find scripts written by
-other users.
+GitHub repositories forked from `ome/omero-user-scripts <https://github.com/ome/omero-user-scripts/network/members>`_ 
+to find scripts written by other users.
 
 Ping script
 ^^^^^^^^^^^
