@@ -17,6 +17,8 @@ Visit :doc:`installation` to install the |CLI|.
 Export command
 ^^^^^^^^^^^^^^
 
+Currently the export command only supports OME-TIFF, respectively XML.
+
 .. program:: omero export
 
 To export an image as OME-TIFF as file :file:`image.tif`, use::
