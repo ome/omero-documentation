@@ -50,9 +50,13 @@ contributing_extlinks = {
     'figure_scc_branch' : (scc_github_root + '/figure/tree/%s', ''),
     
     # Doc links
-    'omero_doc' : (oo_site_root + '/support/omero/%s', ''),
-    'bf_doc' : (oo_site_root + '/support/bio-formats/%s', ''),
-    'model_doc' : (oo_site_root + '/support/ome-model/%s', ''),
+    'omero_doc' : (docs_root + '/latest/omero/%s', ''),
+    'bf_doc' : (docs_root + '/latest/bio-formats/%s', ''),
+    'model_doc' : (docs_root + '/ome-model/5.5.7/%s', ''),
+    
+    #Remaining plone links
+    'community_plone' : (oo_site_root + '/community/%s', ''),
+    'team_plone' : (oo_site_root + '/team/%s', '')
     }
 extlinks.update(contributing_extlinks)
 

@@ -60,7 +60,7 @@ validation of the input string and/or file.
        A* = abstract
 
 .. seealso::
-	:schema_plone:`Schema documentation for Structured Annotations <Documentation/Generated/OME-2013-06/SA_xsd.html#Annotation>`
+	:schema:`Schema documentation for Structured Annotations <Documentation/Generated/OME-2013-06/SA_xsd.html#Annotation>`
 		Section of the auto-generated schema documentation describing the
 		structured annotations
 

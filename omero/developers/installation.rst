@@ -7,7 +7,7 @@ Using the source code
 ---------------------
 
 The source code of each release of OMERO is available for download from the
-:downloads:`Source code <#code>` section of the OMERO download page.
+:downloads:`Source code <>` section of the OMERO download page.
 
 .. note::
   At the moment, this source code bundle does not contain the version of

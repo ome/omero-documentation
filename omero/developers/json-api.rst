@@ -210,7 +210,7 @@ It uses the python ``requests`` library to connect to the JSON api, login, query
 These steps are covered in more detail below.
 
 For an example how to use the API with Java,
-see :omedocs:`blob/develop/omero/examples/java/JSONClient.java`.
+see :download:`JSONClient.java </examples/java/JSONClient.java>`.
 
 
 List supported versions
@@ -850,7 +850,7 @@ Screens, Plates and Wells
 -------------------------
 
 For more information on the Screen, Plate, Well data model, please see the
-`documentation page <https://www.openmicroscopy.org/site/support/ome-model/developers/screen-plate-well.html>`_.
+:model_doc:`documentation page <developers/screen-plate-well.html>`.
 
 List Screens
 ^^^^^^^^^^^^

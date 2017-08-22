@@ -33,5 +33,5 @@ sections:
 
 -  :model_doc:`OME Data Model and File Formats documentation <index.html>`
 
-If you have any questions, please see our :community_plone:`Community page <>`
+If you have any questions, please see our :community:`Support page <>`
 for ways to get in touch.
