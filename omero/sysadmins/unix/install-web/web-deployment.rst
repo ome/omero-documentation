@@ -98,18 +98,6 @@ configuration redirect the output of the following command into a file:
 .. literalinclude:: nginx-omero.conf
 
 
-OMERO.web requires ``body_in_file_only`` adjusted in your default nginx
-config because nginx must buffer incoming data. Make sure you have that
-set to the following config::
-
-   http {
-       ...
-       sendfile on;
-       send_timeout 60s;
-       client_max_body_size 0;
-       ...
-   }
-
 To configure an HTTPS server follow
 `the Nginx documentation <http://nginx.org/en/docs/http/configuring_https_servers.html>`_.
 
