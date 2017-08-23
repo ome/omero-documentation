@@ -33,6 +33,9 @@ echo "Generating DB script example"
 echo "Generating Web configuration templates"
 # Nginx / WSGI
 $WORKSPACE/OMERO.server/bin/omero web config nginx | sed "s|$WORKSPACE|/home/omero|g" > omero/sysadmins/unix/install-web/nginx-omero.conf
+$WORKSPACE/OMERO.server/bin/omero web config nginx-location | sed "s|$WORKSPACE|/home/omero|g" | grep -v '^#' > omero/sysadmins/unix/install-web/nginx-location.conf
+$WORKSPACE/OMERO.server/bin/omero web config nginx-location | sed "s|/opt/omero/web|/home/omero|g" | grep '^##' | cut -c3-
+> omero/sysadmins/unix/install-web/nginx-location-manual-wrapper.conf
 
 echo "Generating omeroweb install walkthrough"
 
