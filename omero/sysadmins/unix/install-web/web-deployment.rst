@@ -98,8 +98,29 @@ configuration redirect the output of the following command into a file:
 .. literalinclude:: nginx-omero.conf
 
 
-To configure an HTTPS server follow
-`the Nginx documentation <http://nginx.org/en/docs/http/configuring_https_servers.html>`_.
+For production servers you may need to add additional directives to the
+configuration file, for example to enable
+`HTTPS <http://nginx.org/en/docs/http/configuring_https_servers.html>`_.
+As an alternative to manually modifying the generated file you can generate
+a minimal configuration:
+
+::
+
+    $ OMERO.py/bin/omero web config nginx-location > \
+          /home/omero/nginx-omero-location.include
+
+.. literalinclude:: nginx-omero-location.include
+
+
+and include this in your own manually created Nginx file, such as
+`/etc/nginx/conf.d/omero-web.conf`:
+
+.. literalinclude:: nginx-location-manual-wrapper.conf
+
+
+This requires more initial work but in future you can automatically
+regenerate your OMERO.web configuration and your additional configuration
+settings will still apply.
 
 
 .. note::
