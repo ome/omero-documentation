@@ -1,18 +1,10 @@
 OMERO.web deployed with OMERO.server CentOS 7 and IcePy 3.6
 ===========================================================
 
-This is an example walkthrough for installing OMERO.web with OMERO.server
+This is an example walkthrough for installing OMERO.web with OMERO.server using NGINX.
 Please first read ``unix/server-centos7-ice36``.
 For convenience in this walkthrough, we will use the same configuration
 options that the one used.
-
-OMERO.web is deployed using NGINX.
-
-
-.. note:: Support for Apache deployment has been dropped in 5.3.0.
-    
-    If your organization's policies only allow Apache to be used as the external-facing web-server you should configure Apache to proxy connections to an NGINX instance running on your OMERO server i.e. use Apache as a reverse proxy. For more details see
-    `Apache mod_proxy documentation <https://httpd.apache.org/docs/current/mod/mod_proxy.html>`_.
 
 Installing NGINX
 ----------------
