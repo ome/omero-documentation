@@ -106,10 +106,9 @@ a minimal configuration:
 
 ::
 
-    $ OMERO.py/bin/omero web config nginx-location > \
-          /home/omero/nginx-omero-location.include
+    $ OMERO.py/bin/omero web config nginx-location > /home/omero/omero-web-location.include
 
-.. literalinclude:: nginx-omero-location.include
+.. literalinclude:: omero-web-location.include
 
 
 and include this in your own manually created Nginx file, such as
