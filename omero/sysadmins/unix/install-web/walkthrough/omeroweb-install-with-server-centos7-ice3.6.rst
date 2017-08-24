@@ -1,2 +1,80 @@
 OMERO.web deployed with OMERO.server CentOS 7 and IcePy 3.6
 ===========================================================
+
+This is an example walkthrough for installing OMERO.web with OMERO.server
+Please first read ``unix/server-centos7-ice36``.
+For convenience in this walkthrough, we will use the same configuration
+options that the one used.
+
+OMERO.web is deployed using NGINX.
+
+
+.. note:: Support for Apache deployment has been dropped in 5.3.0.
+    
+    If your organization's policies only allow Apache to be used as the external-facing web-server you should configure Apache to proxy connections to an NGINX instance running on your OMERO server i.e. use Apache as a reverse proxy. For more details see
+    `Apache mod_proxy documentation <https://httpd.apache.org/docs/current/mod/mod_proxy.html>`_.
+
+Installing NGINX
+----------------
+
+**The following steps are run as root.**
+
+Install NGINX, copy the NGINX OMERO configuration file into the
+NGINX configuration directory, and disable the default configuration:
+
+.. literalinclude:: ../../walkthrough/walkthrough_centos7.sh
+    :start-after: #start-nginx
+    :end-before: #end-nginx
+
+Running OMERO.web
+-----------------
+
+**The following steps are run as the omero system user.**
+
+To start the OMERO.web client run::
+
+    OMERO.server/bin/omero web start
+
+NGINX should already be running so you should be able to log in as the OMERO
+root user by going to http://localhost/ in your web browser.
+
+In addition a `systemd.service` script is available should you wish to
+start OMERO.web automatically
+
+| :download:`omero-web-systemd.service <../../walkthrough/omero-web-systemd.service>`
+
+
+Regular tasks
+-------------
+
+**The following steps are run as root.**
+
+The default OMERO.web session handler uses temporary files to store sessions
+which should be deleted at regular intervals, for instance by creating a cron
+job:
+
+.. literalinclude:: ../../walkthrough/walkthrough_centos7.sh
+    :start-after: #start-omeroweb-cron
+    :end-before: #end-omeroweb-cron
+
+Copy this script into the appropriate location:
+
+.. literalinclude:: ../../walkthrough/walkthrough_centos7.sh
+    :start-after: #start-copy-omeroweb-cron
+    :end-before: #end-copy-omeroweb-cron
+
+| :download:`omero-web-cron <../../walkthrough/omero-web-cron>`
+
+
+SELinux
+-------
+
+**The following steps are run as root.**
+
+If you are running a system with
+`SELinux enabled <http://wiki.centos.org/HowTos/SELinux>`_
+and are unable to access OMERO.web you may need to adjust the security policy:
+
+.. literalinclude:: ../../walkthrough/walkthrough_centos7.sh
+    :start-after: #start-selinux
+    :end-before: #end-selinux
