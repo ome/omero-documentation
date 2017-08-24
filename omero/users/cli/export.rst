@@ -36,5 +36,5 @@ Some of the options available to the export command are:
     Iterate over an object and write individual objects to the directory
     named by --file (EXPERIMENTAL, the only supported object is Dataset:<id>)
 
-        $ bin/omero export --file output-dir  --iterate  Dataset:2
+        $ bin/omero export --file output-dir  --iterate  Dataset:<id>
 
