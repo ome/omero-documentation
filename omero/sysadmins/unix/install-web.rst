@@ -1,5 +1,5 @@
-Setting up OMERO.web
-====================
+OMERO.web Deployment overview
+=============================
 
 OMERO.web is the web application component of the OMERO platform which
 allows for the management, visualization (in a fully multi-dimensional
@@ -24,8 +24,8 @@ If you need help configuring your firewall rules, see
 
 Deployment
 ----------
-
-Deploying OMERO.web **separately** from OMERO.server is **recommended** as they
+OMERO.web can deploy with the OMERO.server but
+deploying OMERO.web **separately** from OMERO.server is **recommended** as they
 perform best under different circumstances and require a different set of
 dependencies. See :doc:`install-web/web-deployment` for more details.
 
@@ -43,21 +43,33 @@ customization options.
     install-web/web-deployment
 
 Depending upon which platform you are using, you may find a
-more specific walk-through listed below.
+more specific walkthrough listed below.
 
 .. seealso::
 
     :doc:`install-web/walkthrough/omeroweb-install-centos7-ice3.6`
-        Instructions for installing OMERO.web from scratch on
-        CentOS 7 with Ice 3.6.
+        Instructions for installing **separately** OMERO.web from
+        scratch on CentOS 7 with Ice 3.6.
 
     :doc:`install-web/walkthrough/omeroweb-install-ubuntu-ice3.6`
-        Instructions for installing OMERO.web from scratch on
-        Ubuntu 16.04 with Ice 3.6.
+        Instructions for installing **separately** OMERO.web from
+        scratch on Ubuntu 16.04 with Ice 3.6.
 
     :doc:`install-web/walkthrough/omeroweb-install-debian-ice3.6`
-        Instructions for installing OMERO.web from scratch on
-        Debian 9 with Ice 3.6.
+        Instructions for installing **separately** OMERO.web from
+        scratch on Debian 9 with Ice 3.6.
+
+    :doc:`install-web/walkthrough/omeroweb-install-with-server-centos7-ice3.6`
+        Instructions for installing OMERO.web with OMERO.server 
+        from scratch on CentOS 7 with Ice 3.6.
+
+    :doc:`install-web/walkthrough/omeroweb-install-with-server-ubuntu-ice3.6`
+        Instructions for installing OMERO.web with
+        OMERO.server from scratch on Ubuntu 16.04 with Ice 3.6.
+
+    :doc:`install-web/walkthrough/omeroweb-install-with-server-debian-ice3.6`
+        Instructions for installing OMERO.web with
+        OMERO.server from scratch on Debian 9 with Ice 3.6.
 
     :doc:`install-web/walkthrough/omeroweb-install-osx-ice3.6`
         Instructions for installing OMERO.web from scratch on
@@ -70,10 +82,7 @@ more specific walk-through listed below.
     :titlesonly:
     :hidden:
 
-    install-web/walkthrough/omeroweb-install-centos7-ice3.6
-    install-web/walkthrough/omeroweb-install-ubuntu-ice3.6
     install-web/walkthrough/omeroweb-install-osx-ice3.6
-    install-web/walkthrough/omeroweb-install-debian-ice3.6
 
 .. note:: Support for Apache deployment has been dropped in 5.3.0.
     
@@ -100,6 +109,8 @@ to access the OMERO.webclient:
 
 OMERO.web maintenance
 ---------------------
+
+Note that the command ``bin/omero`` used throughout this page refers to ``OMERO.py/bin/omero`` if OMERO.web is deployed **separately** otherwise it refers to ``OMERO.server/bin/omero``.
 
 If an attempt is made to access OMERO.web whilst
 it is not running, the generated Nginx configuration file will automatically
@@ -150,9 +161,19 @@ display a maintenance page.
 
           $ bin/omero config set omero.web.session_engine django.contrib.sessions.backends.cache
 
-      - `Redis 2.8+ <http://redis.io/>`_ requires `django-redis 4.4+ <http://niwinz.github.io/django-redis/latest/>`_::
+      - `Redis 2.8+ <http://redis.io/>`_ requires `django-redis 4.4+ <http://niwinz.github.io/django-redis/latest/>`_. 
+          To install the required dependency, run
+
+          if OMERO.web is deployed **separately**::
 
           $ pip install -r OMERO.py/share/web/requirements-redis.txt
+
+          otherwise::
+
+          $ pip install -r OMERO.server/share/web/requirements-redis.txt
+
+          To configure, run::
+
           $ bin/omero config set omero.web.caches '{"default": {"BACKEND": "django_redis.cache.RedisCache", "LOCATION": "redis://redis:6379/0"}}'
 
       - DEPRECATED: `Memcached <https://memcached.org/>`_::
@@ -169,15 +190,15 @@ OMERO.web offers a number of configuration options.
 The configuration changes will not be applied until
 gunicorn is restarted using ``bin/omero web restart``.
 
-By default OMERO.web expects to be run from the root URL of the web server.
+By default OMERO.web expects to be run from the root URL of the webserver.
 This can be changed by setting :property:`omero.web.prefix` and
-:property:`omero.web.static_url`. For example, to make OMERO.web appear at
+:property:`omero.web.static_url`. For example, to make OMERO.web appears at
 `http://example.org/omero/`::
 
     $ bin/omero config set omero.web.prefix '/omero'
     $ bin/omero config set omero.web.static_url '/omero/static/'
 
-and regenerate your web-server configuration (see :ref:`omero_web_deployment`).
+and regenerate your webserver configuration (see :ref:`omero_web_deployment`).
 
 The front-end webserver e.g. Nginx can be setup to run on a different
 host from OMERO.web. You will need to set

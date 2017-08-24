@@ -43,8 +43,36 @@ series of commands.
     unix/server-install-homebrew
     unix/server-binary-repository
     unix/server-postgresql
-    unix/install-web
     advanced-install
+
+********************
+OMERO.web Deployment
+********************
+
+This section provides guidance on how to install and set up OMERO.web on
+any of the supported UNIX and UNIX-like platforms. Specific walkthroughs are
+provided for several systems, with detailed step-by-step instructions.
+OMERO.web can be either deployed with the OMERO.server or **separately** from 
+the OMERO.server. Deploying separately is **recommended**.
+
+
+
+However, reading through the :doc:`unix/install-web` first
+is recommended as this explains the entire process rather than just being a
+series of commands.
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    unix/install-web
+    unix/install-web/walkthrough/omeroweb-install-centos7-ice3.6
+    unix/install-web/walkthrough/omeroweb-install-debian-ice3.6
+    unix/install-web/walkthrough/omeroweb-install-ubuntu-ice3.6
+    unix/install-web/walkthrough/omeroweb-install-with-server-centos7-ice3.6
+    unix/install-web/walkthrough/omeroweb-install-with-server-debian-ice3.6
+    unix/install-web/walkthrough/omeroweb-install-with-server-ubuntu-ice3.6
+
 
 ********************************
 Server Maintenance and Upgrading
