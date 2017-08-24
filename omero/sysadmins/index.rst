@@ -58,8 +58,7 @@ the OMERO.server. Deploying separately is **recommended**.
 
 
 However, reading through the :doc:`unix/install-web` first
-is recommended as this explains the entire process rather than just being a
-series of commands.
+is recommended.
 
 .. toctree::
     :maxdepth: 1
@@ -72,6 +71,7 @@ series of commands.
     unix/install-web/walkthrough/omeroweb-install-with-server-centos7-ice3.6
     unix/install-web/walkthrough/omeroweb-install-with-server-debian-ice3.6
     unix/install-web/walkthrough/omeroweb-install-with-server-ubuntu-ice3.6
+    customization
 
 
 ********************************
@@ -129,7 +129,6 @@ OMERO clients to host images for groups or public viewing.
     :maxdepth: 2
     :titlesonly:
 
-    customization
     public
 
 ***********************
