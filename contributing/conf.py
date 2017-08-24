@@ -51,8 +51,6 @@ contributing_extlinks = {
     
     # Doc links
     'omero_doc' : (docs_root + '/latest/omero/%s', ''),
-    'bf_doc' : (docs_root + '/latest/bio-formats/%s', ''),
-    'model_doc' : (docs_root + '/ome-model/5.5.7/%s', ''),
     
     #Remaining plone links
     'community_plone' : (oo_site_root + '/community/%s', ''),

@@ -97,8 +97,6 @@ omero_extlinks = {
     # API links
     'javadoc' : (downloads_root + '/latest/omero5.4/api/%s', ''),
     'pythondoc' : (downloads_root + '/latest/omero5.4/api/python/%s', ''),
-    # Doc links
-    'bf_doc' : (oo_site_root + '/support/bio-formats/%s', ''),
     # Downloads
     'downloads' : (downloads_root + '/latest/omero5.4/%s', ''),
     # Miscellaneous links
