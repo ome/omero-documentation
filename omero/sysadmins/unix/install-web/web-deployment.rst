@@ -117,7 +117,7 @@ and include this in your own manually created Nginx file, such as
 .. literalinclude:: nginx-location-manual-wrapper.conf
 
 
-This requires more initial work but in future you can automatically
+This requires more initial work but in the future you can automatically
 regenerate your OMERO.web configuration and your additional configuration
 settings will still apply.
 
