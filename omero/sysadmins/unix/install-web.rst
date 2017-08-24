@@ -1,4 +1,4 @@
-OMERO.web Deployment overview
+OMERO.web deployment overview
 =============================
 
 OMERO.web is the web application component of the OMERO platform which
