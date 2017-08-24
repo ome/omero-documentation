@@ -87,12 +87,6 @@ Configure:
     :start-after: #end-release-ice36
     :end-before: #end-step04
 
-Installing and running OMERO.web
---------------------------------
-
-OMERO.web is deployed using Nginx, for more details on how to install
-and run the OMERO.web client
-see :doc:`install-web/walkthrough/omeroweb-install-centos7-ice3.6`.
 
 Running OMERO.server
 --------------------
@@ -102,8 +96,6 @@ Running OMERO.server
 OMERO should now be set up. To start the server run::
 
     OMERO.server/bin/omero admin start
-
-Please read the SELinux_ section below.
 
 In addition a `systemd.service` script is available should you wish to
 start OMERO automatically.
@@ -123,39 +115,3 @@ the OMERO data directory:
 .. literalinclude:: walkthrough/walkthrough_centos7.sh
     :start-after: #start-step07
     :end-before: #end-step07
-
-
-Regular tasks
--------------
-
-**The following steps are run as root.**
-
-The default OMERO.web session handler uses temporary files to store sessions
-which should be deleted at regular intervals, for instance by creating a cron
-job:
-
-.. literalinclude:: walkthrough/walkthrough_centos7.sh
-    :start-after: #start-omeroweb-cron
-    :end-before: #end-omeroweb-cron
-
-Copy this script into the appropriate location:
-
-.. literalinclude:: walkthrough/walkthrough_centos7.sh
-    :start-after: #start-copy-omeroweb-cron
-    :end-before: #end-copy-omeroweb-cron
-
-| :download:`omero-web-cron <walkthrough/omero-web-cron>`
-
-
-SELinux
--------
-
-**The following steps are run as root.**
-
-If you are running a system with
-`SELinux enabled <http://wiki.centos.org/HowTos/SELinux>`_
-and are unable to access OMERO.web you may need to adjust the security policy:
-
-.. literalinclude:: walkthrough/walkthrough_centos7.sh
-    :start-after: #start-selinux
-    :end-before: #end-selinux
