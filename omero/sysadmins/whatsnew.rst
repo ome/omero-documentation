@@ -39,3 +39,6 @@ What's new for OMERO 5.3 for sysadmins
   give an Image or Plate ID list in the form of ``Image:1,2,3,4`` or
   ``Plate:101`` to be more usable by scripts etc. The previous behavior can
   be restored by using ``--output legacy``.
+
+- The Public user is restricted to GET requests by default. This can be changed
+  by setting the new configuration property :property:`omero.web.public.get_only`.

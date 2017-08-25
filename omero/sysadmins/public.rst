@@ -111,6 +111,12 @@ To set this up on your OMERO.web installation:
 
      $ bin/omero config set omero.web.public.server_id 1
 
+- By default the public user is only allowed to perform GET requests. You can 
+  change that by setting the :property:`omero.web.public.get_only` property:
+  ::
+
+     $ bin/omero config set omero.web.public.get_only false
+
 If you enable public access to the main webclient but still wish registered
 users to be able to login, the login page can always be accessed using a link
 of the form `\https://your_host/webclient/login/`.
