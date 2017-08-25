@@ -8,6 +8,8 @@ includes the ability to manage users and groups.
 
 This guide uses the example of deploying OMERO.web **separately** from OMERO.server
 with `NGINX <http://nginx.org/>`_ and `Gunicorn <http://docs.gunicorn.org/>`_.
+If you opt to install OMERO.web with the OMERO.server, change ``OMERO.py``
+by ``OMERO.server`` in the commands below.
 
 Prerequisites
 -------------
@@ -55,6 +57,7 @@ Install the OMERO.web dependencies using the package management tools:
    $ zipname=${zip%.zip}
    $ rm -f $zip
    $ mv $(find . -name 'OMERO.py*' -type d) `pwd`/OMERO.py
+   $ # if install with the OMERO.server the commands above are not required
    $ pip install -r OMERO.py/share/web/requirements-py27-all.txt
 
 
