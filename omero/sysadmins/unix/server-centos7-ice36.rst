@@ -102,10 +102,8 @@ OMERO should now be set up. To start the server run::
 
     OMERO.server/bin/omero admin start
 
-In addition a `systemd.service` script is available should you wish to
-start OMERO automatically.
-
-| :download:`omero-systemd.service <walkthrough/omero-systemd.service>`
+In addition :download:`omero-systemd.service <walkthrough/omero-systemd.service>`
+is available should you wish to start OMERO automatically.
 
 
 Securing OMERO

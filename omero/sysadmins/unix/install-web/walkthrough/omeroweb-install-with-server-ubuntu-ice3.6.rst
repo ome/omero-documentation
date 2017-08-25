@@ -31,10 +31,8 @@ To start the OMERO.web client run::
 NGINX should already be running so you should be able to log in as the OMERO
 root user by going to http://localhost/ in your web browser.
 
-In addition a `init.d` script is available should you wish to
-start OMERO.web automatically
-
-| :download:`omero-web-init.d <../../walkthrough/omero-web-init.d>`
+In addition :download:`omero-web-init.d <../../walkthrough/omero-web-init.d>`
+is available should you wish to start OMERO.web automatically.
 
 .. _linux_walkthrough_regular_tasks:
 

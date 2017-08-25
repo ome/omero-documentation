@@ -108,11 +108,8 @@ OMERO should now be set up. To start the server run::
 
     OMERO.server/bin/omero admin start
 
-In addition an `init.d` script is available should you wish to
-start OMERO automatically.
-
-| :download:`omero-init.d <walkthrough/omero-init.d>`
-
+In addition :download:`omero-init.d <walkthrough/omero-init.d>`
+is available should you wish to start OMERO automatically.
 
 Securing OMERO
 --------------
