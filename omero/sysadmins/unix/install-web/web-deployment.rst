@@ -6,8 +6,8 @@ allows for the management, visualization (in a fully multi-dimensional
 image viewer) and annotation of images from a web browser. It also
 includes the ability to manage users and groups.
 
-This guide uses the example of deploying OMERO.web separately from OMERO.server
-with Nginx and gunicorn.
+This guide uses the example of deploying OMERO.web **separately** from OMERO.server
+with `NGINX <http://nginx.org/>`_ and `Gunicorn <http://docs.gunicorn.org/>`_.
 
 Prerequisites
 -------------
@@ -24,12 +24,12 @@ Prerequisites
 
    -  `ZeroC`_ IcePy 3.6
 
-   -  `Pillow`_ <3.4
+   -  `Pillow`_
 
    -  `NumPy <http://www.numpy.org>`_ >=1.9 
 
--  A `WSGI <http://wsgi.readthedocs.org>`_-capable web server such as
-   `nginx <http://nginx.org/>`_ and `gunicorn <http://docs.gunicorn.org/>`_,
+-  A `WSGI <http://wsgi.readthedocs.org>`_-capable webserver such as
+   `NGINX <http://nginx.org/>`_ and `Gunicorn <http://docs.gunicorn.org/>`_
 
 
 .. _gunicorn_default_configuration:
@@ -42,8 +42,8 @@ first have to create one and activate it. The following step is optional:
 
 ::
 
-   $ virtualenv omeroweb
-   $ source omeroweb/bin/activate
+   $ virtualenv omerowebvenv
+   $ source omerowebvenv/bin/activate
 
 Install the OMERO.web dependencies using the package management tools:
 
@@ -79,16 +79,16 @@ Additional settings can be configured by changing the following properties:
 - :property:`omero.web.wsgi_args` Additional arguments. For more details
   check `Gunicorn Documentation <http://docs.gunicorn.org/en/stable/settings.html>`_.
 
-Nginx configuration
+NGINX configuration
 -------------------
 
 OMERO can automatically generate a
 configuration file for your web server. The location of the file
-will depend on your system, please refer to your web server's manual.
+will depend on your system, please refer to your webserver's manual.
 See :ref:`customizing_your_omero_web_installation`
 for additional customization options.
 
-To create a site configuration file for inclusion in a system-wide nginx
+To create a site configuration file for inclusion in a system-wide NGINX
 configuration redirect the output of the following command into a file:
 
 ::
@@ -111,7 +111,7 @@ a minimal configuration:
 .. literalinclude:: omero-web-location.include
 
 
-and include this in your own manually created Nginx file, such as
+and include this in your own manually created NGINX file, such as
 `/etc/nginx/conf.d/omero-web.conf`:
 
 .. literalinclude:: nginx-location-manual-wrapper.conf
@@ -171,7 +171,7 @@ offer alternative access to binary data.
     to be turned off. For more details refer to
     `Gunicorn deployment <http://docs.gunicorn.org/en/stable/deploy.html>`_
     and
-    `Nginx configuration <http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffering>`_.
+    `NGINX configuration <http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffering>`_.
 
 .. note::
     :property:`omero.web.application_server.max_requests` should be set to 0
@@ -243,7 +243,7 @@ In order to identify why OMERO.web is not available run:
 
     $ OMERO.py/bin/omero web status
 
-Then consult nginx :file:`error.log` and :file:`OMERO.server/var/log/OMEROweb.log`
+Then consult NGINX :file:`error.log` and :file:`OMERO.server/var/log/OMEROweb.log`
 
 Check :ref:`troubleshooting-omeroweb` for more details.
 

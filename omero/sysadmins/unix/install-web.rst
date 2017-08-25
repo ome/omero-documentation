@@ -12,7 +12,7 @@ with:
 
 -  `WSGI <http://wsgi.readthedocs.org>`_ using a WSGI capable web server
    such as
-   `nginx <http://nginx.org/>`_ and `gunicorn <http://docs.gunicorn.org/>`_
+   `NGINX <http://nginx.org/>`_ and `Gunicorn <http://docs.gunicorn.org/>`_
 -  the built-in Django lightweight development server (for **testing**
    only; see the :doc:`/developers/Web/Deployment` page)
 
