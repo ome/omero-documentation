@@ -243,7 +243,7 @@ In order to identify why OMERO.web is not available run:
 
     $ OMERO.py/bin/omero web status
 
-Then consult NGINX :file:`error.log` and :file:`OMERO.server/var/log/OMEROweb.log`
+Then consult NGINX :file:`error.log` and :file:`OMERO.py/var/log/OMEROweb.log`
 
 Check :ref:`troubleshooting-omeroweb` for more details.
 
@@ -257,7 +257,7 @@ using :property:`omero.web.wsgi_args`:
 
 ::
 
-    $ OMERO.py/bin/omero config set omero.web.wsgi_args -- "--log-level=DEBUG --error-logfile=/home/omero/OMERO.server/var/log/error.log".
+    $ OMERO.py/bin/omero config set omero.web.wsgi_args -- "--log-level=DEBUG --error-logfile=/home/omero/OMERO.py/var/log/error.log".
 
 
 .. _gunicorn_advance_configuration:
