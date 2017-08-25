@@ -21,13 +21,10 @@ locale (this is normally the default).
 
 For convenience in this walkthrough the main OMERO configuration options have
 been defined as environment variables. When following this walkthrough you can
-either use your own values, or alternatively source the following file:
+either use your own values, or alternatively source :download:`settings.env <walkthrough/settings.env>`:
 
 .. literalinclude:: walkthrough/settings.env
    :start-after: Substitute
-
-:download:`settings.env <walkthrough/settings.env>`
-
 
 Installing prerequisites
 ------------------------
