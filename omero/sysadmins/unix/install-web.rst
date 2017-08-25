@@ -24,14 +24,14 @@ If you need help configuring your firewall rules, see
 
 Deployment
 ----------
-OMERO.web can deploy with the OMERO.server but
+OMERO.web can be deployed with the OMERO.server but
 deploying OMERO.web **separately** from OMERO.server is **recommended** as they
 perform best under different circumstances and require a different set of
 dependencies. See :doc:`install-web/web-deployment` for more details.
 
-If you have installed Nginx, OMERO can automatically generate a
-configuration file for your web server. The location of the file will depend
-on your system, please refer to your web server's manual. See
+If you have installed NGINX, OMERO can automatically generate a
+configuration file for your webserver. The location of the file will depend
+on your system, please refer to your webserver's manual. See
 :ref:`customizing_your_omero_web_installation` for additional
 customization options.
 
@@ -61,15 +61,15 @@ more specific walkthrough listed below.
 
     :doc:`install-web/walkthrough/omeroweb-install-with-server-centos7-ice3.6`
         Instructions for installing OMERO.web with OMERO.server 
-        from scratch on CentOS 7 with Ice 3.6.
+        on CentOS 7 with Ice 3.6.
 
     :doc:`install-web/walkthrough/omeroweb-install-with-server-ubuntu-ice3.6`
         Instructions for installing OMERO.web with
-        OMERO.server from scratch on Ubuntu 16.04 with Ice 3.6.
+        OMERO.server on Ubuntu 16.04 with Ice 3.6.
 
     :doc:`install-web/walkthrough/omeroweb-install-with-server-debian-ice3.6`
         Instructions for installing OMERO.web with
-        OMERO.server from scratch on Debian 9 with Ice 3.6.
+        OMERO.server on Debian 9 with Ice 3.6.
 
     :doc:`install-web/walkthrough/omeroweb-install-osx-ice3.6`
         Instructions for installing OMERO.web from scratch on
@@ -86,7 +86,7 @@ more specific walkthrough listed below.
 
 .. note:: Support for Apache deployment has been dropped in 5.3.0.
     
-    If your organization's policies only allow Apache to be used as the external-facing web-server you should configure Apache to proxy connections to an Nginx instance running on your OMERO server i.e. use Apache as a reverse proxy. For more details see
+    If your organization's policies only allow Apache to be used as the external-facing web-server you should configure Apache to proxy connections to an NGINX instance running on your OMERO server i.e. use Apache as a reverse proxy. For more details see
     `Apache mod_proxy documentation <https://httpd.apache.org/docs/current/mod/mod_proxy.html>`_.
 
 Logging in to OMERO.web
@@ -113,7 +113,7 @@ OMERO.web maintenance
 Note that the command ``bin/omero`` used throughout this page refers to ``OMERO.py/bin/omero`` if OMERO.web is deployed **separately** otherwise it refers to ``OMERO.server/bin/omero``.
 
 If an attempt is made to access OMERO.web whilst
-it is not running, the generated Nginx configuration file will automatically
+it is not running, the generated NGINX configuration file will automatically
 display a maintenance page.
 
 -  Session cookies :property:`omero.web.session_expire_at_browser_close`:
@@ -122,13 +122,13 @@ display a maintenance page.
       closes their browser.
       See :djangodoc:`Django Browser-length sessions vs. persistent
       sessions documentation <topics/http/sessions/#browser-length-vs-persistent-sessions>`
-      for more details. Default: ``True``.
+      for more details. Default is ``True``.
 
       ::
 
           $ bin/omero config set omero.web.session_expire_at_browser_close "True"
 
-   -  The age of session cookies, in seconds. Default: ``86400``.
+   -  The age of session cookies, in seconds. Default is ``86400``.
 
       ::
 
@@ -187,7 +187,7 @@ Customizing your OMERO.web installation
 ---------------------------------------
 
 OMERO.web offers a number of configuration options.
-The configuration changes will not be applied until
+The configuration changes **will not be applied** until
 gunicorn is restarted using ``bin/omero web restart``.
 
 By default OMERO.web expects to be run from the root URL of the webserver.
@@ -200,7 +200,7 @@ This can be changed by setting :property:`omero.web.prefix` and
 
 and regenerate your webserver configuration (see :ref:`omero_web_deployment`).
 
-The front-end webserver e.g. Nginx can be setup to run on a different
+The front-end webserver e.g. NGINX can be set up to run on a different
 host from OMERO.web. You will need to set
 :property:`omero.web.application_server.host` to ensure OMERO.web is
 accessible on an external IP.
