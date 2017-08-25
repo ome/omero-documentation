@@ -99,22 +99,6 @@ Configure:
     :start-after: #end-release-ice36
     :end-before: #end-step04
 
-Installing and running OMERO.web
---------------------------------
-
-OMERO.web is deployed using Nginx, for more details on how to install
-and run the OMERO.web client
-see :doc:`install-web/walkthrough/omeroweb-install-ubuntu-ice3.6`.
-
-**The following steps are run as root.**
-
-To install the latest stable version of Nginx on Ubuntu 14.04, run
-the following commands:
-
-.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
-    :start-after: #start-nginx
-    :end-before: #start-requirements
-
 Running OMERO.server
 --------------------
 
@@ -142,27 +126,3 @@ the OMERO data directory:
 .. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
     :start-after: #start-step07
     :end-before: #end-step07
-
-.. _linux_walkthrough_regular_tasks:
-
-Regular tasks
--------------
-
-**The following steps are run as root.**
-
-The default OMERO.web session handler uses temporary files to store sessions
-which should be deleted at regular intervals, for instance by creating a cron
-job:
-
-.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
-    :start-after: #start-omeroweb-cron
-    :end-before: #end-omeroweb-cron
-
-Copy the following commands into the appropriate location:
-
-.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
-    :start-after: #start-copy-omeroweb-cron
-    :end-before: #end-copy-omeroweb-cron
-
-| :download:`omero-web-cron <walkthrough/omero-web-cron>`
-
