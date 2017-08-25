@@ -36,6 +36,7 @@ start OMERO.web automatically
 
 | :download:`omero-web-systemd.service <../../walkthrough/omero-web-init.d>`
 
+.. _linux_walkthrough_regular_tasks:
 
 Regular tasks
 -------------
