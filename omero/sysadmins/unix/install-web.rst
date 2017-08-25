@@ -192,7 +192,7 @@ gunicorn is restarted using ``bin/omero web restart``.
 
 By default OMERO.web expects to be run from the root URL of the webserver.
 This can be changed by setting :property:`omero.web.prefix` and
-:property:`omero.web.static_url`. For example, to make OMERO.web appears at
+:property:`omero.web.static_url`. For example, to make OMERO.web appear at
 `http://example.org/omero/`::
 
     $ bin/omero config set omero.web.prefix '/omero'
