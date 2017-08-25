@@ -5,7 +5,7 @@ Please first read :doc:`../../server-debian9-ice36`.
 
 This is an example walkthrough for installing OMERO.web with OMERO.server using NGINX.
 For convenience in this walkthrough, we will use the same configuration
-options that the one used.
+options that the ones used for the installation of the OMERO.server.
 
 Installing NGINX
 ----------------
