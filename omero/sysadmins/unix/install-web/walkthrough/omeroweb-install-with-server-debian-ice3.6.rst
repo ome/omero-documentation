@@ -1,8 +1,9 @@
 OMERO.web deployed with OMERO.server Debian 9 and IcePy 3.6
 ===========================================================
 
-This is an example walkthrough for installing OMERO.web with OMERO.server using NGINX.
 Please first read :doc:`../../server-debian9-ice36`.
+
+This is an example walkthrough for installing OMERO.web with OMERO.server using NGINX.
 For convenience in this walkthrough, we will use the same configuration
 options that the one used.
 
