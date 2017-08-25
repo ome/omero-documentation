@@ -34,7 +34,7 @@ root user by going to http://localhost/ in your web browser.
 In addition a `init.d` script is available should you wish to
 start OMERO.web automatically
 
-| :download:`omero-web-systemd.service <../../walkthrough/omero-web-init.d>`
+| :download:`omero-web-init.d <../../walkthrough/omero-web-init.d>`
 
 
 Regular tasks
