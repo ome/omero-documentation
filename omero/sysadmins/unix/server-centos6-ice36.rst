@@ -132,14 +132,14 @@ Configure:
 Installing and running OMERO.web
 --------------------------------
 
-OMERO.web is deployed using Nginx see :doc:`install-web/web-deployment`.
+OMERO.web is deployed using NGINX see :doc:`install-web/web-deployment`.
 
 
 **The following steps are run as root.**
 
-Install the latest stable version of Nginx, install the requirements to run OMERO.web in the virtual environment, deactivate it
-and copy the Nginx OMERO configuration file into the
-Nginx configuration directory, and disable the default configuration:
+Install the latest stable version of NGINX, install the requirements to run OMERO.web in the virtual environment, deactivate it
+and copy the NGINX OMERO configuration file into the
+NGINX configuration directory, and disable the default configuration:
 
 
 .. literalinclude:: walkthrough/walkthrough_centos6_py27_ius.sh

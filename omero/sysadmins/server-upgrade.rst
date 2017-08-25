@@ -58,7 +58,7 @@ dependencies. Please check :ref:`omero_web_deployment` for the latest advice
 on how to deploy OMERO.web.
 
 If you generated configuration stanzas using :omerocmd:`web config` which
-enables OMERO.web via Nginx, they will include **hard-coded links** to
+enables OMERO.web via NGINX, they will include **hard-coded links** to
 your previous version of OMERO. Therefore, you should regenerate your config
 files when upgrading, remembering to merge in any of your own modifications if
 necessary. You should carry out this step even for minor version upgrades as
@@ -430,7 +430,7 @@ fixes which require it.**
 If necessary ensure you have set up a regular task to clear out any stale
 OMERO.web session files as described in :ref:`omero_web_maintenance`.
 
-OMERO.web migrating from Apache to Nginx
+OMERO.web migrating from Apache to NGINX
 """"""""""""""""""""""""""""""""""""""""
 
 Support for Apache and mod_wsgi deployment was deprecated

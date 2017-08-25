@@ -650,7 +650,7 @@ OMERO.web and administration
 ----------------------------
 
 In order to deploy OMERO.web in a production environment such as
-Nginx please follow the instructions under
+NGINX please follow the instructions under
 :doc:`install-web`.
 
 

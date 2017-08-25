@@ -136,7 +136,7 @@ Start the Gunicorn worker processes listening by default on 127.0.0.1:4080:
 ::
 
     $ OMERO.py/bin/omero web start
-    ... static files copied to '/home/omero/OMERO.server/lib/python/omeroweb/static'.
+    ... static files copied to '/home/omero/OMERO.py/lib/python/omeroweb/static'.
     Starting OMERO.web... [OK]
 
 The Gunicorn workers are managed **separately** from other OMERO.server
