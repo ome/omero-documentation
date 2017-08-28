@@ -5,7 +5,24 @@ Please first read :doc:`../../server-debian9-ice36`.
 
 This is an example walkthrough for installing OMERO.web with OMERO.server using NGINX.
 For convenience in this walkthrough, we will use the same configuration
-options that are used for the installation of the OMERO.server.
+options that are used for the installation of the OMERO.server and an additional option
+specific to the OMERO.web installation. When following this walkthrough you can
+either use your own values, or alternatively
+source :download:`settings.env <walkthrough/settings-web.env>`:
+
+.. literalinclude:: walkthrough/settings-web.env
+   :start-after: Substitute
+
+Installing prerequisites
+------------------------
+
+**The following steps are run as root.**
+
+To install Pillow and Numpy:
+
+.. literalinclude:: walkthrough/walkthrough_debian9.sh
+    :start-after: #start-web-dependencies
+    :end-before: #end-web-dependencies
 
 Installing NGINX
 ----------------
