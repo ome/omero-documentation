@@ -1,39 +1,12 @@
-OMERO.web deployment overview
-=============================
+OMERO.web management
+====================
 
 OMERO.web is the web application component of the OMERO platform which
 allows for the management, visualization (in a fully multi-dimensional
 image viewer) and annotation of images from a web browser. It also
 includes the ability to manage users and groups.
 
-
-OMERO.web is an integral part of the OMERO platform and can be deployed
-with:
-
--  `WSGI <http://wsgi.readthedocs.org>`_ using a WSGI capable web server
-   such as
-   `NGINX <http://nginx.org/>`_ and `Gunicorn <http://docs.gunicorn.org/>`_
--  the built-in Django lightweight development server (for **testing**
-   only; see the :doc:`/developers/Web/Deployment` page)
-
-If you need help configuring your firewall rules, see
-:doc:`/sysadmins/server-security` for more details.
-
-
-.. _omero_web_deployment:
-
-Deployment
-----------
-OMERO.web can be deployed with the OMERO.server but
-deploying OMERO.web **separately** from OMERO.server is **recommended** as they
-perform best under different circumstances and require a different set of
-dependencies. See :doc:`install-web/web-deployment` for more details.
-
-If you have installed NGINX, OMERO can automatically generate a
-configuration file for your webserver. The location of the file will depend
-on your system, please refer to your webserver's manual. See
-:ref:`customizing_your_omero_web_installation` for additional
-customization options.
+Reading through :doc:`install-web/web-deployment` first is recommended.
 
 .. toctree::
     :maxdepth: 1
@@ -41,53 +14,6 @@ customization options.
     :hidden:
 
     install-web/web-deployment
-
-Depending upon which platform you are using, you may find a
-more specific walkthrough listed below.
-
-.. seealso::
-
-    :doc:`install-web/walkthrough/omeroweb-install-centos7-ice3.6`
-        Instructions for installing **separately** OMERO.web from
-        scratch on CentOS 7 with Ice 3.6.
-
-    :doc:`install-web/walkthrough/omeroweb-install-ubuntu-ice3.6`
-        Instructions for installing **separately** OMERO.web from
-        scratch on Ubuntu 16.04 with Ice 3.6.
-
-    :doc:`install-web/walkthrough/omeroweb-install-debian-ice3.6`
-        Instructions for installing **separately** OMERO.web from
-        scratch on Debian 9 with Ice 3.6.
-
-    :doc:`install-web/walkthrough/omeroweb-install-with-server-centos7-ice3.6`
-        Instructions for installing OMERO.web with OMERO.server 
-        on CentOS 7 with Ice 3.6.
-
-    :doc:`install-web/walkthrough/omeroweb-install-with-server-ubuntu-ice3.6`
-        Instructions for installing OMERO.web with
-        OMERO.server on Ubuntu 16.04 with Ice 3.6.
-
-    :doc:`install-web/walkthrough/omeroweb-install-with-server-debian-ice3.6`
-        Instructions for installing OMERO.web with
-        OMERO.server on Debian 9 with Ice 3.6.
-
-    :doc:`install-web/walkthrough/omeroweb-install-osx-ice3.6`
-        Instructions for installing OMERO.web from scratch on
-        on Mac OS X with Homebrew. It is aimed at **developers**
-        since typically MacOS X is not suited for serious deployment.
-
-
-.. toctree::
-    :maxdepth: 1
-    :titlesonly:
-    :hidden:
-
-    install-web/walkthrough/omeroweb-install-osx-ice3.6
-
-.. note:: Support for Apache deployment has been dropped in 5.3.0.
-    
-    If your organization's policies only allow Apache to be used as the external-facing web-server you should configure Apache to proxy connections to an NGINX instance running on your OMERO server i.e. use Apache as a reverse proxy. For more details see
-    `Apache mod_proxy documentation <https://httpd.apache.org/docs/current/mod/mod_proxy.html>`_.
 
 Logging in to OMERO.web
 -----------------------

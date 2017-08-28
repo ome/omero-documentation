@@ -59,20 +59,33 @@ the OMERO.server. Deploying separately is **recommended**.
 
 
 
-However, reading through the :doc:`unix/install-web` first
+However, reading through the :doc:`unix/install-web/web-deployment` first
 is recommended.
 
 .. toctree::
     :maxdepth: 1
     :titlesonly:
 
-    unix/install-web
+    unix/install-web/web-deployment
     unix/install-web/walkthrough/omeroweb-install-centos7-ice3.6
     unix/install-web/walkthrough/omeroweb-install-debian-ice3.6
     unix/install-web/walkthrough/omeroweb-install-ubuntu-ice3.6
     unix/install-web/walkthrough/omeroweb-install-with-server-centos7-ice3.6
     unix/install-web/walkthrough/omeroweb-install-with-server-debian-ice3.6
     unix/install-web/walkthrough/omeroweb-install-with-server-ubuntu-ice3.6
+
+
+***************************************
+OMERO.web Maintenance and Customization
+***************************************
+
+This sectin contains instructions for administering, customizing your OMERO.web installation.
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    unix/install-web
     customization
 
 
