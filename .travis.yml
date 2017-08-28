@@ -9,9 +9,8 @@ sudo: false
 cache: pip
 
 env:
-  - SPHINXOPTS="-W"
-  - SPHINX_VERSION=1.2.3
-  - SPHINX_VERSION=latest
+  - SPHINXOPTS="-W" SPHINX_VERSION=1.2.3
+  - SPHINXOPTS="-W" SPHINX_VERSION=latest
 
 before_install:
   - if [[ $SPHINX_VERSION == '1.2.3' ]]; then pip install Sphinx==1.2.3; fi
