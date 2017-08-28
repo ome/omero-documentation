@@ -252,12 +252,13 @@ filters.
 This command internally defines all the filter options exposed in
 :program:`scc merge`.
 
-The target branch is read from the base of the PR, the :option:`--default`
-option is set to ``none`` meaning no PR is merged by default and no default
-:option:`--exclude` option is defined.
+The target branch is read from the base of the PR, the
+:option:`scc merge --default` option is set to ``none`` meaning no PR is
+merged by default and no default :option:`scc merge --exclude` option is
+defined.
 
-The :option:`--include` filter is determined by parsing all the PR comments
-lines starting with ``--depends-on``.
+The :option:`scc merge --include` filter is determined by parsing all the PR
+comments lines starting with ``--depends-on``.
 
 To include a PR from the same GitHub repository, use the PR number prepended
 by ``#``. For instance, to include PR 67 in the Travis build, add a comment
