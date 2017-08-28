@@ -51,13 +51,14 @@ Install the OMERO.web dependencies using the package management tools:
 
 ::
 
-   $ pip install omego
-   $ omego download --ice "3.6" py
-   $ zip=$(ls OMERO.py*.zip)
-   $ zipname=${zip%.zip}
-   $ rm -f $zip
-   $ mv $(find . -name 'OMERO.py*' -type d) `pwd`/OMERO.py
+   $ curl -o OMERO.py.zip -L https://downloads.openmicroscopy.org/latest/omero5/py.zip
+   $ unzip -q OMERO.py*
+   $ zip = $(ls OMERO.py*.zip)
+   $ ln -s OMERO.py-* OMERO.py
    $ # if install with the OMERO.server the commands above are not required
+   $ # if OMERO.web is install in a virtual environment
+   $ omerowebvenv/bin/pip install --upgrade -r OMERO.py/share/web/requirements-py27.txt
+   $ # otherwise
    $ pip install -r OMERO.py/share/web/requirements-py27-all.txt
 
 
