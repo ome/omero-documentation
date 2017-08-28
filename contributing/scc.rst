@@ -38,7 +38,7 @@ This token can then be stored in the global Git configuration file::
 
     git config --global github.token REPLACE_BY_PERSONAL_ACCESS_TOKEN
 
-Unless the :option:`--token` option is passed to the scc command, the
+Unless the ``--token`` option is passed to the scc command, the
 command first looks for the ``github.token`` specified in the git config file
 and, if found, uses this token to connect to GitHub::
 
