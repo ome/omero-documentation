@@ -87,6 +87,7 @@ This sectin contains instructions for administering, customizing your OMERO.web 
 
     unix/install-web
     customization
+    omeroweb-upgrade
 
 
 ********************************
