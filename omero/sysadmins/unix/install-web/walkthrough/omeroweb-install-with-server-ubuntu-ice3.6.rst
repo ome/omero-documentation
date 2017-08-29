@@ -18,22 +18,28 @@ Installing prerequisites
 
 **The following steps are run as root.**
 
-To install Pillow and Numpy:
+Install Pillow and Numpy:
 
 .. literalinclude:: ../../walkthrough/walkthrough_ubuntu1604.sh
     :start-after: #start-web-dependencies
     :end-before: #end-web-dependencies
 
-Installing NGINX
-----------------
-
-**The following steps are run as root.**
-
-Install NGINX and other dependencies:
+Install NGINX:
 
 .. literalinclude:: ../../walkthrough/walkthrough_ubuntu1604.sh
-    :start-after: #start-nginx
-    :end-before: #start-configure-nginx
+    :start-after: #start-nginx-install
+    :end-before: #end-nginx-install
+
+Configuring OMERO.web
+---------------------
+
+**The following steps are run as the omero system user.**
+
+Install other OMERO.web dependencies using pip:
+
+.. literalinclude:: ../../walkthrough/walkthrough_ubuntu1604.sh
+    :start-after: #web-requirements-recommended-start
+    :end-before: #web-requirements-recommended-end
 
 Configure and create the NGINX OMERO configuration file:
 
@@ -41,12 +47,16 @@ Configure and create the NGINX OMERO configuration file:
     :start-after: #start-configure-nginx
     :end-before: #end-configure-nginx
 
-Copy the NGINX OMERO configuration file into the NGINX configuration directory,
-disable the default configuration and start NGINX:
+Configuring NGINX
+-----------------
+
+**The following steps are run as root.**
+
+Copy the generated configuration file into the NGINX configuration directory, disable the default configuration and start NGINX:
 
 .. literalinclude:: ../../walkthrough/walkthrough_ubuntu1604.sh
-    :start-after: #end-configure-nginx
-    :end-before: #end-nginx
+    :start-after: #start-nginx-admin
+    :end-before: #end-nginx-admin
 
 Running OMERO.web
 -----------------
