@@ -47,6 +47,8 @@ Configure and create the NGINX OMERO configuration file:
     :start-after: #start-configure-nginx
     :end-before: #end-configure-nginx
 
+For more customization, please read :ref:`customizing_your_omero_web_installation`.
+
 Configuring NGINX
 -----------------
 
@@ -95,3 +97,10 @@ Copy this script into the appropriate location:
     :end-before: #end-copy-omeroweb-cron
 
 | :download:`omero-web-cron <../../walkthrough/omero-web-cron>`
+
+Maintenance
+-----------
+
+**The steps are run as the omero system user.**
+
+Please read :ref:`omero_web_maintenance`.
