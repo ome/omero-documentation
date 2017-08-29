@@ -14,7 +14,8 @@ def get_mmp(sqlfile):
 
 
 serverdir = sys.argv[1]
-required = {'omero.db.version': None, 'omero.db.patch': None}
+required = {'omero.db.version': None, 'omero.db.patch': None,
+            'versions.bioformats': None}
 with open(os.path.join(serverdir, 'etc', 'omero.properties')) as f:
     for line in f.readlines():
         m = re.match('([\w\.]+)=(.*)', line.strip())
