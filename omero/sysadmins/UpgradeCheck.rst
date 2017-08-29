@@ -12,7 +12,7 @@ in your browser will redirect you to this page).
 .. note:: If you have been redirected here by clicking on a link to 
     ``http://upgrade.openmicroscopy.org.uk`` in an error message or log while 
     trying to run one of the **Bio-Formats command line tools**, please see 
-    the :bf_doc:`Bio-Formats command line tools documentation 
+    the :bf_v_doc:`Bio-Formats command line tools documentation 
     <users/comlinetools/index.html#version-checker>` for assistance.
 
 

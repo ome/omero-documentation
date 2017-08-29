@@ -158,7 +158,6 @@ extlinks = {
     # Doc links
     'model_doc' : (docs_root + '/latest/ome-model/%s', ''),
     'devs_doc' : (docs_root + '/contributing/%s', ''),
-    'bf_doc' : (docs_root + '/latest/bio-formats/%s', ''),
     'schema' : (oo_root + '/Schemas/%s', ''),
     # Help links
     'help' : (help_root + '/%s', ''),
