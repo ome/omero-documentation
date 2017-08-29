@@ -89,7 +89,7 @@ ome.model package. A few hand-written Java classes can also be found in
 
 The build-schema ant target takes the generated ome.model classes as
 input and generates the :sourcedir:`sql/psql` scripts which get used by
-:omerocmd:`db script` to generate a working OMERO database. Files named
+:program:`omero db script` to generate a working OMERO database. Files named
 like :file:`OMEROVERSION__PATCH.sql` are hand-written update scripts.
 
 The primary consumer of the ome.model classes at runtime is the

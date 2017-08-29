@@ -169,7 +169,7 @@ the current group for the import:
 
         $ bin/omero import -g group_name ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
 
--   Use :omerocmd:`sessions group` to switch group before running the import
+-   Use :program:`omero sessions group` to switch group before running the import
     command::
 
         $ bin/omero sessions group 51
@@ -183,16 +183,16 @@ the current group for the import:
         # or alternatively
         $ bin/omero import -k c41a6f78-ba6e-4caf-aba3-a94378d5484c ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
 
-    The session ID can be found using the :omerocmd:`sessions list` command.
+    The session ID can be found using the :program:`omero sessions list` command.
 
-For further information on the commands :omerocmd:`login` and
-:omerocmd:`sessions` see :doc:`sessions`.
+For further information on the commands :program:`omero login` and
+:program:`omero sessions` see :doc:`sessions`.
 
 .. note::
 
     The :option:`-g` login option requires the group name as its argument,
-    while the :omerocmd:`sessions group` subcommand uses either the group ID
-    or the group name.
+    while the :program:`omero sessions group` subcommand uses either the group
+    ID or the group name.
 
 .. seealso:: 
     

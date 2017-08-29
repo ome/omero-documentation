@@ -57,7 +57,7 @@ perform best under different circumstances and require a different set of
 dependencies. Please check :ref:`omero_web_deployment` for the latest advice
 on how to deploy OMERO.web.
 
-If you generated configuration stanzas using :omerocmd:`web config` which
+If you generated configuration stanzas using :program:`omero web config` which
 enables OMERO.web via Nginx, they will include **hard-coded links** to
 your previous version of OMERO. Therefore, you should regenerate your config
 files when upgrading, remembering to merge in any of your own modifications if
@@ -413,7 +413,7 @@ JVM memory settings
 """""""""""""""""""
 
 Your memory settings should be copied along with :file:`etc/grid/config.xml`,
-but you can check the current settings by running :omerocmd:`admin jvmcfg`.
+but you can check the current settings by running :program:`omero admin jvmcfg`.
 See :ref:`jvm_memory_settings` for more information.
 
 Update your OMERO.web server configuration
@@ -453,7 +453,7 @@ Restart your server
        $ bin/omero admin start
 
 -  If anything goes wrong, please send the output of
-   :omerocmd:`admin diagnostics` to
+   :program:`omero admin diagnostics` to
    ome-users@lists.openmicroscopy.org.uk.
 
 -  Start OMERO.web with the following command:

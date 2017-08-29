@@ -1,13 +1,13 @@
 User/group management
 ---------------------
 
-The :omerocmd:`user` and :omerocmd:`group` commands provide functionalities to
-add and manage users and groups on your database.
+The :program:`omero user` and :program:`omero group` commands provide
+functionalities to add and manage users and groups on your database.
 
 User creation
 ^^^^^^^^^^^^^
 
-New users can be added to the database using the :omerocmd:`user add`
+New users can be added to the database using the :program:`omero user add`
 command::
 
     $ bin/omero user add -h
@@ -20,18 +20,18 @@ enter::
     $ bin/omero user add jsmith John Smith 2
 
 Additional parameters such as the email address, institution, middle name etc
-can be passed as optional arguments to the :omerocmd:`user add` command.
+can be passed as optional arguments to the :program:`omero user add` command.
 
 For managing the permissions of restricted administrators
 :doc:`OMERO.cli does provide means <light-admins>` but that functionality
-is not yet offered in a friendly manner by the :omerocmd:`user` command.
+is not yet offered in a friendly manner by the :program:`omero user` command.
 The :help:`OMERO.web Admin interface <facility-manager#lightadmin>` is
 recommended for this task instead.
 
 If you are using ldap as an authentication backend, you can create
-an OMERO user account for jsmith using the :omerocmd:`ldap create` command,
-which allows the administrator to add jsmith to an OMERO group, before they
-have ever logged in to OMERO::
+an OMERO user account for jsmith using the :program:`omero ldap create`
+command, which allows the administrator to add jsmith to an OMERO group,
+before they have ever logged in to OMERO::
 
     $ bin/omero ldap create jsmith
 
@@ -42,7 +42,7 @@ Converting non-LDAP users to LDAP authentication
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you want to take an existing (non-LDAP) user and 'upgrade' them to using
-LDAP you can do so using the :omerocmd:`ldap setdn` command::
+LDAP you can do so using the :program:`omero ldap setdn` command::
 
     $ bin/omero ldap setdn -h
 
@@ -55,7 +55,7 @@ below:
 Group creation
 ^^^^^^^^^^^^^^
 
-New groups can be added to the database using the :omerocmd:`group add`
+New groups can be added to the database using the :program:`omero group add`
 command::
 
     $ bin/omero group add -h
@@ -79,7 +79,7 @@ optional arguments::
         read-annotate).
 
 Lists of users/groups on the OMERO server can be queried using the
-:omerocmd:`user list` and :omerocmd:`group list` commands::
+:program:`omero user list` and :program:`omero group list` commands::
 
     $ bin/omero user list
     $ bin/omero group list
@@ -87,10 +87,10 @@ Lists of users/groups on the OMERO server can be queried using the
 Group management
 ^^^^^^^^^^^^^^^^
 
-Users can be added to existing groups using the :omerocmd:`user joingroup` or
-:omerocmd:`group adduser` commands. Similarly, users can be removed from
-existing groups using the :omerocmd:`user leavegroup` or
-:omerocmd:`group removeuser` commands::
+Users can be added to existing groups using the :program:`omero user joingroup` or
+:program:`omero group adduser` commands. Similarly, users can be removed from
+existing groups using the :program:`omero user leavegroup` or
+:program:`omero group removeuser` commands::
 
     # Add jsmith to group read-annotate-1
     $ bin/omero group adduser jsmith --name=read-annotate-1
@@ -112,11 +112,11 @@ Group copy
 ^^^^^^^^^^
 
 To create a copy of a group, you must first create a new group using the
-:omerocmd:`group add` command::
+:program:`omero group add` command::
 
     $ bin/omero group add read-only-2 --perms='rwr---'
 
-Then you can use the :omerocmd:`group copyusers` command to copy all group
+Then you can use the :program:`omero group copyusers` command to copy all group
 members from one group to  another::
 
     $ bin/omero group copyusers read-only-1 read-only-2

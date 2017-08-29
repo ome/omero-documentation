@@ -30,5 +30,5 @@ General notes
 -  Any command can be produced by symlinking :file:`bin/omero` to a file of
    the form "omero-command-arg1-arg2". This is useful under :file:`/etc/rc.d`
    to have a startup script.
--  All commands respond to :omerocmd:`help`.
+-  All commands respond to :program:`omero help`.
 

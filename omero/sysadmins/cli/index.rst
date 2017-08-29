@@ -1,9 +1,9 @@
 Command Line Interface as an OMERO admin tool
 =============================================
 
-When first beginning to work with the OMERO server, the :omerocmd:`db`,
-:omerocmd:`config`, and :omerocmd:`admin` commands will be the first you will
-need. For other important uses of Command Line see the links in
+When first beginning to work with the OMERO server, the :program:`omero db`,
+:program:`omero config`, and :program:`omero admin` commands will be the first
+you will need. For other important uses of Command Line see the links in
 "See Also" box.
 
 .. toctree::
@@ -25,5 +25,5 @@ need. For other important uses of Command Line see the links in
     :doc:`/developers/cli/index`
         Developer Documentation for the Command Line Interface
 
-Help for any specific CLI command can be displayed using the :option:`-h`
+Help for any specific CLI command can be displayed using the ``-h``
 argument. See :ref:`cli_help` for more information.

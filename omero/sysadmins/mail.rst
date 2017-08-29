@@ -3,7 +3,7 @@ OMERO.mail
 
 The OMERO server has the ability to send email to any users who have a
 properly configured email address. OMERO system administrators can then use
-the :omerocmd:`admin email` command to contact those users.
+the :program:`omero admin email` command to contact those users.
 
 In order to activate the subsystem, minimally the
 :property:`omero.mail.config` property will need to be activated.
@@ -38,7 +38,7 @@ Setting email addresses
 
 For any user to receive email, a valid email address must be configured.
 By default, the `root` OMERO user will *not* have an email address configured.
-This can be done from one of the UIs or via the :omerocmd:`obj` command::
+This can be done from one of the UIs or via the :program:`omero obj` command::
 
     $ bin/omero obj update Experimenter:0 email=root@university.example
 

@@ -20,7 +20,7 @@ element in :file:`etc/grid/templates.xml` with its own parameters.
 Modifying the application descriptors
 -------------------------------------
 
-When you run :omerocmd:`admin start` without any other arguments, it
+When you run :program:`omero admin start` without any other arguments, it
 looks up the default **application descriptor** for your platform:
 
 ::
@@ -65,11 +65,11 @@ Targets
 
 **Targets** are elements within the application descriptors which can
 optionally turn on configuration. The target is only applicable until
-the next invocation of :omerocmd:`admin start` or :omerocmd:`admin deploy`
+the next invocation of :program:`omero admin start` or :program:`omero admin deploy`
 
 .. note::
     You must remember to always apply the targets on each
-    :omerocmd:`admin` command. If not, the target will not be
+    :program:`omero admin` command. If not, the target will not be
     removed. Therefore, they are often better used for debugging purposes;
     however, as opposed to alternative application descriptors, using
     the pre-existing targets should not require any special effort

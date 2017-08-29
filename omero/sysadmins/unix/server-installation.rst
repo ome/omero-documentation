@@ -535,9 +535,9 @@ Configuration
     only. Any configuration settings you would like to change can be
     changed in the next step. Alternatively, you can view a parsed
     version of the file under :doc:`/sysadmins/config` or parse it
-    yourself with :omerocmd:`config parse`.
+    yourself with :program:`omero config parse`.
 
--   Change any settings that are necessary using :omerocmd:`config`,
+-   Change any settings that are necessary using :program:`omero config`,
     including the name and/or password for the 'db\_user' database
     user you chose above or the database name if it is not
     "omero\_database". (Quotes are only necessary if the value could

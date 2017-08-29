@@ -149,7 +149,7 @@ for example, can be used to visualize the memory use of each |JVM|:
 
 You will need to have the |PID| for the service you want to monitor, which
 will usually be the main Blitz process. You can find the |PID| either via
-:omerocmd:`admin diagnostics` or alternatively via the `jps` command found
+:program:`omero admin diagnostics` or alternatively via the `jps` command found
 in the JDK.
 
 Another tool, `JConsole`_, also provides access to the memory statistics

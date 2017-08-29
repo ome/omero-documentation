@@ -1,8 +1,8 @@
 Deleting objects
 ----------------
 
-The :omerocmd:`delete` command deletes objects. Further help is available
-using the :option:`-h` option::
+The :program:`omero delete` command deletes objects. Further help is available
+using the ``-h`` option::
 
     $ bin/omero delete -h
 

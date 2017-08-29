@@ -44,7 +44,7 @@ creation and not on every login, see :ref:`legacy_password_providers`.
 
 You can take existing non-LDAP users and 'upgrade' them to using LDAP with the
 OMERO command line tool, see :ref:`ldap_setdn`. You can also use
-:omerocmd:`ldap create` to add an ldap user to OMERO groups without requiring
+:program:`omero ldap create` to add an ldap user to OMERO groups without requiring
 them to log in first, see :doc:`cli/usergroup` for details.
 
 LDAP properties
