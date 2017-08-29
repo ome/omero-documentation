@@ -95,13 +95,51 @@ Prerequisites
 
    -  `ZeroC`_ IcePy 3.6
 
-   -  `Pillow`_
+   -  `Django`_ (1.8) [1]_
+
+   -  `Pillow`_ [2]_
 
    -  `NumPy <http://www.numpy.org>`_ >=1.9 
+
+   -  Matplotlib_
 
 -  A `WSGI <http://wsgi.readthedocs.org>`_-capable webserver such as
    `NGINX <http://nginx.org/>`_ and `Gunicorn <http://docs.gunicorn.org/>`_
 
+.. [1] The currently supported version of the django module used by
+       OMERO.web (1.8) requires Python 2.7. The older version (1.6)
+       will work with Python 2.6 but lacks security support, and is
+       consequently *not recommended for production use*. Python 2.7
+       and `Django 1.8`_ are required for security support.
+
+.. [2] Make sure to have `libjpeg <http://libjpeg.sourceforge.net/>`_ 
+       installed when building `Pillow`_. We currently do not 
+       support version 3.0+.
+
+If possible, install the following packages:
+
+.. list-table::
+    :header-rows: 1
+    :widths: 1,8
+
+    * - System
+      - Package
+
+    * - BSD Ports
+      - lang/python27 graphics/py-pillow math/py-matplotlib math/py-numpy www/nginx
+
+    * - Debian
+      - python2.7 python-pil python-matplotlib python-numpy nginx
+
+    * - Homebrew
+      - python pillow numpy matplotlib nginx
+
+    * - RedHat
+      - python nginx
+
+.. note::
+    CentOS 6 users should read :doc:`../server-centos6-ice36`
+    and follow the instructions there to install Python and the required modules.
 
 .. _gunicorn_default_configuration:
 
