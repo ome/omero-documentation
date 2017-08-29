@@ -93,8 +93,6 @@ Prerequisites
       software packages written in Python. PyPI is already installed if
       you are using Python 2 >=2.7.9
 
-   -  `omego <https://github.com/ome/omego>`_ OME package management system
-
    -  `ZeroC`_ IcePy 3.6
 
    -  `Pillow`_
@@ -122,12 +120,14 @@ Install the OMERO.web dependencies using the package management tools:
 
 ::
 
+   $ # if OMERO.web is installed with the OMERO.server it is not necessary to download
+   $ # OMERO.py. In that case, the path to the requirements file should start with OMERO.server
+   $ # and not OMERO.py
    $ curl -o OMERO.py.zip -L https://downloads.openmicroscopy.org/latest/omero5/py.zip
    $ unzip -q OMERO.py*
    $ zip = $(ls OMERO.py*.zip)
    $ ln -s OMERO.py-* OMERO.py
-   $ # if install with the OMERO.server the commands above are not required
-   $ # if OMERO.web is install in a virtual environment
+   $ # if OMERO.web is installed in a virtual environment
    $ omerowebvenv/bin/pip install --upgrade -r OMERO.py/share/web/requirements-py27.txt
    $ # otherwise
    $ pip install -r OMERO.py/share/web/requirements-py27-all.txt
