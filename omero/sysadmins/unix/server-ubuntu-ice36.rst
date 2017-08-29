@@ -1,5 +1,5 @@
-OMERO.server installation on Ubuntu 14.04 and 16.04
-===================================================
+OMERO.server installation on Ubuntu 16.04
+=========================================
 
 This is an example walkthrough for installing OMERO on Ubuntu, using
 a dedicated system user, and should be read in conjunction with
@@ -45,13 +45,7 @@ To install Ice 3.6:
     :start-after: #start-recommended-ice
     :end-before: #end-recommended-ice
 
-To install PostgreSQL 9.6 on Ubuntu 14.04:
-
-.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
-    :start-after: #end-supported-ice
-    :end-before: #end-step01
-
-To install PostgreSQL 9.6 on Ubuntu 16.04:
+To install PostgreSQL 9.6:
 
 .. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
     :start-after: #end-supported-ice
