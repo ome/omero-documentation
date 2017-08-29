@@ -29,11 +29,23 @@ Installing NGINX
 
 **The following steps are run as root.**
 
-Install NGINX, copy the NGINX OMERO configuration file into the
-NGINX configuration directory, and disable the default configuration:
+Install NGINX and other dependencies:
 
 .. literalinclude:: ../../walkthrough/walkthrough_debian9.sh
     :start-after: #start-nginx
+    :end-before: #start-configure-nginx
+
+Configure and create the NGINX OMERO configuration file:
+
+.. literalinclude:: ../../walkthrough/walkthrough_debian9.sh
+    :start-after: #start-configure-nginx
+    :end-before: #end-configure-nginx
+
+Copy the NGINX OMERO configuration file into the NGINX configuration directory,
+disable the default configuration and start NGINX:
+
+.. literalinclude:: ../../walkthrough/walkthrough_debian9.sh
+    :start-after: #end-configure-nginx
     :end-before: #end-nginx
 
 Running OMERO.web
