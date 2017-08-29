@@ -1,5 +1,5 @@
-Customize OMERO.web
-===================
+OMERO.web customization
+=======================
 
 The OMERO.web offer a flexible user interface that can be customized.
 The sections below describe how to set up these features.
