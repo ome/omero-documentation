@@ -1,5 +1,5 @@
-OMERO.web management
-====================
+OMERO.web administration
+========================
 
 OMERO.web is the web application component of the OMERO platform which
 allows for the management, visualization (in a fully multi-dimensional
