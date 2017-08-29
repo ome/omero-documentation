@@ -35,13 +35,13 @@ Install Java 1.8, Ice 3.6 and PostgreSQL 9.6:
 
 To install Java 1.8 and other dependencies:
 
-.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
+.. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
     :start-after: #start-step01
-    :end-before: # install Ice
+    :end-before: #start-web-dependencies
 
 To install Ice 3.6:
 
-.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
+.. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
     :start-after: #start-recommended-ice
     :end-before: #end-recommended-ice
 
@@ -59,13 +59,13 @@ To install PostgreSQL 9.6 on Ubuntu 16.04:
 
 Create an omero system user, and a directory for the OMERO repository:
 
-.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
+.. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
     :start-after: #start-step02
     :end-before: #end-step02
 
 Create a database user and initialize a new database for OMERO:
 
-.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
+.. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
     :start-after: #start-step03
     :end-before: #end-step03
 
@@ -86,13 +86,13 @@ You will need to install the server corresponding to your Ice version.
 
 Install ``server-ice36.zip``:
 
-.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
+.. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
     :start-after: #start-release-ice36
     :end-before: #end-release-ice36
 
 Configure:
 
-.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
+.. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
     :start-after: #end-release-ice36
     :end-before: #end-step04
 
@@ -117,6 +117,6 @@ If multiple users have access to the machine running OMERO you should restrict
 access to OMERO.server's configuration and runtime directories, and optionally
 the OMERO data directory:
 
-.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
+.. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
     :start-after: #start-step07
     :end-before: #end-step07

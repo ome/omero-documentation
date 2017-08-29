@@ -37,7 +37,7 @@ To install Java 1.8 and other dependencies:
 
 .. literalinclude:: walkthrough/walkthrough_debian9.sh
     :start-after: #start-step01
-    :end-before: # install Ice
+    :end-before: #start-web-dependencies
 
 To install Ice 3.6:
 
