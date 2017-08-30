@@ -175,7 +175,7 @@ the current group for the import:
         $ bin/omero sessions group 51
         $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
 
--   Use the ``-k`` login option to reconnect to an active session for the
+-   Use the :option:`omero login -k` option to reconnect to an active session for the
     target group::
 
         $ bin/omero login -k c41a6f78-ba6e-4caf-aba3-a94378d5484c
