@@ -25,7 +25,7 @@ How to change ownership of data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The :program:`chown` command transfers objects to the ownership of a
-different user. Further help is available using the :option:`-h`
+different user. Further help is available using the ``-h``
 option::
 
     $ bin/omero chown -h

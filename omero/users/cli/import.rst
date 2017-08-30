@@ -22,17 +22,17 @@ Visit :doc:`installation` to install the |CLI|.
 Import command
 ^^^^^^^^^^^^^^
 
-.. program:: omero import
-
 To import a file :file:`image.tif`, use::
 
     $ bin/omero import image.tif
 
 Some of the options available to the import command are:
 
+.. program:: omero import
+
 .. option:: -h, --help
 
-Examples of options available to the import command,
+    Examples of options available to the import command,
 
 .. option:: -s SERVER, -p PORT, -U USERNAME, -g GROUPNAME
 
@@ -48,10 +48,12 @@ Examples of options available to the import command,
         $ bin/omero import image.tif -T Dataset:id:2
         $ bin/omero import image.tif -T Dataset:name:Sample01
 
-    See :doc:`import-target` for more information on import targets.
+        See :doc:`import-target` for more information on import targets.
 
 Scanning folders prior to Import
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. program:: omero import
 
 .. option:: -f
 
@@ -75,6 +77,8 @@ Scanning folders prior to Import
 Managing performance of imports
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. program:: omero import
+
 .. option:: --skip SKIP
 
     Specify optional step to skip during import.
@@ -93,7 +97,7 @@ Managing performance of imports
     checksum
         Skip checksum calculation on image files before and after transfer
 
-        This option effectively sets the :option:`--checksum_algorithm` to use
+        This option effectively sets the ``--checksum_algorithm`` to use
         a fast algorithm, ``File-Size-64``, that considers only file size, not
         the actual file contents.
     minmax
@@ -123,6 +127,8 @@ Managing performance of imports
 Troubleshoot and report issues
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. program:: omero import
+
 .. option:: --debug DEBUG
 
     Set the debug level for the command line import output::
@@ -137,8 +143,8 @@ Troubleshoot and report issues
 .. option:: --email EMAIL
 
     Set the contact email to use when reporting errors. This argument should
-    be used in conjunction with the :option:`--report` and :option:`--upload`
-    or :option:`--logs` arguments.
+    be used in conjunction with the :option:`omero import --report` and :option:`omero import --upload`
+    or :option:`omero import --logs` arguments.
 
 .. option:: --upload
 
@@ -160,6 +166,8 @@ Troubleshoot and report issues
 
 Advanced import commands
 ^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. program:: omero import
 
 .. option:: --java-help
 

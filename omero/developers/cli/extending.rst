@@ -3,7 +3,7 @@ Extensions
 
 Plugins can be written and put in the ``lib/python/omero/plugins``
 directory. On execution, all plugins in that directory are registered
-with the |CLI|. Alternatively, the :option:`--path` argument can be used to
+with the |CLI|. Alternatively, the ``--path`` argument can be used to
 point to other plugin files or directories.
 
 Thread-safety

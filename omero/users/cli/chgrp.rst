@@ -116,7 +116,7 @@ Including and excluding objects
 .. option:: --include
 
     Linked objects that would not ordinarily be moved can be included in the
-    move using the `--include` option::
+    move using the ``--include`` option::
 
         $ bin/omero chgrp 5 Image:51 --include Annotation
 
@@ -125,7 +125,7 @@ Including and excluding objects
 .. option:: --exclude
 
     Linked objects that would ordinarily be moved can be excluded from the
-    move using the `--exclude` option::
+    move using the ``--exclude`` option::
 
         $ bin/omero chgrp 5 Project:51 --exclude Dataset
 

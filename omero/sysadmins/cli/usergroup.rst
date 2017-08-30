@@ -66,7 +66,7 @@ group::
     $ bin/omero group add newgroup
 
 The permissions of the group are set to `private` by default. Alternatively you
-can specify the permissions using :option:`--perms` or :option:`--type`
+can specify the permissions using ``--perms`` or ``--type``
 optional arguments::
 
     $ bin/omero group add read-only-1 --perms='rwr---'
@@ -101,7 +101,7 @@ existing groups using the :program:`omero user leavegroup` or
     # Remove jsmith from group read-only-1
     $ bin/omero user leavegroup read-only-1 --name=jsmith
 
-By passing the :option:`--as-owner` option, these commands can also be used to manage group owners ::
+By passing the ``--as-owner`` option, these commands can also be used to manage group owners ::
 
     # Add jsmith to the owner list of group read-annotate-1
     $ bin/omero group adduser jsmith --name=read-annotate-1 --as-owner
@@ -121,6 +121,7 @@ members from one group to  another::
 
     $ bin/omero group copyusers read-only-1 read-only-2
 
-To copy the group owners, use the same command with the :option:`--as-owner` optional argument::
+To copy the group owners, use the same command with the ``--as-owner``
+optional argument::
 
     $ bin/omero group copyusers read-only-1 read-only-2 --as-owner

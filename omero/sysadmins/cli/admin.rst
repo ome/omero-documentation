@@ -12,7 +12,7 @@ is set to use that database, you are ready to start your server using the
 
 This command performs the following operations in order:
 
-#. rewrites the configuration files if :option:`--force-rewrite` is passed or
+#. rewrites the configuration files if :option:`omero admin start --force-rewrite` is passed or
    the server has never been started
 #. checks the server status, i.e. pings the ``master`` node using the IceGrid
    administration tool
@@ -56,7 +56,7 @@ subcommand::
 
 This command does the following operations in order:
 
-#. rewrites the server configuration files if :option:`--force-rewrite` is
+#. rewrites the server configuration files if :option:`omero admin stop --force-rewrite` is
    passed
 #. checks the server status, i.e. pings the ``master`` node using the IceGrid
    administration tool

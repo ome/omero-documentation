@@ -268,13 +268,13 @@ your OMERO database is not Unicode-encoded with ``UTF8`` then it must be
 re-encoded.
 
 If you have the :command:`pg_upgradecluster` command available then its
-:option:`--locale` option can effect the change in encoding. Otherwise,
+``--locale`` option can effect the change in encoding. Otherwise,
 create a Unicode-encoded dump of your database: dump it :ref:`as before
 <back-up-the-db>` but to a different dump file and with an additional
-:option:`-E UTF8` option. Then, create a Unicode-encoded database for
+``-E UTF8`` option. Then, create a Unicode-encoded database for
 OMERO and restore that dump into it with :command:`pg_restore`,
 similarly to :ref:`effecting a rollback <restore-the-db>`. If required
-to achieve this, the :option:`-E UTF8` option is accepted by both
+to achieve this, the ``-E UTF8`` option is accepted by both
 :command:`initdb` and :command:`createdb`.
 
 Run the upgrade script

@@ -69,9 +69,9 @@ IDs.
     objects will be deleted. The :option:`delete --dry-run` option can be
     useful as a check before trying to delete large numbers of objects.
     If specifying objects with a range, it is best to pass either 
-    :option:`--dry-run` or :option:`--force`. Earlier versions defaulted to 
-    :option:`--dry-run` if no flag was passed, but this behavior is deprecated.
-    Future versions will default to :option:`--force`.
+    :option:`delete --dry-run` or ``delete --force``. Earlier versions defaulted to 
+    :option:`delete --dry-run` if no flag was passed, but this behavior is deprecated.
+    Future versions will default to ``delete --force``.
 
 Deleting lower level objects
 ============================
@@ -103,7 +103,7 @@ Including and excluding objects
 .. option:: --include
 
     Linked objects that would not ordinarily be deleted can be included in the
-    delete using the `--include` option::
+    delete using the ``--include`` option::
 
         $ bin/omero delete Image:51 --include FileAnnotation,TagAnnotation,TermAnnotation
 
@@ -118,7 +118,7 @@ Including and excluding objects
 .. option:: --exclude
 
     Linked objects that would ordinarily be deleted can be excluded from the
-    delete using the `--exclude` option::
+    delete using the ``--exclude`` option::
 
         $ bin/omero delete Project:51 --exclude Dataset
 
@@ -190,6 +190,6 @@ Further options
 .. option:: --dry-run
 
     Run the command and report success or failure but do not delete the
-    objects. This can be combined with the :option:`--report` to provide
+    objects. This can be combined with the :option:`delete --report` to provide
     a detailed confirmation of what would be deleted before running the
     delete itself.

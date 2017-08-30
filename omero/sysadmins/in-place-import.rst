@@ -201,7 +201,7 @@ only be accessed using:
     $ bin/omero import -- --advanced-help
 
 The option for performing an in-place transfer is
-:option:`--transfer`. A new extension point, file transfers allow
+``--transfer``. A new extension point, file transfers allow
 a choice of which mechanism is used to get a file into OMERO.
 
 ::
@@ -300,11 +300,11 @@ have read-write permissions on the data files being imported in-place.
 "ln_rm" - moving
 ^^^^^^^^^^^^^^^^
 
-Finally, the least favored option is `ln_rm`. It first performs
+Finally, the least favored option is ``ln_rm``. It first performs
 a hard-link like `ln`, but once the import is complete it attempts
 to delete the original file. This is currently in testing as
 an option for DropBox but is unlikely to be of use to general users.
-Although this option is more limited than the `upload_rm` option below it
+Although this option is more limited than the ``upload_rm`` option below it
 will be much faster.
 
 "upload_rm" - uploading and deleting
@@ -349,10 +349,10 @@ placed in the `lib/clients` directory, you can invoke it using:
 Related advanced options
 ------------------------
 
-In addition to the :option:`--transfer` option in 5.0.0, a number of other
+In addition to the ``--transfer`` option in 5.0.0, a number of other
 advanced options have been added which may be useful for either
 tweaking import performance or dealing with complicated situations.
-However, like :option:`--transfer`, these options should be considered
+However, like ``--transfer``, these options should be considered
 experimental and **may change in subsequent releases**. Comments and
 suggestions are very welcome.
 
@@ -361,8 +361,8 @@ Checksums
 
 If you think that calculating the checksums for your large files is
 consuming too much time, you might want to configure the checksum
-algorithm used. This can be done with the :option:`--checksum_algorithm`
-property. Available options are printed with the :option:`--advanced-help`
+algorithm used. This can be done with the ``--checksum_algorithm``
+property. Available options are printed with the ``--advanced-help``
 option and include Adler-32, CRC-32, MD5-128, Murmur3-32, Murmur3-128,
 and the default SHA1-160.
 

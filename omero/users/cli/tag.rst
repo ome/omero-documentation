@@ -2,7 +2,7 @@ Manage tags
 -----------
 
 The :program:`omero tag` subcommands manage the creation, linking and listing of
-tag annotations. All subcommands can be listed using the :option:`-h` option::
+tag annotations. All subcommands can be listed using the ``-h`` option::
 
     $ bin/omero tag -h
 
@@ -21,7 +21,7 @@ To create a tag set containing two existing tags of known identifiers
 	Please enter a name for this tag set: my_tag_set
 
 For both tags and tag sets, the name and an optional description can be
-passed using the :option:`--name` and :option:`--desc` options::
+passed using the ``--name`` and ``--desc`` options::
 
 	$ bin/omero tag create --name my_tag --desc 'description of my_tag'
 	$ bin/omero tag createset --tag 1259 1260 --name my_tag_set --desc 'description of my_tag_set'
@@ -76,7 +76,7 @@ must be specified as ``TagAnnotation:tag_id``. To delete tag ``123`` use::
     $ bin/omero delete TagAnnotation:123
 
 By default the tags within a tag set will not be deleted with the tag set. To
-delete any included tags use the :option:`--include` option::
+delete any included tags use the :option:`delete --include` option::
 
     $ bin/omero delete TagAnnotation:123 --include TagAnnotation
 

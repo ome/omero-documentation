@@ -55,8 +55,8 @@ matches the version of your server!
 The location of your Ice installation should be automatically detected
 if installed into a standard location. If this is not the case, set
 the location of your Ice installation using the :envvar:`ICE\_HOME`
-environment variable or the :option:`-DICE\_HOME` or
-:option:`-DIce_SLICE_DIR` :program:`cmake` options for your Ice
+environment variable or the :option:`cmake -DICE\_HOME` or
+:option:`cmake -DIce_SLICE_DIR` :program:`cmake` options for your Ice
 installation (see below). Some possible locations for the |iceversion|
 version of Ice follow. Note these are just examples; you need to
 adjust them for the Ice installation path and version in use on your
@@ -195,76 +195,92 @@ environment variables are commonly needed:
 In addition, :program:`cmake` options may be defined directly when
 running :program:`cmake`. Commonly needed options include:
 
-:option:`-DCMAKE_PREFIX_PATH`
+.. program:: cmake
+
+.. option:: -DCMAKE_PREFIX_PATH
+
     Search this location when searching for programs, headers and
     libraries.  Use to search :file:`/usr/local` or :file:`/opt/Ice`,
     for example.  More specific search locations may be specified
-    using :option:`-DCMAKE_INCLUDE_PATH`, :option:`-DCMAKE_LIBRARY_PATH`
-    and :option:`-DCMAKE_PROGRAM_PATH` separately, if required.
+    using :option:`cmake -DCMAKE_INCLUDE_PATH`, :option:`cmake -DCMAKE_LIBRARY_PATH`
+    and :option:`cmake -DCMAKE_PROGRAM_PATH` separately, if required.
 
-:option:`-DCMAKE_INCLUDE_PATH`
+.. option:: -DCMAKE_INCLUDE_PATH
+
     Search this location when searching for headers.  Use to include
     :file:`/usr/local/include` or :file:`/opt/Ice/include`, for
     example.
 
-:option:`-DCMAKE_LIBRARY_PATH`
+.. option:: -DCMAKE_LIBRARY_PATH
+
     Search this location when searching for libraries.  Use to include
     :file:`/usr/local/lib` or :file:`/opt/Ice/lib`, for example.
 
-:option:`-DCMAKE_PROGRAM_PATH`
+.. option:: -DCMAKE_PROGRAM_PATH
+
     Search this location when searching for programs.  Use to include
     :file:`/usr/local/bin` or :file:`/opt/Ice/bin`, for example.
 
-:option:`-DCMAKE_CXX_FLAGS`
+.. option:: -DCMAKE_CXX_FLAGS
+
     C++ compiler flags. Use to set any additional linker flags
     desired.
 
-:option:`-DCMAKE_EXE_LINKER_FLAGS`
+.. option:: -DCMAKE_EXE_LINKER_FLAGS
+
     Executable linker flags. Use to set any additional linker flags
     desired.
 
-:option:`-DCMAKE_MODULE_LINKER_FLAGS`
+.. option:: -DCMAKE_MODULE_LINKER_FLAGS
+
     Loadable module linker flags. Use to set any additional linker
     flags desired.
 
-:option:`-DCMAKE_SHARED_LINKER_FLAGS`
+.. option:: -DCMAKE_SHARED_LINKER_FLAGS
+
     Shared library linker flags. Use to set any additional linker
     flags desired.
 
-:option:`-DCMAKE_VERBOSE_MAKEFILE`
+.. option:: -DCMAKE_VERBOSE_MAKEFILE
+
     Default to printing all commands executed by make. This may be
     overridden with the make ``VERBOSE`` variable.
 
-:option:`-DIce\_HOME`
+.. option:: -DIce\_HOME
+
     The location of the Ice installation. If this is not sufficient to
     discover the correct binary and library directories, they may
     otherwise be manually specified with the options below. Likewise
     for the :file:`include` and :file:`slice` directories.
 
-:option:`-DIce_SLICE2XXX_EXECUTABLE`
+.. option:: -DIce_SLICE2XXX_EXECUTABLE
+
     Specific location of individual Ice ``slice2xxx`` programs, e.g.
     ``Ice_SLICE2CPP_EXECUTABLE`` for :program:`slice2cpp` or
     ``Ice_SLICE2JAVA_EXECUTABLE`` for :program:`slice2java`. These are
     typically found in ``${ICE_HOME}/bin`` or on the default
     :envvar:`PATH`.  These will not normally require setting.
 
-:option:`-DIce_INCLUDE_DIR`
+.. option:: -DIce_INCLUDE_DIR
+
     Location of Ice headers. This is typically ``${ICE_HOME}/include``
     or on the default include search path.  This will not normally
     require setting.
 
-:option:`-DIce_SLICE_DIR`
+.. option:: -DIce_SLICE_DIR
+
     Location of Ice slice interface definitions. This is typically
     ``${ICE_HOME}/slice``. Use for installations where
-    :option:`-DICE\_HOME` does not contain :file:`slice` or situations
-    where you wish to build without setting :option:`-DICE\_HOME`. Note
+    :option:`cmake -DICE\_HOME` does not contain :file:`slice` or situations
+    where you wish to build without setting :option:`cmake -DICE\_HOME`. Note
     that when building using :program:`build.py`, rather than building
     directly with :program:`cmake`, the :envvar:`SLICEPATH`
     environment variable should be used instead (the :program:`ant`
     build can't use the :program:`cmake` variables since it only runs
     :program:`cmake` after a full build of the Java server).
 
-:option:`-DIce_<C>_LIBRARIES`
+.. option:: -DIce_<C>_LIBRARIES
+
     Specific libraries for Ice component ``<C>``, where ``<C>`` is the
     uppercased name of the Ice component, e.g. ``ICE`` for the ``Ice``
     component, ``ICEUTIL`` for the ``IceUtil`` component or
@@ -272,7 +288,8 @@ running :program:`cmake`. Commonly needed options include:
     typically found in ``${ICE_HOME}/lib`` or on the default library
     search path. These will not normally require setting.
 
-:option:`-DIce_DEBUG`
+.. option:: -DIce_DEBUG
+
     Set to ON to print detailed diagnostics about the detected Ice
     installation. Use if there are any problems finding Ice.
 
@@ -293,7 +310,7 @@ of the build.
     around in a future OMERO release.
 
 :program:`cmake` has full support for :program:`Visual Studio`. Use
-the :program:`cmake` :option:`-G` option to set the generator for your
+the :program:`cmake` ``-G`` option to set the generator for your
 Visual Studio version, with a ``Win64`` suffix for an x64 build. The
 correct Ice programs and libraries for your Ice installation should be
 automatically discovered.
