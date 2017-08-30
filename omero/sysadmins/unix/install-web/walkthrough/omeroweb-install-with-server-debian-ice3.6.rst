@@ -1,5 +1,5 @@
-OMERO.web deployed with OMERO.server Debian 9 and IcePy 3.6
-===========================================================
+OMERO.web deployed with OMERO.server on Debian 9 and IcePy 3.6
+==============================================================
 
 Please first read :doc:`../../server-debian9-ice36`.
 
