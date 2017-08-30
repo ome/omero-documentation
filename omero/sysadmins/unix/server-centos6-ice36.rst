@@ -129,23 +129,35 @@ Configure:
     :start-after: #end-release-ice36
     :end-before: #end-step04
 
-Installing and running OMERO.web
---------------------------------
+Configuring OMERO.web
+---------------------
 
-OMERO.web is deployed using NGINX see :doc:`install-web/web-deployment`.
+**The following steps are run as the omero system user.**
 
+Install other OMERO.web dependencies using pip:
+
+.. literalinclude:: walkthrough/walkthrough_centos6_py27_ius.sh
+    :start-after: #web-requirements-recommended-start
+    :end-before: #web-requirements-recommended-end
+
+Configure and create the NGINX OMERO configuration file:
+
+.. literalinclude:: walkthrough/walkthrough_centos6_py27_ius.sh
+    :start-after: #start-configure-nginx
+    :end-before: #end-configure-nginx
+
+For more customization, please read :ref:`customizing_your_omero_web_installation`.
+
+Configuring NGINX
+-----------------
 
 **The following steps are run as root.**
 
-Install the latest stable version of NGINX, install the requirements to run OMERO.web in the virtual environment, deactivate it
-and copy the NGINX OMERO configuration file into the
-NGINX configuration directory, and disable the default configuration:
-
+Copy the generated configuration file into the NGINX configuration directory, disable the default configuration and start NGINX:
 
 .. literalinclude:: walkthrough/walkthrough_centos6_py27_ius.sh
-    :start-after: #start-nginx
-    :end-before: #end-nginx
-
+    :start-after: #start-nginx-admin
+    :end-before: #end-nginx-admin
 
 Running OMERO.server
 --------------------
@@ -158,11 +170,22 @@ OMERO should now be set up. To start the server run::
 
 Please read the SELinux_ section below.
 
-In addition an `init.d` script is available should you wish to
-start OMERO automatically.
+In addition :download:`omero-systemd.service <walkthrough/omero-systemd.service>`
+is available should you wish to start OMERO automatically.
 
-| :download:`omero-init.d <walkthrough/omero-init.d>`
+Running OMERO.web
+-----------------
 
+**The following steps are run as the omero system user.**
+
+To start the OMERO.web client run::
+
+    OMERO.server/bin/omero web start
+
+NGINX should already be running so you should be able to log in as the OMERO
+root user by going to http://localhost/ in your web browser.
+
+In addition :download:`omero-web-systemd.service <walkthrough/omero-web-systemd.service>` is available should you wish to start OMERO.web automatically.
 
 Securing OMERO
 --------------
