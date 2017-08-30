@@ -27,7 +27,7 @@ Server Installation
 This section provides guidance on how to install and set up OMERO.server on
 any of the supported UNIX and UNIX-like platforms. Specific walkthroughs are
 provided for several systems, with detailed step-by-step instructions.
-However, reading through the :doc:`unix/server-installation` first
+Reading through the :doc:`unix/server-installation` first
 is recommended as this explains the entire process rather than just being a
 series of commands.
 
@@ -57,9 +57,7 @@ provided for several systems, with detailed step-by-step instructions.
 OMERO.web can be either deployed with the OMERO.server or **separately** from 
 the OMERO.server. Deploying separately is **recommended**.
 
-
-
-However, reading through the :doc:`unix/install-web/web-deployment` first
+Reading through the :doc:`unix/install-web/web-deployment` first
 is recommended.
 
 .. toctree::
@@ -79,7 +77,7 @@ is recommended.
 OMERO.web Maintenance and Customization
 ***************************************
 
-This sectin contains instructions for administering, customizing your OMERO.web installation.
+This section contains instructions for administering and customizing your OMERO.web installation.
 
 .. toctree::
     :maxdepth: 1

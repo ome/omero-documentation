@@ -78,7 +78,7 @@ more specific walkthrough listed below.
 This guide uses the example of deploying OMERO.web **separately** from OMERO.server with
 `NGINX <http://nginx.org/>`_ and `Gunicorn <http://docs.gunicorn.org/>`_.
 If you opt to install OMERO.web with the OMERO.server, change ``OMERO.py``
-by ``OMERO.server`` in the commands below.
+to ``OMERO.server`` in the commands below.
 
 .. _omero_web_deployment:
 
