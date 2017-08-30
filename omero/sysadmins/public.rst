@@ -60,6 +60,15 @@ To set this up on your OMERO.web installation:
 
      $ bin/omero config set omero.web.public.password '<password>'
 
+- By default the public user is only allowed to perform GET requests. This means
+  that the public user will not be able to Create, Edit or Delete data which
+  requires POST requests.
+  You can change that by setting the :property:`omero.web.public.get_only`
+  property:
+  ::
+
+      $ bin/omero config set omero.web.public.get_only false
+
 - Set the :property:`omero.web.public.url_filter`. This filter is a
   regular expression that will allow only matching URLs to be accessed
   by the public user.
@@ -95,13 +104,14 @@ To set this up on your OMERO.web installation:
 
 
   - You can use the full webclient UI for public browsing of images.
-    However, the webclient UI was not designed for public use and allows
-    various actions that create data or are resource intensive.
-    These can be selectively disabled using the following command:
+    Attempts by public user to create, edit or delete data will fail silently
+    with the default :property:`omero.web.public.get_only` setting above. You 
+    may also choose to disable various dialogs for these actions such as
+    launching scripts or OME-TIFF export, for example:
 
     ::
 
-       $ bin/omero config set omero.web.public.url_filter '^/(webadmin/myphoto/|webclient/(?!(action|logout|annotate_(file|tags|comment|rating|map)|script_ui|ome_tiff|figure_script))|webgateway/(?!(archived_files|download_as)))'
+       $ bin/omero config set omero.web.public.url_filter '^/(webadmin/myphoto/|webclient/(?!(script_ui|ome_tiff|figure_script))|webgateway/(?!(archived_files|download_as)))'
 
 - Set the :property:`omero.web.public.server_id` which the public user will be
   automatically connected to. Default: 1 (the first server in the
@@ -111,11 +121,6 @@ To set this up on your OMERO.web installation:
 
      $ bin/omero config set omero.web.public.server_id 1
 
-- By default the public user is only allowed to perform GET requests. You can 
-  change that by setting the :property:`omero.web.public.get_only` property:
-  ::
-
-     $ bin/omero config set omero.web.public.get_only false
 
 If you enable public access to the main webclient but still wish registered
 users to be able to login, the login page can always be accessed using a link
