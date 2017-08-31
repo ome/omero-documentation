@@ -1,5 +1,5 @@
-Restricted administrators OMERO.web interface to server permissions mapping
-===========================================================================
+Administrator restrictions: relating OMERO.webadmin to OMERO.server
+===================================================================
 
 
 Summary
