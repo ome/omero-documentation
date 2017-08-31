@@ -16,7 +16,7 @@ administrator restrictions in the awkward manner described hereunder.
 .. warning::
 
   OMERO.web provides a simplified view of the available restrictions:
-  checking *one* box in the web interface may lift *multiple* underlying
+  the :doc:`permissions mapping <../mapping-restricted-admins>` is such that checking *one* box in the web interface may lift *multiple* underlying
   restrictions from an administrator. The recommended OMERO.web
   management interface may thus prove confusing if OMERO.cli has been
   used to set a combination of restrictions that does not correspond to
