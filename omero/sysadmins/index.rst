@@ -126,8 +126,9 @@ web-based UI and JSON API.
 This section provides guidance on how to install and set up OMERO.web on
 any of the supported UNIX and UNIX-like platforms. Specific walkthroughs are
 provided for several systems, with detailed step-by-step instructions.
-OMERO.web can be either deployed with the OMERO.server or **separately** from 
-the OMERO.server. Deploying separately is **recommended**.
+OMERO.web can be either installed **separately** from 
+the OMERO.server or installed with the OMERO.server.
+Deploying separately is **recommended**.
 
 Reading through the :doc:`unix/install-web/web-deployment` first
 is recommended.
