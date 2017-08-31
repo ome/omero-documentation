@@ -18,23 +18,19 @@ these sub-commands::
     $ bin/omero admin -h
     $ bin/omero admin start -h
 
-The :program:`omero help` command can be used to get info on other commands or
-options.
+The :program:`omero help command` can be used to get info on other commands or
+options::
+
+    $ bin/omero help admin       # same as bin/omero admin -h
+
+In addition to the |CLI| commands which can be listed using
+:option:`omero help --list`, :program:`omero help` can be used to retrieve
+information about the `debug` and `env` options::
+
+    $ bin/omero help debug     # display help about debugging options
+    $ bin/omero help env       # display help about environment variables
 
 .. program:: omero help
-
-.. option:: command
-
-    Display the information on a particular command::
-
-        $ bin/omero help admin       # same as bin/omero admin -h
-
-    In addition to the |CLI| commands which can be listed using
-    :option:`omero help --list`, :program:`omero help` can be used to retrieve information
-    about the `debug` and `env` options::
-
-        $ bin/omero help debug     # display help about debugging options
-        $ bin/omero help env       # display help about environment variables
 
 .. option:: --all
 
@@ -43,7 +39,8 @@ options.
 .. option:: --recursive
 
     Recursively display the help of commands and/or options. This option can
-    be used with either the :option:`omero help command` or the :option:`omero help --all` option::
+    be used with either the :program:`omero help command` or the
+    :option:`omero help --all` option::
 
         $ bin/omero help --all --recursive
         $ bin/omero help user --recursive
