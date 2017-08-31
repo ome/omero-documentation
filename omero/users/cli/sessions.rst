@@ -76,7 +76,7 @@ Some of the options available to the :program:`omero login` command are:
 
     Set the password to use for the connection.
 
-.. option:: --sudo ADMINUSER, --sudo GROUPOWNER
+.. option:: --sudo ADMINUSER, GROUPOWNER
 
     Create a connection as another user.
 
