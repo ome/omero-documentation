@@ -129,7 +129,7 @@ the new :file:`sql/psql/OMERO5.1DEV__5` directory.
 
         $ ./build.py build-schema
 
-Now, when you use :omerocmd:`db script` in setting up a database for
+Now, when you use :program:`omero db script` in setting up a database for
 your modified server, the generated SQL script creates the new schema
 that your code requires. Use this script to set up your database so
 that you can start OMERO.server and test your changes thoroughly.

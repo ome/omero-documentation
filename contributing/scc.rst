@@ -38,7 +38,7 @@ This token can then be stored in the global Git configuration file::
 
     git config --global github.token REPLACE_BY_PERSONAL_ACCESS_TOKEN
 
-Unless the :option:`--token` option is passed to the scc command, the
+Unless the ``--token`` option is passed to the scc command, the
 command first looks for the ``github.token`` specified in the git config file
 and, if found, uses this token to connect to GitHub::
 
@@ -252,12 +252,13 @@ filters.
 This command internally defines all the filter options exposed in
 :program:`scc merge`.
 
-The target branch is read from the base of the PR, the :option:`--default`
-option is set to ``none`` meaning no PR is merged by default and no default
-:option:`--exclude` option is defined.
+The target branch is read from the base of the PR, the
+:option:`scc merge --default` option is set to ``none`` meaning no PR is
+merged by default and no default :option:`scc merge --exclude` option is
+defined.
 
-The :option:`--include` filter is determined by parsing all the PR comments
-lines starting with ``--depends-on``.
+The :option:`scc merge --include` filter is determined by parsing all the PR
+comments lines starting with ``--depends-on``.
 
 To include a PR from the same GitHub repository, use the PR number prepended
 by ``#``. For instance, to include PR 67 in the Travis build, add a comment
