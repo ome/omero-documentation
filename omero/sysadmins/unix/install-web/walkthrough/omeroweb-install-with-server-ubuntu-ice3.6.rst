@@ -1,5 +1,5 @@
-OMERO.web deployed with OMERO.server on Ubuntu 16.04 and IcePy 3.6
-==================================================================
+OMERO.web installation with OMERO.server on Ubuntu 16.04 and IcePy 3.6
+======================================================================
 
 Please first read :doc:`../../server-ubuntu-ice36`.
 

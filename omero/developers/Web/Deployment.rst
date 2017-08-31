@@ -1,5 +1,5 @@
-OMERO.web deployment for developers
-===================================
+OMERO.web installation for developers
+=====================================
 
 Getting set up
 --------------

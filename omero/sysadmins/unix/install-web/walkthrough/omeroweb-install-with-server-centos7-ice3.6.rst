@@ -1,5 +1,5 @@
-OMERO.web deployed with OMERO.server on CentOS 7 and IcePy 3.6
-==============================================================
+OMERO.web installation with OMERO.server on CentOS 7 and IcePy 3.6
+==================================================================
 
 Please first read :doc:`../../server-centos7-ice36`.
 

@@ -1,5 +1,5 @@
-OMERO.web deployment
-====================
+OMERO.web installation
+======================
 
 OMERO.web is the web application component of the OMERO platform which
 allows for the management, visualization (in a fully multi-dimensional
