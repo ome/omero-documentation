@@ -25,7 +25,7 @@ options::
 
 In addition to the |CLI| commands which can be listed using
 :option:`omero help --list`, :program:`omero help` can be used to retrieve
-information about the `debug` and `env` options::
+information about the ``debug`` and ``env`` options::
 
     $ bin/omero help debug     # display help about debugging options
     $ bin/omero help env       # display help about environment variables
