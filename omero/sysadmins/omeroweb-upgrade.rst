@@ -124,7 +124,7 @@ FastCGI support was removed in OMERO 5.2 and OMERO.web can be deployed
 using WSGI (see :ref:`omero_web_deployment` for more details).
 If you have already deployed OMERO.web using WSGI you should regenerate your
 config files, remembering to merge in any of your own modifications if
-necessary. **Due to the nature of OMERO.web development for the 5.2.x line,
+necessary. **Due to changes in OMERO.web,
 you should carry out this step even for minor version upgrades as there may be
 fixes which require it.**
 
