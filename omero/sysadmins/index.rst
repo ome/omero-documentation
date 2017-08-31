@@ -49,7 +49,7 @@ series of commands.
 OMERO.web Deployment
 ********************
 
-OMERO.web is a python client of the OMERO platform that provides a
+OMERO.web is a Python client of the OMERO platform that provides a
 web-based UI and JSON API.
 This section provides guidance on how to install and set up OMERO.web on
 any of the supported UNIX and UNIX-like platforms. Specific walkthroughs are
