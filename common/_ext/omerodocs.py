@@ -37,7 +37,10 @@ import re
 
 from sphinx import addnodes, __version__ as sphinx_ver
 from sphinx.builders.html import StandaloneHTMLBuilder
-from sphinx.writers.html import SmartyPantsHTMLTranslator
+try:
+    from sphinx.writers.html import SmartyPantsHTMLTranslator as HTMLTranslator
+except:
+    from sphinx.writers.html import HTMLTranslator
 from sphinx.util.console import bold
 from sphinx.util.compat import Directive
 
@@ -52,7 +55,7 @@ def setup(app):
         indextemplate = "%s",
     )
 
-class OMEROHTMLTranslator(SmartyPantsHTMLTranslator):
+class OMEROHTMLTranslator(HTMLTranslator):
     """
     OMERO-specific reST to HTML tweaks.
     """
@@ -85,10 +88,10 @@ class OMEROHTMLTranslator(SmartyPantsHTMLTranslator):
         #
         def visit_literal_block(self, node):
             self.no_smarty += 1
-            SmartyPantsHTMLTranslator.visit_literal_block(self, node)
+            HTMLTranslator.visit_literal_block(self, node)
 
         def depart_literal_block(self, node):
-            SmartyPantsHTMLTranslator.depart_literal_block(self, node)
+            HTMLTranslator.depart_literal_block(self, node)
             self.no_smarty -= 1
 
     # Give each section a unique ID -- nice for custom CSS hooks
@@ -96,5 +99,5 @@ class OMEROHTMLTranslator(SmartyPantsHTMLTranslator):
         old_ids = node.get('ids', [])
         node['ids'] = ['s-' + i for i in old_ids]
         node['ids'].extend(old_ids)
-        SmartyPantsHTMLTranslator.visit_section(self, node)
+        HTMLTranslator.visit_section(self, node)
         node['ids'] = old_ids

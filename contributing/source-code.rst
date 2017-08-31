@@ -62,7 +62,7 @@ first need to initialize all the submodules::
         git submodule update --init
 
 Alternatively, with version 1.6.5 of Git and later, you can pass the
-:option:`--recursive` option to git clone and initialize all submodules::
+``--recursive`` option to git clone and initialize all submodules::
 
         git clone --recursive https://github.com/openmicroscopy/openmicroscopy.git
 
