@@ -55,7 +55,7 @@ matches the version of your server!
 The location of your Ice installation should be automatically detected
 if installed into a standard location. If this is not the case, set
 the location of your Ice installation using the :envvar:`ICE\_HOME`
-environment variable or the :option:`cmake -DICE\_HOME` or
+environment variable or the :option:`cmake -DIce\_HOME` or
 :option:`cmake -DIce_SLICE_DIR` :program:`cmake` options for your Ice
 installation (see below). Some possible locations for the |iceversion|
 version of Ice follow. Note these are just examples; you need to
@@ -271,8 +271,8 @@ running :program:`cmake`. Commonly needed options include:
 
     Location of Ice slice interface definitions. This is typically
     ``${ICE_HOME}/slice``. Use for installations where
-    :option:`cmake -DICE\_HOME` does not contain :file:`slice` or situations
-    where you wish to build without setting :option:`cmake -DICE\_HOME`. Note
+    :option:`cmake -DIce\_HOME` does not contain :file:`slice` or situations
+    where you wish to build without setting :option:`cmake -DIce\_HOME`. Note
     that when building using :program:`build.py`, rather than building
     directly with :program:`cmake`, the :envvar:`SLICEPATH`
     environment variable should be used instead (the :program:`ant`

@@ -2,7 +2,7 @@ Using import targets
 ====================
 
 The CLI import options ``-d`` or ``-r`` can be used to specify, respectively,
-the import target Dataset or Screen by ID. The :option:`omero import -T, --target` option adds
+the import target Dataset or Screen by ID. The ``-T, --target`` option adds
 more ways of specifying the import target.
 
 The general form of the target argument is::

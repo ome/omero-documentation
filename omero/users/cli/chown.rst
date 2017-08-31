@@ -135,7 +135,7 @@ would be transferred to user 10.
 Including and excluding objects
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. program:: omero chown
+.. program:: chown
 
 .. option:: --include
 
