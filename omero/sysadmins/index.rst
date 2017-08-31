@@ -20,6 +20,21 @@ Server Background
     admins-with-restricted-privileges
     mapping-restricted-admins
 
+***********************
+Data Import and Storage
+***********************
+
+This section contains details of how OMERO.fs allows you to import and store
+data with OMERO 5.
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    dropbox
+    in-place-import
+    import-scenarios
+
 *******************
 Server Installation
 *******************
@@ -44,49 +59,6 @@ series of commands.
     unix/server-binary-repository
     unix/server-postgresql
     advanced-install
-
-********************
-OMERO.web Deployment
-********************
-
-OMERO.web is a Python client of the OMERO platform that provides a
-web-based UI and JSON API.
-This section provides guidance on how to install and set up OMERO.web on
-any of the supported UNIX and UNIX-like platforms. Specific walkthroughs are
-provided for several systems, with detailed step-by-step instructions.
-OMERO.web can be either deployed with the OMERO.server or **separately** from 
-the OMERO.server. Deploying separately is **recommended**.
-
-Reading through the :doc:`unix/install-web/web-deployment` first
-is recommended.
-
-.. toctree::
-    :maxdepth: 1
-    :titlesonly:
-
-    unix/install-web/web-deployment
-    unix/install-web/walkthrough/omeroweb-install-centos7-ice3.6
-    unix/install-web/walkthrough/omeroweb-install-debian-ice3.6
-    unix/install-web/walkthrough/omeroweb-install-ubuntu-ice3.6
-    unix/install-web/walkthrough/omeroweb-install-with-server-centos7-ice3.6
-    unix/install-web/walkthrough/omeroweb-install-with-server-debian-ice3.6
-    unix/install-web/walkthrough/omeroweb-install-with-server-ubuntu-ice3.6
-
-
-***************************************
-OMERO.web Maintenance and Customization
-***************************************
-
-This section contains instructions for administering and customizing your OMERO.web installation.
-
-.. toctree::
-    :maxdepth: 1
-    :titlesonly:
-
-    unix/install-web
-    customization
-    omeroweb-upgrade
-
 
 ********************************
 Server Maintenance and Upgrading
@@ -145,17 +117,44 @@ OMERO clients to host images for groups or public viewing.
 
     public
 
-***********************
-Data Import and Storage
-***********************
+**********************
+OMERO.web Installation
+**********************
 
-This section contains details of how OMERO.fs allows you to import and store
-data with OMERO 5.
+OMERO.web is a Python client of the OMERO platform that provides a
+web-based UI and JSON API.
+This section provides guidance on how to install and set up OMERO.web on
+any of the supported UNIX and UNIX-like platforms. Specific walkthroughs are
+provided for several systems, with detailed step-by-step instructions.
+OMERO.web can be either deployed with the OMERO.server or **separately** from 
+the OMERO.server. Deploying separately is **recommended**.
+
+Reading through the :doc:`unix/install-web/web-deployment` first
+is recommended.
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
     :titlesonly:
 
-    dropbox
-    in-place-import
-    import-scenarios
+    unix/install-web/web-deployment
+    unix/install-web/walkthrough/omeroweb-install-centos7-ice3.6
+    unix/install-web/walkthrough/omeroweb-install-debian-ice3.6
+    unix/install-web/walkthrough/omeroweb-install-ubuntu-ice3.6
+    unix/install-web/walkthrough/omeroweb-install-with-server-centos7-ice3.6
+    unix/install-web/walkthrough/omeroweb-install-with-server-debian-ice3.6
+    unix/install-web/walkthrough/omeroweb-install-with-server-ubuntu-ice3.6
+
+
+***************************************
+OMERO.web Maintenance and Customization
+***************************************
+
+This section contains instructions for administering and customizing your OMERO.web installation.
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    unix/install-web
+    customization
+    omeroweb-upgrade
