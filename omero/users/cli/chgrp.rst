@@ -31,20 +31,21 @@ available using the ``-h`` option::
 
     $ bin/omero chgrp -h
 
-The :command:`chgrp` command will move entire graphs of objects based on the
+This command will move entire graphs of objects based on the
 IDs of the topmost objects. The command can be modified to include the movement
 of objects that would, by default, be excluded or exclude objects that would,
-by default, be included using the :option:`chgrp --include` and
-:option:`chgrp --exclude` options.
+by default, be included using the :option:`omero chgrp --include` and
+:option:`omero chgrp --exclude` options.
 
 It is also possible to move objects lower in the hierarchy by specifying
 the type and ID of a topmost object and the type of the lower object. For
 instance, moving all of the images under a given project.
 
 By default the command confirms the movement of the target objects but
-it can also provide a detailed report of all the moved objects via a
-:option:`chgrp --report` option. A :option:`chgrp --dry-run` option can be
-used to report on what objects would be moved without actually moving them.
+it can also provide a detailed report of all the moved objects via an
+:option:`omero chgrp --report` option. An :option:`omero chgrp --dry-run`
+option can be used to report on what objects would be moved without actually
+moving them.
 
 Examples
 ^^^^^^^^
@@ -111,7 +112,7 @@ would have the same effect as the call above.
 Including and excluding objects
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. program:: chgrp
+.. program:: omero chgrp
 
 .. option:: --include
 
@@ -143,7 +144,7 @@ that are not otherwise contained in datasets will be orphaned.
 Further options
 ^^^^^^^^^^^^^^^
 
-.. program:: chgrp
+.. program:: omero chgrp
 
 .. option:: --ordered
 

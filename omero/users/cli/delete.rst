@@ -6,11 +6,11 @@ using the ``-h`` option::
 
     $ bin/omero delete -h
 
-The :command:`delete` command will remove entire graphs of objects based on
+This command will remove entire graphs of objects based on
 the IDs of the topmost objects. The command can be modified to include the
 deletion of objects that would, by default, be excluded or exclude objects
-that would, by default, be included using the :option:`delete --include` and
-:option:`delete --exclude` options.
+that would, by default, be included using the :option:`omero delete --include`
+and :option:`omero delete --exclude` options.
 
 Additionally, objects of the three annotation types, `FileAnnotation`,
 `TagAnnotation` and `TermAnnotation` are not deleted by default when the
@@ -21,10 +21,10 @@ the type and ID of a topmost object and the type of the lower object. For
 instance, deleting all of the images under a given project.
 
 By default the command confirms the deletion of the target objects but
-it can also provide a detailed report of all the deleted objects via a
-:option:`delete --report` option. A :option:`delete --dry-run` option can be
-used to report on what objects would be deleted without actually deleting
-them.
+it can also provide a detailed report of all the deleted objects via an
+:option:`omero delete --report` option. An :option:`omero delete --dry-run`
+option can be used to report on what objects would be deleted without actually
+deleting them.
 
 Examples
 ^^^^^^^^
@@ -66,12 +66,13 @@ IDs.
 .. note::
     When deleting multiple objects in a single command, if one object cannot
     be deleted then the whole command will fail and none of the specified
-    objects will be deleted. The :option:`delete --dry-run` option can be
-    useful as a check before trying to delete large numbers of objects.
-    If specifying objects with a range, it is best to pass either 
-    :option:`delete --dry-run` or ``delete --force``. Earlier versions defaulted to 
-    :option:`delete --dry-run` if no flag was passed, but this behavior is deprecated.
-    Future versions will default to ``delete --force``.
+    objects will be deleted. The :option:`omero delete --dry-run` option can
+    be useful as a check before trying to delete large numbers of objects.
+    If specifying objects with a range, it is best to pass either
+    :option:`omero delete --dry-run` or ``omero delete --force``. Earlier
+    versions defaulted to :option:`omero delete --dry-run` if no flag was
+    passed, but this behavior is deprecated. Future versions will default to
+    ``omero delete --force``.
 
 Deleting lower level objects
 ============================
@@ -98,12 +99,11 @@ not also under other datasets.
 Including and excluding objects
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. program:: delete
+.. program:: omero delete
 
 .. option:: --include
 
-    Linked objects that would not ordinarily be deleted can be included in the
-    delete using the ``--include`` option::
+    Include linked objects that would not ordinarily be deleted::
 
         $ bin/omero delete Image:51 --include FileAnnotation,TagAnnotation,TermAnnotation
 
@@ -117,8 +117,7 @@ Including and excluding objects
 
 .. option:: --exclude
 
-    Linked objects that would ordinarily be deleted can be excluded from the
-    delete using the ``--exclude`` option::
+    Exclude linked objects that would ordinarily be deleted::
 
         $ bin/omero delete Project:51 --exclude Dataset
 
@@ -138,7 +137,7 @@ For an example on deleting tags directly see :ref:`delete_tags`.
 Further options
 ^^^^^^^^^^^^^^^
 
-.. program:: delete
+.. program:: omero delete
 
 .. option:: --ordered
 
@@ -190,6 +189,6 @@ Further options
 .. option:: --dry-run
 
     Run the command and report success or failure but do not delete the
-    objects. This can be combined with the :option:`delete --report` to provide
-    a detailed confirmation of what would be deleted before running the
-    delete itself.
+    objects. This can be combined with the :option:`omero delete --report` to
+    provide a detailed confirmation of what would be deleted before running
+    the delete itself.

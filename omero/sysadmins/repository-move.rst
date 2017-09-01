@@ -44,7 +44,7 @@ data directory is to be moved then the following steps should be used:
 .. warning::
     The use of :program:`omero config set` is absolutely necessary here. The steps:
     :program:`omero admin stop`, ``mv``, :program:`omero admin start` without
-    :program:`config set` could lead to an unstable situation.
+    :program:`omero config set` could lead to an unstable situation.
 
 For example, moving the OMERO data directory from ``/Users/omero/var/omero``
 to ``/Volumes/omero``:
