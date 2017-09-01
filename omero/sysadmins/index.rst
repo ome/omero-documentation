@@ -20,21 +20,6 @@ Server Background
     admins-with-restricted-privileges
     mapping-restricted-admins
 
-***********************
-Data Import and Storage
-***********************
-
-This section contains details of how OMERO.fs allows you to import and store
-data with OMERO 5.
-
-.. toctree::
-    :maxdepth: 2
-    :titlesonly:
-
-    dropbox
-    in-place-import
-    import-scenarios
-
 *******************
 Server Installation
 *******************
@@ -102,21 +87,6 @@ performance and security.
     config
     server-syslog
 
-.. _index-public-data:
-
-*************************************
-Optimizing OMERO as a Data Repository
-*************************************
-
-This section explains how to customize the appearance and functionality of
-OMERO clients to host images for groups or public viewing.
-
-.. toctree::
-    :maxdepth: 2
-    :titlesonly:
-
-    public
-
 **********************
 OMERO.web Installation
 **********************
@@ -145,9 +115,8 @@ is recommended.
     unix/install-web/walkthrough/omeroweb-install-with-server-debian-ice3.6
     unix/install-web/walkthrough/omeroweb-install-with-server-ubuntu-ice3.6
 
-
 ***************************************
-OMERO.web Maintenance and Customization
+OMERO.web Maintenance and Configuration
 ***************************************
 
 This section contains instructions for administering and customizing your OMERO.web installation.
@@ -157,5 +126,35 @@ This section contains instructions for administering and customizing your OMERO.
     :titlesonly:
 
     unix/install-web
-    customization
     omeroweb-upgrade
+
+.. _index-public-data:
+
+*************************************
+Optimizing OMERO as a Data Repository
+*************************************
+
+This section explains how to customize the appearance and functionality of
+OMERO clients to host images for groups or public viewing.
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    public
+    customization
+
+***********************
+Data Import and Storage
+***********************
+
+This section contains details of how OMERO.fs allows you to import and store
+data with OMERO 5.
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    dropbox
+    in-place-import
+    import-scenarios
