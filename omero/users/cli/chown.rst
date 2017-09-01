@@ -33,8 +33,8 @@ option::
 The :program:`omero chown` command can transfer entire graphs of objects based on
 the IDs of the topmost objects. The command can be modified to include
 the transfer of objects that would, by default, be excluded or exclude
-objects that would, by default, be included using the :option:`omero chown
---include` and :option:`omero chown --exclude` options.
+objects that would, by default, be included using the
+:option:`omero chown --include` and :option:`omero chown --exclude` options.
 
 It is also possible to transfer objects lower in the hierarchy by specifying
 the type and ID of a topmost object and the type of the lower object.

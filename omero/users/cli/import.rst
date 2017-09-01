@@ -42,13 +42,13 @@ Some of the options available to the import command are:
 
 .. option:: -d DATASET_ID, -T TARGET, --target TARGET
     
-    To import images into a Dataset ::
+    To import images into a Dataset::
 
         $ bin/omero import image.tif -d 2  
         $ bin/omero import image.tif -T Dataset:id:2
         $ bin/omero import image.tif -T Dataset:name:Sample01
 
-        See :doc:`import-target` for more information on import targets.
+    See :doc:`import-target` for more information on import targets.
 
 Scanning folders prior to Import
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
