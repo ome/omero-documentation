@@ -1,13 +1,14 @@
-OMERO.web installation
-======================
+OMERO.web installation overview
+===============================
 
-OMERO.web is the web application component of the OMERO platform which
-allows for the management, visualization (in a fully multi-dimensional
-image viewer) and annotation of images from a web browser. It also
-includes the ability to manage users and groups.
-
-OMERO.web can be deployed with the OMERO.server but
-deploying OMERO.web **separately** from OMERO.server is **recommended** as they
+OMERO.web is a Python client of the OMERO platform that provides a
+web-based UI and JSON API.
+This section provides guidance on how to install and set up OMERO.web on
+any of the supported UNIX and UNIX-like platforms. Specific walkthroughs are
+provided for several systems, with detailed step-by-step instructions.
+OMERO.web can be either installed **separately** from 
+the OMERO.server or installed with the OMERO.server.
+Deploying separately is **recommended** as they
 perform best under different circumstances and require a different set of
 dependencies.
 
@@ -68,6 +69,12 @@ more specific walkthrough listed below.
     :titlesonly:
     :hidden:
 
+    walkthrough/omeroweb-install-centos7-ice3.6
+    walkthrough/omeroweb-install-ubuntu-ice3.6
+    walkthrough/omeroweb-install-debian-ice3.6
+    walkthrough/omeroweb-install-with-server-centos7-ice3.6
+    walkthrough/omeroweb-install-with-server-ubuntu-ice3.6
+    walkthrough/omeroweb-install-with-server-debian-ice3.6
     walkthrough/omeroweb-install-osx-ice3.6
 
 .. note:: Support for Apache deployment has been dropped in 5.3.0.
