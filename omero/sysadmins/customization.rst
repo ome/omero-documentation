@@ -8,10 +8,6 @@ Note that depending on the deployment choice, OMERO.web will not activate
 configuration changes until gunicorn is restarted using ``bin/omero web
 restart``.
 
-Note that the command ``bin/omero`` used throughout this page refers to
-``OMERO.py/bin/omero`` if OMERO.web is deployed **separately** otherwise
-it refers to ``OMERO.server/bin/omero``.
-
 
 Index page
 ----------
