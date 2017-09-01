@@ -63,8 +63,8 @@ To set this up on your OMERO.web installation:
 - By default the public user is only allowed to perform GET requests. This means
   that the public user will not be able to Create, Edit or Delete data which
   requires POST requests.
-  You can change that by setting the :property:`omero.web.public.get_only`
-  property:
+  If you want to allow these actions from the public user, you can change the
+  :property:`omero.web.public.get_only` property:
   ::
 
       $ bin/omero config set omero.web.public.get_only false
