@@ -20,14 +20,16 @@ Server Background
     admins-with-restricted-privileges
     mapping-restricted-admins
 
-*******************
-Server Installation
-*******************
+************
+Installation
+************
 
-This section provides guidance on how to install and set up OMERO.server on
-any of the supported UNIX and UNIX-like platforms. Specific walkthroughs are
+This section provides guidance on how to install and set up OMERO.server
+and OMERO.web on any of the supported UNIX and UNIX-like platforms.
+Following the installation links below you will find specific walkthroughs
 provided for several systems, with detailed step-by-step instructions.
-Reading through the :doc:`unix/server-installation` first
+Reading through the :doc:`unix/server-installation` and
+:doc:`unix/install-web/web-deployment` pages first
 is recommended as this explains the entire process rather than just being a
 series of commands.
 
@@ -36,21 +38,28 @@ series of commands.
     :titlesonly:
 
     unix/server-installation
+    unix/install-web/web-deployment
+    unix/server-binary-repository
+    unix/server-postgresql
+    advanced-install
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+    :hidden:
+
     unix/server-centos6-ice36
     unix/server-centos7-ice36
     unix/server-ubuntu-ice36
     unix/server-debian9-ice36
     unix/server-install-homebrew
-    unix/server-binary-repository
-    unix/server-postgresql
-    advanced-install
 
-********************************
-Server Maintenance and Upgrading
-********************************
+*************************
+Maintenance and Upgrading
+*************************
 
 This section contains instructions for administering, troubleshooting,
-backing-up, and upgrading your server installation.
+backing-up, and upgrading your installation.
 
 .. toctree::
     :maxdepth: 1
@@ -60,6 +69,8 @@ backing-up, and upgrading your server installation.
     troubleshooting
     server-backup-and-restore
     server-upgrade
+    omeroweb-upgrade
+    unix/install-web
     UpgradeCheck
     repository-move
     windows-migration
@@ -86,47 +97,6 @@ performance and security.
     omero-home-prefix
     config
     server-syslog
-
-**********************
-OMERO.web Installation
-**********************
-
-OMERO.web is a Python client of the OMERO platform that provides a
-web-based UI and JSON API.
-This section provides guidance on how to install and set up OMERO.web on
-any of the supported UNIX and UNIX-like platforms. Specific walkthroughs are
-provided for several systems, with detailed step-by-step instructions.
-OMERO.web can be either installed **separately** from 
-the OMERO.server or installed with the OMERO.server.
-Deploying separately is **recommended**.
-
-Reading through the :doc:`unix/install-web/web-deployment` first
-is recommended.
-
-.. toctree::
-    :maxdepth: 1
-    :titlesonly:
-
-    unix/install-web/web-deployment
-    unix/install-web/walkthrough/omeroweb-install-centos7-ice3.6
-    unix/install-web/walkthrough/omeroweb-install-debian-ice3.6
-    unix/install-web/walkthrough/omeroweb-install-ubuntu-ice3.6
-    unix/install-web/walkthrough/omeroweb-install-with-server-centos7-ice3.6
-    unix/install-web/walkthrough/omeroweb-install-with-server-debian-ice3.6
-    unix/install-web/walkthrough/omeroweb-install-with-server-ubuntu-ice3.6
-
-***************************************
-OMERO.web Maintenance and Configuration
-***************************************
-
-This section contains instructions for administering and customizing your OMERO.web installation.
-
-.. toctree::
-    :maxdepth: 1
-    :titlesonly:
-
-    unix/install-web
-    omeroweb-upgrade
 
 .. _index-public-data:
 
