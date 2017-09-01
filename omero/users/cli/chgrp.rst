@@ -90,8 +90,8 @@ to specify an ID range. This form can also be mixed with comma-separated IDs.
 .. note::
     When moving multiple objects in a single command, if one object cannot
     be moved then the whole command will fail and none of the specified
-    objects will be moved. The :option:`omero chgrp --dry-run` option can be useful
-    as a check before trying to move large numbers of objects.
+    objects will be moved. The :option:`omero chgrp --dry-run` option can be 
+    useful as a check before trying to move large numbers of objects.
 
 Moving lower level objects
 ==========================
@@ -171,6 +171,6 @@ Further options
 .. option:: --dry-run
 
     Run the command and report success or failure but does not move the
-    objects. This can be combined with the :option:`chgrp --report` to provide
-    a detailed confirmation of what would be moved before running the
+    objects. This can be combined with the :option:`omero chgrp --report` to
+    provide a detailed confirmation of what would be moved before running the
     move itself.
