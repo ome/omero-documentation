@@ -11,19 +11,18 @@ restart``.
 Index page
 ----------
 
+This allows you to add a homepage at <your-omero-server>/index/.
+Visitors to your root url at <your-omero-server>/ will get redirected here
+instead of redirecting to <your-omero-server>/webclient/.
+
 Create new custom template in
 :file:`/your/path/to/templates/mytemplate/index.html` and add the following::
 
     $ bin/omero config append omero.web.template_dirs '"/your/path/to/templates/"'
     $ bin/omero config set omero.web.index_template 'mytemplate/index.html'
 
-.. figure:: /images/indexPage.png
-
-Note that users will no longer be automatically redirected to the login page
-once an index page is added.
-
-Login page
-----------
+Login page logo
+---------------
 
 :property:`omero.web.login_logo` allows you to customize the webclient login
 page with your own logo. Logo images should ideally be 150 pixels high or
