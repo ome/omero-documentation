@@ -14,7 +14,7 @@ Index page
 Create new custom template in
 :file:`/your/path/to/templates/mytemplate/index.html` and add the following::
 
-    $ bin/omero config set omero.web.template_dirs '/your/path/to/templates/'
+    $ bin/omero config append omero.web.template_dirs '"/your/path/to/templates/"'
     $ bin/omero config set omero.web.index_template 'mytemplate/index.html'
 
 .. figure:: /images/indexPage.png
