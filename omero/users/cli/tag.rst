@@ -76,7 +76,7 @@ must be specified as ``TagAnnotation:tag_id``. To delete tag ``123`` use::
     $ bin/omero delete TagAnnotation:123
 
 By default the tags within a tag set will not be deleted with the tag set. To
-delete any included tags use the :option:`delete --include` option::
+delete any included tags use the :option:`omero delete --include` option::
 
     $ bin/omero delete TagAnnotation:123 --include TagAnnotation
 
