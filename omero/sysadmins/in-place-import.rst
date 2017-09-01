@@ -3,9 +3,8 @@
 In-place import
 ===============
 
-In-place import is a feature added to OMERO 5.0.0 to allow
-files which are already present on the server machine to be
-imported into OMERO without the need to copy them. This requires
+In-place import allows files which are already present on the server machine
+to be imported into OMERO without the need to copy them. This requires
 users to have shell (|SSH|, etc.) access to the server machine,
 and so there are a number of :ref:`limitations <limitations>`
 to this implementation. Development of this feature is on-going, with
@@ -184,7 +183,7 @@ was done for one of our test servers in Dundee:
 Getting started
 ---------------
 
-From 5.0.0, the command-line import client has a new help menu which
+The command-line import client has a help menu which
 explains the available options:
 
 ::
@@ -192,13 +191,6 @@ explains the available options:
     $ bin/omero import --advanced-help
 
 .. literalinclude:: /downloads/inplace/advanced-help.txt
-
-In versions prior to 5.0.3 this help option is hidden and it can
-only be accessed using:
-
-::
-
-    $ bin/omero import -- --advanced-help
 
 The option for performing an in-place transfer is
 ``--transfer``. A new extension point, file transfers allow
@@ -310,7 +302,7 @@ will be much faster.
 "upload_rm" - uploading and deleting
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This option, available from OMERO 5.0.3, is not strictly an in-place option
+This option is not strictly an in-place option
 but is detailed here for convenience. It first performs a file upload like
 default import, but once the import is complete it attempts to delete the
 original files. It deletes the original files **if and only if** the import
@@ -319,7 +311,7 @@ is successful.
 "cp" and "cp_rm" variants
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-New in 5.0.7, the `cp` and `cp_rm` commands provide the same functionality
+The `cp` and `cp_rm` commands provide the same functionality
 as `ln` and `ln_rm` but perform a copy rather than a link operation. The
 benefit of a copy is that it works over OS filesystem boundaries while
 still providing the integrity that `ln_s` cannot. The primary downside
@@ -349,7 +341,7 @@ placed in the `lib/clients` directory, you can invoke it using:
 Related advanced options
 ------------------------
 
-In addition to the ``--transfer`` option in 5.0.0, a number of other
+In addition to the ``--transfer`` option, a number of other
 advanced options have been added which may be useful for either
 tweaking import performance or dealing with complicated situations.
 However, like ``--transfer``, these options should be considered
