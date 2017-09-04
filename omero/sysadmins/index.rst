@@ -43,17 +43,6 @@ series of commands.
     unix/server-postgresql
     advanced-install
 
-.. toctree::
-    :maxdepth: 1
-    :titlesonly:
-    :hidden:
-
-    unix/server-centos6-ice36
-    unix/server-centos7-ice36
-    unix/server-ubuntu-ice36
-    unix/server-debian9-ice36
-    unix/server-install-homebrew
-
 *************************
 Maintenance and Upgrading
 *************************

@@ -33,6 +33,16 @@ more specific walk-through listed below.
         page to install the prerequisites with Homebrew and then
         install the server zip from the downloads page.**
 
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+    :hidden:
+
+    server-centos6-ice36
+    server-centos7-ice36
+    server-ubuntu-ice36
+    server-debian9-ice36
+    server-install-homebrew
 
 Prerequisites
 -------------
