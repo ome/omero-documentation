@@ -21,9 +21,8 @@ restricted privileges using the OMERO.web interface, see the
 :help:`create new users <sharing-data#admin>` section of our Help
 documentation. OMERO.cli does not yet support easy management of
 restrictions nor does it offer the helpful :doc:`permissions mapping
-<mapping-restricted-admins>` but advanced users may :doc:`use
-OMERO.cli to adjust the restrictions <cli/light-admins>` on an
-administrator.
+<mapping-restricted-admins>` but advanced users may :doc:`use OMERO.cli
+to adjust the restrictions <cli/light-admins>` on an administrator.
 
 We suggest here four setups that should cover the four mainstream
 workflows. Nevertheless, you can combine the privileges
