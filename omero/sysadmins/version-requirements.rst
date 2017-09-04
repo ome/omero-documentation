@@ -2,12 +2,12 @@
 Version requirements
 ********************
 
-Summary of changes for OMERO 5.3 and provisional changes for 5.4
+Summary of changes for OMERO 5.4 and provisional changes for 5.5
 ================================================================
 
 Criteria for what is considered to be supportable includes whether
 support by both upstream developers and operating system distributions
-will be available for the lifetime of the 5.3 release (including
+will be available for the lifetime of the 5.4 release (including
 security support), and also upon our resources allocated to CI and
 testing. If we are not actively testing it, we **cannot** claim it is
 supported or functional. Software components must be provided and
@@ -15,8 +15,8 @@ supported either by an operating system distribution or their original
 developers.
 
 This section contains a summary of the changes made to the minimum
-version requirements for the 5.3 release and also **possible** changes for
-the following 5.4 release, albeit **tentatively at this point**. The
+version requirements for the 5.4 release and also **possible** changes for
+the following 5.5 release, albeit **tentatively at this point**. The
 intent is to provide a roadmap in order that sysadmins may plan ahead
 and ensure that prerequisites are in place ahead of time to ease
 future upgrades. The following sections provide more detailed
@@ -168,7 +168,7 @@ Components
   * Rationale: 2.7 is provided by all systems except for CentOS/RHEL
     6.x, however it is available officially via SCL. Note that 3.3 is
     also available via SCL, so there is potential for a 3.x migration
-    in the 5.3 timeframe. OMERO.web **no longer** works with Python 2.6,
+    in the 5.4 timeframe. OMERO.web **no longer** works with Python 2.6,
     the OMERO.server can still be used with Python 2.6.
 
 * Ice
@@ -333,7 +333,7 @@ RHEL, CentOS 6 and 7 are supported at present. Given the long life
 of enterprise releases, we intend to support only the latest release
 at any given time or else it ties us into very old dependencies; 6.x
 is already quite long in the tooth, however is in wide use and so will
-require supporting at least 5.3.0.
+require supporting at least 5.4.0.
 
 Linux (Ubuntu)
 --------------
