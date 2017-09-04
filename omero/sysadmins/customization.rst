@@ -59,10 +59,9 @@ Top links menu
 Open With option
 ----------------
 
-:property:`omero.web.open_with` adds entry to the Open with right-click menu in tree::
-
-    $ bin/omero config append omero.web.open_with '["omero_figure", "new_figure",
-      {"supported_objects":["images"], "target": "_blank", "label": "OMERO.figure"}]'
+:property:`omero.web.open_with` adds items to the 'Open with' options.
+This allows users to open selected images or other data with another
+web app or URL. See :doc:`/developers/Web/LinkingFromWebclient`.
 
 
 Group and Users in dropdown menu
