@@ -310,7 +310,6 @@ General overview for `RHEL
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.2
       - OMERO 5.3
       - OMERO 5.4
       - OMERO 5.5
@@ -318,7 +317,6 @@ General overview for `RHEL
     * - 6
       - from Nov 2010
       - to Nov 2020
-      - |Supported|
       - |Deprecated|
       - |Deprecated|
       - |Dropped|
@@ -326,7 +324,6 @@ General overview for `RHEL
     * - 7
       - from June 2014
       - to June 2024
-      - |Recommended|
       - |Recommended|
       - |Recommended|
       - |Recommended|
@@ -349,21 +346,18 @@ Linux (Ubuntu)
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.2
       - OMERO 5.3
       - OMERO 5.4
       - OMERO 5.5
     * - 14.04 LTS
       - from Apr 2014
       - to Apr 2019
-      - |Recommended|
       - |Supported|
       - |Supported|
       - |Supported|
     * - 16.04 LTS
       - from Apr 2016
       - to Apr 2021
-      - |Recommended|
       - |Recommended|
       - |Recommended|
       - |Recommended|
