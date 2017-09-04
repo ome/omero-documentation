@@ -63,6 +63,25 @@ Open With option
 This allows users to open selected images or other data with another
 web app or URL. See :doc:`/developers/Web/LinkingFromWebclient`.
 
+Include template in every page
+------------------------------
+
+An HTML template specified by :property:`omero.web.base_include_template` will
+be included in every HTML page in OMERO.web.
+The template is inserted just before the ``</body>`` tag and can be used for
+adding a ``<script>`` such as Google analytics.
+
+For example, create a file called
+:file:`/your/path/to/templates/base_include.html` with::
+
+    <script>
+        console.log("Hello World");
+    </script>
+
+Set the following::
+
+    $ bin/omero config append omero.web.template_dirs '"/your/path/to/templates/"'
+    $ bin/omero config set omero.web.base_include_template 'base_include.html'
 
 Group and Users in dropdown menu
 --------------------------------
