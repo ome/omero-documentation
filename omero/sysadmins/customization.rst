@@ -39,10 +39,10 @@ Login redirection
 
 :property:`omero.web.login_redirect` property redirects to the given location
 after logging in to named pages. In the example below, a user who tries to
-visit the ``"webindex"`` url (``/webclient/``) will be redirected after login to a
-url defined by the url name ``"load_template"``. The ``"args"``
+visit the ``"webindex"`` URL (``/webclient/``) will be redirected after login to a
+URL defined by the viewname ``"load_template"``. The ``"args"``
 are additional arguments to pass to Django's ``reverse()`` function and the
-``"query_string"`` will be added to the url::
+``"query_string"`` will be added to the URL::
 
     $ bin/omero config set omero.web.login_redirect '{"redirect": ["webindex"], "viewname": "load_template", "args":["userdata"], "query_string": "experimenter=-1"}'
 
