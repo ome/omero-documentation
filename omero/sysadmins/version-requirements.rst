@@ -66,10 +66,6 @@ Operating systems
        - OMERO 5.3
        - OMERO 5.4
        - OMERO 5.5
-     * - 12.04
-       - |Dropped|
-       - |Dropped|
-       - |Dropped|
      * - 14.04
        - |Supported|
        - |Supported|
