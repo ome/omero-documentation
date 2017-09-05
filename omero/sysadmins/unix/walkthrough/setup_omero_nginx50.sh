@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e -u -x
 
-source `dirname $0`/settings.env
+source `dirname $0`/settings-web.env
 
 #start-config
 OMERO.server/bin/omero config set omero.web.application_server fastcgi-tcp
