@@ -1,5 +1,5 @@
-Restricted administrators OMERO.web interface to server permissions mapping
-===========================================================================
+Administrator restrictions: relating OMERO.webadmin to OMERO.server
+===================================================================
 
 
 Summary
@@ -12,7 +12,7 @@ The OMERO.web user interface form for creation and editing of
 restricted administrators
 (see the :help:`create new users <sharing-data#admin>` section)
 collates the server-side privileges
-into fewer options and gives the options user friendly
+into fewer options and gives the options user-friendly
 names. Here, the mapping of the OMERO.web options to the 
 server-side privileges is given. The server-side privileges
 are more granular and direct work with them is possible on the CLI,
