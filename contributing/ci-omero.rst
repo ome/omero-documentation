@@ -366,12 +366,3 @@ database upgrade. The branch for the breaking series of OMERO is develop.
            :file:`components/tools/OmeroPy/target/reports` from
            :term:`OMERO-DEV-breaking-integration`,
         #. Generates pytest report
-
-    :jenkinsjob:`OMERO-DEV-breaking-integration-Python27`
-
-        This job runs Python integration tests of OMERO on Python 2.7
-
-        #. Checks out :omero_scc_branch:`develop/breaking/trigger`
-        #. Builds OMERO.server and starts it
-        #. Runs the OMERO.py and OMERO.web integration tests
-        #. Archives the results
