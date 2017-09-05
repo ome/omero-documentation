@@ -1,12 +1,13 @@
-Customize OMERO clients
-=======================
+OMERO.web UI customization
+==========================
 
-The OMERO clients offer a flexible user interface that can be customized.
+The OMERO.web offer a flexible user interface that can be customized.
 The sections below describe how to set up these features.
 
 Note that depending on the deployment choice, OMERO.web will not activate
 configuration changes until gunicorn is restarted using ``bin/omero web
 restart``.
+
 
 Index page
 ----------

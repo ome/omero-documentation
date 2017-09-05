@@ -1,13 +1,93 @@
-OMERO.web WSGI deployment
-=========================
+OMERO.web installation overview
+===============================
 
-OMERO.web is the web application component of the OMERO platform which
-allows for the management, visualization (in a fully multi-dimensional
-image viewer) and annotation of images from a web browser. It also
-includes the ability to manage users and groups.
+OMERO.web is a Python client of the OMERO platform that provides a
+web-based UI and JSON API.
+This section provides guidance on how to install and set up OMERO.web on
+any of the supported UNIX and UNIX-like platforms. Specific walkthroughs are
+provided for several systems, with detailed step-by-step instructions.
+OMERO.web can be either installed **separately** from 
+the OMERO.server or installed with the OMERO.server.
+Deploying separately is **recommended** as they
+perform best under different circumstances and require a different set of
+dependencies.
 
-This guide uses the example of deploying OMERO.web separately from OMERO.server
-with Nginx and gunicorn.
+OMERO.web can be deployed with:
+
+-  `WSGI <http://wsgi.readthedocs.org>`_ using a WSGI capable web server
+   such as
+   `NGINX <http://nginx.org/>`_ and `Gunicorn <http://docs.gunicorn.org/>`_
+-  the built-in Django lightweight development server (for **testing**
+   only; see the :doc:`/developers/Web/Deployment` page)
+
+If you need help configuring your firewall rules, see
+:doc:`/sysadmins/server-security` for more details.
+
+If you have installed NGINX, OMERO can automatically generate a
+configuration file for your webserver. The location of the file will depend
+on your system, please refer to your webserver's manual. See
+:ref:`customizing_your_omero_web_installation` for additional
+customization options.
+
+Depending upon which platform you are using, you may find a
+more specific walkthrough listed below.
+
+.. seealso::
+
+    :doc:`walkthrough/omeroweb-install-centos7-ice3.6`
+        Instructions for installing **separately** OMERO.web from
+        scratch on CentOS 7 with Ice 3.6.
+
+    :doc:`walkthrough/omeroweb-install-ubuntu-ice3.6`
+        Instructions for installing **separately** OMERO.web from
+        scratch on Ubuntu 16.04 with Ice 3.6.
+
+    :doc:`walkthrough/omeroweb-install-debian-ice3.6`
+        Instructions for installing **separately** OMERO.web from
+        scratch on Debian 9 with Ice 3.6.
+
+    :doc:`walkthrough/omeroweb-install-with-server-centos7-ice3.6`
+        Instructions for installing OMERO.web with OMERO.server 
+        on CentOS 7 with Ice 3.6.
+
+    :doc:`walkthrough/omeroweb-install-with-server-ubuntu-ice3.6`
+        Instructions for installing OMERO.web with
+        OMERO.server on Ubuntu 16.04 with Ice 3.6.
+
+    :doc:`walkthrough/omeroweb-install-with-server-debian-ice3.6`
+        Instructions for installing OMERO.web with
+        OMERO.server on Debian 9 with Ice 3.6.
+
+    :doc:`walkthrough/omeroweb-install-osx-ice3.6`
+        Instructions for installing OMERO.web from scratch on
+        on Mac OS X with Homebrew. It is aimed at **developers**
+        since typically MacOS X is not suited for serious deployment.
+
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+    :hidden:
+
+    walkthrough/omeroweb-install-centos7-ice3.6
+    walkthrough/omeroweb-install-ubuntu-ice3.6
+    walkthrough/omeroweb-install-debian-ice3.6
+    walkthrough/omeroweb-install-with-server-centos7-ice3.6
+    walkthrough/omeroweb-install-with-server-ubuntu-ice3.6
+    walkthrough/omeroweb-install-with-server-debian-ice3.6
+    walkthrough/omeroweb-install-osx-ice3.6
+
+.. note:: Support for Apache deployment has been dropped in 5.3.0.
+    
+    If your organization's policies only allow Apache to be used as the external-facing web-server you should configure Apache to proxy connections to an NGINX instance running on your OMERO server i.e. use Apache as a reverse proxy. For more details see
+    `Apache mod_proxy documentation <https://httpd.apache.org/docs/current/mod/mod_proxy.html>`_.
+
+This guide uses the example of deploying OMERO.web **separately** from OMERO.server with
+`NGINX <http://nginx.org/>`_ and `Gunicorn <http://docs.gunicorn.org/>`_.
+If you opt to install OMERO.web with the OMERO.server, change ``OMERO.py``
+to ``OMERO.server`` in the commands below.
+
+.. _omero_web_deployment:
 
 Prerequisites
 -------------
@@ -20,17 +100,53 @@ Prerequisites
       software packages written in Python. PyPI is already installed if
       you are using Python 2 >=2.7.9
 
-   -  `omego <https://github.com/ome/omego>`_ OME package management system
-
    -  `ZeroC`_ IcePy 3.6
 
-   -  `Pillow`_ <3.4
+   -  `Django`_ (1.8) [1]_
+
+   -  `Pillow`_ [2]_
 
    -  `NumPy <http://www.numpy.org>`_ >=1.9 
 
--  A `WSGI <http://wsgi.readthedocs.org>`_-capable web server such as
-   `nginx <http://nginx.org/>`_ and `gunicorn <http://docs.gunicorn.org/>`_,
+   -  Matplotlib_
 
+-  A `WSGI <http://wsgi.readthedocs.org>`_-capable webserver such as
+   `NGINX <http://nginx.org/>`_ and `Gunicorn <http://docs.gunicorn.org/>`_
+
+.. [1] The currently supported version of the django module used by
+       OMERO.web (1.8) requires Python 2.7. The older version (1.6)
+       will work with Python 2.6 but lacks security support, and is
+       consequently *not recommended for production use*. Python 2.7
+       and `Django 1.8`_ are required for security support.
+
+.. [2] Make sure to have `libjpeg <http://libjpeg.sourceforge.net/>`_ 
+       installed when building `Pillow`_. We currently do not 
+       support version 3.0+.
+
+If possible, install the following packages:
+
+.. list-table::
+    :header-rows: 1
+    :widths: 1,8
+
+    * - System
+      - Package
+
+    * - BSD Ports
+      - lang/python27 graphics/py-pillow math/py-matplotlib math/py-numpy www/nginx
+
+    * - Debian
+      - python2.7 python-pil python-matplotlib python-numpy nginx
+
+    * - Homebrew
+      - python pillow numpy matplotlib nginx
+
+    * - RedHat
+      - python nginx
+
+.. note::
+    CentOS 6 users should read :doc:`../server-centos6-ice36`
+    and follow the instructions there to install Python and the required modules.
 
 .. _gunicorn_default_configuration:
 
@@ -42,19 +158,23 @@ first have to create one and activate it. The following step is optional:
 
 ::
 
-   $ virtualenv omeroweb
-   $ source omeroweb/bin/activate
+   $ virtualenv omerowebvenv
+   $ source omerowebvenv/bin/activate
 
 Install the OMERO.web dependencies using the package management tools:
 
 ::
 
-   $ pip install omego
-   $ omego download --ice "3.6" py
-   $ zip=$(ls OMERO.py*.zip)
-   $ zipname=${zip%.zip}
-   $ rm -f $zip
-   $ mv $(find . -name 'OMERO.py*' -type d) `pwd`/OMERO.py
+   $ # if OMERO.web is installed with the OMERO.server it is not necessary to download
+   $ # OMERO.py. In that case, the path to the requirements file should start with OMERO.server
+   $ # and not OMERO.py
+   $ curl -o OMERO.py.zip -L https://downloads.openmicroscopy.org/latest/omero5/py.zip
+   $ unzip -q OMERO.py*
+   $ zip = $(ls OMERO.py*.zip)
+   $ ln -s OMERO.py-* OMERO.py
+   $ # if OMERO.web is installed in a virtual environment
+   $ omerowebvenv/bin/pip install --upgrade -r OMERO.py/share/web/requirements-py27.txt
+   $ # otherwise
    $ pip install -r OMERO.py/share/web/requirements-py27-all.txt
 
 
@@ -79,16 +199,16 @@ Additional settings can be configured by changing the following properties:
 - :property:`omero.web.wsgi_args` Additional arguments. For more details
   check `Gunicorn Documentation <http://docs.gunicorn.org/en/stable/settings.html>`_.
 
-Nginx configuration
+NGINX configuration
 -------------------
 
 OMERO can automatically generate a
 configuration file for your web server. The location of the file
-will depend on your system, please refer to your web server's manual.
+will depend on your system, please refer to your webserver's manual.
 See :ref:`customizing_your_omero_web_installation`
 for additional customization options.
 
-To create a site configuration file for inclusion in a system-wide nginx
+To create a site configuration file for inclusion in a system-wide NGINX
 configuration redirect the output of the following command into a file:
 
 ::
@@ -111,7 +231,7 @@ a minimal configuration:
 .. literalinclude:: omero-web-location.include
 
 
-and include this in your own manually created Nginx file, such as
+and include this in your own manually created NGINX file, such as
 `/etc/nginx/conf.d/omero-web.conf`:
 
 .. literalinclude:: nginx-location-manual-wrapper.conf
@@ -136,7 +256,7 @@ Start the Gunicorn worker processes listening by default on 127.0.0.1:4080:
 ::
 
     $ OMERO.py/bin/omero web start
-    ... static files copied to '/home/omero/OMERO.server/lib/python/omeroweb/static'.
+    ... static files copied to '/home/omero/OMERO.py/lib/python/omeroweb/static'.
     Starting OMERO.web... [OK]
 
 The Gunicorn workers are managed **separately** from other OMERO.server
@@ -171,7 +291,7 @@ offer alternative access to binary data.
     to be turned off. For more details refer to
     `Gunicorn deployment <http://docs.gunicorn.org/en/stable/deploy.html>`_
     and
-    `Nginx configuration <http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffering>`_.
+    `NGINX configuration <http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffering>`_.
 
 .. note::
     :property:`omero.web.application_server.max_requests` should be set to 0
@@ -243,7 +363,7 @@ In order to identify why OMERO.web is not available run:
 
     $ OMERO.py/bin/omero web status
 
-Then consult nginx :file:`error.log` and :file:`OMERO.server/var/log/OMEROweb.log`
+Then consult NGINX :file:`error.log` and :file:`OMERO.py/var/log/OMEROweb.log`
 
 Check :ref:`troubleshooting-omeroweb` for more details.
 
@@ -257,7 +377,7 @@ using :property:`omero.web.wsgi_args`:
 
 ::
 
-    $ OMERO.py/bin/omero config set omero.web.wsgi_args -- "--log-level=DEBUG --error-logfile=/home/omero/OMERO.server/var/log/error.log".
+    $ OMERO.py/bin/omero config set omero.web.wsgi_args -- "--log-level=DEBUG --error-logfile=/home/omero/OMERO.py/var/log/error.log".
 
 
 .. _gunicorn_advance_configuration:

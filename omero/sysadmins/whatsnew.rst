@@ -22,7 +22,7 @@ What's new for OMERO 5.3 for sysadmins
   
 - Support for deploying OMERO.web using Apache has been dropped; if your
   organization’s policies only allow Apache to be used as the external-facing
-  web-server you should configure Apache to proxy connections to an Nginx
+  web-server you should configure Apache to proxy connections to an NGINX
   instance running on your OMERO server i.e. use Apache as a reverse proxy.
 
 - jQuery cache is now disabled by default.
