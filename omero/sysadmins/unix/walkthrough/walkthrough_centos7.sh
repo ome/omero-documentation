@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e -u -x
 source settings.env
+source settings-web.env
 
 #start-step01: As root, install dependencies
 
@@ -17,9 +18,12 @@ yum -y install java-1.8.0-openjdk
 yum -y install \
 	python-pip python-devel python-virtualenv \
 	python-yaml python-jinja2 \
-	python-pillow numpy python-tables
+	python-tables
 pip install --upgrade pip
 
+#start-web-dependencies
+yum -y install python-pillow numpy
+#end-web-dependencies
 # install Ice
 #start-recommended-ice
 cd /etc/yum.repos.d
@@ -73,7 +77,7 @@ psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 
 #start-step04: As the omero system user, install the OMERO.server
 #start-copy-omeroscript
-cp settings.env step04_all_omero.sh setup_omero_db.sh ~omero 
+cp settings.env settings-web.env step04_all_omero.sh setup_omero_db.sh ~omero 
 #end-copy-omeroscript
 #start-release-ice35
 /home/omero/omeroenv/bin/omego download --ice 3.5 --branch 5.2 server
@@ -93,29 +97,28 @@ OMERO.server/bin/omero db script -f OMERO.server/db.sql --password "$OMERO_ROOT_
 psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < OMERO.server/db.sql
 #end-step04
 
-#start-step05: As root, install Nginx
-#start-nginx
-
-#install nginx
-yum -y install nginx
-
-if [ "$ICEVER" = "ice36" ]; then
-file=~omero/OMERO.server/share/web/requirements-py27.txt
-else
-file=~omero/OMERO.server/share/web/requirements-py27-ice35.txt
-pip install -r $file
+#start-step05: As omero, install OMERO.web dependencies
+#web-requirements-recommended-start
+pip install -r OMERO.server/share/web/requirements-py27.txt
+#web-requirements-recommended-end
 #start-configure-nginx: As the omero system user, configure OMERO.web
 OMERO.server/bin/omero config set omero.web.application_server wsgi-tcp
 OMERO.server/bin/omero web config nginx --http "$OMERO_WEB_PORT" > OMERO.server/nginx.conf.tmp
 #end-configure-nginx
+# As root, install nginx
+#start-nginx-install
+yum -y install nginx
+#end-nginx-install
+#start-nginx-admin
 sed -i.bak -re 's/( default_server.*)/; #\1/' /etc/nginx/nginx.conf
 
-cp ~omero/OMERO.server/nginx.conf.tmp /etc/nginx/conf.d/omero-web.conf
+cp OMERO.server/nginx.conf.tmp /etc/nginx/conf.d/omero-web.conf
 
 systemctl enable nginx
 
 systemctl start nginx
-#end-nginx
+
+#end-nginx-admin
 
 #end-step05
 
@@ -130,10 +133,10 @@ systemctl enable omero-web.service
 #end-step06
 
 #start-step07: As root, secure OMERO
-chmod go-rwx ~omero/OMERO.server/etc ~omero/OMERO.server/var
+chmod go-rwx OMERO.server/etc OMERO.server/var
 
 # Optionally restrict access to the OMERO data directory
-#chmod go-rwx "$OMERO_DATA_DIR"
+# chmod go-rwx "$OMERO_DATA_DIR"
 #end-step07
 
 #start-step08: As root, perform regular tasks
