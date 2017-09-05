@@ -195,7 +195,7 @@ Before each test, :ref:`clean the repository <clean_bf_repo>`::
   ctest -V
   popd
 
-You may care to give :command:`make` an additional :option:`-j` option
+You may care to give :command:`make` an additional ``-j`` option
 specifying the number of cores to use in parallelizing the build. Note
 that the :command:`ctest` step can take a long time.
 

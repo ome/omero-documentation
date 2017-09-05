@@ -52,7 +52,7 @@ Filesets
 --------
 
 A ``fileset`` is a concept new to OMERO.fs which captures how
-:bf_doc:`Bio-Formats <>` relates files to the images that they encode. If
+:bf_v_doc:`Bio-Formats <>` relates files to the images that they encode. If
 importing a single file leads to a single corresponding image being viewable
 then a one-to-one mapping exists from file to image. However, an image's
 information may be split among multiple files, or a single file may encode

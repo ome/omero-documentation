@@ -145,7 +145,7 @@ image files for import into an OMERO server.
 
 The tool uses Bio-Formats for translation of proprietary file formats in
 preparation for upload to an OMERO.server. Visit
-:bf_doc:`Supported Formats <supported-formats.html>`
+:bf_v_doc:`Supported Formats <supported-formats.html>`
 for a detailed list of supported formats.
 
 .. figure:: /images/importer.png

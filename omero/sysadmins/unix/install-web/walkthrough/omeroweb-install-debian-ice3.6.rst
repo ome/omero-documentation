@@ -1,8 +1,10 @@
-OMERO.web walkthrough installation Debian 9 and IcePy 3.6
-=========================================================
+OMERO.web installation separately from OMERO.server on Debian 9 and IcePy 3.6
+=============================================================================
+
+Please first read :doc:`../../server-debian9-ice36`.
 
 
-For convenience in this walkthrough the main OMERO.web configuration options have been defined as environment variables. When following this walkthrough you can either use your own values, or alternatively source the following file::
+This is an example walkthrough for installing OMERO.web decoupled from the OMERO.server in a **virtual environment** using OMERO.py and a dedicated system user. Installing OMERO.web in a virtual environment is the preferred way. For convenience in this walkthrough the main OMERO.web configuration options have been defined as environment variables. When following this walkthrough you can either use your own values, or alternatively use the following ones::
     
     OMERO_USER=omero
     WEBPORT=80
@@ -10,83 +12,141 @@ For convenience in this walkthrough the main OMERO.web configuration options hav
 
 
 
-Create local user omero, homedir :file:`/home/omero` (run as root)::
+**The following steps are run as root.**
+
+Create a local system user omero if required, create the homedir too :file:`/home/omero`::
     
-    if [ -z "$(getent passwd omero)" ]; then
-    
-        useradd -m omero
-    
-    fi
+    useradd -m omero
     
     chmod a+X /home/omero
 
-Install ZeroC IcePy 3.6. IcePy is managed by PyPI and will be installed as a part of OMERO.web requirements (run as root)::
+Installing prerequisites
+------------------------
+
+**The following steps are run as root.**
+
+Install ZeroC IcePy 3.6. IcePy is managed by `PyPI <https://pypi.python.org/pypi>`_, a package management system used to install and manage software packages written in Python. IcePy and will be installed as part of the OMERO.web requirements::
     
     apt-get -y install libssl-dev libbz2-dev libmcpp-dev libdb++-dev libdb-dev libdb-java
 
-Install other dependencies (run as root)::
+Install other dependencies. The number of dependencies to install depends on the way you plan to install OMERO.web. If you wish to install it in a virtual environment created with ``--system-site-packages`` *on* (**option 1**), you will need to install ``python-pillow`` and ``python-numpy``. If you wish to install it in a virtual environment with ``--system-site-packages`` *off*, a few more dependencies will be required (**option 2**)::
     
+    # dependencies common to both options
     apt-get update
+    
+    apt-get -y install unzip
+     
     apt-get -y install \
         python-pip \
         python-virtualenv
     
+    apt-get -y install nginx
     
+    # To install OMERO.web using option 1
     apt-get -y install \
         python-pillow \
         python-numpy
     
+    # To install OMERO.web using option 2
+    # require to install Pillow
+    apt-get -y install \
+        libtiff5-dev \
+        libjpeg8-dev \
+        zlib1g-dev \
+        libfreetype6-dev \
+        liblcms2-dev \
+        libwebp-dev \
+        tcl8.6-dev \
+        tk8.6-dev
 
 
-Install VirtualEnv - optional (run as root)::
+Creating virtual environment
+----------------------------
+
+**The following steps are run as root.**
+
+Create the virtual environment. This is the preferred way to install OMERO.web::
     
+    # option 1: in a virtual environment with --system-site-packages on
     virtualenv /home/omero/omerowebvenv --system-site-packages
+    
+    # option 2: in a virtual environment with --system-site-packages off
+    virtualenv /home/omero/omerowebvenv
+    
 
-Install OMERO.web (run as omero)::
+Installing OMERO.web
+--------------------
+
+**The following steps are run as the omero system user.**
+
+Install OMERO.web using OMERO.py::
     
     cd /home/omero
-    curl -o OMERO.py.zip -L https://downloads.openmicroscopy.org/latest/omero5.3/py.zip
+    curl -o OMERO.py.zip -L https://downloads.openmicroscopy.org/latest/omero/py.zip
     unzip -q OMERO.py*
     
     zip=$(ls OMERO.py*.zip)
     rm -f $zip
     ln -s OMERO.py-* OMERO.py
 
-Install in the virtualenv created previously (run as root)::
-    
-    /home/omero/omerowebvenv/bin/pip install --upgrade -r /home/omero/OMERO.py/share/web/requirements-py27.txt
+**The following steps are run as root.**
 
-Configure OMERO.web and generate nginx template (run as omero)::
+Install the OMERO.web requirements. Select one of the commands corresponding to the way you have opted to install it::
     
-    source /home/omero/omerowebvenv/bin/activate
-    # By default no value is set for WEBPREFIX but for example it can be set to /omero
-    if [[ $WEBPREFIX = *[!\ ]* ]]; then
-        /home/omero/OMERO.py/bin/omero config set omero.web.prefix "${WEBPREFIX}"
-        /home/omero/OMERO.py/bin/omero config set omero.web.static_url "${WEBPREFIX}/static/"
-    fi
+    # option 1: in a virtual environment with --system-site-packages on
+    /home/omero/omerowebvenv/bin/pip install --upgrade -r /home/omero/OMERO.py/share/web/requirements-py27.txt
+    
+    # option 2: in a virtual environment with --system-site-packages off
+    /home/omero/omerowebvenv/bin/pip install --upgrade -r /home/omero/OMERO.py/share/web/requirements-py27-all.txt
+    
+    
+
+Configuring OMERO.web
+---------------------
+
+**The following steps are run as the omero system user.**
+
+Configure OMERO.web and create the NGINX OMERO configuration file::
+    
+    . /home/omero/omerowebvenv/bin/activate
     
     /home/omero/OMERO.py/bin/omero config set omero.web.application_server wsgi-tcp
     /home/omero/OMERO.py/bin/omero web config nginx --http "${WEBPORT}" --servername "${WEBSERVER_NAME}" > /home/omero/nginx.conf.tmp
-    
-    cat /home/omero/nginx.conf.tmp
 
-Install NGINX (run as root)::
+For more customization, please read :ref:`customizing_your_omero_web_installation`.
+
+Configuring NGINX
+-----------------
+
+**The following steps are run as root.**
+
+Copy the generated configuration file into the NGINX configuration directory, disable the default configuration and start NGINX::
     
-    #start-install
-    apt-get update
-    apt-get -y install nginx
-    
-    #end-install
     sed -i.bak -re 's/( default_server.*)/; #\1/' /etc/nginx/nginx.conf
     mv /etc/nginx/sites-available/default /etc/nginx/sites-available/default.disabled
+    if [ -f /etc/nginx/sites-enabled/default ]; then
+        rm /etc/nginx/sites-enabled/default
+    fi
     cp /home/omero/nginx.conf.tmp /etc/nginx/conf.d/omeroweb.conf
     
     service nginx start
 
+Running OMERO.web
+-----------------
 
-Daemon (run as root)::
+**The following steps are run as the omero system user.**
+
+To start the OMERO.web client run::
     
-    Create a file omero-web-init.d. See example file below.
+    source /home/omero/omerowebvenv/bin/activate
+    
+    OMERO.py/bin/omero web start
+
+**The following steps are run as root.**
+
+Should you wish to run OMERO.web automatically, a `init.d` file could be created::
+    
+    Create omero-web-init.d. See example file below.
     cp omero-web-init.d /etc/init.d/omero-web
     chmod a+x /etc/init.d/omero-web
     
@@ -94,12 +154,12 @@ Daemon (run as root)::
     update-rc.d -f omero-web defaults 98 02
     
 
-**omero-web-init.d** example::
+`omero-web-init.d` example::
     
     #!/bin/bash
     #
-    # /etc/init.d/omero
-    # Subsystem file for "omero" server
+    # /etc/init.d/omero-web
+    # Subsystem file for "omero" web
     #
     ### BEGIN INIT INFO
     # Provides:             omero-web
@@ -112,7 +172,7 @@ Daemon (run as root)::
     #
     ### Redhat
     # chkconfig: - 98 02
-    # description: Init script for OMERO.web
+    # description: init file for OMERO.web
     ###
     
     RETVAL=0
@@ -129,9 +189,8 @@ Daemon (run as root)::
     
     start() {
         echo -n $"Starting $prog:"
-        su - ${OMERO_USER} -c "source $VENVDIR/bin/activate; ${OMERO} web start" &> /dev/null && echo -n ' OMERO.web'
+        su - ${OMERO_USER} -c ". ${VENVDIR}/bin/activate; ${OMERO} web start" &> /dev/null && echo -n ' OMERO.web'
         sleep 5
-        ls $OMERO_PY/var/log
         RETVAL=$?
         [ "$RETVAL" = 0 ]
             echo
@@ -139,7 +198,7 @@ Daemon (run as root)::
     
     stop() {
         echo -n $"Stopping $prog:"
-        su - ${OMERO_USER} -c "source $VENVDIR/bin/activate; ${OMERO} web stop" &> /dev/null && echo -n ' OMERO.web'
+        su - ${OMERO_USER} -c ". ${VENVDIR}/bin/activate; ${OMERO} web stop" &> /dev/null && echo -n ' OMERO.web'
         RETVAL=$?
         [ "$RETVAL" = 0 ]
             echo
@@ -147,7 +206,7 @@ Daemon (run as root)::
     
     status() {
         echo -n $"Status $prog:"
-        su - ${OMERO_USER} -c "source $VENVDIR/bin/activate; ${OMERO} web status"
+        su - ${OMERO_USER} -c ". ${VENVDIR}/bin/activate; ${OMERO} web status"
         RETVAL=$?
     }
     
@@ -171,9 +230,18 @@ Daemon (run as root)::
     esac
     exit $RETVAL
 
-Start up services (run as root)::
+Start up services::
+    
     
     
     cron
     service nginx start
-    service omero-web start
+    service omero-web restart
+
+Maintenance
+-----------
+
+**The following steps are run as the omero system user.**
+
+Please read :ref:`omero_web_maintenance`.
+
