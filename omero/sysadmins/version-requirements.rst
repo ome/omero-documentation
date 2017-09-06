@@ -491,49 +491,49 @@ OMERO support policies
       - |Dropped| [1]_ 
         |Supported| [2]_ 
       - |Dropped|
-      - `Reference <https://www.python.org/dev/peps/pep-0361/>`__
+      - `PEP 361 <https://www.python.org/dev/peps/pep-0361/>`__
     * - 2.7
       - from Jul 2010
       - to 2020
       - |Recommended|
       - |Recommended|
       - |Recommended|
-      - `Reference <https://www.python.org/dev/peps/pep-0373/>`__
+      - `PEP 373 <https://www.python.org/dev/peps/pep-0373/>`__
     * - 3.2
       - from Feb 2011
       - to Feb 2016
       - |Broken|
       - |Broken|
       - |Broken|
-      - `Reference <https://www.python.org/dev/peps/pep-0392/>`__
+      - `PEP 392 <https://www.python.org/dev/peps/pep-0392/>`__
     * - 3.3
       - from Sep 2012
       - to Sep 2017
       - |Broken|
       - |Broken|
       - |Broken|
-      - `Reference <https://www.python.org/dev/peps/pep-0398/>`__
+      - `PEP 398 <https://www.python.org/dev/peps/pep-0398/>`__
     * - 3.4
       - from Mar 2014
       - TBA
       - |Broken|
       - |Broken|
       - |Broken|
-      - `Reference <https://www.python.org/dev/peps/pep-0429/>`__
+      - `PEP 429 <https://www.python.org/dev/peps/pep-0429/>`__
     * - 3.5
       - from Sept 2015
       - TBA
       - |Broken|
       - |Broken|
       - |Broken|
-      - `Reference <https://www.python.org/dev/peps/pep-0478>`__
+      - `PEP 478 <https://www.python.org/dev/peps/pep-0478/>`__
     * - 3.6
       - from Dec 2016
       - TBA
       - |Broken|
       - |Broken|
       - |Broken|
-      - `Reference <https://www.python.org/dev/peps/pep-0494/>`__
+      - `PEP 494 <https://www.python.org/dev/peps/pep-0494/>`__
 
 .. [1] For OMERO.web, Python 2.7 is the minimum supported version.
 .. [2] For OMERO.py and OMERO.server, Python 2.6 is the minimum supported version.
