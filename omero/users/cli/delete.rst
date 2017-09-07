@@ -63,16 +63,20 @@ IDs.
     $ bin/omero delete Project:51 Dataset:53-56 --force
     $ bin/omero delete Dataset:53-56,65,101-105,201,202 --force
 
+When deleting multiple objects in a single command, if one object cannot
+be deleted then the whole command will fail and none of the specified
+objects will be deleted.
+
+The :option:`omero delete --dry-run` option can be useful as a check before
+trying to delete large numbers of objects. If specifying objects with a range,
+it is best to pass either :option:`omero delete --dry-run` or
+:option:`omero delete --force`.
+
 .. note::
-    When deleting multiple objects in a single command, if one object cannot
-    be deleted then the whole command will fail and none of the specified
-    objects will be deleted. The :option:`omero delete --dry-run` option can
-    be useful as a check before trying to delete large numbers of objects.
-    If specifying objects with a range, it is best to pass either
-    :option:`omero delete --dry-run` or ``omero delete --force``. Earlier
-    versions defaulted to :option:`omero delete --dry-run` if no flag was
-    passed, but this behavior is deprecated. Future versions will default to
-    ``omero delete --force``.
+    If no flag is passed, the command will default to
+    :option:`omero delete --dry-run` and warn that this behavior is
+    deprecated. Future versions will default to
+    :option:`omero delete --force`.
 
 Deleting lower level objects
 ============================
@@ -192,3 +196,13 @@ Further options
     objects. This can be combined with the :option:`omero delete --report` to
     provide a detailed confirmation of what would be deleted before running
     the delete itself.
+
+.. option:: --force
+
+    Delete multiple objects in a single command. Both comma-separated lists
+    and ranges of IDs using a hyphen will work::
+    
+        $ bin/omero delete Project:51 Dataset:53-56,65,101-105 --force
+    
+    Command will fail and no objects will be deleted if any of the specified
+    objects cannot be deleted.
