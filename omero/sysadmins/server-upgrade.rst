@@ -7,8 +7,7 @@ releases as public as possible. You may want to take a look at the `Trello
 boards <https://trello.com/b/4EXb35xQ/getting-started>`_ for exactly what will
 go into a release.
 
-See the full details of OMERO |release| features in the
-:forum:`Announcements <viewforum.php?f=11>` forum.
+See the full details of OMERO |release| features in the :doc:`/users/history`.
 
 This guide aims to be as definitive as possible so please do not be put off by
 the level of detail; upgrading should be a straightforward process.
