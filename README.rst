@@ -436,8 +436,8 @@ ZeroC                       https://zeroc.com
 Ice                         https://zeroc.com
 Jenkins                     http://jenkins-ci.org
 roadmap                     https://trac.openmicroscopy.org/ome/roadmap
-Open Microscopy Environment http://www.openmicroscopy.org/site
-Glencoe Software, Inc.      http://www.glencoesoftware.com/
+Open Microscopy Environment https://www.openmicroscopy.org
+Glencoe Software, Inc.      https://www.glencoesoftware.com/
 =========================== ==============================================
 
 Abbreviations

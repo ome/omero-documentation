@@ -214,7 +214,7 @@ and follow the steps for setting up the database and OMERO data directory as men
 OMERO.web
 ^^^^^^^^^
 
-Basic setup for OMERO using Nginx::
+Basic setup for OMERO using NGINX::
 
     $ export HTTPPORT=${HTTPPORT:-8080}
     $ omero web config nginx-development --http $HTTPPORT > $(brew --prefix omero53)/etc/nginx.conf
@@ -222,7 +222,7 @@ Basic setup for OMERO using Nginx::
 See installation script :download:`step03_nginx.sh <walkthrough/osx/step03_nginx.sh>`
 
 For detailed instructions on how to deploy OMERO.web in a production
-environment such as Nginx please see :doc:`install-web`.
+environment such as NGINX please see :doc:`install-web`.
 
 .. note::
     The internal Django webserver can be used for evaluation and development.

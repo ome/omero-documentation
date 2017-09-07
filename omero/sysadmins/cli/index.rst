@@ -1,5 +1,5 @@
-Command Line Interface as an OMERO admin tool
-=============================================
+OMERO.cli as an OMERO admin tool
+================================
 
 When first beginning to work with the OMERO server, the :program:`omero db`,
 :program:`omero config`, and :program:`omero admin` commands will be the first

@@ -6,7 +6,7 @@ the command line, and is ideally suited for anyone wanting to use a
 shell-scripted or web-based front-end interface for importing. Based upon the
 same set of libraries as the standard importer, the command line version
 supports the same file formats and functions in much the same way. Visit
-:bf_doc:`Supported Formats <supported-formats.html>` for a detailed list of
+:bf_v_doc:`Supported Formats <supported-formats.html>` for a detailed list of
 supported formats.
 
 Overview

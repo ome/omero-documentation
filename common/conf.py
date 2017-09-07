@@ -155,9 +155,8 @@ extlinks = {
     'community' : (oo_root + '/support/%s', ''),
     'omero' : (oo_root + '/omero/%s', ''),
     'bf' : (oo_root + '/bio-formats/%s', ''),
-    # One branch only doc links. Branched docs links in conf.py files for
-    # individual doc sets
-    'model_doc' : (docs_root + '/ome-model/5.5.7/%s', ''),
+    # Doc links
+    'model_doc' : (docs_root + '/latest/ome-model/%s', ''),
     'devs_doc' : (docs_root + '/contributing/%s', ''),
     'schema' : (oo_root + '/Schemas/%s', ''),
     # Help links

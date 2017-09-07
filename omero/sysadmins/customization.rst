@@ -1,29 +1,29 @@
-Customize OMERO clients
-=======================
+OMERO.web UI customization
+==========================
 
-The OMERO clients offer a flexible user interface that can be customized.
+The OMERO.web offer a flexible user interface that can be customized.
 The sections below describe how to set up these features.
 
 Note that depending on the deployment choice, OMERO.web will not activate
 configuration changes until gunicorn is restarted using ``bin/omero web
 restart``.
 
+
 Index page
 ----------
+
+This allows you to add a homepage at <your-omero-server>/index/.
+Visitors to your root url at <your-omero-server>/ will get redirected here
+instead of redirecting to <your-omero-server>/webclient/.
 
 Create new custom template in
 :file:`/your/path/to/templates/mytemplate/index.html` and add the following::
 
-    $ bin/omero config set omero.web.template_dirs '/your/path/to/templates/'
+    $ bin/omero config append omero.web.template_dirs '"/your/path/to/templates/"'
     $ bin/omero config set omero.web.index_template 'mytemplate/index.html'
 
-.. figure:: /images/indexPage.png
-
-Note that users will no longer be automatically redirected to the login page
-once an index page is added.
-
-Login page
-----------
+Login page logo
+---------------
 
 :property:`omero.web.login_logo` allows you to customize the webclient login
 page with your own logo. Logo images should ideally be 150 pixels high or
@@ -39,7 +39,11 @@ Login redirection
 -----------------
 
 :property:`omero.web.login_redirect` property redirects to the given location
-after logging in::
+after logging in to named pages. In the example below, a user who tries to
+visit the ``"webindex"`` URL (``/webclient/``) will be redirected after login to a
+URL defined by the viewname ``"load_template"``. The ``"args"``
+are additional arguments to pass to Django's ``reverse()`` function and the
+``"query_string"`` will be added to the URL::
 
     $ bin/omero config set omero.web.login_redirect '{"redirect": ["webindex"], "viewname": "load_template", "args":["userdata"], "query_string": "experimenter=-1"}'
 
@@ -56,11 +60,29 @@ Top links menu
 Open With option
 ----------------
 
-:property:`omero.web.open_with` adds entry to the Open with right-click menu in tree::
+:property:`omero.web.open_with` adds items to the 'Open with' options.
+This allows users to open selected images or other data with another
+web app or URL. See :doc:`/developers/Web/LinkingFromWebclient`.
 
-    $ bin/omero config append omero.web.open_with '["omero_figure", "new_figure",
-      {"supported_objects":["images"], "target": "_blank", "label": "OMERO.figure"}]'
+Include template in every page
+------------------------------
 
+An HTML template specified by :property:`omero.web.base_include_template` will
+be included in every HTML page in OMERO.web.
+The template is inserted just before the ``</body>`` tag and can be used for
+adding a ``<script>`` such as Google analytics.
+
+For example, create a file called
+:file:`/your/path/to/templates/base_include.html` with::
+
+    <script>
+        console.log("Hello World");
+    </script>
+
+Set the following::
+
+    $ bin/omero config append omero.web.template_dirs '"/your/path/to/templates/"'
+    $ bin/omero config set omero.web.base_include_template 'base_include.html'
 
 Group and Users in dropdown menu
 --------------------------------

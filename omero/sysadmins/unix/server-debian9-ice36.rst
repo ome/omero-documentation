@@ -11,18 +11,20 @@ This guide describes how to install the **recommended** versions, not all
 the supported versions.
 This should be read in conjunction with :doc:`../version-requirements`.
 
+This guide does not describe how to install OMERO.web.
+To deploy OMERO.web **separately** from OMERO.server (recommended), please read
+:doc:`install-web/walkthrough/omeroweb-install-debian-ice3.6` or
+to deploy with OMERO.server :doc:`install-web/walkthrough/omeroweb-install-with-server-debian-ice3.6`
+
 These instructions assume your Linux distribution is configured with a UTF-8
 locale (this is normally the default).
 
 For convenience in this walkthrough the main OMERO configuration options have
 been defined as environment variables. When following this walkthrough you can
-either use your own values, or alternatively source the following file:
+either use your own values, or alternatively source :download:`settings.env <walkthrough/settings.env>`:
 
 .. literalinclude:: walkthrough/settings.env
    :start-after: Substitute
-
-:download:`settings.env <walkthrough/settings.env>`
-
 
 Installing prerequisites
 ------------------------
@@ -35,7 +37,7 @@ To install Java 1.8 and other dependencies:
 
 .. literalinclude:: walkthrough/walkthrough_debian9.sh
     :start-after: #start-step01
-    :end-before: # install Ice
+    :end-before: #start-web-dependencies
 
 To install Ice 3.6:
 
@@ -106,13 +108,6 @@ added in two files in order to allow connection.
 Run ``python -m py_compile OMERO.server/lib/python/omero/clients.py`` to recompile the file.
 
 
-Installing and running OMERO.web
---------------------------------
-
-OMERO.web is deployed using Nginx, for more details on how to install
-and run the OMERO.web client
-see :doc:`install-web/walkthrough/omeroweb-install-debian-ice3.6`.
-
 Running OMERO.server
 --------------------
 
@@ -122,10 +117,8 @@ OMERO should now be set up. To start the server run::
 
     OMERO.server/bin/omero admin start
 
-In addition an `init.d` script is available should you wish to
-start OMERO automatically.
-
-| :download:`omero-init.d <walkthrough/omero-init.d>`
+In addition :download:`omero-init.d <walkthrough/omero-init.d>`
+is available should you wish to start OMERO automatically.
 
 
 Securing OMERO
@@ -140,26 +133,5 @@ the OMERO data directory:
 .. literalinclude:: walkthrough/walkthrough_debian9.sh
     :start-after: #start-step07
     :end-before: #end-step07
-
-.. _debian_walkthrough_regular_tasks:
-
-Regular tasks
--------------
-
-**The following steps are run as root.**
-
-The default OMERO.web session handler uses temporary files to store sessions
-which should be deleted at regular intervals, for instance by creating a cron
-job:
-
-.. literalinclude:: walkthrough/walkthrough_debian9.sh
-    :start-after: #start-omeroweb-cron
-    :end-before: #end-omeroweb-cron
-
-Copy the following commands into the appropriate location:
-
-.. literalinclude:: walkthrough/walkthrough_debian9.sh
-    :start-after: #start-copy-omeroweb-cron
-    :end-before: #end-copy-omeroweb-cron
 
 | :download:`omero-web-cron <walkthrough/omero-web-cron>`

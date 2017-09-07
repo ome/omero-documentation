@@ -33,6 +33,16 @@ more specific walk-through listed below.
         page to install the prerequisites with Homebrew and then
         install the server zip from the downloads page.**
 
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+    :hidden:
+
+    server-centos6-ice36
+    server-centos7-ice36
+    server-ubuntu-ice36
+    server-debian9-ice36
+    server-install-homebrew
 
 Prerequisites
 -------------
@@ -150,37 +160,16 @@ The following Python packages are required:
       - Functionality
       - Downloads
 
-    * - `Django`_ (1.8) [1]_
-      - OMERO.web
-      - :pypi:`Django` page
-
-    * - `Pillow`_ [2]_
-      - OMERO.web and Figure Export
-      - :pypi:`Pillow` page
-
-    * - Matplotlib_
-      - OMERO.web
-      - `Matplotlib page <http://matplotlib.org/>`_
-
-    * - NumPy (1.2.0 or higher) [3]_
+    * - NumPy (1.2.0 or higher)
       - Scripting
       - `Numpy/Scipy page <http://www.scipy.org/Download>`_
 
-    * - PyTables (2.1.0 or higher)
+    * - PyTables (2.1.0 or higher) [1]_
       - :doc:`OMERO.tables </sysadmins/server-tables>`
       - `PyTables page <https://pytables.github.io/downloads.html>`_
 
-.. [1] The currently supported version of the django module used by
-       OMERO.web (1.8) requires Python 2.7. The older version (1.6)
-       will work with Python 2.6 but lacks security support, and is
-       consequently *not recommended for production use*. Python 2.7
-       and `Django 1.8`_ are required for security support.
 
-.. [2] Make sure to have `libjpeg <http://libjpeg.sourceforge.net/>`_ 
-       installed when building `Pillow`_. We currently do not 
-       support version 3.0+.
-
-.. [3] May already have been installed as a dependency of Matplot Lib.
+.. [1] From OMERO 5.5 PyTables 3.1 or higher will be required.
 
 .. note::
     Some of these can be ignored if you wish to forego some
@@ -199,13 +188,13 @@ If possible, install the following packages:
       - Package
 
     * - BSD Ports
-      - lang/python27 graphics/py-pillow math/py-matplotlib math/py-numpy devel/py-tables science/py-scipy
+      - lang/python27 math/py-numpy devel/py-tables
 
     * - Debian
-      - python2.7 python-pil python-matplotlib python-numpy python-tables python-scipy
+      - python2.7 python-numpy python-tables
 
     * - Homebrew
-      - python pillow numpy matplotlib
+      - python numpy
 
     * - RedHat
       - python
@@ -252,23 +241,6 @@ latest release is available from the :zeroc:`ZeroC website
     See `Using the Python Distribution
     <https://doc.zeroc.com/display/Ice36/Using+the+Python+Distribution>`__
     for further details.
-
-OMERO.web
-^^^^^^^^^
-
-Please install :program:`nginx` and Gunicorn in order to run OMERO.web.
-
-+-----------+--------------------------------------+
-| System    | Packages                             |
-+===========+======================================+
-| BSD Ports | www/nginx                            |
-+-----------+--------------------------------------+
-| Debian    | nginx                                |
-+-----------+--------------------------------------+
-| Homebrew  | nginx                                |
-+-----------+--------------------------------------+
-| RedHat    | nginx                                |
-+-----------+--------------------------------------+
 
 OMERO.scripts
 ^^^^^^^^^^^^^
@@ -645,20 +617,6 @@ these are calculated on a system-by-system basis. An attempt has been
 made to have usable settings out of the box, but if you can afford to
 provide OMERO with more memory, it will certainly improve your overall
 performance. See :ref:`jvm_memory_settings` on how to tune the JVM.
-
-OMERO.web and administration
-----------------------------
-
-In order to deploy OMERO.web in a production environment such as
-Nginx please follow the instructions under
-:doc:`install-web`.
-
-
-.. note::
-    The internal Django webserver can be used for evaluation and development. 
-    In this case please follow the instructions under 
-    :doc:`/developers/Web/Deployment`.
-
 
 Enabling movie creation from OMERO.
 -----------------------------------

@@ -331,7 +331,7 @@ mod_wsgi will deadlock if run in daemon mode while mod_python is enabled
 
 .. _troubleshooting-omeroweb-migrate-to-nginx:
 
-OMERO.web migrating from Apache to Nginx
+OMERO.web migrating from Apache to NGINX
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Support for Apache and mod_wsgi deployment was deprecated
@@ -368,7 +368,12 @@ OMERO.web running but status says not started
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you upgraded OMERO but forgot to stop OMERO.web, processes will still be
-running. In order to kill stale processes by hand, run::
+running. In order to kill stale processes by hand, if OMERO.web is deployed
+**separately** from the OMERO.server run::
+
+    $ ps aux | grep /home/omero/OMERO.py/var/django.pid
+
+otherwise run::
 
     $ ps aux | grep /home/omero/OMERO.server/var/django.pid
 
