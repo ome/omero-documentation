@@ -6,8 +6,8 @@ directory. On execution, all plugins in that directory are registered
 with the |CLI|. 
 
 Alternatively, plugins can be added to any directory ending with
-``omero/plugins``. If this directory is part of the ``PYTHONPATH`` the |CLI|
-will automatically include them.
+``omero/plugins``. If this directory is part of the :envvar:`PYTHONPATH` the
+|CLI| will automatically include them.
 
 For testing purposes the ``--path`` argument can be used to point to other
 plugin files or directories, too.

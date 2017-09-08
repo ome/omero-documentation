@@ -204,5 +204,5 @@ Further options
     
         $ bin/omero delete Project:51 Dataset:53-56,65,101-105 --force
     
-    Command will fail and no objects will be deleted if any of the specified
-    objects cannot be deleted.
+    The command will fail and no objects will be deleted if any of the
+    specified objects cannot be deleted.
