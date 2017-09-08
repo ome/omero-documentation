@@ -10,6 +10,13 @@ Updates and new features for OMERO 5.4 include:
   cater for the needs of some trusted users to act on behalf of all the OMERO
   users in a facility, with access to all the groups and data in OMERO.
 
+- Improvements to OMERO.web including the display of plates and wells, the
+  synchronization of controls enabling copy/paste of rendering settings, and
+  the layout of the left-hand panel.
+
+- The 'Reverse Intensity' command in the image viewers has been renamed to
+  'Invert'.
+
 - updated Bio-Formats bringing improved file format support.
 
 See the :help:`User help website <>` for information on how to incorporate
