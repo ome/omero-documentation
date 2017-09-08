@@ -10,8 +10,8 @@ preserves the files' path and name (at least within the rules of
 :property:`omero.fs.repo.path_rules` below), so that OMERO.fs can become
 a trusted repository for the master copy of users' data. While the
 default server configuration from :doc:`config` should typically suffice,
-:omerocmd:`config set` may be used to adjust settings related to file uploads.
-These settings are explained below.
+:program:`omero config set` may be used to adjust settings related to file
+uploads. These settings are explained below.
 
 Repository location
 -------------------

@@ -326,7 +326,7 @@ Below are a number of example psql database queries:
 bin/omero hql
 ^^^^^^^^^^^^^
 
-You can use the omero :omerocmd:`hql` command to query a remote OMERO
+You can use the :program:`omero hql` command to query a remote OMERO
 database, entering your login details when requested.
 
 .. note::

@@ -7,8 +7,7 @@ releases as public as possible. You may want to take a look at the `Trello
 boards <https://trello.com/b/4EXb35xQ/getting-started>`_ for exactly what will
 go into a release.
 
-See the full details of OMERO |release| features in the
-:forum:`Announcements <viewforum.php?f=11>` forum.
+See the full details of OMERO |release| features in the :doc:`/users/history`.
 
 This guide aims to be as definitive as possible so please do not be put off by
 the level of detail; upgrading should be a straightforward process.
@@ -36,7 +35,7 @@ perform best under different circumstances and require a different set of
 dependencies. Please check :ref:`omero_web_deployment` for the latest advice
 on how to deploy OMERO.web.
 
-If you generated configuration stanzas using :omerocmd:`web config` which
+If you generated configuration stanzas using :program:`omero web config` which
 enables OMERO.web via NGINX, they will include **hard-coded links** to
 your previous version of OMERO. Therefore, you should regenerate your config
 files when upgrading, remembering to merge in any of your own modifications if
@@ -147,7 +146,7 @@ Restart OMERO.web
 ^^^^^^^^^^^^^^^^^
 
 -  If anything goes wrong, please send the output of
-   :omerocmd:`web diagnostics` to
+   :program:`omero web diagnostics` to
    ome-users@lists.openmicroscopy.org.uk.
 
 -  Start OMERO.web with the following command:

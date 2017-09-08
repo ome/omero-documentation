@@ -10,7 +10,7 @@ with care following the steps below.
     database are fully backed up. See :doc:`server-backup-and-restore`.
 
 The current location of the data repositories can be found using the
-:omerocmd:`fs repos` command:
+:program:`fs repos` command:
 
 ::
 
@@ -24,7 +24,7 @@ The current location of the data repositories can be found using the
     (3 rows)
 
 .. note::
-    This command can be slow, :omerocmd:`config get` can also be used to
+    This command can be slow, :program:`omero config get` can also be used to
     determine if :property:`omero.data.dir` or :property:`omero.managed.dir`
     have non-default values.
 
@@ -42,9 +42,9 @@ data directory is to be moved then the following steps should be used:
     bin/omero admin start
 
 .. warning::
-    The use of :omerocmd:`config set` is absolutely necessary here. The steps:
-    :omerocmd:`admin stop`, ``mv``, :omerocmd:`admin start` without
-    :omerocmd:`config set` could lead to an unstable situation.
+    The use of :program:`omero config set` is absolutely necessary here. The steps:
+    :program:`omero admin stop`, ``mv``, :program:`omero admin start` without
+    :program:`omero config set` could lead to an unstable situation.
 
 For example, moving the OMERO data directory from ``/Users/omero/var/omero``
 to ``/Volumes/omero``:
@@ -81,9 +81,9 @@ steps should be used:
     bin/omero admin start
 
 .. warning::
-    The use of :omerocmd:`config set` is absolutely necessary here. The steps:
-    :omerocmd:`admin stop`, ``mv``, :omerocmd:`admin start` without
-    :omerocmd:`config set` could lead to an unstable situation.
+    The use of :program:`omero config set` is absolutely necessary here. The steps:
+    :program:`omero admin stop`, ``mv``, :program:`omero admin start` without
+    :program:`omero config set` could lead to an unstable situation.
 
 For example, moving the Managed Repository from ``/Users/omero/var/omero/ManagedRepository``
 to ``/Volumes/imports/ManagedRepository``:
@@ -126,7 +126,7 @@ imported image files stored on a different underlying storage volume.
 For example, if your :property:`omero.managed.dir` is set to
 :file:`/mnt/omero/ManagedRepository` then, as that volume fills, it
 would become better for new imports to be stored elsewhere. An OMERO
-administrator may use the :omerocmd:`fs mkdir` subcommand to properly
+administrator may use the :program:`omero fs mkdir` subcommand to properly
 set up a subdirectory for that new volume in the existing Managed
 Repository:
 ::

@@ -1,15 +1,15 @@
 Server configuration
 --------------------
 
-The :omerocmd:`config` command is responsible for reading / writing
+The :program:`omero config` command is responsible for reading / writing
 user-specific profiles stored under :file:`etc/grid/config.xml`. To get
-the current profile, use the :omerocmd:`config def` command::
+the current profile, use the :program:`omero config def` command::
 
     $ bin/omero config def
     default
 
-You can then examine the current profile keys using :omerocmd:`config get`
-and set key-value pairs using :omerocmd:`config set`::
+You can then examine the current profile keys using :program:`omero config get`
+and set key-value pairs using :program:`omero config set`::
 
     $ bin/omero config get
 
@@ -31,10 +31,10 @@ different profile, e.g.::
     $ OMERO_CONFIG=another bin/omero config get
     example=my second value
 
-The values set via :omerocmd:`config set` override those compiled into the
+The values set via :program:`omero config set` override those compiled into the
 server jars. The default values which are set can be seen in
 :doc:`/sysadmins/config`. To add several values to a configuration, you can
-pipe them via standard in using :omerocmd:`config load`::
+pipe them via standard in using :program:`omero config load`::
 
     $ grep omero.ldap etc/omero.properties | OMERO_CONFIG=ldap bin/omero config load
 
@@ -78,11 +78,11 @@ remove one of the key-value pairs, pass no second argument::
     omero.ldap.values=person
 
 If you will be using a particular profile more frequently you can set it
-as your default using the :omerocmd:`config def` command::
+as your default using the :program:`omero config def` command::
 
     $ bin/omero config def ldap
 
 And finally, if you would like to remove a profile, for example to wipe a
-given password off of a system, use :omerocmd:`config drop`::
+given password off of a system, use :program:`omero config drop`::
 
     $ bin/omero config drop

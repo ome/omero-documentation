@@ -1,12 +1,12 @@
 Creating containers and annotations
 -----------------------------------
 
-The :omerocmd:`obj` command allows users to create and update OMERO objects. A
+The :program:`omero obj` command allows users to create and update OMERO objects. A
 complete :doc:`/developers/Model/EveryObject` is available for reference.
 
 This command can be used to create containers, i.e. projects, datasets,
 screens and folders. It can also be used to create annotations, and, combined
-with the :omerocmd:`upload` command, file annotations. These annotations can
+with the :program:`omero upload` command, file annotations. These annotations can
 then be attached to containers or imported images and plates. This page gives
 a few examples of some simple but fairly common workflows.
 

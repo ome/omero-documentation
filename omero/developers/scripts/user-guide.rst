@@ -210,7 +210,8 @@ E.g:
 
 Upload the script we saved earlier, specifying it as 'official' (trusted
 to run on the server processor). You will need to log in the first time
-you use the :omerocmd:`script` command. The new script ID will be printed out:
+you use the :program:`omero script` command. The new script ID will be printed
+out:
 
 ::
 

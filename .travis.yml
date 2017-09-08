@@ -19,4 +19,4 @@ before_install:
 
 script:
   - if [[ $SPHINX_VERSION != 'latest' ]]; then make clean html; fi
-  - if [[ $SPHINX_VERSION == 'latest' ]]; then (cd contributing && make clean html); fi
+  - if [[ $SPHINX_VERSION == 'latest' ]]; then make clean html; fi
