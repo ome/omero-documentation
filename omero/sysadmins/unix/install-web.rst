@@ -87,24 +87,9 @@ display a maintenance page.
 
           $ bin/omero config set omero.web.session_engine django.contrib.sessions.backends.cache
 
-      - `Redis 2.8+ <http://redis.io/>`_ requires `django-redis 4.4+ <http://niwinz.github.io/django-redis/latest/>`_. 
-          To install the required dependency, run
-
-          if OMERO.web is deployed **separately**::
-
-          $ pip install -r OMERO.py/share/web/requirements-redis.txt
-
-          otherwise::
-
-          $ pip install -r OMERO.server/share/web/requirements-redis.txt
-
-          To configure, run::
+      - `Redis 2.8+ <http://redis.io/>`_ requires `django-redis 4.4+ <http://niwinz.github.io/django-redis/latest/>`_ in order to be used with OMERO.web. We assume that Redis has already been installed. The `django-redis` package is now installed as part of the OMERO.web deployment. To configure the cache, run::
 
           $ bin/omero config set omero.web.caches '{"default": {"BACKEND": "django_redis.cache.RedisCache", "LOCATION": "redis://redis:6379/0"}}'
-
-      - DEPRECATED: `Memcached <https://memcached.org/>`_::
-
-          $ bin/omero config set omero.web.caches '{"default": {"BACKEND": "django.core.cache.backends.memcached.MemcachedCache", "LOCATION": "127.0.0.1:11211", "TIMEOUT": "86400"}}'
 
 
 .. _customizing_your_omero_web_installation:
