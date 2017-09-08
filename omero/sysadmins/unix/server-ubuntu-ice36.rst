@@ -1,5 +1,5 @@
-OMERO.server installation on Ubuntu 14.04 and 16.04
-===================================================
+OMERO.server installation on Ubuntu 16.04
+=========================================
 
 This is an example walkthrough for installing OMERO on Ubuntu, using
 a dedicated system user, and should be read in conjunction with
@@ -11,18 +11,20 @@ This guide describes how to install the **recommended** versions, not all
 the supported versions.
 This should be read in conjunction with :doc:`../version-requirements`.
 
+This guide does not describe how to install OMERO.web.
+To deploy OMERO.web **separately** from OMERO.server (recommended), please read
+:doc:`install-web/walkthrough/omeroweb-install-ubuntu-ice3.6` or
+to deploy with OMERO.server :doc:`install-web/walkthrough/omeroweb-install-with-server-ubuntu-ice3.6`
+
 These instructions assume your Linux distribution is configured with a UTF-8
 locale (this is normally the default).
 
 For convenience in this walkthrough the main OMERO configuration options have
 been defined as environment variables. When following this walkthrough you can
-either use your own values, or alternatively source the following file:
+either use your own values, or alternatively source :download:`settings.env <walkthrough/settings.env>`:
 
 .. literalinclude:: walkthrough/settings.env
    :start-after: Substitute
-
-:download:`settings.env <walkthrough/settings.env>`
-
 
 Installing prerequisites
 ------------------------
@@ -33,23 +35,17 @@ Install Java 1.8, Ice 3.6 and PostgreSQL 9.6:
 
 To install Java 1.8 and other dependencies:
 
-.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
+.. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
     :start-after: #start-step01
-    :end-before: # install Ice
+    :end-before: #start-web-dependencies
 
 To install Ice 3.6:
 
-.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
+.. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
     :start-after: #start-recommended-ice
     :end-before: #end-recommended-ice
 
-To install PostgreSQL 9.6 on Ubuntu 14.04:
-
-.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
-    :start-after: #end-supported-ice
-    :end-before: #end-step01
-
-To install PostgreSQL 9.6 on Ubuntu 16.04:
+To install PostgreSQL 9.6:
 
 .. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
     :start-after: #end-supported-ice
@@ -57,13 +53,13 @@ To install PostgreSQL 9.6 on Ubuntu 16.04:
 
 Create an omero system user, and a directory for the OMERO repository:
 
-.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
+.. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
     :start-after: #start-step02
     :end-before: #end-step02
 
 Create a database user and initialize a new database for OMERO:
 
-.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
+.. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
     :start-after: #start-step03
     :end-before: #end-step03
 
@@ -84,31 +80,15 @@ You will need to install the server corresponding to your Ice version.
 
 Install ``server-ice36.zip``:
 
-.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
+.. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
     :start-after: #start-release-ice36
     :end-before: #end-release-ice36
 
 Configure:
 
-.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
+.. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
     :start-after: #end-release-ice36
     :end-before: #end-step04
-
-Installing and running OMERO.web
---------------------------------
-
-OMERO.web is deployed using Nginx, for more details on how to install
-and run the OMERO.web client
-see :doc:`install-web/walkthrough/omeroweb-install-ubuntu-ice3.6`.
-
-**The following steps are run as root.**
-
-To install the latest stable version of Nginx on Ubuntu 14.04, run
-the following commands:
-
-.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
-    :start-after: #start-nginx
-    :end-before: #start-requirements
 
 Running OMERO.server
 --------------------
@@ -119,11 +99,8 @@ OMERO should now be set up. To start the server run::
 
     OMERO.server/bin/omero admin start
 
-In addition an `init.d` script is available should you wish to
-start OMERO automatically.
-
-| :download:`omero-init.d <walkthrough/omero-init.d>`
-
+In addition :download:`omero-init.d <walkthrough/omero-init.d>`
+is available should you wish to start OMERO automatically.
 
 Securing OMERO
 --------------
@@ -134,30 +111,6 @@ If multiple users have access to the machine running OMERO you should restrict
 access to OMERO.server's configuration and runtime directories, and optionally
 the OMERO data directory:
 
-.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
+.. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
     :start-after: #start-step07
     :end-before: #end-step07
-
-.. _linux_walkthrough_regular_tasks:
-
-Regular tasks
--------------
-
-**The following steps are run as root.**
-
-The default OMERO.web session handler uses temporary files to store sessions
-which should be deleted at regular intervals, for instance by creating a cron
-job:
-
-.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
-    :start-after: #start-omeroweb-cron
-    :end-before: #end-omeroweb-cron
-
-Copy the following commands into the appropriate location:
-
-.. literalinclude:: walkthrough/walkthrough_ubuntu1404.sh
-    :start-after: #start-copy-omeroweb-cron
-    :end-before: #end-copy-omeroweb-cron
-
-| :download:`omero-web-cron <walkthrough/omero-web-cron>`
-

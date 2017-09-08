@@ -2009,6 +2009,14 @@ Enable and disable the OMERO.web public user functionality.
 
 Default: `false`
 
+.. property:: omero.web.public.get_only
+
+omero.web.public.get_only
+^^^^^^^^^^^^^^^^^^^^^^^^^
+Restrict public users to GET requests only
+
+Default: `true`
+
 .. property:: omero.web.public.password
 
 omero.web.public.password

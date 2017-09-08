@@ -1,5 +1,5 @@
-Public data in the repository
-=============================
+Publishing data using OMERO.web
+===============================
 
 The OMERO.web framework allows raw data to be published using built-in tools
 or supplied through webservices to external web pages. Selected datasets

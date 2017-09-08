@@ -20,14 +20,16 @@ Server Background
     admins-with-restricted-privileges
     mapping-restricted-admins
 
-*******************
-Server Installation
-*******************
+************
+Installation
+************
 
-This section provides guidance on how to install and set up OMERO.server on
-any of the supported UNIX and UNIX-like platforms. Specific walkthroughs are
+This section provides guidance on how to install and set up OMERO.server
+and OMERO.web on any of the supported UNIX and UNIX-like platforms.
+Following the installation links below you will find specific walkthroughs
 provided for several systems, with detailed step-by-step instructions.
-However, reading through the :doc:`unix/server-installation` first
+Reading through the :doc:`unix/server-installation` and
+:doc:`unix/install-web/web-deployment` pages first
 is recommended as this explains the entire process rather than just being a
 series of commands.
 
@@ -36,22 +38,17 @@ series of commands.
     :titlesonly:
 
     unix/server-installation
-    unix/server-centos6-ice36
-    unix/server-centos7-ice36
-    unix/server-ubuntu-ice36
-    unix/server-debian9-ice36
-    unix/server-install-homebrew
+    unix/install-web/web-deployment
     unix/server-binary-repository
     unix/server-postgresql
-    unix/install-web
     advanced-install
 
-********************************
-Server Maintenance and Upgrading
-********************************
+*************************
+Maintenance and Upgrading
+*************************
 
 This section contains instructions for administering, troubleshooting,
-backing-up, and upgrading your server installation.
+backing-up, and upgrading your installation.
 
 .. toctree::
     :maxdepth: 1
@@ -61,6 +58,8 @@ backing-up, and upgrading your server installation.
     troubleshooting
     server-backup-and-restore
     server-upgrade
+    omeroweb-upgrade
+    unix/install-web
     UpgradeCheck
     repository-move
     windows-migration
@@ -101,8 +100,8 @@ OMERO clients to host images for groups or public viewing.
     :maxdepth: 2
     :titlesonly:
 
-    customization
     public
+    customization
 
 ***********************
 Data Import and Storage

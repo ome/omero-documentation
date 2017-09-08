@@ -1,5 +1,5 @@
-OMERO.web deployment for developers
-===================================
+OMERO.web installation for developers
+=====================================
 
 Getting set up
 --------------
@@ -44,7 +44,7 @@ Using WSGI
 ----------
 
 For convenience you may wish to run a web server under your local user account
-instead of using a system server for testing. Install Nginx and Gunicorn
+instead of using a system server for testing. Install NGINX and Gunicorn
 (See :doc:`/sysadmins/unix/install-web`) but generate a configuration file
 using the following commands:
 
@@ -53,7 +53,7 @@ using the following commands:
     $ bin/omero config set omero.web.application_server 'wsgi-tcp'
     $ bin/omero web config nginx-development > nginx-development.conf
 
-Start Nginx and the Gunicorn worker processes running one thread
+Start NGINX and the Gunicorn worker processes running one thread
 listening on 127.0.0.1:4080 that will autoreload on source change:
 
 ::

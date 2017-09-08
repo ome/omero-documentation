@@ -1,39 +1,12 @@
-Setting up OMERO.web
-====================
+OMERO.web administration
+========================
 
 OMERO.web is the web application component of the OMERO platform which
 allows for the management, visualization (in a fully multi-dimensional
 image viewer) and annotation of images from a web browser. It also
 includes the ability to manage users and groups.
 
-
-OMERO.web is an integral part of the OMERO platform and can be deployed
-with:
-
--  `WSGI <http://wsgi.readthedocs.org>`_ using a WSGI capable web server
-   such as
-   `nginx <http://nginx.org/>`_ and `gunicorn <http://docs.gunicorn.org/>`_
--  the built-in Django lightweight development server (for **testing**
-   only; see the :doc:`/developers/Web/Deployment` page)
-
-If you need help configuring your firewall rules, see
-:doc:`/sysadmins/server-security` for more details.
-
-
-.. _omero_web_deployment:
-
-Deployment
-----------
-
-Deploying OMERO.web **separately** from OMERO.server is **recommended** as they
-perform best under different circumstances and require a different set of
-dependencies. See :doc:`install-web/web-deployment` for more details.
-
-If you have installed Nginx, OMERO can automatically generate a
-configuration file for your web server. The location of the file will depend
-on your system, please refer to your web server's manual. See
-:ref:`customizing_your_omero_web_installation` for additional
-customization options.
+Reading through :doc:`install-web/web-deployment` first is recommended.
 
 .. toctree::
     :maxdepth: 1
@@ -41,44 +14,6 @@ customization options.
     :hidden:
 
     install-web/web-deployment
-
-Depending upon which platform you are using, you may find a
-more specific walk-through listed below.
-
-.. seealso::
-
-    :doc:`install-web/walkthrough/omeroweb-install-centos7-ice3.6`
-        Instructions for installing OMERO.web from scratch on
-        CentOS 7 with Ice 3.6.
-
-    :doc:`install-web/walkthrough/omeroweb-install-ubuntu-ice3.6`
-        Instructions for installing OMERO.web from scratch on
-        Ubuntu 16.04 with Ice 3.6.
-
-    :doc:`install-web/walkthrough/omeroweb-install-debian-ice3.6`
-        Instructions for installing OMERO.web from scratch on
-        Debian 9 with Ice 3.6.
-
-    :doc:`install-web/walkthrough/omeroweb-install-osx-ice3.6`
-        Instructions for installing OMERO.web from scratch on
-        on Mac OS X with Homebrew. It is aimed at **developers**
-        since typically MacOS X is not suited for serious deployment.
-
-
-.. toctree::
-    :maxdepth: 1
-    :titlesonly:
-    :hidden:
-
-    install-web/walkthrough/omeroweb-install-centos7-ice3.6
-    install-web/walkthrough/omeroweb-install-ubuntu-ice3.6
-    install-web/walkthrough/omeroweb-install-osx-ice3.6
-    install-web/walkthrough/omeroweb-install-debian-ice3.6
-
-.. note:: Support for Apache deployment has been dropped in 5.3.0.
-    
-    If your organization's policies only allow Apache to be used as the external-facing web-server you should configure Apache to proxy connections to an Nginx instance running on your OMERO server i.e. use Apache as a reverse proxy. For more details see
-    `Apache mod_proxy documentation <https://httpd.apache.org/docs/current/mod/mod_proxy.html>`_.
 
 Logging in to OMERO.web
 -----------------------
@@ -101,8 +36,10 @@ to access the OMERO.webclient:
 OMERO.web maintenance
 ---------------------
 
+Note that the command ``bin/omero`` used throughout this page refers to ``OMERO.py/bin/omero`` if OMERO.web is deployed **separately** otherwise it refers to ``OMERO.server/bin/omero``.
+
 If an attempt is made to access OMERO.web whilst
-it is not running, the generated Nginx configuration file will automatically
+it is not running, the generated NGINX configuration file will automatically
 display a maintenance page.
 
 -  Session cookies :property:`omero.web.session_expire_at_browser_close`:
@@ -111,13 +48,13 @@ display a maintenance page.
       closes their browser.
       See :djangodoc:`Django Browser-length sessions vs. persistent
       sessions documentation <topics/http/sessions/#browser-length-vs-persistent-sessions>`
-      for more details. Default: ``True``.
+      for more details. Default is ``True``.
 
       ::
 
           $ bin/omero config set omero.web.session_expire_at_browser_close "True"
 
-   -  The age of session cookies, in seconds. Default: ``86400``.
+   -  The age of session cookies, in seconds. Default is ``86400``.
 
       ::
 
@@ -150,9 +87,19 @@ display a maintenance page.
 
           $ bin/omero config set omero.web.session_engine django.contrib.sessions.backends.cache
 
-      - `Redis 2.8+ <http://redis.io/>`_ requires `django-redis 4.4+ <http://niwinz.github.io/django-redis/latest/>`_::
+      - `Redis 2.8+ <http://redis.io/>`_ requires `django-redis 4.4+ <http://niwinz.github.io/django-redis/latest/>`_. 
+          To install the required dependency, run
+
+          if OMERO.web is deployed **separately**::
 
           $ pip install -r OMERO.py/share/web/requirements-redis.txt
+
+          otherwise::
+
+          $ pip install -r OMERO.server/share/web/requirements-redis.txt
+
+          To configure, run::
+
           $ bin/omero config set omero.web.caches '{"default": {"BACKEND": "django_redis.cache.RedisCache", "LOCATION": "redis://redis:6379/0"}}'
 
       - DEPRECATED: `Memcached <https://memcached.org/>`_::
@@ -166,10 +113,10 @@ Customizing your OMERO.web installation
 ---------------------------------------
 
 OMERO.web offers a number of configuration options.
-The configuration changes will not be applied until
+The configuration changes **will not be applied** until
 gunicorn is restarted using ``bin/omero web restart``.
 
-By default OMERO.web expects to be run from the root URL of the web server.
+By default OMERO.web expects to be run from the root URL of the webserver.
 This can be changed by setting :property:`omero.web.prefix` and
 :property:`omero.web.static_url`. For example, to make OMERO.web appear at
 `http://example.org/omero/`::
@@ -177,9 +124,9 @@ This can be changed by setting :property:`omero.web.prefix` and
     $ bin/omero config set omero.web.prefix '/omero'
     $ bin/omero config set omero.web.static_url '/omero/static/'
 
-and regenerate your web-server configuration (see :ref:`omero_web_deployment`).
+and regenerate your webserver configuration (see :ref:`omero_web_deployment`).
 
-The front-end webserver e.g. Nginx can be setup to run on a different
+The front-end webserver e.g. NGINX can be set up to run on a different
 host from OMERO.web. You will need to set
 :property:`omero.web.application_server.host` to ensure OMERO.web is
 accessible on an external IP.
