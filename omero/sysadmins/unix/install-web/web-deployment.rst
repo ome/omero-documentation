@@ -154,12 +154,11 @@ Default configuration
 ---------------------
 
 If you wish to install the dependencies in a virtual environment, you will
-first have to create one and activate it. The following step is optional:
+first have to create one and activate it. It is preferable to create the
+virtual environment with ``--system-site-packages`` option ``on``::
 
-::
-
-   $ virtualenv omerowebvenv
-   $ source omerowebvenv/bin/activate
+   $ virtualenv omerowebvenv --system-site-packages
+   $ . omerowebvenv/bin/activate
 
 Install the OMERO.web dependencies using the package management tools:
 
@@ -175,7 +174,7 @@ Install the OMERO.web dependencies using the package management tools:
    $ # if OMERO.web is installed in a virtual environment
    $ omerowebvenv/bin/pip install --upgrade -r OMERO.py/share/web/requirements-py27.txt
    $ # otherwise
-   $ pip install -r OMERO.py/share/web/requirements-py27-all.txt
+   $ pip install -r OMERO.py/share/web/requirements-py27.txt
 
 
 .. note:: For more details refer to
@@ -232,9 +231,7 @@ a minimal configuration:
 
 
 and include this in your own manually created NGINX file, such as
-`/etc/nginx/conf.d/omero-web.conf`:
-
-.. literalinclude:: nginx-location-manual-wrapper.conf
+`/etc/nginx/conf.d/omero-web.conf`.
 
 
 This requires more initial work but in the future you can automatically
