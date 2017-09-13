@@ -96,7 +96,7 @@ Prerequisites
 
    -  :pypi:`virtualenv` (optional) tool to create isolated Python environments
 
-   -  `PyPI`_ a package management system used to install and manage
+   -  PyPI_ a package management system used to install and manage
       software packages written in Python. PyPI is already installed if
       you are using Python 2 >=2.7.9
 

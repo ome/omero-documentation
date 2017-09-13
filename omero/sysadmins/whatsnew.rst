@@ -10,7 +10,7 @@ What's new for OMERO 5.3 for sysadmins
 - :doc:`version-requirements` has been updated to reflect other changes in
   version support for 5.3.0 and tentative plans for 5.4.0.
   
-- All official OMERO.web apps can now be installed from PyPI. You should
+- All official OMERO.web apps can now be installed from PyPI_. You should
   reinstall your plugins when you upgrade.
 
 - Windows support has been discontinued, see
