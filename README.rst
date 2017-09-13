@@ -438,6 +438,7 @@ Jenkins                     http://jenkins-ci.org
 roadmap                     https://trac.openmicroscopy.org/ome/roadmap
 Open Microscopy Environment https://www.openmicroscopy.org
 Glencoe Software, Inc.      https://www.glencoesoftware.com/
+PyPI                        https://pypi.python.org
 =========================== ==============================================
 
 Abbreviations
