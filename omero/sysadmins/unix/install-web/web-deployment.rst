@@ -402,7 +402,7 @@ See
 EXPERIMENTAL: Sync workers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- Install `futures <https://pypi.python.org/pypi/futures>`_ ::
+- Install :pypi:`futures` ::
 
       $ pip install futures
 
