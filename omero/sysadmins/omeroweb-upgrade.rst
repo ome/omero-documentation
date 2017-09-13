@@ -89,8 +89,8 @@ Updating 'Open with' config
 
 If you have configured :property:`omero.web.open_with` prior to OMERO 5.3.3 and
 also set the default viewer with :property:`omero.web.viewer.view`, for example
-as described for `OMERO.iviewer <https://pypi.python.org/pypi/omero-iviewer>`_
-then you will find that ``Open with > Image Viewer`` also opens the OMERO.iviewer
+as described for :pypi:`OMERO.iviewer <omero-iviewer>` then you will find that
+``Open with > Image Viewer`` also opens the OMERO.iviewer
 instead of the ``webgateway`` viewer.
 
 To fix this, you need to update the ``Image Viewer`` option within
