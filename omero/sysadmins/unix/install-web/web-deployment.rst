@@ -100,11 +100,11 @@ Prerequisites
       software packages written in Python. PyPI is already installed if
       you are using Python 2 >=2.7.9
 
-   -  `ZeroC`_ IcePy 3.6
+   -  ZeroC_ IcePy 3.6
 
-   -  `Django`_ (1.8) [1]_
+   -  Django_ (1.8) [1]_
 
-   -  `Pillow`_ [2]_
+   -  Pillow_ [2]_
 
    -  `NumPy <http://www.numpy.org>`_ >=1.9 
 
@@ -120,7 +120,7 @@ Prerequisites
        and `Django 1.8`_ are required for security support.
 
 .. [2] Make sure to have `libjpeg <http://libjpeg.sourceforge.net/>`_ 
-       installed when building `Pillow`_. We currently do not 
+       installed when building Pillow_. We currently do not 
        support version 3.0+.
 
 If possible, install the following packages:

@@ -40,7 +40,7 @@ effect.
 
 There are also macports, rpms and debs for mencoder.
 
-Make movie also uses `Pillow`_ and `numpy <http://www.scipy.org/Download>`_.
+Make movie also uses Pillow_ and `numpy <http://www.scipy.org/Download>`_.
 
 Make movie command arguments
 ----------------------------
