@@ -130,12 +130,12 @@ jenkins_view_root = jenkins_root + '/view'
 # Variables used to define other extlinks
 cvs_root = 'http://cvs.openmicroscopy.org.uk'
 trac_root = 'https://trac.openmicroscopy.org/ome'
-oo_root = 'http://www.openmicroscopy.org'
+oo_root = 'https://www.openmicroscopy.org'
 oo_site_root = oo_root + '/site'
 lists_root = 'http://lists.openmicroscopy.org.uk'
-downloads_root = 'http://downloads.openmicroscopy.org'
+downloads_root = 'https://downloads.openmicroscopy.org'
 help_root = 'http://help.openmicroscopy.org'
-docs_root = 'http://docs.openmicroscopy.org'
+docs_root = 'https://docs.openmicroscopy.org'
 
 extlinks = {
     # Trac links
