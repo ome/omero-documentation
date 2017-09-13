@@ -41,6 +41,21 @@ running::
     $ javac -version
     javac 1.8.0_51
 
+OSX Basics
+------------
+
+In order to develop on OMERO, we recommend you ensure you have your MAC setup for
+developement. This first step to achieving this, is to create a bash_profile file in the
+root directory of your user folder.
+
+To create a ~/.bash_profile from terminal, if one does not already exist::
+
+    $ touch ~/.bash_profile
+
+Open your .bash_profile in your favourite text editor, such as the built in TextEdit app::
+
+    $ open -a TextEdit.app ~/.bash_profile
+
 Requirements
 ------------
 
@@ -48,11 +63,9 @@ Requirements
 
 All the requirements for OMERO will be installed under :file:`/usr/local`. See also: Installation instructions on the `Homebrew wiki`_.
 
-Install Homebrew and make sure :file:`/usr/local/bin` is prepended to your
-:envvar:`PATH`::
+Install Homebrew using the following command in terminal::
 
     $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    $ export PATH=/usr/local/bin:$PATH
 
 Update Homebrew and run 'brew doctor' to fix potential issues beforehand::
 
@@ -61,13 +74,16 @@ Update Homebrew and run 'brew doctor' to fix potential issues beforehand::
 
 Install git if not already present::
 
-    $ brew list | grep "\bgit\b" || brew install git
+    $ brew install git
 
 Install PostgreSQL database server::
 
-    $ export LANG=${LANG:-en_US.UTF-8}
-    $ export LANGUAGE=${LANGUAGE:-en_US:en}
     $ brew install postgresql
+
+Add the following lines to your .bash_profile::
+
+    export LANG=en_US.UTF-8
+    export LANGUAGE=en_US:en
 
 .. _`Homebrew and Python`: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Homebrew-and-Python.md
 
@@ -82,21 +98,19 @@ To install the Python provided by Homebrew::
 
     $ brew install python
 
+(OPTIONAL) If you haven't already, follow the instructions from the brew python install and 
+set the homebrew version of Python to be used rather than the Python version shipped
+with OSX::
+
+    export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
 Check that Python is working and is version 2.7::
 
     $ which python
-    /usr/local/bin/python
+    /usr/local/opt/python/libexec/bin/python
+
     $ python --version
-    Python 2.7.9
-
-The installation of OMERO via Homebrew depends upon two alternate
-repositories containing extra formulae:
-https://github.com/Homebrew/homebrew-science for the HDF5 formula and
-https://github.com/ome/homebrew-alt for all the OME-provided formulae
-and older versions of Ice. To add these, run::
-
-    $ brew tap homebrew/science
-    $ brew tap ome/alt
+    Python 2.7.13
 
 .. note::
 
