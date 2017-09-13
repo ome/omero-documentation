@@ -9,7 +9,7 @@ database mapping, since all data comes from the OMERO server and is
 saved back there. You will notice that the models.py files in each app
 are empty.
 
-All official OMERO applications can be installed from :pypi:`Python Package Index <>`.
+All official OMERO applications can be installed from `PyPI`_.
 
 Getting set up
 --------------

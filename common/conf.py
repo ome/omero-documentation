@@ -189,6 +189,7 @@ rst_epilog = """
 .. _Python: http://www.python.org
 .. _Libjpeg: http://libjpeg.sourceforge.net/
 .. _Django: https://www.djangoproject.com/
+.. _PyPI: https://pypi.python.org
 
 .. |SSH| replace:: :abbr:`SSH (Secure Shell)`
 .. |VM| replace:: :abbr:`VM (Virtual Machine)`
