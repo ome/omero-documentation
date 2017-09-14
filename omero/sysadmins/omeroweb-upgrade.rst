@@ -70,7 +70,8 @@ reason, it is possible that an update of OMERO will cause issues with an older
 version of a plugin. It is best when updating the server to also install any
 available plugin updates according to their own documentation.
 
-Since 5.3, all official OMERO.web plugins can be installed from `PyPI`_.
+
+Since 5.3, all official OMERO.web plugins can be installed from PyPI_.
 You should remove all previously installed plugins and install the latest
 versions using `pip <https://pip.pypa.io/en/stable/>`_.
 
@@ -89,8 +90,8 @@ Updating 'Open with' config
 
 If you have configured :property:`omero.web.open_with` prior to OMERO 5.3.3 and
 also set the default viewer with :property:`omero.web.viewer.view`, for example
-as described for `OMERO.iviewer <https://pypi.python.org/pypi/omero-iviewer>`_
-then you will find that ``Open with > Image Viewer`` also opens the OMERO.iviewer
+as described for :pypi:`OMERO.iviewer <omero-iviewer>` then you will find that
+``Open with > Image Viewer`` also opens the OMERO.iviewer
 instead of the ``webgateway`` viewer.
 
 To fix this, you need to update the ``Image Viewer`` option within
