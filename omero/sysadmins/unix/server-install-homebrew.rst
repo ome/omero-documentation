@@ -80,12 +80,9 @@ Install PostgreSQL database server::
 
     $ brew install postgresql
 
-Add the following lines to your .bash_profile::
 
-    export LANG=en_US.UTF-8
-    export LANGUAGE=en_US:en
 
-.. _`Homebrew and Python`: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Homebrew-and-Python.md
+.. _`Homebrew and Python`: https://github.com/Homebrew/brew/blob/master/docs/Homebrew-and-Python.md
 
 You should install OMERO using Python 2.7 provided by
 Homebrew since it makes using Homebrew-provided modules
@@ -112,16 +109,44 @@ Check that Python is working and is version 2.7::
     $ python --version
     Python 2.7.13
 
-.. note::
+If everything looks okay, go ahead and use pip to get VirtaulEnv
 
-    The Homebrew formulae used below provide Python bindings. As
-    described in `Homebrew and Python`_, you should **not** be in an
-    active virtual environment when you ``brew install`` them.
+    $ pip install virtualenv
+
+VirtualEnv, eseentially, allows us to develop python applications
+without having to worry about clashing thirdparty package versions.
+
+
+
 
 See the :download:`step01_deps.sh <walkthrough/osx/step01_deps.sh>` script for
 the steps described above.
 
-OMERO installation
+OMERO enviorment variables
+------------------
+
+Make sure you have the following lines in your .bash_profile::
+
+    # UTF-8 and US language settings for Postgres
+    export LANG=en_US.UTF-8
+    export LANGUAGE=en_US:en
+
+    # OMERO Server distribution directory
+    export OMERO_SERVER=Omero/Server
+
+    # OMERO python libraries
+    export OMERO_PYTHON_LIBS=${OMERO_SERVER}/lib/python
+
+    # OMERO ice configuration
+    export OMERO_ICE_CONFIG=${OMERO_SERVER}/etc/ice.config
+
+    # Full path
+    export PATH=$OMERO_SERVER/bin:$OMERO_ICE_CONFIG:$PATH
+
+
+
+
+OMERO pre-built installation
 ------------------
 
 OMERO |release| server
@@ -129,13 +154,15 @@ OMERO |release| server
 
 Run the following command to download a build of OMERO Server to a folder called '/OMERO'
 
-    mkdir -p Omero && curl https://downloads.openmicroscopy.org/omero/5.3.4/artifacts/OMERO.server-5.3.4-ice36-b69.zip > Omero/OMERO.server.zip
+    $ mkdir -p Omero
+    $ curl https://downloads.openmicroscopy.org/omero/5.3.4/artifacts/OMERO.server-5.3.4-ice36-b69.zip > Omero/OMERO.server.zip
 
 Extract the OMERO.server.zip
 
     $ brew install omero53 --with-nginx --with-cpp
-    $ export PYTHONPATH=$(brew --prefix omero53)/lib/python
-    $ export ICE_CONFIG=$(brew --prefix omero53)/etc/ice.config
+    $ export OMERO_SERVER=Omero/Server
+    $ export OMERO_PYTHON_LIBS=Omero/Server/lib/python
+    $ export OMERO_ICE_CONFIG=Omero/Server/etc/ice.config
 
 This will install the OMERO server to /usr/local/Cellar/omero, which means you
 will find the log files in :file:`/usr/local/Cellar/omero/|release|/var/log`.
@@ -153,6 +180,12 @@ Install Ice 3.6 extension for Python and OMERO python dependencies::
 Start database server::
 
     $ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w start
+
+
+OMERO configuration
+------------------
+
+
 
 Create database and user::
 
