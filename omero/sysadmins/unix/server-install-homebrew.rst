@@ -127,7 +127,11 @@ OMERO installation
 OMERO |release| server
 ^^^^^^^^^^^^^^^^^^^^^^
 
-To install and deploy the |release| release of OMERO.server, run::
+Run the following command to download a build of OMERO Server to a folder called '/OMERO'
+
+    mkdir -p Omero && curl https://downloads.openmicroscopy.org/omero/5.3.4/artifacts/OMERO.server-5.3.4-ice36-b69.zip > Omero/OMERO.server.zip
+
+Extract the OMERO.server.zip
 
     $ brew install omero53 --with-nginx --with-cpp
     $ export PYTHONPATH=$(brew --prefix omero53)/lib/python
