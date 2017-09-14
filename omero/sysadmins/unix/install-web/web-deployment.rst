@@ -96,7 +96,7 @@ Prerequisites
 
    -  :pypi:`virtualenv` (optional) tool to create isolated Python environments
 
-   -  :pypi:`PyPI <>` a package management system used to install and manage
+   -  PyPI_ a package management system used to install and manage
       software packages written in Python. PyPI is already installed if
       you are using Python 2 >=2.7.9
 
@@ -402,7 +402,7 @@ See
 EXPERIMENTAL: Sync workers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- Install `futures <https://pypi.python.org/pypi/futures>`_ ::
+- Install :pypi:`futures` ::
 
       $ pip install futures
 

@@ -4,28 +4,24 @@ OMERO.web installation separately from OMERO.server on Ubuntu 16.04 and IcePy 3.
 Please first read :doc:`../../server-ubuntu-ice36`.
 
 
-This is an example walkthrough for installing OMERO.web decoupled from the OMERO.server in a **virtual environment** using OMERO.py and a dedicated system user. Installing OMERO.web in a virtual environment is the preferred way. For convenience in this walkthrough the main OMERO.web configuration options have been defined as environment variables. When following this walkthrough you can either use your own values, or alternatively use the following ones::
-    
-    OMERO_USER=omero
-    WEBPORT=80
-    WEBSERVER_NAME=localhost
-
-
+This is an example walkthrough for installing OMERO.web decoupled from the OMERO.server in a **virtual environment** using OMERO.py and a dedicated system user. Installing OMERO.web in a virtual environment is the preferred way. For convenience in this walkthrough, we will use the **omero system user** and define the main OMERO.web configuration options as environment variables.
 
 **The following steps are run as root.**
 
-Create a local system user omero if required, create the homedir too :file:`/home/omero`::
+If required, first create a local system user omero and create the homedir too :file:`/home/omero`::
     
     useradd -m omero
     
     chmod a+X /home/omero
+
+
 
 Installing prerequisites
 ------------------------
 
 **The following steps are run as root.**
 
-Install ZeroC IcePy 3.6. IcePy is managed by `PyPI <https://pypi.python.org/pypi>`_, a package management system used to install and manage software packages written in Python. IcePy and will be installed as part of the OMERO.web requirements::
+Install ZeroC IcePy 3.6. IcePy is managed by `PyPI`_, a package management system used to install and manage software packages written in Python. IcePy and will be installed as part of the OMERO.web requirements::
     
     apt-get -y install db5.3-util
     apt-get -y install libssl-dev libbz2-dev libmcpp-dev libdb++-dev libdb-dev
@@ -67,8 +63,8 @@ Install other dependencies. The number of dependencies to install depends on the
     
 
 
-Creating virtual environment
-----------------------------
+Creating a virtual environment
+------------------------------
 
 **The following steps are run as root.**
 
@@ -113,6 +109,11 @@ Configuring OMERO.web
 
 **The following steps are run as the omero system user.**
 
+For convenience the main OMERO.web configuration options have been defined as environment variables. You can either use your own values, or alternatively use the following ones::
+    
+    export WEBPORT=80
+    export WEBSERVER_NAME=localhost
+
 Configure OMERO.web and create the NGINX OMERO configuration file::
     
     . /home/omero/omerowebvenv/bin/activate
@@ -140,25 +141,16 @@ Running OMERO.web
 
 **The following steps are run as the omero system user.**
 
-To start the OMERO.web client run::
+
+To start the OMERO.web client manually run::
     
-    source /home/omero/omerowebvenv/bin/activate
+    . /home/omero/omerowebvenv/bin/activate
     
-    OMERO.py/bin/omero web start
+    /home/omero/OMERO.py/bin/omero web start
 
 **The following steps are run as root.**
 
-Should you wish to run OMERO.web automatically, a `init.d` file could be created::
-    
-    Create omero-web-init.d. See example file below.
-    cp omero-web-init.d /etc/init.d/omero-web
-    chmod a+x /etc/init.d/omero-web
-    
-    update-rc.d -f omero-web remove
-    update-rc.d -f omero-web defaults 98 02
-    
-
-`omero-web-init.d` example::
+Should you wish to run OMERO.web automatically, a `init.d` file could be created. See below an example file `omero-web-init.d`::
     
     #!/bin/bash
     #
@@ -233,6 +225,15 @@ Should you wish to run OMERO.web automatically, a `init.d` file could be created
             RETVAL=1
     esac
     exit $RETVAL
+
+Copy the `init.d` file, then configure the service::
+    
+    cp omero-web-init.d /etc/init.d/omero-web
+    chmod a+x /etc/init.d/omero-web
+    
+    update-rc.d -f omero-web remove
+    update-rc.d -f omero-web defaults 98 02
+    
 
 Start up services::
     

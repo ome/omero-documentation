@@ -42,5 +42,4 @@ OMERO.webtagging
 ^^^^^^^^^^^^^^^^
 
 The source code for OMERO.webtagging is hosted under
-https://github.com/MicronOxford/webtagging/. Since 3.0.0, the Web app is released under https://pypi.python.org/pypi/omero-webtagging-tagsearch and
-https://pypi.python.org/pypi/omero-webtagging-autotag.
+https://github.com/MicronOxford/webtagging/. Since 3.0.0, the Web app is released under :pypi:`omero-webtagging-tagsearch` and :pypi:`omero-webtagging-autotag`.

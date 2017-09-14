@@ -88,7 +88,7 @@ After that, the following should succeed:
 
   then this is fixed by installing the corresponding Python module. Use
   your operating system's package installer if possible or if you must
-  instead use PyPI directly::
+  instead use PyPI_ directly::
 
     pip install mock
 
