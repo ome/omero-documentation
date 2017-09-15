@@ -179,7 +179,7 @@ Testing
 Once the above changes have been made and committed, it is time to test.
 This requires having various prerequisites installed for Bio-Formats
 development, including for the `C++ implementation
-<http://downloads.openmicroscopy.org/latest/ome-files-cpp/>`_.
+<https://downloads.openmicroscopy.org/latest/ome-files-cpp/>`_.
 Before each test, :ref:`clean the repository <clean_bf_repo>`::
 
   git clean -dfx
@@ -235,7 +235,7 @@ OME-TIFF sample files
 ^^^^^^^^^^^^^^^^^^^^^
 
 Sample files for each schema release version are available under
-http://downloads.openmicroscopy.org/images/OME-TIFF/. The sample files in the
+https://downloads.openmicroscopy.org/images/OME-TIFF/. The sample files in the
 previous release's directory, and the multi-file samples in its
 :file:`tubhiswt-*` directories, are upgraded to the new schema using
 :command:`bfconvert` from the updated Bio-Formats repository: in that
@@ -331,7 +331,7 @@ Documentation for the released schema must be generated from the
 this task, and requires the schema definitions to have been published online
 as described above. To build the generated documentation for a given release::
 
-  /Applications/oxygen/schemaDocumentationMac.sh http://www.openmicroscopy.org/Schemas/OME/$RELEASE/ome.xsd -cfg:components/specification/omeOxygenDocConfig.xml
+  /Applications/oxygen/schemaDocumentationMac.sh https://www.openmicroscopy.org/Schemas/OME/$RELEASE/ome.xsd -cfg:components/specification/omeOxygenDocConfig.xml
 
 Check that the documentation generated in the new :file:`output`
 directory all looks correct.
