@@ -177,10 +177,10 @@ rst_epilog = """
 .. _Hibernate: http://www.hibernate.org
 .. _ZeroC: https://zeroc.com
 .. _Ice: https://zeroc.com
-.. _Jenkins: http://jenkins-ci.org
+.. _Jenkins: https://jenkins.io
 .. _roadmap: https://trac.openmicroscopy.org/ome/roadmap
-.. _OME artifactory: http://artifacts.openmicroscopy.org
-.. _Open Microscopy Environment: http://www.openmicroscopy.org
+.. _OME artifactory: https://artifacts.openmicroscopy.org
+.. _Open Microscopy Environment: https://www.openmicroscopy.org
 .. _Glencoe Software, Inc.: http://www.glencoesoftware.com/
 .. _Pillow: http://pillow.readthedocs.org
 .. _Matplotlib: http://matplotlib.org/
