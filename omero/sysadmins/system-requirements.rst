@@ -28,7 +28,7 @@ A specification for a server future-proofed for 3-4 years might be:
 -  2 x 1.2 TB SAS RAID1 for scratch, log files, etc.
 -  10 GbE connectivity to a separate fileshare for the OMERO binary repository
 
-The `Image Data Resource <http://idr.openmicroscopy.org>`_ has 32 CPUs
+The `Image Data Resource <https://idr.openmicroscopy.org>`_ has 32 CPUs
 and 128GB of memory but this is used to host 42TB of data in 14 million files
 so it far exceeds the requirements of a standard OMERO installation.
 
