@@ -77,7 +77,7 @@ CI-master - Continuous Delivery (Production)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Production Continuous Delivery (CD) platform managed by
-`Jenkins <http://jenkins-ci.org>`_ available on http://ci.openmicroscopy.org.
+Jenkins_.
 More details about CI-master available on :doc:`continuous-integration`
 
 
