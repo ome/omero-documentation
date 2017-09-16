@@ -24,6 +24,17 @@ Homebrew requires the latest version of Xcode. Install :program:`Xcode` and
 the Command Line Tools for Xcode from the App Store. If you have already
 installed it, make sure all the latest updates are installed.
 
+Homebrew
+^^^^^^^^
+
+.. _`Homebrew wiki`: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Installation.md
+
+Homebrew will install all packages under :file:`/usr/local`. See also: Installation instructions on the `Homebrew wiki`_.
+
+Install Homebrew using the following command in terminal::
+
+    $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 Java
 ^^^^
 
@@ -41,6 +52,7 @@ running::
     $ javac -version
     javac 1.8.0_51
 
+
 OSX Basics
 ------------
 
@@ -48,9 +60,12 @@ In order to develop on OMERO, we recommend you ensure you have your MAC setup fo
 developement. This first step to achieving this, is to create a bash_profile file in the
 root directory of your user folder.
 
-To create a ~/.bash_profile from terminal, if one does not already exist::
+To create a .bash_profile from terminal, if one does not already exist::
 
     $ touch ~/.bash_profile
+
+OMERO enviorment variables
+------------------
 
 Open your .bash_profile in your favourite text editor, such as the built in TextEdit app::
 
@@ -58,19 +73,6 @@ Open your .bash_profile in your favourite text editor, such as the built in Text
 
 Requirements
 ------------
-
-.. _`Homebrew wiki`: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Installation.md
-
-All the requirements for OMERO will be installed under :file:`/usr/local`. See also: Installation instructions on the `Homebrew wiki`_.
-
-Install Homebrew using the following command in terminal::
-
-    $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-Update Homebrew and run 'brew doctor' to fix potential issues beforehand::
-
-    $ brew update
-    $ brew doctor
 
 Install git if not already present::
 
@@ -80,7 +82,17 @@ Install PostgreSQL database server::
 
     $ brew install postgresql
 
+OMERO depends on ICE 3.6 and unfortuently does not run with
+the latest version of ICE at this time (ICE 3.7.3). To obtain
+ICE 3.6, we need to add a *tap* to Homebrew::
 
+    $ brew tap zeroc-ice/tap
+    $ brew install zeroc-ice/tap/ice36
+
+.. Note:
+If you already have a version of ICE thats not 3.6 installed, you can instruct Homebrew to *unlink*
+it using ```$ brew unlink ice```. You can then instruct Homebrew to link to ICE 3.6 using
+```$ brew link ice@36```.
 
 .. _`Homebrew and Python`: https://github.com/Homebrew/brew/blob/master/docs/Homebrew-and-Python.md
 
@@ -95,13 +107,27 @@ To install the Python provided by Homebrew::
 
     $ brew install python
 
-(OPTIONAL) If you haven't already, follow the instructions from the brew python install and 
+Homebrew installs Python in the follwing location::
+
+    '/usr/local/opt/python/libexec/bin'
+
+Follow the instructions from the brew python install and 
 set the homebrew version of Python to be used rather than the Python version shipped
 with OSX::
 
     export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
-Check that Python is working and is version 2.7::
+**(OPTIONAL)** OR alternativly, to keep things a little cleaner, add the following 
+enviorment variable to your .bash_profile:
+
+    # Environment variable pointing to Homebrew Python location
+    export PYTHON_BREW=/usr/local/opt/python/libexec/bin
+ 
+and set the *PATH* to be::
+
+    export PATH="$PYTHON_BREW:$PATH"
+
+Check that Python is working and is version 2.7.x::
 
     $ which python
     /usr/local/opt/python/libexec/bin/python
@@ -109,41 +135,21 @@ Check that Python is working and is version 2.7::
     $ python --version
     Python 2.7.13
 
+For developing with OMERO, or Python in general, we would recommend you 
+use VirtaulEnv.
+VirtualEnv allows us to develop python applications without having to 
+worry about clashing thirdparty packages for different Python
+projects. 
+For example, OMERO requires Django 1.8 but you might have a project
+that uses Django 1.9. With Django 1.9 present on your system, you won't be
+able to run OMERO.
+
 If everything looks okay, go ahead and use pip to get VirtaulEnv
 
     $ pip install virtualenv
 
-VirtualEnv, eseentially, allows us to develop python applications
-without having to worry about clashing thirdparty package versions.
-
-
-
-
 See the :download:`step01_deps.sh <walkthrough/osx/step01_deps.sh>` script for
 the steps described above.
-
-OMERO enviorment variables
-------------------
-
-Make sure you have the following lines in your .bash_profile::
-
-    # UTF-8 and US language settings for Postgres
-    export LANG=en_US.UTF-8
-    export LANGUAGE=en_US:en
-
-    # OMERO Server distribution directory
-    export OMERO_SERVER=Omero/Server
-
-    # OMERO python libraries
-    export OMERO_PYTHON_LIBS=${OMERO_SERVER}/lib/python
-
-    # OMERO ice configuration
-    export OMERO_ICE_CONFIG=${OMERO_SERVER}/etc/ice.config
-
-    # Full path
-    export PATH=$OMERO_SERVER/bin:$OMERO_ICE_CONFIG:$PATH
-
-
 
 
 OMERO pre-built installation
@@ -152,17 +158,20 @@ OMERO pre-built installation
 OMERO |release| server
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Run the following command to download a build of OMERO Server to a folder called '/OMERO'
+Using the Terminal, prepare a place for your OMERO server to be downloaded to.
+We suggest a folder on your user directory called 'Omero':
 
-    $ mkdir -p Omero
-    $ curl https://downloads.openmicroscopy.org/omero/5.3.4/artifacts/OMERO.server-5.3.4-ice36-b69.zip > Omero/OMERO.server.zip
+    $ mkdir -p ~/Omero
 
-Extract the OMERO.server.zip
+Run the following command to download a build of OMERO Server:
 
-    $ brew install omero53 --with-nginx --with-cpp
-    $ export OMERO_SERVER=Omero/Server
-    $ export OMERO_PYTHON_LIBS=Omero/Server/lib/python
-    $ export OMERO_ICE_CONFIG=Omero/Server/etc/ice.config
+    $ curl https://downloads.openmicroscopy.org/omero/5.3.4/artifacts/OMERO.server-5.3.4-ice36-b69.zip > ~/Omero/OMERO.server.zip
+
+Extract the OMERO.zip
+
+Once extracted, open your .bash_profile in your favourite text editor, such as the built in TextEdit app::
+
+    $ open -a TextEdit.app ~/.bash_profile
 
 This will install the OMERO server to /usr/local/Cellar/omero, which means you
 will find the log files in :file:`/usr/local/Cellar/omero/|release|/var/log`.
@@ -173,7 +182,7 @@ The binaries will be linked to :file:`/usr/local/bin`::
 
 Install Ice 3.6 extension for Python and OMERO python dependencies::
 
-    $ pip install -r $(brew --prefix omero53)/share/web/requirements-py27-all.txt
+    $ pip install -r ~Omero/share/web/requirements-py27-all.txt
     $ cd /usr/local
     $ bash bin/omero_python_deps
 
@@ -185,15 +194,14 @@ Start database server::
 OMERO configuration
 ------------------
 
-
-
-Create database and user::
+1. To use Omero, we need to first needt to setup Postgres.
+Open a command-line terminal and run the following commands to create a 
+user called *db_user* and database called *omero_database*::
 
     $ createuser -w -D -R -S db_user
     $ createdb -E UTF8 -O db_user omero_database
-    $ psql -h localhost -U db_user -l
 
-Set database parameters in OMERO::
+2. Now we need to hSet database parameters in OMERO::
 
     $ omero config set omero.db.name omero_database
     $ omero config set omero.db.user db_user
@@ -215,19 +223,13 @@ See the OMERO installation script :download:`step02_omero.sh <walkthrough/osx/st
 Development server
 ^^^^^^^^^^^^^^^^^^
 
-If you wish to build OMERO.server from source for development
-purposes, using the git repository, first use Homebrew to install the
-OMERO dependencies::
-
-    $ brew install --only-dependencies omero
-
 The default version of Ice installed by the OMERO formula is currently
 Ice 3.6.
 
 Prepare a place for your OMERO code to live, e.g.::
 
-    $ mkdir -p ~/code/projects
-    $ cd ~/code/projects
+    $ mkdir -p ~/Omero/code/projects
+    $ cd ~/Omero/code/projects
 
 If you want the development version of OMERO.server, you can clone the source
 code from the project's GitHub account to build locally::
@@ -261,6 +263,31 @@ pick the right executbale::
     $ export PATH=~/code/projects/openmicroscopy/dist/bin:$PATH
 
 and follow the steps for setting up the database and OMERO data directory as mentioned in the previous section.
+
+OMERO example bash_profile
+------------------
+
+Open your .bash_profile in your favourite text editor, such as the built in TextEdit app::
+
+    $ open -a TextEdit.app ~/.bash_profile
+
+Your bash profile should look similar to the follwoing::
+
+    # UTF-8 and US language settings for Postgres
+    export LANG=en_US.UTF-8
+    export LANGUAGE=en_US:en
+
+    # OMERO Server distribution directory
+    export OMERO_SERVER=Omero/Server
+
+    # OMERO python libraries
+    export OMERO_PYTHON_LIBS=${OMERO_SERVER}/lib/python
+
+    # OMERO ice configuration
+    export OMERO_ICE_CONFIG=${OMERO_SERVER}/etc/ice.config
+
+    # Full path
+    export PATH=$OMERO_SERVER/bin:$OMERO_ICE_CONFIG:$PATH
 
 OMERO.web
 ^^^^^^^^^
