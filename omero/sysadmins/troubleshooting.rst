@@ -426,7 +426,7 @@ more details. There are a few known possibilities:
 
 -  'TclError: no display name and no $DISPLAY environment variable'.
    Turn off the compilation of TCL support in Matplotlib_.
--  'ImportError: No module named Image'. Install `Pillow`_
+-  'ImportError: No module named Image'. Install Pillow_
    (packages should be available for your distribution). Also double 
    check
    if all of the prerequisites were installed from

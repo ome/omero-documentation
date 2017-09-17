@@ -13,7 +13,7 @@ For testing purposes the ``--path`` argument can be used to point to other
 plugin files or directories, too.
 
 |CLI| plugins are also pip-installable. Search for ``omero-cli-*`` on
-:pypi:`PyPI <>`.
+PyPI_.
 
 Thread-safety
 ^^^^^^^^^^^^^
