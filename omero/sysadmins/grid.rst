@@ -32,7 +32,7 @@ such as a computation-only host. Some elements can be omitted for a
 computation-only host such as PostgreSQL, Apache/nginx, etc.
 
 Running OMERO.web and/or starting up the full OMERO.server instance is not
-required in such a case (only the basic requirements to run :omerocmd:`node`
+required in such a case (only the basic requirements to run :program:`omero node`
 are needed, i.e. ZeroC Ice and Python modules for OMERO scripts).
 
 .. _icegrid_tools:
@@ -102,7 +102,7 @@ Deployment commands
 ^^^^^^^^^^^^^^^^^^^
 
 The ``master`` node must be started first to provide the registry. This is
-done via the :omerocmd:`admin start` command which uses the default
+done via the :program:`omero admin start` command which uses the default
 descriptor:
 
 ::
@@ -116,9 +116,9 @@ and restarts only those servers which have modifications:
 
     bin/omero admin deploy
 
-Both :omerocmd:`admin start` and :omerocmd:`admin deploy` can optionally
-take a path to an application descriptor which must be passed on every
-invocation:
+Both :program:`omero admin start` and :program:`omero admin deploy` can
+optionally take a path to an application descriptor which must be passed on
+every invocation:
 
 ::
 
@@ -143,8 +143,8 @@ on the example descriptor files (\*.xml) and configuration files
 installations completely tailored to your computing resources.
 
 The whole grid can be shutdown by stopping the master node via:
-:omerocmd:`admin stop`. Each individual node can also be shutdown via:
-:omerocmd:`node NAME stop` on that particular node.
+:program:`omero admin stop`. Each individual node can also be shutdown via:
+:program:`omero node NAME stop` on that particular node.
 
 Deployment examples
 -------------------
@@ -198,7 +198,7 @@ or with the environment variable ``OMERO_NODE``:
     OMERO_NODE=node1 bin/omero node start
 
 After starting up both nodes, you can verify that you now have three
-processors running by looking at the output of :omerocmd:`admin diagnostics`.
+processors running by looking at the output of :program:`omero admin diagnostics`.
 
 For more information on using scripts, see the 
 :doc:`/developers/scripts/advanced`.
@@ -238,8 +238,8 @@ On host ``omero-slave``:
 - :file:`etc/ice.config` - add the line ``Ice.Default.Router=OMERO.Glacier2/router:tcp -p 4063 -h 192.168.0.1``
 
 To apply the changes, start the OMERO instance on the ``omero-master`` node
-by using :omerocmd:`admin start`. After that, start the ``omero-slave`` node
-by using :omerocmd:`node omero-slave start`. Issuing :omerocmd:`admin diagnostics` on the master node should show a running processor instance and
+by using :program:`omero admin start`. After that, start the ``omero-slave`` 
+node by using :program:`omero node omero-slave start`. Issuing :program:`omero admin diagnostics` on the master node should show a running processor instance and
 the ``omero-slave`` node should accept job requests from the master node.
 
 Securing grid resources
@@ -347,7 +347,7 @@ Processes
 ^^^^^^^^^
 
 It is important to understand just what processes will be running on your
-servers. When you run :omerocmd:`admin start`, :command:`icegridnode` is
+servers. When you run :program:`omero admin start`, :command:`icegridnode` is
 executed which starts a
 controlling daemon and deploys the proper descriptor. This configuration
 is persisted under :file:`var/master` and :file:`var/registry`.

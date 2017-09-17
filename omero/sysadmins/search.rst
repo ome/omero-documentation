@@ -154,7 +154,7 @@ Then run the off-line re-indexing command::
    $ bin/omero admin reindex --foreground
 
 Re-indexing the database in off-line mode will use a 1 GB heap by default, but
-this can be specified on the command-line with the :option:`--mem` argument::
+this can be specified on the command-line with the ``--mem`` argument::
 
    $ bin/omero admin reindex --foreground --mem=2g
 
@@ -203,12 +203,12 @@ servers of various sizes:
   - * Background [1]_
     * 8h
     * 19TB
-    * :option:`-Xmx4800m`
+    * ``-Xmx4800m``
 
   - * Off-line
     * 6h30
     * 16TB
-    * :option:`--mem 2g`
+    * ``--mem 2g``
 
 .. [1] :ome-users:`[ome-users] Re-indexing OMERO's search database  <2015-February/005038.html>`
 

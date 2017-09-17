@@ -8,33 +8,29 @@ Command line help
 
 The |CLI| is divided into several commands which may themselves contain
 subcommands. You can investigate the various commands available using the
-:option:`-h` or :option:`--help` option::
+``-h`` or ``--help`` option::
 
     $ bin/omero -h
 
-Again, you can use :option:`-h` repeatedly to get more details on each of
+Again, you can use ``-h`` repeatedly to get more details on each of
 these sub-commands::
 
     $ bin/omero admin -h
     $ bin/omero admin start -h
 
 The :program:`omero help` command can be used to get info on other commands or
-options.
+options::
+
+    $ bin/omero help admin       # same as bin/omero admin -h
+
+In addition to the |CLI| commands which can be listed using
+:option:`omero help --list`, :program:`omero help` can be used to retrieve
+information about the ``debug`` and ``env`` options::
+
+    $ bin/omero help debug     # display help about debugging options
+    $ bin/omero help env       # display help about environment variables
 
 .. program:: omero help
-
-.. option:: command
-
-    Display the information on a particular command::
-
-        $ bin/omero help admin       # same as bin/omero admin -h
-
-    In addition to the |CLI| commands which can be listed using
-    :option:`--list`, :program:`omero help` can be used to retrieve information
-    about the `debug` and `env` options::
-
-        $ bin/omero help debug     # display help about debugging options
-        $ bin/omero help env       # display help about environment variables
 
 .. option:: --all
 
@@ -43,7 +39,8 @@ options.
 .. option:: --recursive
 
     Recursively display the help of commands and/or options. This option can
-    be used with either the :option:`command` or the :option:`--all` option::
+    be used with either the :program:`omero help` command or the
+    :option:`omero help --all` option::
 
         $ bin/omero help --all --recursive
         $ bin/omero help user --recursive
@@ -76,7 +73,7 @@ There are three ways to use the command line tools:
         $ bin/omero -s servername -u username -p 4064 import image.tiff
         Password:
 
-    The :option:`--sudo <omero login --sudo>` option is available to all
+    The ``--sudo`` option is available to all
     commands accepting connection arguments. For instance to import data for
     user *username*::
 

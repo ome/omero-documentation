@@ -7,8 +7,7 @@ releases as public as possible. You may want to take a look at the `Trello
 boards <https://trello.com/b/4EXb35xQ/getting-started>`_ for exactly what will
 go into a release.
 
-See the full details of OMERO |release| features in the
-:forum:`Announcements <viewforum.php?f=11>` forum.
+See the full details of OMERO |release| features in the :doc:`/users/history`.
 
 This guide aims to be as definitive as possible so please do not be put off by
 the level of detail; upgrading should be a straightforward process.
@@ -189,13 +188,13 @@ your OMERO database is not Unicode-encoded with ``UTF8`` then it must be
 re-encoded.
 
 If you have the :command:`pg_upgradecluster` command available then its
-:option:`--locale` option can effect the change in encoding. Otherwise,
+``--locale`` option can effect the change in encoding. Otherwise,
 create a Unicode-encoded dump of your database: dump it :ref:`as before
 <back-up-the-db>` but to a different dump file and with an additional
-:option:`-E UTF8` option. Then, create a Unicode-encoded database for
+``-E UTF8`` option. Then, create a Unicode-encoded database for
 OMERO and restore that dump into it with :command:`pg_restore`,
 similarly to :ref:`effecting a rollback <restore-the-db>`. If required
-to achieve this, the :option:`-E UTF8` option is accepted by both
+to achieve this, the ``-E UTF8`` option is accepted by both
 :command:`initdb` and :command:`createdb`.
 
 Run the upgrade script
@@ -334,7 +333,7 @@ JVM memory settings
 """""""""""""""""""
 
 Your memory settings should be copied along with :file:`etc/grid/config.xml`,
-but you can check the current settings by running :omerocmd:`admin jvmcfg`.
+but you can check the current settings by running :program:`omero admin jvmcfg`.
 See :ref:`jvm_memory_settings` for more information.
 
 Restart your server
@@ -348,7 +347,7 @@ Restart your server
        $ bin/omero admin start
 
 -  If anything goes wrong, please send the output of
-   :omerocmd:`admin diagnostics` to
+   :program:`omero admin diagnostics` to
    ome-users@lists.openmicroscopy.org.uk.
 
 .. _restore-the-db:

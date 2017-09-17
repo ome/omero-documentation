@@ -112,7 +112,7 @@ adjustment to production CD.
 
     Any Python module that is distributed from Linux distro packages
     must be installed from RPM file. Python modules only available
-    on PyPI should be added as PIP requirement.
+    on PyPI_ should be added as PIP requirement.
 
 
 Pre release testing

@@ -106,7 +106,7 @@ Server fails to start
    restarting OMERO, the registry will be automatically re-created.
 5. If you see an error message mentioning "Protocol family unavailable",
    you will need to set the :property:`Ice.IPv6` property with
-   :omerocmd:`config set Ice.IPv6 0`.
+   :program:`omero config set Ice.IPv6 0`.
 6. If you upgraded from a 5.0.2 server or older and copied the entire content
    of the :file:`etc/grid` directory from the old server to the new server,
    you will need to revert the changes made to :file:`templates.xml` to
@@ -114,7 +114,7 @@ Server fails to start
 7. If OMERO starts up, but fails to respond to connection requests, check
    `netstat -a` for port 4064. If nothing is listening on 4064, you may
    need to specify which network interface to use.
-   :omerocmd:`config set Ice.Default.Host 127.0.0.1`, for example, would
+   :program:`omero config set Ice.Default.Host 127.0.0.1`, for example, would
    force OMERO to only listen on localhost. See
    :zerocdoc:`Proxy and Endpoint Syntax  <display/Ice/Proxy+and+Endpoint+Syntax#ProxyandEndpointSyntax-address>`
    for more information.
@@ -426,7 +426,7 @@ more details. There are a few known possibilities:
 
 -  'TclError: no display name and no $DISPLAY environment variable'.
    Turn off the compilation of TCL support in Matplotlib_.
--  'ImportError: No module named Image'. Install `Pillow`_
+-  'ImportError: No module named Image'. Install Pillow_
    (packages should be available for your distribution). Also double 
    check
    if all of the prerequisites were installed from

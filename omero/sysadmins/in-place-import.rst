@@ -3,9 +3,8 @@
 In-place import
 ===============
 
-In-place import is a feature added to OMERO 5.0.0 to allow
-files which are already present on the server machine to be
-imported into OMERO without the need to copy them. This requires
+In-place import allows files which are already present on the server machine
+to be imported into OMERO without the need to copy them. This requires
 users to have shell (|SSH|, etc.) access to the server machine,
 and so there are a number of :ref:`limitations <limitations>`
 to this implementation. Development of this feature is on-going, with
@@ -184,7 +183,7 @@ was done for one of our test servers in Dundee:
 Getting started
 ---------------
 
-From 5.0.0, the command-line import client has a new help menu which
+The command-line import client has a help menu which
 explains the available options:
 
 ::
@@ -193,15 +192,8 @@ explains the available options:
 
 .. literalinclude:: /downloads/inplace/advanced-help.txt
 
-In versions prior to 5.0.3 this help option is hidden and it can
-only be accessed using:
-
-::
-
-    $ bin/omero import -- --advanced-help
-
 The option for performing an in-place transfer is
-:option:`--transfer`. A new extension point, file transfers allow
+``--transfer``. A new extension point, file transfers allow
 a choice of which mechanism is used to get a file into OMERO.
 
 ::
@@ -300,17 +292,17 @@ have read-write permissions on the data files being imported in-place.
 "ln_rm" - moving
 ^^^^^^^^^^^^^^^^
 
-Finally, the least favored option is `ln_rm`. It first performs
+Finally, the least favored option is ``ln_rm``. It first performs
 a hard-link like `ln`, but once the import is complete it attempts
 to delete the original file. This is currently in testing as
 an option for DropBox but is unlikely to be of use to general users.
-Although this option is more limited than the `upload_rm` option below it
+Although this option is more limited than the ``upload_rm`` option below it
 will be much faster.
 
 "upload_rm" - uploading and deleting
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This option, available from OMERO 5.0.3, is not strictly an in-place option
+This option is not strictly an in-place option
 but is detailed here for convenience. It first performs a file upload like
 default import, but once the import is complete it attempts to delete the
 original files. It deletes the original files **if and only if** the import
@@ -319,7 +311,7 @@ is successful.
 "cp" and "cp_rm" variants
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-New in 5.0.7, the `cp` and `cp_rm` commands provide the same functionality
+The `cp` and `cp_rm` commands provide the same functionality
 as `ln` and `ln_rm` but perform a copy rather than a link operation. The
 benefit of a copy is that it works over OS filesystem boundaries while
 still providing the integrity that `ln_s` cannot. The primary downside
@@ -349,10 +341,10 @@ placed in the `lib/clients` directory, you can invoke it using:
 Related advanced options
 ------------------------
 
-In addition to the :option:`--transfer` option in 5.0.0, a number of other
+In addition to the ``--transfer`` option, a number of other
 advanced options have been added which may be useful for either
 tweaking import performance or dealing with complicated situations.
-However, like :option:`--transfer`, these options should be considered
+However, like ``--transfer``, these options should be considered
 experimental and **may change in subsequent releases**. Comments and
 suggestions are very welcome.
 
@@ -361,8 +353,8 @@ Checksums
 
 If you think that calculating the checksums for your large files is
 consuming too much time, you might want to configure the checksum
-algorithm used. This can be done with the :option:`--checksum_algorithm`
-property. Available options are printed with the :option:`--advanced-help`
+algorithm used. This can be done with the ``--checksum_algorithm``
+property. Available options are printed with the ``--advanced-help``
 option and include Adler-32, CRC-32, MD5-128, Murmur3-32, Murmur3-128,
 and the default SHA1-160.
 

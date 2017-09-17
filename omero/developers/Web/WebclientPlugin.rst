@@ -314,7 +314,7 @@ in the plugin's :file:`settings.py` like so:
     )
 
 This is no longer possible in OMERO 5 with `Django 1.8`_ and it is necessary to
-use :omerocmd:`config set` to change this setting as documented here:
+use :program:`omero config set` to change this setting as documented here:
 :ref:`Plugin Installation <plugin-installation-label>`.
 
 In order to preserve the old functionality on OMERO 4.4.x servers, the 

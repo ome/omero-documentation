@@ -4,11 +4,10 @@ OMERO.web installation on Mac OS X and IcePy 3.6
 Please first read :doc:`../../server-install-homebrew`.
 
 
-This is an example walkthrough for installing OMERO.web decoupled from the OMERO.server in a **virtual environment** using OMERO.py and a dedicated system user. Installing OMERO.web in a virtual environment is the preferred way. For convenience in this walkthrough the main OMERO.web configuration options have been defined as environment variables. When following this walkthrough you can either use your own values, or alternatively use the following ones::
-    
-    OMERO_USER=
-    WEBPORT=80
-    WEBSERVER_NAME=localhost
+This is an example walkthrough for installing OMERO.web decoupled from the OMERO.server in a **virtual environment** using OMERO.py and a dedicated system user. Installing OMERO.web in a virtual environment is the preferred way. For convenience in this walkthrough, we will use the ** system user** and define the main OMERO.web configuration options as environment variables.
+
+**The following steps are run as root.**
+
 
 Install Homebrew in /usr/local::
     
@@ -19,9 +18,6 @@ Install Homebrew in /usr/local::
     
     brew update
     brew doctor
-
-**The following steps are run as root.**
-
 
 Installing prerequisites
 ------------------------
@@ -78,6 +74,11 @@ Configuring OMERO.web
 ---------------------
 
 
+For convenience the main OMERO.web configuration options have been defined as environment variables. You can either use your own values, or alternatively use the following ones::
+    
+    export WEBPORT=80
+    export WEBSERVER_NAME=localhost
+
 Configure OMERO.web and create the NGINX OMERO configuration file::
     
     . ~/omerowebvenv/bin/activate
@@ -101,12 +102,11 @@ Copy the generated configuration file into the NGINX configuration directory::
 Running OMERO.web
 -----------------
 
-To start the OMERO.web client run::
+To start the OMERO.web client manually run::
     
-    source ~/omerowebvenv/bin/activate
+    . ~/omerowebvenv/bin/activate
     
-    OMERO.py/bin/omero web start
-
+    ~/OMERO.py/bin/omero web start
 
 
 Start up services::

@@ -5,17 +5,16 @@ Repository management
 
 Since 5.0.3 it is possible to list images, filesets and the repositories that
 contain them. At an administrator-only level it is also possible to move
-filesets. This functionality is provided by the :omerocmd:`fs` command. See
-::
+filesets. This functionality is provided by the :program:`omero fs` command.
+See ::
 
     $ bin/omero fs -h
 
 Listing repositories
 ^^^^^^^^^^^^^^^^^^^^
 
-The :omerocmd:`fs repos` subcommand lists the repositories used by OMERO. For
-example
-::
+The :program:`omero fs repos` subcommand lists the repositories used by OMERO. 
+For example ::
 
     bin/omero fs repos
 
@@ -55,7 +54,7 @@ For example
 Listing filesets
 ^^^^^^^^^^^^^^^^
 
-The :omerocmd:`fs sets` subcommand lists filesets by various criteria.
+The :program:`omero fs sets` subcommand lists filesets by various criteria.
 Filesets are bundles of original data imported into OMERO 5 and above, which
 represent one or more images. For example
 ::
@@ -139,7 +138,7 @@ For example
 Listing images
 ^^^^^^^^^^^^^^
 
-The :omerocmd:`fs images` subcommand lists imported images by various criteria.
+The :program:`omero fs images` subcommand lists imported images by various criteria.
 This subcommand is useful for showing pre-FS (i.e. OMERO 4.4 and before) images
 which have their original data archived with them. For example
 ::
@@ -208,13 +207,13 @@ For example
 Renaming filesets
 ^^^^^^^^^^^^^^^^^
 
-The :omerocmd:`fs rename` subcommand moves an existing fileset, specified by its
+The :program:`omero fs rename` subcommand moves an existing fileset, specified by its
 ID, to a new location. **This subcommand is available to administrators only.**
 
 It may be useful to rename an existing fileset after the import template
 (:property:`omero.fs.repo.path`) has been changed to match the new template. By
 default the files in the fileset and the accompanying import log are moved. For
-example, after adding the group name and group ID to template and chnaging the
+example, after adding the group name and group ID to template and changing the
 date format
 ::
 
@@ -255,7 +254,7 @@ For example
 Detailing disk usage
 ^^^^^^^^^^^^^^^^^^^^
 
-The :omerocmd:`fs usage` subcommand provides details of the underlying disk usage
+The :program:`omero fs usage` subcommand provides details of the underlying disk usage
 for various types of objects. This subcommand takes optional positional arguments
 of object types with ids and returns the total disk usage of the specified objects.
 
@@ -357,7 +356,7 @@ For example
 Creating directories
 ^^^^^^^^^^^^^^^^^^^^
 
-For directory creation in a Managed repository use :omerocmd:`fs mkdir`:
+For directory creation in a Managed repository use :program:`omero fs mkdir`:
 this creates both the directory on the underlying filesystem and the
 corresponding entry in the OMERO server's database. The new directory
 will be owned by the :literal:`root` user and in the :literal:`user`

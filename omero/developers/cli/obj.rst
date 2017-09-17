@@ -3,8 +3,8 @@ Working with objects
 
 .. program:: omero obj
 
-The :omerocmd:`obj` command allows to create and update OMERO objects. More
-information can be displayed using ``bin/omero obj -h``.
+The :program:`omero obj` command allows to create and update OMERO objects.
+More information can be displayed using ``bin/omero obj -h``.
 
 A complete :doc:`/developers/Model/EveryObject` is available for reference.
 
@@ -13,7 +13,7 @@ Object creation
 
 .. program:: omero obj new
 
-The  :omerocmd:`obj new` subcommand allows to create new objects::
+The  :program:`omero obj new` subcommand allows to create new objects::
 
    $ bin/omero obj new Object field=value
 
@@ -29,7 +29,7 @@ description::
 Object update
 ^^^^^^^^^^^^^
 
-The :omerocmd:`obj update` subcommand allows to update existing objects::
+The :program:`omero obj update` subcommand allows to update existing objects::
 
    $ bin/omero obj update Object:ID field=value
 
@@ -45,8 +45,8 @@ name and a description::
 Piping output
 ^^^^^^^^^^^^^
 
-The output of each :omerocmd:`obj` command is formatted as `Object:ID` so that
-the CLI commands can be redirected and piped together. For example, the
+The output of each :program:`omero obj` command is formatted as `Object:ID` so
+that the CLI commands can be redirected and piped together. For example, the
 following set of commands creates a dataset and a project and links them
 together::
 

@@ -24,33 +24,33 @@ Who may change ownership of data
 How to change ownership of data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The :program:`chown` command transfers objects to the ownership of a
-different user. Further help is available using the :option:`-h`
+The :program:`omero chown` command transfers objects to the ownership of a
+different user. Further help is available using the ``-h``
 option::
 
     $ bin/omero chown -h
 
-The :program:`chown` command can transfer entire graphs of objects based on
+The :program:`omero chown` command can transfer entire graphs of objects based on
 the IDs of the topmost objects. The command can be modified to include
 the transfer of objects that would, by default, be excluded or exclude
-objects that would, by default, be included using the :option:`chown
---include` and :option:`chown --exclude` options.
+objects that would, by default, be included using the
+:option:`omero chown --include` and :option:`omero chown --exclude` options.
 
 It is also possible to transfer objects lower in the hierarchy by specifying
 the type and ID of a topmost object and the type of the lower object.
 For instance, transferring all of the images under a given project.
 
 All the data of a given user can be transferred using the
-:program:`chown` command. This is useful when somebody leaves a lab to
+:program:`omero chown` command. This is useful when somebody leaves a lab to
 move on to another project or institution and their previous work is to
 be curated or continued by a colleague. This feature has to be
 considered as advanced and might be potentially slow.
 
 By default the command confirms the transfer of the target objects but
-it can also provide a detailed report of all the transferred objects via a
-:option:`chown --report` option. A :option:`chown --dry-run` option can
-be used to report on which objects' ownership would change without actually
-transfering them.
+it can also provide a detailed report of all the transferred objects via an
+:option:`omero chown --report` option. An :option:`omero chown --dry-run`
+option can be used to report on which objects' ownership would change without
+actually transfering them.
 
 Examples
 ^^^^^^^^
@@ -100,7 +100,7 @@ comma-separated IDs.
     When transferring multiple objects in a single command,
     if one object cannot be transferred then the whole command will fail
     and none of the specified objects will be transferred.
-    The :option:`chown --dry-run` option can be useful
+    The :option:`omero chown --dry-run` option can be useful
     as a check before trying to move large numbers of objects.
 
 Transferring lower level objects
@@ -167,7 +167,7 @@ that are not otherwise contained in datasets will be orphaned.
 Further options
 ^^^^^^^^^^^^^^^
 
-.. program:: chown
+.. program:: omero chown
 
 .. option:: --ordered
 
@@ -194,6 +194,6 @@ Further options
 .. option:: --dry-run
 
     Run the command and report success or failure but does not transfer the
-    objects. This can be combined with the :option:`chown --report` to provide
-    a detailed confirmation of what would be transferred before running the
-    move itself.
+    objects. This can be combined with the :option:`omero chown --report` to 
+    provide a detailed confirmation of what would be transferred before 
+    running the move itself.

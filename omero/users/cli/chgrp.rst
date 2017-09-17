@@ -26,25 +26,26 @@ How to move data
 * CLI: See below
 * :help:`OMERO.web <sharing-data#moving>`
 
-The :omerocmd:`chgrp` command moves objects between groups. Further help is
-available using the :option:`-h` option::
+The :program:`omero chgrp` command moves objects between groups. Further help is
+available using the ``-h`` option::
 
     $ bin/omero chgrp -h
 
-The :command:`chgrp` command will move entire graphs of objects based on the
+This command will move entire graphs of objects based on the
 IDs of the topmost objects. The command can be modified to include the movement
 of objects that would, by default, be excluded or exclude objects that would,
-by default, be included using the :option:`chgrp --include` and
-:option:`chgrp --exclude` options.
+by default, be included using the :option:`omero chgrp --include` and
+:option:`omero chgrp --exclude` options.
 
 It is also possible to move objects lower in the hierarchy by specifying
 the type and ID of a topmost object and the type of the lower object. For
 instance, moving all of the images under a given project.
 
 By default the command confirms the movement of the target objects but
-it can also provide a detailed report of all the moved objects via a
-:option:`chgrp --report` option. A :option:`chgrp --dry-run` option can be
-used to report on what objects would be moved without actually moving them.
+it can also provide a detailed report of all the moved objects via an
+:option:`omero chgrp --report` option. An :option:`omero chgrp --dry-run`
+option can be used to report on what objects would be moved without actually
+moving them.
 
 Examples
 ^^^^^^^^
@@ -89,8 +90,8 @@ to specify an ID range. This form can also be mixed with comma-separated IDs.
 .. note::
     When moving multiple objects in a single command, if one object cannot
     be moved then the whole command will fail and none of the specified
-    objects will be moved. The :option:`chgrp --dry-run` option can be useful
-    as a check before trying to move large numbers of objects.
+    objects will be moved. The :option:`omero chgrp --dry-run` option can be 
+    useful as a check before trying to move large numbers of objects.
 
 Moving lower level objects
 ==========================
@@ -111,12 +112,12 @@ would have the same effect as the call above.
 Including and excluding objects
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. program:: chgrp
+.. program:: omero chgrp
 
 .. option:: --include
 
     Linked objects that would not ordinarily be moved can be included in the
-    move using the `--include` option::
+    move using the ``--include`` option::
 
         $ bin/omero chgrp 5 Image:51 --include Annotation
 
@@ -125,7 +126,7 @@ Including and excluding objects
 .. option:: --exclude
 
     Linked objects that would ordinarily be moved can be excluded from the
-    move using the `--exclude` option::
+    move using the ``--exclude`` option::
 
         $ bin/omero chgrp 5 Project:51 --exclude Dataset
 
@@ -143,7 +144,7 @@ that are not otherwise contained in datasets will be orphaned.
 Further options
 ^^^^^^^^^^^^^^^
 
-.. program:: chgrp
+.. program:: omero chgrp
 
 .. option:: --ordered
 
@@ -170,6 +171,6 @@ Further options
 .. option:: --dry-run
 
     Run the command and report success or failure but does not move the
-    objects. This can be combined with the :option:`chgrp --report` to provide
-    a detailed confirmation of what would be moved before running the
+    objects. This can be combined with the :option:`omero chgrp --report` to
+    provide a detailed confirmation of what would be moved before running the
     move itself.

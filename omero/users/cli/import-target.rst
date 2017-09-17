@@ -2,7 +2,7 @@ Using import targets
 ====================
 
 The CLI import options ``-d`` or ``-r`` can be used to specify, respectively,
-the import target Dataset or Screen by ID. The option ``-T, --target`` adds
+the import target Dataset or Screen by ID. The ``-T, --target`` option adds
 more ways of specifying the import target.
 
 The general form of the target argument is::
@@ -143,7 +143,7 @@ removed in a later version of OMERO. This is also pertinent if the target is
 likely to be created as it will be created in the current group, which may not
 be the group intended.
 
-If no group is specified by using the :option:`-g` login option as part of the
+If no group is specified by using the :option:`omero login -g` option as part of the
 import, the current group will be dependent on the user's login status:
 
 -   If the user is currently logged in then their current group will be the one
@@ -159,23 +159,23 @@ If the user knows which group the import target is in, or needs to be created
 in, then one of the following methods can be used to ensure the target group is
 the current group for the import:
 
--   Explicitly log in using the :option:`-g` login option before running the import
+-   Explicitly log in using the :option:`omero login -g` option before running the import
     command::
 
         $ bin/omero login -g group_name
         $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
 
--   Provide the :option:`-g` login option as part of the import command::
+-   Provide the :option:`omero login -g` option as part of the import command::
 
         $ bin/omero import -g group_name ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
 
--   Use :omerocmd:`sessions group` to switch group before running the import
+-   Use :program:`omero sessions group` to switch group before running the import
     command::
 
         $ bin/omero sessions group 51
         $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
 
--   Use the :option:`-k` login option to reconnect to an active session for the
+-   Use the :option:`omero login -k` option to reconnect to an active session for the
     target group::
 
         $ bin/omero login -k c41a6f78-ba6e-4caf-aba3-a94378d5484c
@@ -183,16 +183,16 @@ the current group for the import:
         # or alternatively
         $ bin/omero import -k c41a6f78-ba6e-4caf-aba3-a94378d5484c ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
 
-    The session ID can be found using the :omerocmd:`sessions list` command.
+    The session ID can be found using the :program:`omero sessions list` command.
 
-For further information on the commands :omerocmd:`login` and
-:omerocmd:`sessions` see :doc:`sessions`.
+For further information on the commands :program:`omero login` and
+:program:`omero sessions` see :doc:`sessions`.
 
 .. note::
 
-    The :option:`-g` login option requires the group name as its argument,
-    while the :omerocmd:`sessions group` subcommand uses either the group ID
-    or the group name.
+    The :option:`omero login -g` option requires the group name as its argument,
+    while the :program:`omero sessions group` subcommand uses either the group
+    ID or the group name.
 
 .. seealso:: 
     

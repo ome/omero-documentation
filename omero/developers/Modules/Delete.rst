@@ -181,6 +181,6 @@ from the database the corresponding binary data is deleted from the
 :doc:`binary repository </sysadmins/unix/server-binary-repository>`.
 It is possible that some files may not be successfully deleted if they
 are locked for any reason. In this case, the undeleted files can be removed
-manually via :omerocmd:`admin cleanse`\ . This also deletes any empty
+manually via :program:`omero admin cleanse`\ . This also deletes any empty
 directories left behind after the binary data that they contained has been
 deleted.

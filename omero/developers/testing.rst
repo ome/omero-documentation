@@ -132,9 +132,9 @@ Individual test class methods
 
 
 Individual OmeroJava test class methods (or a comma-separated list of
-methods) can be run using the :option:`-DMETHODS` parameter together with
+methods) can be run using the ``-DMETHODS`` parameter together with
 the ``test`` target. The test method must be provided in the fully
-qualified name form (:option:`-Dpackage.class.method`).
+qualified name form (``-Dpackage.class.method``).
 
 ::
 
@@ -144,7 +144,7 @@ Individual test groups
 """"""""""""""""""""""
 
 To run individual OmeroJava test groups (or comma-separated sets of groups)
-of tests, the :option:`-DGROUPS` parameter can be used together with the
+of tests, the ``-DGROUPS`` parameter can be used together with the
 ``test`` target
 
 ::
@@ -238,7 +238,7 @@ Using markers in OmeroPy tests
 
 Tests under OmeroPy can be included or excluded according to markers defined
 in the tests.
-This can be done by using the :option:`-DMARK` option. For example, to run all
+This can be done by using the ``-DMARK`` option. For example, to run all
 the integration tests marked as ``broken``:
 
 ::
@@ -305,7 +305,7 @@ to rebuild or restart the server. A few basic options are shown below.
 
     This option will run integration tests depending on the markers they are
     decorated with. Available markers can be listed using the
-    :option:`--markers` option.
+    :option:`setup.py test --markers` option.
     For example, to run all integration tests excluding those decorated with
     the marker `broken`::
 
@@ -476,8 +476,8 @@ markers can be simply defined as they are used. However, to centralize the use
 of custom markers they should be defined in
 :sourcedir:`components/tools/pytest.ini`.
 
-To view all available markers the :option:`--markers` option can be used with
-:program:`setup.py test` or :program:`py.test` as detailed in
+To view all available markers the :option:`setup.py test --markers` option can
+be used with :program:`setup.py test` or :program:`py.test` as detailed in
 :ref:`running-python-tests-directly`.
 
 There is one custom marker defined:
