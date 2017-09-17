@@ -150,39 +150,8 @@ If possible, install the following packages:
 
 .. _gunicorn_default_configuration:
 
-Default configuration
----------------------
-
-If you wish to install the dependencies in a virtual environment, you will
-first have to create one and activate it. It is preferable to create the
-virtual environment with ``--system-site-packages`` option ``on``::
-
-   $ virtualenv omerowebvenv --system-site-packages
-   $ . omerowebvenv/bin/activate
-
-Install the OMERO.web dependencies using the package management tools:
-
-::
-
-   $ # if OMERO.web is installed with the OMERO.server it is not necessary to download
-   $ # OMERO.py. In that case, the path to the requirements file should start with OMERO.server
-   $ # and not OMERO.py
-   $ curl -o OMERO.py.zip -L https://downloads.openmicroscopy.org/latest/omero5/py.zip
-   $ unzip -q OMERO.py*
-   $ zip = $(ls OMERO.py*.zip)
-   $ ln -s OMERO.py-* OMERO.py
-   $ # if OMERO.web is installed in a virtual environment
-   $ omerowebvenv/bin/pip install --upgrade -r OMERO.py/share/web/requirements-py27.txt
-   $ # otherwise
-   $ pip install -r OMERO.py/share/web/requirements-py27.txt
-
-
-.. note:: For more details refer to
-      :djangodoc:`how to install Django 1.8 <topics/install/#install-the-django-code>`
-      or :djangodoc:`upgrade Django to 1.8 <topics/install/#remove-any-old-versions-of-django>`.
-
-Additional Gunicorn configuration
----------------------------------
+Gunicorn configuration
+----------------------
 
 Additional settings can be configured by changing the following properties:
 
