@@ -70,7 +70,6 @@ reason, it is possible that an update of OMERO will cause issues with an older
 version of a plugin. It is best when updating the server to also install any
 available plugin updates according to their own documentation.
 
-
 Since 5.3, all official OMERO.web plugins can be installed from PyPI_.
 You should remove all previously installed plugins and install the latest
 versions using `pip <https://pip.pypa.io/en/stable/>`_.
