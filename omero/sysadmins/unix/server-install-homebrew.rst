@@ -63,10 +63,15 @@ To create a .bash_profile from terminal, if one does not already exist::
 
     $ touch ~/.bash_profile
 
-Open your .bash_profile in a text editor, such as the built in TextEdit app::
+To open your .bash_profile in a text editor, such as the built in TextEdit app, use::
 
     $ open -a TextEdit.app ~/.bash_profile
 
+.. note: 
+   If you want to see changes to your .bash_profile take affect without restarting
+   OSX, run::
+
+   $ source ~/.bash_profile
 
 Requirements
 ------------
@@ -79,6 +84,12 @@ Requirements
 
     $ brew install postgresql
 
+   To ensure PostgreSQL uses UTF-8 encoding, open your bash profile and 
+   add the following enviorment variables::
+
+    export LANG=en_US.UTF-8
+    export LANGUAGE=en_US:en
+
 3. OMERO depends on ICE 3.6 and unfortuently does not run with 
    the latest version of ICE at this time (ICE 3.7.3). To obtain 
    ICE 3.6, we need to add a *tap* to Homebrew::
@@ -87,7 +98,8 @@ Requirements
     $ brew install zeroc-ice/tap/ice36
 
 .. Note::
-   If you already have a version of ICE thats not 3.6 installed, you can instruct Homebrew to *unlink* it using ```$ brew unlink ice```. You can then instruct Homebrew to link to ICE 3.6 using ```$ brew link ice@36```
+   If you already have a version of ICE thats not 3.6 installed, you can instruct Homebrew to *unlink* it using 
+   ```$ brew unlink ice```. You can then instruct Homebrew to link to ICE 3.6 using ```$ brew link ice@36```
 
 4. Install Python provided by Homebrew::
 
@@ -97,18 +109,18 @@ Requirements
 
     '/usr/local/opt/python/libexec/bin'
 
-   Follow the instructions from the brew python install and set the homebrew version of Python 
-   to be used rather than the Python shipped with OSX::
+   Follow the instructions from the brew python install and set the Homebrew version of Python 
+   to be used rather than the Python shipped with OSX. Add the following line to your .bash_profile::
 
     export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
-.. **(OPTIONAL)** To keep things a little cleaner, add the following 
-.. enviorment variable to your .bash_profile::
+.. note:: 
+   To keep things a little cleaner, add the following enviorment variable to your .bash_profile::
 
     # Environment variable pointing to Homebrew Python location
     export PYTHON_BREW=/usr/local/opt/python/libexec/bin
- 
-.. and set the :envvar:`PATH` to be::
+
+   and append it to the :envvar:`PATH`::
 
     export PATH="$PYTHON_BREW:$PATH"
 
@@ -174,7 +186,7 @@ Pre-built server
 
    Extract the :file:`server.zip`
 
-2. Once extracted, open your .bash_profile in your favourite text editor, 
+2. Once extracted, open your .bash_profile in a text editor, 
    such as the built in TextEdit app::
 
     $ open -a TextEdit.app ~/.bash_profile
