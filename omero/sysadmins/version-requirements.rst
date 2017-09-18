@@ -120,7 +120,7 @@ Components
        - |Dropped|
      * - 9.4
        - |Supported|
-       - |Deprecated|
+       - |Supported|
        - |Deprecated|
      * - 9.5
        - |Supported|
