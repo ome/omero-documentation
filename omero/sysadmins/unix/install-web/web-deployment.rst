@@ -200,7 +200,7 @@ a minimal configuration:
 
 
 and include this in your own manually created NGINX file, such as
-`/etc/nginx/conf.d/omero-web.conf`.
+:file:`/etc/nginx/conf.d/omero-web.conf`.
 
 
 This requires more initial work but in the future you can automatically
@@ -397,4 +397,3 @@ Additional settings can be configured by changing the following properties:
       $ OMERO.py/bin/omero config set omero.web.wsgi_worker_class gevent
       $ OMERO.py/bin/omero config set omero.web.wsgi_worker_connections 1000
       $ OMERO.py/bin/omero config set omero.web.application_server.max_requests 0
-
