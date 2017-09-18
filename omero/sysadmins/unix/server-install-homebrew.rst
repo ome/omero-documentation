@@ -97,9 +97,8 @@ Requirements
 
     '/usr/local/opt/python/libexec/bin'
 
-   Follow the instructions from the brew python install and 
-   set the homebrew version of Python to be used rather than the Python version shipped
-   with OSX::
+   Follow the instructions from the brew python install and set the homebrew version of Python 
+   to be used rather than the Python shipped with OSX::
 
     export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
@@ -121,21 +120,15 @@ Requirements
     $ python --version
     Python 2.7.13
 
-   For developing with OMERO, or Python in general, we would recommend you 
-   use VirtaulEnv.
+6. For developing with OMERO, or Python in general, we would recommend you use VirtaulEnv.
    VirtualEnv allows us to develop python applications without having to 
-   worry about clashing thirdparty packages for different Python
-   projects. 
-   For example, OMERO requires Django 1.8 but you might have a project
-   that uses Django 1.9. With Django 1.9 present on your system, you won't be
-   able to run OMERO.
+   worry about clashing thirdparty packages for different Python projects.
 
-6. If everything looks okay, go ahead and use pip to get `VirtualEnv <https://virtualenv.pypa.io/en/stable/>`__::
+   Use pip to get `VirtualEnv <https://virtualenv.pypa.io/en/stable/>`__::
 
     $ pip install virtualenv
 
-   Using the command-line Terminal use VirtualEnv to create a virtual
-   enviorment location::
+   With VirtualEnv installed, create a virtual enviorment::
 
     $ virtualenv ~/Virtual/omero
 
@@ -315,8 +308,8 @@ OMERO configuration
     $ omero db script --password omero -f - | psql -h localhost -U db_user omero_database
 
 
-OMERO example bash_profile
-------------------
+OMERO example .bash_profile
+--------------------------
 
 Open your .bash_profile in your favourite text editor, such as the built in TextEdit app::
 
@@ -496,15 +489,3 @@ installed any Python packages using :program:`pip`. In the case where
 and then try running :file:`python_deps.sh` again. That should install
 :program:`pip` via Homebrew and put the Python packages in correct
 locations.
-
-This will install the OMERO server to :file:`/usr/local/Cellar/omero`, which means you
-will find the log files in :file:`/usr/local/Cellar/omero/|release|/var/log`.
-The binaries will be linked to :file:`/usr/local/bin`::
-
-
-   You should install OMERO using Python 2.7 provided by
-   Homebrew since it makes using Homebrew-provided modules
-   simpler, for example the Ice python bindings needed by OMERO. For a
-   more thorough description of the Homebrew solution, see the `Homebrew
-   and Python`_ page. Note that the automated script linked above tests
-   the OMERO installation using the Homebrew Python.
