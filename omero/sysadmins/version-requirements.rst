@@ -228,9 +228,9 @@ Components
          - OMERO 5.4
          - OMERO 5.5
        * - 1.6
-         - |Supported|
-         - |Supported|
          - |Deprecated|
+         - |Dropped|
+         - |Dropped|
        * - 1.8
          - |Supported|
          - |Supported|
