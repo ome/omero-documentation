@@ -668,7 +668,8 @@ OMERO support policies
       - :zerocforum:`3.6.0 <announcements/6631-ice-3-6-0-and-ice-touch-3-6-0-released>`
         (:zerocforum:`3.6.1 <announcements/45941-ice-3-6-0-and-ice-touch-3-6-1-released>` |Broken|),
         :zerocforum:`3.6.2 <announcements/46347-ice-ice-e-and-ice-touch-3-6-2-released>`,
-        :zerocforum:`3.6.3 <announcements/46475-ice-ice-e-and-ice-touch-3-6-3-released>`
+        :zerocforum:`3.6.3 <announcements/46475-ice-ice-e-and-ice-touch-3-6-3-released>`,
+        :zerocforum:`3.6.4 <announcements/46550-ice-ice-e-and-ice-touch-3-6-3-released>`
     * - 3.7
       - from July 2017
       - to TBA
