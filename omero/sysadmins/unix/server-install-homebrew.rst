@@ -308,31 +308,6 @@ OMERO configuration
     $ omero db script --password omero -f - | psql -h localhost -U db_user omero_database
 
 
-OMERO example .bash_profile
---------------------------
-
-Open your .bash_profile in your favourite text editor, such as the built in TextEdit app::
-
-    $ open -a TextEdit.app ~/.bash_profile
-
-If you've followed this guide your bash profile should look similar to the follwoing::
-
-    # UTF-8 and US language settings for Postgres
-    export LANG=en_US.UTF-8
-    export LANGUAGE=en_US:en
-
-    # OMERO Server distribution directory
-    export OMERO_SERVER=Omero/Server
-
-    # OMERO python libraries
-    export OMERO_PYTHON_LIBS=${OMERO_SERVER}/lib/python
-
-    # OMERO ice configuration
-    export OMERO_ICE_CONFIG=${OMERO_SERVER}/etc/ice.config
-
-    # Full path
-    export PATH=$OMERO_SERVER/bin:$OMERO_ICE_CONFIG:$PATH
-
 OMERO.web
 ^^^^^^^^^
 
@@ -389,6 +364,31 @@ See example script for a basic functionality test: :download:`step04_test.sh <wa
 
 Common issues
 -------------
+
+Example .bash_profile
+^^^^^^^^^^^^^^^^^^^^^^
+
+Open your .bash_profile in your favourite text editor, such as the built in TextEdit app::
+
+    $ open -a TextEdit.app ~/.bash_profile
+
+If you've followed this guide your bash profile should look similar to the follwoing::
+
+    # UTF-8 and US language settings for Postgres
+    export LANG=en_US.UTF-8
+    export LANGUAGE=en_US:en
+
+    # OMERO Server distribution directory
+    export OMERO_SERVER=Omero/server
+
+    # OMERO python libraries
+    export OMERO_PYTHON_LIBS=${OMERO_SERVER}/lib/python
+
+    # OMERO ice configuration
+    export OMERO_ICE_CONFIG=${OMERO_SERVER}/etc/ice.config
+
+    # Full path
+    export PATH=$OMERO_SERVER/bin:$OMERO_ICE_CONFIG:$PATH
 
 General considerations
 ^^^^^^^^^^^^^^^^^^^^^^
