@@ -67,7 +67,7 @@ To open your .bash_profile in a text editor, such as the built in TextEdit app, 
 
     $ open -a TextEdit.app ~/.bash_profile
 
-.. note: 
+.. note::
    If you want to see changes to your .bash_profile take affect without restarting
    OSX, run::
 
@@ -273,7 +273,7 @@ Local built server
 
 
 OMERO configuration
-------------------
+-------------------
 
 1. Start the database server::
 
