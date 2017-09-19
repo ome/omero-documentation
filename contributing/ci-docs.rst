@@ -285,7 +285,7 @@ The following set of jobs is used to review or publish the content of the
 		https://github.com/openmicroscopy/www.openmicroscopy.org
 
 		#. |merge| and pushes the branch to https://github.com/snoopycrimecop/www.openmicroscopy.org/tree/gh-pages
-		#. The GitHub Pages service deploys the staging website content under http://snoopycrimecop.github.io/www.openmicroscopy.org/
+		#. The GitHub Pages service deploys the staging website content under https://snoopycrimecop.github.io/www.openmicroscopy.org/
 
 	:jenkinsjob:`OME-help-staging`
 
@@ -348,7 +348,7 @@ Both are currently built from the master branches despite the build names.
 	    and OME CMake Super-Build Sphinx documentation as a single bundle
 
 	    #. |buildFilesSB|
-	    #. |deploy-doc| http://www.openmicroscopy.org/site/support/ome-files-cpp/
+	    #. |deploy-doc| https://www.openmicroscopy.org/site/support/ome-files-cpp/
 
 The merge and latest builds for this documentation set are detailed on the
 :doc:`ci-ome-files` page.

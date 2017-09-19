@@ -24,7 +24,7 @@ statement at WARN level.
 
 .. parsed-literal::
 
-    2011-09-01 12:21:32,070 WARN  [                 ome.system.UpgradeCheck] (      main) UPGRADE AVAILABLE:Please upgrade to |release| See http://trac.openmicroscopy.org.uk/omero for the latest version
+    2011-09-01 12:21:32,070 WARN  [                 ome.system.UpgradeCheck] (      main) UPGRADE AVAILABLE:Please upgrade to |release| See https://trac.openmicroscopy.org.uk/omero for the latest version
 
 Future versions may also send emails and/or IMs to administrators. In
 the case of critical upgrades, the server may refuse to start.

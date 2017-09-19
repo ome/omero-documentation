@@ -126,7 +126,7 @@ After modifying any memory settings, be sure to restart your server.
 
 .. seealso::
 
-	http://www.openmicroscopy.org/community/viewtopic.php?f=4&t=7400
+	https://www.openmicroscopy.org/community/viewtopic.php?f=4&t=7400
 		Forum thread on PixelData |JVM| memory settings
 
 	:ref:`gridconfiguration`
