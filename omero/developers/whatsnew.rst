@@ -32,11 +32,12 @@ OMERO Model
 
 
 Deprecations
-------------
+^^^^^^^^^^^^
 
--  ``Ishare``
--  Search bridges
--  OMERO reader
--  Enumeration getters in ``IPixels`` in favor of ``ITypes``
--  ``DiskUsage`` in favor of ``DiskUsage2``
--  Analysis namespace ``openmicroscopy.org/omero/analysis/flim``
+Python BlitzGateway
+-------------------
+
+- ``channel.isReverseIntensity()``. Renamed to ``channel.isInverted()``.
+- ``image.setReverseIntensity()``. Renamed to ``image.setChannelInverted()``.
+- ``image.setActiveChannels(reverseMaps)`` parameter renamed to ``invertMaps``.
+- In ``conn.createOriginalFileFromFileObj()`` and ``conn.createOriginalFileFromLocalFile()`` the ``ns`` parameter is deprecated.
