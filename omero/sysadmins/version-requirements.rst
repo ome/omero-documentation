@@ -233,8 +233,8 @@ Components
          - |Dropped|
        * - 1.8
          - |Supported|
-         - |Supported|
          - |Deprecated|
+         - |Dropped|
        * - 1.10
          - |Recommended|
          - |Recommended|
@@ -814,14 +814,14 @@ OMERO support policies
     * - 1.8
       - from Apr 2015
       - to Jan 2016
+      - |Supported|
       - |Deprecated|
-      - |Dropped|
       - |Dropped|
     * - 1.10
       - from April 2016
       - TBA
       - |Recommended|
-      - |Supported|
+      - |Recommended|
       - |Supported|
     * - 1.12
       - from April 2016
