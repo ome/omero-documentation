@@ -2,9 +2,8 @@ Continuous integration
 ======================
 
 
-The OME project uses `Jenkins <http://jenkins-ci.org>`_ as a continuous
-integration server. To access the OME Jenkins server, bring up a web
-browser and go to http://ci.openmicroscopy.org.
+The OME project uses Jenkins_ as a continuous
+integration server. Bring up a web browser to access the :jenkins:`OME Jenkins server <>`.
 
 The following sections summarize the main continuous integration jobs used for
 the development of OMERO, Bio-Formats and the OME documentation sets. Note

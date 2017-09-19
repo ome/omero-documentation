@@ -30,7 +30,7 @@ to enable successful upgrading of the database, otherwise the upgrade
 script aborts with a message saying that your database server version is
 less than the OMERO prerequisite. If you are upgrading from a version
 earlier than OMERO 5.0 then first review the `5.0 upgrade notes
-<http://docs.openmicroscopy.org/omero/5.0.0/sysadmins/server-upgrade.html>`_
+<https://docs.openmicroscopy.org/omero/5.0.0/sysadmins/server-upgrade.html>`_
 regarding previous changes in OMERO.
 
 File limits
