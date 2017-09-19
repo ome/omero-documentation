@@ -58,7 +58,7 @@ OME schema but is not identical. In the cases where OMERO-specific fields are in
 will be prefixed by ``omero:``. For example, ``omero:details`` specifies the owner, group and
 permissions of each object in OMERO.
 JSON objects also include an ``@id`` of the object in the OMERO database and a ``@type`` that specifies
-the OME Schema used to generate it such as "http://www.openmicroscopy.org/Schemas/OME/2016-06#Project".
+the OME Schema used to generate it such as ``http://www.openmicroscopy.org/Schemas/OME/2016-06#Project``.
 
 All the fields of the OMERO model object will be included in the JSON except those that are ``null``,
 which will be omitted.
