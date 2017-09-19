@@ -169,8 +169,7 @@ extlinks = {
     'djangodoc' : ('https://docs.djangoproject.com/en/1.8/%s', ''),
     'doi' : ('http://dx.doi.org/%s', ''),
     'pypi': ('https://pypi.python.org/pypi/%s', ''),
-    # Remaining Plone links
-    'secvuln' : (oo_root + '/info/vulnerabilities/%s', '')
+    'secvuln' : (oo_root + '/security/advisories/%s', '')
     }
 
 rst_epilog = """
