@@ -13,10 +13,12 @@ What's new for OMERO 5.4 for sysadmins
   facility managers, image analysts etc. to organize users and data in OMERO
   without having to be granted full administrator privileges. Full administrators and administrators with restricted privileges can now create Project/Dataset/Screen on behalf of other users in OMERO.web or transfer all the data of a given user using the :program:`chown` command.
 
-
 - The Public user is restricted to GET requests by default. This can be
   changed by setting the new configuration property
   :property:`omero.web.public.get_only`.
+
+- It is now possible to include an html template in the base `core_html` template so it can
+  be used for all webclient pages.
 
 For a full list of bug fixes and other improvements, see the
 :doc:`/users/history`.
