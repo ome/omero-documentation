@@ -1,64 +1,43 @@
-What's new for OMERO 5.3 for developers
+What's new for OMERO 5.4 for developers
 =======================================
-
-
-OMERO.web
-^^^^^^^^^
-
--  New ``api`` app to provide a new JSON API. See :doc:`/developers/json-api`
--  Login functionality moved to Class-based LoginView in webgateway
--  "Open with" config for opening apps from webclient. See :doc:`/developers/Web/LinkingFromWebclient`
 
 Python BlitzGateway
 ^^^^^^^^^^^^^^^^^^^
 
--  getObjects() supports many more filtering and query options via an additional ``opts`` parameter
+- New in 5.4.0 are Restricted Administrators. These are Admins that have a subset of Full Admin privileges.
+- Previously if ``conn.isAdmin()`` is true for the current user, they could perform all actions allowed for Full Admins.
+- Now, this will return True for Full Admins and Restricted Admins, but the user may not be allowed to perform some actions.
+- Use ``conn.isFullAdmin()`` to check if user is a Full Administrator.
+- To get the current user's privileges, use ``conn.getCurrentAdminPrivileges()``
+- This will return list e.g. ``["Chgrp", "Chown", "ModifyGroup", "ModifyGroupMembership", Sudo", "DeleteFile"]``
+- Can also check this for another user with ``conn.getAdminPrivileges(user_id)``
+- For a full list of available privileges, use::
+
+    for p in conn.getEnumerationEntries('AdminPrivilege'):
+        print p.getValue()
+
+- See :doc:`/sysadmins/admins-with-restricted-privileges` to know which privileges are required for which actions.
+
 
 Graphs
 ^^^^^^
 
-The API's request operations ``Chmod``, ``Chgrp``, ``Chown`` and ``Delete``,
-and their superclass GraphModify have been removed in 5.3. They are replaced
-by :javadoc:`Chmod2
-<slice2html/omero/cmd/Chmod2.html>`:javadoc:`Chgrp2
-<slice2html/omero/cmd/Chgrp2.html>`, :javadoc:`Chown2
-<slice2html/omero/cmd/Chown2.html>`, :javadoc:`Delete2
-<slice2html/omero/cmd/Delete2.html>`, and their superclass
-:javadoc:`GraphModify2 <slice2html/omero/cmd/GraphModify2.html>`.
 
 Java Gateway
 ^^^^^^^^^^^^
 
--  Added :ref:`javagateway` documentation
--  Added :javadoc:`TablesFacility <omero/gateway/facility/TablesFacility.html>`
-   for easier handling of :doc:`Tables` 
 
 OMERO Model
 ^^^^^^^^^^^
 
--  Added ``Folder``, ``FolderImageLink`` and ``FolderRoiLink``
-   (see this `blog post
-   <http://blog.openmicroscopy.org/data-model/future-plans/2016/05/23/folders-upcoming/>`_
-   and :doc:`Model/Containers` for further information)
--  Added ``ProjectionDef`` to ``RenderingDef``
--  Added "Arrow" ``markerStart`` and ``markerEnd`` to ``Line`` and
-   ``Polyline``
--  Moved ``CodomainMapContext`` from ``RenderingDef`` to ``ChannelBinding``
--  Removed ``g``, ``vectorEffect``, ``visibility`` and various stroke and font
-   properties from ``Shape`` (considering removing ``fontFamily`` in future)
--  Removed various ``Label`` properties and ``Rectangle.rx``
--  Removed ``keywords`` and ``namespaces`` from ``Roi``
--  Adjusted ``Shape.transform`` from string to six separate numerical
-   properties using ``AffineTransform``
--  Renamed ``Ellipse`` and ``Point`` properties
--  ``Units.PASCAL`` is now wholly capitalized
 
 Deprecations
-------------
+^^^^^^^^^^^^
 
--  ``Ishare``
--  Search bridges
--  OMERO reader
--  Enumeration getters in ``IPixels`` in favor of ``ITypes``
--  ``DiskUsage`` in favor of ``DiskUsage2``
--  Analysis namespace ``openmicroscopy.org/omero/analysis/flim``
+Python BlitzGateway
+-------------------
+
+- ``channel.isReverseIntensity()``. Renamed to ``channel.isInverted()``.
+- ``image.setReverseIntensity()``. Renamed to ``image.setChannelInverted()``.
+- ``image.setActiveChannels(reverseMaps)`` parameter renamed to ``invertMaps``.
+- In ``conn.createOriginalFileFromFileObj()`` and ``conn.createOriginalFileFromLocalFile()`` the ``ns`` parameter is deprecated.
