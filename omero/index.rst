@@ -23,7 +23,7 @@ Developers can find more specific and technical information about OMERO in the
 Additional online resources can be found at:
 
 - :downloads:`Downloads <>`
-- :secvuln:`Security vulnerabilities <>`
+- :secvuln:`Security Advisories <>`
 - OMERO API documentation - :javadoc:`OmeroJava API <>`,
   :pythondoc:`OmeroPy API <>`,
   :javadoc:`OmeroBlitz / Slice API <slice2html/>`

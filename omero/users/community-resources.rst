@@ -43,8 +43,6 @@ Forums
 Discussion on a number of topics is also available through our
 :forum:`forums <>`.  Forums include:
 
-- :forum:`OME Announcements <viewforum.php?f=11>`
-
 - :forum:`OMERO <viewforum.php?f=3>`
 
   + :forum:`User Discussion  <viewforum.php?f=4>`

@@ -155,3 +155,11 @@ for a detailed list of supported formats.
     
     OMERO.importer
 
+OMERO.cli
+---------
+
+The |CLI| is a set of Python-based system administration, deployment and
+advanced user tools. Most of commands work remotely so that the |CLI| can be
+used as a client against an OMERO server. See :doc:`cli/index` for further
+information.
+
