@@ -6,7 +6,7 @@ Python BlitzGateway
 
 - New in 5.4.0 are Restricted Administrators. These are Admins that have a subset of Full Admin privileges.
 - Previously if ``conn.isAdmin()`` is true for the current user, they could perform all actions allowed for Full Admins.
-- Now, this will return True for Full Admins and Restricted Admins, but user may not be allowed to perform some actions.
+- Now, this will return True for Full Admins and Restricted Admins, but the user may not be allowed to perform some actions.
 - Use ``conn.isFullAdmin()`` to check if user is a Full Administrator.
 - To get the current user's privileges, use ``conn.getCurrentAdminPrivileges()``
 - This will return list e.g. ``["Chgrp", "Chown", "ModifyGroup", "ModifyGroupMembership", Sudo", "DeleteFile"]``
