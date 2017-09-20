@@ -26,7 +26,7 @@ What's new for OMERO 5.4 for sysadmins
 
 - :doc:`admins-with-restricted-privileges` can now be created to allow
   facility managers, image analysts etc. to organize users and data in OMERO
-  without having to be granted full administrator privileges.
+  without having to be granted full administrator privileges. Full administrators and administrators with restricted privileges can now create Project/Dataset/Screen on behalf of other users in OMERO.web.
 
 - The Public user is restricted to GET requests by default. This can be
   changed by setting the new configuration property
