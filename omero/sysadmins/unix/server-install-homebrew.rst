@@ -399,8 +399,14 @@ If you have followed this guide your :file:`.bash_profile` should look similar t
     # OMERO ice configuration
     export OMERO_ICE_CONFIG=${OMERO_SERVER}/etc/ice.config
 
+    # Homebrew Python path
+    export BREW_PYTHON=/usr/local/opt/python/libexec/bin
+
     # Full path
-    export PATH=$OMERO_SERVER/bin:$OMERO_ICE_CONFIG:$PATH
+    export PATH=$OMERO_SERVER/bin:$OMERO_ICE_CONFIG:BREW_PYTHON:$PATH
+
+    # Start a virtual environment for developing Python
+    alias startVmOmero='source ~/Virtual/omero/bin/activate'
 
 General considerations
 ^^^^^^^^^^^^^^^^^^^^^^
