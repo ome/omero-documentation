@@ -21,7 +21,7 @@ client including:
 .. note:: The OMERO team treats the security of all components with care and
     attention. If you have a security issue to report, please do not hesitate
     to contact us using our private, secure mailing list as described on the
-    :sec:`Security <>` page.
+    :security:`Security <>` page.
 
 Firewall configuration
 ----------------------
