@@ -26,7 +26,7 @@ installed it, make sure all the latest updates are installed.
 Homebrew
 ^^^^^^^^
 
-.. _`Homebrew wiki`: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Installation.md
+.. _`Homebrew wiki`: https://github.com/Homebrew/brew/blob/master/docs/Installation.md
 
 Homebrew will install all packages under :file:`/usr/local`. See also: Installation instructions on the `Homebrew wiki`_.
 
