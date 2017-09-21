@@ -156,7 +156,8 @@ Requirements
    :file:`~/Virtual/omero/bin` and any Pip libraries you install, whilst the Virtualenv is activated, 
    will be installed to :file:`source ~/Virtual/omero/lib`.
 
-7. **(Optional)** To make starting a Virtualenv enviornment easier, 
+  .. note::
+   **(Optional)** To make starting a Virtualenv enviornment easier, 
    you can add an `alias` to your :file:`.bash_profile`::
 
     alias startVmOmero="source ~/Virtual/omero/bin/activate"
@@ -256,7 +257,7 @@ Local built server
 
    Prepend the :file:`bin` directory to your :envvar:`PATH`::
 
-    export PATH=~/Projects/omero/code/openmicroscopy/dist/bin:$PATH
+    export PATH=~/Projects/Omero/code/openmicroscopy/dist/bin:$PATH
 
    Using the command-line terminal, reload your :file:`.bash_profile` using::
 
@@ -286,10 +287,10 @@ OMERO configuration
     $ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w start
 
   .. note::
-   To make life easier, you can add an ```alias``` to your :file:`.bash_profile`::
+   **(Optional)** To make life easier, you can add an ```alias``` to your :file:`.bash_profile`::
     
     # Start Virtualenv for OMERO
-    alias startVmOmero=Virtual/Omero/bin/activate
+    alias startVmOmero="source ~/Virtual/Omero/bin/activate"
 
    You can also add an `alias` to start and stop the Postgres service::
 
