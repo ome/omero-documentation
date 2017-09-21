@@ -121,7 +121,7 @@ precautionary checks also done by the actual upgrade script.
    The :file:`sql/psql/OMERO5.4__0/OMERO5.3__1-precheck.sql` script
    referenced by the above :program:`psql` command assumes a planned
    upgrade from OMERO 5.3.4. If you are instead currently running OMERO
-   5.3.0 to 5.3.3 then you perform the precheck by using the above
+   5.3.3 or an earlier 5.3.x version then you perform the precheck by using the above
    command with :file:`sql/psql/OMERO5.4__0/OMERO5.3__0-precheck.sql`.
    That script verifies that the database contains no trace of
    :secvuln:`2017-SV5-filename-2` having been exploited; this
@@ -250,7 +250,7 @@ intermediate major release.
 
    The :file:`sql/psql/OMERO5.4__0/OMERO5.3__1.sql` script referenced by
    the above :program:`psql` command assumes upgrade from OMERO 5.3.4.
-   If you are instead currently running OMERO 5.3.0 to 5.3.3 then you
+   If you are instead currently running OMERO 5.3.3 or an earlier 5.3.x version then you
    upgrade the database directly to OMERO 5.4.0 by using the above
    command with :file:`sql/psql/OMERO5.4__0/OMERO5.3__0.sql`.
 
