@@ -97,9 +97,10 @@ Requirements
     $ brew tap zeroc-ice/tap
     $ brew install zeroc-ice/tap/ice36
 
-.. Note::
-   If you already have a version of Ice that is not 3.6 installed, you can instruct Homebrew to *unlink* it using 
-   ```$ brew unlink ice```. You can then instruct Homebrew to link to Ice 3.6 using ```$ brew link ice@36```
+  .. note::
+   If you already have a version of Ice that is not 3.6 installed, 
+   you can instruct Homebrew to *unlink* it using ```$ brew unlink ice```. 
+   You can then instruct Homebrew to link to Ice 3.6 using ```$ brew link ice@36```
 
 4. Install Python provided by Homebrew::
 
@@ -114,15 +115,15 @@ Requirements
 
     export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
-.. note:: 
-   To keep things a little cleaner, add the following enviornment variable to your :file:`.bash_profile`::
+  .. note::
+   **(Optional)** To keep things a little cleaner, add the following enviornment variable to your :file:`.bash_profile`::
 
     # Environment variable pointing to Homebrew Python location
     export PYTHON_BREW=/usr/local/opt/python/libexec/bin
 
    and append it to the :envvar:`PATH`::
 
-    export PATH="$PYTHON_BREW:$PATH"
+    export PATH=$PYTHON_BREW:$PATH
 
 5. Check that Python is working and is version 2.7.x::
 
@@ -144,30 +145,29 @@ Requirements
 
     $ virtualenv ~/Virtual/omero
 
-   This will create a folder to hold Python libraries in the the directory :file:`~Virtual/omero/lib`
+   This will create a folder to hold Python libraries in the the directory :file:`~/Virtual/omero/lib`
 
-.. note:: You can activate the Virtualenv enviornment that we created using::
+  .. note:: 
+   You can activate the Virtualenv enviornment that we created using::
 
     $ source ~/Virtual/omero/bin/activate
 
    This will swtich to using Pip and Python in the Virtualenv directory 
-   :file:`~/Virtual/omero/bin` and any Pip libraries you install, whilst the Virtualenv
-   is activated, will be installed to :file:`source ~/Virtual/omero/lib`.
+   :file:`~/Virtual/omero/bin` and any Pip libraries you install, whilst the Virtualenv is activated, 
+   will be installed to :file:`source ~/Virtual/omero/lib`.
 
-   .. note:: (OPTIONAL) You can add an `alias` to your :file:`.bash_profile` to make this step easier::
+7. **(Optional)** To make starting a Virtualenv enviornment easier, 
+   you can add an `alias` to your :file:`.bash_profile`::
 
-        alias startVmOmero="source ~/Virtual/omero/bin/activate"
+    alias startVmOmero="source ~/Virtual/omero/bin/activate"
 
-      Reload :file:`.bash_profile` in OS X::
+   Using the command-line terminal, reload your :file:`.bash_profile`::
 
-        $ source ~/.bash_profile
+    $ source ~/.bash_profile
 
-      Now you can activate the Virtualenv enviornment using::
+   Now you can activate the Virtualenv enviornment using::
 
-        $ startVmOmero
-
-.. Note::
-   See the :download:`step01_deps.sh <walkthrough/osx/step01_deps.sh>` script for the steps described above.
+    $ startVmOmero
 
 OMERO installation
 ------------------
@@ -202,7 +202,7 @@ Pre-built server
     # Add the OMERO distribution to PATH
     export PATH=OMERO_SERVER/bin:$PATH
 
-   Using the command-line terminal reload :file:`.bash_profile` in OS X::
+   Using the command-line terminal, reload your :file:`.bash_profile` using::
 
     $ source ~/.bash_profile
 
@@ -220,8 +220,6 @@ Pre-built server
 4. Install Python dependencies using pip::
 
     $ pip install -r ~Omero/server/share/web/requirements-py27-all.txt
-    $ cd /usr/local
-    $ bash bin/omero_python_deps
 
 
 Local built server
@@ -229,58 +227,66 @@ Local built server
 
 1. Prepare a place for your OMERO code to live, e.g.::
 
-    $ mkdir -p ~/Projects/Omero/code/projects
-    $ cd ~/Projects/Omero/code/projects
+    $ mkdir -p ~/Projects/Omero/code
+    $ cd ~/Projects/Omero/code
 
 2. Clone the source code from the project's GitHub account to build locally::
 
     $ git clone --recursive git://github.com/openmicroscopy/openmicroscopy
-    $ cd openmicroscopy && ./build.py
 
-.. note::
-    If you have a GitHub account and you plan to develop code for OMERO, you
-    should make a fork into your own account and then clone this fork to your
-    local development machine, e.g. ::
+3. Navigate terminal into the :file:`openmicroscopy` that was just created by performing
+   the previous step::
 
-        $ git remote add  git://github.com/YOURNAMEHERE/openmicroscopy
-        $ cd openmicroscopy && ./build.py
+    $ cd openmicroscopy
 
-.. seealso::
+4. Execute the build script *(this will take a few minutes, depending on how fast your Mac is)* :: 
 
-    :doc:`/developers/installation`
+    $ ./build.py
+
+  .. seealso::
+   :doc:`/developers/installation`
         Developer documentation page on how to check out to source code
-
-    :doc:`/developers/build-system`
+   :doc:`/developers/build-system`
         Developer documentation page on how to build the OMERO.server
 
-3. Once the build completes, the OMERO server build output will be located in :file:`~/Projects/Omero/code/projects/openmicroscopy/dist`.
+5. Once the build completes, the OMERO server build output will be located in :file:`~/Projects/Omero/code/openmicroscopy/dist`.
+   If it is not already open, open your :file:`.bash_profie`::
+
+    $ open -a TextEdit.app ~/.bash_profile
+
    Prepend the :file:`bin` directory to your :envvar:`PATH`::
 
-    $ export PATH=~/code/projects/openmicroscopy/dist/bin:$PATH
+    export PATH=~/Projects/omero/code/openmicroscopy/dist/bin:$PATH
 
-   and follow the steps for setting up the database and OMERO data directory as mentioned in the previous section.
+   Using the command-line terminal, reload your :file:`.bash_profile` using::
 
-4. Activate the Virtualenv enviornment that we created earlier in the "Requirements"
+    $ source ~/.bash_profile
+
+   To ensure OMERO is correctly linked into your OS X :envvar:`PATH`, type the following in terminal and ensure
+   you get a similar output::
+
+    $ which omero
+    /Projects/omero/code/openmicroscopy/dist/bin/omero
+
+6. Activate the Virtualenv enviornment that we created earlier in the "Requirements"
    section::
 
     $ source ~/Virtual/Omero/bin/activate
 
-5. Install Python dependencies using pip::
+7. Install Python dependencies using pip::
 
-    $ pip install -r ~Omero/server/share/web/requirements-py27-all.txt
-    $ cd /usr/local
-    $ bash bin/omero_python_deps
+    $ pip install -r ~/Projects/omero/code/openmicroscopy/dist/share/web/requirements-py27-all.txt
 
 
 OMERO configuration
 -------------------
 
-1. Start the database server::
+1. From a fresh command-line terminal, start the database server::
 
     $ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w start
 
-.. note: To make life easier, you can add an ```alias``` to your :file:`.bash_profile`
-   to make starting a Virtualenv enviornment easier::
+  .. note::
+   To make life easier, you can add an ```alias``` to your :file:`.bash_profile`::
     
     # Start Virtualenv for OMERO
     alias startVmOmero=Virtual/Omero/bin/activate
@@ -318,7 +324,6 @@ OMERO configuration
 6. Create and run script to initialize the OMERO database::
 
     $ omero db script --password omero -f - | psql -h localhost -U db_user omero_database
-
 
 OMERO.web
 ^^^^^^^^^
