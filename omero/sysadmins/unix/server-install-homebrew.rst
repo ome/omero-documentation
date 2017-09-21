@@ -52,24 +52,24 @@ running::
     javac 1.8.0_51
 
 
-OSX Basics
-------------
+OS X Basics
+-----------
 
-In order to develop on OMERO, we recommend you ensure you have your MAC setup for
-developement. The first step to achieving this is to create a .bash_profile file in the
+In order to develop on OMERO, we recommend you ensure you have your Mac setup for
+development. The first step to achieving this is to create a :file:`.bash_profile` file in the
 root directory of your user folder.
 
-To create a .bash_profile from terminal, if one does not already exist::
+To create a :file:`.bash_profile` from terminal, if one does not already exist::
 
     $ touch ~/.bash_profile
 
-To open your .bash_profile in a text editor, such as the built in TextEdit app, use::
+To open your :file:`.bash_profile` in a text editor, such as the built-in TextEdit app, use::
 
     $ open -a TextEdit.app ~/.bash_profile
 
 .. note::
-   If you want to see changes to your .bash_profile take affect without restarting
-   OSX, run::
+   If you want to see changes to your :file:`.bash_profile` take effect without restarting
+   OS X, run::
 
    $ source ~/.bash_profile
 
@@ -85,37 +85,37 @@ Requirements
     $ brew install postgresql
 
    To ensure PostgreSQL uses UTF-8 encoding, open your bash profile and 
-   add the following enviorment variables::
+   add the following enviornment variables::
 
     export LANG=en_US.UTF-8
     export LANGUAGE=en_US:en
 
-3. OMERO depends on ICE 3.6 and unfortuently does not run with 
-   the latest version of ICE at this time (ICE 3.7.3). To obtain 
-   ICE 3.6, we need to add a *tap* to Homebrew::
+3. OMERO depends on Ice 3.6 and unfortunately does not run with 
+   the latest version of Ice at this time (Ice 3.7.3). To obtain 
+   Ice 3.6, we need to add a *tap* to Homebrew::
 
     $ brew tap zeroc-ice/tap
     $ brew install zeroc-ice/tap/ice36
 
 .. Note::
-   If you already have a version of ICE thats not 3.6 installed, you can instruct Homebrew to *unlink* it using 
-   ```$ brew unlink ice```. You can then instruct Homebrew to link to ICE 3.6 using ```$ brew link ice@36```
+   If you already have a version of Ice that is not 3.6 installed, you can instruct Homebrew to *unlink* it using 
+   ```$ brew unlink ice```. You can then instruct Homebrew to link to Ice 3.6 using ```$ brew link ice@36```
 
 4. Install Python provided by Homebrew::
 
     $ brew install python
 
-   Homebrew installs Python in the follwing location::
+   Homebrew installs Python in the following location::
 
     '/usr/local/opt/python/libexec/bin'
 
-   Follow the instructions from the brew python install and set the Homebrew version of Python 
-   to be used rather than the Python shipped with OSX. Add the following line to your .bash_profile::
+   Follow the instructions from the brew Python install and set the Homebrew version of Python 
+   to be used rather than the Python shipped with OS X. Add the following line to your :file:`.bash_profile`::
 
     export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 .. note:: 
-   To keep things a little cleaner, add the following enviorment variable to your .bash_profile::
+   To keep things a little cleaner, add the following enviornment variable to your :file:`.bash_profile`::
 
     # Environment variable pointing to Homebrew Python location
     export PYTHON_BREW=/usr/local/opt/python/libexec/bin
@@ -132,37 +132,37 @@ Requirements
     $ python --version
     Python 2.7.13
 
-6. For developing with OMERO, or Python in general, we would recommend you use VirtaulEnv.
-   VirtualEnv allows us to develop python applications without having to 
-   worry about clashing thirdparty packages for different Python projects.
+6. For developing with OMERO, or Python in general, we would recommend you use Virtualenv.
+   Virtualenv allows us to develop Python applications without having to 
+   worry about clashing third-party packages for different Python projects.
 
-   Use pip to get `VirtualEnv <https://virtualenv.pypa.io/en/stable/>`__::
+   Use pip to get `Virtualenv <https://virtualenv.pypa.io/en/stable/>`__::
 
     $ pip install virtualenv
 
-   With VirtualEnv installed, create a virtual enviorment::
+   With Virtualenv installed, create a virtual enviornment::
 
     $ virtualenv ~/Virtual/omero
 
    This will create a folder to hold Python libraries in the the directory :file:`~Virtual/omero/lib`
 
-.. note:: You can activate the VirtualEnv enviorment that we created using::
+.. note:: You can activate the Virtualenv enviornment that we created using::
 
     $ source ~/Virtual/omero/bin/activate
 
-   This will swtich to using pip and python in the VirtualEnv directory 
-   :file:`~/Virtual/omero/bin` and any pip libraries you install, whilst the VirtaulEnv
+   This will swtich to using Pip and Python in the Virtualenv directory 
+   :file:`~/Virtual/omero/bin` and any Pip libraries you install, whilst the Virtualenv
    is activated, will be installed to :file:`source ~/Virtual/omero/lib`.
 
-   .. note:: (OPTIONAL) You can add an `alias` to your .bash_profile file to make this step easier::
+   .. note:: (OPTIONAL) You can add an `alias` to your :file:`.bash_profile` to make this step easier::
 
         alias startVmOmero="source ~/Virtual/omero/bin/activate"
 
-      Reload bash_profile in OSX::
+      Reload :file:`.bash_profile` in OS X::
 
         $ source ~/.bash_profile
 
-      Now you can activate the VirtualEnv enviorment using::
+      Now you can activate the Virtualenv enviornment using::
 
         $ startVmOmero
 
@@ -175,44 +175,44 @@ OMERO installation
 Pre-built server
 ^^^^^^^^^^^^^^^^
 
-1. Using the command-line Terminal, prepare a place for your OMERO server to 
+1. Using the command-line terminal, prepare a place for your OMERO server to 
    be downloaded to. We suggest a folder on your user directory called 'Omero'::
 
-    $ mkdir -p ~/Omero
+    $ mkdir -p ~/Projects/Omero
 
    Run the following command to download a build of OMERO.Server::
 
-    $ curl https://downloads.openmicroscopy.org/omero/5.3.4/artifacts/OMERO.server-5.3.4-ice36-b69.zip > ~/Omero/server.zip
+    $ curl https://downloads.openmicroscopy.org/omero/5.3.4/artifacts/OMERO.server-5.3.4-ice36-b69.zip > ~/Projects/Omero/server.zip
 
    Extract the :file:`server.zip`
 
-2. Once extracted, open your .bash_profile in a text editor, 
-   such as the built in TextEdit app::
+2. Once extracted, open your :file:`.bash_profile` in a text editor, 
+   such as the built-in TextEdit app::
 
     $ open -a TextEdit.app ~/.bash_profile
 
-   Add an enviorment variable OMERO_SERVER to the .bash_profile which points
-   to the location of the OMERO executbale::
+   Add an enviornment variable :envvar:OMERO_SERVER to the :file:`.bash_profile` which points
+   to the location of the OMERO executabale::
 
     # OMERO Server distribution directory
-    export OMERO_SERVER=~/Omero/server
+    export OMERO_SERVER=~/Projects/Omero/server
 
-   and add the OMERO executbale to the OSX :envvar:`PATH`::
+   and add the OMERO executabale to the OS X :envvar:`PATH`::
 
     # Add the OMERO distribution to PATH
     export PATH=OMERO_SERVER/bin:$PATH
 
-   Using the command-line Terminal reload .bash_profile in OSX::
+   Using the command-line terminal reload :file:`.bash_profile` in OS X::
 
     $ source ~/.bash_profile
 
-   To ensure OMERO is correctly linked into your OSX :envvar:`PATH`, type the following in Terminal and ensure
+   To ensure OMERO is correctly linked into your OS X :envvar:`PATH`, type the following in terminal and ensure
    you get a similar output::
 
     $ which omero
-    /Omero/server/bin/omero
+    /Projects/Omero/server/bin/omero
 
-3. Activate the VirtualEnv enviorment that we created earlier in the "Requirements"
+3. Activate the Virtualenv enviornment that we created earlier in the "Requirements"
    section::
 
     $ source ~/Virtual/Omero/bin/activate
@@ -229,8 +229,8 @@ Local built server
 
 1. Prepare a place for your OMERO code to live, e.g.::
 
-    $ mkdir -p ~/Omero/code/projects
-    $ cd ~/Omero/code/projects
+    $ mkdir -p ~/Projects/Omero/code/projects
+    $ cd ~/Projects/Omero/code/projects
 
 2. Clone the source code from the project's GitHub account to build locally::
 
@@ -253,14 +253,14 @@ Local built server
     :doc:`/developers/build-system`
         Developer documentation page on how to build the OMERO.server
 
-3. Once the build completes, the OMERO server build output will be located in :file:`~/Omero/code/projects/openmicroscopy/dist`.
+3. Once the build completes, the OMERO server build output will be located in :file:`~/Projects/Omero/code/projects/openmicroscopy/dist`.
    Prepend the :file:`bin` directory to your :envvar:`PATH`::
 
     $ export PATH=~/code/projects/openmicroscopy/dist/bin:$PATH
 
    and follow the steps for setting up the database and OMERO data directory as mentioned in the previous section.
 
-4. Activate the VirtualEnv enviorment that we created earlier in the "Requirements"
+4. Activate the Virtualenv enviornment that we created earlier in the "Requirements"
    section::
 
     $ source ~/Virtual/Omero/bin/activate
@@ -279,10 +279,10 @@ OMERO configuration
 
     $ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w start
 
-.. note: To make life easier, you can add an ```alias``` to your .bash_profile
-   to make starting a VirtualEnv enviorment easier::
+.. note: To make life easier, you can add an ```alias``` to your :file:`.bash_profile`
+   to make starting a Virtualenv enviornment easier::
     
-    # Start VirtualEnv for OMERO
+    # Start Virtualenv for OMERO
     alias startVmOmero=Virtual/Omero/bin/activate
 
    You can also add an `alias` to start and stop the Postgres service::
@@ -290,7 +290,7 @@ OMERO configuration
     alias startPg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w start'
     alias stopPg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w stop'
 
-   Reload bash_profile in OSX::
+   Reload :file:`.bash_profile` in OS X::
 
     $ source ~/.bash_profile
 
@@ -302,15 +302,15 @@ OMERO configuration
 
 3. Create directory for OMERO to store its data::
 
-    $ mkdir -p ~/Omero/data
+    $ mkdir -p ~/Projects/Omero/data
 
-4. Start your VirtaulEnv enviorment we created earlier::
+4. Start your Virtualenv enviornment we created earlier::
 
     $ source ~/Virtual/omero/bin/activate
 
 5. Now set the OMERO configuration::
 
-    $ omero config set omero.data.dir ~/Omero/data
+    $ omero config set omero.data.dir ~/Projects/Omero/data
     $ omero config set omero.db.name omero_database
     $ omero config set omero.db.user db_user
     $ omero config set omero.db.pass db_password
@@ -380,18 +380,18 @@ Common issues
 Example .bash_profile
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Open your .bash_profile in your favourite text editor, such as the built in TextEdit app::
+Open your :file:`.bash_profile` in a text editor, such as the built-in TextEdit app::
 
     $ open -a TextEdit.app ~/.bash_profile
 
-If you've followed this guide your bash profile should look similar to the follwoing::
+If you have followed this guide your :file:`.bash_profile` should look similar to the following::
 
     # UTF-8 and US language settings for Postgres
     export LANG=en_US.UTF-8
     export LANGUAGE=en_US:en
 
     # OMERO Server distribution directory
-    export OMERO_SERVER=Omero/server
+    export OMERO_SERVER=Projects/Omero/server
 
     # OMERO python libraries
     export OMERO_PYTHON_LIBS=${OMERO_SERVER}/lib/python
