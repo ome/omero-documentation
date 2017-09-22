@@ -155,6 +155,8 @@ extlinks = {
     'community' : (oo_root + '/support/%s', ''),
     'omero' : (oo_root + '/omero/%s', ''),
     'bf' : (oo_root + '/bio-formats/%s', ''),
+    'secvuln' : (oo_root + '/security/advisories/%s', ''),
+    'security' : (oo_root + '/security/%s', ''),
     # Doc links
     'model_doc' : (docs_root + '/latest/ome-model/%s', ''),
     'devs_doc' : (docs_root + '/contributing/%s', ''),
@@ -169,8 +171,6 @@ extlinks = {
     'djangodoc' : ('https://docs.djangoproject.com/en/1.8/%s', ''),
     'doi' : ('http://dx.doi.org/%s', ''),
     'pypi': ('https://pypi.python.org/pypi/%s', ''),
-    # Remaining Plone links
-    'secvuln' : (oo_root + '/info/vulnerabilities/%s', '')
     }
 
 rst_epilog = """
