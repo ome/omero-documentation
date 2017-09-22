@@ -20,5 +20,7 @@ What's new for OMERO 5.4 for sysadmins
 - It is now possible to include an html template in the base `core_html` template so it can
   be used for all webclient pages.
 
+- The OMERO.web part of the :program:`omero admin diagnostics` command has been moved to :program:`omero web diagnostics`
+
 For a full list of bug fixes and other improvements, see the
 :doc:`/users/history`.
