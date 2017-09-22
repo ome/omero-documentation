@@ -21,6 +21,7 @@ What's new for OMERO 5.4 for sysadmins
   be used for all webclient pages.
 
 - The OMERO.web part of the :program:`omero admin diagnostics` command has been moved to :program:`omero web diagnostics`
+  as OMERO.web can be installed separately from the OMERO.server.
 
 For a full list of bug fixes and other improvements, see the
 :doc:`/users/history`.
