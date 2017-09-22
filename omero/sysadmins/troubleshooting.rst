@@ -294,7 +294,7 @@ Not enough heap space
             java.lang.OutOfMemoryError: Java heap space
 
 If you get an out of memory error, you can try increasing the maximum Java heap space,
-by setting the JAVA_OPTS variable before running the import command.
+by setting the :envvar:`JAVA_OPTS` variable before running the import command.
 For example to set a maximum heap space of 3GB:
 
 ::
