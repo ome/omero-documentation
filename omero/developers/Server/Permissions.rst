@@ -1,54 +1,5 @@
-OMERO permissions history, querying and usage
+OMERO permissions querying, usage and history
 =============================================
-
-Introduction
-------------
-
-The OMERO permissions model has had a significant overhaul from version 4.1.x 
-to 4.4.x. Users and groups have existed in OMERO since well before the initial 
-4.1.x releases and numerous permissions levels were possible in the 4.1.x 
-series but it was largely assumed that an Experimenter belonged to a single 
-Group and that the permissions of that Group were private.
- 
-The OMERO permissions system received its first significant update in 4.2.0 
-with the introduction of multiple group support throughout the platform and 
-group permissions levels. 
-
-In a 4.1.x object graph ``Group`` containment was not enforced i.e. two linked 
-objects (such as a ``Project`` and ``Dataset``) could in theory be members of 
-two distinct ``Groups``. All objects continued to carry their permissions and 
-those permissions were persisted in the database.
-
-Things to note about 4.2.x permissions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-* Objects could not be moved between groups easily.
-* It was not possible to reduce the permissions level of a group.
-* The delete service (introduced in OMERO 4.2.1) was made aware of the 
-  permissions system.
-* 'Default Group' switching was required to make queries in different 
-  permissions contexts.
-
-.. note:: Queries span only one group at a time. Inserts and updates as other 
-          users must be done by creating a session as that user.
-
-Changes for OMERO 4.4.x
-^^^^^^^^^^^^^^^^^^^^^^^
-
-The second major OMERO permissions system innovations were performed in 4.4.0:
-
-* Cross group querying was reintroduced.
-* Change group was enabled, allowing the movement of graphs of objects between 
-  groups.
-* Permissions level reduction was made possible for read-annotate to read-only 
-  transitions.
-* A thorough user interface review resulted in the following features being made available in the UI:
-   - single group browsing and user-switching (available since 4.4.0)
-   - browsing data across multiple groups (available since 4.4.6 and refined in 4.4.7)
-* The concept of a 'Default or Primary Group' was deprecated.
-
-.. note:: Queries, inserts and updates span ``any`` or ``all`` groups and ``any`` user via options flags.
-
 
 Working with the OMERO |release| permissions system
 ---------------------------------------------------
@@ -498,3 +449,58 @@ queries are only (unless otherwise filtered) restricted at the group level and
 not at the level of the user. Furthermore, the delete service always 
 internally performs all its queries in the ``omero.group=-1`` context unless 
 another more explicit one is specified.
+
+History
+-------
+
+The OMERO permissions model has had a significant overhaul from version 4.1.x 
+to 4.4.x. Users and groups have existed in OMERO since well before the initial 
+4.1.x releases and numerous permissions levels were possible in the 4.1.x 
+series but it was largely assumed that an Experimenter belonged to a single 
+Group and that the permissions of that Group were private.
+ 
+The OMERO permissions system received its first significant update in 4.2.0 
+with the introduction of multiple group support throughout the platform and 
+group permissions levels. 
+
+In a 4.1.x object graph ``Group`` containment was not enforced i.e. two linked 
+objects (such as a ``Project`` and ``Dataset``) could in theory be members of 
+two distinct ``Groups``. All objects continued to carry their permissions and 
+those permissions were persisted in the database.
+
+Things to note about 4.2.x permissions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Objects could not be moved between groups easily.
+* It was not possible to reduce the permissions level of a group.
+* The delete service (introduced in OMERO 4.2.1) was made aware of the 
+  permissions system.
+* 'Default Group' switching was required to make queries in different 
+  permissions contexts.
+
+.. note:: Queries span only one group at a time. Inserts and updates as other 
+          users must be done by creating a session as that user.
+
+Changes for OMERO 4.4.x
+^^^^^^^^^^^^^^^^^^^^^^^
+
+The second major OMERO permissions system innovations were performed in 4.4.0:
+
+* Cross group querying was reintroduced.
+* Change group was enabled, allowing the movement of graphs of objects between 
+  groups.
+* Permissions level reduction was made possible for read-annotate to read-only 
+  transitions.
+* A thorough user interface review resulted in the following features being made available in the UI:
+   - single group browsing and user-switching (available since 4.4.0)
+   - browsing data across multiple groups (available since 4.4.6 and refined in 4.4.7)
+* The concept of a 'Default or Primary Group' was deprecated.
+
+.. note:: Queries, inserts and updates span ``any`` or ``all`` groups and ``any`` user via options flags.
+
+Changes for OMERO 5.4.x
+^^^^^^^^^^^^^^^^^^^^^^^
+
+OMERO 5.4.0 included Restricted Administrators as a new user role. See
+:doc:`/sysadmins/admins-with-restricted-privileges` and :doc:`LightAdmins` for
+more information.
