@@ -1,8 +1,11 @@
 OMERO.server installation on CentOS 6 with Python 2.7
 =====================================================
 
-This installation walkthrough should be read in conjunction with
-:doc:`server-installation` and :doc:`install-web`.
+This is an example walkthrough for installing OMERO on CentOS 6 with Python 2.7, using
+a dedicated system user, and should be read in conjunction with
+:doc:`server-installation` and :doc:`install-web`. You can use this as a guide
+for setting up your own test server. For production use you should also read
+the pages listed under :ref:`index-optimizing-server`.
 
 Running OMERO on CentOS 6 has a number of special requirements which
 deviate from the standard installation instructions. The instructions
@@ -103,6 +106,15 @@ variable:
 These settings will enable Python 2.7, and set the necessary
 environment variables for Ice 3.6 to work.
 
+Installing NGINX
+----------------
+
+**The following steps are run as the omero system user.**
+
+.. literalinclude:: walkthrough/walkthrough_centos6_py27_ius.sh
+    :start-after: #start-nginx-install
+    :end-before: #end-nginx-install
+
 Install OMERO.server
 --------------------
 
@@ -133,6 +145,13 @@ Configuring OMERO.web
 ---------------------
 
 **The following steps are run as the omero system user.**
+
+When following this section you can
+either use your own values, or alternatively
+source :download:`settings-web.env <walkthrough/settings-web.env>`:
+
+.. literalinclude:: walkthrough/settings-web.env
+   :start-after: Substitute
 
 Install other OMERO.web dependencies using pip:
 
