@@ -36,17 +36,21 @@ Users
     **Group member**
         This is the standard user.
 
+    **Restricted Administrators**
+        New in OMERO 5.4.0, these administrators can be created with a subset
+        of privileges allowing trusted users to act on behalf of all other
+        OMERO users for a defined set of tasks. See
+        :doc:`/sysadmins/admins-with-restricted-privileges` for further
+        information.
 
-Groups and users must be created by the server administrator. Users can
+Groups and users must be created by the server administrator or a restricted
+administrator with the correct privileges. Users can
 then be added by the administrator or by one of the group owners
 assigned by the administrator. This would typically be the PI of the
-lab. The group's owners or server administrator can also choose the
+lab. The group's owners or administrators can also choose the
 permission level for that group. See the :help:`Help guide for managing groups
 <sharing-data.html#owner>` for more information about how to administrate them
 in OMERO.
-Version 5.4.0 introduces the ability to create 'Restricted Administrators'
-with a selected subset of permissions,
-see :doc:`/sysadmins/admins-with-restricted-privileges` for further information.
 
 Group permission levels
 -----------------------
@@ -124,6 +128,11 @@ The various permission levels are:
          to all the data.
 
 
+.. note:: Restricted administrators are designed to work independently of
+    group permissions. They act as full administrators when using their subset
+    of privileges, allowing them to perform actions on data belonging to other
+    users even in private groups (see the permissions tables below).
+
 .. seealso::
 
     :help:`Help guide for sharing data <sharing-data.html>`
@@ -188,8 +197,15 @@ Permissions tables
 
 The following are the permissions valid for users working on data belonging to
 other group members. These permissions depend on the group permissions and on
-the type of the user performing the action. 
+the type of the user performing the action.
 
+**Restricted administrators act as full administrators when using their
+subset of privileges and standard group members for all other actions**. For
+example, a data analyst with write data privileges can edit data even in a
+private group (without having to be a member of that group) but without the
+delete privilege they cannot delete data belonging to another user unless that
+data is in a read-write group they are a member of. See
+:doc:`/sysadmins/admins-with-restricted-privileges` for further information.
 
 |
 
