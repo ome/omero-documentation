@@ -29,9 +29,9 @@ Users
 
     **Group owner**
         Your group may have one or more owners. The group
-        owner has some additional rights within each group than a standard
-        group member, including the ability to add other members to the
-        group.
+        owner has some additional rights within each group compared to a
+        standard group member, including the ability to add other members to
+        the group.
 
     **Group member**
         This is the standard user.
