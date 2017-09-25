@@ -116,6 +116,18 @@ precautionary checks also done by the actual upgrade script.
     (1 row)
 
 
+.. warning::
+
+   The :file:`sql/psql/OMERO5.4__0/OMERO5.3__1-precheck.sql` script
+   referenced by the above :program:`psql` command assumes a planned
+   upgrade from OMERO 5.3.4. If you are instead currently running OMERO
+   5.3.3 or an earlier 5.3.x version then you perform the precheck by
+   using the above command with
+   :file:`sql/psql/OMERO5.4__0/OMERO5.3__0-precheck.sql`. That script
+   verifies that the database contains no trace of
+   :secvuln:`2017-SV5-filename-2` having been exploited; this
+   vulnerability was fixed in OMERO 5.3.4.
+
 .. _back-up-the-db:
 
 Perform a database backup
@@ -234,6 +246,15 @@ intermediate major release.
    If you perform the database upgrade using *SQL shell*, make sure you are
    connected to the database using **db_user** before running the script. See
    :forum:`this forum thread <viewtopic.php?f=5&t=7778>` for more information.
+
+.. warning::
+
+   The :file:`sql/psql/OMERO5.4__0/OMERO5.3__1.sql` script referenced by
+   the above :program:`psql` command assumes upgrade from OMERO 5.3.4.
+   If you are instead currently running OMERO 5.3.3 or an earlier 5.3.x
+   version then you upgrade the database directly to OMERO 5.4.0 by
+   using the above command with
+   :file:`sql/psql/OMERO5.4__0/OMERO5.3__0.sql`.
 
 Delete certain annotations (optional)
 """""""""""""""""""""""""""""""""""""
