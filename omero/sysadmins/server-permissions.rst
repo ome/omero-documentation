@@ -14,7 +14,7 @@ members of the group depends on the permissions settings for that
 group. Whenever a user logs on to an OMERO server, they are connected
 under one of their groups. All data they import and any work that is
 done is assigned to the current group, however the user can now
-easily copy their data into another group.
+easily move their data into another group.
 
 Users
 -----
