@@ -44,8 +44,9 @@ Users
         information.
 
 Groups and users must be created by the server administrator or a restricted
-administrator with the correct privileges. Users can
-then be added by the administrator or by one of the group owners
+administrator with the correct privileges. Users can then be added by the
+administrator (either a full admin or a restricted admin with the correct
+privileges) or by one of the group owners
 assigned by the administrator. This would typically be the PI of the
 lab. The group's owners or administrators can also choose the
 permission level for that group. See the :help:`Help guide for managing groups
@@ -200,17 +201,23 @@ other group members. These permissions depend on the group permissions and on
 the type of the user performing the action.
 
 **Restricted administrators act as full administrators when using their
-subset of privileges and standard group members for all other actions**. For
+subset of privileges. For all actions which are not covered by their
+privileges subset, they act as standard group members.** For
 example, a data analyst with write data privileges can edit data even in a
 private group (without having to be a member of that group) but without the
 delete privilege they cannot delete data belonging to another user unless that
-data is in a read-write group they are a member of. See
+data is in a read-write group they are a member of. All restricted
+administrators can view and download any data regardless of group type and
+their subset of privileges. See
 :doc:`/sysadmins/admins-with-restricted-privileges` for further information.
 
 |
 
 :term:`Administrator`
 ^^^^^^^^^^^^^^^^^^^^^
+
+This table covers both full server administrators and restricted
+administrators with the privileges required for these actions.
 
 |
 
@@ -263,6 +270,9 @@ data is in a read-write group they are a member of. See
 :term:`Remove annotations`                N                      N                       N              Y
 :term:`Mix data`                              N                      N                       N              Y
 =============================== ======================= ===================== ====================== ===================
+
+Note that restricted administrators act as group members for any actions that
+are not covered by their subset of privileges.
 
 Key
 ^^^
