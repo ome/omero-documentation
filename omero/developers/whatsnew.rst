@@ -19,20 +19,21 @@ Python BlitzGateway
 - See :doc:`/sysadmins/admins-with-restricted-privileges` to know which privileges are required for which actions.
 
 
-Graphs
-^^^^^^
-
-
 Java Gateway
 ^^^^^^^^^^^^
 
 
-OMERO Model
-^^^^^^^^^^^
-
-
 Deprecations
 ^^^^^^^^^^^^
+
+OMERO Model
+-----------
+
+- :ref:`ome.model.jobs.ImportJob <OMERO model class ImportJob>`
+  to be removed in OMERO 6.0.
+- :ref:`ome.model.roi.Path <OMERO model class Path>`
+  to be removed in OMERO 6.0.
+
 
 Python BlitzGateway
 -------------------
