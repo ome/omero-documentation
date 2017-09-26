@@ -190,7 +190,7 @@ Upgrade your database
 Ensure Unicode character encoding
 """""""""""""""""""""""""""""""""
 
-Versions of OMERO from 5.1.0 onwards require a Unicode-encoded database;
+OMERO requires a Unicode-encoded database;
 without it, the upgrade script aborts with a message warning how the ``OMERO
 database character encoding must be UTF8``. From :command:`psql`::
 
