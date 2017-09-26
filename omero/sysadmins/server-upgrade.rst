@@ -19,9 +19,10 @@ the level of detail; upgrading should be a straightforward process.
     instructions for those prior versions because they may describe
     important steps that these instructions assume to already have been
     done by OMERO |previousversion| users. Before proceeding with these
-    instructions you may therefore first need to read the `instructions
+    instructions you may first need to read the `instructions
     <https://docs.openmicroscopy.org/latest/omero5.3/sysadmins/server-upgrade.html>`_
-    for upgrading *to* OMERO |previousversion|.
+    for upgrading *to* OMERO |previousversion| because some extra steps
+    may be required beyond simply running the SQL upgrade scripts.
 
 Upgrade check list
 ------------------
@@ -248,8 +249,9 @@ If you are upgrading from a server earlier than |previousversion| then
 you must run the earlier upgrade scripts in sequence before the one
 above. There is no need to download and run the server from an
 intermediate major release but you must still study the upgrade
-instructions for earlier versions in case there are additional steps
-such as optional SQL scripts that affect the database.
+instructions for earlier versions in case there are additional steps.
+For example, any optional SQL scripts that affect the database probably
+run only on the specific version before the next upgrade script.
 
 .. note::
 
