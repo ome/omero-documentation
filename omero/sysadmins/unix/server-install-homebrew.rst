@@ -10,10 +10,6 @@ OMERO.server installation on OS X with Homebrew
     via Homebrew, in addition to all its prerequisites. It is aimed at **developers**
     since typically MacOS X is not suited for serious server deployment.
 
-These instructions are implemented in a series of `automated scripts
-<https://github.com/ome/omero-install/tree/develop/osx>`_ which
-install OMERO via Homebrew from a fresh configuration.
-
 Prerequisites
 -------------
 
