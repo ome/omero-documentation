@@ -21,7 +21,9 @@ Python BlitzGateway
 
 Java Gateway
 ^^^^^^^^^^^^
-
+- Added various methods for dealing with :doc:`/sysadmins/admins-with-restricted-privileges`
+  to the :javadoc:`AdminFacility <omero/gateway/facility/AdminFacility.html>`.
+ 
 
 Deprecations
 ^^^^^^^^^^^^
