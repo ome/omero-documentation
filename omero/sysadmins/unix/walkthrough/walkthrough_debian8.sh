@@ -35,17 +35,17 @@ apt-get -y install db5.3-util
 apt-get -y install libssl-dev libbz2-dev libmcpp-dev libdb++-dev libdb-dev libdb-java	
 cd /tmp/ice-download		
 
-URL=https://github.com/zeroc-ice/ice/archive/v3.6.3.zip		 
+URL=https://github.com/zeroc-ice/ice/archive/v3.6.4.zip		 
 NAME_ZIP=${URL##*/}	
 wget $URL
 unzip -q $NAME_ZIP
 rm $NAME_ZIP		
-cd ice-3.6.3/cpp		
+cd ice-3.6.4/cpp		
 make && make install
 
 pip install "zeroc-ice>3.5,<3.7"
 
-echo /opt/Ice-3.6.3/lib64 > /etc/ld.so.conf.d/ice-x86_64.conf		
+echo /opt/Ice-3.6.4/lib64 > /etc/ld.so.conf.d/ice-x86_64.conf		
 ldconfig
 #end-recommended-ice
 #start-supported-ice
@@ -88,7 +88,7 @@ cp settings.env settings-web.env step04_all_omero.sh setup_omero_db.sh ~omero
 #end-release-ice35
 #start-release-ice36
 cd ~omero
-SERVER=http://downloads.openmicroscopy.org/latest/omero5.3/server-ice36.zip
+SERVER=https://downloads.openmicroscopy.org/latest/omero5/server-ice36.zip
 wget $SERVER -O OMERO.server-ice36.zip
 unzip -q OMERO.server*
 #end-release-ice36
@@ -107,7 +107,7 @@ pip install -r OMERO.server/share/web/requirements-py27.txt
 #web-requirements-recommended-end
 #start-configure-nginx: As the omero system user, configure OMERO.web
 OMERO.server/bin/omero config set omero.web.application_server wsgi-tcp
-OMERO.server/bin/omero web config nginx --http "$OMERO_WEB_PORT" > OMERO.server/nginx.conf.tmp
+OMERO.server/bin/omero web config nginx --http "$WEBPORT" > OMERO.server/nginx.conf.tmp
 #end-configure-nginx
 # As root, install nginx
 #start-nginx-install
