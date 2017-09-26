@@ -24,7 +24,7 @@ This should be read in conjunction with :doc:`../version-requirements`.
 
 .. warning::
 
-   CentOS 6 is deprecated, CentOS 7 is preferable for new installations
+   CentOS 6 is deprecated, CentOS 7 is preferable for new installations;
    see :doc:`server-centos7-ice36`.
 
 Setting up
