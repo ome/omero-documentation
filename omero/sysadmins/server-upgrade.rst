@@ -266,34 +266,6 @@ such as optional SQL scripts that affect the database.
    using the above command with
    :file:`sql/psql/OMERO5.4__0/OMERO5.3__0.sql`.
 
-Delete certain annotations (optional)
-"""""""""""""""""""""""""""""""""""""
-
-For various reasons, production databases may accumulate non-sharable
-annotations that are orphaned. These are :doc:`structured annotations
-</developers/Model/StructuredAnnotations>` that are 'basic' (`Boolean`,
-`Timestamp`, `Term`), 'numeric' (`Double`, `Long`), or `Comment`, and
-that are *not* annotating an object. An illustrative example is that
-deleting a rating in OMERO.insight 5.2 may have left behind the
-corresponding `Long` annotation that captured the rating's number of
-stars. Non-sharable annotations, like comments and ratings, cannot be
-viewed from OMERO.insight or OMERO.web after they have been orphaned
-because they are no longer associated with any model object such as an
-image. The deletion script does *not* delete annotations that have a
-custom/non-OME namespace (ns) set.
-
-.. parsed-literal::
-
-    $ cd OMERO.server
-    $ psql -h localhost -U **db_user** **omero_database** < sql/psql/|current_dbver|/delete-ns-orphans.sql
-
-This script may be used during some maintenance window subsequent to the
-actual upgrade as long as it runs on a |current_dbver| database. If at
-upgrade time you have questions about the script then you may perform
-further research before :ref:`backing up the database again
-<back-up-the-db>` then running the script. There is no requirement to
-ever use it.
-
 Optimize an upgraded database (optional)
 """"""""""""""""""""""""""""""""""""""""
 
@@ -303,36 +275,6 @@ database which can both save disk space and speed up access times.
 .. parsed-literal::
 
     $ psql -h localhost -U **db_user** **omero_database** -c 'VACUUM FULL VERBOSE ANALYZE;'
-
-Reset ROI shape color (optional)
-""""""""""""""""""""""""""""""""
-
-Regions of interest generated using OMERO.insight did not follow the
-OME model specification. The color of shapes is now handled according
-to the data model, using RGBA rather than ARGB format. 
-A script is provided to upgrade the color settings of shapes created using OMERO.insight
-or a different client that saved them in the ARGB format. If you only wish to apply the changes
-to a subset of ROIs, edit the ``TRUE`` in the script below before running it:
-
-.. parsed-literal::
-
-    $ psql -h localhost -U **db_user** **omero_database** < sql/psql/|current_dbver|/shape_color_argb_to_rgba.sql
-
-If you need to roll back the changes, a reverse script ``reverse_shape_color_argb_to_rgba.sql``
-is also available in the same folder. Edit the ``TRUE`` if you wish to roll back the changes to a
-subset of ROIs.
-
-Move annotation from Image to Well (optional)
-"""""""""""""""""""""""""""""""""""""""""""""
-
-Since 5.3, users can annotate Wells in both OMERO.web and OMERO.insight. Previously they could only
-annotate Images linked to WellSamples.
-The official script `Move_Annotations.py <https://github.com/ome/scripts/blob/develop/omero/util_scripts/Move_Annotations.py>`_
-can be run by users to move annotations from Images to Wells but an administrator can run the
-script on any user's data.
-
-
-.. _upgrademergescript:
 
 Merge script changes
 ^^^^^^^^^^^^^^^^^^^^
