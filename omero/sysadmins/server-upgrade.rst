@@ -245,8 +245,8 @@ to run.
 
 
 If you are upgrading from a server earlier than |previousversion| then
-you must run the earlier upgrade scripts in sequence before the
-one above. There is no need to download and run the server from an
+you must run the earlier upgrade scripts in sequence before the one
+above. There is no need to download and run the server from an
 intermediate major release but you must still study the upgrade
 instructions for earlier versions in case there are additional steps
 such as optional SQL scripts that affect the database.
@@ -297,10 +297,11 @@ Update your environment variables and memory settings
 Environment variables
 """""""""""""""""""""
 
-If you changed the directory name where the |release| server code resides,
-make sure to update any system environment variables. Before restarting
-the server, make sure your :envvar:`PATH` and :envvar:`PYTHONPATH` system environment
-variables are pointing to the new locations.
+If you changed the directory name where the |release| server code
+resides, make sure to update any system environment variables. Before
+restarting the server, make sure your :envvar:`PATH` and
+:envvar:`PYTHONPATH` system environment variables are pointing to the
+new locations.
 
 JVM memory settings
 """""""""""""""""""
