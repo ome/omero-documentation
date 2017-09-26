@@ -217,7 +217,9 @@ their subset of privileges. See
 ^^^^^^^^^^^^^^^^^^^^^
 
 This table covers both full server administrators and restricted
-administrators with the privileges required for these actions.
+administrators with the privileges required for these actions. Restricted
+administrators act as group members for any actions that are not covered by
+their subset of privileges.
 
 |
 
@@ -271,8 +273,6 @@ administrators with the privileges required for these actions.
 :term:`Mix data`                              N                      N                       N              Y
 =============================== ======================= ===================== ====================== ===================
 
-Note that restricted administrators act as group members for any actions that
-are not covered by their subset of privileges.
 
 Key
 ^^^
