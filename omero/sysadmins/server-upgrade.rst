@@ -22,7 +22,8 @@ the level of detail; upgrading should be a straightforward process.
     instructions you may first need to read the `instructions
     <https://docs.openmicroscopy.org/latest/omero5.3/sysadmins/server-upgrade.html>`_
     for upgrading *to* OMERO |previousversion| because some extra steps
-    may be required beyond simply running the SQL upgrade scripts.
+    may be required beyond simply running the SQL upgrade scripts
+    described below.
 
 Upgrade check list
 ------------------
