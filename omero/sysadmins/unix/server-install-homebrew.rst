@@ -6,7 +6,7 @@ OMERO.server installation on OS X with Homebrew
     This walkthrough demonstrates how to install OMERO on a clean Mac
     OS X system (10.9 or later) using Homebrew.  This demonstrates how to install
     OMERO.server, either from the downloaded OMERO.server.zip
-    or *from the source code*
+    or from the source code
     via Homebrew, in addition to all its prerequisites. It is aimed at **developers**
     since typically MacOS X is not suited for serious server deployment.
 
@@ -143,7 +143,7 @@ Requirements
 
     $ source ~/Virtual/omero/bin/activate
 
-   This will swtich to using Pip and Python in the Virtualenv directory 
+   This will switch to using Pip and Python in the Virtualenv directory
    :file:`~/Virtual/omero/bin` and any Pip libraries you install, whilst the Virtualenv is activated, 
    will be installed to :file:`source ~/Virtual/omero/lib`.
 
@@ -179,7 +179,7 @@ Pre-built server
 
     $ open -a TextEdit.app ~/.bash_profile
 
-   Add an environment variable :envvar:OMERO_SERVER to the :file:`.bash_profile` which points
+   Add an environment variable :envvar:`OMERO_SERVER` to the :file:`.bash_profile` which points
    to the location of the OMERO executable::
 
     # OMERO Server distribution directory
@@ -238,7 +238,7 @@ Locally built server
         Developer documentation page on how to build the OMERO.server
 
 5. Once the build completes, the OMERO server build output will be located in :file:`~/Projects/Omero/code/openmicroscopy/dist`.
-   If it is not already open, open your :file:`.bash_profie`::
+   If it is not already open, open your :file:`.bash_profile`::
 
     $ open -a TextEdit.app ~/.bash_profile
 
@@ -284,7 +284,7 @@ OMERO configuration
 
     $ source ~/.bash_profile
 
-2. To use Omero, we need to first setup Postgres. Open a command-line terminal and run the 
+2. To use Omero, we need to first set up Postgres. Open a command-line terminal and run the
    following commands to create a user called *db_user* and database called *omero_database*::
 
     $ createuser -w -D -R -S db_user
