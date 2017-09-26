@@ -188,7 +188,7 @@ Pre-built server
    and add the OMERO executable to the OS X :envvar:`PATH`::
 
     # Add the OMERO distribution to PATH
-    export PATH=OMERO_SERVER/bin:$PATH
+    export PATH=$OMERO_SERVER/bin:$PATH
 
    Using the command-line terminal, reload your :file:`.bash_profile` using::
 
@@ -380,19 +380,13 @@ If you have followed this guide your :file:`.bash_profile` should look similar t
     export LANGUAGE=en_US:en
 
     # OMERO Server distribution directory
-    export OMERO_SERVER=Projects/Omero/server
-
-    # OMERO python libraries
-    export OMERO_PYTHON_LIBS=${OMERO_SERVER}/lib/python
-
-    # OMERO ice configuration
-    export OMERO_ICE_CONFIG=${OMERO_SERVER}/etc/ice.config
+    export OMERO_SERVER=/path/to/OMERO.server-x.x.x-ice36-bxx
 
     # Homebrew Python path
     export BREW_PYTHON=/usr/local/opt/python/libexec/bin
 
     # Full path
-    export PATH=$OMERO_SERVER/bin:$OMERO_ICE_CONFIG:BREW_PYTHON:$PATH
+    export PATH=$OMERO_SERVER/bin:BREW_PYTHON:$PATH
 
     # Start a virtual environment for developing Python
     alias startVmOmero='source ~/Virtual/omero/bin/activate'
