@@ -190,9 +190,9 @@ Upgrade your database
 Ensure Unicode character encoding
 """""""""""""""""""""""""""""""""
 
-OMERO requires a Unicode-encoded database;
-without it, the upgrade script aborts with a message warning how the ``OMERO
-database character encoding must be UTF8``. From :command:`psql`::
+OMERO requires a Unicode-encoded database; without it, the upgrade
+script aborts with a message warning how the ``OMERO database character
+encoding must be UTF8``. From :command:`psql`::
 
   # SELECT datname, pg_encoding_to_char(encoding) FROM pg_database;
     datname   | pg_encoding_to_char
