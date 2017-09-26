@@ -2,12 +2,12 @@
 Version requirements
 ********************
 
-Summary of changes for OMERO 5.3 and provisional changes for 5.4
+Summary of changes for OMERO 5.4 and provisional changes for 5.5
 ================================================================
 
 Criteria for what is considered to be supportable includes whether
 support by both upstream developers and operating system distributions
-will be available for the lifetime of the 5.3 release (including
+will be available for the lifetime of the 5.4 release (including
 security support), and also upon our resources allocated to CI and
 testing. If we are not actively testing it, we **cannot** claim it is
 supported or functional. Software components must be provided and
@@ -15,8 +15,8 @@ supported either by an operating system distribution or their original
 developers.
 
 This section contains a summary of the changes made to the minimum
-version requirements for the 5.3 release and also **possible** changes for
-the following 5.4 release, albeit **tentatively at this point**. The
+version requirements for the 5.4 release and also **possible** changes for
+the following 5.5 release, albeit **tentatively at this point**. The
 intent is to provide a roadmap in order that sysadmins may plan ahead
 and ensure that prerequisites are in place ahead of time to ease
 future upgrades. The following sections provide more detailed
@@ -47,10 +47,13 @@ Operating systems
      * - Linux version
        - OMERO 5.3
        - OMERO 5.4
+       - OMERO 5.5
      * - 6.x
+       - |Deprecated|
        - |Deprecated|
        - |Dropped|
      * - 7.x
+       - |Recommended|
        - |Recommended|
        - |Recommended|
 
@@ -62,13 +65,13 @@ Operating systems
      * - Linux version
        - OMERO 5.3
        - OMERO 5.4
-     * - 12.04
-       - |Dropped|
-       - |Dropped|
+       - OMERO 5.5
      * - 14.04
        - |Supported|
        - |Supported|
+       - |Supported|
      * - 16.04
+       - |Recommended|
        - |Recommended|
        - |Recommended|
        
@@ -89,10 +92,13 @@ platforms **with the exception of MacOS X (64-bit only)**.
    * - Bitness
      - OMERO 5.3
      - OMERO 5.4
+     - OMERO 5.5
    * - 32-bit
+     - |Deprecated| for Ice and native code [client]
      - |Deprecated| for Ice and native code [client]
      - |Dropped| for Ice and native code [client]
    * - 64-bit
+     - |Recommended|
      - |Recommended|
      - |Recommended|
 
@@ -107,19 +113,21 @@ Components
      * - PostgreSQL
        - OMERO 5.3
        - OMERO 5.4
-     * - 9.2
-       - |Dropped|
-       - |Dropped|
+       - OMERO 5.5
      * - 9.3
+       - |Deprecated|
        - |Deprecated|
        - |Dropped|
      * - 9.4
+       - |Supported|
        - |Supported|
        - |Deprecated|
      * - 9.5
        - |Supported|
        - |Supported|
+       - |Supported|
      * - 9.6
+       - |Recommended|
        - |Recommended|
        - |Recommended|
 
@@ -135,8 +143,12 @@ Components
        * - Python
          - OMERO.web 5.3
          - OMERO.server 5.3
-         - OMERO 5.4
+         - OMERO.web 5.4
+         - OMERO.server 5.4
+         - OMERO 5.5
        * - 2.6
+         - |Broken|
+         - |Supported|
          - |Broken|
          - |Supported|
          - |Dropped|
@@ -144,7 +156,11 @@ Components
          - |Recommended|
          - |Recommended|
          - |Recommended|
+         - |Recommended|
+         - |Recommended|
        * - 3.x
+         - |Broken|
+         - |Broken|
          - |Broken|
          - |Broken|
          - |Broken|
@@ -152,7 +168,7 @@ Components
   * Rationale: 2.7 is provided by all systems except for CentOS/RHEL
     6.x, however it is available officially via SCL. Note that 3.3 is
     also available via SCL, so there is potential for a 3.x migration
-    in the 5.3 timeframe. OMERO.web **no longer** works with Python 2.6,
+    in the 5.4 timeframe. OMERO.web **no longer** works with Python 2.6,
     the OMERO.server can still be used with Python 2.6.
 
 * Ice
@@ -163,18 +179,19 @@ Components
        * - Ice
          - OMERO 5.3
          - OMERO 5.4
-       * - 3.4
-         - |Dropped|
-         - |Dropped|
+         - OMERO 5.5
        * - 3.5
+         - |Deprecated|
          - |Deprecated|
          - |Dropped|
        * - 3.6
+         - |Recommended|
          - |Recommended|
          - |Supported|
        * - 3.7
          - |Upcoming|
          - |Upcoming|
+         - |Recommended|
 
 * Java
 
@@ -184,17 +201,21 @@ Components
        * - Java
          - OMERO 5.3
          - OMERO 5.4
+         - OMERO 5.5
        * - 7
+         - |Deprecated|
          - |Deprecated|
          - |Deprecated|
        * - 8
          - |Recommended|
+         - |Recommended|
          - |Supported|
        * - 9
          - |Upcoming|
+         - |Upcoming|
          - |Recommended|
 
-  * Rationale: For 5.3 deprecate 7; this is because security support ended in April 2015.
+  * Rationale: For 5.3 and 5.4 deprecate 7; this is because security support ended in April 2015.
     Currently, Matlab is shipped with Java 7 so it cannot be marked as dropped yet.
 
 * nginx
@@ -205,17 +226,22 @@ Components
        * - nginx
          - OMERO 5.3
          - OMERO 5.4
-       * - 1.4
-         - |Dropped|
-         - |Dropped|
+         - OMERO 5.5
        * - 1.6
-         - |Supported|
-         - |Supported|
+         - |Deprecated|
+         - |Dropped|
+         - |Dropped|
        * - 1.8
          - |Supported|
-         - |Supported|
+         - |Deprecated|
+         - |Dropped|
        * - 1.10
          - |Recommended|
+         - |Recommended|
+         - |Supported|
+       * - 1.12
+         - |Upcoming|
+         - |Upcoming|
          - |Recommended|
 
 .. _support-levels:
@@ -284,14 +310,14 @@ General overview for `RHEL
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.2
       - OMERO 5.3
       - OMERO 5.4
+      - OMERO 5.5
       - Details
     * - 6
       - from Nov 2010
       - to Nov 2020
-      - |Supported|
+      - |Deprecated|
       - |Deprecated|
       - |Dropped|
       - `Reference <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
@@ -307,7 +333,7 @@ RHEL, CentOS 6 and 7 are supported at present. Given the long life
 of enterprise releases, we intend to support only the latest release
 at any given time or else it ties us into very old dependencies; 6.x
 is already quite long in the tooth, however is in wide use and so will
-require supporting at least 5.3.0.
+require supporting at least 5.4.0.
 
 Linux (Ubuntu)
 --------------
@@ -320,13 +346,13 @@ Linux (Ubuntu)
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.2
       - OMERO 5.3
       - OMERO 5.4
+      - OMERO 5.5
     * - 14.04 LTS
       - from Apr 2014
       - to Apr 2019
-      - |Recommended|
+      - |Supported|
       - |Supported|
       - |Supported|
     * - 16.04 LTS
@@ -389,9 +415,9 @@ OMERO support policies
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.2
       - OMERO 5.3
       - OMERO 5.4
+      - OMERO 5.5
     * - 9.3
       - from Sep 2013
       - to Sep 2018
@@ -407,13 +433,13 @@ OMERO support policies
     * - 9.5
       - from Jan 2016
       - to Jan 2021
-      - |Unsupported|
+      - |Supported|
       - |Supported|
       - |Supported|
     * - 9.6
       - from Sep 2016
       - to Sep 2021
-      - |Unsupported|
+      - |Recommended|
       - |Recommended|
       - |Recommended|
     * - Details
@@ -480,14 +506,15 @@ OMERO support policies
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.2
       - OMERO 5.3
       - OMERO 5.4
+      - OMERO 5.5
       - Details
     * - 2.6
       - from Oct 2008
       - to Oct 2013
-      - |Deprecated|
+      - |Dropped| [1]_ 
+        |Supported| [2]_ 
       - |Dropped| [1]_ 
         |Supported| [2]_ 
       - |Dropped|
@@ -620,35 +647,36 @@ OMERO support policies
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.2
       - OMERO 5.3
       - OMERO 5.4
+      - OMERO 5.5
       - Details
     * - 3.5
       - from Mar 2013
       - to Oct 2013
-      - |Recommended|
+      - |Deprecated|
       - |Deprecated|
       - |Dropped|
-      - :zerocforum:`3.5 <announcements/6093-ice-3-5-0-released>`
+      - :zerocforum:`3.5.0 <announcements/6093-ice-3-5-0-released>`,
         :zerocforum:`3.5.1 <announcements/6283-ice-3-5-1-released>`
     * - 3.6
       - from June 2015
       - to TBA
-      - |Supported|
+      - |Recommended|
       - |Recommended|
       - |Supported|
-      - :zerocforum:`3.6.0, <announcements/6631-ice-3-6-0-and-ice-touch-3-6-0-released>`
-        (:zerocforum:`3.6.1 <announcements/45941-ice-3-6-0-and-ice-touch-3-6-1-released>` |Broken|)
-        :zerocforum:`3.6.2 <announcements/46347-ice-ice-e-and-ice-touch-3-6-2-released>`
-        :zerocforum:`3.6.3 <announcements/46475-ice-ice-e-and-ice-touch-3-6-3-released>`
+      - :zerocforum:`3.6.0 <announcements/6631-ice-3-6-0-and-ice-touch-3-6-0-released>`
+        (:zerocforum:`3.6.1 <announcements/45941-ice-3-6-0-and-ice-touch-3-6-1-released>` |Broken|),
+        :zerocforum:`3.6.2 <announcements/46347-ice-ice-e-and-ice-touch-3-6-2-released>`,
+        :zerocforum:`3.6.3 <announcements/46475-ice-ice-e-and-ice-touch-3-6-3-released>`,
+        :zerocforum:`3.6.4 <announcements/46550-ice-ice-e-and-ice-touch-3-6-4-released>`
     * - 3.7
-      - from TBA
+      - from July 2017
       - to TBA
       - |Unsupported|
-      - |Upcoming|
+      - |Unsupported|
       - |Recommended|
-      -
+      - :zerocforum:`3.7.0 <announcements/46530-ice-3-7-0-and-ice-touch-3-7-0-released>`
 
 Version provided by distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -673,10 +701,10 @@ If no version is provided, a suitable repository is indicated.
       - Yes
       - Yes
     * - 3.7
-      - N/A
-      - N/A
-      - N/A
-      - N/A
+      - 7 (`zeroc <https://zeroc.com/distributions/ice/>`__)
+      - 16.04 (`zeroc <https://zeroc.com/distributions/ice/>`__)
+      - Yes
+      - Yes
     * - Details
       -
       - `Reference <http://packages.ubuntu.com/search?keywords=ice&searchon=names&suite=all&section=all>`__
@@ -697,9 +725,9 @@ OMERO support policies
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.2
       - OMERO 5.3
       - OMERO 5.4
+      - OMERO 5.5
       - Details
     * - 7
       - from Jul 2011
@@ -719,7 +747,7 @@ OMERO support policies
       - TBA
       - TBA
       - |Unsupported|
-      - |Upcoming|
+      - |Unsupported|
       - |Recommended|
       - 
 
@@ -774,20 +802,14 @@ OMERO support policies
     * - Version
       - Release date
       - Upstream support
-      - OMERO 5.2
       - OMERO 5.3
       - OMERO 5.4
-    * - 1.4
-      - from Apr 2013
-      - to Mar 2014
-      - |Deprecated|
-      - |Dropped|
-      - |Dropped|
+      - OMERO 5.5
     * - 1.6
       - from Apr 2014
       - to Apr 2015
-      - |Supported|
       - |Deprecated|
+      - |Dropped|
       - |Dropped|
     * - 1.8
       - from Apr 2015
@@ -801,6 +823,12 @@ OMERO support policies
       - |Recommended|
       - |Recommended|
       - |Supported|
+    * - 1.12
+      - from April 2016
+      - TBA
+      - |Supported|
+      - |Supported|
+      - |Recommended|
 
 Version provided by distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -825,6 +853,11 @@ If no version is provided, a suitable repository is indicated.
       - N/A
       - N/A
     * - 1.10
+      - 6 (`EPEL <https://dl.fedoraproject.org/pub/epel/6/x86_64/>`__), 7 (`EPEL <https://dl.fedoraproject.org/pub/epel/7/x86_64/n/>`__)
+      - 14.04 (`nginx <https://launchpad.net/~nginx/+archive/ubuntu/stable>`__), 16.04
+      - Yes
+      - Yes
+    * - 1.12
       - 6 (`EPEL <https://dl.fedoraproject.org/pub/epel/6/x86_64/>`__), 7 (`EPEL <https://dl.fedoraproject.org/pub/epel/7/x86_64/n/>`__)
       - 14.04 (`nginx <https://launchpad.net/~nginx/+archive/ubuntu/stable>`__), 16.04
       - Yes
