@@ -5,8 +5,7 @@ This is an example walkthrough for installing OMERO on CentOS 6 with Python 2.7,
 a dedicated system user, and should be read in conjunction with
 :doc:`server-installation` and :doc:`install-web`. You can use this as a guide
 for setting up your own test server. For production use you should also read
-the pages listed under :ref:`index-optimizing-server`. However CentOS 6 is deprecated,
-CentOS 7 is preferable for new installations see :doc:`server-centos7-ice36`.
+the pages listed under :ref:`index-optimizing-server`. 
 
 
 Running OMERO on CentOS 6 has a number of special requirements which
@@ -23,6 +22,10 @@ This guide describes how to install the **recommended** versions, not all
 the supported versions.
 This should be read in conjunction with :doc:`../version-requirements`.
 
+.. warning::
+
+   CentOS 6 is deprecated, CentOS 7 is preferable for new installations
+   see :doc:`server-centos7-ice36`.
 
 Setting up
 ----------
