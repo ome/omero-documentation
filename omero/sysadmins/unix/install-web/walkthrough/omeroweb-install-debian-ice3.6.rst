@@ -21,7 +21,7 @@ Installing prerequisites
 
 **The following steps are run as root.**
 
-Install ZeroC IcePy 3.6. IcePy is managed by `PyPI`_, a package management system used to install and manage software packages written in Python. IcePy and will be installed as part of the OMERO.web requirements::
+Install ZeroC IcePy 3.6. IcePy is managed by PyPI_, a package management system used to install and manage software packages written in Python. IcePy and will be installed as part of the OMERO.web requirements::
     
     apt-get -y install libssl-dev libbz2-dev libmcpp-dev libdb++-dev libdb-dev libdb-java
 
@@ -78,7 +78,7 @@ Installing OMERO.web
 Install OMERO.web using OMERO.py::
     
     cd /home/omero
-    curl -o OMERO.py.zip -L https://downloads.openmicroscopy.org/latest/omero/py.zip
+    curl -o OMERO.py.zip -L https://downloads.openmicroscopy.org/latest/omero5/py.zip
     unzip -q OMERO.py*
     
     zip=$(ls OMERO.py*.zip)

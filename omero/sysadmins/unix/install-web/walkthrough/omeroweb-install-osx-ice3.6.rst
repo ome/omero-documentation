@@ -51,7 +51,7 @@ Installing OMERO.web
 Install OMERO.web using OMERO.py::
     
     cd ~
-    curl -o OMERO.py.zip -L https://downloads.openmicroscopy.org/latest/omero/py.zip
+    curl -o OMERO.py.zip -L https://downloads.openmicroscopy.org/latest/omero5/py.zip
     unzip -q OMERO.py*
     
     zip=$(ls OMERO.py*.zip)

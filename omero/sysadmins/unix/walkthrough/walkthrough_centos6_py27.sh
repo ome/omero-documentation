@@ -39,8 +39,8 @@ export PYTHONWARNINGS="ignore:Unverified HTTPS request"
 pip install -r requirements_centos6_py27.txt
 # install Ice
 #start-recommended-ice
-cd /etc/yum.repos.d
-wget https://zeroc.com/download/rpm/zeroc-ice-el6.repo
+curl -sL https://zeroc.com/download/Ice/3.6/el6/zeroc-ice3.6.repo > \
+/etc/yum.repos.d/zeroc-ice3.6.repo
 
 yum -y install gcc-c++
 yum -y install db53 db53-utils
@@ -62,7 +62,7 @@ yum -y install db53 db53-utils mcpp
 mkdir /tmp/ice-download
 cd /tmp/ice-download
 
-wget http://downloads.openmicroscopy.org/ice/experimental/Ice-3.5.1-b1-centos6-sclpy27-x86_64.tar.gz
+wget https://downloads.openmicroscopy.org/ice/experimental/Ice-3.5.1-b1-centos6-sclpy27-x86_64.tar.gz
 
 tar -zxvf /tmp/ice-download/Ice-3.5.1-b1-centos6-sclpy27-x86_64.tar.gz
 
@@ -120,7 +120,7 @@ cp settings.env settings-web.env omero-centos6_py27.env /opt/hudson/workspace/OM
 #end-release-ice35
 #start-release-ice36
 cd ~omero
-SERVER=http://downloads.openmicroscopy.org/latest/omero5.3/server-ice36.zip
+SERVER=https://downloads.openmicroscopy.org/latest/omero5/server-ice36.zip
 wget $SERVER -O OMERO.server-ice36.zip
 unzip -q OMERO.server*
 #end-release-ice36
@@ -135,15 +135,29 @@ psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < OMERO.server/db.sql
 
 #start-step05: As omero, install OMERO.web dependencies
 #web-requirements-recommended-start
-file=~omero/OMERO.server/share/web/requirements-py27-all.txt
+pip install -r  OMERO.server/share/web/requirements-py27.txt
 #web-requirements-recommended-end
 #start-configure-nginx: As the omero system user, configure OMERO.web
 OMERO.server/bin/omero config set omero.web.application_server wsgi-tcp
-OMERO.server/bin/omero web config nginx --http "$OMERO_WEB_PORT" > OMERO.server/nginx.conf.tmp
+OMERO.server/bin/omero web config nginx --http "$WEBPORT" > OMERO.server/nginx.conf.tmp
 #end-configure-nginx
 # As root, install nginx
+#start-nginx-install
+cat << EOF > /etc/yum.repos.d/nginx.repo
+[nginx]
+name=nginx repo
+baseurl=http://nginx.org/packages/centos/\$releasever/\$basearch/
+gpgcheck=0
+enabled=1
+EOF
+yum -y install nginx
+#end-nginx-install
+#start-nginx-admin
+mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.disabled
+cp ~omero/OMERO.server/nginx.conf.tmp /etc/nginx/conf.d/omero-web.conf
 
-
+service nginx start
+#end-nginx-admin
 
 #end-step05
 
