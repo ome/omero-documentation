@@ -24,7 +24,7 @@ Network infrastructure
 Backup/archive
 ^^^^^^^^^^^^^^
 
-- IBM TSM 1,4 PT
+- IBM TSM 1.4 PB
 - daily migration of new data to tape, archive on tape
 
 Micron, Oxford
