@@ -299,7 +299,7 @@ Environment variables
 
 If you changed the directory name where the |release| server code resides,
 make sure to update any system environment variables. Before restarting
-the server, make sure your PATH and PYTHONPATH system environment
+the server, make sure your :envvar:`PATH` and :envvar:`PYTHONPATH` system environment
 variables are pointing to the new locations.
 
 JVM memory settings
