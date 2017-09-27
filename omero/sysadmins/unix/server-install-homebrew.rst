@@ -157,6 +157,11 @@ Requirements
 
     $ startVmOmero
 
+7. Install nginx::
+
+    $ brew install nginx
+
+
 OMERO installation
 ------------------
 
@@ -313,10 +318,10 @@ Basic setup for OMERO using NGINX::
     $ export HTTPPORT=${HTTPPORT:-8080}
     $ omero web config nginx-development --http $HTTPPORT > $(brew --prefix omero53)/etc/nginx.conf
 
-See installation script :download:`step03_nginx.sh <walkthrough/osx/step03_nginx.sh>`
-
-For detailed instructions on how to deploy OMERO.web in a production
-environment such as NGINX please see :doc:`install-web`.
+    $ mv /usr/local/etc/nginx/nginx.conf /usr/local/etc/nginx/nginx.conf.orig
+    $ bin/omero web config nginx-development > /usr/local/etc/nginx/nginx.conf
+    $ nginx -t
+    $ nginx
 
 .. note::
     The internal Django webserver can be used for evaluation and development.
@@ -357,7 +362,11 @@ Stop OMERO::
 
     $ omero admin stop
 
-See example script for a basic functionality test: :download:`step04_test.sh <walkthrough/osx/step04_test.sh>`
+
+Web configuration and maintenance
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For more configuration options and maintenance advice for OMERO.web see :doc:`install-web`.
 
 Common issues
 -------------
