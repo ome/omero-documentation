@@ -4,10 +4,9 @@ OMERO.server installation on OS X with Homebrew
 .. topic:: Overview
 
     This walkthrough demonstrates how to install OMERO on a clean Mac
-    OS X system (10.9 or later) using Homebrew.  This demonstrates how to install
-    OMERO.server, either from the downloaded OMERO.server.zip
-    or from the source code
-    via Homebrew, in addition to all its prerequisites. It is aimed at **developers**
+    OS X system (10.9 or later). Dependencies are installed with Homebrew.
+    The OMERO.server can be downloaded as a pre-built zip,
+    or built from the source code. It is aimed at **developers**
     since typically MacOS X is not suited for serious server deployment.
 
 Prerequisites
@@ -175,7 +174,35 @@ Pre-built server
    `downloads page <https://downloads.openmicroscopy.org/latest/omero/artifacts/>`_.
    Download and extract the OMERO.server-x.x.x-ice36-bxx.zip.
 
-2. Once extracted, open your :file:`.bash_profile` in a text editor, 
+Locally built server
+^^^^^^^^^^^^^^^^^^^^
+
+1. Clone the source code from the project's GitHub account to build locally::
+
+    $ git clone --recursive git://github.com/openmicroscopy/openmicroscopy
+
+2. Navigate terminal into the :file:`openmicroscopy` that was just created by performing
+   the previous step::
+
+    $ cd openmicroscopy
+
+3. Execute the build script *(this will take a few minutes, depending on how fast your Mac is)* :: 
+
+    $ ./build.py
+
+  .. seealso::
+   :doc:`/developers/installation`
+        Developer documentation page on how to check out to source code
+   :doc:`/developers/build-system`
+        Developer documentation page on how to build the OMERO.server
+
+4. Once the build completes, the OMERO server build output will be located in :file:`openmicroscopy/dist`.
+
+
+OMERO configuration
+-------------------
+
+1. Open your :file:`.bash_profile` in a text editor, 
    such as the built-in TextEdit app::
 
     $ open -a TextEdit.app ~/.bash_profile
@@ -183,8 +210,10 @@ Pre-built server
    Add an environment variable :envvar:`OMERO_SERVER` to the :file:`.bash_profile` which points
    to the location of the OMERO executable::
 
-    # OMERO Server distribution directory
+    # Pre-built server...
     export OMERO_SERVER=/path/to/OMERO.server-x.x.x-ice36-bxx
+    # ...OR locally built server
+    export OMERO_SERVER=/path/to/openmicroscopy/bin
 
    and add the OMERO executable to the OS X :envvar:`PATH`::
 
@@ -210,65 +239,8 @@ Pre-built server
 
     $ pip install -r "${OMERO_SERVER}/share/web/requirements-py27-all.txt"
 
-
-Locally built server
-^^^^^^^^^^^^^^^^^^^^
-
-1. Prepare a place for your OMERO code to live, e.g.::
-
-    $ mkdir -p ~/Projects/Omero/code
-    $ cd ~/Projects/Omero/code
-
-2. Clone the source code from the project's GitHub account to build locally::
-
-    $ git clone --recursive git://github.com/openmicroscopy/openmicroscopy
-
-3. Navigate terminal into the :file:`openmicroscopy` that was just created by performing
-   the previous step::
-
-    $ cd openmicroscopy
-
-4. Execute the build script *(this will take a few minutes, depending on how fast your Mac is)* :: 
-
-    $ ./build.py
-
-  .. seealso::
-   :doc:`/developers/installation`
-        Developer documentation page on how to check out to source code
-   :doc:`/developers/build-system`
-        Developer documentation page on how to build the OMERO.server
-
-5. Once the build completes, the OMERO server build output will be located in :file:`~/Projects/Omero/code/openmicroscopy/dist`.
-   If it is not already open, open your :file:`.bash_profile`::
-
-    $ open -a TextEdit.app ~/.bash_profile
-
-   Prepend the :file:`bin` directory to your :envvar:`PATH`::
-
-    export PATH=~/Projects/Omero/code/openmicroscopy/dist/bin:$PATH
-
-   Using the command-line terminal, reload your :file:`.bash_profile` using::
-
-    $ source ~/.bash_profile
-
-   To ensure OMERO is correctly linked into your OS X :envvar:`PATH`, type the following in terminal and ensure
-   you get a similar output::
-
-    $ which omero
-    /Projects/omero/code/openmicroscopy/dist/bin/omero
-
-6. Activate the Virtualenv environment that we created earlier in the "Requirements"
-   section::
-
-    $ source ~/Virtual/Omero/bin/activate
-
-7. Install Python dependencies using pip::
-
-    $ pip install -r ~/Projects/omero/code/openmicroscopy/dist/share/web/requirements-py27-all.txt
-
-
-OMERO configuration
--------------------
+Database
+^^^^^^^^
 
 1. From a fresh command-line terminal, start the database server::
 
@@ -285,30 +257,29 @@ OMERO configuration
 
     $ source ~/.bash_profile
 
-2. To use Omero, we need to first set up Postgres. Open a command-line terminal and run the
+2. To use OMERO, we need to first set up Postgres. Open a command-line terminal and run the
    following commands to create a user called *db_user* and database called *omero_database*::
 
     $ createuser -w -D -R -S db_user
     $ createdb -E UTF8 -O db_user omero_database
 
-3. Create directory for OMERO to store its data::
+3. Now set the OMERO configuration::
 
-    $ mkdir -p ~/OMERO
-
-4. Start your Virtualenv environment we created earlier::
-
-    $ source ~/Virtual/omero/bin/activate
-
-5. Now set the OMERO configuration::
-
-    $ omero config set omero.data.dir ~/OMERO
     $ omero config set omero.db.name omero_database
     $ omero config set omero.db.user db_user
     $ omero config set omero.db.pass db_password
 
-6. Create and run script to initialize the OMERO database::
+4. Create and run script to initialize the OMERO database::
 
     $ omero db script --password omero -f - | psql -h localhost -U db_user omero_database
+
+Binary Repository
+^^^^^^^^^^^^^^^^^
+
+1. Create directory for OMERO to store its data::
+
+    $ mkdir -p ~/OMERO
+    $ omero config set omero.data.dir ~/OMERO
 
 OMERO.web
 ^^^^^^^^^
@@ -330,8 +301,8 @@ Basic setup for OMERO using NGINX::
 
 .. _install_homebrew_common_issues:
 
-Startup/Shutdown
-^^^^^^^^^^^^^^^^
+Startup and shutdown
+--------------------
 
 If necessary start PostgreSQL database server::
 
