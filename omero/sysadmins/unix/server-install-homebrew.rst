@@ -278,8 +278,8 @@ Binary Repository
 
 1. Create directory for OMERO to store its data::
 
-    $ mkdir -p ~/OMERO
-    $ omero config set omero.data.dir ~/OMERO
+    $ mkdir /OMERO
+    $ omero config set omero.data.dir /OMERO
 
 OMERO.web
 ^^^^^^^^^
