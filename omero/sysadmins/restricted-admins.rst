@@ -449,3 +449,8 @@ Key
         administrator also deals with data left after OMERO users which left
         the institution, or otherwise is tasked with reorganizing of others'
         data. See more details in :ref:`Workflow 4`.
+
+.. toctree::
+    :hidden:
+    
+    mapping-restricted-admins

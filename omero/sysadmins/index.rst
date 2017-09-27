@@ -16,10 +16,7 @@ Server Background
     version-requirements
     server-setup-examples
     limitations
-    server-permissions
-    restricted-admins
-    mapping-restricted-admins
-
+    
 ************
 Installation
 ************
@@ -87,6 +84,37 @@ performance and security.
     config
     server-syslog
 
+*****************************
+Managing OMERO users and data
+*****************************
+
+This section contains details on how user roles and permissions work in OMERO.
+New in OMERO 5.4.0, full administrators can now create restricted
+administrators to allow facility managers or other trusted users to carry out
+tasks on behalf of all users.
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    server-permissions
+    restricted-admins
+
+***********************
+Data Import and Storage
+***********************
+
+This section contains details of how OMERO.fs allows you to import and store
+data with OMERO 5.
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    dropbox
+    in-place-import
+    import-scenarios
+
 .. _index-public-data:
 
 *************************************
@@ -103,17 +131,3 @@ OMERO clients to host images for groups or public viewing.
     public
     customization
 
-***********************
-Data Import and Storage
-***********************
-
-This section contains details of how OMERO.fs allows you to import and store
-data with OMERO 5.
-
-.. toctree::
-    :maxdepth: 2
-    :titlesonly:
-
-    dropbox
-    in-place-import
-    import-scenarios
