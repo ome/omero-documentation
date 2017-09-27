@@ -40,7 +40,7 @@ Users
         New in OMERO 5.4.0, these administrators can be created with a subset
         of privileges allowing trusted users to act on behalf of all other
         OMERO users for a defined set of tasks. See
-        :doc:`/sysadmins/admins-with-restricted-privileges` for further
+        :doc:`/sysadmins/restricted-admins` for further
         information.
 
 Groups and users must be created by the server administrator or a restricted
@@ -209,7 +209,7 @@ delete privilege they cannot delete data belonging to another user unless that
 data is in a read-write group they are a member of. All restricted
 administrators can view and download any data regardless of group type and
 their subset of privileges. See
-:doc:`/sysadmins/admins-with-restricted-privileges` for further information.
+:doc:`/sysadmins/restricted-admins` for further information.
 
 |
 

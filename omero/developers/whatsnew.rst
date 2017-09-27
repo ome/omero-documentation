@@ -16,12 +16,12 @@ Python BlitzGateway
     for p in conn.getEnumerationEntries('AdminPrivilege'):
         print p.getValue()
 
-- See :doc:`/sysadmins/admins-with-restricted-privileges` to know which privileges are required for which actions.
+- See :doc:`/sysadmins/restricted-admins` to know which privileges are required for which actions.
 
 
 Java Gateway
 ^^^^^^^^^^^^
-- Added various methods for dealing with :doc:`/sysadmins/admins-with-restricted-privileges`
+- Added various methods for dealing with :doc:`/sysadmins/restricted-admins`
   to the :javadoc:`AdminFacility <omero/gateway/facility/AdminFacility.html>`.
  
 

@@ -17,7 +17,7 @@ Server Background
     server-setup-examples
     limitations
     server-permissions
-    admins-with-restricted-privileges
+    restricted-admins
     mapping-restricted-admins
 
 ************
