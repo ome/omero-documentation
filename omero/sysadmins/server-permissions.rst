@@ -14,7 +14,7 @@ members of the group depends on the permissions settings for that
 group. Whenever a user logs on to an OMERO server, they are connected
 under one of their groups. All data they import and any work that is
 done is assigned to the current group, however the user can now
-easily copy their data into another group.
+easily move their data into another group.
 
 Users
 -----
@@ -29,24 +29,29 @@ Users
 
     **Group owner**
         Your group may have one or more owners. The group
-        owner has some additional rights within each group than a standard
-        group member, including the ability to add other members to the
-        group.
+        owner has some additional rights within each group compared to a
+        standard group member, including the ability to add other members to
+        the group.
 
     **Group member**
         This is the standard user.
 
+    **Restricted Administrators**
+        New in OMERO 5.4.0, these administrators can be created with a subset
+        of privileges allowing trusted users to act on behalf of all other
+        OMERO users for a defined set of tasks. See
+        :doc:`/sysadmins/admins-with-restricted-privileges` for further
+        information.
 
-Groups and users must be created by the server administrator. Users can
-then be added by the administrator or by one of the group owners
+Groups and users must be created by the server administrator or a restricted
+administrator with the correct privileges. Users can then be added by the
+administrator (either a full admin or a restricted admin with the correct
+privileges) or by one of the group owners
 assigned by the administrator. This would typically be the PI of the
-lab. The group's owners or server administrator can also choose the
+lab. The group's owners or administrators can also choose the
 permission level for that group. See the :help:`Help guide for managing groups
 <sharing-data.html#owner>` for more information about how to administrate them
 in OMERO.
-Version 5.4.0 introduces the ability to create 'Restricted Administrators'
-with a selected subset of permissions,
-see :doc:`/sysadmins/admins-with-restricted-privileges` for further information.
 
 Group permission levels
 -----------------------
@@ -124,6 +129,11 @@ The various permission levels are:
          to all the data.
 
 
+.. note:: Restricted administrators are designed to work independently of
+    group permissions. They act as full administrators when using their subset
+    of privileges, allowing them to perform actions on data belonging to other
+    users even in private groups (see the permissions tables below).
+
 .. seealso::
 
     :help:`Help guide for sharing data <sharing-data.html>`
@@ -188,13 +198,28 @@ Permissions tables
 
 The following are the permissions valid for users working on data belonging to
 other group members. These permissions depend on the group permissions and on
-the type of the user performing the action. 
+the type of the user performing the action.
 
+**Restricted administrators act as full administrators when using their
+subset of privileges. For all actions which are not covered by their
+privileges subset, they act as standard group members.** For
+example, a data analyst with write data privileges can edit data even in a
+private group (without having to be a member of that group) but without the
+delete privilege they cannot delete data belonging to another user unless that
+data is in a read-write group they are a member of. All restricted
+administrators can view and download any data regardless of group type and
+their subset of privileges. See
+:doc:`/sysadmins/admins-with-restricted-privileges` for further information.
 
 |
 
 :term:`Administrator`
 ^^^^^^^^^^^^^^^^^^^^^
+
+This table covers both full server administrators and restricted
+administrators with the privileges required for these actions. Restricted
+administrators act as group members for any actions that are not covered by
+their subset of privileges.
 
 |
 
@@ -247,6 +272,7 @@ the type of the user performing the action.
 :term:`Remove annotations`                N                      N                       N              Y
 :term:`Mix data`                              N                      N                       N              Y
 =============================== ======================= ===================== ====================== ===================
+
 
 Key
 ^^^
