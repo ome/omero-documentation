@@ -12,6 +12,19 @@ See the full details of OMERO |release| features in the :doc:`/users/history`.
 This guide aims to be as definitive as possible so please do not be put off by
 the level of detail; upgrading should be a straightforward process.
 
+.. warning::
+
+    If you are upgrading from a version *prior to* OMERO
+    |previousversion| then you *must* also study the upgrade
+    instructions for those prior versions because they may describe
+    important steps that these instructions assume to already have been
+    done by OMERO |previousversion| users. Before proceeding with these
+    instructions you may first need to read the `instructions
+    <https://docs.openmicroscopy.org/latest/omero5.3/sysadmins/server-upgrade.html>`_
+    for upgrading *to* OMERO |previousversion| because some extra steps
+    may be required beyond simply running the SQL upgrade scripts
+    described below.
+
 Upgrade check list
 ------------------
 
@@ -28,10 +41,7 @@ satisfied all the :doc:`system requirements <system-requirements>` with
 particular, ensure that you are running a suitable version of PostgreSQL
 to enable successful upgrading of the database, otherwise the upgrade
 script aborts with a message saying that your database server version is
-less than the OMERO prerequisite. If you are upgrading from a version
-earlier than OMERO 5.0 then first review the `5.0 upgrade notes
-<https://docs.openmicroscopy.org/omero/5.0.0/sysadmins/server-upgrade.html>`_
-regarding previous changes in OMERO.
+less than the OMERO prerequisite.
 
 File limits
 ^^^^^^^^^^^
@@ -182,9 +192,9 @@ Upgrade your database
 Ensure Unicode character encoding
 """""""""""""""""""""""""""""""""
 
-Versions of OMERO from 5.1.0 onwards require a Unicode-encoded database;
-without it, the upgrade script aborts with a message warning how the ``OMERO
-database character encoding must be UTF8``. From :command:`psql`::
+OMERO requires a Unicode-encoded database; without it, the upgrade
+script aborts with a message warning how the ``OMERO database character
+encoding must be UTF8``. From :command:`psql`::
 
   # SELECT datname, pg_encoding_to_char(encoding) FROM pg_database;
     datname   | pg_encoding_to_char
@@ -237,9 +247,12 @@ to run.
 
 
 If you are upgrading from a server earlier than |previousversion| then
-it suffices to run the earlier upgrade scripts in sequence before the
-one above. There is no need to download and run the server from an
-intermediate major release.
+you must run the earlier upgrade scripts in sequence before the one
+above. There is no need to download and run the server from an
+intermediate major release but you must still study the upgrade
+instructions for earlier versions in case there are additional steps.
+For example, any optional SQL scripts that affect the database probably
+run only on the specific version before the next upgrade script.
 
 .. note::
 
@@ -256,34 +269,6 @@ intermediate major release.
    using the above command with
    :file:`sql/psql/OMERO5.4__0/OMERO5.3__0.sql`.
 
-Delete certain annotations (optional)
-"""""""""""""""""""""""""""""""""""""
-
-For various reasons, production databases may accumulate non-sharable
-annotations that are orphaned. These are :doc:`structured annotations
-</developers/Model/StructuredAnnotations>` that are 'basic' (`Boolean`,
-`Timestamp`, `Term`), 'numeric' (`Double`, `Long`), or `Comment`, and
-that are *not* annotating an object. An illustrative example is that
-deleting a rating in OMERO.insight 5.2 may have left behind the
-corresponding `Long` annotation that captured the rating's number of
-stars. Non-sharable annotations, like comments and ratings, cannot be
-viewed from OMERO.insight or OMERO.web after they have been orphaned
-because they are no longer associated with any model object such as an
-image. The deletion script does *not* delete annotations that have a
-custom/non-OME namespace (ns) set.
-
-.. parsed-literal::
-
-    $ cd OMERO.server
-    $ psql -h localhost -U **db_user** **omero_database** < sql/psql/|current_dbver|/delete-ns-orphans.sql
-
-This script may be used during some maintenance window subsequent to the
-actual upgrade as long as it runs on a |current_dbver| database. If at
-upgrade time you have questions about the script then you may perform
-further research before :ref:`backing up the database again
-<back-up-the-db>` then running the script. There is no requirement to
-ever use it.
-
 Optimize an upgraded database (optional)
 """"""""""""""""""""""""""""""""""""""""
 
@@ -293,36 +278,6 @@ database which can both save disk space and speed up access times.
 .. parsed-literal::
 
     $ psql -h localhost -U **db_user** **omero_database** -c 'VACUUM FULL VERBOSE ANALYZE;'
-
-Reset ROI shape color (optional)
-""""""""""""""""""""""""""""""""
-
-Regions of interest generated using OMERO.insight did not follow the
-OME model specification. The color of shapes is now handled according
-to the data model, using RGBA rather than ARGB format. 
-A script is provided to upgrade the color settings of shapes created using OMERO.insight
-or a different client that saved them in the ARGB format. If you only wish to apply the changes
-to a subset of ROIs, edit the ``TRUE`` in the script below before running it:
-
-.. parsed-literal::
-
-    $ psql -h localhost -U **db_user** **omero_database** < sql/psql/|current_dbver|/shape_color_argb_to_rgba.sql
-
-If you need to roll back the changes, a reverse script ``reverse_shape_color_argb_to_rgba.sql``
-is also available in the same folder. Edit the ``TRUE`` if you wish to roll back the changes to a
-subset of ROIs.
-
-Move annotation from Image to Well (optional)
-"""""""""""""""""""""""""""""""""""""""""""""
-
-Since 5.3, users can annotate Wells in both OMERO.web and OMERO.insight. Previously they could only
-annotate Images linked to WellSamples.
-The official script `Move_Annotations.py <https://github.com/ome/scripts/blob/develop/omero/util_scripts/Move_Annotations.py>`_
-can be run by users to move annotations from Images to Wells but an administrator can run the
-script on any user's data.
-
-
-.. _upgrademergescript:
 
 Merge script changes
 ^^^^^^^^^^^^^^^^^^^^
@@ -345,10 +300,11 @@ Update your environment variables and memory settings
 Environment variables
 """""""""""""""""""""
 
-If you changed the directory name where the |release| server code resides,
-make sure to update any system environment variables. Before restarting
-the server, make sure your PATH and PYTHONPATH system environment
-variables are pointing to the new locations.
+If you changed the directory name where the |release| server code
+resides, make sure to update any system environment variables. Before
+restarting the server, make sure your :envvar:`PATH` and
+:envvar:`PYTHONPATH` system environment variables are pointing to the
+new locations.
 
 JVM memory settings
 """""""""""""""""""
