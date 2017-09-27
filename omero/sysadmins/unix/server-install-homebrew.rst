@@ -156,7 +156,7 @@ Requirements
 
     $ startVmOmero
 
-7. Install nginx::
+7. Install NGINX::
 
     $ brew install nginx
 
@@ -257,8 +257,8 @@ Database
 
     $ source ~/.bash_profile
 
-2. To use OMERO, we need to first set up Postgres. Open a command-line terminal and run the
-   following commands to create a user called *db_user* and database called *omero_database*::
+2. To use OMERO, we need to first set up PostgreSQL. Open a command-line terminal and run the
+   following commands to create a user called *db_user* and a database called *omero_database*::
 
     $ createuser -w -D -R -S db_user
     $ createdb -E UTF8 -O db_user omero_database
