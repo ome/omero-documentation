@@ -100,6 +100,11 @@ tasks on behalf of all users.
     server-permissions
     restricted-admins
 
+.. seealso::
+
+    Command Line Interface guides for :doc:`cli/usergroup` and
+    :doc:`/users/cli/chown`.
+
 ***********************
 Data Import and Storage
 ***********************
