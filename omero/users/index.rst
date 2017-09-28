@@ -33,7 +33,8 @@ to improve our handling of complex multidimensional datasets. It allows you to
 upload your files in their original format, preserving file names and any
 nested directory structure in the server repository. For more technical
 information, please refer to the :doc:`/developers/index`. You can read about
-the development of OMERO in the :doc:`history`.
+the development of OMERO in the :doc:`history` and the latest user-facing
+changes in :doc:`whatsnew`.
 
 *************
 OMERO clients
