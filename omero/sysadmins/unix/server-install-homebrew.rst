@@ -228,7 +228,10 @@ OMERO configuration
    you get a similar output::
 
     $ which omero
+    # Pre-built server...
     /path/to/OMERO.server-x.x.x-ice36-bxx/bin/omero
+    # ...OR locally built server
+    /path/to/openmicroscopy/dist/bin/omero
 
 3. Activate the Virtualenv environment that we created earlier in the "Requirements"
    section::
