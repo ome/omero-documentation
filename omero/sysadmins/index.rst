@@ -2,6 +2,10 @@
 System Administrator Documentation
 ##################################
 
+This documentation begins with information aimed at OS-level administrators
+and moves on to day-to-day management of OMERO for facility
+administrators/managers (who may find it useful to read the :help:`Facility Managers help guide <facility-manager.html>` for an overview first).
+
 *****************
 Server Background
 *****************
@@ -84,12 +88,12 @@ performance and security.
     config
     server-syslog
 
-*****************************
-Managing OMERO users and data
-*****************************
+**************
+Managing OMERO
+**************
 
-This section contains details on how user roles and permissions work in OMERO.
-New in OMERO 5.4.0, full administrators can now create restricted
+This section contains details on how to manage users, groups and data access
+in OMERO. New in OMERO 5.4.0, full administrators can now create restricted
 administrators to allow facility managers or other trusted users to carry out
 tasks on behalf of all users.
 
@@ -102,8 +106,9 @@ tasks on behalf of all users.
 
 .. seealso::
 
-    Command Line Interface guides for :doc:`cli/usergroup` and
-    :doc:`/users/cli/chown`.
+    - Command Line Interface guides for :doc:`cli/usergroup` and
+      :doc:`/users/cli/chown`
+    - :help:`Facility Managers help guide <facility-manager.html>`
 
 ***********************
 Data Import and Storage
