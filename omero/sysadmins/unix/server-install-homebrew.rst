@@ -213,7 +213,7 @@ OMERO configuration
     # Pre-built server...
     export OMERO_SERVER=/path/to/OMERO.server-x.x.x-ice36-bxx
     # ...OR locally built server
-    export OMERO_SERVER=/path/to/openmicroscopy/bin
+    export OMERO_SERVER=/path/to/openmicroscopy/dist
 
    and add the OMERO executable to the OS X :envvar:`PATH`::
 
