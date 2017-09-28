@@ -290,7 +290,7 @@ OMERO.web
 Basic setup for OMERO using NGINX::
 
     $ mv /usr/local/etc/nginx/nginx.conf /usr/local/etc/nginx/nginx.conf.orig
-    $ bin/omero web config nginx-development > /usr/local/etc/nginx/nginx.conf
+    $ omero web config nginx-development > /usr/local/etc/nginx/nginx.conf
     $ nginx -t
     $ nginx
 
@@ -315,7 +315,6 @@ Start OMERO::
 Start OMERO.web::
 
     $ omero web start
-    $ nginx -c $(brew --prefix omero53)/etc/nginx.conf
 
 Now connect to your OMERO.server using OMERO.insight or OMERO.web with the following credentials:
 
