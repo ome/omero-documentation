@@ -289,9 +289,6 @@ OMERO.web
 
 Basic setup for OMERO using NGINX::
 
-    $ export HTTPPORT=${HTTPPORT:-8080}
-    $ omero web config nginx-development --http $HTTPPORT > $(brew --prefix omero53)/etc/nginx.conf
-
     $ mv /usr/local/etc/nginx/nginx.conf /usr/local/etc/nginx/nginx.conf.orig
     $ bin/omero web config nginx-development > /usr/local/etc/nginx/nginx.conf
     $ nginx -t
