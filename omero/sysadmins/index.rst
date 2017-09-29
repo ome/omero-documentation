@@ -57,8 +57,8 @@ backing-up, and upgrading your installation.
     :maxdepth: 1
     :titlesonly:
 
-    cli/index
     troubleshooting
+    cli/index
     server-backup-and-restore
     server-upgrade
     omeroweb-upgrade
@@ -86,7 +86,6 @@ performance and security.
     search
     fs-upload-configuration
     server-advanced-configuration
-    omero-home-prefix
     config
     server-syslog
 

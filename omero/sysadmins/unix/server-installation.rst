@@ -1,10 +1,12 @@
-OMERO.server installation overview
-==================================
+OMERO.server installation
+=========================
 
 This section covers the installation of OMERO.server on UNIX and
 UNIX-like platforms. This includes all BSD, Linux and Mac OS X
 systems. Depending upon which platform you are using, you may find a
-more specific walk-through listed below.
+more specific walk-through listed below but we recommend you read through this
+page first as it explains the entire process rather than just being a series
+of commands.
 
 .. seealso::
 
