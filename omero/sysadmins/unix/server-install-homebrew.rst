@@ -325,7 +325,6 @@ Now connect to your OMERO.server using OMERO.insight or OMERO.web with the follo
 
 Stop OMERO.web::
 
-    $ nginx -c $(brew --prefix omero53)/etc/nginx.conf -s stop
     $ omero web stop
 
 Stop OMERO::
