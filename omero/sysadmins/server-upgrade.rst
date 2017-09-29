@@ -355,7 +355,3 @@ and configure your server to use it.
 
     $ bin/omero config set omero.db.name omero_from_backup
 
-.. toctree::
-    :hidden:
-
-    windows-migration
