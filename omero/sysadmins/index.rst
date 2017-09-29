@@ -62,7 +62,6 @@ backing-up, and upgrading your installation.
     unix/install-web
     UpgradeCheck
     repository-move
-    windows-migration
 
 .. _index-optimizing-server:
 
