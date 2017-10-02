@@ -415,7 +415,7 @@ server that is is being used with. Any changes by
 developers to the database schema will result in
 a bump to this value.
 
-Default: `3`
+Default: `0`
 
 .. property:: omero.db.poolsize
 
@@ -500,7 +500,7 @@ of the server that it is being used with. Typically,
 only developers will change this version to bump
 to a new major version.
 
-Default: `OMERO5.4DEV`
+Default: `OMERO5.4`
 
 
 .. _grid_configuration:
@@ -1825,6 +1825,14 @@ Add additional Django applications. For example, see :doc:`/developers/Web/Creat
 
 Default: `[]`
 
+.. property:: omero.web.base_include_template
+
+omero.web.base_include_template
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Template to be included in every page, at the end of the <body>
+
+Default: `None`
+
 .. property:: omero.web.caches
 
 omero.web.caches
@@ -2037,9 +2045,9 @@ Default: `1`
 
 omero.web.public.url_filter
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Set a URL filter for which the OMERO.web public user is allowed to navigate. The idea is that you can create the public pages yourself (see OMERO.web framework since we do not provide public pages.
+Set a regular expression that matches URLs the public user isallowed to access. If this is not set, no URLS will bepublicly available.
 
-Default: `^/(?!webadmin)`
+Default: `(?#This regular expression matches nothing)a^`
 
 .. property:: omero.web.public.user
 

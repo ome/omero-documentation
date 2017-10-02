@@ -2,7 +2,7 @@ Adjusting administrator restrictions
 ====================================
 
 OMERO 5.4 introduced the concept of a :doc:`restricted administrator
-<../admins-with-restricted-privileges>`. The meaning and representation
+<../restricted-admins>`. The meaning and representation
 of the server's underlying permissions restrictions is described in
 :doc:`developer documentation</developers/Server/LightAdmins>`.
 OMERO.web offers easy management of restrictions and is recommended for

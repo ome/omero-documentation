@@ -26,9 +26,8 @@ yum -y install python-pillow numpy
 #end-web-dependencies
 # install Ice
 #start-recommended-ice
-cd /etc/yum.repos.d
-wget https://zeroc.com/download/rpm/zeroc-ice-el7.repo
-
+curl -sL https://zeroc.com/download/Ice/3.6/el7/zeroc-ice3.6.repo > \
+/etc/yum.repos.d/zeroc-ice3.6.repo
 yum -y install gcc-c++
 yum -y install libdb-utils
 yum -y install openssl-devel bzip2-devel expat-devel
@@ -84,7 +83,7 @@ cp settings.env settings-web.env step04_all_omero.sh setup_omero_db.sh ~omero
 #end-release-ice35
 #start-release-ice36
 cd ~omero
-SERVER=http://downloads.openmicroscopy.org/latest/omero5.3/server-ice36.zip
+SERVER=https://downloads.openmicroscopy.org/latest/omero5/server-ice36.zip
 wget $SERVER -O OMERO.server-ice36.zip
 unzip -q OMERO.server*
 #end-release-ice36
@@ -103,7 +102,7 @@ pip install -r OMERO.server/share/web/requirements-py27.txt
 #web-requirements-recommended-end
 #start-configure-nginx: As the omero system user, configure OMERO.web
 OMERO.server/bin/omero config set omero.web.application_server wsgi-tcp
-OMERO.server/bin/omero web config nginx --http "$OMERO_WEB_PORT" > OMERO.server/nginx.conf.tmp
+OMERO.server/bin/omero web config nginx --http "$WEBPORT" > OMERO.server/nginx.conf.tmp
 #end-configure-nginx
 # As root, install nginx
 #start-nginx-install

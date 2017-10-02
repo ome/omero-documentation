@@ -16,7 +16,7 @@ Who may change ownership of data
 
 * a full administrator
 * a :doc:`restricted administrator
-  </sysadmins/admins-with-restricted-privileges>` with `Chown` privilege
+  </sysadmins/restricted-admins>` with `Chown` privilege
 * an owner of the group that the data is in *if* the target user is a
   member of the group
 

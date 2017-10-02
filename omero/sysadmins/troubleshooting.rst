@@ -1,6 +1,8 @@
 Troubleshooting OMERO
 =====================
 
+.. seealso:: :doc:`omero-home-prefix`
+
 .. _troubleshooting-password:
 
 Which user account and password do I use where?
@@ -534,3 +536,19 @@ added in two files in order to allow connection.
 Run ``python -m py_compile OMERO.server/lib/python/omero/clients.py`` to recompile the file.
 
 Restart the OMERO.server as normal for the changes to take effect.
+
+PyTables version
+^^^^^^^^^^^^^^^^
+
+Version 3.3 of PyTables contains a bug preventing its usage,
+see `issue #598 <https://github.com/PyTables/PyTables/issues/598#issuecomment-274154131>`_
+.
+PyTables on Debian 9 should be installed directly from PyPI_ instead of using ``python-tables``. To install, run::
+
+  pip install tables
+
+.. toctree::
+    :hidden:
+    
+    omero-home-prefix
+     

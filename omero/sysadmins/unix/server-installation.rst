@@ -1,10 +1,12 @@
-OMERO.server installation overview
-==================================
+OMERO.server installation
+=========================
 
 This section covers the installation of OMERO.server on UNIX and
 UNIX-like platforms. This includes all BSD, Linux and Mac OS X
 systems. Depending upon which platform you are using, you may find a
-more specific walk-through listed below.
+more specific walk-through listed below but we recommend you read through this
+page first as it explains the entire process rather than just being a series
+of commands.
 
 .. seealso::
 
@@ -26,12 +28,8 @@ more specific walk-through listed below.
 
     :doc:`server-install-homebrew`
         Instructions for installing and building OMERO.server on Mac
-        OS X with Homebrew using our special formulas (i.e. from the
-        source code via Homebrew). It is aimed at **developers**
+        OS X with dependencies installed using Homebrew. It is aimed at **developers**
         since typically MacOS X is not suited for serious server deployment.
-        **You do not need to refer to this
-        page to install the prerequisites with Homebrew and then
-        install the server zip from the downloads page.**
 
 .. toctree::
     :maxdepth: 1

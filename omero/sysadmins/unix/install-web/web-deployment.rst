@@ -1,5 +1,5 @@
-OMERO.web installation overview
-===============================
+OMERO.web installation
+======================
 
 OMERO.web is a Python client of the OMERO platform that provides a
 web-based UI and JSON API.

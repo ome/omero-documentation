@@ -1,6 +1,32 @@
 Example production server set-ups
 =================================
 
+CellNanOs (Center of Cellular Nanoanalytics), University of Osnabrück
+---------------------------------------------------------------------
+
+The OMERO server at 
+`CellNanOS <https://www.cellnanos.uni-osnabrueck.de/en/startpage.html>`_
+serves a community of 75-100 users and 17 microscope stations (13 different
+systems), producing 180-1360 GB of data per day. It is hosted on RedHat 7.3
+with data stored on an IBM GPFS file system.
+
+Hardware
+^^^^^^^^
+
+- Dell R630 running RedHat 7.3, 32 cores, 128 GB RAM
+- IBM GPFS storage, 6 TB SSDs, 178 TB SATA
+
+Network infrastructure
+^^^^^^^^^^^^^^^^^^^^^^
+
+1-10 GBit connection between microscope workstations and OMERO
+
+Backup/archive
+^^^^^^^^^^^^^^
+
+- IBM TSM 1.4 PB
+- daily migration of new data to tape, archive on tape
+
 Micron, Oxford
 --------------
 
@@ -91,6 +117,3 @@ Network infrastructure
 The server is hosted inside the faculty of medicine where the network works at
 100 Mbit/s. There are are 4 Gbit/s ports on the server but only one is
 currently in use.
-
-
-
