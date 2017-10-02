@@ -22,14 +22,20 @@ used as a client against an OMERO server.
     sessions
     containers-annotations
     tag
+    delete
     chgrp
     chown
-    delete
 
+Note that changing ownership requires elevated privileges and can only be
+carried out by full administrators, restricted administrators with the correct
+privileges, or group owners.
+    
 .. seealso::
 
     :doc:`/sysadmins/cli/index`
-        System administrator documentation for the Command Line Interface
+        System administrator documentation for the Command Line Interface.
+        **This includes guidance for managing groups and users which can be
+        done by restricted administrators with the correct privileges.**
 
     :doc:`/developers/cli/index`
         Developer documentation for the Command Line Interface

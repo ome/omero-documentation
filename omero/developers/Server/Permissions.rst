@@ -502,5 +502,5 @@ Changes for OMERO 5.4.x
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 OMERO 5.4.0 included Restricted Administrators as a new user role. See
-:doc:`/sysadmins/admins-with-restricted-privileges` and :doc:`LightAdmins` for
+:doc:`/sysadmins/restricted-admins` and :doc:`LightAdmins` for
 more information.

@@ -7,7 +7,7 @@ Summary
 
 OMERO allows you to create administrators with a subset of the full
 administrator privileges,
-see :doc:`/sysadmins/admins-with-restricted-privileges`.
+see :doc:`/sysadmins/restricted-admins`.
 The OMERO.web user interface form for creation and editing of
 restricted administrators
 (see the :help:`create new users <sharing-data#admin>` section)

@@ -2,6 +2,12 @@
 System Administrator Documentation
 ##################################
 
+This documentation begins with information aimed at OS-level administrators
+and moves on to day-to-day management of OMERO for facility managers (who may
+find it useful to read the
+:help:`Facility Managers help guide <facility-manager.html>` for an overview
+first).
+
 *****************
 Server Background
 *****************
@@ -16,10 +22,7 @@ Server Background
     version-requirements
     server-setup-examples
     limitations
-    server-permissions
-    admins-with-restricted-privileges
-    mapping-restricted-admins
-
+    
 ************
 Installation
 ************
@@ -54,8 +57,8 @@ backing-up, and upgrading your installation.
     :maxdepth: 1
     :titlesonly:
 
-    cli/index
     troubleshooting
+    cli/index
     server-backup-and-restore
     server-upgrade
     omeroweb-upgrade
@@ -82,9 +85,45 @@ performance and security.
     search
     fs-upload-configuration
     server-advanced-configuration
-    omero-home-prefix
     config
     server-syslog
+
+**************
+Managing OMERO
+**************
+
+This section contains details on how to manage users, groups and data access
+in OMERO. New in OMERO 5.4.0, full administrators can now create restricted
+administrators to allow facility managers or other trusted users to carry out
+tasks on behalf of all users.
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    server-permissions
+    restricted-admins
+
+.. seealso::
+
+    - Command Line Interface guides for :doc:`cli/usergroup` and
+      :doc:`/users/cli/chown`
+    - :help:`Facility Managers help guide <facility-manager.html>`
+
+***********************
+Data Import and Storage
+***********************
+
+This section contains details of how OMERO.fs allows you to import and store
+data with OMERO 5.
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    dropbox
+    in-place-import
+    import-scenarios
 
 .. _index-public-data:
 
@@ -102,17 +141,3 @@ OMERO clients to host images for groups or public viewing.
     public
     customization
 
-***********************
-Data Import and Storage
-***********************
-
-This section contains details of how OMERO.fs allows you to import and store
-data with OMERO 5.
-
-.. toctree::
-    :maxdepth: 2
-    :titlesonly:
-
-    dropbox
-    in-place-import
-    import-scenarios

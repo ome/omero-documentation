@@ -8,8 +8,10 @@ The OMERO |release| documentation is divided into three parts:
 get started, details the CLI client, and indicates where users can access
 further help and support.
 
-System administrators wanting to install and manage an OMERO server can find
-instructions in the :doc:`sysadmins/index`.
+:doc:`sysadmins/index` includes instructions for installing and configuring an
+OMERO server and also information on managing users and data, a task which
+full system administrators can now delegate to facility managers or other
+trusted users using the new 'restricted administrator' role.
 
 Developers can find more specific and technical information about OMERO in the
 :doc:`developers/index`.

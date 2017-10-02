@@ -75,8 +75,7 @@ optional arguments::
 .. seealso::
 
     :doc:`/sysadmins/server-permissions`
-        Description of the three group permissions levels (private, read-only,
-        read-annotate).
+        Description of the group permissions levels.
 
 Lists of users/groups on the OMERO server can be queried using the
 :program:`omero user list` and :program:`omero group list` commands::

@@ -4,7 +4,7 @@ What's new for OMERO 5.4 for users
 Updates and new features for OMERO 5.4 include:
 
 - Your system administrator can now create
-  :doc:`/sysadmins/admins-with-restricted-privileges` to allow facility
+  :doc:`/sysadmins/restricted-admins` to allow facility
   managers, image analysts etc. to organize users and data in OMERO
   without having to be granted full administrator privileges. This is a way to
   cater for the needs for some trusted users to act on behalf of all the OMERO
