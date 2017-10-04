@@ -287,10 +287,9 @@ This can be done at any time during the OMERO 5.4 series.
 
 .. note::
 
-    The above script assumes that the `guest` user has an ID of 1. In
-    the unusual case of that not being so then the script will do
-    nothing until it is adjusted. Please feel free to contact us for
-    assistance with that if required.
+    The above script assumes that the `guest` user has an ID of 1 as is
+    typical. Otherwise the script will do nothing until it is adjusted.
+    Please feel free to contact us for assistance with that if required.
 
 Optimize an upgraded database (optional)
 """"""""""""""""""""""""""""""""""""""""
