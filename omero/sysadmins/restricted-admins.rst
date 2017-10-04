@@ -18,7 +18,7 @@ users and data of others in OMERO.
 
 Full administrators in OMERO can create new administrators with
 restricted privileges using the OMERO.web interface, see the
-:help:`create new users <sharing-data#admin>` section of our Help
+:help:`facility managers guide <facility-manager.html#lightadmin>` in our Help
 documentation. OMERO.cli does not yet support easy management of
 restrictions nor does it offer the helpful :doc:`permissions mapping
 <mapping-restricted-admins>` but advanced users may :doc:`use OMERO.cli
