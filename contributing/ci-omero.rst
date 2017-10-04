@@ -95,28 +95,28 @@ clients of the deployment jobs described above:
         * eel.openmicroscopy.org
         * 4064
         * :term:`WEB-DEV-merge-deploy`
-        * http://web-dev-merge.openmicroscopy.org
+        * http://web-dev-merge.openmicroscopy.org/webclient/login/
 
     -   * DEV
         * :term:`OMERO-DEV-latest-deploy`
         * eel.openmicroscopy.org
         * 14064
         * :term:`WEB-DEV-latest-deploy`
-        * http://web-dev-latest.openmicroscopy.org
+        * http://web-dev-latest.openmicroscopy.org/webclient/login/
 
     -   * DEV
         * :term:`OMERO-DEV-merge-integration`
         * eel.openmicroscopy.org
         * 24064
         * :term:`WEB-DEV-integration-deploy`
-        * http://web-dev-integration.openmicroscopy.org
+        * http://web-dev-integration.openmicroscopy.org/webclient/login/
 
     -   * Breaking
         * :term:`OMERO-DEV-breaking-deploy`
         * trout.openmicroscopy.org
         * 34064
         * :term:`WEB-DEV-breaking-deploy`
-        * http://web-dev-breaking.openmicroscopy.org
+        * http://web-dev-breaking.openmicroscopy.org/webclient/login/
 
 
 5.3.x series
