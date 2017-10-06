@@ -107,6 +107,15 @@ The best way to do this without changing the ordering of the options is to
 
     $ bin/omero config set omero.web.open_with '[["Image viewer", "webgateway", {"supported_objects": ["image"], "scr....'
 
+Re-enabling the version checker
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you used the workaround for :secvuln:`2017-SV4-guest-user` then you should
+revert the change to ``omero.web.check_version`` configuration property::
+
+   $ bin/omero config set omero.web.check_version true
+
+
 Troubleshooting
 ^^^^^^^^^^^^^^^
 
