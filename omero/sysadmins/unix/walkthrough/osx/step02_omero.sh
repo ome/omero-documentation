@@ -5,7 +5,7 @@ set -e
 set -u
 set -x
 
-export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/opt/python/libexec/bin:$PATH
 export OMERO_DATA_DIR=${OMERO_DATA_DIR:-~/OMERO.data}
 export ROOT_PASSWORD=${ROOT_PASSWORD:-omero_root_password}
 export ICE=${ICE:-3.6}

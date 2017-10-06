@@ -5,7 +5,7 @@ set -e
 set -u
 set -x
 
-export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/opt/python/libexec/bin:$PATH
 export LANG=${LANG:-en_US.UTF-8}
 export LANGUAGE=${LANGUAGE:-en_US:en}
 

@@ -5,7 +5,7 @@ set -e
 set -u
 set -x
 
-export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/opt/python/libexec/bin:$PATH
 export HTTPPORT=${HTTPPORT:-8080}
 export ICE_CONFIG=$(brew --prefix omero53)/etc/ice.config
 export PYTHONPATH=$(brew --prefix omero53)/lib/python
