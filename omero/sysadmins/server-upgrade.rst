@@ -276,14 +276,15 @@ Remove the guest user password (optional)
 """""""""""""""""""""""""""""""""""""""""
 
 If a password was set on the `guest` user to work around
-:secvuln:`2017-SV4-guest-user` then you may now wish to remove it so
-that a correct password is not needed to log in as that user:
+:secvuln:`2017-SV4-guest-user` then you will need to remove it to restore the
+forgotten password reset functionality in OMERO.web:
 
 .. parsed-literal::
 
     $ psql -h localhost -U **db_user** **omero_database** < sql/psql/|current_dbver|/allow-guest-user-without-password.sql
 
-This can be done at any time during the OMERO 5.4 series.
+This can be done at any time during the OMERO 5.4 series and is optional if
+you do not deploy OMERO.web.
 
 .. note::
 

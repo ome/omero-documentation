@@ -107,6 +107,15 @@ The best way to do this without changing the ordering of the options is to
 
     $ bin/omero config set omero.web.open_with '[["Image viewer", "webgateway", {"supported_objects": ["image"], "scr....'
 
+Re-enabling the version checker
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you used the workaround for :secvuln:`2017-SV4-guest-user` then you should
+revert the change to ``omero.web.check_version`` configuration property::
+
+   $ bin/omero config set omero.web.check_version true
+
+
 Troubleshooting
 ^^^^^^^^^^^^^^^
 
@@ -135,8 +144,8 @@ Migrating from Apache to NGINX
 
 Support for Apache and mod_wsgi deployment was deprecated
 in OMERO 5.2.6 and dropped in 5.3.0.
-It is recommended to use
-:doc:`/sysadmins/unix/install-web/web-deployment`.
+It is recommended to use a WSGI-capable server such as
+:doc:`NGINX and Gunicorn </sysadmins/unix/install-web/web-deployment>`.
 
 .. seealso::
 
