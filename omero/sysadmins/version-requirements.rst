@@ -44,7 +44,7 @@ Operating systems
   .. list-table::
      :header-rows: 1
 
-     * - Dist. version
+     * - Distribution version
        - OMERO 5.3
        - OMERO 5.4
      * - 6.x
@@ -59,7 +59,7 @@ Operating systems
   .. list-table::
      :header-rows: 1
 
-     * - Dist. version
+     * - Distribution version
        - OMERO 5.3
        - OMERO 5.4
      * - 12.04
