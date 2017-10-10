@@ -39,12 +39,12 @@ Operating systems
     deployment, although the server can be expected to build on versions with
     current security support for development purposes.
 
-* Linux (CentOS/RHEL)
+* Linux distributions CentOS/RHEL
 
   .. list-table::
      :header-rows: 1
 
-     * - Linux version
+     * - Dist. version
        - OMERO 5.3
        - OMERO 5.4
      * - 6.x
@@ -54,12 +54,12 @@ Operating systems
        - |Recommended|
        - |Recommended|
 
-* Linux (Ubuntu LTS)
+* Linux distribution Ubuntu LTS
 
   .. list-table::
      :header-rows: 1
 
-     * - Linux version
+     * - Dist. version
        - OMERO 5.3
        - OMERO 5.4
      * - 12.04
