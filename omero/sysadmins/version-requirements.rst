@@ -39,7 +39,7 @@ Operating systems
     deployment, although the server can be expected to build on versions with
     current security support for development purposes.
 
-* Linux distributions CentOS/RHEL
+* Linux distribution CentOS/RHEL
 
   .. list-table::
      :header-rows: 1
