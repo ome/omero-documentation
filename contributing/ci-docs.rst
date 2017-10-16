@@ -115,13 +115,11 @@ bundle.
 Configuration
 ^^^^^^^^^^^^^
 
-For all jobs building documentation using Sphinx, the HTML documentation theme
-hosted at https://github.com/openmicroscopy/sphinx_theme repository is copied
-to the relevant :file:`themes/` folder. The following environment variables
-are then used:
+For all jobs building documentation using Sphinx, the following environment
+variables are used:
 
 - the Sphinx building options, :envvar:`SPHINXOPTS`, is set to
-  ``-W -D html_theme=sphinx_theme``
+  ``-Dsphinx.opts="-W"``
 
 - the release number of the documentation is set by :envvar:`OMERO_RELEASE`,
   :envvar:`BF_RELEASE` or by the relevant POM
@@ -130,6 +128,9 @@ are then used:
 
 - for the Bio-Formats and OMERO sets of documentation, the name of the
   Jenkins job is set by :envvar:`JENKINS_JOB`.
+
+Note that the https://github.com/openmicroscopy/sphinx_theme repository is no
+longer used, this hosted the theme to match the old plone website.
 
 OMERO 5.x series
 ^^^^^^^^^^^^^^^^
