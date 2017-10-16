@@ -6,27 +6,20 @@ how to get plugged in. There is a fairly extensive amount of
 communication flying around related to the project, and being able to
 find and track it may take some time.
 
-.. note:: Some of the links below go to private pages on openmicroscopy.org.
-    New hires in the core development team will be given
-    access to these automatically but you can also request a log-in as an
-    external collaborator.
-
 Instant messaging and video conferencing
 ----------------------------------------
 
-On a day-to-day level, the team meets in a Slack chatroom (see the list of
-:team_plone:`addresses <addresses>` for the specifics). Slack can be used in
-your internet browser or via an app; you will be invited to join the team by
-an admin.
+On a day-to-day level, the team meets in a Slack chatroom. Slack can be used
+in your internet browser or via an app; you will be invited to join the team
+by an admin.
 
 The daily stand-up meeting is managed via the '#general' channel, with notes
 in google docs that are edited throughout the day as people complete the tasks
 assigned to them.
 
-Slightly less frequently, the team meets on Zoom for voice discussions. These
-subgroup, or “mini group”, meetings are organized as needed, but should
-provide feedback (tickets, notes, etc). More information is available under
-:community_plone:`conference-calls <minutes/conference-calls>`.
+Slightly less frequently, members of the team meet on Zoom for voice
+discussions. These meetings are organized as needed, but should provide
+feedback where appropriate (tickets, notes, etc).
 
 Other IM tools
 ^^^^^^^^^^^^^^
@@ -43,6 +36,10 @@ and responded to.
 Trac
 ----
 
+.. note:: The team is increasingly moving away from Trac and towards using
+    Trello, especially for managing 'story'-level items, documentation and
+    testing.
+
 The Trac server is available under https://trac.openmicroscopy.org/ome and
 uses your LDAP account for authentication. Trac is used to record all tickets
 and allows hierarchical groups of “tasks” in “requirements” and “stories”
@@ -56,9 +53,7 @@ summary, as the official Trac "Bug" tickets only allow limited functionality.
 
 Trac is also used for the milestone pages which summarize the tickets
 completed for each release (as opposed to the GitHub milestone pages
-which show all the code changes). Increasingly however, the team is moving
-away from using it for managing 'story'-level items and for tasks such as
-documentation and testing.
+which show all the code changes).
 
 Trello
 ------
@@ -163,8 +158,8 @@ also:
   vacation, etc.
 
 * a number of mail-aliases reserved for automated messages from
-  various pieces of development machinery so do not send mail directly
-  to these :team_plone:`addresses <addresses>`, instead use ome-nitpick.
+  various pieces of development machinery (do not send mail directly
+  to these, instead use ome-nitpick).
 
 Internal servers
 ----------------
@@ -181,9 +176,6 @@ available in case you do.
   data which can be mounted if you are on VPN or within the UoD
   system. It contains test data for various file formats.
 
-* The official OME website is run using Plone
-  (https://www.openmicroscopy.org/site) (LDAP-based)
-
 * The OME `QA <http://qa.openmicroscopy.org.uk/>`_ system is an in-house
   system for collecting feedback from users, including failing files,
   stack traces, etc. Like our community feedback, QA feedback should
@@ -195,9 +187,9 @@ available in case you do.
 
   For anyone who has been hired to work at the University of
   Dundee, you will be provided with a
-  :team_plone:`new start tasklist <new-start-tasklist>` which itemizes all
-  the things that need to be done to get you set up in RL (building
-  access, a chair, etc.).
+  `new start tasklist <https://trello.com/c/GmuPPLAi/5-start-tasks>`_ which
+  itemizes all the things that need to be done to get you set up in RL
+  (building access, a chair, etc.).
 
 Google Docs
 -----------
@@ -217,26 +209,19 @@ email if any changes are made.
 Meetings
 --------
 
-Weekly meetings are held online with all members of the team. Agendas
-are posted on the appropriate page under :community_plone:`conference-calls
-<minutes/conference-calls>` before hand. Notes are taken
-collaboratively in a Google doc in the “OME Docs > Notes”
-collection. Once finished, they are added to the page on Plone, and
-anyone who missed the meeting is expected to review the notes and
-raise any issues during the next meeting. You should also send an
-email to ome-nitpick if you will not be attending the meeting since it
-may change what others can discuss for that week.
+Weekly meetings are held online with all members of the team. Notes are taken
+collaboratively in a **public** Google doc in the “OME Docs > Notes > Tuesday
+meetings” collection.
+Anyone who missed the meeting is expected to review the notes and
+raise any issues during the next meeting.
 
 Periodically, a technical presentation is held during the weekly
 meeting. This can be used to either introduce an external tool for
-suggested use by the team or as a peer review of in-progress work. See
-:team_plone:`meetings <meetings>` for more information.
+suggested use by the team or as a peer review of in-progress work.
 
 Mini group meetings can either be regularly scheduled (e.g. weekly) or
-on an as-needed basis. Notes from such meetings, however, should be
-posted centrally to :community_plone:`Mini Group meetings <minutes/minigroup>`
-for review by the team. Either an email should be sent to ome-nitpick
-with a link to the mini group notes, or it should be brought up during
-the weekly meeting.
+on an as-needed basis. Notes from such meetings should be recorded in gdocs or
+on Trello as appropriate and if necessary matters arising should be covered in
+the weekly meeting for the rest of the team.
 
 .. _DevContactList spreadsheet: https://docs.google.com/spreadsheets/d/1oHHU1GdEQq03dDf1FzUe0xoEi1RK1BOLOaL0HhMAeEA/edit
