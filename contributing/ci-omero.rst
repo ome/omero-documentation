@@ -119,10 +119,10 @@ clients of the deployment jobs described above:
         * http://web-dev-breaking.openmicroscopy.org/webclient/login/
 
 
-5.3.x series
+5.4.x series
 ^^^^^^^^^^^^
 
-The branch for the 5.3.x series of OMERO is develop. All jobs are listed
+The branch for the 5.4.x series of OMERO is develop. All jobs are listed
 under the :jenkinsview:`DEV` view tab of Jenkins.
 
 .. glossary::
@@ -138,12 +138,12 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
 
     :jenkinsjob:`OMERO-DEV-latest-deploy`
 
-        This job deploys the latest 5.3.x server (see
+        This job deploys the latest 5.4.x server (see
         :ref:`deployment_servers`)
 
     :jenkinsjob:`WEB-DEV-latest-deploy`
 
-        This job deploys the latest 5.3.x webclient (see
+        This job deploys the latest 5.4.x webclient (see
         :ref:`deployment_servers`)
 
     :jenkinsjob:`OMERO-DEV-latest-submods`
@@ -185,12 +185,12 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
 
     :jenkinsjob:`OMERO-DEV-merge-deploy`
 
-        This job deploys the merge 5.3.x server (see
+        This job deploys the merge 5.4.x server (see
         :ref:`deployment_servers`)
 
     :jenkinsjob:`WEB-DEV-merge-deploy`
 
-        This job deploys the merge 5.3.x web (see
+        This job deploys the merge 5.4.x web (see
         :ref:`deployment_servers`)
 
     :jenkinsjob:`OMERO-DEV-merge-integration`
@@ -235,7 +235,7 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
 
     :jenkinsjob:`WEB-DEV-integration-deploy`
 
-        This job deploys the merge 5.3.x web (see
+        This job deploys the merge 5.4.x web (see
         :ref:`deployment_servers`)
 
     :jenkinsjob:`OMERO-DEV-merge-integration-Python27`

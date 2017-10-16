@@ -7,7 +7,7 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
         :header-rows: 1
 
         -       * Job task
-                * 5.3.x series
+                * 5.x series
 
         -       * Builds the latest Bio-Formats artifacts using Ant
                 * | :term:`BIOFORMATS-DEV-latest`
@@ -45,10 +45,10 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
         -       * Installs Bio-Formats using Homebrew
                 * :term:`BIOFORMATS-DEV-merge-homebrew`
 
-5.3.x series
+5.x.x series
 ^^^^^^^^^^^^
 
-The branch for the 5.3.x series of Bio-Formats is develop.
+The branch for the 5.x series of Bio-Formats is develop.
 
 .. glossary::
 
