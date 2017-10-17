@@ -25,9 +25,8 @@ Other IM tools
 ^^^^^^^^^^^^^^
 
 Slack is the only IM tool used by the entire OME team. Some team members do
-also use IRC (#ome on irc.freenode.net) and provide support via that channel
-but all significant conversations should be documented formally via Trac
-tickets or Trello. In general, all external requests for help are best
+also use IRC (#ome on irc.freenode.net) and **may** provide support via that
+channel but in general, all external requests for help are best
 submitted and dealt with via the forums or mailing lists (see below) so they
 are available for the whole community. In particular, the various Gitter
 channels associated with OME projects on GitHub are not routinely monitored
