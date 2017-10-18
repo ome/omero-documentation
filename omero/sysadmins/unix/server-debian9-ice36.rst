@@ -39,6 +39,12 @@ To install Java 1.8 and other dependencies:
     :start-after: #start-step01
     :end-before: #start-web-dependencies
 
+To install dependencies required by OMERO core scripts:
+
+.. literalinclude:: walkthrough/walkthrough_debian9.sh
+    :start-after: #start-web-dependencies
+    :end-before: #end-web-dependencies
+
 To install Ice 3.6:
 
 .. literalinclude:: walkthrough/walkthrough_debian9.sh
