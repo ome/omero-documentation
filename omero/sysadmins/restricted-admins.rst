@@ -29,7 +29,7 @@ workflows. Nevertheless, you can combine the privileges
 (check the checkboxes in the OMERO.web interface)
 in any way you see fit. The privileges were designed in such a way
 that they still bear useful functionality even when used in
-isolation. For example checking the :term:`Chown` checkbox will
+isolation. For example, checking the :term:`Chown` checkbox will
 give the new administrator with restricted
 privileges the power to transfer ownership of other users' data.
 For exact server-side definitions of the privileges displayed
@@ -61,14 +61,18 @@ O
     privilege optional for the workflow
 
 .. note::
-    **Restricted admins workflows in OMERO.clients** Please do not
+    **Restricted admins workflows in OMERO.clients** 
+    
+    Please do not
     expect for any workflows mentioned here that all OMERO.clients
     OMERO.web, OMERO.insight, command line interface (CLI) are fully
     equipped to execute them (see details below). New features will
     be added in OMERO.clients in the 5.4.x series of OMERO releases.
 
 .. note::
-    **Group membership** All the workflows here assume that
+    **Group membership** 
+    
+    All the workflows here assume that
     the administrator with restricted privileges is not a member of
     any group except the System group. This does not preclude such
     administrator from being a member of any number of groups.
@@ -77,14 +81,18 @@ O
     additionally to their administrative privileges.
 
 .. note::
-    **Deleting privileges** :term:`Sudo` privilege includes ability
+    **Deleting privileges** 
+    
+    :term:`Sudo` privilege includes ability
     to delete the data of the user whom the administrator
     is working on behalf of. If you want to prevent the restricted admin from
-    Deleting others data entirely, do not give :term:`Delete Data`
+    deleting others' data entirely, do not give :term:`Delete Data`
     and do not give :term:`Sudo` privileges.
 
 .. note::
-    **Privilege escalation** The administrators with restricted privileges
+    **Privilege escalation** 
+    
+    The administrators with restricted privileges
     (restricted admins) are prevented from escalation of their privileges.
     Creation of a restricted admin with higher privileges than the creator,
     and creation of a full administrator, are prevented. Furthermore,
@@ -102,7 +110,7 @@ privileges.
 These include browsing and viewing all the data of all users in all
 groups (including the groups where they are not members).
 The administrator with restricted privileges
-is also able to Download all the data in all types of groups.
+is also able to download all the data in all types of groups.
 Furthermore, they can view user and group information, such as usernames,
 e-mail addresses, group permission levels and lists of all users
 and groups. They are not able to annotate, edit or delete any of the
@@ -113,14 +121,14 @@ Data viewer workflow as well.
 
 Client Details:
 
-- OMERO.insight: is not designed to show any groups or data you are not
-  a member of. The Data Viewer workflow is preferably
-  executed using OMERO.web or CLI
+- OMERO.insight: is not designed to show any groups, or data belonging to any 
+  groups, you are not a member of. The Data Viewer workflow is preferably
+  executed using OMERO.web or CLI.
 
-- OMERO.web: Allows viewing and downloading the data,
+- OMERO.web: allows viewing and downloading the data,
   see :help:`Viewing Data <viewing-data>`.
 
-- CLI: Allows listing all images, groups and users and downloading the data::
+- CLI: allows listing all images, groups and users and downloading the data::
 
     # List all users on server
     $ bin/omero user list
@@ -170,13 +178,14 @@ data owner and then changing the ownership of the data to the owner
 
 Client details:
 
-- OMERO.importer or OMERO.insight: You have to be a member of the group
+- OMERO.importer or OMERO.insight: you have to be a member of the group
   you want to import to in OMERO.importer or OMERO.insight. Login as the
   administrator with restricted privileges and perform the import for
   others as described in the chapter of the Help documentation
   :help:`import for others <facility-manager#import>`.
 
-- CLI: (see also the videos on import on the
+- CLI: documentation is available covering :doc:`/users/cli/import` and
+  :doc:`/users/cli/import-target` (see also the videos on import on the
   `OME YouTube channel
   <https://www.youtube.com/channel/UCyySB9ZzNi8aBGYqcxSrauQ>`_)::
 
@@ -231,7 +240,7 @@ Client details:
   attachments with results and annotate (for example tag, key-value pairs,
   rating, commenting). These actions are not permitted in Private groups
   with images belonging to others.
-  See :help:`rendering <managing-data#rendering>`,
+  See Help guides for :help:`rendering <managing-data#rendering>`,
   :help:`annotating <managing-data#annotating>`,
   :help:`attaching files <managing-data#attach>`,
   :help:`attaching data <managing-data#attach>`.
@@ -245,7 +254,7 @@ Client details:
   transferring ownership of these containers (any group type),
   transferring ownership of objects
   (images, annotations, ROIs, uploaded attachments with results)
-  is possible too.::
+  is possible too (see :doc:`/users/cli/index`)::
 
     # Upload an official script
     $ bin/omero script upload --official /PATH/TO/YOUR_SCRIPT
@@ -323,8 +332,8 @@ Note that the ownership of data of a user can be transferred either
 piecemeal, i.e. specifying each Project or Dataset to transfer (using
 ``omero chown`` command of CLI), or all of the data of the user can be
 transferred in one step. The transfer of all the data of the user in one
-step has to be considered an advanced feature and might be possibly
-slow in case of larger complexity of the transferred data.
+step has to be considered an advanced feature; it may be slow and demanding of
+CPU resources in cases of complex data.
 
 Quite naturally the Group and Data Organizer can be easily split into two
 separate roles, with the Group Organiser role having
@@ -339,7 +348,7 @@ to deactivate users.
 
 Client Details:
 
-- OMERO.web: All the Data Organizing actions are possible, except transfer
+- OMERO.web: all the Data Organizing actions are possible, except transfer
   of ownership (possible only in CLI, will be addressed in the 5.4.x
   series). Creation of Projects, Datasets
   or Screens for other users in OMERO.web is possible since OMERO 5.4.0,
@@ -352,8 +361,9 @@ Client Details:
   combinations give the restricted adiminstrator good user interface
   experience in OMERO.web.
 
-- CLI: See examples below for CLI features
-  useful for Group and Data Organizing::
+- CLI: see :doc:`cli/usergroup`, :doc:`/users/cli/chgrp`,
+  :doc:`/users/cli/chown` and examples below for CLI features useful for Group
+  and Data Organizing::
 
     # Create new user and put them into 2 groups
     $ bin/omero user add username firstname lastname group1 group2
@@ -391,8 +401,11 @@ Key
         of that user. When the restricted admin is working on
         behalf of a user and using Sudo, their privileges are a common least
         denominator of the privileges of the user and of the restricted
-        admin. See also Note on privilege escalation,
-        Note on Delete and :ref:`Workflow 2` for more details.
+        admin (i.e. if a restricted administrator is using Sudo on behalf of a
+        full administrator, they do not have full admin rights to perform
+        actions not covered by their own privileges). See also Note on
+        privilege escalation, Note on Delete and :ref:`Workflow 2` for more
+        details.
 
     Write Data
         Administrator can create data in groups of which he/she is not
