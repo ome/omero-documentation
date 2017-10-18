@@ -166,7 +166,8 @@ Permissions on your and other users' data
 
 **What can you do with your data?**
 
-All OMERO users in all groups can perform all actions on their own data.
+All OMERO users in all groups can perform all actions on their own data (with
+the exception of changing the ownership of the data).
 
 The main actions available include, but are not limited to:
 
@@ -233,6 +234,7 @@ their subset of privileges.
 :term:`Move between groups`               Y                      Y                       Y              Y
 :term:`Remove annotations`                Y                      Y                       Y              Y
 :term:`Mix data`                          N                      Y                       Y              Y
+:term:`Change ownership`                  Y                      Y              Y                           Y
 =============================== ======================= ===================== ====================== ===================
 
 |
@@ -251,7 +253,8 @@ their subset of privileges.
 :term:`Edit`                              Y                      Y                       Y              Y
 :term:`Move between groups`               N                      N                       N              N
 :term:`Remove annotations`                Y                      Y                       Y              Y
-:term:`Mix data`                              N                      Y                       Y              Y
+:term:`Mix data`                          N                      Y                       Y              Y
+:term:`Change ownership`                  Y                      Y              Y                           Y
 =============================== ======================= ===================== ====================== ===================
 
 |
@@ -270,7 +273,8 @@ their subset of privileges.
 :term:`Edit`                              N                      N                       N              Y
 :term:`Move between groups`               N                      N                       N              N
 :term:`Remove annotations`                N                      N                       N              Y
-:term:`Mix data`                              N                      N                       N              Y
+:term:`Mix data`                          N                      N                       N              Y
+:term:`Change ownership`                  N                      N              N                           N
 =============================== ======================= ===================== ====================== ===================
 
 
@@ -283,7 +287,7 @@ Key
 
 
     Action
-        Action on other users' data
+        Action on other users' data.
 
     View
         View other users' data such as images. View ROIs added by others.
@@ -307,11 +311,11 @@ Key
         objects such as images.
 
     Move between groups
-        Only the admin has the right to move other users’
+        Only an admin has the right to move other users’
         data between groups.
 
         .. note::
-            The admin does not have to be member of the
+            An admin does not have to be member of the
             destination group.
 
     Remove annotations
@@ -329,6 +333,10 @@ Key
             other users' data (you own the link).  The
             link can be deleted, but the tag itself will
             not be deleted.
+
+    Change ownership
+        Assign ownership of the data to a different user. The target user
+        should be a member of the group the data belongs to.
 
 
 Issues to be aware of
