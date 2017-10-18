@@ -319,7 +319,7 @@ person from any group (included in the :term:`Add Users to Groups` privilege)
 and make the user inactive (facilitated by the :term:`Create and Edit Users`
 privilege).
 
-Note that the ownership of data of a user can be trasferred either
+Note that the ownership of data of a user can be transferred either
 piecemeal, i.e. specifying each Project or Dataset to transfer (using
 ``omero chown`` command of CLI), or all of the data of the user can be
 transferred in one step. The transfer of all the data of the user in one
