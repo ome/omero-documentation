@@ -51,10 +51,7 @@ contributing_extlinks = {
     
     # Doc links
     'omero_doc' : (docs_root + '/latest/omero/%s', ''),
-    'bf_doc' : (docs_root + '/latest/bio-formats/%s', ''),
-    #Remaining plone links
-    'community_plone' : (oo_site_root + '/community/%s', ''),
-    'team_plone' : (oo_site_root + '/team/%s', '')
+    'bf_doc' : (docs_root + '/latest/bio-formats/%s', '')
     }
 extlinks.update(contributing_extlinks)
 

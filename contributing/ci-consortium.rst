@@ -16,14 +16,6 @@ Jenkins.
 		*
 		* :term:`MTOOLS-release-downloads`
 
-
-FLIMfit
-^^^^^^^
-
-The source code for the FLIMfit is hosted under
-https://github.com/imperial-photonics/FLIMfit. Since 4.11.1, the downloads are
-hosted at http://flimfit.org/.
-
 OMERO.mtools
 ^^^^^^^^^^^^
 
@@ -37,9 +29,3 @@ OMERO.mtools
 		#. Build the OMERO.mtools downloads pages using :command:`make mtools`
 		#. Copy the OMERO.mtools downloads page over SSH to
 		   :file:`/ome/www/download.openmicroscopy.org/mtools/RELEASE`
-
-OMERO.webtagging
-^^^^^^^^^^^^^^^^
-
-The source code for OMERO.webtagging is hosted under
-https://github.com/MicronOxford/webtagging/. Since 3.0.0, the Web app is released under :pypi:`omero-webtagging-tagsearch` and :pypi:`omero-webtagging-autotag`.

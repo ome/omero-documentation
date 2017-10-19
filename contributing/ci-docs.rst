@@ -2,7 +2,10 @@ Documentation jobs
 ------------------
 
 All documentation jobs are listed under the :jenkinsview:`Docs <Docs>` view
-tab of Jenkins.
+tab of Jenkins. A :guilabel:`GitHub`
+button in the left-side panel of the job window links to the code repository
+the job is building from (alternatively, the console output for the build will
+indicate where the changes are being fetched from).
 
 .. list-table::
 	:header-rows: 1
@@ -92,8 +95,9 @@ the help builds.
 	-	* Publish the OME help website
 		* :term:`OME-help-release`
 
-OME Files comprises OME Files C++ and OME CMake Super-Build Sphinx manuals,
-which are taken from separate repositories but built and hosted as a bundle.
+OME Files comprises OME Model, OME Files C++ and OME CMake Super-Build Sphinx
+manuals, which are taken from separate repositories but built and hosted as a
+bundle.
 
 .. list-table::
 	:header-rows: 1
@@ -111,13 +115,11 @@ which are taken from separate repositories but built and hosted as a bundle.
 Configuration
 ^^^^^^^^^^^^^
 
-For all jobs building documentation using Sphinx, the HTML documentation theme
-hosted at https://github.com/openmicroscopy/sphinx_theme repository is copied
-to the relevant :file:`themes/` folder. The following environment variables
-are then used:
+For all jobs building documentation using Sphinx, the following environment
+variables are used:
 
 - the Sphinx building options, :envvar:`SPHINXOPTS`, is set to
-  ``-W -D html_theme=sphinx_theme``
+  ``-Dsphinx.opts="-W"``
 
 - the release number of the documentation is set by :envvar:`OMERO_RELEASE`,
   :envvar:`BF_RELEASE` or by the relevant POM
@@ -126,6 +128,9 @@ are then used:
 
 - for the Bio-Formats and OMERO sets of documentation, the name of the
   Jenkins job is set by :envvar:`JENKINS_JOB`.
+
+Note that the https://github.com/openmicroscopy/sphinx_theme repository is no
+longer used, this hosted the theme to match the old plone website.
 
 OMERO 5.x series
 ^^^^^^^^^^^^^^^^
@@ -137,7 +142,7 @@ The branch for the 5.x series of the OMERO documentation is develop.
 	:jenkinsjob:`OMERO-DEV-latest-docs`
 
 		This job is used to review the PRs opened against the develop branch
-		of the OMERO 5.4.x documentation
+		of the OMERO 5.x documentation
 
 		#. |merge|
 		#. |sphinxbuild|
@@ -146,7 +151,7 @@ The branch for the 5.x series of the OMERO documentation is develop.
 	:jenkinsjob:`OMERO-DEV-merge-docs`
 
 		This job is used to review the PRs opened against the develop branch
-		of the OMERO 5.4.x documentation
+		of the OMERO 5.x documentation
 
 		#. |merge|
 		#. Pushes the branch to :omedoc_scc_branch:`develop/merge/daily`
@@ -335,17 +340,19 @@ The following set of jobs is used to review or publish the content of the
 OME Files
 ^^^^^^^^^
 
-This bundle of Sphinx documentation has two components: OME Files C++
+This bundle of Sphinx documentation has three components: OME Model
+documentation is located in the ome-model repository; OME Files C++
 documentation is located in the ome-files-cpp repository; OME CMake
 Super-Build documentation is located in the ome-cmake-superbuild repository.
-Both are currently built from the master branches despite the build names.
+All are currently built from the master branches despite the build names.
 
 .. glossary::
 
      :jenkinsjob:`OME-FILES-CPP-DEV-release-bundle-docs`
 
-	    This job is used to publish the master branches of the OME Files C++
-	    and OME CMake Super-Build Sphinx documentation as a single bundle
+	    This job is used to publish the master branches of the OME Model, OME
+	    Files C++ and OME CMake Super-Build Sphinx documentation as a single
+	    bundle
 
 	    #. |buildFilesSB|
 	    #. |deploy-doc| https://www.openmicroscopy.org/site/support/ome-files-cpp/
