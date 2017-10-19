@@ -13,8 +13,8 @@ OMERO server. The degree to which their data is available to other
 members of the group depends on the permissions settings for that
 group. Whenever a user logs on to an OMERO server, they are connected
 under one of their groups. All data they import and any work that is
-done is assigned to the current group, however the user can now
-easily move their data into another group.
+done is assigned to the current group, however the user can move their data
+into another group.
 
 Users
 -----
@@ -46,10 +46,10 @@ Users
 Groups and users must be created by the server administrator or a restricted
 administrator with the correct privileges. Users can then be added by the
 administrator (either a full admin or a restricted admin with the correct
-privileges) or by one of the group owners
-assigned by the administrator. This would typically be the PI of the
-lab. The group's owners or administrators can also choose the
-permission level for that group. See the :help:`Help guide for managing groups
+privileges) or by one of the group owners assigned by the administrator (group
+owners would typically include the PI of the lab). The group's owners or
+administrators can also choose the permission level for that group. See the
+:help:`Help guide for managing groups
 <sharing-data.html#owner>` for more information about how to administrate them
 in OMERO.
 
@@ -76,19 +76,19 @@ The various permission levels are:
       
       -  A PI as :term:`Group owner` and
          their student, as a :term:`Group member`, can access the student's
-         data. A student might use this as somewhere to store all of their
+         data. A student might use this to store all of their
          data and from here, the PI and/or student might decide which data
-         could/should be copied into a more collaborative group where
+         could/should be moved into a more collaborative group where
          additional members would also be able to view the data.
       -  An institutional repository type structure where data are being
          archived, but not necessarily open for general viewing.
 
    **Read-only**
-      This group is the intermediate option that allows visibility of other
-      users and their data, but minimal ability to annotate their data:
+      This group allows visibility of other users and their data, but minimal
+      ability to annotate their data:
       
       -  The :term:`Group owner` can control group members as above and can
-         perform some annotations on the other group members data.
+         perform annotations on the other group members data.
       -  :term:`Group member` can see who other members are and view their
          data, but cannot annotate another members' data at all.
       
@@ -98,13 +98,18 @@ The various permission levels are:
          other group members to access and view their data. Their PI, as a
          group owner could then annotate and/or add Regions of Interest
          (ROIs) to their images.
+      -  Scientists submitting a publication could move data to a read-only
+         group as part of the publication workflow, making them publicly
+         available via a URL for reviewers and readers (see the
+         :help:`guide guide for public data <publish.html#public>`)
       -  For an institutional repository where data are being archived and
          then available for other users in the institute to view; this could
          be standard storage of all original data, or for data that is
          included in publications.
 
    **Read-annotate**
-      This is a more collaborative group:
+      This group allows some collaboration on other members' data for all
+      members:
       
       -  :term:`Group member` can view other members, their data and can
          make annotations on those other members' data.
@@ -294,7 +299,7 @@ Key
         Draw ROIs on other users' data, but they cannot be saved.
 
     Annotate
-        Add annotations (rating, tag, attachment, comment ROI)
+        Add annotations (rating, tag, attachment, comment, ROI)
         to another users' data. Also create & save ROIs (save
         ROIs that you draw on another users' data).
 
@@ -315,8 +320,8 @@ Key
         data between groups.
 
         .. note::
-            An admin does not have to be member of the
-            destination group.
+            An admin does not have to be a member of either the original or
+            the destination group.
 
     Remove annotations
         Remove annotations made by others on your data.
