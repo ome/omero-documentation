@@ -18,12 +18,6 @@ Installing prerequisites
 
 **The following steps are run as root.**
 
-Install Pillow and Numpy:
-
-.. literalinclude:: ../../walkthrough/walkthrough_centos7.sh
-    :start-after: #start-web-dependencies
-    :end-before: #end-web-dependencies
-
 Install NGINX:
 
 .. literalinclude:: ../../walkthrough/walkthrough_centos7.sh
