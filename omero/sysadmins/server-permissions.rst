@@ -101,7 +101,7 @@ The various permission levels are:
       -  Scientists submitting a publication could move data to a read-only
          group as part of the publication workflow, making them publicly
          available via a URL for reviewers and readers (see the
-         :help:`guide guide for public data <publish.html#public>`)
+         :help:`Help guide for public data <publish.html#public>`).
       -  For an institutional repository where data are being archived and
          then available for other users in the institute to view; this could
          be standard storage of all original data, or for data that is
