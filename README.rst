@@ -98,33 +98,8 @@ To check the links (internal and external) of the documentation, use one of::
     make linkcheck
     ant linkcheck
     
-To list all targets of the sphinx builder, use::
-    
-    make
-    
-The output should look something like::
-    
-    Please use `make <target>' where <target> is one of
-      html       to make standalone HTML files
-      dirhtml    to make HTML files named index.html in directories
-      singlehtml to make a single large HTML file
-      pickle     to make pickle files
-      json       to make JSON files
-      htmlhelp   to make HTML files and a HTML help project
-      qthelp     to make HTML files and a qthelp project
-      devhelp    to make HTML files and a Devhelp project
-      epub       to make an epub
-      latex      to make LaTeX files, you can set PAPER=a4 or PAPER=letter
-      latexpdf   to make LaTeX files and run them through pdflatex
-      text       to make text files
-      man        to make manual pages
-      texinfo    to make Texinfo files
-      info       to make Texinfo files and run them through makeinfo
-      gettext    to make PO message catalogs
-      changes    to make an overview of all changed/added/deprecated items
-      linkcheck  to check all external links for integrity
-      doctest    to run all doctests embedded in the documentation (if
-                 enabled)
+By default, ``make`` will build the documentation locally in the form of HTML pages.
+
 
 Top-level build command
 -----------------------
@@ -141,6 +116,8 @@ To build the sets of documentation locally in the form of HTML pages, use one of
 
     make html
     ant html
+
+By default, running ``make`` will build the documentation locally in the form of HTML pages.
 
 Makefile options
 ----------------
@@ -170,6 +147,8 @@ Zip bundles
 To build the documentation as a zipped bundle, use::
 
     ant zip
+
+By default, running ``ant`` will build as a zipped bundle.
 
 From the top level directory::
 
@@ -212,7 +191,7 @@ Part of the conventions used here is based on work by
 File names
 ==========
 
-reST source file names should carry the ``txt`` suffix and use lowercase
+reST source file names should carry the ``rst`` suffix and use lowercase
 alphanumeric characters and the ``-`` (minus) symbol.
 
 Indentation
