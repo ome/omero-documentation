@@ -113,7 +113,7 @@ clients of the deployment jobs described above:
 
     -   * Breaking
         * :term:`OMERO-DEV-breaking-deploy`
-        * trout.openmicroscopy.org
+        * carp.openmicroscopy.org
         * 34064
         * :term:`WEB-DEV-breaking-deploy`
         * http://web-dev-breaking.openmicroscopy.org/webclient/login/
