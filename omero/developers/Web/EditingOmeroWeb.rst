@@ -2,53 +2,25 @@ Editing OMERO.web
 =================
 
 If you need to make changes to OMERO.web itself, then you
-will want to check out the OMERO source code. You can directly
-edit and run the OMERO.web code.
-This means that you benefit from the convenience of editing,
-saving and refreshing your browser without any build step.
-
-However, you will still need to build OMERO (or download the release build)
-and set up your :envvar:`PYTHONPATH` as described in the install documentation
-in order that you have the various dependencies such as Django.
+will want to check out the OMERO source code, build the server
+and run OMERO.web as described in :doc:`/developers/Web/Deployment`.
 
 You will then have 2 copies of the OMERO.web code -
-source code under components/tools/OmeroWeb/omeroweb and the server
-build under dist/lib/python/omeroweb.
+source code under ``components/tools/OmeroWeb/omeroweb`` and the server
+build under ``dist/lib/python/omeroweb``.
 
-To set up and run OMERO.web from the source code, you need to 
-follow a few steps (commands are shown below):
+In order to avoid a build step during development, you can delete
+the omeroweb code under dist and replace it with a sym-link
+to the source code::
 
--  Set :envvar:`OMERO_HOME`, so that OMERO.web knows where to find config, write logs etc.
+    $ rm -rf dist/lib/python/omeroweb
+    $ ln -s /path/to/openmicroscopy/components/tools/OmeroWeb/omeroweb/ /path/to/openmicroscopy/dist/lib/python
 
-   .. warning::
-       You should not set :envvar:`OMERO_HOME` on production servers.
-
-       The examples below assume a *developer* environment, making appropriate
-       use of OMERO internals.
-       See :doc:`/sysadmins/omero-home-prefix` for details.
-
--  Make sure that the Django libraries that are under the build:
-   dist/lib/python/django are on your :envvar:`PYTHONPATH`.
--  Make sure the OmeroWeb folder:
-   components/tools/OmeroWeb is on your :envvar:`PYTHONPATH`.
--  Remove the built omeroweb folder, otherwise this will get used
-   instead of the source omeroweb 
-
-   .. note:: You have to do this again if you build the server
 
 -  From the source omeroweb/ folder, manually run the Django development
    server
 
    ::
-
-       # Example path to build target or downloaded directory
-       $ export OMERO_HOME = ~/Desktop/OMERO/dist
-
-       # Make sure the Django code etc can be imported
-       $ export PYTHONPATH=$OMERO_HOME/lib/python/:$OMERO_HOME/../components/tools/OmeroWeb:$PYTHONPATH
-       $ cd $OMERO_HOME
-       # need to remove the built omeroweb code so it doesn't get imported
-       $ rm -rf lib/python/omeroweb/
 
        $ cd ../components/tools/OmeroWeb
        $ python omeroweb/manage.py runserver
