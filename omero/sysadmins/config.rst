@@ -2045,7 +2045,7 @@ Default: `1`
 
 omero.web.public.url_filter
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Set a regular expression that matches URLs the public user isallowed to access. If this is not set, no URLS will bepublicly available.
+Set a regular expression that matches URLs the public user is allowed to access. If this is not set, no URLs will be publicly available.
 
 Default: `(?#This regular expression matches nothing)a^`
 
