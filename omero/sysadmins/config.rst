@@ -13,7 +13,7 @@ Introduction
 ------------
 
 The primary form of configuration is via the use of key/value properties,
-stored in :file:`etc/grid/config.xml` and read on server startup. Backing up
+stored in :file:`etc/grid/config.xml` and read on server start-up. Backing up
 and copying these properties is as easy as copying this file to a new server
 version.
 
@@ -229,7 +229,7 @@ Default: `true`
 
 omero.client.ui.menu.dropdown.colleagues.label
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Client dropdown menu colleagues label.
+Client drop-down menu colleagues label.
 
 Default: `Members`
 
@@ -245,7 +245,7 @@ Default: `true`
 
 omero.client.ui.menu.dropdown.everyone.label
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Client dropdown menu all users label.
+Client drop-down menu all users label.
 
 Default: `All Members`
 
@@ -261,7 +261,7 @@ Default: `true`
 
 omero.client.ui.menu.dropdown.leaders.label
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Client dropdown menu leader label.
+Client drop-down menu leader label.
 
 Default: `Owners`
 
@@ -745,7 +745,7 @@ via the new_user_group setting should be made a
 "manager", i.e. owner, of the queried group. E.g.
 ``omero.ldap.new_user_group_owner=(owner=@{dn})``
 will use the 'manager' attribute to set the 'owner'
-flag in the database. This query element is appened
+flag in the database. This query element is appended
 to any query used by new_user_group with an AND.
 
 This property is not used by new_user_group type
@@ -1118,7 +1118,7 @@ Pixeldata
 omero.pixeldata.backoff
 ^^^^^^^^^^^^^^^^^^^^^^^
 Name of the spring bean which will be used
-to calculate the backoff (in ms) that users
+to calculate the back-off (in ms) that users
 should wait for an image to be ready to view.
 
 Default: `ome.io.nio.SimpleBackOff`
@@ -2045,7 +2045,7 @@ Default: `1`
 
 omero.web.public.url_filter
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Set a regular expression that matches URLs the public user isallowed to access. If this is not set, no URLS will bepublicly available.
+Set a regular expression that matches URLs the public user is allowed to access. If this is not set, no URLs will be publicly available.
 
 Default: `(?#This regular expression matches nothing)a^`
 
