@@ -1,6 +1,3 @@
-.. walkthroughs are generated using ansible, see
-.. https://github.com/ome/omeroweb-install
-
 OMERO.web installation on Mac OS X and IcePy 3.6
 ================================================
 

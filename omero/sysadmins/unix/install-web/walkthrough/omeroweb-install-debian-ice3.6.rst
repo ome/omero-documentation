@@ -1,6 +1,3 @@
-.. walkthroughs are generated using ansible, see
-.. https://github.com/ome/omeroweb-install
-
 OMERO.web installation separately from OMERO.server on Debian 9 and IcePy 3.6
 =============================================================================
 
