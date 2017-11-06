@@ -67,7 +67,7 @@ manage your scripts. If you are not familiar with
 
    ::
 
-           cd lib/scripts;
+           cd lib/scripts
            git clone git@github.com:YOURGITUSERNAME/omero-user-scripts.git YOUR_SCRIPTS
 
 -  save the scripts you want to use into the appropriate sub-directory in your
