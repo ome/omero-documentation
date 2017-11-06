@@ -43,27 +43,16 @@ OMERO.server release and automatically available to all users. You can find
 additional scripts on GitHub by looking for forks of
 `ome/omero-user-scripts <https://github.com/ome/omero-user-scripts/network/members>`_.
 
-Installing and running scripts
-------------------------------
+Downloading and installing scripts
+----------------------------------
 
 The easiest way to make use of scripts is for someone with admin rights to
 upload them to the OMERO.server as described in the :doc:`user-guide`. Once a
 script has been added under the lib/scripts directory, you can run them from
-the OMERO clients or the command line.
-
-Writing scripts
----------------
-
-:doc:`user-guide` describes the workflows for developing and running your own
-scripts. You should use the :doc:`style-guide` to ensure your script interacts
-with the OMERO clients in a usable way.
-
-If you are a biologist with no previous coding experience, you may find the 
-`Python for Biologists 
-<http://pythonforbiologists.com/index.php/introduction-to-python-for-biologists/>`_ free online course helpful.
-
-Managing scripts
-----------------
+the OMERO clients or the command line. However, you will not be notified of
+any updates to the script, nor will you be able to automatically update them.
+This means that when your OMERO installation is upgraded, all your additional
+scripts will be lost.
 
 To keep your scripts up to date, we recommend you use a Github repository to
 manage your scripts. If you are not familiar with
@@ -73,7 +62,7 @@ manage your scripts. If you are not familiar with
 
 -  fork our
    `omero-user-script <https://github.com/ome/omero-user-scripts>`_
-   repository
+   repository or any other repository you trust (`<https://github.com/ome/omero-user-scripts/network/members>`_)
 -  clone it in your lib/scripts directory
 
    ::
@@ -84,9 +73,14 @@ manage your scripts. If you are not familiar with
 -  save the scripts you want to use into the appropriate sub-directory in your
    cloned location lib/scripts/YOUR_SCRIPTS
 
-Your new scripts will then show up in the script menu in the clients,
-alongside the core 'omero' scripts which are shipped with each release. This
-means you should try to pick unique names to avoid future clashes 
+If all you want to do is add scripts from someone else's repository to your
+server, you can simply clone that repository in your lib/scripts directory and
+the scripts within it will be added to your script list as described in the 
+`OMERO-user-script repository readme <https://github.com/ome/omero-user-scripts>`_.
+
+As your new scripts will then show up in the script menu in the clients,
+alongside the core 'omero' scripts which are shipped with each release, you
+should try to pick unique names to avoid future clashes
 e.g. Custom_Scripts/Search_Scripts/original_metadata_search.py:
 
 .. figure:: /images/omero-user-script-menu.png
@@ -100,6 +94,29 @@ The OME developers use Github to co-ordinate all our development work so
 joining the network will help you access help and support, and see what other
 people are doing with scripts. Cloning our repository also means you have an
 example script to get you started with developing your own.
+
+Developing your own scripts
+---------------------------
+
+The easiest way to get started developing scripts for your own site is to fork
+the `github.com/ome/omero-user-scripts <https://github.com/ome/omero-user-scripts>`_
+repository and clone it somewhere under lib/scripts as described above. Then
+go into YOUR_SCRIPTS and rename the existing script to match your needs::
+
+    cd lib/scripts/YOUR_SCRIPTS
+    git mv Example.py util_scripts/New_function.py 
+
+Once you have done that, you can edit and test run the script and then when
+you are happy with it, you can save it and push it back to your fork for
+others to see and share.
+
+:doc:`user-guide` describes the workflows for developing and running your own
+scripts. You should use the :doc:`style-guide` to ensure your script interacts
+with the OMERO clients in a usable way.
+
+If you are a biologist with no previous coding experience, you may find the 
+`Python for Biologists 
+<http://pythonforbiologists.com/index.php/introduction-to-python-for-biologists/>`_ free online course helpful.
 
 Contributing back to the community
 ----------------------------------
