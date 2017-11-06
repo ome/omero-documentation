@@ -41,7 +41,24 @@ Finding scripts
 `Core scripts <https://github.com/ome/scripts>`_ are bundled with every
 OMERO.server release and automatically available to all users. You can find
 additional scripts on GitHub by looking for forks of
-`ome/omero-user-scripts <https://github.com/ome/omero-user-scripts/network/members>`_.
+`ome/omero-user-scripts <https://github.com/ome/omero-user-scripts/network/members>`_. Some examples
+include:
+
+- `OMERO scripts <https://github.com/glencoesoftware/omero-user-scripts>`_ -
+  Glencoe Software
+- `Example scripts <https://github.com/openmicroscopy/omero-example-scripts>`_
+  - OME Team
+- `Fixing scripts <https://github.com/ppouchin/omero-user-scripts>`_ - Pierre 
+  Pouchin
+- `GDSC OMERO user scripts <https://github.com/aherbert/omero-user-scripts>`_
+  - Alex Herbert
+- `QBI-Microscopy scripts <https://github.com/QBI-Microscopy/omero-user-scripts>`_
+  - Queensland Brain Institute
+- `OMEROscripts <https://github.com/dsudar/OMEROscripts>`_ - Damir Sudar
+
+All of the included scripts and repositories can be downloaded following the
+instructions below in order to run the scripts locally (although some of them
+are intended as examples only - check the associated README).
 
 Downloading and installing scripts
 ----------------------------------
