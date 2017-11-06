@@ -1,3 +1,6 @@
+.. walkthroughs are generated using a bash script, see
+.. https://github.com/ome/omero-install
+
 OMERO.web installation with OMERO.server on Debian 9 and IcePy 3.6
 ==================================================================
 
