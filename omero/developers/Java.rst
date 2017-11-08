@@ -339,6 +339,25 @@ This is useful when you need the pixels intensity.
         store.close();
     }
 
+-  **Retrieve a histogram.**
+
+::
+
+    RawPixelsStorePrx store = gateway.getPixelsStore(ctx);
+    try {
+        store.setPixelsId(pixelsId, false);
+        int[] channels = new int[] { 0 };
+        int binCount = 256;
+        Map<Integer, int[]> histdata = store.getHistogram(channels,
+                binCount, false, null);
+        int[] histogram = histdata.get(0);
+        //Do something with the histogram data
+    } catch (Exception e) {
+        throw new Exception("Cannot get the histogram data", e);
+    } finally {
+        store.close();
+    }
+
 Write data
 ----------
 
