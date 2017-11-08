@@ -56,12 +56,12 @@ Main OME Website
 The source for `www.openmicroscopy.org <https://www.openmicroscopy.org>`_ is
 on GitHub at `<https://github.com/openmicroscopy/www.openmicroscopy.org>`_.
 The website uses the ‘master’ branch, PRs should be opened directly against
-it.
+it. Most of the files are written in html but the announcements posts are in
+markdown and further content may migrate to markdown in future.
 
 Once a PR is open and has passed Travis, you can build the staging site for
 review by triggering the
-`WWW-merge <https://ci.openmicroscopy.org/view/Mgmt/job/WWW-merge/>`_ job. The
-site will be viewable at
+:jenkinsjob:`WWW-merge` job. The site will be viewable at
 `<https://snoopycrimecop.github.io/www.openmicroscopy.org/>`_.
 
 Once the PR is merged, the live site can currently only be updated by one of
@@ -75,9 +75,9 @@ OME Blog
 The source for `blog.openmicroscopy.org <http://blog.openmicroscopy.org>`_ is
 at `<https://github.com/ome/blog>`_.
 The website uses the 'gh-pages' branch and as there is no merge build or
-staging page, you should open a PR directly against this branch. Branches must
-be built locally for review and merging PRs automatically updates the live
-site.
+staging page, you should open a PR directly against this branch. The files are
+written in markdown. Branches must be built locally for review and merging PRs
+automatically updates the live site.
 
 Help site
 ^^^^^^^^^
@@ -91,15 +91,15 @@ presentations may become the default format for new workflows.
 
 The source is at `<https://github.com/openmicroscopy/ome-help/>`_.
 The website uses the ‘gh-pages’ branch for the live deployment but PRs should
-be opened against 'master' for review.
+be opened against 'master' for review. All the files are currently written in
+html.
 
 Once a PR is open against the ‘master’ branch and has passed Travis, you can
 build the staging site for review by triggering the
-`OME-help-staging <https://ci.openmicroscopy.org/view/Docs/job/OME-help-staging/>`_ job. The
+:jenkinsjob:`OME-help-staging` job. The
 site will be viewable at `<http://help.staging.openmicroscopy.org>`_.
 
-Once the PR is merged, running the
-`OME-help-release <https://ci.openmicroscopy.org/view/Docs/job/OME-help-release/>`_ build will
+Once the PR is merged, running the :jenkinsjob:`OME-help-release` build will
 open a PR to transfer the content to the ‘gh-pages’ branch. Once that PR is
 merged, the live site will be updated automatically.
 
@@ -114,14 +114,13 @@ related blog posts.
 
 The source is at `<https://github.com/ome/omero-figure/>`_.
 The live website uses the ‘gh-pages’ branch but PRs should be opened against
-'gh-pages-staging' for review.
+'gh-pages-staging' for review. Most of the content is written in markdown.
 
 Once a PR is open against the ‘gh-pages-staging’ branch, you can build the
-staging site for review by triggering the
-`FIGURE-help-staging <https://ci.openmicroscopy.org/view/Docs/job/FIGURE-help-staging>`_ job. The
-site will be viewable at `<http://figure.staging.openmicroscopy.org>`_.
+staging site for review by triggering the :jenkinsjob:`FIGURE-help-staging`
+job. The site will be viewable at
+`<http://figure.staging.openmicroscopy.org>`_.
 
-Once the PR is merged, running the
-`FIGURE-help-release <https://ci.openmicroscopy.org/view/Docs/job/FIGURE-help-release/>`_ build
+Once the PR is merged, running the :jenkinsjob:`FIGURE-help-release` build
 will open a PR to transfer the content to the ‘gh-pages’ branch. Once that PR
 is merged, the live site will be updated automatically.
