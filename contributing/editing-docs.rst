@@ -85,7 +85,7 @@ Building locally
 The build uses Sphinx via ant. Within the Sphinx folder, ``make clean html``
 will generate the webpages provided you have both Sphinx and ant installed.
 
-Building/Reviewing PRs via the CI
+Building/reviewing PRs via the CI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Once a PR is open, you can build it for review using the
@@ -121,7 +121,7 @@ Hosted at `<https://docs.openmicroscopy.org/contributing/>`_ (always latest).
 
 This covers the OME team processes and workflows that may be of interest to
 external contributors or other open source teams - information about what
-tools we use and how rather than internal-only workflows (like standup prep)
+tools we use and how, rather than internal-only workflows (like standup prep)
 or anything which needs to be kept private which belongs in the internal docs
 instead.
 
@@ -143,12 +143,12 @@ The build uses Sphinx via ant. You can build locally using ``make clean html``
 as long as you have Sphinx and ant installed. There is further information on
 getting these set up and on build targets in the README.
 
-Building/Reviewing PRs via the CI
+Building/reviewing PRs via the CI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Once a PR is open, you can build it for review using the
 :jenkinsjob:`CONTRIBUTING-merge-docs` job on the Jenkins CI. Staging
-documentation is no longer deployed at a URL but you can download them as a
+documentation is no longer deployed at a URL but you can download it as a
 zip for review with the correct styling by going to the workspace folder in
 the job.
 
@@ -158,3 +158,291 @@ Publishing
 The live webpages are updated by running the
 :jenkinsjob:`CONTRIBUTING-latest-docs` build.
 
+OME Data Model and File Formats documentation
+---------------------------------------------
+
+Hosted at `<http://docs.openmicroscopy.org/ome-model/>`_\{{version}}/ (plus
+latest redirect - `<http://docs.openmicroscopy.org/latest/ome-model/>`_).
+
+This covers the OME file formats (OME-TIFF, OME-XML and with the next release
+- OMERO pyramid format) and the data model.
+
+Builds
+^^^^^^
+
+See :doc:`ci-docs`. Note that this documentation is built and hosted
+individually and as part of the OME Files documentation bundle.
+
+These builds are set up differently to the ones which use Sphinx via ant so
+broken links are not reported on a separate tab, you need to search the
+console output.
+
+Source
+^^^^^^
+
+The documentation is in the ``/docs/sphinx/`` folder in the code repository at
+`<https://github.com/ome/ome-model>`_.
+
+Building locally
+^^^^^^^^^^^^^^^^
+
+The build uses Sphinx via Maven. You can build locally using ``make clean
+html`` provided you have both installed.
+
+Building/reviewing PRs via the CI
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Once a PR is open, you can build it for review using the
+:jenkinsjob:`MODEL-merge-docs` job on the Jenkins CI. Staging documentation is
+no longer deployed at a URL but you can download it as a zip for review with
+the correct styling from the job page (see ‘Last Successful Artifacts’ at the
+top of the centre panel.
+
+Publishing
+^^^^^^^^^^
+
+The live webpages are updated as part of the release process.
+
+OME Files C++ documentation
+---------------------------
+
+Hosted at `<http://docs.openmicroscopy.org/ome-files-cpp/>`_\{{version}}/ (no
+latest redirect currently).
+
+Builds
+^^^^^^
+
+The OME Files C++ docs are built as part of the OME Files docs bundle - see
+:doc:`ci-docs` and :doc:`ci-ome-files`.
+
+These builds are set up differently to the ones which use Sphinx via ant so
+broken links are not reported on a separate tab, you need to search the
+console output.
+
+Source
+^^^^^^
+
+The Sphinx documentation is in the ``/docs/sphinx/`` folder in the code
+repository at `<https://github.com/ome/ome-files-cpp>`_.
+
+Building locally
+^^^^^^^^^^^^^^^^
+
+The build uses Sphinx via cmake. You can build locally using ``make clean
+html`` provided you have both installed.
+
+Building/reviewing PRs via the CI
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Once a PR is open, you can build it for review using the
+:jenkinsjob:`OME-FILES-CPP-DEV-merge-docs` job on the Jenkins CI. Staging
+documentation is no longer deployed at a URL but you can download it as a
+zip for review with the correct styling from the job Workspace.
+
+Publishing
+^^^^^^^^^^
+
+The live webpages are updated as part of the release process.
+
+OME CMAKE Super-Build documentation
+-----------------------------------
+
+Hosted at
+`<http://docs.openmicroscopy.org/ome-cmake-superbuild/>`_\{{version}}/ (no
+latest redirect currently).
+
+Builds
+^^^^^^
+
+The OME Cmake super-build docs are built as part of the OME Files docs bundle
+- see :doc:`ci-docs` and :doc:`ci-ome-files`.
+
+Source
+^^^^^^
+
+The Sphinx documentation is in the ``/docs/sphinx/``
+folder in the code repository at
+`<https://github.com/ome/ome-cmake-superbuild>`_.
+
+Building locally
+^^^^^^^^^^^^^^^^
+
+The build uses Sphinx via cmake. You can build locally using ``make clean
+html`` provided you have both installed.
+
+Building/reviewing PRs via the CI
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Once a PR is open, you can build it for review using the
+:jenkinsjob:`OME-FILES-CPP-DEV-merge-docs` job on the Jenkins CI. Staging
+documentation is no longer deployed at a URL but you can download them as a
+zip for review with the correct styling from the job Workspace.
+
+Publishing
+^^^^^^^^^^
+
+The live webpages are updated as part of the release process.
+
+OME Internal documentation (private)
+------------------------------------
+
+For members of the OME team, this set of documentation is available at
+`<https://docs.openmicroscopy.org/internal/>`_ behind an ldap log-in.
+
+Builds
+^^^^^^
+
+:jenkinsjob:`OME-internal-merge-docs`.
+
+Source
+^^^^^^
+
+`<https://github.com/openmicroscopy/ome-internal>`_ (private repository)
+
+Building locally
+^^^^^^^^^^^^^^^^
+
+The build uses Sphinx via ant. You can build locally using ``make clean html``
+as long as you have Sphinx and ant installed.
+
+Building/reviewing PRs via the CI
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Once a PR is open, you can build it using
+:jenkinsjob:`OME-internal-merge-docs` and then view the rendered text on the
+live webpages.
+
+Publishing
+^^^^^^^^^^
+
+Content is automatically published to the private URL each day or when the
+merge build is run.
+
+OMERO documentation
+-------------------
+
+Hosted at `<https://docs.openmicroscopy.org/omero/>`_\{{version}}/ (plus
+latest redirect - :omero_doc:`https://docs.openmicroscopy.org/latest/omero/ <>`).
+
+This documentation includes developer and sysadmin documentation for OMERO,
+version history, client overviews and CLI usage documentation. Workflow-based
+user documentation belongs in the Help instead while features and other
+overview material aimed at scientists and other non-IT people may belong on
+the website.
+
+Builds
+^^^^^^
+
+See :doc:`ci-docs`.
+
+Source
+^^^^^^
+
+All the source files are in the ``/omero/`` folder at
+`<https://github.com/openmicroscopy/ome-documentation>`_.
+
+Building locally
+^^^^^^^^^^^^^^^^
+
+The build uses Sphinx via ant. You can build locally using ``make clean html``
+as long as you have Sphinx and ant installed. There is further information on
+getting these set up and on build targets in the `README`_.
+
+Building/reviewing PRs via the CI
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Once a PR is open, you can build it for review using the
+:jenkinsjob:`OMERO-DEV-merge-docs` job on the Jenkins CI. Staging
+documentation are no longer deployed at a URL but you can download it as a zip
+for review with the correct styling from the top centre panel in the job,
+under ‘Last Successful Artifacts’.
+
+Autogenerated/inserted external content
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The OMERO documentation is the most complicated set, being the only repo where
+material is sourced from other repositories. Source repositories are:
+
+- `<https://github.com/openmicroscopy/openmicroscopy/>`_ (OMERO code repo)
+- `<https://github.com/ome/omero-install>`_ (OMERO server with Web
+  installation)
+- `<https://github.com/ome/omeroweb-install>`_ (OMERO.web separately from
+  OMERO.server installation)
+
+:jenkinsjob:`OMERO-DEV-latest-docs-autogen` fetches content MERGED in the
+source repositories and can run with the ‘OPEN_PR’ box checked to
+automatically open a PR against the documentation repo to transfer the
+content. Once that PR is open, you can run the docs merge build as usual to
+review the content within the built OMERO docs.
+
+Version history
+"""""""""""""""
+
+Content for :omero_doc:`history.html` should first be submitted as a PR
+against :omero_source:`history.txt`. Best practice is to paste the content
+into the documentation page to test build it before opening the PR. Once the
+PR is merged, an autogenerated PR can be opened against the documentation repo
+to transfer the content (see above).
+
+CLI output
+""""""""""
+
+The output of the following CLI commands will be used as configuration files
+in the documentation:
+
+- ``bin/omero config parse``
+- ``bin/omero ldap setdn -h``
+- ``bin/omero db script``
+- ``bin/omero web config nginx``
+- ``bin/omero web config nginx-location``
+
+See `autogen_docs <https://github.com/openmicroscopy/ome-documentation/blob/develop/omero/autogen_docs>`_
+to check the name of the output files. Changes to the output should be
+submitted as a PR against the OMERO code repository.
+
+Installation walkthroughs
+"""""""""""""""""""""""""
+
+Installation walkthroughs for OMERO.server and OMERO.web are generated in
+separate repositories. When the installation instructions are modified e.g. a
+new dependency is added, a PR must be opened against one of the following
+repositories:
+
+- https://github.com/ome/omero-install  for Server installation with OMERO.web
+- https://github.com/ome/omeroweb-install for OMERO.web installation not with an OMERO.server
+
+OMERO.server installation with OMERO.web:
+
+The walkthroughs are generated using a bash script 
+Code snippets will be included in the documentation pages using literalinclude e.g. server-ubuntu-ice36.rst
+The changes made against https://github.com/ome/omero-install  will only be included in the documentation once they are merged and the autogen job has been run. When making changes that need to be visible in the documentation during review, you will need to:
+Generate the walkthrough(s)
+Open a doc PR
+Copy the generated walkthrough(s) under omero/sysadmins/unix/walkthrough
+Adjust if required the start/end of the literalinclude
+
+OMERO.web installation separately from  OMERO.server:
+The walkthroughs are generated using ansible. The README file contains instructions on how to generate the walkthrough
+The generated walkthroughs are .rst files that are used as pages in the documentation. We do not use literalinclude.
+The changes made against https://github.com/ome/omeroweb-install  will only be included in the documentation once they are merged and the autogen job has been run. When making changes that need to be visible in the documentation during review, you will need to:
+Generate the walkthrough(s)
+Open a doc PR
+Copy the generated walkthrough(s) under omero/sysadmins/unix/install-web/walkthrough
+
+
+Model glossary
+Content for https://github.com/openmicroscopy/ome-documentation/blob/develop/omero/developers/Model/EveryObject.rst is generated using GraphPathReport
+
+To update the content:
+Run the command indicated in GraphPathReport to generate EveryObject.rst
+Replace https://github.com/openmicroscopy/ome-documentation/blob/develop/omero/developers/Model/EveryObject.rst  by the generated one
+Open a PR if any changes.
+
+
+Training Examples
+The contents of the following examples files is not automatically updated.
+omero/developers/Java.rst
+omero/developers/Matlab.rst
+omero/developers/Python.rst
+
+When the examples under https://github.com/openmicroscopy/openmicroscopy/tree/develop/examples/Training are modified, you will need to manually make the changes in the above files and open a doc PR.
