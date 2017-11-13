@@ -58,7 +58,7 @@ include:
 
 All of the included scripts and repositories can be downloaded following the
 instructions below in order to run the scripts locally (although some of them
-are intended as examples only — check the associated README).
+are intended as examples only—check the associated README).
 
 Downloading and installing scripts
 ----------------------------------
