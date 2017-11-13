@@ -58,7 +58,7 @@ include:
 
 All of the included scripts and repositories can be downloaded following the
 instructions below in order to run the scripts locally (although some of them
-are intended as examples only - check the associated README).
+are intended as examples only — check the associated README).
 
 Downloading and installing scripts
 ----------------------------------
@@ -131,8 +131,8 @@ others to see and share.
 scripts. You should use the :doc:`style-guide` to ensure your script interacts
 with the OMERO clients in a usable way.
 
-If you are a biologist with no previous coding experience, you may find the 
-`Python for Biologists 
+If you are a biologist with no previous programming experience, you may find
+the `Python for Biologists 
 <http://pythonforbiologists.com/index.php/introduction-to-python-for-biologists/>`_ free online course helpful.
 
 Contributing back to the community
