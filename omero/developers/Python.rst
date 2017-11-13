@@ -391,7 +391,7 @@ Raw data access
 ::
 
     # Get a 256 bin histogram for channel 0 and plane z=0/t=0:
-    hist = pixels.getHistogram(0, 0, 0, 256)
+    hist = image.getHistogram([0], 256, False, 0, 0)
     print hist
 
 
