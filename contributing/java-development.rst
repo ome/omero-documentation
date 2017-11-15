@@ -112,7 +112,7 @@ Maintainer prerequisites
 It is important to get familiar with the
 `OSSRH guide <http://central.sonatype.org/pages/ossrh-guide.html>`__ and
 especially the
-`Maven section for performing a release deployment <http://central.sonatype.org/pages/apache-maven.html#performing-a-release-deployment>`__.
+`Maven section for performing a release deployment <http://central.sonatype.org/pages/apache-maven.html>`__.
 
 To be able to maintain a Java component, a developer must:
 
@@ -184,8 +184,10 @@ or using the release phase of the nexus-staging plugin::
 
     $ mvn nexus-staging:release -P release
 
-See
-http://central.sonatype.org/pages/apache-maven.html#manually-releasing-the-deployment-to-the-central-repository for more instructions
+See the 'Manually Releasing the Deployment to the Central Repository' section
+of the
+`Apache Maven guide <http://central.sonatype.org/pages/apache-maven.html>`_
+for more instructions.
 
 The rsync to Central Maven and the update of Maven search usually happen
 within a couple of hours but the components are accessible beforehand.
