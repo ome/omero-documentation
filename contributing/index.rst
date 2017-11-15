@@ -19,6 +19,7 @@ be valuable to a wider audience.
     development-tools
     deployment-tools
     continuous-integration
+    editing-docs
     jekyll
     data-model-schema
     schema-changes

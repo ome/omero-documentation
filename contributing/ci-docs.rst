@@ -7,6 +7,9 @@ button in the left-side panel of the job window links to the code repository
 the job is building from (alternatively, the console output for the build will
 indicate where the changes are being fetched from).
 
+More detail on how and where to edit OME documentation is available on the
+:doc:`editing-docs` page.
+
 .. list-table::
 	:header-rows: 1
 
