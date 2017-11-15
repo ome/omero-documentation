@@ -358,7 +358,7 @@ All are currently built from the master branches despite the build names.
 	    bundle
 
 	    #. |buildFilesSB|
-	    #. |deploy-doc| https://www.openmicroscopy.org/site/support/ome-files-cpp/
+	    #. |deploy-doc| https://docs.openmicroscopy.org/ome-files-cpp/
 
 The merge and latest builds for this documentation set are detailed on the
 :doc:`ci-ome-files` page.

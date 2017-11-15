@@ -129,8 +129,7 @@ The branch for the development series of OME Files is develop.
                 This job builds the documentation for merge branches of OME Files components
 
                 #. |buildFilesSB|
-                #. Updates https://www.openmicroscopy.org/site/support/ome-files-cpp-staging/
-
+                
                 See :jenkinsjob:`the build graph <OME-FILES-CPP-DEV-merge-docs/lastSuccessfulBuild/BuildGraph>`
 
 .. _files_breaking:
