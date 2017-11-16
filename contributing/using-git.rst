@@ -12,7 +12,7 @@ commands and configuration you need for doing most Git tasks.
 Installing Git
 --------------
 
-In general, see the Git `downloads page <http://git-scm.com/download>`_ for
+In general, see the Git `downloads page <https://git-scm.com/download>`_ for
 installation options.
 
 Linux
@@ -26,26 +26,25 @@ example, on Debian or Ubuntu::
 Mac OS X
 ^^^^^^^^
 
-You can install Git using `Homebrew <https://github.com/mxcl/homebrew/>`_::
+You can install Git using `Homebrew <https://github.com/Homebrew>`_::
 
     brew install git
 
-Or you can use the `binary installer <http://git-scm.com/download>`_.
+Or you can use the `binary installer <https://git-scm.com/download>`_.
 
 Windows
 ^^^^^^^
 
-We recommend using either msysGit_ for a basic Git installation, or Cygwin_
+We recommend using either `Git for Windows <https://git-for-windows.github.io>`_ for a basic Git installation, or Cygwin_
 for a full-featured Unix-style environment that includes Git. You can also use
 TortoiseGit_ for Git shell integration. You may also want to consider
 installing VirtualBox_ with a Linux guest OS to make your life easier. Lastly,
 when using Git on Windows, please be aware of the `CRLF conversion issue`_.
 
-.. _msysGit: http://code.google.com/p/msysgit
 .. _Cygwin: http://www.cygwin.com/
-.. _TortoiseGit: http://code.google.com/p/tortoisegit/
+.. _TortoiseGit: https://tortoisegit.org
 .. _VirtualBox: https://www.virtualbox.org/
-.. _CRLF conversion issue: http://help.github.com/articles/dealing-with-line-endings
+.. _CRLF conversion issue: https://help.github.com/articles/dealing-with-line-endings/
 
 
 Git configuration
@@ -191,7 +190,7 @@ The flip-side of pushing your own branches is being aware that other OME
 developers will also be pushing theirs. GitHub provides a number of ways
 of monitoring either a user or a repository. Notifications about what
 watched users and repositories are doing can be seen in your GitHub
-inbox or via RSS feeds. See `Be social <http://help.github.com/articles/be-social>`_ for more information.
+inbox or via RSS feeds. See `Be social <https://help.github.com/articles/be-social/>`_ for more information.
 
 Even if you do not feel able to watch the everyone's repository, you will
 likely want to periodically check in on the current `Pull Requests
