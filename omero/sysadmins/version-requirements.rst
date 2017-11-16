@@ -301,7 +301,7 @@ Linux (CentOS and RHEL)
 -----------------------
 
 General overview for `RHEL
-<https://access.redhat.com/site/articles/3078>`__ and `CentOS
+<https://access.redhat.com/articles/3078>`__ and `CentOS
 <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
 
 .. list-table::
