@@ -186,10 +186,10 @@ rst_epilog = """
 .. _Matplotlib: http://matplotlib.org/
 .. _Django 1.8: https://docs.djangoproject.com/en/1.8/releases/1.8/
 .. _Django 1.6: https://docs.djangoproject.com/en/1.6/releases/1.6/
-.. _Python: http://www.python.org
+.. _Python: https://www.python.org
 .. _Libjpeg: http://libjpeg.sourceforge.net/
 .. _Django: https://www.djangoproject.com/
-.. _PyPI: https://pypi.python.org
+.. _PyPI: https://pypi.python.org/pypi
 
 .. |SSH| replace:: :abbr:`SSH (Secure Shell)`
 .. |VM| replace:: :abbr:`VM (Virtual Machine)`
