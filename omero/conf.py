@@ -137,6 +137,7 @@ html_theme_path.extend(['themes'])
 linkcheck_ignore += [r'http://localhost:\d+/?', 'http://localhost/',
     'http://www.hibernate.org',
     'http://www.jboss.org',
+    'https://code.google.com/archive/p/luke/',
     r'https?://www\.openmicroscopy\.org/site/team/.*',
     r'.*[.]?example\.com/.*',
     r'https://spreadsheets.google.com/.*']
