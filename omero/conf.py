@@ -139,6 +139,7 @@ linkcheck_ignore += [r'http://localhost:\d+/?', 'http://localhost/',
     'http://www.jboss.org',
     'https://code.google.com/archive/p/luke/',
     'https://www.youtube.com/channel/UCyySB9ZzNi8aBGYqcxSrauQ',
+    'https://httpd.apache.org/docs/current/mod/mod_proxy.html',
     r'https?://www\.openmicroscopy\.org/site/team/.*',
     r'.*[.]?example\.com/.*',
     r'https://spreadsheets.google.com/.*']
