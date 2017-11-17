@@ -242,39 +242,40 @@ This is useful when you need for example the pixels intensity.
 
 ::
 
-    RawDataFacility rdf = gateway.getFacility(RawDataFacility.class);
-    PixelsData pixels = image.getDefaultPixels();
-    int sizeZ = pixels.getSizeZ();
-    int sizeT = pixels.getSizeT();
-    int sizeC = pixels.getSizeC();
-        
-    Plane2D p;
-    for (int z = 0; z < sizeZ; z++) 
-        for (int t = 0; t < sizeT; t++) 
-            for (int c = 0; c < sizeC; c++) {
-                p = rdf.getPlane(ctx, pixels, z, t, c);
-            }
+    try (RawDataFacility rdf = gateway.getFacility(RawDataFacility.class)) {
+        PixelsData pixels = image.getDefaultPixels();
+        int sizeZ = pixels.getSizeZ();
+        int sizeT = pixels.getSizeT();
+        int sizeC = pixels.getSizeC();
+            
+        Plane2D p;
+        for (int z = 0; z < sizeZ; z++) 
+            for (int t = 0; t < sizeT; t++) 
+                for (int c = 0; c < sizeC; c++) {
+                    p = rdf.getPlane(ctx, pixels, z, t, c);
+                }
+    }
 
 -  **Retrieve a given tile.**
 
 ::
 
-    RawDataFacility rdf = gateway.getFacility(RawDataFacility.class);
-	    
-    PixelsData pixels = image.getDefaultPixels();
-    int sizeZ = pixels.getSizeZ();
-    int sizeT = pixels.getSizeT();
-    int sizeC = pixels.getSizeC();
-    int x = 0;
-    int y = 0;
-    int width = pixels.getSizeX()/2;
-    int height = pixels.getSizeY()/2;
-    Plane2D p;
-    for (int z = 0; z < sizeZ; z++) {
-        for (int t = 0; t < sizeT; t++) {
-            for (int c = 0; c < sizeC; c++) {
-                p = rdf.getTile(ctx, pixels, z, t, c, x, y, width, height);
-            }    
+    try (RawDataFacility rdf = gateway.getFacility(RawDataFacility.class)) {
+        PixelsData pixels = image.getDefaultPixels();
+        int sizeZ = pixels.getSizeZ();
+        int sizeT = pixels.getSizeT();
+        int sizeC = pixels.getSizeC();
+        int x = 0;
+        int y = 0;
+        int width = pixels.getSizeX()/2;
+        int height = pixels.getSizeY()/2;
+        Plane2D p;
+        for (int z = 0; z < sizeZ; z++) {
+            for (int t = 0; t < sizeT; t++) {
+                for (int c = 0; c < sizeC; c++) {
+                    p = rdf.getTile(ctx, pixels, z, t, c, x, y, width, height);
+                }    
+            }
         }
     }
 
@@ -288,8 +289,9 @@ This is useful when you need the pixels intensity.
     int sizeT = pixels.getSizeT();
     int sizeC = pixels.getSizeC();
     long pixelsId = pixels.getId();
-    RawPixelsStorePrx store = gateway.getPixelsStore(ctx);
+    RawPixelsStorePrx store = null;
     try{
+        store = gateway.getPixelsStore(ctx);
         store.setPixelsId(pixelsId, false);
         for (int t = 0; t < sizeT; t++) {
             for (int c = 0; c < sizeC; c++) {
@@ -330,8 +332,9 @@ This is useful when you need the pixels intensity.
     for (int i = 0; i < n; i++) {
         step.add(i, 1);
     }
-    RawPixelsStorePrx store = gateway.getPixelsStore(ctx);
+    RawPixelsStorePrx store = null;
     try {
+        store = gateway.getPixelsStore(ctx);
         store.setPixelsId(pixelsId, false);
         byte[] values = store.getHypercube(offset, size, step);
         //Do something
@@ -343,19 +346,14 @@ This is useful when you need the pixels intensity.
 
 ::
 
-    RawPixelsStorePrx store = gateway.getPixelsStore(ctx);
-    try {
-        store.setPixelsId(pixelsId, false);
+    try (RawDataFacility rdf = gateway.getFacility(RawDataFacility.class)) {
+        PixelsData pixels = image.getDefaultPixels();
         int[] channels = new int[] { 0 };
         int binCount = 256;
-        Map<Integer, int[]> histdata = store.getHistogram(channels,
-                binCount, false, null);
+        Map<Integer, int[]> histdata = rdf.getHistogram(ctx, pixels,
+                channels, binCount, false, null);
         int[] histogram = histdata.get(0);
         //Do something with the histogram data
-    } catch (Exception e) {
-        throw new Exception("Cannot get the histogram data", e);
-    } finally {
-        store.close();
     }
 
 Write data
