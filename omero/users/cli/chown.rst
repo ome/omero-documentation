@@ -44,7 +44,8 @@ All the data of a given user can be transferred using the
 :program:`omero chown` command. This is useful when somebody leaves a lab to
 move on to another project or institution and their previous work is to
 be curated or continued by a colleague. This feature has to be
-considered as advanced and might be potentially slow.
+considered as advanced and might be slow and demanding of CPU resources in
+cases of complex data.
 
 By default the command confirms the transfer of the target objects but
 it can also provide a detailed report of all the transferred objects via an

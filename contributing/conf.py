@@ -47,14 +47,11 @@ contributing_extlinks = {
     'bf_scc_branch' : (scc_github_root + '/bioformats/tree/%s', ''),
     'omedoc_scc_branch' : (scc_github_root + '/ome-documentation/tree/%s', ''),
     'omehelp_scc_branch' : (scc_github_root + '/ome-help/tree/%s', ''),
-    'figure_scc_branch' : (scc_github_root + '/figure/tree/%s', ''),
+    'figure_scc_branch' : (scc_github_root + '/omero-figure/tree/%s', ''),
     
     # Doc links
     'omero_doc' : (docs_root + '/latest/omero/%s', ''),
-    'bf_doc' : (docs_root + '/latest/bio-formats/%s', ''),
-    #Remaining plone links
-    'community_plone' : (oo_site_root + '/community/%s', ''),
-    'team_plone' : (oo_site_root + '/team/%s', '')
+    'bf_doc' : (docs_root + '/latest/bio-formats/%s', '')
     }
 extlinks.update(contributing_extlinks)
 
@@ -115,10 +112,11 @@ edit_on_github_prefix = 'contributing'
 # Regular expressions that match URIs that should not be checked when doing a linkcheck build
 linkcheck_ignore += [r'http://localhost:\d+/?', 'http://localhost/',
     'http://www.hibernate.org',
+    'https://github.com/openmicroscopy/ome-internal',
     r'https?://www\.openmicroscopy\.org/site/team/.*',
     r'.*[.]?example\.com/.*',
-    r'https?://www\.openmicroscopy\.org/site/support/faq.*',
     r'https://spreadsheets.google.com/.*',
+    r'https://docs.google.com/.*',
     r'https://trac.openmicroscopy.org/ome/admin/.*',
     r'https?://hake.openmicroscopy.org/.*',
     r'https?://eel.openmicroscopy.org/.*',

@@ -24,8 +24,8 @@ this may also install the **argparse** package.
 Github connection
 -----------------
 
-.. _About Two-Factor Authentication: http://help.github.com/articles/about-two-factor-authentication
-.. _Creating an access token for command-line use: http://help.github.com/articles/creating-an-access-token-for-command-line-use
+.. _About Two-Factor Authentication: https://help.github.com/articles/about-two-factor-authentication/
+.. _Creating an access token for command-line use: https://help.github.com/articles/creating-an-access-token-for-command-line-use/
 
 Most of the scc commands instantiate a Github connection using the PyGithub
 package. GitHub strongly recommends to turn on two-factor authentification

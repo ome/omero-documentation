@@ -18,7 +18,14 @@ Installing prerequisites
 
 **The following steps are run as root.**
 
-Install NGINX:
+
+Install Pillow and Numpy:
+
+.. literalinclude:: ../../walkthrough/walkthrough_debian9.sh
+    :start-after: #start-web-dependencies
+    :end-before: #end-web-dependencies
+
+Install NGINX and Gunicorn:
 
 .. literalinclude:: ../../walkthrough/walkthrough_debian9.sh
     :start-after: #start-nginx-install
