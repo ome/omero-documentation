@@ -24,7 +24,7 @@ Install Pillow and Numpy:
     :start-after: #start-web-dependencies
     :end-before: #end-web-dependencies
 
-Install NGINX:
+Install NGINX and Gunicorn:
 
 .. literalinclude:: ../../walkthrough/walkthrough_debian9.sh
     :start-after: #start-nginx-install
