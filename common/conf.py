@@ -186,10 +186,10 @@ rst_epilog = """
 .. _Matplotlib: http://matplotlib.org/
 .. _Django 1.8: https://docs.djangoproject.com/en/1.8/releases/1.8/
 .. _Django 1.6: https://docs.djangoproject.com/en/1.6/releases/1.6/
-.. _Python: http://www.python.org
+.. _Python: https://www.python.org
 .. _Libjpeg: http://libjpeg.sourceforge.net/
 .. _Django: https://www.djangoproject.com/
-.. _PyPI: https://pypi.python.org
+.. _PyPI: https://pypi.python.org/pypi
 
 .. |SSH| replace:: :abbr:`SSH (Secure Shell)`
 .. |VM| replace:: :abbr:`VM (Virtual Machine)`
@@ -350,35 +350,3 @@ if not (sys.version_info[0] == 2 and sys.version_info[1] <= 5):
 
 # Regular expressions that match URIs that should not be checked when doing a linkcheck build
 linkcheck_ignore = []
-try:
-    import urllib
-    brokenfiles_url = 'https://raw.github.com/openmicroscopy/sphinx-ignore-links/master/broken_links.txt'
-    brokenlinks = urllib.urlopen(brokenfiles_url)
-    linkcheck_ignore.extend(brokenlinks.read().splitlines())
-except IOError:
-    print "Could not open list of broken links."
-
-# -- Custom roles for the OMERO documentation -----------------------------------------------
-
-from docutils import nodes
-from sphinx import addnodes
-
-def omero_command_role(typ, rawtext, etext, lineno, inliner,
-                     options={}, content=[]):
-    """Role for CLI commands that generates an index entry."""
-
-    env = inliner.document.settings.env
-    targetid = 'cmd-%s' % env.new_serialno('index')
-
-    # Create index and target nodes
-    indexnode = addnodes.index()
-    targetnode = nodes.target('', '', ids=[targetid])
-    inliner.document.note_explicit_target(targetnode)
-    indexnode['entries'] = [('single', "omero " + "; ".join(etext.split(" ")), targetid, '')]
-
-    # Mark the text using literal node
-    sn = nodes.literal('omero ' + etext, 'omero ' +  etext)
-    return [indexnode, targetnode, sn], []
-
-def setup(app):
-    app.add_role('omerocmd', omero_command_role)
