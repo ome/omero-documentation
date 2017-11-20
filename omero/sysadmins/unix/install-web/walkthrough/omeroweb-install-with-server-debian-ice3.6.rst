@@ -18,6 +18,7 @@ Installing prerequisites
 
 **The following steps are run as root.**
 
+
 Install Pillow and Numpy:
 
 .. literalinclude:: ../../walkthrough/walkthrough_debian9.sh
