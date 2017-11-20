@@ -301,7 +301,7 @@ Linux (CentOS and RHEL)
 -----------------------
 
 General overview for `RHEL
-<https://access.redhat.com/site/articles/3078>`__ and `CentOS
+<https://access.redhat.com/articles/3078>`__ and `CentOS
 <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
 
 .. list-table::
@@ -853,12 +853,12 @@ If no version is provided, a suitable repository is indicated.
       - N/A
       - N/A
     * - 1.10
-      - 6 (`EPEL <https://dl.fedoraproject.org/pub/epel/6/x86_64/>`__), 7 (`EPEL <https://dl.fedoraproject.org/pub/epel/7/x86_64/n/>`__)
+      - 6 (`EPEL <https://dl.fedoraproject.org/pub/epel/6/x86_64/>`__), 7 (`EPEL <https://dl.fedoraproject.org/pub/epel/7/x86_64/>`__)
       - 14.04 (`nginx <https://launchpad.net/~nginx/+archive/ubuntu/stable>`__), 16.04
       - Yes
       - Yes
     * - 1.12
-      - 6 (`EPEL <https://dl.fedoraproject.org/pub/epel/6/x86_64/>`__), 7 (`EPEL <https://dl.fedoraproject.org/pub/epel/7/x86_64/n/>`__)
+      - 6 (`EPEL <https://dl.fedoraproject.org/pub/epel/6/x86_64/>`__), 7 (`EPEL <https://dl.fedoraproject.org/pub/epel/7/x86_64/>`__)
       - 14.04 (`nginx <https://launchpad.net/~nginx/+archive/ubuntu/stable>`__), 16.04
       - Yes
       - Yes

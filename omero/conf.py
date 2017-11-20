@@ -136,6 +136,11 @@ html_theme_path.extend(['themes'])
 # Regular expressions that match URIs that should not be checked when doing a linkcheck build
 linkcheck_ignore += [r'http://localhost:\d+/?', 'http://localhost/',
     'http://www.hibernate.org',
+    'http://www.jboss.org',
+    'https://code.google.com/archive/p/luke/',
+    'https://www.youtube.com/channel/UCyySB9ZzNi8aBGYqcxSrauQ',
+    'https://httpd.apache.org/docs/current/mod/mod_proxy.html',
+    'https://access.redhat.com/articles/3078',
     r'https?://www\.openmicroscopy\.org/site/team/.*',
     r'.*[.]?example\.com/.*',
     r'https://spreadsheets.google.com/.*']

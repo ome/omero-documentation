@@ -250,5 +250,5 @@ it is possible to extract more information specific to your site.
     :doc:`/developers/Search/FileParsers`,
     `Query Parser Syntax <http://lucene.apache.org/core/3_6_0/queryparsersyntax.html>`_,
 
-    ` Luke <https://code.google.com/p/luke/>`_
+    `Luke <https://code.google.com/archive/p/luke/>`_
         a Java application which you can download and point at your ``/OMERO/FullText`` directory to get a better feeling for Lucene queries.
