@@ -27,13 +27,15 @@ Install NGINX:
 Configuring OMERO.web
 ---------------------
 
-**The following steps are run as the omero system user.**
+**The following steps are run as root.**
 
 Install other OMERO.web dependencies using pip:
 
 .. literalinclude:: ../../walkthrough/walkthrough_ubuntu1604.sh
     :start-after: #web-requirements-recommended-start
     :end-before: #web-requirements-recommended-end
+
+**The following steps are run as the omero system user.**
 
 Configure and create the NGINX OMERO configuration file:
 
