@@ -94,7 +94,7 @@ OMERO.server/bin/omero web config nginx --http "$WEBPORT" > OMERO.server/nginx.c
 #end-configure-nginx
 # As root, install nginx
 #start-nginx-install
-apt-get -y install nginx
+apt-get -y install nginx gunicorn
 #end-nginx-install
 #start-nginx-admin
 mv /etc/nginx/sites-available/default /etc/nginx/sites-available/default.disabled
