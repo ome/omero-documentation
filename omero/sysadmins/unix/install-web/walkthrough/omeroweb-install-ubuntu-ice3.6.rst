@@ -1,3 +1,6 @@
+.. walkthroughs are generated using ansible, see 
+.. https://github.com/ome/omeroweb-install
+
 OMERO.web installation separately from OMERO.server on Ubuntu 16.04 and IcePy 3.6
 =================================================================================
 

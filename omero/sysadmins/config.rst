@@ -1123,6 +1123,23 @@ should wait for an image to be ready to view.
 
 Default: `ome.io.nio.SimpleBackOff`
 
+.. property:: omero.pixeldata.backoff.default
+
+omero.pixeldata.backoff.default
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+A default value for the backoff time.
+
+Default: `1000`
+
+.. property:: omero.pixeldata.backoff.maxpixels
+
+omero.pixeldata.backoff.maxpixels
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The maximum number of pixels (in any dimension),
+if exceeded the default value will be used.
+
+Default: `1000000`
+
 .. property:: omero.pixeldata.batch
 
 omero.pixeldata.batch
