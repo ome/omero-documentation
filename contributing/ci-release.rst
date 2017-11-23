@@ -18,8 +18,6 @@ view.
         * :jenkinsjob:`OMERO-DEV-release`
     -   * Generate the OMERO downloads page
         * :jenkinsjob:`OMERO-DEV-release-downloads`
-    -   * Run the OMERO integration tests
-        * :jenkinsjob:`OMERO-DEV-release-integration`
 
 .. list-table::
     :header-rows: 1
@@ -34,29 +32,6 @@ view.
         * :jenkinsjob:`BIOFORMATS-DEV-release`
     -   * Generate the Bio-Formats downloads page
         * :jenkinsjob:`BIOFORMATS-DEV-release-downloads`
-
-
-Deployment servers
-^^^^^^^^^^^^^^^^^^
-
-The table below lists all the hostnames, ports and URLs of the OMERO.web
-clients of the deployment jobs described above:
-
-.. list-table::
-    :header-rows: 1
-    :widths: 10,20,20,10,40
-
-    -   * Series
-        * Deployment job
-        * Hostname
-        * Port
-        * Webclient
-
-    -   * DEV
-        * :term:`OMERO-DEV-release-integration`
-        * seabass.openmicroscopy.org
-        * 24064
-        * https://seabass.openmicroscopy.org/5.2
 
 
 Bio-Formats
@@ -117,7 +92,6 @@ OMERO
           download pages should be linked to.
 
         #. Triggers :term:`OMERO-DEV-release-push`
-        #. Triggers :term:`OMERO-DEV-release-integration`
         #. Triggers :term:`OMERO-DEV-release`
 
         See :jenkinsjob:`the build graph <OMERO-DEV-release-trigger/lastSuccessfulBuild/BuildGraph>`
@@ -148,72 +122,6 @@ OMERO
         #. Checks out the `develop` branch of
            https://github.com/openmicroscopy/ome-release.git
         #. Runs `make clean omero`
-
-    :jenkinsjob:`OMERO-DEV-release-integration`
-
-        This job runs the integration tests
-
-        #. Checks out the :envvar:`RELEASE` tag of the
-           snoopycrimecop fork of openmicroscopy.git_
-        #. Builds OMERO.server and starts it
-        #. Runs the OMERO.java, OMERO.py and OMERO.web integration tests
-        #. Archives the results
-        #. Triggers downstream collection jobs:
-           :term:`OMERO-DEV-release-integration-broken`,
-           :term:`OMERO-DEV-release-integration-java`,
-           :term:`OMERO-DEV-release-integration-python`,
-           :term:`OMERO-DEV-release-integration-web`,
-           :term:`OMERO-DEV-release-training`,
-           :term:`OMERO-DEV-release-robotframework`
-
-    :jenkinsjob:`OMERO-DEV-release-integration-broken`
-
-        This job collects the OMERO.java broken test results
-
-        #. Receives TestNG results under
-           :file:`components/tools/OmeroJava/target/reports/broken` from
-           :term:`OMERO-DEV-release-integration`
-        #. Generates TestNG report
-
-    :jenkinsjob:`OMERO-DEV-release-integration-java`
-
-        This job collects the OMERO.java integration test results
-
-        #. Receives TestNG results under
-           :file:`components/tools/OmeroJava/target/reports/integration` from
-           :term:`OMERO-DEV-release-integration`
-        #. Generates TestNG report
-
-    :jenkinsjob:`OMERO-DEV-release-integration-python`
-
-        This job collects the OMERO.py integration test results
-
-        #. Receives pytest results under
-           :file:`components/tools/OmeroPy/target/reports` from
-           :term:`OMERO-DEV-release-integration`
-        #. Generates pytest report
-
-    :jenkinsjob:`OMERO-DEV-release-integration-web`
-
-        This job collects the OMERO.web integration test results
-
-        #. Receives pytest results under
-           :file:`components/tools/OmeroWeb/target/reports` from
-           :term:`OMERO-DEV-release-integration`
-        #. Generates pytest report
-
-    :jenkinsjob:`OMERO-DEV-release-training`
-
-        This job runs the Java, MATLAB and Python training examples under
-        :file:`examples/Training`
-
-    :jenkinsjob:`OMERO-DEV-release-robotframework`
-
-        This job runs the robot framework tests of OMERO
-
-        #. Checks out the :envvar:`RELEASE` tag of the
-           snoopycrimecop fork of openmicroscopy.git_
-        #. Runs the robot framework tests and collect the results
 
 
 Documentation release jobs are documented on :doc:`ci-docs`.
