@@ -52,8 +52,8 @@ Configuring OMERO.web
 Data configuration
 ------------------
 
-#. Once the data is in the dedicated public group, it can be re-organized and
-   re-named to reflect the publication e.g. Projects can renamed according to
+#. Once the data is in the dedicated public group, it can be reorganized and
+   renamed to reflect the publication e.g. Projects can renamed according to
    the corresponding figure panels in the manuscript while the names of the
    Datasets could be retained corresponding to different treatment conditions
    represented in each figure panel. For example, Project
