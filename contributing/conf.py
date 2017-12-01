@@ -82,7 +82,7 @@ rst_epilog += """
 ..  |buildFilesSB| replace:: Builds OME Files components and third-party dependencies using ``cmake``
 ..  |buildFilesSRC| replace:: Builds OME Files components from source release archives using ``cmake``
 ..  |sphinxbuild| replace:: Runs ``make clean html`` to build the HTML Sphinx documentation
-..  |linkcheck| replace:: Runs ``make linkcheck`` and :ref:`parse the Sphinx linkcheck output <linkcheck_parser>`
+..  |linkcheck| replace:: Runs ``make linkcheck``
 ..  |ssh-doc| replace:: Copies the HTML documentation over SSH to
 ..  |deploy-doc| replace:: Runs :ref:`scc deploy` to update
 """

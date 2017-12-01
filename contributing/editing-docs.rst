@@ -173,10 +173,6 @@ Builds
 See :doc:`ci-docs`. Note that this documentation is built and hosted
 individually and as part of the OME Files documentation bundle.
 
-These builds are set up differently to the ones which use Sphinx via ant so
-broken links are not reported on a separate tab, you need to search the
-console output.
-
 Source
 ^^^^^^
 
@@ -214,10 +210,6 @@ Builds
 
 The OME Files C++ docs are built as part of the OME Files docs bundle - see
 :doc:`ci-docs` and :doc:`ci-ome-files`.
-
-These builds are set up differently to the ones which use Sphinx via ant so
-broken links are not reported on a separate tab, you need to search the
-console output.
 
 Source
 ^^^^^^
