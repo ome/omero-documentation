@@ -362,10 +362,3 @@ All are currently built from the master branches despite the build names.
 
 The merge and latest builds for this documentation set are detailed on the
 :doc:`ci-ome-files` page.
-
-Linkchecking
-^^^^^^^^^^^^
-
-Use of the linkcheck output parser was discontinued when the version of Sphinx
-used to build the documentation was upgraded. The docs builds will now fail if
-any broken links are found.
