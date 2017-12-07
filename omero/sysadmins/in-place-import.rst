@@ -80,7 +80,8 @@ in-place import at your high-content screening facility, we thus
 recommend time profiling with representative data, and alerting us to
 any significant disappointments.
 
-Also, there is still some data duplication when pyramids are generated. We are
+Also, there is still some data duplication when
+:model_doc:`pyramids <omero-pyramid/>` are generated. We are
 hoping to find a work-around for this in the future.
 
 .. _safety_tips:

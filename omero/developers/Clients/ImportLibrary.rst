@@ -53,7 +53,9 @@ by writing the metadata into the database. After import, pixel data is
 accessed directly from the original files using Bio-Formats. This means that
 data files are no longer duplicated and any nested directory structure is
 preserved. It also allows OMERO to take advantage of pre-generated pyramids
-available in some formats e.g. SVS.
+available in some formats e.g. dedicated whole slide imaging formats such as
+:bf_v_doc:`SVS <formats/aperio-svs-tiff.html>` (instead of generating
+:model_doc:`OMERO pyramids <omero-pyramid/>`).
 
 For full details of the import workflow see :doc:`/developers/ImportFS`.
 

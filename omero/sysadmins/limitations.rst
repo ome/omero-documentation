@@ -82,16 +82,16 @@ File format support
 Large images with floating-point pixel data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Pyramids of image tiles are currently not generated for images with
-floating-point pixel data, meaning the imported image will be scrambled if it
-is over a certain size (configurable using
+:model_doc:`Pyramids <omero-pyramid/>` of image tiles are currently not
+generated for images with floating-point pixel data, meaning the imported
+image will be scrambled if it is over a certain size (configurable using
 :property:`omero.pixeldata.max_plane_height` and
 :property:`omero.pixeldata.max_plane_width` but set to 3192x3192 pixels by
 default). This primarily affects the following file formats:
 
-*  Gatan DM3
-*  MRC
-*  TIFF
+*  :bf_v_doc:`Gatan DM3 <formats/gatan-digital-micrograph.html>`
+*  :bf_v_doc:`MRC <formats/mrc.html>`
+*  :bf_v_doc:`TIFF <formats/tiff.html>`
 
 .. _minmax_limitation:
 
