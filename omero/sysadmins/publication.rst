@@ -47,14 +47,14 @@ Configuring OMERO.web
    workflows), a dedicated,
    :doc:`separate web server <unix/install-web/web-deployment>` for servicing
    the public workflows can be added and configured to point at an existing
-   OMERO.server
+   OMERO.server.
 
 Data configuration
 ------------------
 
 #. Once the data is in the dedicated public group, it can be reorganized and
-   renamed to reflect the publication e.g. Projects can renamed according to
-   the corresponding figure panels in the manuscript while the names of the
+   renamed to reflect the publication e.g. Projects can be renamed according
+   to the corresponding figure panels in the manuscript while the names of the
    Datasets could be retained corresponding to different treatment conditions
    represented in each figure panel. For example, Project
    `Schleicher_etal_figure7_c <https://omero.lifesci.dundee.ac.uk/webclient/?show=project-27920>`_
@@ -63,7 +63,7 @@ Data configuration
    `Schleicher_etal_figure2_a_c <https://omero.lifesci.dundee.ac.uk/webclient/?show=project-27917>`_
    where representative images are shown in the first panel and the
    corresponding quantification is shown in the next panel. This makes clear
-   which original images are underlaying which figure panels in the
+   which original images are underlying which figure panels in the
    publication.
 #. Data can also be tagged with OMERO tags to enhance the browsing
    possibilities through these data for any user with basic knowledge of
@@ -78,7 +78,7 @@ Configuring URLs
 
 #. Create a URL pointing to the first Project (corresponding to the first
    figure in the publication) which can be used for a DOI and data landing
-   page. For example,
+   page. For example, Project 'Schleicher_etal_figure1_a'
    `<https://omero.lifesci.dundee.ac.uk/webclient/?show=project-27936>`_
    corresponds to `<http://dx.doi.org/10.17867/10000109>`_.
 #. Optionally, you can decide on a set pattern of URLs for this and future
