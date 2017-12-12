@@ -117,6 +117,14 @@ Source release
 The first step of the C++ component release is to prepare a source release
 from the Git_ repository.
 
+Prior to a source release, a PR should be opened and merged to:
+
+- review the ``release-version`` variable in :file:`CMakeLists.txt` and drop
+  the ``# unreleased`` comment
+- update the top-level :file:`NEWS.md` if it exists with the list of changes
+  and the release date
+
+
 A PGP-signed tag should be created for the released version e.g.
 using :command:`scc tag-release` or more simply :command:`git tag -s`::
 
@@ -139,4 +147,14 @@ repository::
 Next development version
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Once the release is accepted, the version number of `release-version` in :file:`CMakeLists.txt` should be incremented to the next patch number i.e. `x.y.z+1`.
+Once the release is accepted, the version number of `release-version` in
+:file:`CMakeLists.txt` should be incremented to the next patch number i.e.
+`x.y.z+1` and a suffixed with an `# unreleased` comment. If a top-level
+:file:`NEWS.md` file exists, an entry should be added for the next patch
+release.
+
+.. seealso::
+
+    https://github.com/ome/ome-common-cpp/pull/55
+       Example Pull Request incrementing the patch number of ome-common-cpp
+       and updating :file:`NEWS.md` following the 5.5.0 source release
