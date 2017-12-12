@@ -22,8 +22,8 @@ Data setup
    group. The command ``bin/omero chgrp Project:$ID --include Dataset,Image``
    cuts the cross-links in the original group and preserves the
    Project/Dataset/Image hierarchy prepared for the move by the author.
-#. Using OMERO.figure to create your figures for publication means you can
-   always find the original data by using the 'info' tab, as shown in the
+#. If you have used OMERO.figure to create your figures for publication, you
+   can always find the original data by using the 'info' tab, as shown in the
    :help:`OMERO.figure Help guide <figure.html#info>` (OMERO.figure supports a
    complete figure creation workflow, including exporting figures into image
    processing applications for final adjustments - see the
