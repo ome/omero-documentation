@@ -12,6 +12,8 @@ Group setup
 #. Create a dedicated :doc:`public group <public>` to host the raw data
    underlying the publication.
 #. Add all the authors of the paper to this new public group.
+#. If you have not already done so, configure the :ref:`public_user` and add
+   the public user as a member of the newly created public group.
 
 Data setup
 ----------
@@ -36,17 +38,17 @@ Data setup
 Configuring OMERO.web
 ---------------------
 
-#. Configure the OMERO.web filter on the public user by setting the public URL
-   filter to allow 'webclient' (see :doc:`public` and
-   :property:`omero.web.public.url_filter`) so that the full webclient is
-   visible for the public user, and thus also the Data tree with Projects and
-   Datasets is browsable as well as Tags tab and full viewer of the images
+#. Configure the OMERO.web :ref:`filter on the public user <public.url_filter>` by setting
+   :property:`omero.web.public.url_filter` to allow 'webclient' so that the
+   full webclient is visible for the public user, and thus the Data tree with
+   Projects and Datasets is also browsable, as well as the Tags tab and the
+   full image viewer.
 #. In order to have both a public webclient and a closed webclient side by
    side without affecting the existing closed webclient (and thus giving your
    existing non-public OMERO users an unchanged user experience in their
    workflows), a dedicated,
    :doc:`separate web server <unix/install-web/web-deployment>` for servicing
-   the public workflows can be added and configured to point at an existing
+   the public workflows can be added and configured to point at your existing
    OMERO.server.
 
 Data configuration
@@ -58,26 +60,30 @@ Data configuration
    Datasets could be retained corresponding to different treatment conditions
    represented in each figure panel. For example, Project
    `Schleicher_etal_figure7_c <https://omero.lifesci.dundee.ac.uk/webclient/?show=project-27920>`_
-   contains images underlying the publication Figure panel 7c. Some Projects
-   underlie two publication Figure panels, such as Project
+   contains images underlying the
+   `publication Figure panel 7c <http://rsob.royalsocietypublishing.org/content/royopenbio/7/11/170099/F7.large.jpg>`_.
+   Some Projects underlie two publication figure panels, such as Project
    `Schleicher_etal_figure2_a_c <https://omero.lifesci.dundee.ac.uk/webclient/?show=project-27917>`_
-   where representative images are shown in the first panel and the
-   corresponding quantification is shown in the next panel. This makes clear
-   which original images are underlying which figure panels in the
-   publication.
+   where representative images are shown in panel a and the
+   corresponding quantification is shown in panel c of `Figure 2 <http://rsob.royalsocietypublishing.org/content/royopenbio/7/11/170099/F2.large.jpg>`_. 
+   This makes clear which original images are underlying which figure panels
+   in the publication.
 #. Data can also be tagged with OMERO tags to enhance the browsing
    possibilities through these data for any user with basic knowledge of
-   OMERO. For example, see 
-   `<https://omero.lifesci.dundee.ac.uk/webclient/?show=tag-364188>`_). The
+   OMERO. For example, see `Tag:Schleicher_etal_figure1_a <https://omero.lifesci.dundee.ac.uk/webclient/?show=tag-364188>`_). The
    tags are highlighting the images displayed in the publication figures as
    images (the other, non-tagged images in the group are the ones used for
    analysis which produced the published numerical data).
+#. Key-Value pairs can be used to add more detailed information about the 
+   study and publication. For example, go to `Schleicher_etal_figure1_a <https://omero.lifesci.dundee.ac.uk/webclient/?show=project-27936>`_
+   and expand the 'Key-Value Pairs' section in the right-hand pane to display
+   the content (see the :help:`Managing data guide <managing-data.html#keyvalue>` for information on using Key-Value pairs).
 
 Configuring URLs
 ----------------
 
-#. Create a URL pointing to the first Project (corresponding to the first
-   figure in the publication) which can be used for a DOI and data landing
+#. The URL of the first Project (corresponding to the first
+   figure in the publication) can be used for a DOI and data landing
    page. For example, Project 'Schleicher_etal_figure1_a'
    `<https://omero.lifesci.dundee.ac.uk/webclient/?show=project-27936>`_
    corresponds to `<http://dx.doi.org/10.17867/10000109>`_.
@@ -89,8 +95,9 @@ Configuring URLs
    example, `<https://omero.lifesci.dundee.ac.uk/pub/schleicher-et-al-2017>`_
    is the link where "omero.lifesci.dundee.ac.uk" is the server address, and
    "schleicher-et-al-2017" is the publication-identifier.
-#. This makes use of redirects (in the NGINX component of the webserver
-   dedicated to publication workflows) allowing 
+#. This makes use of redirects allowing
    `<https://omero.lifesci.dundee.ac.uk/pub/schleicher-et-al-2017>`_ to
    redirect to the correct group and Project in OMERO in the same way as the
-   DOI above.
+   DOI above (these need to be set in the `NGINX <http://nginx.org/>`_
+   component of the OMERO.web installation dedicated to publication
+   workflows).

@@ -25,6 +25,8 @@ There are several ways of publishing data using OMERO.web:
 
 The sections below describe how to set up these features.
 
+.. _public_user:
+
 Public user
 -----------
 
@@ -68,6 +70,8 @@ To set this up on your OMERO.web installation:
   ::
 
       $ bin/omero config set omero.web.public.get_only false
+      
+.. _public.url_filter:
 
 - Set the :property:`omero.web.public.url_filter`. This filter is a
   regular expression that will allow only matching URLs to be accessed
