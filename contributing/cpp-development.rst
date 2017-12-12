@@ -18,7 +18,7 @@ C++ libraries.
         * https://github.com/ome/ome-common-cpp
         * `ome-common`
 
-    -   * OME Data model
+    -   * OME Data Model*
         * https://github.com/ome/ome-model
         * `ome-model`
 
@@ -37,6 +37,16 @@ C++ libraries.
     -   * OME Files Performance
         * https://github.com/openmicroscopy/ome-files-performance
         * `ome-files-performance`
+
+    -   * OME Files Python bindings†
+        * https://github.com/openmicroscopy/ome-files-py
+        * `ome-files-py`
+
+\*
+  Contains both Java and C++ code - see :doc:`java-development`
+
+†
+  Contains both Python and C++ code
 
 
 Conventions
@@ -63,7 +73,7 @@ directory layout::
 
 Components containing both Java and C++ code like
 [ome-model](https://github.com/ome/ome-model) organize the C++
-sources according to the Maven recommended layout i.e.::
+sources according to the Maven-recommended layout i.e.::
 
    src/main/cpp             Contains the C++ code
    src/main/java            Contains the Java code
