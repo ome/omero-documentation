@@ -5,6 +5,9 @@ Using the :zerocdoc:`Ice Java language mapping
 <display/Ice/Hello+World+Application>` from ZeroC_, OMERO provides access to
 your data within an :doc:`/developers/server-blitz` server from Java code.
 
+All the code examples below can be found at
+:sourcedir:`examples/Training/java/src/training`.
+
 Writing client apps
 -------------------
 
