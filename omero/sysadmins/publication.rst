@@ -44,10 +44,10 @@ Configuring OMERO.web
    full webclient is visible for the public user, and thus the Data tree with
    Projects and Datasets is also browsable, as well as the Tags tab and the
    full image viewer.
-#. In order to have both a public webclient and a closed webclient side by
-   side without affecting the existing closed webclient (and thus giving your
-   existing non-public OMERO users an unchanged user experience in their
-   workflows), a dedicated,
+#. In order to have an automatically logged-in public user while still giving
+   your existing OMERO users an unchanged user experience in their
+   workflows (i.e. not having to log out as a public user and log back in as
+   themselves to access other groups etc.), a dedicated,
    :doc:`separate web server <unix/install-web/web-deployment>` for servicing
    the public workflows can be added and configured to point at your existing
    OMERO.server.
