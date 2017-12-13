@@ -9,11 +9,12 @@ example publication from our lab in Dundee,
 Group setup
 -----------
 
-#. Create a dedicated :doc:`public group <public>` to host the raw data
-   underlying the publication.
-#. Add all the authors of the paper to this new public group.
-#. If you have not already done so, configure the :ref:`public_user` and add
-   the public user as a member of the newly created public group.
+#. Create a dedicated read-only group to host the raw data underlying the
+   publication (see :doc:`cli/usergroup`)
+#. Add all the authors of the paper to this new group.
+#. If you have not already done so, configure the :ref:`public_user`.
+#. Add the public user as a member of the newly created read-only group to
+   make all the data publicly available.
 
 Data setup
 ----------
@@ -54,11 +55,11 @@ Configuring OMERO.web
 Data configuration
 ------------------
 
-#. Once the data is in the dedicated public group, it can be reorganized and
-   renamed to reflect the publication e.g. Projects can be renamed according
-   to the corresponding figure panels in the manuscript while the names of the
-   Datasets could be retained corresponding to different treatment conditions
-   represented in each figure panel. For example, Project
+#. Once the data is in the dedicated read-only group, it can be reorganized
+   and renamed to reflect the publication e.g. Projects can be renamed
+   according to the corresponding figure panels in the manuscript while the
+   names of the Datasets could be retained corresponding to different
+   treatment conditions represented in each figure panel. For example, Project
    `Schleicher_etal_figure7_c <https://omero.lifesci.dundee.ac.uk/webclient/?show=project-27920>`_
    contains images underlying the
    `publication Figure panel 7c <http://rsob.royalsocietypublishing.org/content/royopenbio/7/11/170099/F7.large.jpg>`_.
@@ -74,7 +75,7 @@ Data configuration
    tags are highlighting the images displayed in the publication figures as
    images (the other, non-tagged images in the group are the ones used for
    analysis which produced the published numerical data).
-#. Key-Value pairs can be used to add more detailed information about the 
+#. Key-Value pairs can be used to add more detailed information about the
    study and publication. For example, go to `Schleicher_etal_figure1_a <https://omero.lifesci.dundee.ac.uk/webclient/?show=project-27936>`_
    and expand the 'Key-Value Pairs' section in the right-hand pane to display
    the content (see the :help:`Managing data guide <managing-data.html#keyvalue>` for information on using Key-Value pairs).
