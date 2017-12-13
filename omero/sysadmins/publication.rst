@@ -12,9 +12,8 @@ Group setup
 #. Create a dedicated read-only group to host the raw data underlying the
    publication (see :doc:`cli/usergroup`)
 #. Add all the authors of the paper to this new group.
-#. If you have not already done so, configure the :ref:`public_user`.
-#. Add the public user as a member of the newly created read-only group to
-   make all the data publicly available.
+#. Once you have configured OMERO.web to create a public user (see below), add
+   the public user as a member of the newly created read-only group.
 
 Data setup
 ----------
@@ -39,6 +38,7 @@ Data setup
 Configuring OMERO.web
 ---------------------
 
+#. Configure the :ref:`public_user`.
 #. Configure the OMERO.web :ref:`filter on the public user <public.url_filter>` by setting
    :property:`omero.web.public.url_filter` to allow 'webclient' so that the
    full webclient is visible for the public user, and thus the Data tree with
@@ -49,7 +49,8 @@ Configuring OMERO.web
    automatically logging them in as the public user), a dedicated,
    :doc:`separate web server <unix/install-web/web-deployment>` for servicing
    the public workflows can be added and configured to point at your existing
-   OMERO.server.
+   OMERO.server (in this case, the public user and the public URL filter need
+   to be set on this separate OMERO.web installation).
 
 Data configuration
 ------------------
