@@ -45,9 +45,8 @@ Configuring OMERO.web
    Projects and Datasets is also browsable, as well as the Tags tab and the
    full image viewer.
 #. In order to have an automatically logged-in public user while still giving
-   your existing OMERO users an unchanged user experience in their
-   workflows (i.e. not having to log out as a public user and log back in as
-   themselves to access other groups etc.), a dedicated,
+   your existing OMERO users an unchanged user experience (i.e. not
+   automatically logging them in as the public user), a dedicated,
    :doc:`separate web server <unix/install-web/web-deployment>` for servicing
    the public workflows can be added and configured to point at your existing
    OMERO.server.
