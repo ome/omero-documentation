@@ -103,6 +103,7 @@ tasks on behalf of all users.
 
     server-permissions
     restricted-admins
+    publication
 
 .. seealso::
 

@@ -2,7 +2,7 @@ Publishing data using OMERO.web
 ===============================
 
 The OMERO.web framework allows raw data to be published using built-in tools
-or supplied through webservices to external web pages. Selected datasets
+or supplied through web services to external web pages. Selected datasets
 can be made visible to a 'public user' using the standard OMERO permissions
 system, ensuring you always have control over how users can interact with
 your data.
@@ -11,7 +11,7 @@ There are several ways of publishing data using OMERO.web:
 
 - using a URL to launch the web-based Image viewer, as described in
   :ref:`launching_web_viewer`, which can be accompanied by a thumbnail. For
-  more details of how to load the thumbnail see
+  more details of how to load the thumbnail, see
   :ref:`urls_from_within_OMERO_web`
 
 - embedding the image viewport directly into other web pages, for more
@@ -24,6 +24,8 @@ There are several ways of publishing data using OMERO.web:
   chosen URL for that app
 
 The sections below describe how to set up these features.
+
+.. _public_user:
 
 Public user
 -----------
@@ -60,14 +62,15 @@ To set this up on your OMERO.web installation:
 
      $ bin/omero config set omero.web.public.password '<password>'
 
-- By default the public user is only allowed to perform GET requests. This means
-  that the public user will not be able to Create, Edit or Delete data which
-  requires POST requests.
+- By default the public user is only allowed to perform GET requests. This
+  means that the public user will not be able to Create, Edit or Delete data,
+  as these require POST requests.
   If you want to allow these actions from the public user, you can change the
-  :property:`omero.web.public.get_only` property:
-  ::
+  :property:`omero.web.public.get_only` property::
 
       $ bin/omero config set omero.web.public.get_only false
+      
+.. _public.url_filter:
 
 - Set the :property:`omero.web.public.url_filter`. This filter is a
   regular expression that will allow only matching URLs to be accessed
@@ -76,16 +79,12 @@ To set this up on your OMERO.web installation:
   There are three common use cases for the URL filter:
 
   - Enable 'webgateway' URLs which includes everything needed for the
-    full image viewer:
-
-    ::
+    full image viewer::
 
        $ bin/omero config set omero.web.public.url_filter '^/webgateway'
 
 
-    without the ability to download data:
-
-    ::
+    without the ability to download data::
 
        $ bin/omero config set omero.web.public.url_filter '^/webgateway/(?!archived_files|download_as)'
 
@@ -96,9 +95,7 @@ To set this up on your OMERO.web installation:
   - Create your own public pages in a separate app
     (see :doc:`create app </developers/Web/CreateApp>`) and allow
     public access to that app. For example, to allow only
-    URLs that start with '/my_web_public' you would use:
-
-    ::
+    URLs that start with '/my_web_public' you would use::
 
        $ bin/omero config set omero.web.public.url_filter '^/my_web_public'
 
@@ -107,34 +104,28 @@ To set this up on your OMERO.web installation:
     Attempts by public user to create, edit or delete data will fail silently
     with the default :property:`omero.web.public.get_only` setting above. You 
     may also choose to disable various dialogs for these actions such as
-    launching scripts or OME-TIFF export, for example:
-
-    ::
+    launching scripts or OME-TIFF export, for example::
 
        $ bin/omero config set omero.web.public.url_filter '^/(webadmin/myphoto/|webclient/(?!(script_ui|ome_tiff|figure_script))|webgateway/(?!(archived_files|download_as)))'
 
 - Set the :property:`omero.web.public.server_id` which the public user will be
   automatically connected to. Default: 1 (the first server in the
-  :property:`omero.web.server_list`)
-
-  ::
+  :property:`omero.web.server_list`)::
 
      $ bin/omero config set omero.web.public.server_id 1
 
 
 If you enable public access to the main webclient but still wish registered
-users to be able to login, the login page can always be accessed using a link
+users to be able to log in, the login page can always be accessed using a link
 of the form `\https://your_host/webclient/login/`.
 
 
-Reusing OMERO session
----------------------
+Reusing OMERO sessions
+----------------------
 
 As an alternative to granting permanent public access to the data, the
 OMERO.web framework supports password-less, OMERO session key-based
-authentication. For example a direct link to image will look as follows:
-
-::
+authentication. For example a direct link to image will look as follows::
 
     https://your_host/webgateway/img_detail/IMAGE_ID/?server=SERVER_ID&bsession=OMERO_SESSION_KEY
 
@@ -147,4 +138,3 @@ authentication. For example a direct link to image will look as follows:
 For more details about how to create an OMERO session see
 :doc:`server-side session </developers/Server/Sessions>` or
 use the :doc:`command line interface </users/cli/sessions>` to create one.
-
