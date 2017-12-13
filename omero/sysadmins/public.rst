@@ -2,7 +2,7 @@ Publishing data using OMERO.web
 ===============================
 
 The OMERO.web framework allows raw data to be published using built-in tools
-or supplied through webservices to external web pages. Selected datasets
+or supplied through web services to external web pages. Selected datasets
 can be made visible to a 'public user' using the standard OMERO permissions
 system, ensuring you always have control over how users can interact with
 your data.
