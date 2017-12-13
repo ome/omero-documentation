@@ -73,10 +73,10 @@ Data configuration
    in the publication.
 #. Data can also be tagged with OMERO tags to enhance the browsing
    possibilities through these data for any user with basic knowledge of
-   OMERO. For example, see `Tag:Schleicher_etal_figure1_a <https://omero.lifesci.dundee.ac.uk/webclient/?show=tag-364188>`_). The
+   OMERO. For example, see `Tag:Schleicher_etal_figure1_a <https://omero.lifesci.dundee.ac.uk/webclient/?show=tag-364188>`_. The
    tags are highlighting the images displayed in the publication figures as
-   images (the other, non-tagged images in the group are the ones used for
-   analysis which produced the published numerical data).
+   images. The other, non-tagged images in the group are the ones used for
+   analysis which produced the published numerical data.
 #. Key-Value pairs can be used to add more detailed information about the
    study and publication. For example, go to `Schleicher_etal_figure1_a <https://omero.lifesci.dundee.ac.uk/webclient/?show=project-27936>`_
    and expand the 'Key-Value Pairs' section in the right-hand pane to display
@@ -100,7 +100,7 @@ Configuring URLs
    "schleicher-et-al-2017" is the publication-identifier.
 #. This makes use of redirects allowing
    `<https://omero.lifesci.dundee.ac.uk/pub/schleicher-et-al-2017>`_ to
-   redirect to the correct group and Project in OMERO in the same way as the
-   DOI above (these need to be set in the `NGINX <http://nginx.org/>`_
-   component of the OMERO.web installation dedicated to publication
-   workflows).
+   link to the correct group and Project in OMERO, just as the
+   DOI above does. Redirects need to be set in the 
+   `NGINX <http://nginx.org/>`_ component of the OMERO.web installation
+   dedicated to publication workflows.
