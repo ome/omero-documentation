@@ -58,9 +58,9 @@ up to date to ensure that security updates are applied::
 
 Since OMERO 5.2, the OMERO.web framework no longer bundles a copy of the
 Django package, instead manual installation of the Django dependency is
-required. It is highly recommended to use `Django 1.8`_ (LTS) which requires
-Python 2.7. For more information see :ref:`python-requirements` on the
-:doc:`/sysadmins/version-requirements` page.
+required (the command above will do this for you). It is highly recommended to
+use `Django 1.8`_ (LTS) which requires Python 2.7. For more information see
+:ref:`python-requirements` on the :doc:`/sysadmins/version-requirements` page.
 
 Plugin updates
 ^^^^^^^^^^^^^^
