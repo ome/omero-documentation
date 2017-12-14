@@ -26,6 +26,8 @@ Before starting the upgrade, please ensure that you have reviewed and
 satisfied all the :doc:`system requirements <system-requirements>` with
 :doc:`correct versions <version-requirements>` for installation.
 
+Note that support for Apache deployment has been dropped in 5.3.0.
+
 Configuration
 ^^^^^^^^^^^^^
 
@@ -35,21 +37,13 @@ perform best under different circumstances and require a different set of
 dependencies. Please check :ref:`omero_web_deployment` for the latest advice
 on how to deploy OMERO.web.
 
-If you generated configuration stanzas using :program:`omero web config` which
-enables OMERO.web via NGINX, they will include **hard-coded links** to
-your previous version of OMERO. Therefore, you should regenerate your config
-files when upgrading, remembering to merge in any of your own modifications if
-necessary. You should carry out this step even for minor version upgrades as
-there may be fixes which require it.
-
-.. note:: Since OMERO 5.2, the OMERO.web framework no longer bundles
-    a copy of the Django package, instead manual installation of
-    the Django dependency is required. It is highly recommended to use
-    `Django 1.8`_ (LTS) which requires Python 2.7. For more information
-    see :ref:`python-requirements` on the
-    :doc:`/sysadmins/version-requirements` page.
-    
-    Also note that support for Apache deployment has been dropped in 5.3.0.
+.. warning:: If you generated configuration stanzas using
+    :program:`omero web config` which enables OMERO.web via NGINX, they will
+    include **hard-coded links** to your previous version of OMERO. Therefore,
+    you should regenerate your config files when upgrading, remembering to
+    merge in any of your own modifications if necessary. You should carry out
+    this step even for minor version upgrades as there may be fixes which
+    require it.
 
 Dependencies
 ^^^^^^^^^^^^
@@ -61,6 +55,12 @@ up to date to ensure that security updates are applied::
 
 .. warning:: Missing this step can result in OMERO.web failing to start after
     upgrading.
+
+Since OMERO 5.2, the OMERO.web framework no longer bundles a copy of the
+Django package, instead manual installation of the Django dependency is
+required (the command above will do this for you). It is highly recommended to
+use `Django 1.8`_ (LTS) which requires Python 2.7. For more information see
+:ref:`python-requirements` on the :doc:`/sysadmins/version-requirements` page.
 
 Plugin updates
 ^^^^^^^^^^^^^^
