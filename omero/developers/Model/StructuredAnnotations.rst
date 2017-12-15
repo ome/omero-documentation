@@ -100,20 +100,11 @@ annotation.
        TextAnnotation description = …;
        fileAnnotation.linkAnnotation(description);
 
-Immutability
-------------
-
-The actual content value of an annotation -- the text, long, double,
-file value, etc -- is immutable. Links to and from the annotation,
-however, can be modified.
-
-Currently the namespace field of annotations is mutable. See
-:ticket:`878` for discussion.
-
-
-
 Examples
 --------
+
+Examples of creating various type of Annotations can also be found on the
+:doc:`Java </developers/Java>` and :doc:`Python </developers/Python>` pages.
 
 Basics
 ^^^^^^

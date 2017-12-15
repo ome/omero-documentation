@@ -158,9 +158,7 @@ Read data
 
 ::
 
-    # The only_owned=True parameter limits the Projects which are returned.
-    # If the parameter is omitted or the value is False, then all Projects
-    # visible in the current group are returned.
+    # Load first 5 Projects, filtering by default group and owner
     my_exp_id = conn.getUser().getId()
     default_group_id = conn.getEventContext().groupId
     for project in conn.getObjects("Project", opts={'owner': my_exp_id,

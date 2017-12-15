@@ -5,6 +5,9 @@ Using the :zerocdoc:`Ice Java language mapping
 <display/Ice/Hello+World+Application>` from ZeroC_, OMERO provides access to
 your data within an :doc:`/developers/server-blitz` server from Java code.
 
+All the code examples below can be found at
+:sourcedir:`examples/Training/java/src/training`.
+
 Writing client apps
 -------------------
 
@@ -435,6 +438,25 @@ Using the Java API directly:
     link.setChild(tagData.asAnnotation());
     link.setParent(new ProjectI(info.getProjectId(), false));
     r = dm.saveAndReturnObject(ctx, link);
+
+-  **Create a map annotation (list of key: value pairs) and link it to an existing project.**
+
+::
+
+    List<NamedValue> result = new ArrayList<NamedValue>();
+    result.add(new NamedValue("mitomycin-A", "20mM"));
+    result.add(new NamedValue("PBS", "10mM"));
+    result.add(new NamedValue("incubation", "5min"));
+    result.add(new NamedValue("temperature", "37"));
+    result.add(new NamedValue("Organism", "Homo sapiens"));
+    MapAnnotationData data = new MapAnnotationData();
+    data.setContent(result);
+    data.setDescription("Training Example");
+    //Use the following namespace if you want the annotation to be editable
+    //in the webclient and insight
+    data.setNameSpace(MapAnnotationData.NS_CLIENT_CREATED);
+    DataManagerFacility fac = gateway.getFacility(DataManagerFacility.class);
+    fac.attachAnnotation(ctx, data, new ProjectData(new ProjectI(projectId, false)));
 
 -  **Create a file annotation and link to an image.**
 
