@@ -182,10 +182,8 @@ you might try optimizing the JVM memory settings.
 
 Furthermore, under certain conditions access of images greater than 4GB
 can be problematic on 32-bit platforms due to certain bugs within the
-Java Virtual Machine including `Bug ID:
-4724038 <http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4724038>`_.
-A 64-bit platform for your OMERO.server is **HIGHLY** recommended.
-
+Java Virtual Machine. A 64-bit platform for your OMERO.server is **HIGHLY**
+recommended.
 
 Import errors
 -------------
@@ -509,9 +507,8 @@ Server or clients print "WARNING: Prefs file removed in background..."
 
 These warnings (also sometimes listed as ERRORS) can be safely ignored,
 and are solely related to how Java is installed on your system. See
-http://bugs.sun.com/bugdatabase/view\_bug.do?bug\_id=4751177 or this
-:ome-users:`ome-users thread <2009-March/001465.html>` on our mailing list for
-more information.
+this :ome-users:`ome-users thread <2009-March/001465.html>` on our mailing
+list for more information.
 
 Data corruption
 ^^^^^^^^^^^^^^^
