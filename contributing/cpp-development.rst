@@ -124,7 +124,6 @@ Prior to a source release, a PR should be opened and merged to:
 - update the top-level :file:`NEWS.md` if it exists with the list of changes
   and the release date
 
-
 A PGP-signed tag should be created for the released version e.g.
 using :command:`scc tag-release` or more simply :command:`git tag -s`::
 
@@ -137,12 +136,15 @@ member of the team::
     $ git push <fork_name> vx.y.z
 
 
-Once the tag is created, a source release can be created by archiving the
-repository::
+Once the tag is created, run the ``<COMPONENT>-release`` job under the
+:jenkinsview:`Release` view tab. This job will create an archive of
+the repository using :command:`git archive`::
 
     $ git archive -v --format=tar "--prefix=${project}-${version}/" -o "${dest}/${project}-${version}.tar" "${tag}"
     $ xz "{dest}/${project}-${version}.tar"
     $ git archive -v --format=zip "--prefix=${project}-${version}/" -o "${dest}/${project}-${version}.zip" "${tag}"
+
+and copy the source archives under \https://downloads.openmicroscopy.org/<component>/<version>.
 
 Next development version
 ^^^^^^^^^^^^^^^^^^^^^^^^
