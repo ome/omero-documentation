@@ -60,7 +60,7 @@ using Git_ and hosted on GitHub_.
 
 CMake_ should be used as the primary build system. There is no standard CMake
 directory layout. C++-only components like 
-[ome-common-cpp](https://github.com/ome/ome-common-cpp) use a flattened
+`ome-common-cpp <https://github.com/ome/ome-common-cpp>`_ use a flattened
 directory layout::
 
    cmake/
@@ -72,7 +72,7 @@ directory layout::
    test/
 
 Components containing both Java and C++ code like
-[ome-model](https://github.com/ome/ome-model) organize the C++
+`ome-model <https://github.com/ome/ome-model>`_ organize the C++
 sources according to the Maven-recommended layout i.e.::
 
    src/main/cpp             Contains the C++ code
@@ -107,7 +107,7 @@ Maintainer prerequisites
 
 To be able to maintain a C++ component, a developer must:
 
-- have a GitHub_ account and have push rights to the GitHub source code
+- have a GitHub account and have push rights to the GitHub source code
   repository
 - have a valid PGP key for signing the tags
 
@@ -115,7 +115,7 @@ Source release
 ^^^^^^^^^^^^^^
 
 The first step of the C++ component release is to prepare a source release
-from the Git_ repository.
+from the Git repository.
 
 Prior to a source release, a PR should be opened and merged to:
 
