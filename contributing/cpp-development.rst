@@ -39,7 +39,7 @@ C++ libraries.
         * `ome-files-performance`
 
     -   * OME Files Python bindings†
-        * https://github.com/openmicroscopy/ome-files-py
+        * https://github.com/ome/ome-files-py
         * `ome-files-py`
 
 \*
