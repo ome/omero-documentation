@@ -65,7 +65,7 @@ directory layout::
 
    cmake/
    CMakeLists.txt
-   docs/
+   docs/                    If applicable
      sphinx/
      doxygen/
    lib/
@@ -75,8 +75,8 @@ Components containing both Java and C++ code like
 `ome-model <https://github.com/ome/ome-model>`_ organize the C++
 sources according to the Maven-recommended layout i.e.::
 
-   src/main/cpp             Contains the C++ code
-   src/main/java            Contains the Java code
+   <module>/src/main/cpp             Contains the C++ code
+   <module>/src/main/java            Contains the Java code
 
 Additionally, header files should be maintained alongside the source files.
 
@@ -149,7 +149,7 @@ Next development version
 
 Once the release is accepted, the version number of `release-version` in
 :file:`CMakeLists.txt` should be incremented to the next patch number i.e.
-`x.y.z+1` and a suffixed with an `# unreleased` comment. If a top-level
+``x.y.z+1`` and a suffixed with an ``# unreleased`` comment. If a top-level
 :file:`NEWS.md` file exists, an entry should be added for the next patch
 release.
 
