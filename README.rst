@@ -137,6 +137,9 @@ To modify this value set the environment variable ``OMERO_RELEASE`` e.g.::
     cd omero && OMERO_RELEASE=5.2.6 make clean html
     cd omero && OMERO_RELEASE=5.2.6 ant clean html
 
+This variable needs to be set to build all the version-dependent content
+used in the system administrator documentation correctly.
+
 The Contributing Developer documentation has the release version removed as
 the intention is to update these files as and when necessary, so that they
 always reflect our current practices.
@@ -152,14 +155,14 @@ By default, running ``ant`` will build as a zipped bundle.
 
 From the top level directory::
 
-    ant zip -Domero.release="5.3.0"
+    OMERO_RELEASE=5.3.0 ant zip -Domero.release="5.3.0"
 
 will generate the HTML documentation for OMERO and Contributing and bundle
 just the OMERO documentation into an OMERO.doc-5.3.0.zip under omero/_build.
 
 From omero directory::
 
-    ant zip -Domero.release="5.3.0"
+    OMERO_RELEASE=5.3.0 ant zip -Domero.release="5.3.0"
 
 will generate the HTML documentation for OMERO and create an
 OMERO.doc-5.3.0.zip under omero/_build.
