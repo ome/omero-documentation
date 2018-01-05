@@ -42,8 +42,6 @@ Type "ant -p" for a list of targets.
       <exec executable="${sphinx.build}" failonerror="true">
         <arg value="-D"/>
         <arg value="release=${omero.release}"/>
-        <arg value="-D"/>
-        <arg value="version=${omero.shortversion}"/>
         <arg value="-b"/>
         <arg value="@{buildtype}"/>
         <arg line="@{opts}"/>
