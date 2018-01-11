@@ -4,6 +4,11 @@ User/group management
 The :program:`omero user` and :program:`omero group` commands provide
 functionalities to add and manage users and groups on your database.
 
+.. seealso::
+
+   * :doc:`/users/cli/chgrp`
+   * :doc:`/users/cli/chown`
+
 User creation
 ^^^^^^^^^^^^^
 
