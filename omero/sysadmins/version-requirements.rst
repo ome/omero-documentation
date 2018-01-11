@@ -791,7 +791,7 @@ nginx
 -----
 
 `General overview <http://nginx.org/en/download.html>`__ and `roadmap
-<http://trac.nginx.org/nginx/roadmap>`__
+<https://trac.nginx.org/nginx/roadmap>`__
 
 OMERO support policies
 ^^^^^^^^^^^^^^^^^^^^^^
