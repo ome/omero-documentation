@@ -141,7 +141,6 @@ linkcheck_ignore += [r'http://localhost:\d+/?', 'http://localhost/',
     'https://www.youtube.com/channel/UCyySB9ZzNi8aBGYqcxSrauQ',
     'https://httpd.apache.org/docs/current/mod/mod_proxy.html',
     'https://access.redhat.com/articles/3078',
-    'https://trac.nginx.org/nginx/roadmap',
     r'https?://www\.openmicroscopy\.org/site/team/.*',
     r'.*[.]?example\.com/.*',
     r'https://spreadsheets.google.com/.*']
