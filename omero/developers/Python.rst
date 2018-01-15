@@ -384,6 +384,14 @@ Raw data access
     for i, p in enumerate(planes):
         print "plane zct:", zct_list[i], " min:", p.min(), " max:", p.max()
 
+-  **Retrieve a histogram**
+
+::
+
+    # Get a 256 bin histogram for channel 0 and plane z=0/t=0:
+    hist = image.getHistogram([0], 256, False, 0, 0)
+    print hist
+
 
 Write data
 ^^^^^^^^^^
