@@ -65,6 +65,9 @@ graphviz_output_format = 'svg'
 
 rst_epilog += """
 .. _GitHub: https://github.com
+.. _Git: https://git-scm.com/
+.. _Semantic Versioning: http://semver.org
+.. _CMake: https://cmake.org/
 .. _openmicroscopy.git: https://github.com/openmicroscopy/openmicroscopy
 .. _bioformats.git: https://github.com/openmicroscopy/bioformats
 .. _ome-documentation.git: https://github.com/openmicroscopy/ome-documentation

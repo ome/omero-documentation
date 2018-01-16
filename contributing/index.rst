@@ -16,6 +16,7 @@ be valuable to a wider audience.
     team-communication
     team-workflow
     java-development
+    cpp-development
     development-tools
     deployment-tools
     continuous-integration
