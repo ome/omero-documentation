@@ -135,7 +135,6 @@ member of the team::
     $ git push <fork_name> master
     $ git push <fork_name> vx.y.z
 
-
 Once the tag is created, run the ``<COMPONENT>-release`` job under the
 :jenkinsview:`Release` view tab. This job will create an archive of
 the repository using :command:`git archive`::
