@@ -181,6 +181,9 @@ was done for one of our test servers in Dundee:
     [omero_system_user@ome-server ManagedRepository]$
 
 
+If you are controlling OMERO.server with systemd you should add ``UMask=0002`` to the ``Service`` section of your :download:`systemd service file <unix/walkthrough/omero-systemd.service>`.
+
+
 Getting started
 ---------------
 
