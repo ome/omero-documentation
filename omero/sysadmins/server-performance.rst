@@ -5,6 +5,23 @@ Once you have your OMERO server running and secured, a second
 critical step will be tuning various configuration parameters
 in order to get optimal performance.
 
+.. _database_settings:
+
+Database configuration
+----------------------
+
+The configuration properties starting with
+:ref:`omero.db<db_configuration>` control how OMERO manages JDBC
+connections to your database. For a production system,
+:property:`omero.db.poolsize` is the most important property to
+modify. By default, a limited number of simultaneous connections
+(e.g. 10) are allowed. You should plan for allowing a few connections
+*per concurrent user*.
+
+::
+
+	$ bin/omero config set omero.db.poolsize 100
+
 .. _jvm_memory_settings:
 
 Memory configuration
