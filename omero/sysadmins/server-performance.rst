@@ -3,7 +3,9 @@ Performance and monitoring
 
 Once you have your OMERO server running and secured, a second
 critical step will be tuning various configuration parameters
-in order to get optimal performance.
+in order to get optimal performance. Assorted timeouts can be
+found under :ref:`Performance<performance_configuration>` but
+the more critical properties are outlined below.
 
 .. _database_settings:
 
