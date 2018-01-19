@@ -173,23 +173,21 @@ removed) from given publications to decide their visibility.
 Configuring OMERO.web
 ^^^^^^^^^^^^^^^^^^^^^
 
-Either your main OMERO.web server or an additional publication-only server
-will need to be specially configured to permit loginless access. This example
-uses a second, dedicated server.
+If you wish to have an automatically logged-in public user while still giving
+your existing OMERO users an unchanged user experience (i.e. not automatically
+logging them in as the public user), a dedicated,
+:doc:`separate web server <unix/install-web/web-deployment>` for servicing
+the public workflows can be added and configured to point at your existing
+OMERO.server. This is the workflow adopted here by adding a public OMERO.web at
+https://omero.lifesci.dundee.ac.uk, without changing the existing internal
+OMERO.web.
 
-#. Follow the steps in :ref:`public_user` above.
-#. Configure the OMERO.web :ref:`filter on the public user <public.url_filter>` by setting
-   :property:`omero.web.public.url_filter` to allow 'webclient' so that the
-   full webclient is visible for the public user, and thus the Data tree with
-   Projects and Datasets is also browsable, as well as the Tags tab and the
-   full image viewer.
-#. In order to have an automatically logged-in public user while still giving
-   your existing OMERO users an unchanged user experience (i.e. not
-   automatically logging them in as the public user), a dedicated,
-   :doc:`separate web server <unix/install-web/web-deployment>` for servicing
-   the public workflows can be added and configured to point at your existing
-   OMERO.server (in this case, the public user and the public URL filter need
-   to be set on this separate OMERO.web installation).
+#. Follow the steps in :ref:`public_user` above on the chosen OMERO.web.
+#. Also configure :ref:`the filter on the public user <public.url_filter>`
+   on the chosen OMERO.web by setting :property:`omero.web.public.url_filter`
+   to allow 'webclient' so that the full webclient is visible for the public
+   user, and thus the Data tree with Projects and Datasets is also browsable,
+   as well as the Tags tab and the full image viewer.
 
 Data migration
 ^^^^^^^^^^^^^^
