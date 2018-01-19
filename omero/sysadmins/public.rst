@@ -153,8 +153,9 @@ lab in Dundee,
 data hosted at
 `<https://omero.lifesci.dundee.ac.uk/pub/schleicher-et-al-2017>`_.
 
-Ansible playbooks can be found describing how the "nightshade" server was
-configured in the `prod-playbooks <https://github.com/openmicroscopy/prod-playbooks>`_
+Ansible playbooks can be found describing how the production server in Dundee
+("nightshade") was configured in the
+`prod-playbooks <https://github.com/openmicroscopy/prod-playbooks>`_
 repository on GitHub.
 
 Group setup
@@ -164,7 +165,7 @@ A group-per-publication allows the public user to be selected added (or
 removed) from given publications to decide their visibility.
 
 #. Create a dedicated read-only group to host the raw data underlying the
-   publication (see :doc:`cli/usergroup`)
+   publication (see :doc:`cli/usergroup`).
 #. Add all the authors of the paper to this new group.
 #. Once you have configured OMERO.web to create a public user (see below), add
    the public user as a member of the newly created read-only group.
