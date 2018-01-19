@@ -136,8 +136,11 @@ OMERO clients to host images for groups or public viewing.
 
 .. toctree::
     :maxdepth: 2
-    :titlesonly:
 
     public
-    publication
+
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
     customization
