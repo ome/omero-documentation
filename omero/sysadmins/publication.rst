@@ -1,5 +1,4 @@
 Complete workflow for hosting data for a publication
-
 ====================================================
 
 The following describes the steps of a complete workflow for using OMERO to

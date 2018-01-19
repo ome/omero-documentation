@@ -103,7 +103,6 @@ tasks on behalf of all users.
 
     server-permissions
     restricted-admins
-    publication
 
 .. seealso::
 
@@ -140,5 +139,5 @@ OMERO clients to host images for groups or public viewing.
     :titlesonly:
 
     public
+    publication
     customization
-
