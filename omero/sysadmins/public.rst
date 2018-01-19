@@ -142,8 +142,8 @@ use the :doc:`command line interface </users/cli/sessions>` to create one.
 
 .. _hosting_data_example:
 
-Complete workflow for hosting data for a publication
-----------------------------------------------------
+Full example of hosting data for a publication
+----------------------------------------------
 
 Putting the pieces of this puzzle together, the following describes the steps
 of a complete workflow for using OMERO to host public data associated with a
