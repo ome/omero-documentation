@@ -153,6 +153,10 @@ lab in Dundee,
 data hosted at
 `<https://omero.lifesci.dundee.ac.uk/pub/schleicher-et-al-2017>`_.
 
+Ansible playbooks can be found describing how the "nightshade" server was
+configured in the `prod-playbooks <https://github.com/openmicroscopy/prod-playbooks>`_
+repository on GitHub.
+
 Group setup
 ^^^^^^^^^^^
 
