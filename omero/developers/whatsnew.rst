@@ -23,7 +23,14 @@ Java Gateway
 ^^^^^^^^^^^^
 - Added various methods for dealing with :doc:`/sysadmins/restricted-admins`
   to the :javadoc:`AdminFacility <omero/gateway/facility/AdminFacility.html>`.
- 
+
+Integration tests
+^^^^^^^^^^^^^^^^^
+
+- Provide a way for applications and plugins in separate repositories to more
+  simply run integration tests. See
+  `omero-test-infra <https://github.com/openmicroscopy/omero-test-infra>`_
+  for more information.
 
 Deprecations
 ^^^^^^^^^^^^

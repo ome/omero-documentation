@@ -103,7 +103,6 @@ tasks on behalf of all users.
 
     server-permissions
     restricted-admins
-    publication
 
 .. seealso::
 
@@ -137,8 +136,11 @@ OMERO clients to host images for groups or public viewing.
 
 .. toctree::
     :maxdepth: 2
-    :titlesonly:
 
     public
-    customization
 
+.. toctree::
+    :maxdepth: 2
+    :titlesonly:
+
+    customization
