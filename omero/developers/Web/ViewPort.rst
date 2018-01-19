@@ -72,7 +72,8 @@ Provided the image corresponding to ``IMAGE_ID`` is in the PUBLIC group, it
 can be accessed via the link:
 `\http://your_host/webgateway/img_detail/IMAGE_ID/`. Please remember that
 public images must be in a public group where a public user can access
-them.
+them. The :doc:`/sysadmins/public` documentation section can help you to
+set this up.
 
 Use the following code to load stylesheets and scripts.
 
