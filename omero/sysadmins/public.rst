@@ -177,7 +177,7 @@ Either your main OMERO.web server or an additional publication-only server
 will need to be specially configured to permit loginless access. This example
 uses a second, dedicated server.
 
-#. Configure the :ref:`public_user`.
+#. Follow the steps in :ref:`public_user` above.
 #. Configure the OMERO.web :ref:`filter on the public user <public.url_filter>` by setting
    :property:`omero.web.public.url_filter` to allow 'webclient' so that the
    full webclient is visible for the public user, and thus the Data tree with
