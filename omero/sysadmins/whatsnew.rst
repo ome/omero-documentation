@@ -10,6 +10,9 @@ What's new for OMERO 5.4 for sysadmins
 
 - A walkthrough has been added for :doc:`unix/server-debian9-ice36`.
 
+- A walkthrough has been added to :doc:`public`, based on a concrete
+  use-case in Dundee.
+
 - :doc:`restricted-admins` can now be created to allow
   facility managers, image analysts etc. to organize users and data in OMERO
   without having to be granted full administrator privileges. Full
