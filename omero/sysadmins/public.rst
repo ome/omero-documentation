@@ -44,8 +44,8 @@ To set this up on your OMERO.web installation:
   members.
 
 - Create a member of this group, noting the username and password (you will
-  enter these below). Again, the First Name, Last Name, username and
-  password can be anything you like.
+  enter these below). Again, the First name, Last name, Username and
+  Password can be anything you like.
 
   .. note:: If you add this member to other groups, all data in these groups
       will also become publicly accessible for as long as this user remains
