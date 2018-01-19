@@ -161,7 +161,7 @@ repository on GitHub.
 Group setup
 ^^^^^^^^^^^
 
-A group-per-publication allows the public user to be selected added (or
+A group-per-publication allows the public user to be selectively added (or
 removed) from given publications to decide their visibility.
 
 #. Create a dedicated read-only group to host the raw data underlying the
