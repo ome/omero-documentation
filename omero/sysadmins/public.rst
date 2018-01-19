@@ -145,9 +145,9 @@ use the :doc:`command line interface </users/cli/sessions>` to create one.
 Complete workflow for hosting data for a publication
 ----------------------------------------------------
 
-The following describes the steps of a complete workflow for using OMERO to
+Putting the pieces of this puzzle together, the following describes the steps of a complete workflow for using OMERO to
 host public data associated with a publication. It is illustrated using an
-example publication from our lab in Dundee,
+example publication from the Swedlow lab in Dundee,
 `Schleicher et al, 2017 <http://dx.doi.org/10.1098/rsob.170099>`_ with the
 data hosted at
 `<https://omero.lifesci.dundee.ac.uk/pub/schleicher-et-al-2017>`_.
