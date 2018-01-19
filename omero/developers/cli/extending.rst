@@ -13,7 +13,8 @@ Alternatively, plugins can be added to any directory ending with
 |CLI| will automatically include them. An example of such a plugin is
 `omero-cli-render <https://github.com/ome/omero-cli-render/>`_.
 
-Team-supported |CLI| plugins will be pip-installable. Search for ``omero-cli-*``
+Team-supported |CLI| plugins will be pip-installable. Search for
+"`omero cli <https://pypi.python.org/pypi?%3Aaction=search&term=omero+cli&submit=search>`_"
 on PyPI_.
 
 Thread-safety
