@@ -3,17 +3,19 @@ Extensions
 
 Plugins can be written and put in the ``lib/python/omero/plugins``
 directory. On execution, all plugins in that directory are registered
-with the |CLI|. 
-
-Alternatively, plugins can be added to any directory ending with
-``omero/plugins``. If this directory is part of the :envvar:`PYTHONPATH` the
-|CLI| will automatically include them.
+with the |CLI|.
 
 For testing purposes the ``--path`` argument can be used to point to other
 plugin files or directories, too.
 
-|CLI| plugins are also pip-installable. Search for ``omero-cli-*`` on
-PyPI_.
+Alternatively, plugins can be added to any directory ending with
+``omero/plugins``. If this directory is part of the :envvar:`PYTHONPATH` the
+|CLI| will automatically include them. An example of such a plugin is
+`omero-cli-render <https://github.com/ome/omero-cli-render/>`_.
+
+Team-supported |CLI| plugins will be pip-installable. Search for
+"`omero cli <https://pypi.python.org/pypi?%3Aaction=search&term=omero+cli&submit=search>`_"
+on PyPI_.
 
 Thread-safety
 ^^^^^^^^^^^^^
