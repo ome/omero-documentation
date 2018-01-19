@@ -4,7 +4,7 @@ Embedding an OMERO.web viewport in a web page
 .. note:: These example are intended to be used with images that have been
     added to the PUBLIC group with a Public member in OMERO, making them
     publicly available. To see how to configure public URL filters, see the
-    :doc:`/sysadmins/public` section..
+    :doc:`/sysadmins/public` section.
 
 OMERO.web viewer in iframe
 --------------------------
