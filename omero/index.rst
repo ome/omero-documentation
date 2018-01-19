@@ -30,8 +30,8 @@ Additional online resources can be found at:
 - `OME YouTube channel <https://www.youtube.com/channel/UCyySB9ZzNi8aBGYqcxSrauQ>`_
   for tutorials and presentations
 - `Demo server <http://qa.openmicroscopy.org.uk/registry/demo_account/>`_ -
-  managed by the main OME team, providing the latest released version of
-  OMERO for you to try out (barring a short lag time for upgrading).
+  managed by the main OME team, providing the latest released versions of
+  OMERO and plugins for you to try out
 - OMERO API documentation - :javadoc:`OmeroJava API <>`,
   :pythondoc:`OmeroPy API <>`,
   :javadoc:`OmeroBlitz / Slice API <slice2html/>`
