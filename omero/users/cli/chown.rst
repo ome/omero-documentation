@@ -130,8 +130,13 @@ the following form of the user specifier is used.
 
     $ bin/omero chown 10 Experimenter:1,3,7
 
-Here ownership of all the objects belonging to users 1,3 and 7
+Here ownership of all the objects belonging to users 1, 3 and 7
 would be transferred to user 10.
+
+.. warning::
+
+    This advanced featured of chown is temporarily disabled while a bug is
+    addressed. A proposed fix is under review.
 
 Including and excluding objects
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
