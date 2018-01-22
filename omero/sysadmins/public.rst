@@ -266,4 +266,5 @@ This makes use of redirects allowing
 link to the correct group and Project in OMERO, just as the
 DOI above does. Redirects need to be set in the
 `NGINX <http://nginx.org/>`_ component of the OMERO.web installation
-dedicated to publication workflows.
+dedicated to publication workflows. You can find our configuration for this
+example `here on GitHub <https://github.com/openmicroscopy/prod-playbooks/blob/2c73f0482bb87dc67e8d011d087ae591ad0bd836/nightshade-webclients.yml#L172>`_.
