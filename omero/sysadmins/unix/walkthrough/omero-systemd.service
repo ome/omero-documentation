@@ -17,6 +17,8 @@ RestartSec=10
 TimeoutSec=300
 ExecStart=/home/omero/OMERO.server/bin/omero admin start
 ExecStop=/home/omero/OMERO.server/bin/omero admin stop
+# If you want to enable in-place imports uncomment this:
+#UMask=0002
 
 [Install]
 WantedBy=multi-user.target
