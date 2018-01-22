@@ -267,4 +267,10 @@ link to the correct group and Project in OMERO, just as the
 DOI above does. Redirects need to be set in the
 `NGINX <http://nginx.org/>`_ component of the OMERO.web installation
 dedicated to publication workflows. You can find our configuration for this
-example `here on GitHub <https://github.com/openmicroscopy/prod-playbooks/blob/2c73f0482bb87dc67e8d011d087ae591ad0bd836/nightshade-webclients.yml#L172>`_.
+example `here on GitHub <https://github.com/openmicroscopy/prod-playbooks/blob/2018-01/nightshade-webclients.yml#L181-L183>`_:
+
+.. code-block:: shell
+
+      location /pub/schleicher-et-al-2017 {
+          return 307 /webclient/?show=project-27936;
+      }
