@@ -21,13 +21,12 @@ Throughput
 ----------
 
 The other main reason to have other servers running is to service more
-user sessions simultaneously. Out of the box, each
-:doc:`/developers/server-blitz` process is configured for 400MB of
-memory. When dealing with memory intensive operations like rendering,
-each added server can make a positive difference. This is only a part of
-the story, since much of the bottleneck is not the server itself but
-other shared resources, like the database or the filesystem, and so to
-further extend throughput, you will need to parallelize these.
+user sessions simultaneously. When dealing with memory intensive
+operations like rendering, each added server can make a positive
+difference. This is only a part of the story, since much of the
+bottleneck is not the server itself but other shared resources, like the
+database or the filesystem, and so to further extend throughput, you
+will need to parallelize these.
 
 Installation
 ------------
