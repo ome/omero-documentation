@@ -54,6 +54,12 @@ To install Ice 3.6:
     :start-after: #start-recommended-ice
     :end-before: #end-recommended-ice
 
+As part of the installation of Ice, two new daemons are installed and automatically started.
+They both can be safely disabled by running the following command::
+
+  systemctl --now disable glacier2router icegridregistry
+
+
 To install PostgreSQL 9.6:
 
 .. literalinclude:: walkthrough/walkthrough_debian9.sh
