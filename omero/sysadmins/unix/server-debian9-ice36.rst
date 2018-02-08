@@ -55,7 +55,8 @@ To install Ice 3.6:
     :end-before: #end-recommended-ice
 
 As part of the installation of Ice, two new daemons are installed and automatically started.
-They both can be safely disabled by running the following command::
+In order for the OMERO.server to start correctly,
+they both should be disabled by running the following command::
 
   systemctl --now disable glacier2router icegridregistry
 
