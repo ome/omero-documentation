@@ -116,9 +116,9 @@ JMX configuration
             <option>-Dcom.sun.management.jmxremote.ssl=false</option>
         </target>
 
-The JMX target activates the monitoring of the Blitz server via JMX. If
-you need to modify the "jmxport" or "jmxhost" variables, you will need
-to do so directly in the application descriptor XML.
+The JMX target enables remote connections for external monitoring of the Blitz
+server. If you need to modify the "jmxport" or "jmxhost" variables, you will
+need to do so directly in the application descriptor XML.
 
 Changing ports / multiple servers on a single host
 --------------------------------------------------
