@@ -990,6 +990,63 @@ in OMERO. Similar approach can be applied when uploading an image.
         store.close();
     }
 
+Sudo (working within another user's context)
+--------------------------------------------
+
+The next example shows how one can work within another user's context. For example
+a data analyst doing some analysis on behalf of a user and attaching the results
+to the user's data. The important point is that the user will be the owner of
+these results and can work with them as usual. The user and analyst don't have to be
+member of a read-annotate group. But the 'analyst' user has to be a 'light admin'
+user with 'sudo' permission.
+
+::
+
+    AdminFacility admin = gateway.getFacility(AdminFacility.class);
+
+    // Look up the experimenter to sudo for
+    ExperimenterData sudoUser = admin.lookupExperimenter(ctx, sudoUserName);
+
+    // Create a SecurityContext for this user within the user's default group
+    // and set the 'sudo' flag (i.e. all operations using this context will
+    // be performed as this user)
+    SecurityContext sudoCtx = new SecurityContext(sudoUser.getGroupId());
+    sudoCtx.setExperimenter(sudoUser);
+    sudoCtx.sudo();
+
+    // Get the sudouser's datasets
+    BrowseFacility browse = gateway.getFacility(BrowseFacility.class);
+    Collection<DatasetData> datasets = browse.getDatasets(sudoCtx, sudoUser.getId());
+    Iterator<DatasetData> i = datasets.iterator();
+    DatasetData first = null;
+    while (i.hasNext()) {
+        DatasetData dataset = i.next();
+        System.out.println(dataset.getName()+" ("+dataset.getId()+")");
+
+        if (first == null)
+            first = dataset;
+    }
+
+    // Add a tag to the first dataset on behalf of the sudouser (i.e. the sudouser will be
+    // the owner of tag). 
+    DataManagerFacility dm = gateway.getFacility(DataManagerFacility.class);
+    TagAnnotationData sudoUserTag = new TagAnnotationData(sudoUserName+"'s tag");
+    dm.attachAnnotation(sudoCtx, sudoUserTag, first);
+    System.out.println("Added '"+sudoUserTag.getContentAsString()+"' "
+            + "to dataset "+first.getName()+" on behalf of "+sudoUserName);
+
+    // Add a tag to the same dataset as logged in user (i. e. the logged in user will be
+    // the owner of the tag). Note: This only works in a read-annotate group where the
+    // logged in user is allowed to annotate the sudouser's data, or the logged in user has
+    // write permission.
+    TagAnnotationData adminTag = new TagAnnotationData(user.getUserName()+"'s tag");
+    // Have to use a SecurityContext for the correct group, otherwise this would fail
+    // with a security violation
+    SecurityContext groupContext = new SecurityContext(sudoUser.getGroupId());
+    dm.attachAnnotation(groupContext, adminTag, first);
+    System.out.println("Added '"+adminTag.getContentAsString()+"'"
+            + " to dataset "+first.getName()+" as admin.");
+
 Further information
 -------------------
 
