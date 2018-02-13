@@ -993,12 +993,13 @@ in OMERO. Similar approach can be applied when uploading an image.
 Sudo (working within another user's context)
 --------------------------------------------
 
-The next example shows how one can work within another user's context. For example
-a data analyst doing some analysis on behalf of a user and attaching the results
-to the user's data. The important point is that the user will be the owner of
-these results and can work with them as usual. The user and analyst don't have to be
-member of a read-annotate group. But the 'analyst' user has to be a 'light admin'
-user with 'sudo' permission.
+The next code snippet shows how you can work within another user's context. This
+could for example be a data analyst doing some analysis on behalf of a user and
+attaching the results to the user's data. The important point is that the user will
+be the owner of these results and can work with them as usual. The user and 'analyst'
+do not have to be member of a read-annotate group (see :doc:`Server/Permissions`),
+but the 'analyst' has to be a 'light administrator' with 'sudo' permission,
+see :doc:`Server/LightAdmins`.
 
 ::
 
