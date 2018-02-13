@@ -27,14 +27,9 @@ Installing prerequisites
 
 Install ZeroC IcePy 3.6. IcePy is managed by PyPI_, a package management system used to install and manage software packages written in Python. IcePy will be installed as part of the OMERO.web requirements::
 
-    yum -y install \
-        gcc \
-        gcc-c++ \
-        python-devel
+    yum -y install gcc gcc-c++ python-devel
 
-    yum -y install \
-        libdb-utils \
-        openssl-devel bzip2-devel expat-devel
+    yum -y install libdb-utils openssl-devel bzip2-devel
 
     # reset the locale changed by installing gcc
     localedef -i en_US -f UTF-8 en_US.UTF-8
@@ -55,16 +50,10 @@ Install other dependencies. The number of dependencies to install depends on the
     pip install --upgrade virtualenv
 
     # To install OMERO.web using option 1
-    yum -y install \
-        python-pillow \
-        numpy
+    yum -y install python-pillow numpy
 
     # To install OMERO.web using option 2
-    yum -y install \
-        python-devel \
-        libjpeg-devel \
-        libtiff libtiff-devel \
-        zlib-devel
+    yum -y install python-devel libjpeg-devel libtiff libtiff-devel zlib-devel
 
 
 

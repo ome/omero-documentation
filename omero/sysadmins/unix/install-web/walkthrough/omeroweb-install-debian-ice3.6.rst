@@ -39,9 +39,7 @@ Install other dependencies. The number of dependencies to install depends on the
 
     apt-get -y install unzip
      
-    apt-get -y install \
-        python-pip \
-        python-virtualenv
+    apt-get -y install python-pip python-virtualenv
 
     # to be installed if recommended/suggested is false
     apt-get -y install virtualenv
@@ -49,21 +47,13 @@ Install other dependencies. The number of dependencies to install depends on the
     apt-get -y install nginx
 
     # To install OMERO.web using option 1
-    apt-get -y install \
-        python-pillow \
-        python-numpy
+    apt-get -y install python-pillow python-numpy
 
     # To install OMERO.web using option 2
     # require to install Pillow
-    apt-get -y install \
-        libtiff5-dev \
-        libjpeg8-dev \
-        zlib1g-dev \
-        libfreetype6-dev \
-        liblcms2-dev \
-        libwebp-dev \
-        tcl8.6-dev \
-        tk8.6-dev
+    apt-get -y install libtiff5-dev libjpeg8-dev zlib1g-dev
+    apt-get -y install libfreetype6-dev liblcms2-dev libwebp-dev
+    apt-get -y install tcl8.6-dev tk8.6-dev
 
 
 
