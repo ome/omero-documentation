@@ -37,7 +37,7 @@ settings (see :ref:`jvm_memory_settings`) and the server ports (see
 
     This option is particularly useful for debugging and maintenance and
     allows for starting the server up in the foreground, that is without
-    creating a daemon on UNIX-like systems or service on Windows.
+    creating a daemon on UNIX-like systems.
     During the lifetime of the server, the prompt from which it was launched
     will be blocked.
 
