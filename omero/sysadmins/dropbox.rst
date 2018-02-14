@@ -23,8 +23,6 @@ the following more specific requirements:
 
     -   Linux with kernel 2.6.13 and higher.
     -   Mac OS 10.6 and later.
-    -   Windows XP, Vista, 7, Server 2003, Server 2008 and Server 2008R2,
-        but see note below.
 
 -   In addition some platforms require further Python packages to be
     available:
@@ -38,19 +36,6 @@ the following more specific requirements:
 -   The filesystem which OMERO.dropbox watches must be local to the given
     operating system. Watching a network-attached share (NAS) is strictly
     ***not*** supported.
-
-.. note:: It is likely, but not guaranteed, that DropBox will run on later
-    versions of Windows, however only tested versions are supported by default.
-    
-    Setting the property :property:`omero.fs.platformCheck` to ``False``
-    in :file:`etc/grid/templates.xml`
-    
-    or using :program:`omero config set`
-    
-    and restarting the server will allow DropBox to be started on an untested 
-    version of Windows. If you do successfully run DropBox on an as yet untested
-    version of Windows please do let us know via the 
-    :community:`forums and mailing lists <>`.
 
 Using DropBox
 -------------
