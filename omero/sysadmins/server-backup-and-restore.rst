@@ -18,6 +18,14 @@ distribution ``lib/python/omero/util/cleanse.py``, which can be used so::
 Note that only items not listed in the relational database (i.e. previously
 failed deletes) and now empty directories will be cleaned up by this script.
 
+.. note::
+
+    If you are cleaning a large repository and the process runs for a long
+    time but does not appear to succeed, you may find that running
+    ``$ bin/omero sessions keepalive`` in one shell and then running the
+    cleanse command from another shell allows the process to finish without
+    timing out.
+
 Managing OMERO.server log files
 -------------------------------
 
