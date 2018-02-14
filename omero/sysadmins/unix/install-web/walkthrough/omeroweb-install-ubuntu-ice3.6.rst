@@ -160,8 +160,22 @@ Additional settings can be configured by changing the following properties:
 
 
 
-Standalone OMERO.web
---------------------
+Configuring NGINX
+-----------------
+
+**The following steps are run as root.**
+
+Copy the generated configuration file into the NGINX configuration directory, disable the default configuration and start NGINX::
+
+    sed -i.bak -re 's/( default_server.*)/; #\1/' /etc/nginx/nginx.conf
+    rm /etc/nginx/sites-enabled/default
+    cp /home/omero/nginx.conf.tmp /etc/nginx/conf.d/omeroweb.conf
+
+    service nginx start
+
+
+Running OMERO.web
+-----------------
 
 **The following steps are run as the omero system user.**
 
@@ -179,26 +193,13 @@ Configure WhiteNoise and start OMERO.web manually to test the installation::
 
     /home/omero/OMERO.py/bin/omero web start
 
-    # Test installation e.g. https://github.com/openmicroscopy/omero-web-docker/blob/master/test_getweb.sh
+    # Test installation e.g. curl -sL localhost:4080
 
     /home/omero/OMERO.py/bin/omero web stop
 
-Configuring NGINX
------------------
 
-**The following steps are run as root.**
-
-Copy the generated configuration file into the NGINX configuration directory, disable the default configuration and start NGINX::
-
-    sed -i.bak -re 's/( default_server.*)/; #\1/' /etc/nginx/nginx.conf
-    rm /etc/nginx/sites-enabled/default
-    cp /home/omero/nginx.conf.tmp /etc/nginx/conf.d/omeroweb.conf
-
-    service nginx start
-
-
-Running OMERO.web
------------------
+Running automatically OMERO.web
+-------------------------------
 
 
 **The following steps are run as root.**

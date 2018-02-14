@@ -143,29 +143,6 @@ Additional settings can be configured by changing the following properties:
 
 
 
-Standalone OMERO.web
---------------------
-
-**The following steps are run as the omero system user.**
-
-Install `WhiteNoise <http://whitenoise.evans.io/>`_::
-
-    . /home/omero/omerowebvenv/bin/activate
-
-    pip install --upgrade 'whitenoise<4'
-
-Configure WhiteNoise and start OMERO.web manually to test the installation::
-
-    . /home/omero/omerowebvenv/bin/activate
-
-    /home/omero/OMERO.py/bin/omero config append -- omero.web.middleware '{"index": 0, "class": "whitenoise.middleware.WhiteNoiseMiddleware"}'
-
-    /home/omero/OMERO.py/bin/omero web start
-
-    # Test installation e.g. https://github.com/openmicroscopy/omero-web-docker/blob/master/test_getweb.sh
-
-    /home/omero/OMERO.py/bin/omero web stop
-
 Configuring NGINX
 -----------------
 
@@ -185,6 +162,30 @@ Copy the generated configuration file into the NGINX configuration directory, di
 
 Running OMERO.web
 -----------------
+
+**The following steps are run as the omero system user.**
+
+Install `WhiteNoise <http://whitenoise.evans.io/>`_::
+
+    . /home/omero/omerowebvenv/bin/activate
+
+    pip install --upgrade 'whitenoise<4'
+
+Configure WhiteNoise and start OMERO.web manually to test the installation::
+
+    . /home/omero/omerowebvenv/bin/activate
+
+    /home/omero/OMERO.py/bin/omero config append -- omero.web.middleware '{"index": 0, "class": "whitenoise.middleware.WhiteNoiseMiddleware"}'
+
+    /home/omero/OMERO.py/bin/omero web start
+
+    # Test installation e.g. curl -sL localhost:4080
+
+    /home/omero/OMERO.py/bin/omero web stop
+
+
+Running automatically OMERO.web
+-------------------------------
 
 
 **The following steps are run as root.**
