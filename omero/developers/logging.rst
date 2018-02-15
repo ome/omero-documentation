@@ -64,8 +64,7 @@ For example, the config file for Processor-0 can be found in
 :file:`etc/grid/templates.xml`.
 
 All the "omero.logging.\*" properties can be overwritten in your
-:file:`etc/grid/default.xml` file (or on Windows,
-:file:`etc/grid/windefault.xml`).
+:file:`etc/grid/default.xml` file.
 See the "Profile" properties block for how to configure for your site.
 
 Similar to logback, logging is configured to be written to
