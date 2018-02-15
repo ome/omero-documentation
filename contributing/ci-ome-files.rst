@@ -147,7 +147,7 @@ changes. The branch for the breaking series of OME Files is develop.
                 reviewing the breaking PRs opened against the develop
                 branches of OME Files.
 
-                #. Triggers :term:`BIOFORMATS-DEV-breaking-push`
+                #. Triggers BIOFORMATS-DEV-breaking-push
                 #. Triggers :term:`OME-FILES-CPP-DEV-breaking-push-superbuild`
                 #. Triggers downstream breaking projects
 

@@ -56,8 +56,7 @@ Multiple labels are used in the PR reviewing process:
 - the "on hold" label allows you to signal that a PR should not be
   reviewed or merged, even though it is not excluded.
 - the "breaking" label allows you to mark a PR as containing breaking changes,
-  usually model and/or DB changes (see :ref:`omero_breaking` and
-  :ref:`bf_breaking`).
+  usually model and/or DB changes (see :ref:`omero_breaking`).
 
 Job names
 ^^^^^^^^^
