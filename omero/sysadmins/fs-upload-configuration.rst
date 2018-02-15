@@ -53,7 +53,7 @@ There is some flexibility in how this parent directory is named. The
 constraints are:
 
 * The path components (individual directories in the path) must be
-  separated by :literal:`/` characters, **even on Windows systems**.
+  separated by :literal:`/` characters.
 
 * A path component separator may be written as :literal:`//` only if
   followed by at least one more path component. In this case:

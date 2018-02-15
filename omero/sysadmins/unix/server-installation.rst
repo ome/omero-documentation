@@ -427,7 +427,7 @@ For the purposes of this guide, the following dummy data is used::
     For a live or public server install these values should be altered
     to reflect your security requirements---i.e. use your own choice
     of username and password instead. These should **not** be the same
-    username and/or password as your Linux/Mac/Windows root user!
+    username and/or password as your Linux/Mac root user!
 
     You should also consider restricting access to your server
     machine, but that is outside the scope of this document.
@@ -553,7 +553,7 @@ Configuration
       root user is shown as ``omero_root_password``. However, you
       should **not** use this default values for your installation,
       but use your own choice of password instead. This should **not**
-      be the same password as your Linux/Mac/Windows root user or the
+      be the same password as your Linux/Mac root user or the
       database user!
 
 -   Initialize your database with the script.

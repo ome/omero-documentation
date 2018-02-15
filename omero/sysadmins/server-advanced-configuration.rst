@@ -7,9 +7,7 @@ In some cases, the configuration properties will not suffice to fully
 configure your server. In that case, it may be necessary to make use of
 IceGrid's XML configuration files. Like the :file:`config.xml` file mentioned
 above, these are stored under :file:`etc/grid`:
-:file:`etc/grid/default.xml` is used on Unix systems,
-:file:`etc/grid/windefault.xml` is used on
-Windows systems and both make use of
+:file:`etc/grid/default.xml` is used on Unix systems and there is also
 :file:`etc/grid/templates.xml`.
 
 The default OMERO application descriptor deploys multiple server instances

@@ -68,11 +68,6 @@ into, and then use their own OMERO accounts to import data. Alternatively,
 each OMERO user can be given an OS account with access rights to the data
 storage as well as the managed repository.
 
-At the moment full in-place import functionality is available only under
-POSIX systems (Unix, Linux, OS X). Under Windows, ``ln`` and ``ln_s`` work
-as expected but ``ln_rm`` does not automatically remove image files after
-import.
-
 For soft linking with :literal:`--transfer=ln_s` it has been noticed
 that some plate imports run rather more slowly than usual. Other
 operations may also be affected. In determining if or how to use
@@ -282,7 +277,7 @@ systems.  When you create a hard-link to a file, Linux now requires
 that you are either the *owner* of the file, or that you have
 *read-write permissions* to the file.  Other Unix systems, and older
 Linux systems, allow a hard-link to be made if you have *search
-access* to the file (i.e. you have appopriate read and execute
+access* to the file (i.e. you have appropriate read and execute
 permissions on the directory path containing the file), but do
 not check the file permissions themselves.  See the `kernel-hardening
 mailing list post
