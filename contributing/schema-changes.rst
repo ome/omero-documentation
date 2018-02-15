@@ -150,6 +150,6 @@ Any pull request introducing a schema change will be initially marked and
 reviewed with a `breaking` label (see :doc:`ci-introduction`) so after
 opening your pull request please have it labeled as being breaking. This
 implies the pull request will first be included in the
-:ref:`omero_breaking` and :ref:`bf_breaking` exclusively. Once positively
-reviewed, the `breaking` label will be removed so that the pull request is
-included in the daily merge builds before final merging.
+:ref:`omero_breaking` and Bio-Formats Breaking jobs exclusively. Once
+positively reviewed, the `breaking` label will be removed so that the pull
+request is included in the daily merge builds before final merging.
