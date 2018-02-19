@@ -143,7 +143,9 @@ linkcheck_ignore += [r'http://localhost:\d+/?', 'http://localhost/',
     'https://access.redhat.com/articles/3078',
     r'https?://www\.openmicroscopy\.org/site/team/.*',
     r'.*[.]?example\.com/.*',
-    r'https://spreadsheets.google.com/.*']
+    r'https://spreadsheets.google.com/.*',
+    r'http://mlabwrap.sourceforge.net/.*'
+]
 
 exclude_patterns = ['sysadmins/unix/walkthrough/requirements*',
                     'downloads/inplace', 'downloads/cli']
