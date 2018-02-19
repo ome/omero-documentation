@@ -66,7 +66,9 @@ Create an omero system user, and a directory for the OMERO repository:
     :start-after: #start-step02
     :end-before: #end-step02
 
-Create a database user and initialize a new database for OMERO:
+Create a database user and initialize a new database for OMERO. For the commands
+below to work, add if required the user you are currently logged to the newly
+created database:
 
 .. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
     :start-after: #start-step03
