@@ -6,70 +6,52 @@ OMERO jobs
 
     -   * Job task
         * DEV series
-        * Breaking series
 
     -   * Builds the latest OMERO artifacts
         * :term:`OMERO-DEV-latest`
-        *
 
     -   * Deploys the latest OMERO server
         * :term:`OMERO-DEV-latest-deploy`
-        *
 
     -   * Deploys the latest OMERO web
         * :term:`WEB-DEV-latest-deploy`
-        *
 
     -   * Updates submodules
         * :term:`OMERO-DEV-latest-submods`
-        *
 
     -   * Runs the daily OMERO merge builds
         * :term:`OMERO-DEV-merge-daily`
-        * :term:`OMERO-DEV-breaking-trigger`
 
     -   * Merges the PRs
         * :term:`OMERO-DEV-merge-push`
-        * :term:`OMERO-DEV-breaking-push`
 
     -   * Builds the merge OMERO artifacts
         * :term:`OMERO-DEV-merge-build`
-        * :term:`OMERO-DEV-breaking-build`
 
     -   * Deploys the merge OMERO server
         * :term:`OMERO-DEV-merge-deploy`
-        * :term:`OMERO-DEV-breaking-deploy`
 
     -   * Deploys the merge OMERO web
         * :term:`WEB-DEV-merge-deploy`
-        * :term:`WEB-DEV-breaking-deploy`
 
     -   * Runs the OMERO integration tests
         * | :term:`OMERO-DEV-merge-integration`
           | :term:`OMERO-DEV-merge-integration-broken`
           | :term:`OMERO-DEV-merge-integration-java`
           | :term:`OMERO-DEV-merge-integration-python`
-        * | :term:`OMERO-DEV-breaking-integration`
-          | :term:`OMERO-DEV-breaking-integration-broken`
-          | :term:`OMERO-DEV-breaking-integration-java`
-          | :term:`OMERO-DEV-breaking-integration-python`
-
+       
     -   * Deploys the integration OMERO web and runs Robot tests using first server from the list
         * :term:`WEB-DEV-integration-deploy`
-        *
 
     -   * Runs the OMERO.matlab tests
         * :term:`OMERO-DEV-merge-matlab`
-        *
 
     -   * Runs the robot framework tests
         * :term:`OMERO-DEV-merge-robotframework`
-        *
 
     -   * Pushes SNAPSHOTS to Maven
         * | :term:`OMERO-DEV-latest-maven`
           | :term:`OMERO-DEV-merge-maven`
-        *
 
 .. _deployment_servers:
 
@@ -110,13 +92,6 @@ clients of the deployment jobs described above:
         * 24064
         * :term:`WEB-DEV-integration-deploy`
         * http://web-dev-integration.openmicroscopy.org/webclient/login/
-
-    -   * Breaking
-        * :term:`OMERO-DEV-breaking-deploy`
-        * carp.openmicroscopy.org
-        * 34064
-        * :term:`WEB-DEV-breaking-deploy`
-        * http://web-dev-breaking.openmicroscopy.org/webclient/login/
 
 
 5.4.x series
@@ -282,87 +257,3 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
         #. Cleans :file:`/usr/local`
         #. Installs Homebrew from https://github.com/ome/omero-install
         #. Installs OMERO via :file:`osx/install_homebrew.sh`
-
-.. _omero_breaking:
-
-Breaking jobs
-^^^^^^^^^^^^^
-
-Breaking jobs are jobs containing breaking, irreversible changes typically
-database upgrade. The branch for the breaking series of OMERO is develop.
-
-.. glossary::
-
-    :jenkinsjob:`OMERO-DEV-breaking-trigger`
-
-        This job triggers all the breaking jobs listed below
-
-        #. Triggers :term:`OMERO-DEV-breaking-push`
-        #. Triggers :term:`OMERO-DEV-breaking-build` and
-           :term:`OMERO-DEV-breaking-integration`
-        #. Triggers :term:`OMERO-DEV-breaking-deploy`
-        #. Triggers :term:`WEB-DEV-breaking-deploy`
-        #. Triggers other downstream breaking jobs
-
-    :jenkinsjob:`OMERO-DEV-breaking-push`
-
-        This job merges all the breaking PRs
-
-        #. |merge| including only PRs labeled as `breaking`
-        #. Pushes the branch to :omero_scc_branch:`develop/breaking/trigger` 
-
-    :jenkinsjob:`OMERO-DEV-breaking-build`
-
-        This matrix jobs builds the OMERO components with Ice 3.5 or 3.6
-
-        #. Checks out :omero_scc_branch:`develop/breaking/trigger` 
-        #. |buildOMERO| for each version of Ice
-        #. |archiveOMEROartifacts|
-
-    :jenkinsjob:`OMERO-DEV-breaking-deploy`
-
-        This job deploys the breaking server (see :ref:`deployment_servers`)
-
-    :jenkinsjob:`WEB-DEV-breaking-deploy`
-
-        This job deploys the breaking web (see :ref:`deployment_servers`)
-
-    :jenkinsjob:`OMERO-DEV-breaking-integration`
-
-        This job runs the integration tests of OMERO
-
-        #. Checks out :omero_scc_branch:`develop/breaking/trigger` 
-        #. Builds OMERO.server and starts it
-        #. Runs the OMERO.java and OMERO.py integration tests
-        #. Archives the results
-        #. Triggers downstream collection jobs:
-           :term:`OMERO-DEV-breaking-integration-broken`,
-           :term:`OMERO-DEV-breaking-integration-java`,
-           :term:`OMERO-DEV-breaking-integration-python`
-
-    :jenkinsjob:`OMERO-DEV-breaking-integration-broken`
-
-        This job collects the OMERO.java broken test results
-
-        #. Receives TestNG results under
-           :file:`components/tools/OmeroJava/target/reports/broken` from
-           :term:`OMERO-DEV-breaking-integration`,
-        #. Generates TestNG report
-
-    :jenkinsjob:`OMERO-DEV-breaking-integration-java`
-
-        This job collects the OMERO.java integration test results
-
-        #. Receives TestNG results under
-           :file:`components/tools/OmeroJava/target/reports/integration` from
-           :term:`OMERO-DEV-breaking-integration`,
-        #. Generates TestNG report
-
-    :jenkinsjob:`OMERO-DEV-breaking-integration-python`
-
-        This job collects the OMERO.py integration test results
-
-        #. Receives pytest results under
-           :file:`components/tools/OmeroPy/target/reports` from
-           :term:`OMERO-DEV-breaking-integration`,
-        #. Generates pytest report

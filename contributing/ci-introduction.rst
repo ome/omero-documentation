@@ -55,8 +55,6 @@ Multiple labels are used in the PR reviewing process:
   merge builds.
 - the "on hold" label allows you to signal that a PR should not be
   reviewed or merged, even though it is not excluded.
-- the "breaking" label allows you to mark a PR as containing breaking changes,
-  usually model and/or DB changes (see :ref:`omero_breaking`).
 
 Job names
 ^^^^^^^^^
@@ -73,8 +71,6 @@ All core OME job names take the form
     `origin/dev_5_0`;
   * `merge`: build from the tip of the development branch with all
     PRs merged using :ref:`scc merge` with the `org` default filter set;
-  * `breaking`: build from the tip of the development branch with
-    all PRs labeled as `breaking` merged using :ref:`scc merge`;
   * `release`: build from and optionally create a tag at the tip of
     a development branch, e.g. `v5.0.1-rc4`.
 

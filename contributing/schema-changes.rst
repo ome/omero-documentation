@@ -142,14 +142,3 @@ diff` reports should help you to create a new
 When you commit your code and issue a pull request, include the
 changes to :omero_source:`omero.properties <etc/omero.properties>` and
 :omero_sourcedir:`sql/psql` among the commits in the pull request.
-
-Review workflow
----------------
-
-Any pull request introducing a schema change will be initially marked and
-reviewed with a `breaking` label (see :doc:`ci-introduction`) so after
-opening your pull request please have it labeled as being breaking. This
-implies the pull request will first be included in the
-:ref:`omero_breaking` and Bio-Formats Breaking jobs exclusively. Once
-positively reviewed, the `breaking` label will be removed so that the pull
-request is included in the daily merge builds before final merging.
