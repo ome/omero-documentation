@@ -11,7 +11,7 @@ searched with Google-like queries.
 Once an entity is indexed, it is possible to start writing querying
 against the server via ``IQuery.findAllByFullText()``. Use
 ``new Parameters(new Filter().owner())`` and ``.group()`` to restrict
-your search. Or alternatively use the ``oma.api.Search`` interface
+your search. Or alternatively use the ``ome.api.Search`` interface
 (below).
 
 .. seealso::
