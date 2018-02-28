@@ -33,17 +33,13 @@ All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
                 * :term:`BIOFORMATS-DEV-merge-matlab`
 
         -       * Runs automated tests against the full repository on squig
-                * | :term:`BIOFORMATS-DEV-merge-full-repository`
-                    :term:`BIOFORMATS-DEV-merge-full-repository-win`
+                * :term:`BIOFORMATS-DEV-merge-full-repository`
 
         -       * Runs automated tests against a subset of the data repository on squig
                 * :term:`BIOFORMATS-DEV-merge-repository-subset`
 
         -       * Runs performance tests
                 * :term:`BIOFORMATS-DEV-merge-performance`
-
-        -       * Installs Bio-Formats using Homebrew
-                * :term:`BIOFORMATS-DEV-merge-homebrew`
 
 5.x.x series
 ^^^^^^^^^^^^
@@ -125,15 +121,6 @@ The branch for the 5.x series of Bio-Formats is develop.
                 #. Checks out :bf_scc_branch:`develop/merge/daily`
                 #. Runs automated tests against :file:`/ome/data_repo/curated/`
 
-        :jenkinsjob:`BIOFORMATS-DEV-merge-full-repository-win`
-
-                This job runs the automated tests against the curated data
-                repository on Windows
-
-                #. Checks out :bf_scc_branch:`develop/merge/daily`
-                #. Runs automated tests against
-                   :file:`\\\\squig.openmicroscopy.org.uk\\ome-data-repo\\curated`
-
         :jenkinsjob:`BIOFORMATS-DEV-merge-repository-subset`
 
                 This job runs the automated tests against a subset of the data
@@ -152,7 +139,3 @@ The branch for the 5.x series of Bio-Formats is develop.
                 #. Checks out the :bf_scc_branch:`develop/merge/daily`
                 #. Runs file-handles and openbytes-performance tests against
                    files specified by :file:`performance_files.txt`
-
-        :jenkinsjob:`BIOFORMATS-DEV-merge-homebrew`
-
-                This job builds Bio-Formats using MacOS X Homebrew
