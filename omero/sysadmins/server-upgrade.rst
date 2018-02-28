@@ -54,7 +54,7 @@ for large TIFF files with little endian encoding. This bug was fixed in
 OMERO 5.4.4 and corrupted pyramids need to be deleted to allow new ones to be
 generated::
 
-   bin/omero admin removepyramids --little-endian
+   bin/omero admin removepyramids --endian=little
 
 We recommend you run the command with ``--dry-run`` first to list the pyramids
 that will be deleted. If there are a large number of pyramids, you may need to
