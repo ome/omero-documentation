@@ -46,6 +46,22 @@ to enable successful upgrading of the database, otherwise the upgrade
 script aborts with a message saying that your database server version is
 less than the OMERO prerequisite.
 
+Corrupted pyramids
+^^^^^^^^^^^^^^^^^^
+
+A bug introduced in OMERO 5.2.0 meant that corrupted pyramids were generated
+for large TIFF files with little endian encoding. This bug was fixed in
+OMERO 5.4.4 and corrupted pyramids need to be deleted to allow new ones to be
+generated::
+
+   bin/omero admin removepyramids --endian=little
+
+We recommend you run the command with ``--dry-run`` first to list the pyramids
+that will be deleted. If there are a large number of pyramids, you may need to
+run the command more than once. You can also specify a cut-off date (e.g. the
+date you upgraded to 5.2) so the command has fewer files to process; use
+``-h`` for details of the additional arguments possible.
+
 File limits
 ^^^^^^^^^^^
 
