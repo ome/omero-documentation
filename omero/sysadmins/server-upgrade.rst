@@ -60,7 +60,7 @@ We recommend you run the command with ``--dry-run`` first to list the pyramids
 that will be deleted. If there are a large number of pyramids, you may need to
 run the command more than once since you cannot remove more than 500 pyramids in one call.
 For large installation, to avoid any timeout issue it is recommended to run the
-command with ``--wait=xxx`` where ``xxx`` is for example ``5000``.
+command with ``--wait=xxx`` where ``xxx`` is for example ``5000`` seconds.
 You can also specify a cut-off date (e.g. the
 date you upgraded to 5.2) so the command has fewer files to process; use
 ``-h`` for details of the additional arguments possible.
