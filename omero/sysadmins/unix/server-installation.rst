@@ -192,7 +192,7 @@ If possible, install the following packages:
       - python2.7 python-numpy python-tables
 
     * - Homebrew
-      - python numpy
+      - python2 numpy
 
     * - RedHat
       - python

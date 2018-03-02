@@ -100,7 +100,7 @@ Requirements
 
 4. Install Python provided by Homebrew::
 
-    $ brew install python
+    $ brew install python2
 
    Homebrew installs Python in the following location::
 
