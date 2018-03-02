@@ -346,7 +346,9 @@ htmlhelp_basename = 'projstandardsdoc'
 
 # Timeout value, in seconds, for the linkcheck builder
 if not (sys.version_info[0] == 2 and sys.version_info[1] <= 5):
-    linkcheck_timeout = 30
+    linkcheck_timeout = int(os.environ.get("SPHINX_LINKCHECK_TIMEOUT", 30))
+    linkcheck_workers = int(os.environ.get("SPHINX_LINKCHECK_WORKERS", 5))
+    linkcheck_retries = int(os.environ.get("SPHINX_LINKCHECK_RETRIES", 5))
 
 # Regular expressions that match URIs that should not be checked when doing a linkcheck build
 linkcheck_ignore = []
