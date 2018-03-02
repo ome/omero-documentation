@@ -66,7 +66,7 @@ date you upgraded to 5.2) so the command has fewer files to process; use
 ``-h`` for details of the additional arguments possible.
 
 Attempting to remove pyramids imported before OMERO 5.0 (pre-FS) will result with messages
-like ``Failed to remove for image 20: pyramid-requires-fileset`` been printed out.
+like ``Failed to remove for image 20: pyramid-requires-fileset`` being printed out.
 You can safely ignore those messages. The pyramids are not corrupted.
 
 File limits
