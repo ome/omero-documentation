@@ -61,7 +61,11 @@ Install OMERO.web using OMERO.py::
     rm -f $zip
     ln -s OMERO.py-* OMERO.py
 
-**The following steps are run as root.**
+Install dependencies::
+    
+    brew install python 
+    brew install nginx
+    pip install --upgrade virtualenv
 
 Install the OMERO.web requirements. Select one of the commands corresponding to the way you have opted to install it::
     
@@ -91,6 +95,25 @@ Configure OMERO.web and create the NGINX OMERO configuration file::
 
 For more customization, please read :ref:`customizing_your_omero_web_installation`.
 
+Configuring Gunicorn
+--------------------
+
+
+Additional settings can be configured by changing the following properties:
+    
+    - :property:`omero.web.application_server.max_requests` to 500
+    
+    - :property:`omero.web.wsgi_workers` to (2 x NUM_CORES) + 1
+    
+      .. note::
+          **Do not** scale the number of workers to the number of clients
+          you expect to have. OMERO.web should only need 4-12 worker
+          processes to handle many requests per second.
+    
+    - :property:`omero.web.wsgi_args` Additional arguments. For more details
+      check `Gunicorn Documentation <http://docs.gunicorn.org/en/stable/settings.html>`_.
+    
+
 Configuring NGINX
 -----------------
 
@@ -102,14 +125,32 @@ Copy the generated configuration file into the NGINX configuration directory::
     # Restart webserver
     brew services restart nginx
 
-Running OMERO.web
------------------
+Standalone OMERO.web
+--------------------
 
-To start the OMERO.web client manually run::
+
+Install `WhiteNoise <http://whitenoise.evans.io/>`_::
     
     . ~/omerowebvenv/bin/activate
     
+    pip install --upgrade 'whitenoise<4'
+
+Configure WhiteNoise and start OMERO.web manually to test the installation::
+    
+    . ~/omerowebvenv/bin/activate
+    
+    ~/OMERO.py/bin/omero config append -- omero.web.middleware '{"index": 0, "class": "whitenoise.middleware.WhiteNoiseMiddleware"}'
+    
     ~/OMERO.py/bin/omero web start
+    
+    # Test installation e.g. curl -sL localhost:4080
+    
+    ~/OMERO.py/bin/omero web stop
+
+
+Running OMERO.web
+-----------------
+
 
 
 Start up services::

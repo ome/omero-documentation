@@ -10,13 +10,18 @@ apt-get update
 # installed for convenience
 apt-get -y install unzip wget bc
 
+# to be installed if recommended/suggested is false
+apt-get -y install cron
+
 # install Java
 apt-get -y install openjdk-8-jre-headless
 
 # install dependencies
 
-apt-get -y install \
-	python-{pip,virtualenv,yaml,jinja2}
+apt-get -y install python-{pip,virtualenv,yaml,jinja2}
+
+# to be installed if recommended/suggested is false
+apt-get -y install python-setuptools python-wheel virtualenv
 
 pip install --upgrade pip
 
@@ -30,6 +35,9 @@ apt-get -y install python-{pillow,numpy}
 #end-web-dependencies
 # install Ice
 #start-recommended-ice
+# to be installed if recommended/suggested is false
+apt-get -y install build-essential python-dev
+
 apt-get -y install libssl-dev libbz2-dev libmcpp-dev libdb++-dev libdb-dev libdb-java
 apt-get -y install zeroc-ice-all-runtime
 pip install "zeroc-ice>3.5,<3.7"
@@ -43,6 +51,8 @@ apt-get -y install postgresql
 
 #start-step02: As root, create an omero system user and directory for the OMERO repository
 useradd -m omero
+# Give a password to the omero user
+# e.g. passwd omero
 chmod a+X ~omero
 
 mkdir -p "$OMERO_DATA_DIR"

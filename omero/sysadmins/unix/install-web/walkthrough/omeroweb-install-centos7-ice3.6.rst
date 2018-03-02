@@ -26,14 +26,9 @@ Installing prerequisites
 
 Install ZeroC IcePy 3.6. IcePy is managed by PyPI_, a package management system used to install and manage software packages written in Python. IcePy will be installed as part of the OMERO.web requirements::
     
-    yum -y install \
-        gcc \
-        gcc-c++ \
-        python-devel
+    yum -y install gcc gcc-c++ python-devel
     
-    yum -y install \
-        libdb-utils \
-        openssl-devel bzip2-devel expat-devel
+    yum -y install libdb-utils openssl-devel bzip2-devel
     
     # reset the locale changed by installing gcc
     localedef -i en_US -f UTF-8 en_US.UTF-8
@@ -54,23 +49,17 @@ Install other dependencies. The number of dependencies to install depends on the
     pip install --upgrade virtualenv
     
     # To install OMERO.web using option 1
-    yum -y install \
-        python-pillow \
-        numpy
+    yum -y install python-pillow numpy
     
     # To install OMERO.web using option 2
-    yum -y install \
-        python-devel \
-        libjpeg-devel \
-        libtiff libtiff-devel \
-        zlib-devel
+    yum -y install python-devel libjpeg-devel libtiff libtiff-devel zlib-devel
     
 
 
 Creating a virtual environment
 ------------------------------
 
-**The following steps are run as root.**
+**The following steps are run as the omero system user.**
 
 Create the virtual environment. This is the preferred way to install OMERO.web::
     
@@ -96,7 +85,7 @@ Install OMERO.web using OMERO.py::
     rm -f $zip
     ln -s OMERO.py-* OMERO.py
 
-**The following steps are run as root.**
+**The following steps are run as the omero system user.**
 
 Install the OMERO.web requirements. Select one of the commands corresponding to the way you have opted to install it::
     
@@ -127,6 +116,26 @@ Configure OMERO.web and create the NGINX OMERO configuration file::
 
 For more customization, please read :ref:`customizing_your_omero_web_installation`.
 
+Configuring Gunicorn
+--------------------
+
+**The following steps are run as the omero system user.**
+
+Additional settings can be configured by changing the following properties:
+    
+    - :property:`omero.web.application_server.max_requests` to 500
+    
+    - :property:`omero.web.wsgi_workers` to (2 x NUM_CORES) + 1
+    
+      .. note::
+          **Do not** scale the number of workers to the number of clients
+          you expect to have. OMERO.web should only need 4-12 worker
+          processes to handle many requests per second.
+    
+    - :property:`omero.web.wsgi_args` Additional arguments. For more details
+      check `Gunicorn Documentation <http://docs.gunicorn.org/en/stable/settings.html>`_.
+    
+
 Configuring NGINX
 -----------------
 
@@ -149,12 +158,28 @@ Running OMERO.web
 
 **The following steps are run as the omero system user.**
 
-
-To start the OMERO.web client manually run::
+Install `WhiteNoise <http://whitenoise.evans.io/>`_::
     
     . /home/omero/omerowebvenv/bin/activate
     
+    pip install --upgrade 'whitenoise<4'
+
+Configure WhiteNoise and start OMERO.web manually to test the installation::
+    
+    . /home/omero/omerowebvenv/bin/activate
+    
+    /home/omero/OMERO.py/bin/omero config append -- omero.web.middleware '{"index": 0, "class": "whitenoise.middleware.WhiteNoiseMiddleware"}'
+    
     /home/omero/OMERO.py/bin/omero web start
+    
+    # Test installation e.g. curl -sL localhost:4080
+    
+    /home/omero/OMERO.py/bin/omero web stop
+
+
+Automatically running OMERO.web
+-------------------------------
+
 
 **The following steps are run as root.**
 

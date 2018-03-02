@@ -15,10 +15,7 @@ yum -y install java-1.8.0-openjdk
 
 # install dependencies
 
-yum -y install \
-	python-pip python-devel python-virtualenv \
-	python-yaml python-jinja2 \
-	python-tables
+yum -y install python-{pip,devel,virtualenv,yaml,jinja2,tables}
 pip install --upgrade pip
 
 #start-web-dependencies
@@ -30,9 +27,9 @@ curl -sL https://zeroc.com/download/Ice/3.6/el7/zeroc-ice3.6.repo > \
 /etc/yum.repos.d/zeroc-ice3.6.repo
 yum -y install gcc-c++
 yum -y install libdb-utils
-yum -y install openssl-devel bzip2-devel expat-devel
+yum -y install openssl-devel bzip2-devel
 
-yum -y install ice-all-runtime ice-all-devel
+yum -y install ice-all-runtime
 
 pip install "zeroc-ice>3.5,<3.7"
 #end-recommended-ice
@@ -60,6 +57,8 @@ systemctl enable postgresql-9.6.service
 
 #start-step02: As root, create an omero system user and directory for the OMERO repository
 useradd -m omero
+# Give a password to the omero user
+# e.g. passwd omero
 chmod a+X ~omero
 
 mkdir -p "$OMERO_DATA_DIR"

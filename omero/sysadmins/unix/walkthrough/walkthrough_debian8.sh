@@ -10,6 +10,9 @@ apt-get update
 # installed for convenience
 apt-get -y install unzip wget bc
 
+# to be installed if recommended/suggested is false
+apt-get -y install cron
+
 # install Java
 echo 'deb http://httpredir.debian.org/debian jessie-backports main' > /etc/apt/sources.list.d/jessie-backports.list
 apt-get update
@@ -65,6 +68,8 @@ service postgresql start
 
 #start-step02: As root, create an omero system user and directory for the OMERO repository
 useradd -m omero
+# Give a password to the omero user
+# e.g. passwd omero
 chmod a+X ~omero
 
 mkdir -p "$OMERO_DATA_DIR"
