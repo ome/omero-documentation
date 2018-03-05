@@ -219,7 +219,7 @@ The following example can be found in the
 
 
        @login_required()
-       def stack_preview(request, imageId, conn=None, **kwargs):
+       def stack_preview(request, image_id, conn=None, **kwargs):
             """ Shows a subset of Z-planes for an image """
             image = conn.getObject("Image", image_id)
             image_name = image.getName()
