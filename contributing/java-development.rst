@@ -38,7 +38,7 @@ Java libraries.
         * `org.openmicroscopy:ome-mdbtools`
 
     -   * OME Stubs
-        * https://github.com/ome/ome-mdbtools
+        * https://github.com/ome/ome-stubs
         * | `org.openmicroscopy:ome-stubs`
             `org.openmicroscopy:lwf-stubs`
             `org.openmicroscopy:mipav-stubs`
