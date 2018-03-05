@@ -55,7 +55,7 @@ Type "ant -p" for a list of targets.
 
 <!-- Change the value to upper case for the zip -->
   <scriptdef language="javascript" name="upper">
-    <attribute name="string" /> 
+    <attribute name="string" />
     <attribute name="to" />
 
     project.setProperty(attributes.get("to"),
@@ -69,6 +69,14 @@ Type "ant -p" for a list of targets.
     <sphinx buildtype="html"
             srcdir="."
             destdir="${sphinx.builddir}/html"
+            opts="${sphinx.opts}"
+            warnopts="${sphinx.warnopts}"/>
+  </target>
+
+  <target name="singlehtml" depends="sphinx-deps, init">
+    <sphinx buildtype="singlehtml"
+            srcdir="."
+            destdir="${sphinx.builddir}/singlehtml"
             opts="${sphinx.opts}"
             warnopts="${sphinx.warnopts}"/>
   </target>
