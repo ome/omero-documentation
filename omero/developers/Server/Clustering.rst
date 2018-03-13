@@ -11,11 +11,11 @@ Availability
 
 Having the ability to have two servers up at the same time implies that
 even if you have to restart one of the servers, there should be no
-downtime. Currently, |OmeroSessions| are
-sticky to a cluster node so it is not possible to shut down a node at any
-time. However, all new sessions can be redirected to the server that is to
-be left turned on. When all active sessions have completed, the
-chosen server can be shut down.
+downtime. Currently, |OmeroSessions| are sticky to a cluster node so it
+is not possible to shut down a node at any time. However, all new
+sessions can be redirected to the server that is to be left turned on.
+When all active sessions have completed, the chosen server can be shut
+down.
 
 Throughput
 ----------
@@ -25,8 +25,8 @@ user sessions simultaneously. When dealing with memory-intensive
 operations like rendering, each added server can make a positive
 difference. This is only a part of the story, since much of the
 bottleneck is not the server itself but other shared resources, like the
-database or the filesystem. To further extend throughput you
-will need to parallelize these.
+database or the filesystem. To further extend throughput you will need
+to parallelize these.
 
 Installation
 ------------
