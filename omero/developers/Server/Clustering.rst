@@ -46,3 +46,39 @@ newly created server will not be used until sessions are manually
 redirected to it.
 
 .. seealso:: :doc:`/developers/Server/ScalingOmero`
+
+Read-Only
+---------
+
+A read-only server offers users the ability to do little more than log
+in and retrieve data. Prohibitions for users of read-only servers
+include that they may not import data or run scripts. Two properties
+control read-only configuration: :property:`omero.cluster.read_only.db`
+for the database and :property:`omero.cluster.read_only.repo` for the
+binary repository.
+
+Read-only access to the database assumes that ``INSERT`` and ``UPDATE``
+commands cannot be used over a JDBC connection. Read-only access to the
+binary repository assumes that filesystem changes cannot be made within
+any of the standard OMERO directories. In all cases OMERO's
+:doc:`../Modules/TempFileManager` expects write access to the volatile
+storage location that :envvar:`OMERO_TMPDIR` can be used to configure.
+
+For each of these configuration properties the server assumes read-write
+access by default or with a ``false`` setting. Set a property to
+``true`` to have the server treat the corresponding resource as being
+read-only. Additionally, without a ``true`` setting the server may log a
+warning and regard a resource as being in read-only mode if it discovers
+that it does not have write access.
+
+::
+
+       $ bin/omero config set omero.cluster.read_only.db true
+       $ bin/omero config set omero.cluster.read_only.repo true
+
+.. note::
+
+    If the deprecated configuration property
+    :property:`omero.cluster.read_only` is set to ``true`` then the
+    server behaves as if all ``omero.cluster.read_only.*`` properties
+    were set to ``true`` regardless of any other value that they have.
