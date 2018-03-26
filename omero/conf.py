@@ -144,8 +144,7 @@ linkcheck_ignore += [r'http://localhost:\d+/?', 'http://localhost/',
     r'.*[.]sourceforge.net',
     r'https?://www\.openmicroscopy\.org/site/team/.*',
     r'.*[.]?example\.com/.*',
-    r'https://spreadsheets.google.com/.*',
-    'http://msdn.microsoft.com/en-us/library/aa362244(v=vs.85).aspx'
+    r'https://spreadsheets.google.com/.*'
 ]
 
 exclude_patterns = ['sysadmins/unix/walkthrough/requirements*',
