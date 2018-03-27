@@ -5,6 +5,23 @@
 OMERO version history
 =====================
 
+5.4.5 (March 2018)
+--------------------
+
+This is a bug-fix release reactivating the thumbnail cache
+inadvertently disabled in 5.4.4 while fixing a pyramid issue.
+
+Improvements include:
+
+-  reactivated thumbnail caching
+-  improved removepyramids help
+-  fixed display of thumbnails when searching for images by ID
+-  increased OMERO.web log size
+-  fixed CLI config list subcommand
+-  fixed leaking services in OMERO.py
+-  improved rendering of non-tile large images using OMERO.py and webgateway
+
+
 5.4.4 (March 2018)
 ------------------
 
