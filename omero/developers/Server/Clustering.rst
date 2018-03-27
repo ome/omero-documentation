@@ -73,7 +73,7 @@ that it does not have write access.
 
 Setting :property:`omero.pixeldata.memoizer.dir.local` to a read-write
 directory allows a read-only server to create and use the Bio-Formats
-memo files that cache reader state. It will still check the default
+memo files that cache reader state. The server still checks the default
 :file:`BioFormatsCache/` directory in the read-only binary repository
 for existing memo files that it can copy to this local directory.
 
