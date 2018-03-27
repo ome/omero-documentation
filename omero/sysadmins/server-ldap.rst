@@ -316,7 +316,7 @@ Active Directory
 `Active Directory <http://en.wikipedia.org/wiki/Active_Directory>`_ (AD) supports
 a form of LDAP and can be used by OMERO like most other directory services.
 
-In AD, the `Domain Services <http://msdn.microsoft.com/en-us/library/aa362244(v=vs.85).aspx>`_ (DS)
+In AD, the `Domain Services <https://msdn.microsoft.com/en-us/library/aa362244(v=vs.85).aspx>`_ (DS)
 'forest' is a complete instance of an Active Directory which contains one or more domains. Querying
 a particular Domain Service will yield results which are local to that domain only. In an environment
 with just one domain it is possible to use the default configuration instructions for OMERO LDAP. If
