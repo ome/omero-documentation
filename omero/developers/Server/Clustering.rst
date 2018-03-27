@@ -71,10 +71,17 @@ read-only. Additionally, without a ``true`` setting the server may log a
 warning and regard a resource as being in read-only mode if it discovers
 that it does not have write access.
 
+Setting :property:`omero.pixeldata.memoizer.dir.local` to a read-write
+directory allows a read-only server to create and use the Bio-Formats
+memo files that cache reader state. It will still check the default
+:file:`BioFormatsCache/` directory in the read-only binary repository
+for existing memo files that it can copy to this local directory.
+
 ::
 
        $ bin/omero config set omero.cluster.read_only.db true
        $ bin/omero config set omero.cluster.read_only.repo true
+       $ bin/omero config set omero.pixeldata.memoizer.dir.local /tmp/BioFormatsCache
 
 .. note::
 
