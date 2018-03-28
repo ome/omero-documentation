@@ -69,7 +69,11 @@ access by default or with a ``false`` setting. Set a property to
 ``true`` to have the server treat the corresponding resource as being
 read-only. Additionally, without a ``true`` setting the server may log a
 warning and regard a resource as being in read-only mode if it discovers
-that it does not have write access.
+that it does not have write access. The currently effective values are
+provided by the :javadoc:`configuration service
+<slice2html/omero/api/IConfig.html>` as
+:property:`omero.cluster.read_only.runtime.db` and
+:property:`omero.cluster.read_only.runtime.repo`.
 
 Setting :property:`omero.pixeldata.memoizer.dir.local` to a read-write
 directory allows a read-only server to create and use the Bio-Formats
