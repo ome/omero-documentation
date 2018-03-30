@@ -169,7 +169,6 @@ Other files in which to fix the schema version include:
 Avoid changing:
 
 * sample files in `components/specification/samples`
-* documentation in :bf_source:`docs/sphinx`
 * old schema releases
 
 
