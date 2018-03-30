@@ -339,19 +339,3 @@ directory all looks correct.
 The :jenkinsjob:`SCHEMA-documentation` job will generate the oXygen_ 
 documentation for a given version of the schema. Once generated, this documentation can be transferred to a :file:`$RELEASE` subfolder of
 :file:`/var/www/html/www.openmicroscopy.org/specification/schema_doc` on `web-prod`. 
-
-Sphinx documentation
-^^^^^^^^^^^^^^^^^^^^
-
-The continuous integration jobs :jenkinsjob:`BIOFORMATS-DEV-latest-docs-autogen` and
-:jenkinsjob:`BIOFORMATS-DEV-merge-docs-autogen` regenerate documentation
-under :bf_source:`docs/sphinx` and push the result to snoopycrimecop's
-`develop/latest/autogen
-<https://github.com/snoopycrimecop/bioformats/tree/develop/latest/autogen>`_
-and `develop/merge/autogen
-<https://github.com/snoopycrimecop/bioformats/tree/develop/merge/autogen>`_
-branches respectively. It is by opening a pull request from an `autogen`
-branch that one updates the schema version in the remaining Bio-Formats
-documentation on specific file formats. Note that
-:jenkinsjob:`BIOFORMATS-DEV-latest-docs-autogen` has a build parameter
-for opening a pull request with its changes.
