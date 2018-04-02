@@ -75,7 +75,8 @@ To set this up on your OMERO.web installation:
 
 - Set the :property:`omero.web.public.url_filter`. This filter is a
   regular expression that will allow only matching URLs to be accessed
-  by the public user.
+  by the public user. If this is not set, no URLs will be publicly
+  available.
 
   There are three common use cases for the URL filter:
 
