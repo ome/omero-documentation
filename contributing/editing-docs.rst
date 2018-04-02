@@ -81,7 +81,7 @@ Building locally
 
 The build uses Sphinx via ``Maven``. ``mvn`` will generate the webpages
 provided you have both Sphinx and Maven installed. To avoid running the
-linkchecker by default use ``mvn -DskipTests``.
+linkchecker by default use ``mvn -DskipSphinxTests``.
 
 Building/reviewing PRs via the CI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
