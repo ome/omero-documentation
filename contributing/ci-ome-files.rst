@@ -47,13 +47,13 @@ There is not currently a stable (1.0) release of OME Files.
 Development series
 ^^^^^^^^^^^^^^^^^^
 
-The branch for the development series of OME Files is develop.
+The branch for the development series of OME Files is master.
 
 .. glossary::
 
         :jenkinsjob:`OME-FILES-CPP-DEV-latest-superbuild`
 
-                This job builds the develop branches of OME Files components (Unix)
+                This job builds the master branches of OME Files components (Unix)
 
                 #. |buildFilesSB|
 
@@ -61,7 +61,7 @@ The branch for the development series of OME Files is develop.
 
         :jenkinsjob:`OME-FILES-CPP-DEV-latest-win-superbuild`
 
-                This job builds the develop branches of OME Files components (Windows)
+                This job builds the master branches of OME Files components (Windows)
 
                 #. |buildFilesSB|
 
@@ -69,7 +69,7 @@ The branch for the development series of OME Files is develop.
 
         :jenkinsjob:`OME-FILES-CPP-DEV-latest-docs`
 
-                This job builds the documentation for develop branches of OME Files components
+                This job builds the documentation for master branches of OME Files components
 
                 #. |buildFilesSB|
 
@@ -79,9 +79,8 @@ The branch for the development series of OME Files is develop.
         :jenkinsjob:`OME-FILES-CPP-DEV-merge-trigger`
 
                 This job runs the daily OME Files jobs used for reviewing the PRs
-                opened against the develop branches of OME Files.
+                opened against the master branches of OME Files.
 
-                #. Triggers :term:`BIOFORMATS-DEV-merge-push`
                 #. Triggers :term:`OME-FILES-CPP-DEV-merge-push-superbuild`
                 #. Triggers downstream merge projects
 
@@ -89,16 +88,16 @@ The branch for the development series of OME Files is develop.
 
         :jenkinsjob:`OME-FILES-CPP-DEV-merge-push-superbuild`
 
-                This job merges all the PRs opened against develop for each OME Files component
+                This job merges all the PRs opened against master for each OME Files component
 
                 #. |merge|
-                #. Pushes the branch to :bf_scc_branch:`develop/merge/files-cpp`
+                #. Pushes the integration branches as `master_merge_daily`
 
         :jenkinsjob:`OME-FILES-CPP-DEV-merge`
 
                 This job builds the merge branches of OME Files components (Unix)
 
-                #. Checks out :bf_scc_branch:`develop/merge/files-cpp`
+                #. Checks out the `master_merge_daily` branches
                 #. |buildFiles|
 
         :jenkinsjob:`OME-FILES-CPP-DEV-merge-sourcebuild`
@@ -107,21 +106,21 @@ The branch for the development series of OME Files is develop.
                 ``ome-cmake-superbuild`` using the latest source
                 release of all OME Files components (Unix)
 
-                #. Checks out :bf_scc_branch:`develop/merge/files-cpp`
+                #. Checks out the `master_merge_daily` branch
                 #. |buildFilesSB|
 
         :jenkinsjob:`OME-FILES-CPP-DEV-merge-superbuild`
 
                 This job builds the merge branches of OME Files components (Unix)
 
-                #. Checks out :bf_scc_branch:`develop/merge/files-cpp`
+                #. Checks out the `master_merge_daily` branches
                 #. |buildFilesSB|
 
         :jenkinsjob:`OME-FILES-CPP-DEV-merge-win-superbuild`
 
                 This job builds the merge branches of OME Files components (Windows)
 
-                #. Checks out :bf_scc_branch:`develop/merge/files-cpp`
+                #. Checks out the `master_merge_daily` branch
                 #. |buildFilesSB|
 
         :jenkinsjob:`OME-FILES-CPP-DEV-merge-docs`
@@ -138,16 +137,15 @@ Breaking jobs
 ^^^^^^^^^^^^^
 
 Breaking jobs are jobs used to review breaking changes, for instance model
-changes. The branch for the breaking series of OME Files is develop.
+changes. The branch for the breaking series of OME Files is master.
 
 .. glossary::
         :jenkinsjob:`OME-FILES-CPP-DEV-breaking-trigger`
 
                 This job runs the daily OME Files jobs used for
-                reviewing the breaking PRs opened against the develop
+                reviewing the breaking PRs opened against the master
                 branches of OME Files.
 
-                #. Triggers BIOFORMATS-DEV-breaking-push
                 #. Triggers :term:`OME-FILES-CPP-DEV-breaking-push-superbuild`
                 #. Triggers downstream breaking projects
 
@@ -155,14 +153,14 @@ changes. The branch for the breaking series of OME Files is develop.
 
         :jenkinsjob:`OME-FILES-CPP-DEV-breaking-push-superbuild`
 
-                This job breakings all the PRs opened against develop for each OME Files component
+                This job breakings all the PRs opened against master for each OME Files component
 
                 #. |merge|
-                #. Pushes the branch to :bf_scc_branch:`develop/breaking/files-cpp`
+                #. Pushes the integration branches as `master_breaking_daily`
 
         :jenkinsjob:`OME-FILES-CPP-DEV-breaking`
 
                 This job builds the breaking branches of OME Files components (Unix)
 
-                #. Checks out :bf_scc_branch:`develop/breaking/files-cpp`
+                #. Checks out the `master_breaking_daily` branches
                 #. |buildFilesSB|
