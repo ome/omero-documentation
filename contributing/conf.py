@@ -45,6 +45,7 @@ contributing_extlinks = {
     'bf_commit' : (bf_github_root + 'commit/%s', ''),
     'bf_pr' : (bf_main_github_root + 'pull/%s', ''),
     'bf_scc_branch' : (scc_github_root + '/bioformats/tree/%s', ''),
+    'bf_doc_source' : ('https://github.com/ome/bio-formats-documentation/blob/master' + '/%s', ''),
     'omedoc_scc_branch' : (scc_github_root + '/ome-documentation/tree/%s', ''),
     'omehelp_scc_branch' : (scc_github_root + '/ome-help/tree/%s', ''),
     'figure_scc_branch' : (scc_github_root + '/omero-figure/tree/%s', ''),
