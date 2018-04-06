@@ -182,13 +182,13 @@ The branch for the 5.x series of the OMERO documentation is develop.
 Bio-Formats 5.x series
 ^^^^^^^^^^^^^^^^^^^^^^
 
-The branch for the 5.x series of the Bio-Formats documentation is develop.
+The branch for the 5.x series of the Bio-Formats documentation is master.
 
 .. glossary::
 
 	:jenkinsjob:`BIOFORMATS-DEV-latest-docs`
 
-		This job is used to build the develop branch of the Bio-Formats
+		This job is used to build the master branch of the Bio-Formats
 		documentation.
 
 		#. |sphinxbuild|
@@ -196,7 +196,7 @@ The branch for the 5.x series of the Bio-Formats documentation is develop.
 
 	:jenkinsjob:`BIOFORMATS-DEV-merge-docs`
 
-		This job is used to review the PRs opened against the develop branch
+		This job is used to review the PRs opened against the master branch
 		of the Bio-Formats documentation
 
 		#. |merge|
