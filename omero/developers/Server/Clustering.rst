@@ -51,12 +51,11 @@ Read-Only
 ---------
 
 A read-only server disallows many operations while still permitting
-users to log
-in and retrieve data. Prohibitions for users of read-only servers
-include that they may not import data or run scripts. Two properties
-control read-only configuration: :property:`omero.cluster.read_only.db`
-for the database and :property:`omero.cluster.read_only.repo` for the
-binary repository.
+users to log in and retrieve data. Prohibitions for users of read-only
+servers include that they may not import data or run scripts. Two
+properties control read-only configuration:
+:property:`omero.cluster.read_only.db` for the database and
+:property:`omero.cluster.read_only.repo` for the binary repository.
 
 Read-only access to the database assumes that ``INSERT`` and ``UPDATE``
 commands cannot be used over a JDBC connection. Read-only access to the
