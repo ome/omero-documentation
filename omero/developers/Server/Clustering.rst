@@ -50,7 +50,8 @@ redirected to it.
 Read-Only
 ---------
 
-A read-only server offers users the ability to do little more than log
+A read-only server disallows many operations while still permitting
+users to log
 in and retrieve data. Prohibitions for users of read-only servers
 include that they may not import data or run scripts. Two properties
 control read-only configuration: :property:`omero.cluster.read_only.db`
