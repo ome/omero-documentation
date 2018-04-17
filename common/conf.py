@@ -170,7 +170,7 @@ extlinks = {
     'zerocdoc' : ('https://doc.zeroc.com/%s', ''),
     'djangodoc' : ('https://docs.djangoproject.com/en/1.8/%s', ''),
     'doi' : ('http://dx.doi.org/%s', ''),
-    'pypi': ('https://pypi.org/%s', ''),
+    'pypi': ('https://pypi.org/project/%s', ''),
     }
 
 rst_epilog = """
