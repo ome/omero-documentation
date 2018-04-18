@@ -170,7 +170,7 @@ extlinks = {
     'zerocdoc' : ('https://doc.zeroc.com/%s', ''),
     'djangodoc' : ('https://docs.djangoproject.com/en/1.8/%s', ''),
     'doi' : ('http://dx.doi.org/%s', ''),
-    'pypi': ('https://pypi.python.org/pypi/%s', ''),
+    'pypi': ('https://pypi.org/project/%s', ''),
     }
 
 rst_epilog = """
@@ -189,7 +189,7 @@ rst_epilog = """
 .. _Python: https://www.python.org
 .. _Libjpeg: http://libjpeg.sourceforge.net/
 .. _Django: https://www.djangoproject.com/
-.. _PyPI: https://pypi.python.org/pypi
+.. _PyPI: https://pypi.org
 
 .. |SSH| replace:: :abbr:`SSH (Secure Shell)`
 .. |VM| replace:: :abbr:`VM (Virtual Machine)`
