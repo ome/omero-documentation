@@ -107,7 +107,7 @@ associated data in OMERO.
 Additional setup requirements
 -----------------------------
 
-In-place import requires additional user and group setup. As no-one should be
+In-place import requires additional user and group setup. As no one should be
 allowed to log into the account used to install the server, to permit in-place
 imports you need to create a different user account, allowing someone to log
 into the server but not accidentally delete any files. Therefore, you should
