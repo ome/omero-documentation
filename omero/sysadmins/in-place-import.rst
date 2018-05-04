@@ -107,15 +107,28 @@ associated data in OMERO.
 Additional setup requirements
 -----------------------------
 
-In-place import requires additional user and group setup. As no-one should be
+In-place import requires additional user and group setup. As no one should be
 allowed to log into the account used to install the server, to permit in-place
 imports you need to create a different user account, allowing someone to log
 into the server but not accidentally delete any files. Therefore, you should
 set up an 'in-place' user and an 'in-place' group and configure a subset of
 directories under
 :doc:`ManagedRepository </developers/Server/FS>` to
-let members of that group write to them. The example below details how this
-was done for one of our test servers in Dundee:
+let members of that group write to them. Important criteria include:
+
+- In-place users can write to directories that are newly created for
+  import so that they may link out to the original file locations.
+- In-place users cannot write to directories not required for their
+  imports.
+- In-place users cannot corrupt or delete each other's imports.
+- OMERO.server can read and delete all the imported files.
+
+One may achieve the above with careful setting of sticky bits and choice
+of umasks or use of ACLs. The best approach depends on the background of
+your system administrators and the capabilities of the underlying
+filesystems. The example below details how this was done for one of our
+test servers in Dundee which runs with the default setting for
+:property:`omero.fs.repo.path`:
 
 ::
 
