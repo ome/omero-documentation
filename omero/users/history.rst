@@ -5,8 +5,47 @@
 OMERO version history
 =====================
 
+5.4.6 (May 2018)
+----------------
+
+This introduces a significant new subsystem for read-only operation with which
+servers can be configured not to make changes to the database, the filesystem, or both. 
+The goal is to permit horizontal scaling of OMERO by running multiple servers in parallel
+to increase the throughput of data and metadata for large-scale analysis or publishing.
+Additionally, a read-only copy of an existing OMERO can be opened safely to the public
+for experimentation. For example, this infrastructure supports the public OMERO web
+and the Jupyter environment of the 
+`Image Data Resource <https://idr.openmicroscopy.org/>`_.
+Information on how to configure a read-only server
+is available at :doc:`/developers/Server/Clustering`.
+
+Further improvements include:
+
+-  enabled big image support in ImageJ/Fiji
+-  reduced the number of threads used by OMERO.web
+-  fixed other bugs in OMERO.web including:
+   - broken History tab
+   - handling of script params
+   - pagination calculations
+   - public user login
+   - browsing to user's data in IE
+-  fixed the chosen login ports for OMERO.cli
+
+Developer updates include:
+
+-  a new command to set custom physical pixel size using OMERO.cli
+-  deprecated Repository::pixels, TinyImportFixture and OMEROImportFixture
+-  improved test infrastructure
+-  reduced background events in the center panel plugin when not displaying Thumbnails
+-  added extra controls when specifying map and gamma in the rendering engine
+
+This release also upgrades the version of Bio-Formats which OMERO
+uses to 5.8.2. **Note:** this is a significant upgrade and will
+invalidate the Bio-Formats Memoizer cache. Please see the upgrade
+guide for further information.
+
 5.4.5 (March 2018)
---------------------
+------------------
 
 This is a bug-fix release reactivating the thumbnail cache
 inadvertently disabled in 5.4.4 while fixing a pyramid issue.
@@ -21,6 +60,8 @@ Improvements include:
 -  fixed leaking services in OMERO.py
 -  improved rendering of non-tile large images using OMERO.py and webgateway
 
+This release does not upgrade the version of Bio-Formats which OMERO uses,
+which remains at 5.7.3.
 
 5.4.4 (March 2018)
 ------------------
