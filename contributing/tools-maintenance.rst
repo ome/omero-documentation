@@ -41,5 +41,5 @@ Finally, the signed tag needs to be pushed to the source code repository::
 
 .. seealso::
 
-  https://packaging.python.org/distributing/#uploading-your-project-to-pypi
+  https://packaging.python.org/tutorials/packaging-projects/#uploading-the-distribution-archives
      Instructions about uploading a project to PyPi
