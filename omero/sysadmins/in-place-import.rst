@@ -356,9 +356,7 @@ Related advanced options
 In addition to the ``--transfer`` option, a number of other
 advanced options have been added which may be useful for either
 tweaking import performance or dealing with complicated situations.
-However, like ``--transfer``, these options should be considered
-experimental and **may change in subsequent releases**. Comments and
-suggestions are very welcome.
+Comments and suggestions are very welcome.
 
 Checksums
 ^^^^^^^^^
