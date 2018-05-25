@@ -210,7 +210,7 @@ a choice of which mechanism is used to get a file into OMERO.
 
 ::
 
-    $ bin/omero import -- --transfer=ln_s my_file.dv
+    $ bin/omero import --transfer=ln_s my_file.dv
 
 .. literalinclude:: /downloads/inplace/soft-link-example.txt
 
@@ -348,7 +348,7 @@ placed in the `lib/clients` directory, you can invoke it using:
 
 ::
 
-    $ bin/omero import -- --transfer=example.package.ClassName ...
+    $ bin/omero import --transfer=example.package.ClassName ...
 
 Related advanced options
 ------------------------
@@ -356,9 +356,7 @@ Related advanced options
 In addition to the ``--transfer`` option, a number of other
 advanced options have been added which may be useful for either
 tweaking import performance or dealing with complicated situations.
-However, like ``--transfer``, these options should be considered
-experimental and **may change in subsequent releases**. Comments and
-suggestions are very welcome.
+Comments and suggestions are very welcome.
 
 Checksums
 ^^^^^^^^^
