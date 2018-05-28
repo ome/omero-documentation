@@ -50,8 +50,8 @@ With Ice 3.6, the Python bindings are provided separately.
 This allows to install the RPM packages provided by ZeroC for CentOS 6.
 Then run ``pip install zeroc-ice`` to install the Ice Python bindings if
 your package manager does not provide the Ice python packages.
-See `Using the Python Distribution
-<https://doc.zeroc.com/display/Ice36/Using+the+Python+Distribution>`__
+See :zerocdoc:`Using the Python Distribution
+<display/Ice36/Using+the+Python+Distribution>`
 for further details.
 
 Installing prerequisites
