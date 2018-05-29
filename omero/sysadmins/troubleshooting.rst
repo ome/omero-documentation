@@ -119,7 +119,7 @@ Server fails to start
    :program:`omero config set Ice.Default.Host 127.0.0.1`, for example,
    would force OMERO to only listen on localhost. See :zerocdoc:`Proxy
    and Endpoint Syntax
-   <ice/3.6/client-side-features/proxies/proxy-and-endpoint-syntax#ProxyandEndpointSyntax-address>`
+   <ice/3.6/client-side-features/proxies/proxy-and-endpoint-syntax>`
    for more information.
 
 .. _remote_clients_cannot_connect:
