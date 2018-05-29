@@ -550,4 +550,3 @@ PyTables on Debian 9 should be installed directly from PyPI_ instead of using ``
     :hidden:
     
     omero-home-prefix
-     
