@@ -308,7 +308,7 @@ permissions verifier, so that anyone with a proper OMERO account can
 access the server.
 
 See :zerocdoc:`Controlling Access to IceGrid Sessions
-<ice/3.6/ice-services/icegrid/resource-allocation-using-icegrid-sessions#id-.ResourceAllocationusingIceGridSessionsv3.6-ControllingAccesstoIceGridSessions>`
+<ice/3.6/ice-services/icegrid/resource-allocation-using-icegrid-sessions#ResourceAllocationusingIceGridSessions-ControllingAccesstoIceGridSessions>`
 of the Ice manual for more information.
 
 Unique node names
