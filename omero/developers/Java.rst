@@ -237,7 +237,7 @@ Given a plate ID, load the wells.
 
 -  **Retrieve Annotations.**
 
-Load the MapAnnotations (Key Value pairs) for a the logged in user
+Load the MapAnnotations (Key-Value pairs) for the logged-in user.
 
 ::
 
@@ -260,7 +260,7 @@ Load the MapAnnotations (Key Value pairs) for a the logged in user
         List<NamedValue> list = (List<NamedValue>) mapAnnotation
                 .getContent();
         for (NamedValue namedValue : list)
-            System.out.println(namedValue.name + "  " + namedValue.value);
+            System.out.println(namedValue.name + ": " + namedValue.value);
     }
 
 Raw data access
