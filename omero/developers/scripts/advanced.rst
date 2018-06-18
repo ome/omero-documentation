@@ -239,7 +239,7 @@ results for an output named 'Message' (also displayed by OMERO.insight)
 
     print results.keys()
     if 'Message' in results:
-        print results['Output_Message'].getValue()
+        print results['Message'].getValue()
     if 'stdout' in results:
         origFile = results['stdout'].getValue()
         print "Script generated StdOut in file:" , origFile.getId().getValue()
