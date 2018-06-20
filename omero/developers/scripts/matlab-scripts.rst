@@ -33,7 +33,6 @@ Calling a simple MATLAB function
     from mlabwrap import matlab;  
     client = script.client("rand.py", "Get matrix of random numbers drawn from a uniform distribution",  
                             script.Long("x").inout(), script.Long("y").inout())
-    client.createSession()
 
     x = client.getInput("x").val
     y  = client.getInput("y").val
@@ -59,7 +58,6 @@ object and accessing the same client instance as the script.
                             script.String("password"),
                             script.Long("pixelsId").inout(), script.String("method").inout()
                             script.Long("stack").inout())
-    client.createSession()
 
     iceConfig = client.getInput("pixelsId").val
     user = client.getInput("pixelsId").val

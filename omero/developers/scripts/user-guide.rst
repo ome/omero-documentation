@@ -21,8 +21,6 @@ form:
     '''
     client = script.client("SCRIPTNAME", "SCRIPTDESCRIPTION",
              script.TYPE("VARIABLENAME").[in()|out()|inout()], …)
-    # create a session on the server.
-    client.createSession()
 
     # All variables are stored in a map accessed by getInput and setOutput via the client object.
     VARIABLENAME = client.getInput("VARIABLENAME");
@@ -54,7 +52,6 @@ This script echoes the input parameters as outputs.
     import omero, omero.scripts as script
     client = script.client("ping.py", "simple ping script",
              script.Long("a"), script.String("b"))
-    client.createSession()
 
     keys = client.getInputKeys()
     print "Keys found:"
