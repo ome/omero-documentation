@@ -10,7 +10,7 @@ form:
 ::
 
     # import the omero package and the omero.scripts package.
-    import omero, omero.scripts as script
+    import omero, omero.scripts as scripts
 
     '''
     This method creates the client script object, with name SCRIPTNAME and SCRIPTDESCRIPTION.
@@ -19,8 +19,8 @@ form:
     variable of in, out or inout depending on whether the variable if for input, output or input
     and output.
     '''
-    client = script.client("SCRIPTNAME", "SCRIPTDESCRIPTION",
-             script.TYPE("VARIABLENAME").[in()|out()|inout()], …)
+    client = scripts.client("SCRIPTNAME", "SCRIPTDESCRIPTION",
+             scripts.TYPE("VARIABLENAME").[in()|out()|inout()], …)
 
     # All variables are stored in a map accessed by getInput and setOutput via the client object.
     VARIABLENAME = client.getInput("VARIABLENAME");
@@ -49,9 +49,9 @@ This script echoes the input parameters as outputs.
 
 ::
 
-    import omero, omero.scripts as script
-    client = script.client("ping.py", "simple ping script",
-             script.Long("a"), script.String("b"))
+    import omero, omero.scripts as scripts
+    client = scripts.client("ping.py", "simple ping script",
+             scripts.Long("a"), scripts.String("b"))
 
     keys = client.getInputKeys()
     print "Keys found:"
