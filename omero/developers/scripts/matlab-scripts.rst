@@ -28,11 +28,11 @@ Calling a simple MATLAB function
 
 ::
 
-    import omero, omero.scripts as script
+    import omero, omero.scripts as scripts
     # import mlabwrap to launch matlab.
     from mlabwrap import matlab;  
-    client = script.client("rand.py", "Get matrix of random numbers drawn from a uniform distribution",  
-                            script.Long("x").inout(), script.Long("y").inout())
+    client = scripts.client("rand.py", "Get matrix of random numbers drawn from a uniform distribution",
+                            scripts.Long("x").inout(), scripts.Long("y").inout())
 
     x = client.getInput("x").val
     y  = client.getInput("y").val
@@ -50,14 +50,14 @@ object and accessing the same client instance as the script.
 
 ::
 
-    import omero, omero.scripts as script
+    import omero, omero.scripts as scripts
     # import mlabwrap to launch matlab.
     from mlabwrap import matlab;  
-    client = script.client("projection.py", "Call the matlab projection code",  
-                            script.String("iceConfig").in(), script.String("user").in(),
-                            script.String("password"),
-                            script.Long("pixelsId").inout(), script.String("method").inout()
-                            script.Long("stack").inout())
+    client = scripts.client("projection.py", "Call the matlab projection code",
+                            scripts.String("iceConfig").in(), scripts.String("user").in(),
+                            scripts.String("password"),
+                            scripts.Long("pixelsId").inout(), scripts.String("method").inout()
+                            scripts.Long("stack").inout())
 
     iceConfig = client.getInput("pixelsId").val
     user = client.getInput("pixelsId").val
