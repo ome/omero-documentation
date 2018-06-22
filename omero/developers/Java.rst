@@ -60,6 +60,9 @@ to access Projects, Datasets, etc. see :ref:`gatewaybrowse`.
 As the plain Ice objects can be a bit 'bulky' to handle, they are usually wrapped
 into Java  :javadoc:`DataObjects <omero/gateway/model/DataObject.html>`.
 
+All the code examples below can be found at
+:sourcedir:`examples/Training/java/src/training`.
+
 .. _gatewayconnect:
 
 Connect to OMERO
