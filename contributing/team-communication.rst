@@ -40,19 +40,9 @@ Trac
     testing.
 
 The Trac server is available under https://trac.openmicroscopy.org/ome and
-uses your LDAP account for authentication. Trac is used to record all tickets
-and allows hierarchical groups of “tasks” in “requirements” and “stories”
-(functionality provided by a `plugin for Trac named “Agilo”
-<http://www.agilofortrac.com>`_ which you may want to read more about). Note
-that bugs should be recorded as "task" tickets with "BUG:" in the ticket
-summary, as the official Trac "Bug" tickets only allow limited functionality.
-
-.. figure:: /images/trac_screenshot.png
-   :align:  center
-
-Trac is also used for the milestone pages which summarize the tickets
-completed for each release (as opposed to the GitHub milestone pages
-which show all the code changes).
+uses your LDAP account for authentication. Trac was used to record all tickets,
+but today is no longer actively used for new tasks and is mainly a record of
+older tasks.
 
 Trello
 ------
