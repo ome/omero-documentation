@@ -134,7 +134,7 @@ oo_root = 'https://www.openmicroscopy.org'
 oo_site_root = oo_root + '/site'
 lists_root = 'http://lists.openmicroscopy.org.uk'
 downloads_root = 'https://downloads.openmicroscopy.org'
-help_root = 'http://help.openmicroscopy.org'
+help_root = 'https://help.openmicroscopy.org'
 docs_root = 'https://docs.openmicroscopy.org'
 
 extlinks = {
