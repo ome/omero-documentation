@@ -24,14 +24,8 @@ view.
 
     -   * Job task
         * Bio-Formats   
-    -   * Trigger the Bio-Formats release jobs
-        * :jenkinsjob:`BIOFORMATS-DEV-release-trigger`
-    -   * Tags the Bio-Formats source code repository
-        * :jenkinsjob:`BIOFORMATS-DEV-release-push`
     -   * Build the Bio-Formats download artifacts
         * :jenkinsjob:`BIOFORMATS-DEV-release`
-    -   * Generate the Bio-Formats downloads page
-        * :jenkinsjob:`BIOFORMATS-DEV-release-downloads`
 
 
 Bio-Formats
@@ -39,40 +33,15 @@ Bio-Formats
 
 .. glossary::
 
-    :jenkinsjob:`BIOFORMATS-DEV-release-trigger`
-
-        This job triggers the Bio-Formats release jobs. Prior
-        to running it, its variables need to be properly configured:
-
-        - :envvar:`RELEASE` is the Bio-Formats release number.
-
-        #. Triggers :term:`BIOFORMATS-DEV-release-push`
-        #. Triggers :term:`BIOFORMATS-DEV-release`
-
-    :jenkinsjob:`BIOFORMATS-DEV-release-push`
-
-        This job creates a tag on the `develop` branch
-
-        #. Runs `scc tag-release $RELEASE` and pushes the tag to the
-           snoopycrimecop fork of bioformats.git_
-
     :jenkinsjob:`BIOFORMATS-DEV-release`
 
         This job builds the Java downloads artifacts of Bio-Formats
 
-        #. Checks out the :envvar:`RELEASE` tag of the
-           snoopycrimecop fork of bioformats.git_
+        #. Checks out the v:envvar:`RELEASE` tag of
+           https://github.com/openmicroscopy/bioformats
         #. |buildBF|
+        #. Downloads the documentation artifacts from OME artifactory
         #. |copyreleaseartifacts|
-        #. Triggers :term:`BIOFORMATS-DEV-release-downloads`
-
-    :jenkinsjob:`BIOFORMATS-DEV-release-downloads`
-
-        This job builds the Bio-Formats Java downloads page
-
-        #. Checks out the `develop` branch of
-           https://github.com/openmicroscopy/ome-release.git
-        #. Runs `make clean bf`
 
 OMERO
 ^^^^^
