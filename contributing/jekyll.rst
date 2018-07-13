@@ -76,7 +76,7 @@ static website and then deploying it on the web server:
   the master branch of the source code. Website tags must follow the
   [Calendar Versioning](http://calver.org/#youtube-dl) scheme using the tag
   date
-- after pushing the tag, an artifact of the static website will be be built by
+- after pushing the tag, an artifact of the static website will be built by
   [Travis CI](https://travis-ci.org/openmicroscopy/www.openmicroscopy.org) and 
   deployed as an asset of the associated `GitHub release <https://github.com/openmicroscopy/www.openmicroscopy.org/releases>`_
 - a PR can then be opened against the
