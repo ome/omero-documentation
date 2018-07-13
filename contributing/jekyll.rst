@@ -61,7 +61,7 @@ markdown and further content may migrate to markdown in future.
 
 Once a PR is open and has passed Travis, it will be integrating in the staging
 integration branch for the OME Website site via the daily :jenkinsjob:`WWW-merge` job. The staging Jekyll website  will be deployed by the `GitHub Pages`_ service at
-https://snoopycrimecop.github.io/www.openmicroscopy.org for review
+https://snoopycrimecop.github.io/www.openmicroscopy.org for review.
 
 Once the PR is merged, the HEAD of master will be deployed by the
 `GitHub pages`_ service at
