@@ -59,7 +59,7 @@ The website uses the ‘master’ branch, PRs should be opened directly against
 it. Most of the files are written in html but the announcements posts are in
 markdown and further content may migrate to markdown in future.
 
-Once a PR is open and has passed Travis, it will be integrating in the
+Once a PR is open and has passed Travis, it will be integrated in the
 staging integration branch for the OME Website site via the daily
 :jenkinsjob:`WWW-merge` job. The staging Jekyll website will be deployed
 by the `GitHub Pages`_ service at
