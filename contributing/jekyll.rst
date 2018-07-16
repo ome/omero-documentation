@@ -54,7 +54,7 @@ Main OME Website
 ^^^^^^^^^^^^^^^^
 
 The source for the `OME Website <https://www.openmicroscopy.org>`_ is
-on GitHub at https://github.com/oepenmicroscopy/www.openmicroscopy.org.
+on GitHub at https://github.com/openmicroscopy/www.openmicroscopy.org.
 The website uses the ‘master’ branch, PRs should be opened directly against
 it. Most of the files are written in html but the announcements posts are in
 markdown and further content may migrate to markdown in future.
