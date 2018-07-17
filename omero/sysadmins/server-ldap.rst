@@ -216,10 +216,16 @@ using::
 
    bin/omero config set omero.security.ignore_case true
 
-.. warning:: Enabling this option will affect all usernames in your OMERO
-   system. It is the system administrator's responsibility to handle any
-   username clashes which may result. Making all usernames lowercase is
-   recommended.
+.. warning:: Enabling this option will affect **all**, even non-LDAP,
+   usernames in your OMERO system. It is the system administrator's
+   responsibility to handle any username clashes which may result.
+   Making non-LDAP usernames lowercase is required. Users with uppercase
+   characters in their username will not be able to log in and will
+   not appear in some administrative tools.
+
+   ``UPDATE experimenter SET omename = lowercase(omename);`` can be used on
+   your database to make this change to all users if desired. This operation
+   is irreversible.
 
 LDAP over |SSL|
 ---------------
