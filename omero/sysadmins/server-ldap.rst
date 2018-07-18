@@ -223,7 +223,7 @@ using::
    uppercase characters in their username will not be able to log in and
    will not appear in some administrative tools.
 
-   ``UPDATE experimenter SET omename = lowercase(omename);`` can be used on
+   ``UPDATE experimenter SET omename = lower(omename);`` can be used on
    your database to make this change to all users if desired. This operation
    is irreversible.
 
