@@ -66,6 +66,7 @@ graphviz_output_format = 'svg'
 
 rst_epilog += """
 .. _GitHub: https://github.com
+.. _GitHub Pages: https://pages.github.com
 .. _Git: https://git-scm.com/
 .. _Semantic Versioning: http://semver.org
 .. _CMake: https://cmake.org/
