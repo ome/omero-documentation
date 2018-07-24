@@ -259,6 +259,7 @@ Load the MapAnnotations (Key-Value pairs) for the logged-in user.
         MapAnnotationData mapAnnotation = (MapAnnotationData) annotation;
         List<NamedValue> list = (List<NamedValue>) mapAnnotation
                 .getContent();
+        System.out.println("\nMapAnnotation ID: "+mapAnnotation.getId());
         for (NamedValue namedValue : list)
             System.out.println(namedValue.name + ": " + namedValue.value);
     }
