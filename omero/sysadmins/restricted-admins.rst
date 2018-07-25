@@ -14,7 +14,8 @@ full administrators in OMERO.
 In the real world, these administrators with restricted privileges
 (restricted admins) will typically be imaging
 facility managers, image analysts, or anybody who needs to organize
-users and data of others in OMERO.
+users and data of others in OMERO. Even a restricted administrator is
+still a powerful user so each must be a highly trusted individual.
 
 Full administrators in OMERO can create new administrators with
 restricted privileges using the OMERO.web interface, see the
