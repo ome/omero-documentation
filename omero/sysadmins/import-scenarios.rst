@@ -157,7 +157,7 @@ Disadvantages
 DropBox import (automatic delete)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-One option that exists from OMERO 5.0.3 is to have files removed from DropBox
+One option is to have files removed from DropBox
 automatically after a successful import. This is achieved by first performing
 an "upload" import from the DropBox directory to the ManagedRepository and
 then by deleting the data from DropBox **if and only if** the import was
