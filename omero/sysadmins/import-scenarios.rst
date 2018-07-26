@@ -158,9 +158,9 @@ DropBox import (automatic delete)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 One option is to have files removed from DropBox
-automatically after a successful import. This is achieved by first performing
-an "upload" import from the DropBox directory to the ManagedRepository and
-then by deleting the data from DropBox **if and only if** the import was
+automatically after a successful import. This is achieved by performing
+an "upload" import from the DropBox directory to the ManagedRepository
+then deleting the data from DropBox **if and only if** the import was
 successful. For failed imports, files will remain in the DropBox directories
 until someone manually deletes them.
 
