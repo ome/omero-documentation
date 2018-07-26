@@ -154,7 +154,7 @@ demonstrates a number of features that you may find useful, including
 conventions for inputs and outputs to improve interaction with
 OMERO.insight (as discussed on the :doc:`style-guide`).
 
-The script is well documented and should get you started. A few points
+The script is well-documented and should get you started. A few points
 to note:
 
 If you are using the 'Blitz Gateway' then
