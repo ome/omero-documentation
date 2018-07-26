@@ -157,7 +157,7 @@ OMERO.insight (as discussed on the :doc:`style-guide`).
 The script is well documented and should get you started. A few points
 to note:
 
-Since the OMERO 4.3 release, if you are using the 'Blitz Gateway',
+If you are using the 'Blitz Gateway' then
 you can get a connection wrapper like this:
 
 ::
