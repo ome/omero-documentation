@@ -113,7 +113,7 @@ psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 
 #start-step04: As the omero system user, install the OMERO.server
 #start-copy-omeroscript
-cp settings.env settings-web.env omero-centos6_py27.env /opt/hudson/workspace/OMERO-DEV-latest-docs-autogen/omero-install/linux/step04_all_omero.sh setup_omero_db.sh ~omero 
+cp settings.env settings-web.env omero-centos6_py27.env ./step04_all_omero.sh setup_omero_db.sh ~omero 
 #end-copy-omeroscript
 #start-release-ice35
 /home/omero/omeroenv/bin/omego download --ice 3.5 --branch 5.2 server

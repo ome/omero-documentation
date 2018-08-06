@@ -16,7 +16,7 @@ yum -y install java-1.8.0-openjdk
 # install dependencies
 
 yum -y install python-{pip,devel,virtualenv,yaml,jinja2,tables}
-pip install --upgrade pip
+
 
 #start-web-dependencies
 yum -y install python-pillow numpy
