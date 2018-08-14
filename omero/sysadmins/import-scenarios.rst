@@ -23,16 +23,12 @@ trade-off between the above requirements.
 Import overview
 ---------------
 
-In OMERO 4 and earlier versions, data was uploaded to the binary repository
-in an opaque form; starting with OMERO 5, files are uploaded to the
-repository in their original form using Bio-Formats.
-
 The “OMERO binary repository” (or repo) is the directory belonging to the
 OMERO user where files are imported:
 
 * The :doc:`ManagedRepository
   </developers/Server/FS>` directory inside of
-  the repo is where files go during import into OMERO 5. Each user receives a
+  the repo is where files go during import into OMERO. Each user receives a
   top-level directory inside of “ManagedRepository” which fills with
   timestamped directories as imports accrue.
 
@@ -161,12 +157,12 @@ Disadvantages
 DropBox import (automatic delete)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-One option that exists from OMERO 5.0.3 is to have files removed from DropBox
-automatically after a successful import. This is achieved by first performing
-an "upload" import from the DropBox directory to the ManagedRepository and
-then by deleting the data from DropBox **if and only if** the import was
-successful. For failed imports, files will remain in the DropBox directories
-until someone manually deletes them.
+One option is to have files removed from DropBox automatically after a
+successful import. This is achieved by performing an "upload" import
+from the DropBox directory to the ManagedRepository then deleting the
+data from DropBox **if and only if** the import was successful. For
+failed imports, files will remain in the DropBox directories until
+someone manually deletes them.
 
 Advantages
 """"""""""
