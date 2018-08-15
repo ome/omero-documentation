@@ -78,29 +78,27 @@ To set this up on your OMERO.web installation:
   by the public user. If this is not set, no URLs will be publicly
   available.
 
-  There are three common use cases for the URL filter:
+  You need to configure the url_filter to *allow* all URLs that are
+  required for the pages you wish to be public but to *block* any
+  URLs that you don't want public users to access.
 
-  - Enable 'webgateway' URLs which includes everything needed for the
-    full image viewer::
+  Some examples are listed below:
+
+  - To allow all URLs from a single app, such as 'webgateway', use a filter
+    for URLs that start with the app name. For example::
 
        $ bin/omero config set omero.web.public.url_filter '^/webgateway'
 
-
-    without the ability to download data::
+    This filter permits all URLs needed for the full image viewer.
+    If you wish to block webgateway URLs for downloading data, use::
 
        $ bin/omero config set omero.web.public.url_filter '^/webgateway/(?!archived_files|download_as)'
 
+  - You may need to allow access to additional URLs for some apps.
+    For example, the `OMERO.iviewer <https://www.openmicroscopy.org/omero/iviewer/>`_ also
+    uses some ``webgateway`` and ``api`` URLs::
 
-    Then you can access public images via the following link
-    `\http://your_host/webgateway/img_detail/IMAGE_ID/`.
-
-  - Create your own public pages in a separate app
-    (see :doc:`create app </developers/Web/CreateApp>`) and allow
-    public access to that app. For example, to allow only
-    URLs that start with '/my_web_public' you would use::
-
-       $ bin/omero config set omero.web.public.url_filter '^/my_web_public'
-
+       $ bin/omero config set omero.web.public.url_filter '^/iviewer|webgateway|api'
 
   - You can use the full webclient UI for public browsing of images.
     Attempts by public user to create, edit or delete data will fail silently
@@ -108,7 +106,7 @@ To set this up on your OMERO.web installation:
     may also choose to disable various dialogs for these actions such as
     launching scripts or OME-TIFF export, for example::
 
-       $ bin/omero config set omero.web.public.url_filter '^/(webadmin/myphoto/|webclient/(?!(script_ui|ome_tiff|figure_script))|webgateway/(?!(archived_files|download_as)))'
+       $ bin/omero config set omero.web.public.url_filter '^/(webadmin/myphoto/|webclient/(?!(script_ui|ome_tiff|figure_script))|webgateway/(?!(archived_files|download_as))|iviewer|api)'
 
 - Set the :property:`omero.web.public.server_id` which the public user will be
   automatically connected to. Default: 1 (the first server in the
