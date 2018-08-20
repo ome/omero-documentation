@@ -24,10 +24,10 @@ enter::
 
     $ bin/omero user add jsmith John Smith 2
 
-Additional parameters such as the email address, institution, middle name etc
+Additional parameters such as the email address, institution, middle name etc.
 can be passed as optional arguments to the :program:`omero user add` command.
 
-For managing the permissions of restricted administrators
+For managing the permissions of restricted administrators,
 :doc:`OMERO.cli does provide means <light-admins>` but that functionality
 is not yet offered in a friendly manner by the :program:`omero user` command.
 The :help:`OMERO.web Admin interface <facility-manager#lightadmin>` is
