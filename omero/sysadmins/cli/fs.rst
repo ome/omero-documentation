@@ -104,7 +104,7 @@ The options available to this subcommand are:
 
 .. option:: --without-images
 
-    This option lists only those filesets without images, these may be corrupt
+    This option lists only those filesets without images, these may be corrupted
     filesets.
 
 .. option:: --with-transfer WITH_TRANSFER [WITH_TRANSFER ...]
@@ -177,7 +177,7 @@ The options available to this subcommand are:
 
 .. option:: --offset OFFSET
 
-    See :option:`omero fs sets --offset`
+    See :option:`omero fs sets --offset`.
 
 .. option:: --order {newest,oldest,prefix}
 
