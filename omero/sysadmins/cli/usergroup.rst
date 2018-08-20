@@ -19,10 +19,10 @@ command::
 
 During the addition of the new user, you will need to specify the first and
 last name of the new user and their username as well as the groups the user
-belongs to. To add John Smith as a member of group 2 identified as jsmith,
+belongs to. To add John Smith as a member of the group named ``test-group`` identified as jsmith,
 enter::
 
-    $ bin/omero user add jsmith John Smith 2
+    $ bin/omero user add jsmith John Smith --group-name test-group
 
 Additional parameters such as the email address, institution, middle name etc.
 can be passed as optional arguments to the :program:`omero user add` command.
