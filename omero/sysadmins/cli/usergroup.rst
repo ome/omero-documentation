@@ -57,6 +57,16 @@ below:
 
 .. literalinclude:: /downloads/ldap/setdn.out
 
+
+Deactivate user
+^^^^^^^^^^^^^^^
+
+To deactivate a user, remove him/her from the system group ``user`` .
+Use the command :program:`omero user leavegroup` and specify the ``user`` group as the target::
+
+    # Remove jsmith from group user
+    $ bin/omero user leavegroup user --name=jsmith
+
 Group creation
 ^^^^^^^^^^^^^^
 
