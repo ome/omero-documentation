@@ -74,9 +74,9 @@ Updating the details of a user e.g. the email address can be achieved using
 the :program:`omero obj update` command:
 
     # Determine the ID of jsmith
-    omero user info --user-name jsmith
+    $ bin/omero user info --user-name jsmith
     # Change the email address of jsmith
-    omero obj update Experimenter:ID_jsmith email=jsmith@new_address.com
+    $ bin/omero obj update Experimenter:ID_jsmith email=jsmith@new_address.com
 
 
 Group creation
