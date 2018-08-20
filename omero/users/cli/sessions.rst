@@ -75,7 +75,8 @@ Some of the options available to the :program:`omero login` command are:
 .. option:: -w PASSWORD, --password PASSWORD
 
     Set the password to use for the connection. Since 5.4.1, the password can
-    be set using the :envvar:`OMERO_PASSWORD` environment variable.
+    be set using the :envvar:`OMERO_PASSWORD` environment variable. The variable
+    will be ignored if -w or --password is used.
 
 .. option:: --sudo ADMINUSER|GROUPOWNER
 
