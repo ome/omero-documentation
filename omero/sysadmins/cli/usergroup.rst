@@ -61,11 +61,16 @@ below:
 User deactivation
 ^^^^^^^^^^^^^^^^^
 
-To deactivate a user, remove him/her from the system group ``user`` .
+To deactivate a user, remove him/her from the system group ``user``.
 Use the command :program:`omero user leavegroup` and specify the ``user`` group as the target::
 
     # Remove jsmith from group user
     $ bin/omero user leavegroup user --name=jsmith
+
+To reactivate the user, add him/her back to the system group ``user`` i.e.::
+
+    $ bin/omero group adduser jsmith --name=user
+
 
 User editing
 ^^^^^^^^^^^^
