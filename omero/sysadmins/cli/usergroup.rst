@@ -19,7 +19,7 @@ command::
 
 During the addition of the new user, you will need to specify the first and
 last name of the new user and their username as well as the groups the user
-belongs to. To add John Smith as a member of the group named ``test-group`` identified as jsmith,
+belongs to. To add John Smith as a member of the group named ``test-group`` identified as ``jsmith``,
 enter::
 
     $ bin/omero user add jsmith John Smith --group-name test-group
@@ -69,14 +69,14 @@ Use the command :program:`omero user leavegroup` and specify the ``user`` group 
 
 To reactivate the user, add him/her back to the system group ``user`` i.e.::
 
-    $ bin/omero group adduser jsmith --name=user
+    $ bin/omero group joingroup jsmith --name=user
 
 
 User editing
 ^^^^^^^^^^^^
 
 Updating the details of a user e.g. the email address can be achieved using
-the :program:`omero obj update` command:
+the :program:`omero obj update` command::
 
     # Determine the ID of jsmith
     $ bin/omero user info --user-name jsmith
