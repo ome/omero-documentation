@@ -67,7 +67,7 @@ Use the command :program:`omero user leavegroup` and specify the ``user`` group 
     # Remove jsmith from group user
     $ bin/omero user leavegroup user --name=jsmith
 
-User edition
+User editing
 ^^^^^^^^^^^^
 
 Updating the details of a user e.g. the email address can be achieved using
@@ -75,8 +75,8 @@ the :program:`omero obj update` command:
 
     # Determine the ID of jsmith
     $ bin/omero user info --user-name jsmith
-    # Change the email address of jsmith
-    $ bin/omero obj update Experimenter:ID_jsmith email=jsmith@new_address.com
+    # Change the email address of jsmith. Replace 123 by the ID of jsmith
+    $ bin/omero obj update Experimenter:123 email=jsmith@new_address.com
 
 
 Group creation
