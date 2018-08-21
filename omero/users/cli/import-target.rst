@@ -183,7 +183,7 @@ the current group for the import:
         # or alternatively
         $ bin/omero import -k c41a6f78-ba6e-4caf-aba3-a94378d5484c ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
 
-    The session ID can be found using the :program:`omero sessions who` command.
+    The session ID can be found using the :program:`omero sessions list` command.
 
 For further information on the commands :program:`omero login` and
 :program:`omero sessions` see :doc:`sessions`.
