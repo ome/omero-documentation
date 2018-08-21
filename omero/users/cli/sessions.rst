@@ -95,10 +95,10 @@ Some of the options available to the :program:`omero login` command are:
 Multiple sessions
 ^^^^^^^^^^^^^^^^^
 
-Stored sessions can be listed using the :program:`omero sessions who`
+Stored sessions can be listed using the :program:`omero sessions list`
 command::
 
-    $ bin/omero sessions who
+    $ bin/omero sessions list
      Server    | User | Group           | Session                              | Active    | Started
     -----------+------+-----------------+--------------------------------------+-----------+--------------------------
      localhost | test | read-annotate-2 | 22fccb8b-d04c-49ec-9d52-116a163728ca | Logged in | Fri Nov 23 14:55:25 2012
