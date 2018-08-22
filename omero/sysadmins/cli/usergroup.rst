@@ -19,7 +19,7 @@ command::
 
 During the addition of the new user, you will need to specify the first and
 last name of the new user and their username as well as the groups the user
-belongs to. To add John Smith as a member of the group named ``test-group`` identified as ``jsmith``,
+belongs to. To add John Smith identified as ``jsmith`` as a member of the group named ``test-group``,
 enter::
 
     $ bin/omero user add jsmith John Smith --group-name test-group
