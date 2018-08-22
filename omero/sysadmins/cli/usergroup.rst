@@ -69,7 +69,7 @@ Use the command :program:`omero user leavegroup` and specify the ``user`` group 
 
 To reactivate the user, add him/her back to the system group ``user`` i.e.::
 
-    $ bin/omero group joingroup jsmith --name=user
+    $ bin/omero user joingroup user --name=jsmith
 
 
 User editing
