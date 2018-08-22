@@ -19,15 +19,15 @@ command::
 
 During the addition of the new user, you will need to specify the first and
 last name of the new user and their username as well as the groups the user
-belongs to. To add John Smith as a member of group 2 identified as jsmith,
+belongs to. To add John Smith as a member of the group named ``test-group`` identified as ``jsmith``,
 enter::
 
-    $ bin/omero user add jsmith John Smith 2
+    $ bin/omero user add jsmith John Smith --group-name test-group
 
-Additional parameters such as the email address, institution, middle name etc
+Additional parameters such as the email address, institution, middle name etc.
 can be passed as optional arguments to the :program:`omero user add` command.
 
-For managing the permissions of restricted administrators
+For managing the permissions of restricted administrators,
 :doc:`OMERO.cli does provide means <light-admins>` but that functionality
 is not yet offered in a friendly manner by the :program:`omero user` command.
 The :help:`OMERO.web Admin interface <facility-manager#lightadmin>` is
@@ -56,6 +56,33 @@ than the LDAP password will be used. See the caveat in the setdn help output
 below:
 
 .. literalinclude:: /downloads/ldap/setdn.out
+
+
+User deactivation
+^^^^^^^^^^^^^^^^^
+
+To deactivate a user, remove him/her from the system group ``user``.
+Use the command :program:`omero user leavegroup` and specify the ``user`` group as the target::
+
+    # Remove jsmith from group user
+    $ bin/omero user leavegroup user --name=jsmith
+
+To reactivate the user, add him/her back to the system group ``user`` i.e.::
+
+    $ bin/omero user joingroup user --name=jsmith
+
+
+User editing
+^^^^^^^^^^^^
+
+Updating the details of a user e.g. the email address can be achieved using
+the :program:`omero obj update` command::
+
+    # Determine the ID of jsmith
+    $ bin/omero user info --user-name jsmith
+    # Change the email address of jsmith. Replace 123 by the ID of jsmith
+    $ bin/omero obj update Experimenter:123 email=jsmith@new_address.com
+
 
 Group creation
 ^^^^^^^^^^^^^^

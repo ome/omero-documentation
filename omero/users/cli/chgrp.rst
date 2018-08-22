@@ -24,7 +24,7 @@ How to move data
 ^^^^^^^^^^^^^^^^
 
 * CLI: See below
-* :help:`OMERO.web <sharing-data#moving>`
+* :help:`OMERO.web and OMERO.insight<sharing-data#moving>`
 
 The :program:`omero chgrp` command moves objects between groups. Further help is
 available using the ``-h`` option::

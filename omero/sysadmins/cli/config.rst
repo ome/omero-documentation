@@ -1,7 +1,7 @@
 Server configuration
 --------------------
 
-The :program:`omero config` command is responsible for reading / writing
+The :program:`omero config` command is responsible for reading/writing
 user-specific profiles stored under :file:`etc/grid/config.xml`. To get
 the current profile, use the :program:`omero config def` command::
 
