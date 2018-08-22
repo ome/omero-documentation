@@ -99,8 +99,6 @@ There are any number of other projects which have set up similar
 practices for code contributions. If you would like to read more on
 the rationale, please see:
 
-* http://dojofoundation.org/about/get-involved
-* http://dojofoundation.org/about/cla
 * http://incubator.apache.org/
 * http://www.apache.org/foundation/how-it-works.html
 
