@@ -80,7 +80,7 @@ To set this up on your OMERO.web installation:
 
   You need to configure the url_filter to *allow* all URLs that are
   required for the pages you wish to be public but to *block* any
-  URLs that you don't want public users to access.
+  URLs that you do not want public users to access.
 
   Some examples are listed below:
 
