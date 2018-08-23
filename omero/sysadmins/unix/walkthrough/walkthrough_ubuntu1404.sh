@@ -24,7 +24,6 @@ apt-get -y install openjdk-8-jre
 apt-get update
 apt-get -y install python-{pip,tables,virtualenv,yaml,jinja2}
 
-pip install --upgrade pip
 
 #start-web-dependencies
 apt-get -y install zlib1g-dev
