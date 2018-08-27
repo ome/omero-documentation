@@ -160,8 +160,8 @@ optional argument::
 Group change permissions
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-To change the permissions of a group. For example, make the group ``read-annotate-1``
-a read-write group::
+To change the permissions of a group, for example to make the group ``read-annotate-1``
+a read-write group, run::
 
     $ bin/omero group perms --perms='rwrw--' --name='read-annotate-1'
 
