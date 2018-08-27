@@ -156,3 +156,15 @@ To copy the group owners, use the same command with the ``--as-owner``
 optional argument::
 
     $ bin/omero group copyusers read-only-1 read-only-2 --as-owner
+
+Group change permissions
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+To change the permissions of a group. For example, make the group ``read-annotate-1``
+a read-write group::
+
+    $ bin/omero group perms --perms='rwrw--' --name='read-annotate-1'
+
+If you want to change its name to ``read-write-1`` afterwards, run::
+
+    $ bin/omero obj update ExperimenterGroup:123 name='read-write-1'
