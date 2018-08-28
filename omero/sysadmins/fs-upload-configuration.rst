@@ -135,6 +135,9 @@ For any directory in the template path
   expands to the session key (UUID) of the session, for example
   :literal:`6c2dae43-cfad-48ce-af6f-025569f9e6df`
 
+:literal:`%thread%`
+  expands to the name of the server thread that is performing the import
+
 For user-owned directories only
 """""""""""""""""""""""""""""""
 
