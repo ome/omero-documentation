@@ -185,7 +185,7 @@ path.
   :literal:`example/1234-below` and, much later,
   :literal:`example/1234-below/5678`
 
-No more than one of either :literal:`%subdirs%` or
+No more than one of :literal:`%time%`, :literal:`%subdirs%` or
 :literal:`%increment%` may be used in any one path component, although
 they may each be used many times in the whole path.
 
