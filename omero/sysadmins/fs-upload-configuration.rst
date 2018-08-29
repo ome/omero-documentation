@@ -191,8 +191,8 @@ path.
 No more than one of :literal:`%time%`, :literal:`%subdirs%` or
 :literal:`%increment%` may be used in any one path component, although
 they may each be used many times in the whole path. If
-:literal:`%subdirs%` expands to nothing then its path component is
-wholly omitted.
+:literal:`%subdirs%` expands to nothing then its entire path component
+is omitted: no other expansion terms in that component are used.
 
 Legal file names
 ----------------
