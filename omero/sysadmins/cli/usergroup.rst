@@ -115,7 +115,7 @@ Lists of users/groups on the OMERO server can be queried using the
     $ bin/omero user list
     $ bin/omero group list
 
-Group management
+Group membership
 ^^^^^^^^^^^^^^^^
 
 Users can be added to existing groups using the :program:`omero user joingroup` or
@@ -156,3 +156,15 @@ To copy the group owners, use the same command with the ``--as-owner``
 optional argument::
 
     $ bin/omero group copyusers read-only-1 read-only-2 --as-owner
+
+Group modification
+^^^^^^^^^^^^^^^^^^
+
+To change the permissions of a group, for example to make the group ``read-annotate-1``
+a read-write group, run::
+
+    $ bin/omero group perms --perms='rwrw--' --name='read-annotate-1'
+
+If you want to change its name to ``read-write-1`` afterwards, run::
+
+    $ bin/omero obj update ExperimenterGroup:123 name='read-write-1'
