@@ -35,6 +35,8 @@ Several properties determine where FS-imported files are stored:
   ``bin/omero node start fs-B``, ``bin/omero node start fs-C``, etc. Each of
   these would pass a different ``omero.repo.dir`` value to its process.
 
+.. _template_path:
+
 Template path
 -------------
 

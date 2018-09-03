@@ -258,6 +258,49 @@ Disadvantages
   the same as the file system which the ManagedRepository lives on. This
   prevents the use of network file systems and similar remote shares.
 
+
+.. _parallel_import:
+
+Parallel import
+---------------
+
+Parallel import is a variant of manual CLI import for making large-scale
+imports considerably faster. It is *experimental* and may see extensive
+changes between patch versions. Use of this feature entails risk: if
+high thread counts are specified then the import client or OMERO server
+may function poorly. New uses of parallel import should be tested with a
+non-production server. Experience gained within OME and reported by
+users will help to make parallel import more friendly and safe.
+
+:option:`omero import --parallel-fileset` sets how many filesets are
+imported at the same time. :option:`omero import --parallel-upload` sets
+how many files are uploaded at the same time. File upload occurs early
+in import and the fileset import threads share the same file upload
+threads among them so it typically makes sense to set the file upload
+thread count at least as high as the fileset import thread count. They
+both default to a value of 1.
+
+These options can provide clear benefits if set even at lower numbers
+like 4. Do not assume that higher is always better: more concurrent
+threads means higher overhead and may severely exhaust resources on the
+server and the client. Issues with parallel import include:
+
+* Import can fail when the same repository directory is being created to
+  hold the files from different filesets. An effective workaround is to
+  set the server's :ref:`template_path` such that the
+  :literal:`%thread%` term precedes any subdirectories that may need to
+  be created at import time.
+
+* Import can fail when the same :doc:`import target
+  </users/cli/import-target>` is created to contain multiple filesets.
+  An effective workaround is to create the targets in advance of
+  starting the imports.
+
+* The server's connections to the database may become saturated, making
+  the server unresponsive. Set the :property:`omero.db.poolsize`
+  property higher than the number of filesets that will be imported
+  across all users at any one time.
+
 .. seealso:: 
 
     :doc:`/sysadmins/in-place-import`
@@ -267,4 +310,3 @@ Disadvantages
     :doc:`/users/cli/import`
 
     :doc:`/users/cli/import-target`
-
