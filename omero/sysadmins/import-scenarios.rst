@@ -264,15 +264,13 @@ Disadvantages
 Parallel import
 ---------------
 
-Parallel import is a variant of manual CLI import for
-making large-scale imports considerably faster.
-It is *experimental* and may see extensive changes between patch versions.
-Use of this feature entails risk: if high
-thread counts are specified then the import client or OMERO server may
-function poorly. New uses of parallel
-import should be tested with a non-production server. Experience
-gained within OME and reported by users will help to make parallel
-import more friendly and safe.
+Parallel import is a variant of manual CLI import for making large-scale
+imports considerably faster. It is *experimental* and may see extensive
+changes between patch versions. Use of this feature entails risk: if
+high thread counts are specified then the import client or OMERO server
+may function poorly. New uses of parallel import should be tested with a
+non-production server. Experience gained within OME and reported by
+users will help to make parallel import more friendly and safe.
 
 :option:`omero import --parallel-fileset` sets how many filesets are
 imported at the same time. :option:`omero import --parallel-upload` sets
@@ -285,8 +283,7 @@ both default to a value of 1.
 These options can provide clear benefits if set even at lower numbers
 like 4. Do not assume that higher is always better: more concurrent
 threads means higher overhead and may severely exhaust resources on the
-server and the client.
-Issues with parallel import include:
+server and the client. Issues with parallel import include:
 
 * Import can fail when the same repository directory is being created to
   hold the files from different filesets. An effective workaround is to
