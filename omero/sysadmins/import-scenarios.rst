@@ -264,12 +264,13 @@ Disadvantages
 Parallel import
 ---------------
 
-Parallel import is an experimental variant of manual CLI import for
-making large-scale imports considerably faster. This feature entails
-*significant risk* and may be changed or removed at any time. If high
+Parallel import is a variant of manual CLI import for
+making large-scale imports considerably faster.
+It is *experimental* and may see extensive changes between patch versions.
+Use of this feature entails risk: if high
 thread counts are specified then the import client or OMERO server may
-stop working. It is therefore imperative that new uses of parallel
-import are first tested with a similar non-production server. Experience
+function poorly. New uses of parallel
+import should be tested with a non-production server. Experience
 gained within OME and reported by users will help to make parallel
 import more friendly and safe.
 
@@ -284,8 +285,7 @@ both default to a value of 1.
 These options can provide clear benefits if set even at lower numbers
 like 4. Do not assume that higher is always better: more concurrent
 threads means higher overhead and may severely exhaust resources on the
-server and the client. *Do not* use these options on a production server
-without having carefully tested on a comparable development server.
+server and the client.
 Issues with parallel import include:
 
 * Import can fail when the same repository directory is being created to
