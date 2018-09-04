@@ -147,7 +147,7 @@ SNAPSHOT either via editing the :file:`pom.xml` manually or using the Maven
 versions plugin::
 
     $ mvn versions:set -DnewVersion=x.y.z -DgenerateBackupPoms=false
-    $ git add .
+    $ git add -u .
     $ git commit -m “Bump release version to x.y.z”
 
 Additionally, a PGP-signed tag should be created for the released version e.g.
@@ -187,7 +187,9 @@ or using the release phase of the nexus-staging plugin::
 See the 'Manually Releasing the Deployment to the Central Repository' section
 of the
 `Apache Maven guide <http://central.sonatype.org/pages/apache-maven.html>`_
-for more instructions.
+for more instructions. You should be able to find the staged repository by
+visiting `<https://oss.sonatype.org/#stagingRepositories>`_ and searching for
+"org.openmicroscopy".
 
 The rsync to Central Maven and the update of Maven search usually happen
 within a couple of hours but the components are accessible beforehand.
@@ -206,7 +208,7 @@ plugin again::
 
     # Where w == z+1
     $ mvn versions:set -DnewVersion=x.y.w-SNAPSHOT -DgenerateBackupPoms=false
-    $ git add .
+    $ git add -u .
     $ git commit -m “Bump release version to x.y.w-SNAPSHOT”
     $ git push origin master
 
