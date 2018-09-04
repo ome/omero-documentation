@@ -10,7 +10,7 @@ form:
 ::
 
     # import the omero package and the omero.scripts package.
-    import omero, omero.scripts as script
+    import omero, omero.scripts as scripts
 
     '''
     This method creates the client script object, with name SCRIPTNAME and SCRIPTDESCRIPTION.
@@ -19,10 +19,8 @@ form:
     variable of in, out or inout depending on whether the variable if for input, output or input
     and output.
     '''
-    client = script.client("SCRIPTNAME", "SCRIPTDESCRIPTION",
-             script.TYPE("VARIABLENAME").[in()|out()|inout()], …)
-    # create a session on the server.
-    client.createSession()
+    client = scripts.client("SCRIPTNAME", "SCRIPTDESCRIPTION",
+             scripts.TYPE("VARIABLENAME").[in()|out()|inout()], …)
 
     # All variables are stored in a map accessed by getInput and setOutput via the client object.
     VARIABLENAME = client.getInput("VARIABLENAME");
@@ -51,10 +49,9 @@ This script echoes the input parameters as outputs.
 
 ::
 
-    import omero, omero.scripts as script
-    client = script.client("ping.py", "simple ping script",
-             script.Long("a"), script.String("b"))
-    client.createSession()
+    import omero, omero.scripts as scripts
+    client = scripts.client("ping.py", "simple ping script",
+             scripts.Long("a"), scripts.String("b"))
 
     keys = client.getInputKeys()
     print "Keys found:"
@@ -157,11 +154,11 @@ demonstrates a number of features that you may find useful, including
 conventions for inputs and outputs to improve interaction with
 OMERO.insight (as discussed on the :doc:`style-guide`).
 
-The script is well documented and should get you started. A few points
+The script is well-documented and should get you started. A few points
 to note:
 
-Since the OMERO 4.3 release, if you are using the 'Blitz Gateway',
-you can get a connection wrapper like this:
+If you are using the 'Blitz Gateway' then you can get a connection
+wrapper like this:
 
 ::
 

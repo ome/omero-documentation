@@ -138,6 +138,38 @@ Managing performance of imports
 
         $ bin/omero import large_image --skip checksum --skip minmax
 
+.. option:: --parallel-fileset COUNT
+
+   Number of fileset candidates to import at the same time.
+
+   OMERO groups image files into :ref:`filesets`. By default each
+   fileset is imported one after another. This option attempts import of
+   COUNT filesets at once. Even for single-file filesets it typically
+   makes sense to use this option in conjunction with
+   :option:`--parallel-upload` so that upload of different filesets'
+   files may proceed in parallel. For importing a single fileset
+   containing many files this option will not help.
+
+   This is an *experimental* option. Too high a setting for COUNT may
+   crash the import client or make the OMERO server unresponsive.
+   Carefully read :ref:`parallel_import` before use.
+
+.. option:: --parallel-upload COUNT
+
+   Number of file upload threads to run at the same time.
+
+   By default files are uploaded one after another. Once a fileset's
+   files are all on the server then it may commence subsequent import
+   steps. It typically makes sense to set this to a value of at least
+   the value for :option:`--parallel-fileset`. Even if filesets are not
+   imported in parallel this option can greatly speed the import of a
+   fileset that consists of many small files.
+
+   This is an *experimental* option. Too high a setting for COUNT may
+   crash the import client or make the OMERO server unresponsive.
+   Carefully read :ref:`parallel_import` before use.
+
+
 Troubleshoot and report issues
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

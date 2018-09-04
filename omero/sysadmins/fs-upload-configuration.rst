@@ -35,6 +35,8 @@ Several properties determine where FS-imported files are stored:
   ``bin/omero node start fs-B``, ``bin/omero node start fs-C``, etc. Each of
   these would pass a different ``omero.repo.dir`` value to its process.
 
+.. _template_path:
+
 Template path
 -------------
 
@@ -135,6 +137,9 @@ For any directory in the template path
   expands to the session key (UUID) of the session, for example
   :literal:`6c2dae43-cfad-48ce-af6f-025569f9e6df`
 
+:literal:`%thread%`
+  expands to the name of the server thread that is performing the import
+
 For user-owned directories only
 """""""""""""""""""""""""""""""
 
@@ -185,9 +190,11 @@ path.
   :literal:`example/1234-below` and, much later,
   :literal:`example/1234-below/5678`
 
-No more than one of either :literal:`%subdirs%` or
+No more than one of :literal:`%time%`, :literal:`%subdirs%` or
 :literal:`%increment%` may be used in any one path component, although
-they may each be used many times in the whole path.
+they may each be used many times in the whole path. If
+:literal:`%subdirs%` expands to nothing then its entire path component
+is omitted: no other expansion terms in that component are used.
 
 Legal file names
 ----------------

@@ -1,16 +1,126 @@
 .. Content for this page should be opened as a PR against
 .. https://github.com/openmicroscopy/openmicroscopy/blob/develop/history.txt
-.. initially and transfered to this page via the autogen job
+.. initially and transferred to this page via the autogen job
 
 OMERO version history
 =====================
+
+5.4.7 (July 2018)
+-----------------
+
+This is a security release which also includes a number of
+bug fixes. **It is highly recommended that you upgrade your
+server**.
+
+See the :secvuln:`security advisories <>` page for details on
+2018-SV1, 2018-SV2 and 2018-SV3.
+
+Impacts of the security vulnerability fixes include:
+
+- omero.security.password_required=false no longer applies for
+  administrators: their correct password is always required
+- administrators can no longer change the password of other
+  administrators who are more privileged in any way
+- administrators can no longer reset their password and receive the new
+  one by e-mail: they must instead have another administrator who is at
+  least as privileged set a new password manually
+- cli: the session UUID has been removed from the standard output when
+  logging in but can still be retrieved using `bin/omero sessions key`
+
+Improvements include:
+
+-  web: fix loss of privileges when editing full admins
+-  web: fix exceptions on invalid connections
+-  web: fix CSS in group/user search element
+-  web: fix error when public user is disabled
+-  web: gray out user role when editing root user
+-  insight: permit open_with on original files
+-  read-only: reduce error logging for scripts and pixel data
+-  scripts: improve error messages for invalid MATLAB
+-  as well as various documentation improvements
+
+Sysadmin improvements include:
+
+-  log locale and time zone information on startup
+
+Developer updates include:
+
+-  cli: clean up "communicator not destroyed" logging
+-  cli: don't hang when incorrect password passed in a script
+-  java: add a map annotation example
+-  java: throw a clear exception when -1 is used for all groups
+-  web: fix @render_response when extending base templates
+-  matlab: contributions from Kouichi Nakamura for working with annotations
+
+This release also upgrades the version of Bio-Formats which OMERO
+uses to 5.9.0. **Note:** this is a significant upgrade and will
+invalidate the Bio-Formats Memoizer cache. Please see the upgrade
+guide for further information.
+
+5.4.6 (May 2018)
+----------------
+
+This introduces a significant new subsystem for read-only operation with which
+servers can be configured not to make changes to the database, the filesystem, or both. 
+The goal is to permit horizontal scaling of OMERO by running multiple servers in parallel
+to increase the throughput of data and metadata for large-scale analysis or publishing.
+Additionally, a read-only copy of an existing OMERO can be opened safely to the public
+for experimentation. For example, this infrastructure supports the public OMERO web
+and the Jupyter environment of the 
+`Image Data Resource <https://idr.openmicroscopy.org/>`_.
+Information on how to configure a read-only server
+is available at :doc:`/developers/Server/Clustering`.
+
+Further improvements include:
+
+-  enabled big image support in ImageJ/Fiji
+-  reduced the number of threads used by OMERO.web
+-  fixed other bugs in OMERO.web including:
+   - broken History tab
+   - handling of script params
+   - pagination calculations
+   - public user login
+   - browsing to user's data in IE
+-  fixed the chosen login ports for OMERO.cli
+
+Developer updates include:
+
+-  a new command to set custom physical pixel size using OMERO.cli
+-  deprecated Repository::pixels, TinyImportFixture and OMEROImportFixture
+-  improved test infrastructure
+-  reduced background events in the center panel plugin when not displaying Thumbnails
+-  added extra controls when specifying map and gamma in the rendering engine
+
+This release also upgrades the version of Bio-Formats which OMERO
+uses to 5.8.2. **Note:** this is a significant upgrade and will
+invalidate the Bio-Formats Memoizer cache. Please see the upgrade
+guide for further information.
+
+5.4.5 (March 2018)
+------------------
+
+This is a bug-fix release reactivating the thumbnail cache
+inadvertently disabled in 5.4.4 while fixing a pyramid issue.
+
+Improvements include:
+
+-  reactivated thumbnail caching
+-  improved removepyramids help
+-  fixed display of thumbnails when searching for images by ID
+-  increased OMERO.web log size
+-  fixed CLI config list subcommand
+-  fixed leaking services in OMERO.py
+-  improved rendering of non-tile large images using OMERO.py and webgateway
+
+This release does not upgrade the version of Bio-Formats which OMERO uses,
+which remains at 5.7.3.
 
 5.4.4 (March 2018)
 ------------------
 
 This is a bug-fix release which also introduces some new functionality.
 
-It includes a security fix for :secvuln:`2017-SV6 <>`. **It is highly
+It includes a security fix for :secvuln:`2017-SV6 <2017-SV6-job-file-link>`. **It is highly
 recommended that you upgrade your server**.
 
 Improvements include:

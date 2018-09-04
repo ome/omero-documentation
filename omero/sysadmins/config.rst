@@ -512,6 +512,25 @@ Grid
 
 omero.cluster.read_only
 ^^^^^^^^^^^^^^^^^^^^^^^
+*Deprecated.* If true, will override both the db and repo properties to be true.
+
+Default: `false`
+
+.. property:: omero.cluster.read_only.db
+
+omero.cluster.read_only.db
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+If access to the database is read-only: no writes should be attempted.
+A "false" may be overridden by omero.cluster.read_only above.
+
+Default: `false`
+
+.. property:: omero.cluster.read_only.repo
+
+omero.cluster.read_only.repo
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+If access to the binary repo is read-only: no writes should be attempted.
+A "false" may be overridden by omero.cluster.read_only above.
 
 Default: `false`
 
@@ -1217,6 +1236,17 @@ These values will be ignored for floating or double pixel
 data types where no pyramid will be generated.
 
 Default: `3192`
+
+.. property:: omero.pixeldata.memoizer.dir.local
+
+omero.pixeldata.memoizer.dir.local
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+For read-only servers set this to a local
+read-write directory so that memo files
+can be created and used. Activates only if
+the binary repository is read-only.
+
+Default: `[empty]`
 
 .. property:: omero.pixeldata.memoizer_wait
 
@@ -2062,7 +2092,7 @@ Default: `1`
 
 omero.web.public.url_filter
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Set a regular expression that matches URLs the public user isallowed to access. If this is not set, no URLS will bepublicly available.
+Set a regular expression that matches URLs the public user is allowed to access. If this is not set, no URLs will be publicly available.
 
 Default: `(?#This regular expression matches nothing)a^`
 

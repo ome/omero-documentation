@@ -6,9 +6,7 @@ advanced user tools. Most of commands work remotely so that the |CLI| can be
 used as a client against an OMERO server.
 
 .. note:: The end of Windows support for OMERO.server means that the CLI is
-    currently unsupported on this platform too. However, we intend to make
-    OMERO.python installable via pip for future releases which would restore
-    Windows support for the CLI.
+    unsupported on this platform too.
 
 .. toctree::
     :maxdepth: 1

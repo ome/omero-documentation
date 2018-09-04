@@ -14,7 +14,7 @@ Alternatively, plugins can be added to any directory ending with
 `omero-cli-render <https://github.com/ome/omero-cli-render/>`_.
 
 Team-supported |CLI| plugins will be pip-installable. Search for
-"`omero cli <https://pypi.python.org/pypi?%3Aaction=search&term=OMERO.CLI&submit=search>`_"
+"`omero cli <https://pypi.org/search/?q=omero+cli>`_"
 on PyPI_.
 
 Thread-safety

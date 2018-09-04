@@ -217,7 +217,7 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
 
         This job runs Python integration tests of OMERO on Python 2.7
 
-        #. Checks out :omero_scc_branch:`develop/breaking/trigger`
+        #. Checks out :omero_scc_branch:`develop/merge/daily`
         #. Builds OMERO.server and starts it
         #. Runs the OMERO.py and OMERO.web integration tests
         #. Archives the results

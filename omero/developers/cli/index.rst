@@ -9,15 +9,6 @@ Command Line Interface as an OMERO development tool
     obj
     extending
 
-
-.. seealso::
-
-    :doc:`/users/cli/index`
-        User documentation on the Command Line Interface
-
-    :doc:`/sysadmins/cli/index`
-        System Administrator documentation for the Command Line Interface
-
 Help for any specific CLI command can be displayed using the ``-h``
 argument. See :ref:`cli_help` for more information.
 
@@ -32,3 +23,10 @@ General notes
    to have a startup script.
 -  All commands respond to :program:`omero help`.
 
+.. seealso::
+
+    :doc:`/users/cli/index`
+        User documentation on the Command Line Interface
+
+    :doc:`/sysadmins/cli/index`
+        System Administrator documentation for the Command Line Interface

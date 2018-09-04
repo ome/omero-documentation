@@ -66,7 +66,7 @@ Images
 
        Template tag: {% url 'webgateway.views.render_image' image_id theZ theT %}
        
-   From OMERO 4.4.4, omitting Z and T will use the default values:
+   Omitting Z and T will use the default values:
 
 
    ::
@@ -101,7 +101,7 @@ Images
 
 -  Returns a jpeg of a thumbnail for an image. w and h are optional
    (default is 64). Specify just one to retain aspect ratio.
-   Since OMERO 5.1 it is also possible to specify Z and T indices in the query string.
+   It is also possible to specify Z and T indices in the query string.
 
    ::
 
@@ -132,7 +132,7 @@ Individual parameters are:
 
        ?c=1,-2,3,4
        
-       # From OMERO 4.4.4 you can simply specify the active channels
+       # You can simply specify the active channels.
        ?c=3         # only Channel 3 is active
        ?c=3,4       # Channels 3 and 4 are active
 
@@ -149,7 +149,7 @@ Individual parameters are:
 
        ?c=1|400:505,2|463:2409,3|620:3879
        ?c=-1|400:505,2|463:2409,3|620:3879      # First channel inactive "-1"
-       ?c=2|463:2409,3|620:3879     # OMERO 4.4.4 only: inactive channels can be omitted
+       ?c=2|463:2409,3|620:3879     # Inactive channels can be omitted
 
 -  **Z-projection**: Maximum intensity, Mean intensity or None (normal). By
    default we use all z-sections, but a range can be specified.

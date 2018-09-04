@@ -45,6 +45,7 @@ contributing_extlinks = {
     'bf_commit' : (bf_github_root + 'commit/%s', ''),
     'bf_pr' : (bf_main_github_root + 'pull/%s', ''),
     'bf_scc_branch' : (scc_github_root + '/bioformats/tree/%s', ''),
+    'bf_doc_source' : ('https://github.com/ome/bio-formats-documentation/blob/master' + '/%s', ''),
     'omedoc_scc_branch' : (scc_github_root + '/ome-documentation/tree/%s', ''),
     'omehelp_scc_branch' : (scc_github_root + '/ome-help/tree/%s', ''),
     'figure_scc_branch' : (scc_github_root + '/omero-figure/tree/%s', ''),
@@ -65,6 +66,7 @@ graphviz_output_format = 'svg'
 
 rst_epilog += """
 .. _GitHub: https://github.com
+.. _GitHub Pages: https://pages.github.com
 .. _Git: https://git-scm.com/
 .. _Semantic Versioning: http://semver.org
 .. _CMake: https://cmake.org/
@@ -122,5 +124,5 @@ linkcheck_ignore += [r'http://localhost:\d+/?', 'http://localhost/',
     r'https://docs.google.com/.*',
     r'https://trac.openmicroscopy.org/ome/admin/.*',
     r'https?://seabass.openmicroscopy.org/.*',
-    r'https?://web-dev-*.openmicroscopy.org/.*',
+    r'http://web-dev-.*.openmicroscopy.org/.*',
 ]

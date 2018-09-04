@@ -107,15 +107,28 @@ associated data in OMERO.
 Additional setup requirements
 -----------------------------
 
-In-place import requires additional user and group setup. As no-one should be
+In-place import requires additional user and group setup. As no one should be
 allowed to log into the account used to install the server, to permit in-place
 imports you need to create a different user account, allowing someone to log
 into the server but not accidentally delete any files. Therefore, you should
 set up an 'in-place' user and an 'in-place' group and configure a subset of
 directories under
 :doc:`ManagedRepository </developers/Server/FS>` to
-let members of that group write to them. The example below details how this
-was done for one of our test servers in Dundee:
+let members of that group write to them. Important criteria include:
+
+- In-place users can write to directories that are newly created for
+  import so that they may link out to the original file locations.
+- In-place users cannot write to directories not required for their
+  imports.
+- In-place users cannot corrupt or delete each other's imports.
+- OMERO.server can read and delete all the imported files.
+
+One may achieve the above with careful setting of sticky bits and choice
+of umasks or use of ACLs. The best approach depends on the background of
+your system administrators and the capabilities of the underlying
+filesystems. The example below details how this was done for one of our
+test servers in Dundee which runs with the default setting for
+:property:`omero.fs.repo.path`:
 
 ::
 
@@ -197,7 +210,7 @@ a choice of which mechanism is used to get a file into OMERO.
 
 ::
 
-    $ bin/omero import -- --transfer=ln_s my_file.dv
+    $ bin/omero import --transfer=ln_s my_file.dv
 
 .. literalinclude:: /downloads/inplace/soft-link-example.txt
 
@@ -335,7 +348,7 @@ placed in the `lib/clients` directory, you can invoke it using:
 
 ::
 
-    $ bin/omero import -- --transfer=example.package.ClassName ...
+    $ bin/omero import --transfer=example.package.ClassName ...
 
 Related advanced options
 ------------------------
@@ -343,9 +356,7 @@ Related advanced options
 In addition to the ``--transfer`` option, a number of other
 advanced options have been added which may be useful for either
 tweaking import performance or dealing with complicated situations.
-However, like ``--transfer``, these options should be considered
-experimental and **may change in subsequent releases**. Comments and
-suggestions are very welcome.
+Comments and suggestions are very welcome.
 
 Checksums
 ^^^^^^^^^

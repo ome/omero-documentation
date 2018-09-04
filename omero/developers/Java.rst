@@ -60,6 +60,9 @@ to access Projects, Datasets, etc. see :ref:`gatewaybrowse`.
 As the plain Ice objects can be a bit 'bulky' to handle, they are usually wrapped
 into Java  :javadoc:`DataObjects <omero/gateway/model/DataObject.html>`.
 
+All the code examples below can be found at
+:sourcedir:`examples/Training/java/src/training`.
+
 .. _gatewayconnect:
 
 Connect to OMERO
@@ -235,6 +238,34 @@ Given a plate ID, load the wells.
         //Do something
     }
 
+-  **Retrieve Annotations.**
+
+Load the MapAnnotations (Key-Value pairs) for the logged-in user.
+
+::
+
+    BrowseFacility browse = gateway.getFacility(BrowseFacility.class);
+    ImageData image = browse.getImage(ctx, imageId);
+
+    // load only this user's annotations
+    List<Long> userIds = new ArrayList<Long>();
+    userIds.add(this.user.getId());
+
+    // load only MapAnnotations
+    List<Class<? extends AnnotationData>> types = new ArrayList<Class<? extends AnnotationData>>();
+    types.add(MapAnnotationData.class);
+
+    MetadataFacility metadata = gateway.getFacility(MetadataFacility.class);
+    List<AnnotationData> annotations = metadata.getAnnotations(ctx, image,
+           types, userIds);
+    for (AnnotationData annotation : annotations) {
+        MapAnnotationData mapAnnotation = (MapAnnotationData) annotation;
+        List<NamedValue> list = (List<NamedValue>) mapAnnotation
+                .getContent();
+        System.out.println("\nMapAnnotation ID: "+mapAnnotation.getId());
+        for (NamedValue namedValue : list)
+            System.out.println(namedValue.name + ": " + namedValue.value);
+    }
 
 Raw data access
 ---------------

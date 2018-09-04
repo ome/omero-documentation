@@ -252,7 +252,7 @@ Useful metrics include:
     ome.io.nio.PixelsService.minmaxTimes
       Time taken to generate min/max values per plane. (PixelData-only)
 
-    ome.io.nio.PixelsService.tileTimes`
+    ome.io.nio.PixelsService.tileTimes
       Time taken to generate tiled-pyramids for a big image. (PixelData-only)
 
 .. _Check_MK: https://mathias-kettner.de/check_mk.html

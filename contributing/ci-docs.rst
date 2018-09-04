@@ -40,12 +40,6 @@ More detail on how and where to edit OME documentation is available on the
 	-	* Builds the Bio-Formats documentation for review
 		* :term:`BIOFORMATS-DEV-merge-docs`
 
-	-	* Builds the auto-generated Bio-Formats documentation
-		* :term:`BIOFORMATS-DEV-latest-docs-autogen`
-
-	-	* Builds the auto-generated Bio-Formats documentation for review
-		* :term:`BIOFORMATS-DEV-merge-docs-autogen`
-
 The OME Model, OME help and OME Contributing documentation sets are
 independent of the current OMERO/Bio-Formats version.
 
@@ -188,13 +182,13 @@ The branch for the 5.x series of the OMERO documentation is develop.
 Bio-Formats 5.x series
 ^^^^^^^^^^^^^^^^^^^^^^
 
-The branch for the 5.x series of the Bio-Formats documentation is develop.
+The branch for the 5.x series of the Bio-Formats documentation is master.
 
 .. glossary::
 
 	:jenkinsjob:`BIOFORMATS-DEV-latest-docs`
 
-		This job is used to build the develop branch of the Bio-Formats
+		This job is used to build the master branch of the Bio-Formats
 		documentation.
 
 		#. |sphinxbuild|
@@ -202,39 +196,12 @@ The branch for the 5.x series of the Bio-Formats documentation is develop.
 
 	:jenkinsjob:`BIOFORMATS-DEV-merge-docs`
 
-		This job is used to review the PRs opened against the develop branch
+		This job is used to review the PRs opened against the master branch
 		of the Bio-Formats documentation
 
 		#. |merge|
 		#. |sphinxbuild|
 		#. |linkcheck|
-
-	:jenkinsjob:`BIOFORMATS-DEV-latest-docs-autogen`
-
-		This job is used to build the latest auto-generated formats and
-		readers pages for the develop branch of the Bio-Formats documentation
-
-		#. Builds Bio-Formats using ``ant clean jars``
-		#. Runs the auto-generation using ``ant gen-format-pages gen-structure-table gen-meta-support gen-meta-support``
-		   from :file:`components/autogen`
-		#. Checks for file changes under :file:`docs/sphinx`
-		#. Pushes the auto-generated changes to
-		   :bf_scc_branch:`develop/latest/autogen`
-
-
-	:jenkinsjob:`BIOFORMATS-DEV-merge-docs-autogen`
-
-		This job is used to build the merge auto-generated pages for the
-		develop branch of the Bio-Formats documentation
-
-		#. Checks out :bf_scc_branch:`develop/merge/daily`
-		#. Builds Bio-Formats using ``ant clean jars``
-		#. Runs the auto-generation using ``ant gen-format-pages gen-structure-table gen-meta-support gen-meta-support``
-		   from :file:`components/autogen`
-		#. Checks for file changes under :file:`docs/sphinx`
-		#. Pushes the auto-generated changes to 
-		   :bf_scc_branch:`develop/merge/autogen`
-
 
 OME Model and OME Contributing
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
