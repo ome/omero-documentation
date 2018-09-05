@@ -125,4 +125,5 @@ linkcheck_ignore += [r'http://localhost:\d+/?', 'http://localhost/',
     r'https://trac.openmicroscopy.org/ome/admin/.*',
     r'https?://seabass.openmicroscopy.org/.*',
     r'http://web-dev-.*.openmicroscopy.org/.*',
+    r'https://oss.sonatype.org/.*',  # Requires login
 ]
