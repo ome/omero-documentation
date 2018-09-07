@@ -74,6 +74,20 @@ Scanning folders prior to Import
 
     The above example changes the depth to 7 folders.
 
+Bulk import configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. program:: omero import
+
+.. option:: --bulk YAML_FILE
+    
+    To import a number of images with a similar configuration::
+
+        $ bin/omero import --bulk bulk.yml
+
+    See :doc:`import-bulk` for more information on bulk imports.
+
+
 Managing performance of imports
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

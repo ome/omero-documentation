@@ -1,5 +1,5 @@
-Using import targets
-====================
+Import targets
+==============
 
 The CLI import options ``-d`` or ``-r`` can be used to specify, respectively,
 the import target Dataset or Screen by ID. The ``-T, --target`` option adds
