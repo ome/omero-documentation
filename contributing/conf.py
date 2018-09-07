@@ -49,7 +49,7 @@ contributing_extlinks = {
     'omedoc_scc_branch' : (scc_github_root + '/ome-documentation/tree/%s', ''),
     'omehelp_scc_branch' : (scc_github_root + '/ome-help/tree/%s', ''),
     'figure_scc_branch' : (scc_github_root + '/omero-figure/tree/%s', ''),
-    
+
     # Doc links
     'omero_doc' : (docs_root + '/latest/omero/%s', ''),
     'bf_doc' : (docs_root + '/latest/bio-formats/%s', '')

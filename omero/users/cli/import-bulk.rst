@@ -12,7 +12,7 @@ A minimal YAML file might look like: ::
     ---
     path: "my-files.txt"
 
-Assuming that my-files.txt is a list of files such as ::
+Assuming that :file:`my-files.txt` is a list of files such as ::
 
     fileA
     fileB
@@ -22,7 +22,8 @@ this is equivalent to: ::
 
     $ bin/omero import -k --transfer=ln_s fileA fileB directoryC
 
-where the files fileA and file B and all the files of directoryC will be imported.
+where the files :file:`fileA` and :file:`fileB` and all the files of
+:file:`directoryC` will be imported.
 
 Bulk-only options
 -----------------
@@ -44,7 +45,7 @@ each file a similar but slightly different configuration is needed.
 This can be accomplished with the ``columns`` key. It specifies how
 each of the separated fields of the ``path`` file should be interpreted.
 
-For example, a bulk.yml file specifying: ::
+For example, a :file:`bulk.yml` file specifying: ::
 
     ---
     path: "files.tsv"
@@ -52,7 +53,7 @@ For example, a bulk.yml file specifying: ::
     - name
     - path
 
-along with a file of the form: ::
+along with a :file:`files.tsv` of the form: ::
 
     import-1	fileA
     import-2	fileB
@@ -73,7 +74,7 @@ Other options like ``target`` can also be added as a separate field: ::
     Dataset:name:training-set	import-2	fileB
     Dataset:name:test-set-001	import-3	fileC
 
-by defining ``columns`` in your bulk.yml as: ::
+by defining ``columns`` in your :file:`bulk.yml` as: ::
 
     columns:
     - target
@@ -89,7 +90,8 @@ Include
 
 The ``include`` key specifies another bulk YAML file that should be
 included in the current processing. For example, if there is a global
-configuration file that all users should use, such as: ::
+configuration file :file:`omero-imports.yml` that all users should use,
+such as: ::
 
     ---
     checksum_algorithm: "File-Size-64"
@@ -97,7 +99,7 @@ configuration file that all users should use, such as: ::
     transfer: "ln_s"
 
 then users can make use of this configuration by adding the following
-line to their bulk.yml file: ::
+line to their :file:`bulk.yml` file: ::
 
     include: /etc/omero-imports.yml
 
@@ -117,12 +119,12 @@ Other options
 Otherwise, all the regular options from the CLI are available for
 configuration via ``--bulk``:
 
-- checksum_algorithm for faster processing of large files
-- continue for processing all files even if one errors
-- exclude for skipping files that have already been imported
-- parallel_fileset for concurrent imports
-- parallel_upload for concurrent uploads
-- target for placing imported images into specific containers
-- transfer for alternative methods of shipping files to the server
+- ``checksum_algorithm`` for faster processing of large files
+- ``continue`` for processing all files even if one errors
+- ``exclude`` for skipping files that have already been imported
+- ``parallel_fileset`` for concurrent imports
+- ``parallel_upload`` for concurrent uploads
+- ``target`` for placing imported images into specific containers
+- ``transfer`` for alternative methods of shipping files to the server
 
 See :doc:`import` for more information.
