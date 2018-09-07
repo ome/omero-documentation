@@ -133,7 +133,7 @@ is used for generating the release while the second commit bumps the version
 to the next development cycle.
 
 .. seealso::
-    http://imagej.net/Development_Lifecycle
+    https://imagej.net/Development_Lifecycle
        A section describing approaches which OME might be considering.
 
 Release preparation
