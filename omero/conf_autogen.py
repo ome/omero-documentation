@@ -1,5 +1,5 @@
 omero_db_version = "OMERO5.4"
 omero_db_patch = "0"
-versions_bioformats = "5.8.2"
+versions_bioformats = "5.9.2"
 current_dbver = "OMERO5.4__0"
 previous_dbver = "OMERO5.3__1"

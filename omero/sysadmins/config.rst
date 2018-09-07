@@ -136,6 +136,7 @@ Allowable elements are:
    %session%      c3fdd5d8-831a-40ff-80f2-0ba5baef448a
    %sessionId%    592
    %perms%        rw----
+   %thread%       Blitz-0-Ice.ThreadPool.Server-3
    /              path separator
    //             end of root-owned directories
 
@@ -422,9 +423,19 @@ Default: `0`
 omero.db.poolsize
 ^^^^^^^^^^^^^^^^^
 Sets the number of database server connections which
-will be used by OMERO. Your database installation
-will need to be configured to accept *at least* as
-many, preferably more, connections as this value.
+will be used by OMERO.
+
+A sizeable increase in this value, e.g. to 100, will
+significantly increase the performance of your server,
+but your database installation will need to be configured
+to accept *at least* as many, preferably more, connections
+as this value.
+
+The related values omero.threads.max_threads and
+omero.threads.background_threads do *not* need to be
+increased by the same amount. A system will be more stable
+if background_threads is less than max_threads and
+max_threads is less than poolsize.
 
 Default: `10`
 
@@ -1040,6 +1051,26 @@ a login is required.
 
 Default: `600000`
 
+.. property:: omero.threads.background_threads
+
+omero.threads.background_threads
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Number of threads from the max_threads pool that can
+be used at any given time for background tasks like
+import.
+
+Default: `10`
+
+.. property:: omero.threads.background_timeout
+
+omero.threads.background_timeout
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Number of milliseconds to wait for a slot in the
+background queue before a rejection error will be
+raised.
+
+Default: `3600000`
+
 .. property:: omero.threads.cancel_timeout
 
 omero.threads.cancel_timeout
@@ -1058,6 +1089,9 @@ Default: `5000`
 
 omero.threads.max_threads
 ^^^^^^^^^^^^^^^^^^^^^^^^^
+Maximum number of threads that can simultaneously
+run at the "USER" priority level. Internal system
+threads may still run.
 
 Default: `50`
 
@@ -1065,6 +1099,8 @@ Default: `50`
 
 omero.threads.min_threads
 ^^^^^^^^^^^^^^^^^^^^^^^^^
+Number of threads that will be kept waiting
+at all times.
 
 Default: `5`
 
@@ -1924,7 +1960,7 @@ Default: `{}`
 
 omero.web.debug
 ^^^^^^^^^^^^^^^
-A boolean that turns on/off debug mode.
+A boolean that turns on/off debug mode. Use debug mode only in development, not in production, as it logs sensitive and confidential information in plaintext.
 
 Default: `false`
 
@@ -2176,6 +2212,22 @@ A boolean that determines whether to expire the session when the user closes the
 
 Default: `true`
 
+.. property:: omero.web.sharing.opengraph
+
+omero.web.sharing.opengraph
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Dictionary of `server-name: site-name`, where server-name matches a name from `omero.web.server_list`. For example: ``'{"omero": "Open Microscopy"}'``
+
+Default: `{}`
+
+.. property:: omero.web.sharing.twitter
+
+omero.web.sharing.twitter
+^^^^^^^^^^^^^^^^^^^^^^^^^
+Dictionary of `server-name: @twitter-site-username`, where server-name matches a name from `omero.web.server_list`. For example: ``'{"omero": "@openmicroscopy"}'``
+
+Default: `{}`
+
 .. property:: omero.web.static_root
 
 omero.web.static_root
@@ -2246,7 +2298,7 @@ omero.web.ui.top_links
 ^^^^^^^^^^^^^^^^^^^^^^
 Add links to the top header: links are ``['Link Text', 'link|lookup_view', options]``, where the url is reverse('link'), simply 'link' (for external urls) or lookup_view is a detailed dictionary {"viewname": "str", "args": [], "query_string": {"param": "value" }], E.g. ``'["Webtest", "webtest_index"] or ["Homepage", "http://...", {"title": "Homepage", "target": "new"} ] or ["Repository", {"viewname": "webindex", "query_string": {"experimenter": -1}}, {"title": "Repo"}]'``
 
-Default: `[["Data", "webindex", {"title": "Browse Data via Projects, Tags etc"}],["History", "history", {"title": "History"}],["Help", "http://help.openmicroscopy.org/",{"title":"Open OMERO user guide in a new tab", "target":"new"}]]`
+Default: `[["Data", "webindex", {"title": "Browse Data via Projects, Tags etc"}],["History", "history", {"title": "History"}],["Help", "https://help.openmicroscopy.org/",{"title":"Open OMERO user guide in a new tab", "target":"new"}]]`
 
 .. property:: omero.web.use_x_forwarded_host
 

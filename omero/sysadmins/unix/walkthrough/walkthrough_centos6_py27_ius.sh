@@ -28,7 +28,7 @@ yum -y install libjpeg-devel zlib-devel
 # install pip and virtualenv using Python 2.6 
 yum -y install python-pip
 
-pip install --upgrade virtualenv
+pip install --upgrade virtualenv==14.0.6
 
 #if virtualenv is not installed (unlikely)
 #yum -y install python27-pip
