@@ -156,6 +156,33 @@ Managing performance of imports
    Carefully read :ref:`parallel_import` before use.
 
 
+Checking performance
+""""""""""""""""""""
+
+:program:`omero fs importtime` finds out how long it took to import an
+existing fileset. Once the import is complete this command can estimate
+the wall-clock time taken for separate phases of the import process.
+Output is limited to what could be queried from the server easily.
+Specify the ID of a fileset to have its import time reported in a
+human-readable format.
+
+.. program:: omero fs importtime
+
+.. option:: --cache
+
+   Once import time has been determined for the specified fileset, also
+   cache that information by annotating the fileset using a :doc:`map
+   annotation </developers/Model/KeyValuePairs>` in the
+   :literal:`openmicroscopy.org/omero/import/metrics` namespace. The
+   cache will be used for future reports of that fileset's import time.
+
+.. option:: --summary
+
+   This report covers multiple filesets so do not provide a fileset ID.
+   All data previously cached by the :option:`--cache` option is queried
+   then summarized in machine-readable CSV format.
+
+
 Troubleshoot and report issues
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
