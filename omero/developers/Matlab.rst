@@ -784,7 +784,7 @@ How to use OMERO tables
 ::
 
     name = char(java.util.UUID.randomUUID());
-    columns = javaArray('omero.grid.Column', 2)
+    columns = javaArray('omero.grid.Column', 2);
     columns(1) = omero.grid.LongColumn('Uid', 'testLong', []);
     valuesString = javaArray('java.lang.String', 1);
     columns(2) = omero.grid.StringColumn('MyStringColumn', '', 64, valuesString);
@@ -812,7 +812,7 @@ How to use OMERO tables
     % Currently OMERO.tables are displayed only in OMERO.web and 
     % for Screen/plate/wells alone. In all cases the file annotation
     % needs to contain a namespace.
-    fa.setNs(rstring('NSBULKANNOTATIONS'));
+    fa.setNs(rstring(omero.constants.namespaces.NSBULKANNOTATIONS.value));
     link = linkAnnotation(session, fa, 'image', imageId);
 
 -  **Read the contents of the table**.
