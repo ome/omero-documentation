@@ -948,7 +948,7 @@ attaches it to an image::
     for i = 1 : nShapes
         shape = roi.getShape(i - 1);
         
-        %http://blog.openmicroscopy.org/data-model/future-plans/2016/06/20/shape-transforms/
+        %https://blog.openmicroscopy.org/data-model/future-plans/2016/06/20/shape-transforms/
         transform = shape.getTransform;
         xScaling = transform.getA00.getValue;
         xShearing = transform.getA01.getValue;

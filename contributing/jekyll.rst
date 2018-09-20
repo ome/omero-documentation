@@ -1,11 +1,11 @@
 Jekyll hosted websites
 ======================
 
-A number of OME websites are produced using `Jekyll <http://jekyllrb.com/>`_,
+A number of OME websites are produced using `Jekyll <https://jekyllrb.com/>`_,
 including:
 
 - `Main OME website <https://www.openmicroscopy.org/>`_
-- `OME blog <http://blog.openmicroscopy.org/>`_
+- `OME blog <https://blog.openmicroscopy.org/>`_
 - `OME Help site <https://help.openmicroscopy.org/>`_
 - `OMERO.figure website <https://figure.openmicroscopy.org/>`_
 
@@ -74,7 +74,7 @@ static website and then deploying it on the web server:
 
 - to release the Jekyll source code, a signed Git tag needs to be created from
   the master branch of the source code. Website tags must follow the
-  [Calendar Versioning](http://calver.org/#youtube-dl) scheme using the tag
+  [Calendar Versioning](https://calver.org/#youtube-dl) scheme using the tag
   date
 - after pushing the tag, an artifact of the static website will be built by
   [Travis CI](https://travis-ci.org/openmicroscopy/www.openmicroscopy.org) and 
@@ -86,7 +86,7 @@ static website and then deploying it on the web server:
 OME Blog
 ^^^^^^^^
 
-The source for `blog.openmicroscopy.org <http://blog.openmicroscopy.org>`_ is
+The source for `blog.openmicroscopy.org <https://blog.openmicroscopy.org>`_ is
 at `<https://github.com/ome/blog>`_.
 The website uses the 'gh-pages' branch and as there is no merge build or
 staging page, you should open a PR directly against this branch. The files are

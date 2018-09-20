@@ -31,7 +31,7 @@ Operating systems
 * Microsoft Windows
 
   * From [5.3] client support only
-  * Rationale: see `blog post explanation <http://blog.openmicroscopy.org/tech-issues/future-plans/deployment/2016/03/22/windows-support/>`_
+  * Rationale: see `blog post explanation <https://blog.openmicroscopy.org/tech-issues/future-plans/deployment/2016/03/22/windows-support/>`_
 
 * MacOS X
 
@@ -302,7 +302,7 @@ Linux (CentOS and RHEL)
 
 General overview for `RHEL
 <https://access.redhat.com/articles/3078>`__ and `CentOS
-<http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
+<https://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
 
 .. list-table::
     :header-rows: 1
@@ -320,14 +320,14 @@ General overview for `RHEL
       - |Deprecated|
       - |Deprecated|
       - |Dropped|
-      - `Reference <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
+      - `Reference <https://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
     * - 7
       - from June 2014
       - to June 2024
       - |Recommended|
       - |Recommended|
       - |Recommended|
-      - `Reference <http://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
+      - `Reference <https://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
 
 RHEL, CentOS 6 and 7 are supported at present. Given the long life
 of enterprise releases, we intend to support only the latest release
@@ -394,17 +394,17 @@ Package lists
     * - CentOS 7 / RHEL 7
       - `Reference <http://mirror.centos.org/centos/7/os/x86_64/Packages/>`__
     * - Ubuntu
-      - `Reference <http://packages.ubuntu.com/search?keywords=foo&searchon=names&suite=all&section=all>`__
+      - `Reference <https://packages.ubuntu.com/search?keywords=foo&searchon=names&suite=all&section=all>`__
     * - Homebrew
       - `Reference <https://github.com/Homebrew/homebrew-core/tree/master/Formula>`__
     * - FreeBSD Ports
-      - `Reference <http://svnweb.freebsd.org/ports/head/>`__
+      - `Reference <https://svnweb.freebsd.org/ports/head/>`__
 
 
 PostgreSQL
 ----------
 
-`General overview <http://www.postgresql.org/support/versioning/>`__
+`General overview <https://www.postgresql.org/support/versioning/>`__
 
 OMERO support policies
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -444,7 +444,7 @@ OMERO support policies
       - |Recommended|
     * - Details
       - 
-      - `Reference <http://www.postgresql.org/support/versioning/>`__
+      - `Reference <https://www.postgresql.org/support/versioning/>`__
       - 
       - 
       - 
@@ -467,28 +467,28 @@ If no version is provided, a suitable repository is indicated.
       - N/A
       - Yes
     * - 9.4
-      - 6 (`postgresql <http://yum.postgresql.org/9.4/redhat/rhel-6-x86_64/>`__), 7 (`postgresql <https://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/>`__)
+      - 6 (`postgresql <https://yum.postgresql.org/9.4/redhat/rhel-6-x86_64/>`__), 7 (`postgresql <https://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/>`__)
       - 14.04, 16.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
       - Yes
       - Yes
     * - 9.5
-      - 6 (`postgresql <http://yum.postgresql.org/9.5/redhat/rhel-6-x86_64/>`__), 7 (`postgresql <https://yum.postgresql.org/9.5/redhat/rhel-7-x86_64/>`__)
+      - 6 (`postgresql <https://yum.postgresql.org/9.5/redhat/rhel-6-x86_64/>`__), 7 (`postgresql <https://yum.postgresql.org/9.5/redhat/rhel-7-x86_64/>`__)
       - 14.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__), 16.04
       - Yes
       - Yes
     * - 9.6
-      - 6 (`postgresql <http://yum.postgresql.org/9.6/redhat/rhel-6-x86_64/>`__), 7 (`postgresql <https://yum.postgresql.org/9.6/redhat/rhel-7-x86_64/>`__)
+      - 6 (`postgresql <https://yum.postgresql.org/9.6/redhat/rhel-6-x86_64/>`__), 7 (`postgresql <https://yum.postgresql.org/9.6/redhat/rhel-7-x86_64/>`__)
       - 14.04, 16.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
       - Yes
       - Yes
     * - Details
       - 
-      - `Reference <http://packages.ubuntu.com/search?keywords=postgresql&searchon=names&suite=all&section=all>`__
+      - `Reference <https://packages.ubuntu.com/search?keywords=postgresql&searchon=names&suite=all&section=all>`__
       - 
       - 
 
 The PostgreSQL project provides `packages
-<http://www.postgresql.org/download/>`__ for supported platforms.
+<https://www.postgresql.org/download/>`__ for supported platforms.
 Therefore distribution support is not critical since 9.4, 9.5 and 9.6 are
 available for all platforms.
 
@@ -614,8 +614,8 @@ Version provided by distribution
       - Yes
     * - Details
       - 
-      - `Python 2 <http://packages.ubuntu.com/search?keywords=python2&searchon=names&suite=all&section=all>`__
-        `Python 3 <http://packages.ubuntu.com/search?keywords=python3&searchon=names&suite=all&section=all>`__
+      - `Python 2 <https://packages.ubuntu.com/search?keywords=python2&searchon=names&suite=all&section=all>`__
+        `Python 3 <https://packages.ubuntu.com/search?keywords=python3&searchon=names&suite=all&section=all>`__
       - 
       - 
 
@@ -707,14 +707,14 @@ If no version is provided, a suitable repository is indicated.
       - Yes
     * - Details
       -
-      - `Reference <http://packages.ubuntu.com/search?keywords=ice&searchon=names&suite=all&section=all>`__
+      - `Reference <https://packages.ubuntu.com/search?keywords=ice&searchon=names&suite=all&section=all>`__
       -
       -
 
 Java
 ----
 
-`General overview <http://www.oracle.com/technetwork/java/eol-135779.html>`__
+`General overview <https://www.oracle.com/technetwork/java/eol-135779.html>`__
 
 OMERO support policies
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -735,14 +735,14 @@ OMERO support policies
       - |Deprecated|
       - |Deprecated|
       - |Dropped|
-      - `Reference <http://www.oracle.com/technetwork/java/eol-135779.html>`__
+      - `Reference <https://www.oracle.com/technetwork/java/eol-135779.html>`__
     * - 8
       - from Mar 2014
       - to Mar 2017
       - |Recommended|
       - |Recommended|
       - |Supported|
-      - `Reference <http://www.oracle.com/technetwork/java/eol-135779.html>`__
+      - `Reference <https://www.oracle.com/technetwork/java/eol-135779.html>`__
     * - 9
       - TBA
       - TBA
@@ -779,18 +779,18 @@ Version provided by distribution
       - N/A
     * - Details
       - 
-      - `Reference <http://packages.ubuntu.com/search?keywords=jdk&searchon=names&suite=all&section=all>`__
+      - `Reference <https://packages.ubuntu.com/search?keywords=jdk&searchon=names&suite=all&section=all>`__
       - 
       - 
 
 Note that all distributions provide OpenJDK 7 and/or 8 due to
-distribution restrictions by Oracle. `Oracle Java <http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html>`__ may be used if
+distribution restrictions by Oracle. `Oracle Java <https://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html>`__ may be used if
 downloaded separately.
 
 nginx
 -----
 
-`General overview <http://nginx.org/en/download.html>`__ and `roadmap
+`General overview <https://nginx.org/en/download.html>`__ and `roadmap
 <https://trac.nginx.org/nginx/roadmap>`__
 
 OMERO support policies
@@ -865,5 +865,5 @@ If no version is provided, a suitable repository is indicated.
     * - Details
       - 
       - 
-      - `Reference <http://packages.ubuntu.com/search?keywords=nginx&searchon=names&suite=all&section=all>`__
+      - `Reference <https://packages.ubuntu.com/search?keywords=nginx&searchon=names&suite=all&section=all>`__
       - 
