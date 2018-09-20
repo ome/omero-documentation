@@ -20,7 +20,7 @@ Viewing the movie
 
 The make movie script allows you to save the movie in two different
 formats, a DivX encoded AVI and Quicktime movie. To view the AVI you may
-need to install a divX codec from ` DivX <http://www.divx.com/>`_. It
+need to install a divX codec from ` DivX <https://www.divx.com/>`_. It
 should be noted that the DivX avi is normally 1/3 to 1/10 the size of
 the Quicktime movie.
 
@@ -33,14 +33,14 @@ computer (icegrid node) running the script.
 
 We have :snapshot:`Mac OSX installs for mencoder <mencoder/mac/>`
 which were originally provided
-`here <http://stefpause.com/apple/mac/mplayer-os-x-10rc1-and-mencoder-binaries/>`__.
+`here <https://stefpause.com/apple/mac/mplayer-os-x-10rc1-and-mencoder-binaries/>`__.
 Unzip and put the mencoder in the PATH available to the server, e.g.
 /usr/local/bin/ . You may need to restart the server for this to take
 effect.
 
 There are also macports, rpms and debs for mencoder.
 
-Make movie also uses Pillow_ and `numpy <http://www.scipy.org/Download>`_.
+Make movie also uses Pillow_ and `numpy <https://www.scipy.org/install.html>`_.
 
 Make movie command arguments
 ----------------------------

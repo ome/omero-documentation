@@ -41,7 +41,7 @@ TortoiseGit_ for Git shell integration. You may also want to consider
 installing VirtualBox_ with a Linux guest OS to make your life easier. Lastly,
 when using Git on Windows, please be aware of the `CRLF conversion issue`_.
 
-.. _Cygwin: http://www.cygwin.com/
+.. _Cygwin: https://www.cygwin.com/
 .. _TortoiseGit: https://tortoisegit.org
 .. _VirtualBox: https://www.virtualbox.org/
 .. _CRLF conversion issue: https://help.github.com/articles/dealing-with-line-endings/
@@ -546,7 +546,7 @@ on GitHub, take a look at the repository
 
 You can read more about commit messages at `A Note About Git Commit Messages`_.
 
-.. _A Note About Git Commit Messages: http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
+.. _A Note About Git Commit Messages: https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
 
 Rebasing to keep code clean
 ---------------------------
@@ -584,8 +584,8 @@ Branch naming
 
 We roughly follow the git-flow style of naming and managing branch. Info about
 the idea can be found under
-`A successful Git branching model  <http://nvie.com/posts/a-successful-git-branching-model/>`_.
-There is also a `screencast <http://vimeo.com/16018419>`_ available on Vimeo.
+`A successful Git branching model  <https://nvie.com/posts/a-successful-git-branching-model/>`_.
+There is also a `screencast <https://vimeo.com/16018419>`_ available on Vimeo.
 
 .. image:: /images/GitBranchingModel.png
     :align: center
@@ -889,7 +889,7 @@ would be very bad style.
 Git resources
 -------------
 
--  `Pro Git book <http://git-scm.com/book>`_
--  `<http://git-scm.com/book/ch3-6.html>`_
--  `A successful Git branching model <http://nvie.com/posts/a-successful-git-branching-model/>`_
+-  `Pro Git book <https://git-scm.com/book>`_
+-  `<https://git-scm.com/book/ch3-6.html>`_
+-  `A successful Git branching model <https://nvie.com/posts/a-successful-git-branching-model/>`_
 

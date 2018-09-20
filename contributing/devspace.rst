@@ -14,9 +14,9 @@ Running and maintaining Devspace requires:
 
 -  Docker engine https://docs.docker.com/.
 
-Optionally a `brief understanding of Ansible <http://docs.ansible.com/ansible/intro_getting_started.html>`_,
-`Ansible inventory <http://docs.ansible.com/ansible/intro_inventory.html>`_,
-and `Ansible playbooks <http://docs.ansible.com/ansible/playbooks.html>`_.
+Optionally a `brief understanding of Ansible <https://docs.ansible.com/ansible/intro_getting_started.html>`_,
+`Ansible inventory <https://docs.ansible.com/ansible/intro_inventory.html>`_,
+and `Ansible playbooks <https://docs.ansible.com/ansible/playbooks.html>`_.
 
 Installation
 ------------

@@ -137,7 +137,7 @@ database, which can be achieved with a number of tools. E.g.
        omero=# \d annotation;         # list all the columns in a particular table
        omero=# select id, discriminator, ns, textValue, file from annotation order by id desc;   # query
 
--  `pgAdmin <http://www.pgadmin.org/>`_ is a free, cross platform GUI
+-  `pgAdmin <https://www.pgadmin.org/>`_ is a free, cross platform GUI
    tool for working with PostgreSQL
 
 OMERO model

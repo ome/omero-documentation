@@ -263,7 +263,7 @@ Increasing the number of available filehandles via 'ulimit -n'
 ValueError: filedescriptor out of range in select() - this is a known issue in 
 Python versions prior to 2.7.0. See
 :ticket:`6201` and Python `Issue #3392
-<http://bugs.python.org/issue3392>`_ for more details.
+<https://bugs.python.org/issue3392>`_ for more details.
 
 Directory exists but is not registered
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

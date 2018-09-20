@@ -4,7 +4,7 @@ Continuous integration branches and jobs
 Versioning
 ^^^^^^^^^^
 
-OME uses semantic versioning as defined in http://semver.org. Each version
+OME uses semantic versioning as defined in https://semver.org. Each version
 number is identified as MAJOR.MINOR.PATCH where MAJOR is the major version
 number, MINOR the minor version number and PATCH the patch version number.
 Additional pre-release labels are added as extensions of this version number,

@@ -296,7 +296,7 @@ In instances where more detailed changes are required to BinaryOnly samples:
 Schema publication
 ------------------
 
-.. _oXygen: http://www.oxygenxml.com/
+.. _oXygen: https://www.oxygenxml.com/
 
 Schema release
 ^^^^^^^^^^^^^^

@@ -132,7 +132,7 @@ are under::
 
 For more information on the regular expression syntax that can be used in
 templates see:
-`java.util.regex.Pattern documentation <http://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html>`_.
+`java.util.regex.Pattern documentation <https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html>`_.
 
 Importing to targets across groups
 ----------------------------------

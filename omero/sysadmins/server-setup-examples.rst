@@ -65,7 +65,7 @@ Stats
 Biozentrum, University of Basel
 -------------------------------
 
-The OMERO server at `Biozentrum <http://www.biozentrum.unibas.ch>`_ has around
+The OMERO server at `Biozentrum <https://www.biozentrum.unibas.ch>`_ has around
 270 users and currently uses 52 TB of data storage space, with an average
 monthly increase of 1 TB. It is run on CentOS 7.1 with data hosted on an
 native-mounted GPFS file system (General Parallel File System, IBM).

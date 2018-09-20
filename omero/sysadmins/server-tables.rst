@@ -11,8 +11,8 @@ Requirements
 
 If you would like to help test the Tables API, you will need the following installed:
 
--  `HDF5 <http://www.hdfgroup.org/HDF5/release/obtain5.html>`_
--  `NumPy <http://numpy.sourceforge.net/numdoc/HTML/numdoc.htm>`_ points to downloads at
+-  `HDF5 <https://www.hdfgroup.org/HDF5/release/obtain5.html>`_
+-  `NumPy <http://numpy.sourceforge.net/numdoc/HTML/numdoc.html>`_ points to downloads at
    http://sourceforge.net/projects/numpy/
 -  `PyTables <http://pytables.github.com/downloads.html>`_ (Some packages include HDF5)
 
@@ -40,7 +40,7 @@ Manually
     This is free software; see the source for copying conditions.  There is NO
     warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-    $ wget "http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-1.8.11.tar.gz"
+    $ wget "https://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-1.8.11.tar.gz"
     $ tar xzf hdf5-1.8.11.tar.gz
     $ cd hdf5-1.8.11
     $ ./configure --prefix=$HOME/virtualenv

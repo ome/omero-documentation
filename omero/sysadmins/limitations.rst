@@ -16,7 +16,7 @@ Java issues
 OpenJDK8 is supported, however some builds of some releases (such as
 the current Ubuntu build of 8u40) have broken JPEG support, reported
 for `OpenJDK
-<http://icedtea.classpath.org/bugzilla/show_bug.cgi?id=1393>`__ and
+<https://icedtea.classpath.org/bugzilla/show_bug.cgi?id=1393>`__ and
 `Ubuntu
 <https://bugs.launchpad.net/ubuntu/+source/openjdk-8/+bug/1421501>`__. See
 :ticket:`12612` and `this ome-users thread <http://lists.openmicroscopy.org.uk/pipermail/ome-users/2015-November/005723.html>`__

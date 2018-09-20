@@ -22,7 +22,7 @@ interceptor which is passed execution before the actual logic is
 reached. The interceptor can inspect or replace the return value, but
 can also stop the method execution from ever taking place.
 
-Unlike with `AspectJ <http://eclipse.org/aspectj/>`_, the AOP
+Unlike with `AspectJ <https://eclipse.org/aspectj/>`_, the AOP
 implementation used by OMERO only allows for the advising of interfaces.
 Simply creating a new service implementation via "new QueryImpl()" will
 not produce an advised object, which in turn will not function
@@ -79,9 +79,9 @@ you just write:
     `AOP Alliance  <http://aopalliance.sourceforge.net/>`_
         Joint project defining interfaces for various AOP implementations
      
-    `AspectJ <http://eclipse.org/aspectj/>`_ 
+    `AspectJ <https://eclipse.org/aspectj/>`_ 
         The arguable leader in Java/AOP development. Not used in Omero, but a
         good starting point.
 
-    `Aspect-oriented programming <http://en.wikipedia.org/wiki/Aspect-oriented_programming>`_
+    `Aspect-oriented programming <https://en.wikipedia.org/wiki/Aspect-oriented_programming>`_
         Wikipedia page on AOP

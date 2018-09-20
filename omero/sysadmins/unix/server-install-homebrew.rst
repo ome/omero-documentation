@@ -34,7 +34,7 @@ Java
 ^^^^
 
 Oracle Java may be downloaded from the `Oracle website
-<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_.
+<https://www.oracle.com/technetwork/java/javase/downloads/index.html>`_.
 
 After installing JDK 7 or JDK 8, check your installation works by
 running::
@@ -409,7 +409,7 @@ Macports/Fink
 
     Warning: It appears you have MacPorts or Fink installed.
 
-Follow uninstall instructions from the `Macports guide <http://guide.macports.org/chunked/installing.macports.uninstalling.html>`_.
+Follow uninstall instructions from the `Macports guide <https://guide.macports.org/chunked/installing.macports.uninstalling.html>`_.
 
 PostgreSQL
 ^^^^^^^^^^
@@ -431,7 +431,7 @@ to reinitialize a PostgreSQL database cluster as::
     $ initdb -E UTF8 /usr/local/var/postgres
 
 .. seealso::
-  http://stackoverflow.com/questions/25970132/pg-tblspc-missing-after-installation-of-latest-version-of-os-x-yosemite-or-el
+  https://stackoverflow.com/questions/25970132/pg-tblspc-missing-after-installation-of-latest-version-of-os-x-yosemite-or-el
 
 szip
 ^^^^

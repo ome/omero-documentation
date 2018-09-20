@@ -7,7 +7,7 @@ Search bridges
     modern search functionality is under development.
 
 A "bridge" is the mapping between your metadata and how it is stored in
-the ` Lucene <http://lucene.apache.org>`_ index.
+the ` Lucene <https://lucene.apache.org>`_ index.
 :doc:`/developers/Modules/Search` uses one internal bridge to parse
 all of your metadata for later searching. If, however, there is more
 metadata that you would like to add to the index, you can implement the

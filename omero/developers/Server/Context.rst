@@ -19,7 +19,7 @@ Hibernate sessions
 ------------------
 
 A ``Hibernate Session`` comprises a
-` Unit-of-Work <http://www.martinfowler.com/eaaCatalog/unitOfWork.html>`_
+` Unit-of-Work <https://www.martinfowler.com/eaaCatalog/unitOfWork.html>`_
 which translates for OMERO's |OmeroModel| model to a
 relational database. It keeps references to all Database-backed objects so
 that within a single session, object-identity stays constant and object

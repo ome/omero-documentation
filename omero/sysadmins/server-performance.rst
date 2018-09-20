@@ -256,8 +256,8 @@ Useful metrics include:
       Time taken to generate tiled-pyramids for a big image. (PixelData-only)
 
 .. _Check_MK: https://mathias-kettner.de/check_mk.html
-.. _Metrics: http://metrics.dropwizard.io
+.. _Metrics: https://metrics.dropwizard.io
 .. _JConsole: http://openjdk.java.net/tools/svc/jconsole/
 .. _JVisualVM: https://visualvm.github.io/
-.. _Nagios: http://www.nagios.org/
-.. _Zenoss: http://www.zenoss.com/
+.. _Nagios: https://www.nagios.org/
+.. _Zenoss: https://www.zenoss.com/

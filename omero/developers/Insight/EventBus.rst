@@ -10,7 +10,7 @@ Event bus
 Interactions among agents are event-driven. Agents communicate by using
 a shared event bus provided by the container. The event bus is an event
 propagation mechanism loosely based on the
-` Publisher-Subscriber <http://en.wikipedia.org/wiki/Publish/subscribe>`_
+` Publisher-Subscriber <https://en.wikipedia.org/wiki/Publish/subscribe>`_
 pattern and can be regarded as a time-ordered event queue - if event A
 is posted on the bus before event B, then event A is also delivered
 before event B.

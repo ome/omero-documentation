@@ -36,7 +36,7 @@ handling.
      * <p>
      * All exceptions that are thrown by a remote call (any call on a *Prx instance)
      * will be either a subclass of [Ice::UserException] or [Ice::LocalException].
-     * <a href="http://doc.zeroc.com/display/Ice/Run-Time+Exceptions#Run-TimeExceptions-InheritanceHierarchyforExceptions">Inheritance Hierarchy for Exceptions</a>
+     * <a href="https://doc.zeroc.com/display/Ice/Run-Time+Exceptions#Run-TimeExceptions-InheritanceHierarchyforExceptions">Inheritance Hierarchy for Exceptions</a>
      * from the Ice manual shows the entire exception hierarchy. The exceptions described in
      * this file will subclass from [Ice::UserException]. Other Ice-runtime exceptions subclass
      * from [Ice::LocalException].
