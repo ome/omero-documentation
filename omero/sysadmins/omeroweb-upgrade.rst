@@ -12,8 +12,8 @@ See the full details of OMERO |release| features in the :doc:`/users/history`.
 This guide aims to be as definitive as possible so please do not be put off by
 the level of detail; upgrading should be a straightforward process.
 
-Upgrade check list
-------------------
+Upgrade checklist
+-----------------
 
 .. contents::
     :local:
