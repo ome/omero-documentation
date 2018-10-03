@@ -68,7 +68,7 @@ rst_epilog += """
 .. _GitHub: https://github.com
 .. _GitHub Pages: https://pages.github.com
 .. _Git: https://git-scm.com/
-.. _Semantic Versioning: http://semver.org
+.. _Semantic Versioning: https://semver.org
 .. _CMake: https://cmake.org/
 .. _openmicroscopy.git: https://github.com/openmicroscopy/openmicroscopy
 .. _bioformats.git: https://github.com/openmicroscopy/bioformats

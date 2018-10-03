@@ -41,7 +41,7 @@ The ``env`` package is also broken down into further sub-packages:
    the Remote Facade that we use to access the OMERO server.
 -  ``event``: The event bus classes.
 -  ``init``: Classes to perform initialization tasks at start-up.
--  ``log``: Adapter classes to wrap `log4j <http://logging.apache.org/log4j/>`_.
+-  ``log``: Adapter classes to wrap `log4j <https://logging.apache.org/log4j/>`_.
 -  ``cache``: Adapter classes to wrap `ehcache <http://ehcache.org/>`_.
 -  ``rnd``: The image data provider.
 -  ``ui``: The top frame window and the user notification widgets.

@@ -54,7 +54,7 @@ The following information is required to configure OMERO to log to syslog.
     in a local systems primary message log for example. On Linux this is often
     ``/var/log/messages``. Remember to configure the syslog configuration
     to avoid this. This is also where configuration of onward forwarding can
-    be configured (to a service such as `splunk <http://www.splunk.com/>`_).
+    be configured (to a service such as `splunk <https://www.splunk.com/>`_).
     Finally, syslog can be configured to specifically output this facility
     output to a file such as ``/var/log/omero``.
 

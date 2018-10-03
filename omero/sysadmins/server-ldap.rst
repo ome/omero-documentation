@@ -1,7 +1,7 @@
 LDAP authentication
 ===================
 
-`LDAP <http://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol>`_
+`LDAP <https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol>`_
 is an open standard for querying and modifying directory services that
 is commonly used for authentication, authorization and accounting (AAA).
 OMERO.server supports the use of an LDAP server to query (but not
@@ -315,11 +315,11 @@ be configured as necessary.
         Forum discussion if you have LDAP requirements that are not covered by the above configuration
 
     JNDI referrals documentation
-        http://docs.oracle.com/javase/jndi/tutorial/ldap/referral/jndi.html
+        https://docs.oracle.com/javase/jndi/tutorial/ldap/referral/jndi.html
 
 Active Directory
 ----------------
-`Active Directory <http://en.wikipedia.org/wiki/Active_Directory>`_ (AD) supports
+`Active Directory <https://en.wikipedia.org/wiki/Active_Directory>`_ (AD) supports
 a form of LDAP and can be used by OMERO like most other directory services.
 
 In AD, the `Domain Services <https://msdn.microsoft.com/en-us/library/aa362244(v=vs.85).aspx>`_ (DS)
@@ -333,7 +333,7 @@ there are multiple domains in the forest then it is necessary to query the
 
 Global Catalogue
 ^^^^^^^^^^^^^^^^
-In an AD DS forest, a `Global Catalogue <http://technet.microsoft.com/en-us/library/cc728188(v=ws.10).aspx>`_
+In an AD DS forest, a `Global Catalogue <https://technet.microsoft.com/en-us/library/cc728188(v=ws.10).aspx>`_
 provides a central repository of all the domain information from all of the domains. This can be queried in
 the same way as a specific Domain Service using LDAP, but it runs on different ports; 3268 and 3269 (SSL).
 

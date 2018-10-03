@@ -17,7 +17,7 @@ and a Django-based web application.
 
 The OMERO clients are cross-platform. To run on your computer they require
 Java |javaversion| or higher to be installed. This can easily be installed
-from `<http://java.com/>`_ if it is not already included in your OS. The
+from `<https://java.com/>`_ if it is not already included in your OS. The
 OMERO.insight client gets all of its information from a remote OMERO.server —
 the location of which is specified at login. Since this connection utilises a
 standard network connection, the client can be run anytime the user is
@@ -70,7 +70,7 @@ Additional resources
     provide you with a wealth of experience to draw on for help and advice.
 
 -   Our popular OMERO.web app, OMERO.figure, has its own mini website at
-    `figure.openmicroscopy.org <http://figure.openmicroscopy.org>`_ where you
+    `figure.openmicroscopy.org <https://figure.openmicroscopy.org>`_ where you
     can find demo movies and a full release history.
 
 .. toctree::

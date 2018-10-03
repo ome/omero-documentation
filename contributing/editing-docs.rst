@@ -157,8 +157,8 @@ The live webpages are updated by running the
 OME Data Model and File Formats documentation
 ---------------------------------------------
 
-Hosted at `<http://docs.openmicroscopy.org/ome-model/>`_\{{version}}/ (plus
-latest redirect - `<http://docs.openmicroscopy.org/latest/ome-model/>`_).
+Hosted at `<https://docs.openmicroscopy.org/ome-model/>`_\{{version}}/ (plus
+latest redirect - `<https://docs.openmicroscopy.org/latest/ome-model/>`_).
 
 This covers the OME file formats (OME-TIFF, OME-XML and with the next release
 - OMERO pyramid format) and the data model.
@@ -198,7 +198,7 @@ The live webpages are updated as part of the release process.
 OME Files C++ documentation
 ---------------------------
 
-Hosted at `<http://docs.openmicroscopy.org/ome-files-cpp/>`_\{{version}}/ (no
+Hosted at `<https://docs.openmicroscopy.org/ome-files-cpp/>`_\{{version}}/ (no
 latest redirect currently).
 
 Builds
@@ -236,7 +236,7 @@ OME CMAKE Super-Build documentation
 -----------------------------------
 
 Hosted at
-`<http://docs.openmicroscopy.org/ome-cmake-superbuild/>`_\{{version}}/ (no
+`<https://docs.openmicroscopy.org/ome-cmake-superbuild/>`_\{{version}}/ (no
 latest redirect currently).
 
 Builds

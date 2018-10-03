@@ -119,7 +119,7 @@ BSD or Linux distributions for licensing reasons. If your system does not have
 Java available, for example on newer MacOS X versions, or the provided
 version is too old, Oracle Java may be downloaded from the `Oracle
 website
-<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_.
+<https://www.oracle.com/technetwork/java/javase/downloads/index.html>`_.
 
 .. warning:: **Security**
 
@@ -160,7 +160,7 @@ The following Python packages are required:
 
     * - NumPy (1.2.0 or higher)
       - Scripting
-      - `Numpy/Scipy page <http://www.scipy.org/Download>`_
+      - `Numpy/Scipy page <https://www.scipy.org/Download>`_
 
     * - PyTables (2.1.0 or higher) [1]_
       - :doc:`OMERO.tables </sysadmins/server-tables>`

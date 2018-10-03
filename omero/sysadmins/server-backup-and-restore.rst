@@ -110,7 +110,7 @@ command. Here is an example backup script that can be placed in
     su $DATABASE_ADMIN -c "pg_dump -Fc -f $OUTPUT_DIRECTORY/$DATABASE.$DATE.pg_dump $DATABASE"
 
 Other database backup configurations are outside the scope of this
-document but can be researched on the `PostgreSQL website <http://www.postgresql.org/docs/9.4/interactive/backup.html>`_
+document but can be researched on the `PostgreSQL website <https://www.postgresql.org/docs/9.4/interactive/backup.html>`_
 *(Chapter 24. Backup and Restore)*.
 
 .. note:: Regular backups of your PostgreSQL database are crucial; you do not 
@@ -156,7 +156,7 @@ machine::
 
 More advanced ``rdiff-backup`` configurations are beyond the scope of
 this document. If you want to know more you are encouraged to read the
-documentation available on the ``rdiff-backup`` `website <http://www.nongnu.org/rdiff-backup/docs.html>`_.
+documentation available on the ``rdiff-backup`` `website <https://www.nongnu.org/rdiff-backup/docs.html>`_.
 
 Restoring OMERO
 ---------------
@@ -207,12 +207,12 @@ store <unix/server-binary-repository>` backup.
 
 .. seealso::
 
-    `List of backup software <http://en.wikipedia.org/wiki/List_of_backup_software>`_
+    `List of backup software <https://en.wikipedia.org/wiki/List_of_backup_software>`_
         Wikipedia page listing the backup softwares.
     
-    `PostgreSQL 9.4 Interactive Manual <http://www.postgresql.org/docs/9.4/interactive/backup.html>`_
+    `PostgreSQL 9.4 Interactive Manual <https://www.postgresql.org/docs/9.4/interactive/backup.html>`_
         Chapter 24: Backup and Restore
 
-    `rdiff-backup documentation <http://www.nongnu.org/rdiff-backup/docs.html>`_
+    `rdiff-backup documentation <https://www.nongnu.org/rdiff-backup/docs.html>`_
         Online documentation of rdiff-backup project
 

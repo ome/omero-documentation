@@ -771,7 +771,7 @@ to an image.
       }
 
       //Check if the shape has transform
-      //http://blog.openmicroscopy.org/data-model/future-plans/2016/06/20/shape-transforms/
+      //https://blog.openmicroscopy.org/data-model/future-plans/2016/06/20/shape-transforms/
       AffineTransformI transform = shape.getTransform();
       if (transform != null){
 

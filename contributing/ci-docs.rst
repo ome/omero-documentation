@@ -271,7 +271,7 @@ The following set of jobs is used to review or publish the content of the
 		   to allow	 deployment to a non-GitHub URL) then pushes the resulting
 		   branch to :omehelp_scc_branch:`gh-pages`
 		#. The GitHub Pages service updates the content of
-		   http://help.staging.openmicroscopy.org
+		   https://help.staging.openmicroscopy.org
 
 	:jenkinsjob:`OME-help-release`
 
@@ -281,7 +281,7 @@ The following set of jobs is used to review or publish the content of the
 		   https://github.com/openmicroscopy/ome-help/tree/master
 		   to https://github.com/openmicroscopy/ome-help/tree/gh-pages. If
 		   this PR is merged, the GitHub Pages service updates the content of
-		   http://help.openmicroscopy.org
+		   https://help.openmicroscopy.org
 		#. If the build is promoted,
 			#. rysnc the content of :file:`/ome/data_repo/public/help-staging`
 			   to :file:`/ome/data_repo/public/help`
@@ -295,7 +295,7 @@ The following set of jobs is used to review or publish the content of the
 		   allow  deployment to a non-GitHub URL) then pushes the resulting
 		   branch to :figure_scc_branch:`gh-pages`
 		#. The GitHub Pages service updates the content of
-		   http://figure.staging.openmicroscopy.org
+		   https://figure.staging.openmicroscopy.org
 
 	:jenkinsjob:`FIGURE-help-release`
 
@@ -305,7 +305,7 @@ The following set of jobs is used to review or publish the content of the
 		   https://github.com/ome/omero-figure/tree/gh-pages-staging
 		   to https://github.com/ome/omero-figure/tree/gh-pages. If
 		   this PR is merged, the GitHub Pages service updates the content of
-		   http://figure.openmicroscopy.org
+		   https://figure.openmicroscopy.org
 
 OME Files
 ^^^^^^^^^

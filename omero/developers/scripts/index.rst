@@ -74,7 +74,7 @@ scripts will be lost.
 To keep your scripts up to date, we recommend you use a Github repository to
 manage your scripts. If you are not familiar with
 :devs_doc:`using git <using-git.html>`, you can use the
-`GitHub app for your OS <http://help.github.com/articles/set-up-git>`_
+`GitHub app for your OS <https://help.github.com/articles/set-up-git>`_
 (available for Mac and Windows but not Linux). The basic workflow is:
 
 -  fork our
@@ -133,7 +133,7 @@ with the OMERO clients in a usable way.
 
 If you are a biologist with no previous programming experience, you may find
 the `Python for Biologists 
-<http://pythonforbiologists.com/index.php/introduction-to-python-for-biologists/>`_ free online course helpful.
+<https://pythonforbiologists.com/introduction/>`_ free online course helpful.
 
 Contributing back to the community
 ----------------------------------

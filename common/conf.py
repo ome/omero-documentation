@@ -169,7 +169,7 @@ extlinks = {
     'zerocforum' : ('https://forums.zeroc.com/forum/%s', ''),
     'zerocdoc' : ('https://doc.zeroc.com/%s', ''),
     'djangodoc' : ('https://docs.djangoproject.com/en/1.8/%s', ''),
-    'doi' : ('http://dx.doi.org/%s', ''),
+    'doi' : ('https://dx.doi.org/%s', ''),
     'pypi': ('https://pypi.org/project/%s', ''),
     }
 
@@ -181,9 +181,9 @@ rst_epilog = """
 .. _roadmap: https://trac.openmicroscopy.org/ome/roadmap
 .. _OME artifactory: https://artifacts.openmicroscopy.org
 .. _Open Microscopy Environment: https://www.openmicroscopy.org
-.. _Glencoe Software, Inc.: http://www.glencoesoftware.com/
-.. _Pillow: http://pillow.readthedocs.org
-.. _Matplotlib: http://matplotlib.org/
+.. _Glencoe Software, Inc.: https://www.glencoesoftware.com/
+.. _Pillow: https://pillow.readthedocs.org
+.. _Matplotlib: https://matplotlib.org/
 .. _Django 1.8: https://docs.djangoproject.com/en/1.8/releases/1.8/
 .. _Django 1.6: https://docs.djangoproject.com/en/1.6/releases/1.6/
 .. _Python: https://www.python.org

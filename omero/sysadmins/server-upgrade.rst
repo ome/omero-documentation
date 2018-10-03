@@ -26,7 +26,7 @@ the level of detail; upgrading should be a straightforward process.
     described below.
     
     If you are upgrading from 5.2 on **Windows** and need to migrate to Linux,
-    there is a guide in the `OMERO 5.3 documentation <http://docs.openmicroscopy.org/latest/omero5.3/sysadmins/windows-migration.html>`_.
+    there is a guide in the `OMERO 5.3 documentation <https://docs.openmicroscopy.org/latest/omero5.3/sysadmins/windows-migration.html>`_.
 
 Upgrade checklist
 -----------------

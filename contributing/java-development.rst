@@ -2,9 +2,9 @@ Java components
 ===============
 
 .. _Central Repository: https://search.maven.org
-.. _Semantic Versioning: http://semver.org
+.. _Semantic Versioning: https://semver.org
 .. _Git: https://git-scm.com/
-.. _Maven: http://maven.apache.org/
+.. _Maven: https://maven.apache.org/
 
 This document describes the conventions and process used by the OME team for developing, maintaining and releasing its Java components.
 
@@ -110,9 +110,9 @@ Maintainer prerequisites
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 It is important to get familiar with the
-`OSSRH guide <http://central.sonatype.org/pages/ossrh-guide.html>`__ and
+`OSSRH guide <https://central.sonatype.org/pages/ossrh-guide.html>`__ and
 especially the
-`Maven section for performing a release deployment <http://central.sonatype.org/pages/apache-maven.html>`__.
+`Maven section for performing a release deployment <https://central.sonatype.org/pages/apache-maven.html>`__.
 
 To be able to maintain a Java component, a developer must:
 
@@ -186,7 +186,7 @@ or using the release phase of the nexus-staging plugin::
 
 See the 'Manually Releasing the Deployment to the Central Repository' section
 of the
-`Apache Maven guide <http://central.sonatype.org/pages/apache-maven.html>`_
+`Apache Maven guide <https://central.sonatype.org/pages/apache-maven.html>`_
 for more instructions. You should be able to find the staged repository by
 visiting `<https://oss.sonatype.org/#stagingRepositories>`_ and searching for
 "org.openmicroscopy".
@@ -214,7 +214,7 @@ plugin again::
 
 Javadoc
 ^^^^^^^
-At the moment, we use the service provided http://javadoc.io/ for public
+At the moment, we use the service provided https://javadoc.io/ for public
 hosting of the Javadoc. For each release to Maven Central, the new Javadoc
 should be automatically deployed within 24h. It is possible to trigger the
 generation of the Javadoc by visiting the URL.

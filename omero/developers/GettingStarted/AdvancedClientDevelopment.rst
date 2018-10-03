@@ -18,7 +18,7 @@ Developing OMERO clients
 
 For developers, there are many examples listed below, all of which are
 stored under: :sourcedir:`examples` and
-buildable/runnable via `scons <http://www.scons.org>`_:
+buildable/runnable via `scons <https://www.scons.org>`_:
 
 ::
 
@@ -57,7 +57,7 @@ A good first step is to be aware of the difference between remote and
 local invocations. Any invocation on a proxy (``<class_name>Prx``,
 described below) will result in a call over the network with all the
 costs that entails. The often-cited `fallacies of distributed
-computing <http://en.wikipedia.org/wiki/Fallacies_of_Distributed_Computing>`_
+computing <https://en.wikipedia.org/wiki/Fallacies_of_Distributed_Computing>`_
 all apply, and the developer must be aware of concurrency and latency
 issues, as well as complete loss of connectivity, all of which we will
 discuss below.
@@ -76,7 +76,7 @@ These are the only types that can pass through the API.
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 Ice provides an `interface definition language
-(IDL) <http://en.wikipedia.org/wiki/Interface_description_language>`_
+(IDL) <https://en.wikipedia.org/wiki/Interface_description_language>`_
 for defining class hierarchies for passing data in a binary format.
 Similar to WSDL in web services or CORBA's IDL, slice provides a way to
 specify how types can pass between different programming languages. For

@@ -17,7 +17,7 @@ and get running.
 
 OMERO.insight and OMERO.importer are desktop applications written in Java
 and require Java |javaversion| (or higher) to be installed on the user's
-computer (this can easily be installed from `<http://java.com/>`_ if it is not
+computer (this can easily be installed from `<https://java.com/>`_ if it is not
 already included in your OS).
 
 Our user assistance :help:`help website<>` provides a series of
@@ -86,7 +86,7 @@ For more information and guides to using OMERO.web, see our
 :help:`help website <>`.
 
 There are also additional apps for OMERO.web such as
-`OMERO.figure <http://figure.openmicroscopy.org>`_, which provides all the
+`OMERO.figure <https://figure.openmicroscopy.org>`_, which provides all the
 tools you need to build figures from your images for publications and
 presentations.
 
