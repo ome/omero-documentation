@@ -95,7 +95,13 @@ Install the OMERO.web requirements. Select one of the commands corresponding to 
     # option 2: in a virtual environment with --system-site-packages off
     /home/omero/omerowebvenv/bin/pip install --upgrade -r /home/omero/OMERO.py/share/web/requirements-py27-all.txt
     
-    
+
+Installing OMERO.web apps
+-------------------------
+
+A number of apps are available to add functionality to OMERO.web, such as OMERO.figure and OMERO.iviewer.
+See the main website for a `list of released apps <https://www.openmicroscopy.org/omero/apps/>`_.
+These apps are optional and can be installed via pip to your OMERO.web virtual environment at any time.
 
 Configuring OMERO.web
 ---------------------
