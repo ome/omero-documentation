@@ -1,8 +1,8 @@
 Documentation files to be linked under the ``docs/sphinx`` directory of
-http://github.com/openmicroscopy/openmicroscopy.
+https://github.com/openmicroscopy/openmicroscopy.
 
 .. image:: https://travis-ci.org/openmicroscopy/ome-documentation.png
-   :target: http://travis-ci.org/openmicroscopy/ome-documentation
+   :target: https://travis-ci.org/openmicroscopy/ome-documentation
 
 ***************************
 Getting Started With Sphinx
@@ -59,7 +59,7 @@ guidelines. A quick overview:
 * goals for ``make`` and ``make.bat`` are held in ``Makefile``.
  
 A reference of reStructuredText (reST) is available at
-`http://thomas-cokelaer.info <http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html>`_.
+`https://thomas-cokelaer.info <https://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html>`_.
 It is recommended to familiarise oneself with the syntax outlined there.
 
 A tutorial covering Sphinx, which enhances working with reST documents, can be
@@ -352,13 +352,13 @@ more than once, e.g.::
     
     ...
     
-    .. _Python.org: http://www.python.org
+    .. _Python.org: https://www.python.org
     
 If a hyperlink appears only once, please use anonymous, "one-off" hyperlinks
 (two underscores)::
     
-    `RFC 2396 <http://www.rfc-editor.org/rfc/rfc2396.txt>`__ and `RFC
-    2732 <http://www.rfc-editor.org/rfc/rfc2732.txt>`__ together
+    `RFC 2396 <https://www.rfc-editor.org/rfc/rfc2396.txt>`__ and `RFC
+    2732 <https://www.rfc-editor.org/rfc/rfc2732.txt>`__ together
     define the syntax of URIs.
     
 Finally, please avoid using ``here`` as the hyperlink name, as in::
@@ -410,13 +410,13 @@ The table below lists targets for common hyperlinks.
 =========================== ==============================================
 Target name                 Link
 =========================== ==============================================
-Python                      http://www.python.org
-Matplotlib                  http://matplotlib.org/
-Pillow                      http://pillow.readthedocs.org
+Python                      https://www.python.org
+Matplotlib                  https://matplotlib.org/
+Pillow                      https://pillow.readthedocs.org
 Hibernate                   http://www.hibernate.org
 ZeroC                       https://zeroc.com
 Ice                         https://zeroc.com
-Jenkins                     http://jenkins-ci.org
+Jenkins                     https://jenkins.io/
 roadmap                     https://trac.openmicroscopy.org/ome/roadmap
 Open Microscopy Environment https://www.openmicroscopy.org
 Glencoe Software, Inc.      https://www.glencoesoftware.com/
@@ -545,7 +545,7 @@ Writing Conventions
 * Bullet point lists should begin with a capital letter and end with a full
   stop if each point is a complete sentence, or more than one sentence. If
   not, no punctuation is necessary
-  (see http://oxforddictionaries.com/words/bullet-points).
+  (see https://en.oxforddictionaries.com/punctuation/bullet-points).
 * Note that if you are giving an example link which is phrased like a
   hyperlink but not formatted as one because it does not actually exist, you
   need to prepend it with a '\\' to escape the

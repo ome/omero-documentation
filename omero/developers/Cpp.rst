@@ -4,7 +4,7 @@ OMERO C++ language bindings
 Using the :zerocdoc:`Ice C++ language mapping
 <display/Ice/Hello+World+Application>` from ZeroC_, OMERO provides
 native access to your data from C++ code. `CMake
-<http://www.cmake.org/>`_ is used for building the C++ bindings.
+<https://www.cmake.org/>`_ is used for building the C++ bindings.
 
 **Binaries are not provided**, therefore it will be necessary for you
 to compile your own.
@@ -146,7 +146,7 @@ not be used unless strictly needed.
 :program:`cmake` supports configuration of the build using many
 different environment variables and options; for a full list, see the
 `cmake reference documentation
-<http://www.cmake.org/cmake/help/documentation.html>`_. The following
+<https://www.cmake.org/cmake/help/documentation.html>`_. The following
 environment variables are commonly needed:
 
 :envvar:`CMAKE_INCLUDE_PATH`
@@ -176,7 +176,7 @@ environment variables are commonly needed:
 
 :envvar:`CXX`
     C++ compiler executable. Useful with `ccache
-    <http://ccache.samba.org/>`_.
+    <https://ccache.samba.org/>`_.
 
 :envvar:`CXXFLAGS`
     C++ compiler flags. Use of ``CMAKE_CXX_FLAGS`` is preferred.
@@ -294,9 +294,9 @@ running :program:`cmake`. Commonly needed options include:
     installation. Use if there are any problems finding Ice.
 
 :program:`cmake` offers many additional options.  Please refer to the
-`documentation <http://www.cmake.org/cmake/help/v3.0/>`_ for further
+`documentation <https://www.cmake.org/cmake/help/v3.0/>`_ for further
 details, in particular to the `variables which change the behavior
-<http://www.cmake.org/cmake/help/v3.0/manual/cmake-variables.7.html#variables-that-change-behavior>`_
+<https://www.cmake.org/cmake/help/v3.0/manual/cmake-variables.7.html#variables-that-change-behavior>`_
 of the build.
 
 :program:`Visual Studio` configuration

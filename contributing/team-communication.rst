@@ -47,7 +47,7 @@ older tasks.
 Trello
 ------
 
-`Trello <http://www.trello.com>`_ is an online organizational tool used to
+`Trello <https://www.trello.com>`_ is an online organizational tool used to
 manage "cards" arranged in "lists" on various subject-themed "boards". This is
 currently the team's main internal planning tool for higher level development
 goals and for managing documentation, testing, and the maintenance of our

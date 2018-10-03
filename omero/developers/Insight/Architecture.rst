@@ -33,9 +33,9 @@ functionality:
     If you want to add a new agent, go to :doc:`/developers/Insight/HowTo/BuildAgent`.
 
 These agents are internally organized according to the MVC
-(` Model-View-Controller <http://en.wikipedia.org/wiki/Model-view-controller>`_)
+(` Model-View-Controller <https://en.wikipedia.org/wiki/Model-view-controller>`_)
 pattern, PAC
-(` Presentation-Abstraction-Control <http://en.wikipedia.org/wiki/Presentation-abstraction-control>`_)
+(` Presentation-Abstraction-Control <https://en.wikipedia.org/wiki/Presentation-abstraction-control>`_)
 pattern, or a combination of the two. They rely on the services provided
 by the bottom layer, the **Container**, to accomplish their tasks.
 
@@ -56,7 +56,7 @@ with services to:
 Initialization of Agents
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. _Fow: http://martinfowler.com/books
+.. _Fow: https://martinfowler.com/books
 
 Agents let the container create them and then manage their life-cycle.
 This is achieved through the use of a common interface, ``Agent``, that
@@ -96,7 +96,7 @@ Interactions among agents are event-driven. Agents communicate by using
 a shared :doc:`/developers/Insight/EventBus` provided by the
 container. The event bus is an event propagation mechanism loosely based
 on the
-` Publisher-Subscriber <http://en.wikipedia.org/wiki/Publish/subscribe>`_
+` Publisher-Subscriber <https://en.wikipedia.org/wiki/Publish/subscribe>`_
 pattern and can be regarded as a time-ordered event queue - if event A
 is posted on the bus before event B, then event A is also delivered
 before event B.

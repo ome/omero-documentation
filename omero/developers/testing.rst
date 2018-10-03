@@ -194,7 +194,7 @@ If Eclipse ever gets out of sync after the first build,
 
 A prerequisite of running unit and integration tests in the Eclipse UI is
 having the TestNG plug-in installed and working (help available on the
-`TestNG site <http://testng.org/doc/eclipse.html>`_).
+`TestNG site <https://testng.org/doc/eclipse.html>`_).
 
 Running the unit tests under Eclipse requires no extra settings and is as
 easy as navigating to the package or class context menu :guilabel:`Run As`
@@ -351,7 +351,7 @@ add paths to :envvar:`PYTHONPATH` specifically for `pytest`.
 
         py.test --help
 
-and `<http://pytest.org/latest/usage.html>`_ for more help in running tests.
+and `<https://pytest.org/latest/usage.html>`_ for more help in running tests.
 
 Failing tests
 ^^^^^^^^^^^^^
@@ -374,7 +374,7 @@ Writing tests
 Writing Java tests
 ^^^^^^^^^^^^^^^^^^
 
-For more information on writing tests in general see `<http://testng.org>`_.
+For more information on writing tests in general see `<https://testng.org>`_.
 For a test to be an "integration" test, place it in the "integration"
 TestNG group. If a test is temporarily broken, add it to the "broken" group:
 
@@ -438,7 +438,7 @@ To write and run Python tests you first need to install `pytest`:
 
     pip install pytest
 
-For more information on writing tests in general see `<http://pytest.org>`_.
+For more information on writing tests in general see `<https://pytest.org>`_.
 
 Similar to the OmeroJava tests, the tests under
 :sourcedir:`components/tools/OmeroPy/test`,

@@ -201,9 +201,9 @@ Then specify this location using the ``script_url`` option.
     $ bin/omero config append omero.web.open_with '["xyz_viewer", "url_name"], {"script_url": "myviewer/openwith.js"}]'
 
     # 'Open with' option loads a script from the specified url.
-    # The script will open any object with url http://www.ncbi.nlm.nih.gov/protein/:name
+    # The script will open any object with url https://www.ncbi.nlm.nih.gov/protein/:name
     # and is enabled when the :name of the object is a number (all digits)
-    $ bin/omero config append omero.web.open_with '["GenBank Protein", "http://www.ncbi.nlm.nih.gov/protein/", {"script_url": "http://will-moore.github.io/presentations/2016/OpenWith-Filtering-June-2016/openwith.js"}]'
+    $ bin/omero config append omero.web.open_with '["GenBank Protein", "https://www.ncbi.nlm.nih.gov/protein/", {"script_url": "https://will-moore.github.io/presentations/2016/OpenWith-Filtering-June-2016/openwith.js"}]'
 
 
 OMERO.web plugins

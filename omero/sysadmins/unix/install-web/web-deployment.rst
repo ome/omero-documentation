@@ -14,9 +14,9 @@ dependencies.
 
 OMERO.web can be deployed with:
 
--  `WSGI <http://wsgi.readthedocs.org>`_ using a WSGI capable web server
+-  `WSGI <https://wsgi.readthedocs.org>`_ using a WSGI capable web server
    such as
-   `NGINX <http://nginx.org/>`_ and `Gunicorn <http://docs.gunicorn.org/>`_
+   `NGINX <https://nginx.org/>`_ and `Gunicorn <https://docs.gunicorn.org/>`_
 -  the built-in Django lightweight development server (for **testing**
    only; see the :doc:`/developers/Web/Deployment` page)
 
@@ -83,7 +83,7 @@ more specific walkthrough listed below.
     `Apache mod_proxy documentation <https://httpd.apache.org/docs/current/mod/mod_proxy.html>`_.
 
 This guide uses the example of deploying OMERO.web **separately** from OMERO.server with
-`NGINX <http://nginx.org/>`_ and `Gunicorn <http://docs.gunicorn.org/>`_.
+`NGINX <https://nginx.org/>`_ and `Gunicorn <https://docs.gunicorn.org/>`_.
 If you opt to install OMERO.web with the OMERO.server, change ``OMERO.py``
 to ``OMERO.server`` in the commands below.
 
@@ -106,12 +106,12 @@ Prerequisites
 
    -  Pillow_ [2]_
 
-   -  `NumPy <http://www.numpy.org>`_ >=1.9 
+   -  `NumPy <https://www.numpy.org>`_ >=1.9 
 
    -  Matplotlib_
 
--  A `WSGI <http://wsgi.readthedocs.org>`_-capable webserver such as
-   `NGINX <http://nginx.org/>`_ and `Gunicorn <http://docs.gunicorn.org/>`_
+-  A `WSGI <https://wsgi.readthedocs.org>`_-capable webserver such as
+   `NGINX <https://nginx.org/>`_ and `Gunicorn <https://docs.gunicorn.org/>`_
 
 .. [1] The currently supported version of the django module used by
        OMERO.web (1.8) requires Python 2.7. The older version (1.6)
@@ -165,7 +165,7 @@ Additional settings can be configured by changing the following properties:
       processes to handle many requests per second.
 
 - :property:`omero.web.wsgi_args` Additional arguments. For more details
-  check `Gunicorn Documentation <http://docs.gunicorn.org/en/stable/settings.html>`_.
+  check `Gunicorn Documentation <https://docs.gunicorn.org/en/stable/settings.html>`_.
 
 NGINX configuration
 -------------------
@@ -188,7 +188,7 @@ configuration redirect the output of the following command into a file:
 
 For production servers you may need to add additional directives to the
 configuration file, for example to enable
-`HTTPS <http://nginx.org/en/docs/http/configuring_https_servers.html>`_.
+`HTTPS <https://nginx.org/en/docs/http/configuring_https_servers.html>`_.
 As an alternative to manually modifying the generated file you can generate
 a minimal configuration:
 
@@ -255,9 +255,9 @@ offer alternative access to binary data.
 .. note::
     Handling streaming request/responses requires proxy buffering
     to be turned off. For more details refer to
-    `Gunicorn deployment <http://docs.gunicorn.org/en/stable/deploy.html>`_
+    `Gunicorn deployment <https://docs.gunicorn.org/en/stable/deploy.html>`_
     and
-    `NGINX configuration <http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffering>`_.
+    `NGINX configuration <https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffering>`_.
 
 .. note::
     :property:`omero.web.application_server.max_requests` should be set to 0
@@ -338,7 +338,7 @@ Debugging
 ^^^^^^^^^
 
 To run the WSGI server in debug mode, enable
-`Gunicorn logging <http://docs.gunicorn.org/en/stable/settings.html#logging>`_
+`Gunicorn logging <https://docs.gunicorn.org/en/stable/settings.html#logging>`_
 using :property:`omero.web.wsgi_args`:
 
 ::
@@ -362,7 +362,7 @@ to download data then you have to use async workers; read more about
 :ref:`trial_download_limitation` above.
 
 See
-`Gunicorn design <http://docs.gunicorn.org/en/stable/design.html>`_ for more details.
+`Gunicorn design <https://docs.gunicorn.org/en/stable/design.html>`_ for more details.
 
 
 EXPERIMENTAL: Sync workers
@@ -375,7 +375,7 @@ EXPERIMENTAL: Sync workers
 Additional settings can be configured by changing the following properties:
 
 - The number of worker threads for handling requests, see
-  `Gunicorn threads <http://docs.gunicorn.org/en/stable/settings.html#threads>`_ ::
+  `Gunicorn threads <https://docs.gunicorn.org/en/stable/settings.html#threads>`_ ::
 
       $ OMERO.py/bin/omero config set omero.web.wsgi_worker_class
       $ OMERO.py/bin/omero config set omero.web.wsgi_threads $(2-4 x NUM_CORES)
@@ -392,7 +392,7 @@ EXPERIMENTAL: Async workers
 Additional settings can be configured by changing the following properties:
 
 - The maximum number of simultaneous clients, see
-  `Gunicorn worker-connections <http://docs.gunicorn.org/en/stable/settings.html#worker-connections>`_ ::
+  `Gunicorn worker-connections <https://docs.gunicorn.org/en/stable/settings.html#worker-connections>`_ ::
 
       $ OMERO.py/bin/omero config set omero.web.wsgi_worker_class gevent
       $ OMERO.py/bin/omero config set omero.web.wsgi_worker_connections 1000

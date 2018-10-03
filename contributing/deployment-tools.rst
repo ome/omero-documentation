@@ -10,7 +10,7 @@ the connections between basic repositories and the testing workflow.
 .. note::
 
     This section requires a brief understanding of Ansible 
-    http://docs.ansible.com/ansible/intro_getting_started.html
+    https://docs.ansible.com/ansible/intro_getting_started.html
     and Docker engine https://docs.docker.com/.
 
 Prerequisites locations

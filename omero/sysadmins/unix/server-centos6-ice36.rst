@@ -256,7 +256,7 @@ SELinux
 **The following steps are run as root.**
 
 If you are running a system with SELinux enabled (it is
-`enabled by default on CentOS 6 <http://wiki.centos.org/HowTos/SELinux>`_)
+`enabled by default on CentOS 6 <https://wiki.centos.org/HowTos/SELinux>`_)
 and are unable to access OMERO.web you may need to adjust the security policy:
 
 .. literalinclude:: walkthrough/walkthrough_centos6_py27_ius.sh
@@ -270,7 +270,7 @@ Installing Web apps
 
 It is possible to add Web applications to OMERO. If your app required some extra Python packages installed
 using ``pip``, those packages should be also installed in the virtual environment. For example,
-`OMERO.figure <http://figure.openmicroscopy.org/>`_ requires ``reportlab`` and ``markdown``::
+`OMERO.figure <https://figure.openmicroscopy.org/>`_ requires ``reportlab`` and ``markdown``::
 
     virtualenv -p /usr/bin/python2.7 /home/omero/omeroenv
     source /home/omero/omeroenv/bin/activate

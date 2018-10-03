@@ -62,7 +62,7 @@ rst_epilog += """
 .. |ExtendingOmero| replace:: :doc:`/developers/Server/ExtendingOmero`
 .. |BlitzGateway| replace:: :doc:`/developers/Python`
 .. |DevelopingOmeroClients| replace:: :doc:`/developers/GettingStarted/AdvancedClientDevelopment`
-.. _Spring: http://spring.io
+.. _Spring: https://spring.io
 .. |previousversion| replace:: %s
 .. |current_dbver|  replace:: %s
 .. |previous_dbver|  replace:: %s
@@ -102,8 +102,8 @@ omero_extlinks = {
     # Versioned Bio-Formats doc link
     'bf_v_doc' : (docs_root + '/bio-formats/' + conf_autogen.versions_bioformats + '/' + '%s', ''),
     # Miscellaneous links
-    'springdoc' : ('http://docs.spring.io/spring/docs/%s', ''),
-    'ivydoc' : ('http://ant.apache.org/ivy/history/2.3.0/%s', ''),
+    'springdoc' : ('https://docs.spring.io/spring/docs/%s', ''),
+    'ivydoc' : ('https://ant.apache.org/ivy/history/2.3.0/%s', ''),
     }
 extlinks.update(omero_extlinks)
 
@@ -136,7 +136,7 @@ html_theme_path.extend(['themes'])
 # Regular expressions that match URIs that should not be checked when doing a linkcheck build
 linkcheck_ignore += [r'http://localhost:\d+/?', 'http://localhost/',
     'http://www.hibernate.org',
-    'http://www.jboss.org',
+    'https://www.jboss.org',
     'https://code.google.com/archive/p/luke/',
     'https://www.youtube.com/channel/UCyySB9ZzNi8aBGYqcxSrauQ',
     'https://httpd.apache.org/docs/current/mod/mod_proxy.html',

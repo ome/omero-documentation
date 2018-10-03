@@ -180,7 +180,7 @@ various representations:
 
 .. seealso::
 
-    * http://en.wikipedia.org/wiki/Units_of_measurement
-    * http://en.wikipedia.org/wiki/System_of_measurement
-    * http://en.wikipedia.org/wiki/International_System_of_Units
+    * https://en.wikipedia.org/wiki/Units_of_measurement
+    * https://en.wikipedia.org/wiki/System_of_measurement
+    * https://en.wikipedia.org/wiki/International_System_of_Units
 

@@ -1,7 +1,7 @@
 OMERO search
 ============
 
-OMERO.server uses `Lucene <http://lucene.apache.org>`_ to index all string and
+OMERO.server uses `Lucene <https://lucene.apache.org>`_ to index all string and
 timestamp information in the database, as well as all ``OriginalFile`` which
 can be parsed to simple text (see :doc:`/developers/Search/FileParsers` for
 more information). The index is stored under :file:`/OMERO/FullText` or the
@@ -248,7 +248,7 @@ it is possible to extract more information specific to your site.
     :doc:`/developers/Model/StructuredAnnotations`,
     :doc:`/developers/Modules/Search/Bridges`,
     :doc:`/developers/Search/FileParsers`,
-    `Query Parser Syntax <http://lucene.apache.org/core/3_6_0/queryparsersyntax.html>`_,
+    `Query Parser Syntax <https://lucene.apache.org/core/3_6_0/queryparsersyntax.html>`_,
 
     `Luke <https://code.google.com/archive/p/luke/>`_
         a Java application which you can download and point at your ``/OMERO/FullText`` directory to get a better feeling for Lucene queries.

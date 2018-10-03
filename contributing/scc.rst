@@ -51,7 +51,7 @@ file and, if found, uses this username to connect to Github::
 
     $ scc merge master --info -v
     2013-01-16 22:06:00,256 [  scc.config] DEBUG Found github.user
-    Enter password for http://github.com/sbesson:
+    Enter password for https://github.com/sbesson:
 
 .. note::
    The password to be entered here is the GitHub password. Connecting using
@@ -64,7 +64,7 @@ are queried at the prompt::
     # github.token and github.user not found.
     # See `scc token` for simpifying use.
     Username or token: sbesson
-    Enter password for http://github.com/sbesson:
+    Enter password for https://github.com/sbesson:
 
 .. _scc merge:
 

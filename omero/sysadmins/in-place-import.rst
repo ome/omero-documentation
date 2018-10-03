@@ -280,7 +280,7 @@ but at least there cannot be an accidental loss.
     around this.
 
 If you are unclear about how hard-linking works, please see the
-`Hard link <http://en.wikipedia.org/wiki/Hard_link>`_ article on
+`Hard link <https://en.wikipedia.org/wiki/Hard_link>`_ article on
 Wikipedia.
 
 The semantics of hard-linking have changed recently on Linux systems
@@ -294,7 +294,7 @@ access* to the file (i.e. you have appropriate read and execute
 permissions on the directory path containing the file), but do
 not check the file permissions themselves.  See the `kernel-hardening
 mailing list post
-<http://www.openwall.com/lists/kernel-hardening/2012/02/21/20>`__
+<https://www.openwall.com/lists/kernel-hardening/2012/02/21/20>`__
 which describes the change in more detail.  The implication for
 in-place import is that the user performing the import must own or
 have read-write permissions on the data files being imported in-place.

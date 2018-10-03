@@ -5,8 +5,8 @@ Build System
 
 	The page goes into details about how the build system is configured.
 
-.. _Ant: http://ant.apache.org
-.. _Ivy: http://ant.apache.org/ivy
+.. _Ant: https://ant.apache.org
+.. _Ivy: https://ant.apache.org/ivy
 
 OMERO mostly uses an Ant_-based build with dependency management provided by
 Ivy_. :doc:`C++ code </developers/Cpp>` is built using Cmake and Python
@@ -146,7 +146,7 @@ resolves the following locations in order:
    build system in the `install` step of the lifecycle
 #. the local dependency repository under :file:`lib/repository`
 #. the local Maven cache under :file:`~/.m2/repository`
-#. the `Maven central repository <http://central.sonatype.org>`_
+#. the `Maven central repository <https://central.sonatype.org>`_
 #. the `OME artifactory`_
 
 Bio-Formats dependencies are resolved using a specific

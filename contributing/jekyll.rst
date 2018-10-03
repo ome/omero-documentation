@@ -1,13 +1,13 @@
 Jekyll hosted websites
 ======================
 
-A number of OME websites are produced using `Jekyll <http://jekyllrb.com/>`_,
+A number of OME websites are produced using `Jekyll <https://jekyllrb.com/>`_,
 including:
 
 - `Main OME website <https://www.openmicroscopy.org/>`_
-- `OME blog <http://blog.openmicroscopy.org/>`_
-- `OME Help site <http://help.openmicroscopy.org/>`_
-- `OMERO.figure website <http://figure.openmicroscopy.org/>`_
+- `OME blog <https://blog.openmicroscopy.org/>`_
+- `OME Help site <https://help.openmicroscopy.org/>`_
+- `OMERO.figure website <https://figure.openmicroscopy.org/>`_
 
 These sites can be built and tested by installing a local copy of Jekyll.
 The Help and Figure sites are also built by CI jobs, see :doc:`ci-docs`.
@@ -74,7 +74,7 @@ static website and then deploying it on the web server:
 
 - to release the Jekyll source code, a signed Git tag needs to be created from
   the master branch of the source code. Website tags must follow the
-  [Calendar Versioning](http://calver.org/#youtube-dl) scheme using the tag
+  [Calendar Versioning](https://calver.org/#youtube-dl) scheme using the tag
   date
 - after pushing the tag, an artifact of the static website will be built by
   [Travis CI](https://travis-ci.org/openmicroscopy/www.openmicroscopy.org) and 
@@ -86,7 +86,7 @@ static website and then deploying it on the web server:
 OME Blog
 ^^^^^^^^
 
-The source for `blog.openmicroscopy.org <http://blog.openmicroscopy.org>`_ is
+The source for `blog.openmicroscopy.org <https://blog.openmicroscopy.org>`_ is
 at `<https://github.com/ome/blog>`_.
 The website uses the 'gh-pages' branch and as there is no merge build or
 staging page, you should open a PR directly against this branch. The files are
@@ -96,7 +96,7 @@ automatically updates the live site.
 Help site
 ^^^^^^^^^
 
-`help.openmicroscopy.org <http://help.openmicroscopy.org>`_ covers OMERO user
+`help.openmicroscopy.org <https://help.openmicroscopy.org>`_ covers OMERO user
 guides illustrated with screenshots and also an introduction for facility
 managers aimed at signposting them to parts of the sysadmin docs without
 burying them in technical details from the start. Increasingly these are
@@ -111,7 +111,7 @@ html.
 Once a PR is open against the ‘master’ branch and has passed Travis, you can
 build the staging site for review by triggering the
 :jenkinsjob:`OME-help-staging` job. The
-site will be viewable at `<http://help.staging.openmicroscopy.org>`_.
+site will be viewable at `<https://help.staging.openmicroscopy.org>`_.
 
 Once the PR is merged, running the :jenkinsjob:`OME-help-release` build will
 open a PR to transfer the content to the ‘gh-pages’ branch. Once that PR is
@@ -120,7 +120,7 @@ merged, the live site will be updated automatically.
 Figure website
 ^^^^^^^^^^^^^^
 
-`<http://figure.openmicroscopy.org/>`_ is now mostly a legacy site from before
+`<https://figure.openmicroscopy.org/>`_ is now mostly a legacy site from before
 OMERO.figure was considered a core part of the project. It will likely be
 merged into the main website in the future but for now it hosts a live demo,
 installation instructions, release announcements and other OMERO.figure
@@ -133,7 +133,7 @@ The live website uses the ‘gh-pages’ branch but PRs should be opened against
 Once a PR is open against the ‘gh-pages-staging’ branch, you can build the
 staging site for review by triggering the :jenkinsjob:`FIGURE-help-staging`
 job. The site will be viewable at
-`<http://figure.staging.openmicroscopy.org>`_.
+`<https://figure.staging.openmicroscopy.org>`_.
 
 Once the PR is merged, running the :jenkinsjob:`FIGURE-help-release` build
 will open a PR to transfer the content to the ‘gh-pages’ branch. Once that PR

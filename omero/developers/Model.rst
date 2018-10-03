@@ -73,7 +73,7 @@ exceptions in the model.
 .. figure:: /images/model-generation.png
    :align: left
    :width: 60%
-   :alt: Code generation steps figure from http://dx.doi.org/10.1038/nmeth.1896
+   :alt: Code generation steps figure from https://dx.doi.org/10.1038/nmeth.1896
 
 
 Conceptually, the XSD files under the :file:`components/specification`

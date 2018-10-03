@@ -99,16 +99,16 @@ There are any number of other projects which have set up similar
 practices for code contributions. If you would like to read more on
 the rationale, please see:
 
-* http://incubator.apache.org/
-* http://www.apache.org/foundation/how-it-works.html
+* https://incubator.apache.org/
+* https://www.apache.org/foundation/how-it-works.html
 
 .. seealso::
 
-	http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
+	https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
 		Best practices for git commit message formatting
 	
-	http://en.wikipedia.org/wiki/Technical_debt
+	https://en.wikipedia.org/wiki/Technical_debt
 		Wikipedia article on Technical debt
 
 .. _header templates: https://github.com/openmicroscopy/openmicroscopy/blob/develop/docs/headers.txt
-.. _git submodules: http://git-scm.com/book/en/Git-Tools-Submodules
+.. _git submodules: https://git-scm.com/book/en/Git-Tools-Submodules

@@ -11,7 +11,7 @@ Ensuring you have a valid PostgreSQL version
 
 For OMERO |version|, PostgreSQL version |postgresversion| or later is
 recommended. Make sure you are using a
-`supported version <http://www.postgresql.org/support/versioning/>`_.
+`supported version <https://www.postgresql.org/support/versioning/>`_.
 
 You can check which version of PostgreSQL you have installed with any of
 the following commands:
@@ -37,7 +37,7 @@ version of PostgreSQL available.  If the database was not migrated to
 the new version automatically, restore your backup after installing,
 configuring and starting the new version of the database server.
 If a PostgreSQL server was not provided by your system, `EnterpriseDB
-<http://www.enterprisedb.com/>`_ provide an installer.
+<https://www.enterprisedb.com/>`_ provide an installer.
 
 
 Checking PostgreSQL port listening status
@@ -136,11 +136,11 @@ After making any configuration changes to :file:`postgresql.conf` or
 
 .. seealso::
 
-    `PostgreSQL <http://www.postgresql.org/docs/current/interactive/index.html>`_ 
+    `PostgreSQL <https://www.postgresql.org/docs/current/interactive/index.html>`_ 
         Interactive documentation for the current release of PostgreSQL.
 
-    `Connections and Authentication <http://www.postgresql.org/docs/current/interactive/runtime-config-connection.html>`_
+    `Connections and Authentication <https://www.postgresql.org/docs/current/interactive/runtime-config-connection.html>`_
         Section of the PostgreSQL documentation about configuring the server using `postgresql.conf`.
 
-    `Client Authentication <http://www.postgresql.org/docs/current/interactive/client-authentication.html>`_
+    `Client Authentication <https://www.postgresql.org/docs/current/interactive/client-authentication.html>`_
         Chapter of the PostgreSQL documentation about configuring client authentication with `pg_hba.conf`.

@@ -26,7 +26,7 @@ client including:
 Firewall configuration
 ----------------------
 
-.. _IANA: http://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xml
+.. _IANA: https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xml
 
 Securing your OMERO system with so called *firewalling* or *packet filtering*
 can be done quite easily. By default, OMERO clients only need to connect to

@@ -30,7 +30,7 @@ aspects.
    ``IAdmin.checkPassword()``.
 
 -  If authentication occurs, the request is passed to an
-   `EJB3 <http://www.oracle.com/technetwork/java/javaee/ejb/index.html>`_ 
+   `EJB3 <https://www.oracle.com/technetwork/java/javaee/ejb/index.html>`_ 
    interceptor which checks
    whether or not the authenticated user is authorized for that service
    method. Methods are labelled either ``@RolesAllowed("user")``,
