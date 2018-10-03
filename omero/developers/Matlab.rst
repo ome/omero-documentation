@@ -246,8 +246,15 @@ argument::
     datasets = project_1.linkedDatasetList;
     % Get the first dataset in the Java list
     dataset_1 = datasets.get(0);
+    dataset_name = dataset_1.getName().getValue(); % dataset's name
+    dataset_id = dataset_1.getId().getValue(); % dataset's id
     % Retrieve all the images in the datasets as a Java List (index will start at 0)
     imageList = dataset_1.linkedImageList;
+    for i = 0 : imageList.size()-1,
+        image = imageList.get(i);
+        image_name = image.getName().getValue();
+    end
+
 
 .. warning::
   Loading the entire projects/datasets/images graph can be time-consuming and
