@@ -245,14 +245,16 @@ argument::
     % Get all the datasets in the Project
     datasets = project_1.linkedDatasetList;
     % Get the first dataset in the Java list
-    dataset_1 = datasets.get(0);
+    dataset_1 = datasets.get(0); % To iterate through the datasets, do for j = 0: datasets.size()-1
     dataset_name = dataset_1.getName().getValue(); % dataset's name
     dataset_id = dataset_1.getId().getValue(); % dataset's id
     % Retrieve all the images in the datasets as a Java List (index will start at 0)
     imageList = dataset_1.linkedImageList;
+    % Iterate through the images
     for i = 0 : imageList.size()-1,
         image = imageList.get(i);
-        image_name = image.getName().getValue();
+        image_name = image.getName().getValue(); % image's name
+        image_id = image.getId().getValue(); % image's id
     end
 
 
