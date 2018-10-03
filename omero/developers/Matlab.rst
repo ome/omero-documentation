@@ -225,9 +225,11 @@ their owner or group using::
 
 If the projects contain datasets, the datasets will automatically be loaded::
 
-    for j = 1 : numel(projects)
-        datasetsList = projects(j).linkedDatasetList;
-        for i = 0:datasetsList.size()-1,
+    for j = 1 : numel(projects) % Matlab array, index start at 1
+        % Get all the datasets in the Project
+        datasetsList = projects(j).linkedDatasetList; % Java List
+        % Iterate through the Java list, index start at 0
+        for i = 0:datasetsList.size()-1, 
             d = datasetsList.get(i);
         end
     end
@@ -236,9 +238,16 @@ If the datasets contain images, the images are not automatically loaded. To
 load the whole graph (projects, datasets, images), pass `true` as an optional
 argument::
 
-    myLoadedProjects = getProjects(session, [], true)
+    % Load the specified Projects and the whole graph 
     loadedProjects = getProjects(session, ids, true)
-    imageList = loadedProjects(1).linkedDatasetList.get(0).linkedImageList;
+    % Get the first project
+    project_1 = loadedProjects(1) % Matlab array, index start at 1
+    % Get all the datasets in the Project
+    datasets = project_1.linkedDatasetList;
+    % Get the first dataset in the Java list
+    dataset_1 = datasets.get(0);
+    % Retrieve all the images in the datasets as a Java List (index will start at 0)
+    imageList = dataset_1.linkedImageList;
 
 .. warning::
   Loading the entire projects/datasets/images graph can be time-consuming and
@@ -289,11 +298,11 @@ If the datasets contain images, the images are not automatically loaded. To
 load the whole graph (datasets, images), pass `true` as an optional argument::
 
     loadedDatasets = getDatasets(session, ids, true);
-    imageList = loadedDatasets(1).linkedImageList;
+    % Get the first dataset
+    dataset_1 = loadedDatasets(1); % Matlab array, index start at 1
+    % Get the all the images in the dataset as the Java list
+    imageList = dataset_1.linkedImageList;
 
-.. warning::
-  Loading the entire datasets/images graph can be time-consuming and
-  memory-consuming depending on the amount of data.
 
 To filter datasets by owner, use the ``owner`` parameter/key value. A value of
 ``-1`` means datasets are retrieved independently of their owner::
@@ -364,7 +373,7 @@ To filter images by group, use the ``group`` parameter/key value. A value of
     % Returns all images owned by the session user across groups
     images = getImages(session, 'group', -1);
 
-The ``Image``-``Pixels`` model implies you need to use the ``Pixels`` objects
+The ``Image``-``Pixels`` model (see :doc:`/developers/Model`) implies you need to use the ``Pixels`` objects
 to access valuable data about the ``Image``::
 
     pixels = image.getPrimaryPixels();
@@ -389,13 +398,13 @@ their owner or group using::
 
 Note that the wells are not loaded. The plate objects can be accessed using::
 
-    for j = 1 : numel(screens),
-    platesList = screens(j).linkedPlateList;
-    for i = 0 : platesList.size()-1,
-        plate = platesList.get(i);
-        plateAcquisitionList = plate.copyPlateAcquisitions();
-        for k = 0 : plateAcquisitionList.size()-1,
-            pa = plateAcquisitionList.get(i);
+    for j = 1 : numel(screens), % Matlab array, index start at 1
+        platesList = screens(j).linkedPlateList; % Java List, index start at 0
+        for i = 0 : platesList.size()-1,
+            plate = platesList.get(i);
+            plateAcquisitionList = plate.copyPlateAcquisitions(); % Java List
+            for k = 0 : plateAcquisitionList.size()-1,
+                pa = plateAcquisitionList.get(i);
         end
     end
 
@@ -477,6 +486,7 @@ method::
     'left outer join fetch img.pixels as pix '...
     'left outer join fetch pix.pixelsType as pt '...
     'where well.plate.id = ', num2str(plateId)], []);
+    % wellList is a Java List, index starts at 0
     for j = 0 : wellList.size()-1,
         well = wellList.get(j);
         wellsSampleList = well.copyWellSamples();
@@ -497,6 +507,8 @@ Raw data access
 ---------------
 
 You can retrieve data, plane by plane or retrieve a stack.
+The values are ``z`` in ``[0, sizeZ - 1]``, ``c`` in ``[0, sizeC - 1]``
+and ``t`` in ``[0, sizeT - 1]``.
 
 -  **Plane**
 
@@ -512,7 +524,7 @@ Alternatively, the image identifier can be passed to the function::
 
 -  **Tile**
 
-The tile of an input image at coordinates ``(z, c, t)`` originated at ``(x, y)`` and
+The tile of an input image at coordinates ``(z, c, t)`` originated at ``(x, y)`` (where ``x`` in ``[0, sizeX - 1]``, ``y`` in ``[0, sizeY - 1]``) and
 of dimensions ``(w, h)`` can be retrieved using the
 :source:`getTile <components/tools/OmeroM/src/image/getTile.m>` function::
 
