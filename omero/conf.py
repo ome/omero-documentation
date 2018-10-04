@@ -146,7 +146,8 @@ linkcheck_ignore += [r'http://localhost:\d+/?', 'http://localhost/',
     r'.*[.]?example\.com/.*',
     r'https://spreadsheets.google.com/.*',
     'https://msdn.microsoft.com/en-us/library/aa362244\(v=vs.85\).aspx',
-    'https://logback.qos.ch/'
+    'https://logback.qos.ch/',
+    'https://www.slf4j.org/'
 ]
 
 exclude_patterns = ['sysadmins/unix/walkthrough/requirements*',
