@@ -30,7 +30,7 @@ server, read a series of images and close the connection.
 
 ::
 
-   client = loadOmero(servername, port);
+   client = loadOmero(servername);
    session = client.createSession(user, password);
    client.enableKeepAlive(60);
    images = getImages(session, ids);
@@ -66,14 +66,14 @@ Alternatively, you can pass the server address to ``loadOmero;`` to create a cli
 
 Or, if you want a session created directly using the configuration :file:`ice.config` file::
 
-    >> [client1, session1] = loadOmero('ice.config');
+    >> [client, session] = loadOmero('ice.config');
 
 This is equivalent to::
 
-    >> client1 = loadOmero(servername, port);
-    >> session1 = client1.createSession(username, password)
+    >> client = loadOmero(servername, port);
+    >> session = client.createSession(username, password)
 
-where the variables ``servername``, ``port``, ``username`` and ``password`` are the values set in :file:`ice.config` for the previous example.
+where the variables ``servername``, ``port``, ``username`` and ``password`` are the values set in :file:`ice.config` for the previous example. The default port will be used if not specified.
 
 .. _connection_keepalive:
 
@@ -199,7 +199,7 @@ If you need to create another session without unloading/loading OMERO
 again, use the ``omero.client`` object directly::
 
     >> client = loadOmero(servername,port);
-    >> client = omero.client(username_1,password_1);
+    >> client = omero.client(username_1, password_1);
     >> session = c.createSession();
 
 
@@ -225,12 +225,14 @@ their owner or group using::
 
 If the projects contain datasets, the datasets will automatically be loaded::
 
-    for j = 1 : numel(projects) % Matlab array, index start at 1
+    for j = 1 : numel(projects) % Matlab list, index starts at 1
         % Get all the datasets in the Project
         datasetsList = projects(j).linkedDatasetList; % Java List
-        % Iterate through the Java list, index start at 0
-        for i = 0:datasetsList.size()-1, 
-            d = datasetsList.get(i);
+        % convert it to a Matlab list for convenience
+        datasets = toMatlabList(datasetsList);
+        % Iterate through datasets
+        for i = 1 : numel(datasets) 
+            d = datasets(i);
         end
     end
 
@@ -241,18 +243,20 @@ argument::
     % Load the specified Projects and the whole graph 
     loadedProjects = getProjects(session, ids, true)
     % Get the first project
-    project_1 = loadedProjects(1) % Matlab array, index start at 1
+    project_1 = loadedProjects(1) % Matlab array, index starts at 1
     % Get all the datasets in the Project
     datasets = project_1.linkedDatasetList;
-    % Get the first dataset in the Java list
-    dataset_1 = datasets.get(0); % To iterate through the datasets, do for j = 0: datasets.size()-1
+    % Get the first dataset in the Java list, index starts at 0
+    dataset_1 = datasets.get(0);
     dataset_name = dataset_1.getName().getValue(); % dataset's name
     dataset_id = dataset_1.getId().getValue(); % dataset's id
     % Retrieve all the images in the datasets as a Java List (index will start at 0)
     imageList = dataset_1.linkedImageList;
+    % convert it to a Matlab list for convenience
+    images = toMatlabList(imageList);
     % Iterate through the images
-    for i = 0 : imageList.size()-1,
-        image = imageList.get(i);
+    for i = 0 : numel(images)
+        image = images(i);
         image_name = image.getName().getValue(); % image's name
         image_id = image.getId().getValue(); % image's id
     end
@@ -308,8 +312,8 @@ load the whole graph (datasets, images), pass `true` as an optional argument::
 
     loadedDatasets = getDatasets(session, ids, true);
     % Get the first dataset
-    dataset_1 = loadedDatasets(1); % Matlab array, index start at 1
-    % Get the all the images in the dataset as the Java list
+    dataset_1 = loadedDatasets(1); % Matlab array, index starts at 1
+    % Get the all the images in the dataset as the Java list, index starts at 0
     imageList = dataset_1.linkedImageList;
 
 
