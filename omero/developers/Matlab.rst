@@ -255,7 +255,7 @@ argument::
     % convert it to a Matlab list for convenience
     images = toMatlabList(imageList);
     % Iterate through the images
-    for i = 0 : numel(images)
+    for i = 1 : numel(images)
         image = images(i);
         image_name = image.getName().getValue(); % image's name
         image_id = image.getId().getValue(); % image's id
