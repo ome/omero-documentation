@@ -1040,6 +1040,31 @@ attaches it to an image::
         roi = iUpdate.saveAndReturnObject(roi);
     end
 
+-  **Analyzing shapes**
+
+::
+
+    // Retrieve the roi linked to an image
+    service = session.getRoiService();
+    roiResult = service.findByImage(imageId, []);
+    n = rois.size;
+    toAnalyse = java.util.ArrayList;
+    for thisROI  = 1 : n
+        roi = rois.get(thisROI-1);
+        numShapes = roi.sizeOfShapes;
+        for ns = 1:numShapes
+            shape = roi.getShape(ns-1);
+            toAnalyse.add(java.lang.Long(shape.getId().getValue()));
+        end
+    end
+    //For convenience, we assume the shapes are on the first plane
+    z = 0;
+    c = 0;
+    t = 0;
+    stats = service.getShapeStatsRestricted(toAnalyse, z, t, [c]);
+    calculated = stats(1,1);
+    mean = calculated.mean(1,1);
+
 Deleting data
 -------------
 
