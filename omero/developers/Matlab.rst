@@ -892,24 +892,31 @@ that annotations can be linked to ROI.
 
 -  **Creating ROI**
 
-This example creates a ROI with two shapes, a rectangle and an ellipse, and
+This example creates a ROI with shapes, a rectangle, an ellipse and a polygon, and
 attaches it to an image::
 
     % First create a rectangular shape.
     rectangle = createRectangle(0, 0, 10, 20);
-    % Indicate on which plane to attach the shape
+    % Indicate on which plane (z, c, t) to attach the shape
     setShapeCoordinates(rectangle, 0, 0, 0);
 
     % First create an ellipse shape.
     ellipse = createEllipse(0, 0, 10, 20);
-    % Indicate on which plane to attach the shape
+    % Indicate on which plane (z, c, t) to attach the shape
     setShapeCoordinates(ellipse, 0, 0, 0);
+
+    % First create a polygon shape.
+    % Specify x-coordinates, y-coordinates
+    polygon = createPolygon([1 5 10 8], [1 5 5 10]);
+    % Indicate on which plane (z, c, t) to attach the shape
+    setShapeCoordinates(polygon, 0, 0, 0);
 
     % Create the roi.
     roi = omero.model.RoiI;
     % Attach the shapes to the roi, several shapes can be added.
     roi.addShape(rectangle);
     roi.addShape(ellipse);
+    roi.addShape(polygon);
 
     % Link the roi and the image
     roi.setImage(omero.model.ImageI(imageId, false));
