@@ -520,7 +520,7 @@ method::
 
 A channel associated to an image has an object called a logicalChannel associated to it.
 That entity contains valuable information e.g. emission wavelength, name, etc.
-Given an Image, retrieve channels associated to an image on the OMERO server::
+Given an Image, retrieve channels associated to an image on the OMERO server and the name of the channel::
 
     channels = loadChannels(session, image);
     for j = 1 : numel(channels) % Matlab array
