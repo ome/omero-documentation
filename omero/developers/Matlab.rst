@@ -21,7 +21,7 @@ Once OMERO.matlab is installed, the typical workflow is:
 #. :ref:`connection_init`
 #. :ref:`connection_keepalive`
 #. :ref:`unsecure_client` (optional)
-#. Do some work (load objects, work with them, upload to the server…)
+#. Do some work (load objects, work with them, upload to the server, etc.)
 #. :ref:`connection_close`
 #. :ref:`unload` (optional)
 
@@ -30,7 +30,7 @@ server, read a series of images and close the connection.
 
 ::
 
-   client = loadOmero(servername, port);
+   client = loadOmero(servername);
    session = client.createSession(user, password);
    client.enableKeepAlive(60);
    images = getImages(session, ids);
@@ -51,7 +51,7 @@ As described under |OmeroClients|, there are several ways to configure your
 connection to an OMERO server. OMERO.matlab comes with a few conveniences for
 making this work.
 
-If you run ``client = loadOmero();`` (i.e. loadOmero with an output argument),
+If you run ``client = loadOmero();`` (i.e. loadOmero without an input argument),
 then OMERO.matlab will try to configure the
 ``omero.client`` object for you. First, it checks the :envvar:`ICE_CONFIG`
 environment variable. If set, it will let the ``omero.client``
@@ -60,20 +60,20 @@ constructor initialize itself. Otherwise, it looks for the file
 with a default :file:`ice.config` file pointing at ``localhost``. To use this
 configuration file, you should replace ``localhost`` by your server address.
 
-Alternatively, you can pass the same parameters to ``loadOmero;`` that
-you would pass to ``omero.client``::
+Alternatively, you can pass the server address to ``loadOmero;`` to create a client::
 
-    >> omero_client_1 = loadOmero('localhost');
-    >> omero_client_2 = omero.client('localhost');
+    >> client = loadOmero(servername);
 
-Or, if you want a session created directly, the following are
-equivalent:
+Or, if you want a session created directly using the configuration :file:`ice.config` file::
 
-::
+    >> [client, session] = loadOmero('ice.config');
 
-    >> [client1, session1] = loadOmero('localhost');
-    >> client2 = loadOmero('localhost');
-    >> session2 = client2.createSession()
+This is equivalent to::
+
+    >> client = loadOmero(servername, port);
+    >> session = client.createSession(username, password)
+
+where the variables ``servername``, ``port``, ``username`` and ``password`` are the values set in :file:`ice.config` for the previous example. The default port will be used if not specified.
 
 .. _connection_keepalive:
 
@@ -84,20 +84,20 @@ For executing any long running task, you will need a background thread
 which keeps your session alive. If you are familiar with MATLAB
 ``Timers`` you can use
 :source:`omeroKeepAlive.m <components/tools/OmeroM/src/omeroKeepAlive.m>`
-directly or modify it to your liking.
+directly or modify it to your liking. By default the function creates a default 60-second timer.
 
 ::
 
-    >> [c,s] = loadOmero;
-    >> t = omeroKeepAlive(c); % Create a 60-second timer and starts it
+    >> [client, session] = loadOmero('ice.config');
+    >> timer = omeroKeepAlive(client); % Create timer and starts it.
     >> …
-    >> delete(t);             % Disable the keep-alive
+    >> delete(timer);             % Disable the keep-alive
 
 Alternatively, you can use the Java-based ``enableKeepAlive`` method,
-but it is not configurable from within MATLAB::
+but it is not configurable from within MATLAB. In that case, you will need to specify the time interval::
 
-    c.enableKeepAlive(60); % Call session.keepAlive() every 60 seconds
-    c.closeSession();      % Close session to end the keep-alive
+    client.enableKeepAlive(60); % Call session.keepAlive() every 60 seconds
+    client.closeSession();      % Close session to end the keep-alive
 
 Working in a different group
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -106,7 +106,7 @@ Each session is created within a given context, defining not only the session
 user but also the session group. The session context can be retrieved using the
 administration service::
 
-    eventContext = s.getAdminService().getEventContext();
+    eventContext = session.getAdminService().getEventContext();
     groupId = eventContext.groupId;
 
 Most read and write operations described below are performed in the context
@@ -140,14 +140,18 @@ When you are done with OMERO, it is critical that you close your connection to
 save resources::
 
     client.closeSession();
-    clear client1;
-    clear session1;
+    clear client;
+    clear session;
 
 If you created an unencrypted session, you will need to close the unsecure
 session as well::
 
     client.closeSession();
     unsecureClient.closeSession();
+    clear client;
+    clear unsecureClient;
+    clear session;
+    clear sessionUnencrypted;
 
 .. _unload:
 
@@ -194,17 +198,17 @@ After that, run ``unloadOmero()`` again::
 If you need to create another session without unloading/loading OMERO
 again, use the ``omero.client`` object directly::
 
-    >> [c,s] = loadOmero(arg1,arg2);
-    >> c = omero.client(arg3,arg4);
-    >> s = c.createSession();
+    >> client = loadOmero(servername,port);
+    >> client = omero.client(username_1, password_1);
+    >> session = c.createSession();
 
 
 Reading data
 ------------
 
 The ``IContainer`` service provides methods to load the data management
-hierarchy in OMERO -- projects, datasets… A list of examples follows
-indicating how to load projects, datasets, screens…
+hierarchy in OMERO -- projects, datasets, etc.. A list of examples follows
+indicating how to load projects, datasets, screens.
 
 -  **Projects**
 
@@ -221,10 +225,14 @@ their owner or group using::
 
 If the projects contain datasets, the datasets will automatically be loaded::
 
-    for j = 1 : numel(projects)
-        datasetsList = projects(j).linkedDatasetList;
-        for i = 0:datasetsList.size()-1,
-            d = datasetsList.get(i);
+    for j = 1 : numel(projects) % Matlab list, index starts at 1
+        % Get all the datasets in the Project
+        datasetsList = projects(j).linkedDatasetList; % Java List
+        % convert it to a Matlab list for convenience
+        datasets = toMatlabList(datasetsList);
+        % Iterate through datasets
+        for i = 1 : numel(datasets) 
+            d = datasets(i);
         end
     end
 
@@ -232,22 +240,39 @@ If the datasets contain images, the images are not automatically loaded. To
 load the whole graph (projects, datasets, images), pass `true` as an optional
 argument::
 
-    myLoadedProjects = getProjects(session, [], true)
+    % Load the specified Projects and the whole graph 
     loadedProjects = getProjects(session, ids, true)
-    imageList = loadedProjects(1).linkedDatasetList.get(0).linkedImageList;
+    % Get the first project
+    project_1 = loadedProjects(1) % Matlab array, index starts at 1
+    % Get all the datasets in the Project
+    datasets = project_1.linkedDatasetList;
+    % Get the first dataset in the Java list, index starts at 0
+    dataset_1 = datasets.get(0);
+    dataset_name = dataset_1.getName().getValue(); % dataset's name
+    dataset_id = dataset_1.getId().getValue(); % dataset's id
+    % Retrieve all the images in the datasets as a Java List (index will start at 0)
+    imageList = dataset_1.linkedImageList;
+    % convert it to a Matlab list for convenience
+    images = toMatlabList(imageList);
+    % Iterate through the images
+    for i = 1 : numel(images)
+        image = images(i);
+        image_name = image.getName().getValue(); % image's name
+        image_id = image.getId().getValue(); % image's id
+    end
+
 
 .. warning::
   Loading the entire projects/datasets/images graph can be time-consuming and
   memory-consuming depending on the amount of data.
 
-To return the orphaned datasets as well as the projects, you can query the
-second output argument of
+To return the orphaned datasets i.e. datasets not in a project, as well as the projects, you can query the second output argument of
 :source:`getProjects <components/tools/OmeroM/src/io/getProjects.m>`::
 
     [projects, orphanedDatasets] = getProjects(session)
 
 To filter projects by owner, use the ``owner`` parameter/key value. A value of
--1 means projects are retrieved independently of their owner::
+``-1`` means projects are retrieved independently of their owner::
 
     % Returns all projects owned by the specified user in the context of the
     % session group
@@ -260,7 +285,7 @@ To filter projects by owner, use the ``owner`` parameter/key value. A value of
     projects = getProjects(session, 'owner', -1);
 
 To filter projects by group, use the ``group`` parameter/key value. A value of
--1 means projects are retrieved independently of their group::
+``-1`` means projects are retrieved independently of their group::
 
     % Returns all projects owned by the session user in the specified group
     projects = getProjects(session, 'group', groupId);
@@ -286,14 +311,14 @@ If the datasets contain images, the images are not automatically loaded. To
 load the whole graph (datasets, images), pass `true` as an optional argument::
 
     loadedDatasets = getDatasets(session, ids, true);
-    imageList = loadedDatasets(1).linkedImageList;
+    % Get the first dataset
+    dataset_1 = loadedDatasets(1); % Matlab array, index starts at 1
+    % Get the all the images in the dataset as the Java list, index starts at 0
+    imageList = dataset_1.linkedImageList;
 
-.. warning::
-  Loading the entire datasets/images graph can be time-consuming and
-  memory-consuming depending on the amount of data.
 
 To filter datasets by owner, use the ``owner`` parameter/key value. A value of
--1 means datasets are retrieved independently of their owner::
+``-1`` means datasets are retrieved independently of their owner::
 
     % Returns all datasets owned by the specified user in the context of the
     % session group
@@ -306,7 +331,7 @@ To filter datasets by owner, use the ``owner`` parameter/key value. A value of
     datasets = getDatasets(session, 'owner', -1);
 
 To filter datasets by group, use the ``group`` parameter/key value. A value of
--1 means datasets are retrieved independently of their group::
+``-1`` means datasets are retrieved independently of their group::
 
     % Returns all datasets owned by the session user in the specified group
     datasets = getDatasets(session, 'group', groupId);
@@ -340,7 +365,7 @@ or group using::
     projectImages = getImages(session, 'project', projectIds)
 
 To filter images by owner, use the ``owner`` parameter/key value. A value of
--1 means images are retrieved independently of their owner::
+``-1`` means images are retrieved independently of their owner::
 
     % Returns all images owned by the specified user in the context of the
     % session group
@@ -352,7 +377,7 @@ To filter images by owner, use the ``owner`` parameter/key value. A value of
     images = getImages(session, 'owner', -1);
 
 To filter images by group, use the ``group`` parameter/key value. A value of
--1 means images are retrieved independently of their group::
+``-1`` means images are retrieved independently of their group::
 
     % Returns all images owned by the session user in the specified group
     images = getImages(session, 'group', groupId);
@@ -361,7 +386,7 @@ To filter images by group, use the ``group`` parameter/key value. A value of
     % Returns all images owned by the session user across groups
     images = getImages(session, 'group', -1);
 
-The ``Image``-``Pixels`` model implies you need to use the ``Pixels`` objects
+The ``Image``-``Pixels`` model (see :doc:`/developers/Model`) implies you need to use the ``Pixels`` objects
 to access valuable data about the ``Image``::
 
     pixels = image.getPrimaryPixels();
@@ -386,13 +411,13 @@ their owner or group using::
 
 Note that the wells are not loaded. The plate objects can be accessed using::
 
-    for j = 1 : numel(screens),
-    platesList = screens(j).linkedPlateList;
-    for i = 0:platesList.size()-1,
-        plate = platesList.get(i);
-        plateAcquisitionList = plate.copyPlateAcquisitions();
-        for k = 0:plateAcquisitionList.size()-1,
-            pa = plateAcquisitionList.get(i);
+    for j = 1 : numel(screens), % Matlab array, index start at 1
+        platesList = screens(j).linkedPlateList; % Java List, index start at 0
+        for i = 0 : platesList.size()-1,
+            plate = platesList.get(i);
+            plateAcquisitionList = plate.copyPlateAcquisitions(); % Java List
+            for k = 0 : plateAcquisitionList.size()-1,
+                pa = plateAcquisitionList.get(i);
         end
     end
 
@@ -403,7 +428,7 @@ second output argument of
     [screens, orphanedPlates] = getScreens(session)
 
 To filter screens by owner, use the ``owner`` parameter/key value. A value of
--1 means screens are retrieved independently of their owner::
+``-1`` means screens are retrieved independently of their owner::
 
     % Returns all screens owned by the specified user in the context of the
     % session group
@@ -416,7 +441,7 @@ To filter screens by owner, use the ``owner`` parameter/key value. A value of
     screens = getScreens(session, 'owner', -1);
 
 To filter screens by group, use the ``group`` parameter/key value. A value of
--1 means screens are retrieved independently of their group::
+``-1`` means screens are retrieved independently of their group::
 
     % Returns all screens owned by the session user in the specified group
     screens = getScreens(session, 'group', groupId);
@@ -439,7 +464,7 @@ their owner or group using::
     plates = getPlates(session, ids)
 
 To filter plates by owner, use the ``owner`` parameter/key value. A value of
--1 means plates are retrieved independently of their owner::
+``-1`` means plates are retrieved independently of their owner::
 
     % Returns all plates owned by the specified user in the context of the
     % session group
@@ -474,7 +499,8 @@ method::
     'left outer join fetch img.pixels as pix '...
     'left outer join fetch pix.pixelsType as pt '...
     'where well.plate.id = ', num2str(plateId)], []);
-    for j = 0:wellList.size()-1,
+    % wellList is a Java List, index starts at 0
+    for j = 0 : wellList.size()-1,
         well = wellList.get(j);
         wellsSampleList = well.copyWellSamples();
         well.getId().getValue()
@@ -483,21 +509,38 @@ method::
         % to populate your results appropriately 
         wellRow = well.getRow().getValue();
         wellColumn = well.getColumn().getValue();
-        for i = 0:wellsSampleList.size()-1,
+        for i = 0 : wellsSampleList.size()-1,
             ws = wellsSampleList.get(i);
             ws.getId().getValue()
             pa = ws.getPlateAcquisition();
         end
     end
 
+-  **Channel**
+
+A channel associated to an image has an object called a logicalChannel associated to it.
+That entity contains valuable information e.g. emission wavelength, name, etc.
+Given an Image, retrieve channels associated to an image on the OMERO server and the name of the channel::
+
+    channels = loadChannels(session, image);
+    for j = 1 : numel(channels) % Matlab array
+        channel = channels(j);
+        channelId = channel.getId().getValue();
+        lc = channel.getLogicalChannel();
+        channelName = lc.getName().getValue();
+    end
+
+
 Raw data access
 ---------------
 
 You can retrieve data, plane by plane or retrieve a stack.
+The values are ``z`` in ``[0, sizeZ - 1]``, ``c`` in ``[0, sizeC - 1]``
+and ``t`` in ``[0, sizeT - 1]``.
 
 -  **Plane**
 
-The plane of an input image at coordinates (z, c, t) can be retrieved using
+The plane of an input image at coordinates ``(z, c, t)`` can be retrieved using
 the :source:`getPlane <components/tools/OmeroM/src/image/getPlane.m>`
 function::
 
@@ -505,30 +548,30 @@ function::
 
 Alternatively, the image identifier can be passed to the function::
 
-    plane = getPlane(session, imageID, z, c, t);
+    plane = getPlane(session, imageId, z, c, t);
 
 -  **Tile**
 
-The tile of an input image at coordinates (z, c, t) originated at (x, y) and
-of dimensions (w, h) can be retrieved using the
+The tile of an input image at coordinates ``(z, c, t)`` originated at ``(x, y)`` (where ``x`` in ``[0, sizeX - 1]``, ``y`` in ``[0, sizeY - 1]``) and
+of dimensions ``(w, h)`` can be retrieved using the
 :source:`getTile <components/tools/OmeroM/src/image/getTile.m>` function::
 
     tile = getTile(session, image, z, c, t, x, y, w, h);
 
 Alternatively, the image identifier can be passed to the function::
 
-    tile = getTile(session, imageID, z, c, t, x, y, w, h);
+    tile = getTile(session, imageId, z, c, t, x, y, w, h);
 
 -  **Stack**
 
-The stack of an input image at coordinates (c, t) can be retrieved using the
+The stack of an input image at coordinates ``(c, t)`` can be retrieved using the
 :source:`getStack <components/tools/OmeroM/src/image/getStack.m>` function::
 
     stack = getStack(session, image, c, t);
 
 Alternatively, the image identifier can be passed to the function::
 
-    stack = getStack(session, imageID, c, t);
+    stack = getStack(session, imageId, c, t);
 
 All the methods described above will internally initialize a raw pixels store
 to retrieve the pixels data and close this store at the end of the call. This
@@ -574,7 +617,7 @@ This is useful when you need the ``Pixels`` intensity.
 
     % Indicate the step in each direction,
     % step = 1, will return values at index 0, 1, 2.
-    % step = 2, values at index 0, 2, 4…
+    % step = 2, values at index 0, 2, 4, etc.
     step = java.util.ArrayList;
     step.add(java.lang.Integer(1));
     step.add(java.lang.Integer(1));
@@ -629,11 +672,11 @@ parameter/key value::
 
 By default, only the annotations owned by the session owner are returned. To
 specify the owner of the annotations, use the ``owner`` paramter/key value
-pair. For instance to return all tag annotations owned by user 5::
+pair. For instance to return all tag annotations owned by user with an identifier equals to 5::
 
     tagAnnotations = getImageTagAnnotations(session, imageIds, 'owner', 5);
 
-To retrieve all annotations independently of their owner, use -1 as the owner
+To retrieve all annotations independently of their owner, use ``-1`` as the owner
 identifier::
 
    tagAnnotations = getImageTagAnnotations(session, imageIds, 'owner', -1);
@@ -693,8 +736,8 @@ Existing annotations can be linked to existing objects on the server using the
 function. For example, to link a tag annotation and a file annotation to the
 image ``image_id``::
 
-    link1 = linkAnnotation(session, tagAnnotation, 'image', image_id);
-    link2 = linkAnnotation(session, fileAnnotation, 'image', image_id);
+    link1 = linkAnnotation(session, tagAnnotation, 'image', imageId);
+    link2 = linkAnnotation(session, fileAnnotation, 'image', imageId);
 
 For existing file annotations, it is possible to replace the content of the
 original file without having to recreate a new file annotation using the
@@ -707,7 +750,7 @@ by the content of ``local_file_path`` using::
 
 .. seealso::
   :source:`WriteData.m <examples/Training/matlab/WriteData.m>`
-    Example script showing methods to write, link and retrieve annotations
+    Example script showing methods to write, link and retrieve annotations.
 
 Writing data
 ------------
@@ -765,7 +808,7 @@ context is determined by the parent screen::
 
     % Create two new projects in different groups
     screen1 = createScreen(session, 'screen name');
-    screen2 = createScreen(session, 'screen name', 'group', groupId
+    screen2 = createScreen(session, 'screen name', 'group', groupId);
     % Create new datasets linked to each project
     plate1 = createPlate(session, 'plate name', screen1);
     plate2 = createPlate(session, 'plate name', screen2.getId().getValue());
@@ -773,7 +816,7 @@ context is determined by the parent screen::
 .. seealso::
   :source:`WriteData.m <examples/Training/matlab/WriteData.m>`
     Example script showing methods to create projects, datasets, plates and
-    screens
+    screens.
 
 How to use OMERO tables
 -----------------------
@@ -784,7 +827,7 @@ How to use OMERO tables
 ::
 
     name = char(java.util.UUID.randomUUID());
-    columns = javaArray('omero.grid.Column', 2)
+    columns = javaArray('omero.grid.Column', 2);
     columns(1) = omero.grid.LongColumn('Uid', 'testLong', []);
     valuesString = javaArray('java.lang.String', 1);
     columns(2) = omero.grid.StringColumn('MyStringColumn', '', 64, valuesString);
@@ -812,7 +855,7 @@ How to use OMERO tables
     % Currently OMERO.tables are displayed only in OMERO.web and 
     % for Screen/plate/wells alone. In all cases the file annotation
     % needs to contain a namespace.
-    fa.setNs(rstring('NSBULKANNOTATIONS'));
+    fa.setNs(rstring(omero.constants.namespaces.NSBULKANNOTATIONS.value));
     link = linkAnnotation(session, fa, 'image', imageId);
 
 -  **Read the contents of the table**.
@@ -824,7 +867,7 @@ How to use OMERO tables
 
     % Read headers
     headers = tablePrx.getHeaders();
-    for i=1:size(headers, 1),
+    for i = 1 : size(headers, 1)
         headers(i).name; % name of the header
         % Do something
     end
@@ -834,7 +877,7 @@ How to use OMERO tables
     rows = [0:tablePrx.getNumberOfRows()-1]; % The number of rows you wish to read.
     data = tablePrx.slice(cols, rows); % Read the data.
     c = data.columns;
-    for i=1:size(c),
+    for i = 1 : size(c)
         column = c(i);
         % Do something
     end
@@ -849,24 +892,31 @@ that annotations can be linked to ROI.
 
 -  **Creating ROI**
 
-This example creates a ROI with two shapes, a rectangle and an ellipse, and
+This example creates a ROI with shapes, a rectangle, an ellipse and a polygon, and
 attaches it to an image::
 
     % First create a rectangular shape.
     rectangle = createRectangle(0, 0, 10, 20);
-    % Indicate on which plane to attach the shape
+    % Indicate on which plane (z, c, t) to attach the shape
     setShapeCoordinates(rectangle, 0, 0, 0);
 
     % First create an ellipse shape.
     ellipse = createEllipse(0, 0, 10, 20);
-    % Indicate on which plane to attach the shape
+    % Indicate on which plane (z, c, t) to attach the shape
     setShapeCoordinates(ellipse, 0, 0, 0);
+
+    % First create a polygon shape.
+    % Specify x-coordinates, y-coordinates
+    polygon = createPolygon([1 5 10 8], [1 5 5 10]);
+    % Indicate on which plane (z, c, t) to attach the shape
+    setShapeCoordinates(polygon, 0, 0, 0);
 
     % Create the roi.
     roi = omero.model.RoiI;
     % Attach the shapes to the roi, several shapes can be added.
     roi.addShape(rectangle);
     roi.addShape(ellipse);
+    roi.addShape(polygon);
 
     % Link the roi and the image
     roi.setImage(omero.model.ImageI(imageId, false));
@@ -875,7 +925,7 @@ attaches it to an image::
     roi = iUpdate.saveAndReturnObject(roi);
     % Check that the shape has been added.
     numShapes = roi.sizeOfShapes;
-    for ns = 1:numShapes
+    for ns = 1 : numShapes
        shape = roi.getShape(ns-1);
     end
 
@@ -894,17 +944,17 @@ attaches it to an image::
     rois = roiResult.rois;
     n = rois.size;
     shapeType = '';
-    for thisROI  = 1:n
+    for thisROI  = 1 : n
         roi = rois.get(thisROI-1);
         numShapes = roi.sizeOfShapes;
-        for ns = 1:numShapes
+        for ns = 1 : numShapes
             shape = roi.getShape(ns-1);
             if (isa(shape, 'omero.model.Rectangle'))
                rectangle = shape;
-               rectangle.getX().getValue()
+               rectangle.getX().getValue();
             elseif (isa(shape, 'omero.model.Ellipse'))
                ellipse = shape;
-               ellipse.getX().getValue()
+               ellipse.getX().getValue();
             elseif (isa(shape, 'omero.model.Point'))
                point = shape;
                point.getX().getValue();
@@ -948,15 +998,15 @@ attaches it to an image::
     for i = 1 : nShapes
         shape = roi.getShape(i - 1);
         
-        %https://blog.openmicroscopy.org/data-model/future-plans/2016/06/20/shape-transforms/
-        transform = shape.getTransform;
-        xScaling = transform.getA00.getValue;
-        xShearing = transform.getA01.getValue;
-        xTranslation = transform.getA02.getValue;
+        %http://blog.openmicroscopy.org/data-model/future-plans/2016/06/20/shape-transforms/
+        transform = shape.getTransform();
+        xScaling = transform.getA00().getValue();
+        xShearing = transform.getA01().getValue();
+        xTranslation = transform.getA02().getValue();
             
-        yScaling = transform.getA11.getValue;
-        yShearing = transform.getA10.getValue;
-        yTranslation = transform.getA12.getValue;
+        yScaling = transform.getA11().getValue();
+        yShearing = transform.getA10().getValue();
+        yTranslation = transform.getA12().getValue();
         
         %tformMatrix = [A00, A10, 0; A01, A11, 0; A02, A12, 1];
         tformMatrix = [xScaling, yShearing, 0; xShearing, yScaling, 0; xTranslation, yTranslation, 1];
@@ -978,7 +1028,7 @@ attaches it to an image::
     service = session.getRoiService();
     roiResult = service.findByImage(imageId, []);
     n = rois.size;
-    for thisROI  = 1:n
+    for thisROI  = 1 : n
         roi = rois.get(thisROI-1);
         numShapes = roi.sizeOfShapes;
         for ns = 1:numShapes
@@ -990,10 +1040,35 @@ attaches it to an image::
         roi = iUpdate.saveAndReturnObject(roi);
     end
 
+-  **Analyzing shapes**
+
+::
+
+    // Retrieve the roi linked to an image
+    service = session.getRoiService();
+    roiResult = service.findByImage(imageId, []);
+    n = rois.size;
+    toAnalyse = java.util.ArrayList;
+    for thisROI  = 1 : n
+        roi = rois.get(thisROI-1);
+        numShapes = roi.sizeOfShapes;
+        for ns = 1:numShapes
+            shape = roi.getShape(ns-1);
+            toAnalyse.add(java.lang.Long(shape.getId().getValue()));
+        end
+    end
+    //For convenience, we assume the shapes are on the first plane
+    z = 0;
+    c = 0;
+    t = 0;
+    stats = service.getShapeStatsRestricted(toAnalyse, z, t, [c]);
+    calculated = stats(1,1);
+    mean = calculated.mean(1,1);
+
 Deleting data
 -------------
 
-It is possible to delete projects, datasets, images, ROIs… and
+It is possible to delete projects, datasets, images, ROIs, etc. and
 objects linked to them depending on the specified options (see
 :doc:`/developers/Modules/Delete`). For example, images of known identifiers
 can be deleted from the server using the
@@ -1005,7 +1080,7 @@ function::
 .. seealso::
 
     :source:`deleteProjects <components/tools/OmeroM/src/delete/deleteProjects.m>`, :source:`deleteDatasets <components/tools/OmeroM/src/delete/deleteDatasets.m>`, :source:`deleteScreens <components/tools/OmeroM/src/delete/deleteScreens.m>`, :source:`deletePlates <components/tools/OmeroM/src/delete/deletePlates.m>`
-        Utility functions to delete objects
+        Utility functions to delete objects.
 
 Rendering images
 -----------------
