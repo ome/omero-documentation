@@ -59,6 +59,13 @@ Copy the generated configuration file into the NGINX configuration directory, di
     :start-after: #start-nginx-admin
     :end-before: #end-nginx-admin
 
+Installing OMERO.web apps
+-------------------------
+
+**The following steps are run as the omero system user.**
+
+A number of apps are available to add functionality to OMERO.web, such as `OMERO.figure <https://www.openmicroscopy.org/omero/figure/>`_ and `OMERO.iviewer <https://www.openmicroscopy.org/omero/iviewer/>`_. See the main website for a `list of released apps <https://www.openmicroscopy.org/omero/apps/>`_. These apps are optional and can be installed via :program:`pip` to your OMERO.web virtual environment at any time.
+
 Running OMERO.web
 -----------------
 
