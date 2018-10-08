@@ -1219,7 +1219,7 @@ pixeldata processing.
   :file:`docs/api/org/quartz/CronExpression.html` within the distribution.
 
 .. _Quartz Job Scheduler:
-  https://www.quartz-scheduler.org/downloads/
+  http://www.quartz-scheduler.org/downloads/
 
 |cron|
 
@@ -1539,7 +1539,7 @@ many script JobParams will be kept in memory
 for how long.
 
 For more information, see
-https://google.github.io/guava/releases/17.0/api/docs/com/google/common/cache/CacheBuilderSpec.html
+http://google.github.io/guava/releases/17.0/api/docs/com/google/common/cache/CacheBuilderSpec.html
 
 Default: `maximumSize=1000`
 
@@ -2056,7 +2056,7 @@ Default: `None`
 
 omero.web.pipeline_staticfile_storage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The file storage engine to use when collecting static files with the collectstatic management command. See `the documentation <https://django-pipeline.readthedocs.org/en/latest/storages.html>`_ for more details.
+The file storage engine to use when collecting static files with the collectstatic management command. See `the documentation <http://django-pipeline.readthedocs.org/en/latest/storages.html>`_ for more details.
 
 Default: `pipeline.storage.PipelineStorage`
 
@@ -2264,7 +2264,7 @@ Default: `[]`
 
 omero.web.thumbnails_batch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-Number of thumbnails retrieved to prevent from loading them all at once. Make sure the size is not too big, otherwise you may exceed limit request line, see https://docs.gunicorn.org/en/latest/settings.html?highlight=limit_request_line
+Number of thumbnails retrieved to prevent from loading them all at once. Make sure the size is not too big, otherwise you may exceed limit request line, see http://docs.gunicorn.org/en/latest/settings.html?highlight=limit_request_line
 
 Default: `50`
 
@@ -2328,7 +2328,7 @@ Default: `None`
 
 omero.web.wsgi_args
 ^^^^^^^^^^^^^^^^^^^
-A string representing Gunicorn additional arguments. Check Gunicorn Documentation https://docs.gunicorn.org/en/latest/settings.html
+A string representing Gunicorn additional arguments. Check Gunicorn Documentation http://docs.gunicorn.org/en/latest/settings.html
 
 Default: `None`
 
@@ -2336,7 +2336,7 @@ Default: `None`
 
 omero.web.wsgi_timeout
 ^^^^^^^^^^^^^^^^^^^^^^
-Workers silent for more than this many seconds are killed and restarted. Check Gunicorn Documentation https://docs.gunicorn.org/en/stable/settings.html#timeout
+Workers silent for more than this many seconds are killed and restarted. Check Gunicorn Documentation http://docs.gunicorn.org/en/stable/settings.html#timeout
 
 Default: `60`
 
@@ -2344,7 +2344,7 @@ Default: `60`
 
 omero.web.wsgi_workers
 ^^^^^^^^^^^^^^^^^^^^^^
-The number of worker processes for handling requests. Check Gunicorn Documentation https://docs.gunicorn.org/en/stable/settings.html#workers
+The number of worker processes for handling requests. Check Gunicorn Documentation http://docs.gunicorn.org/en/stable/settings.html#workers
 
 Default: `5`
 
