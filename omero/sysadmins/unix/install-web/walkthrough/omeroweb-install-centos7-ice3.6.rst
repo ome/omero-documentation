@@ -97,6 +97,14 @@ Install the OMERO.web requirements. Select one of the commands corresponding to 
     
     
 
+Installing OMERO.web apps
+-------------------------
+
+**The following steps are run as the omero system user.**
+
+A number of apps are available to add functionality to OMERO.web, such as `OMERO.figure <https://www.openmicroscopy.org/omero/figure/>`_ and `OMERO.iviewer <https://www.openmicroscopy.org/omero/iviewer/>`_. See the main website for a `list of released apps <https://www.openmicroscopy.org/omero/apps/>`_. These apps are optional and can be installed via :program:`pip` to your OMERO.web virtual environment at any time.
+
+
 Configuring OMERO.web
 ---------------------
 
@@ -133,7 +141,7 @@ Additional settings can be configured by changing the following properties:
           processes to handle many requests per second.
     
     - :property:`omero.web.wsgi_args` Additional arguments. For more details
-      check `Gunicorn Documentation <http://docs.gunicorn.org/en/stable/settings.html>`_.
+      check `Gunicorn Documentation <https://docs.gunicorn.org/en/stable/settings.html>`_.
     
 
 Configuring NGINX
@@ -229,7 +237,7 @@ SELinux
 
 **The following steps are run as root.**
 
-If you are running a system with `SELinux enabled <http://wiki.centos.org/HowTos/SELinux>`_ and are unable to access OMERO.web you may need to adjust the security policy::
+If you are running a system with `SELinux enabled <https://wiki.centos.org/HowTos/SELinux>`_ and are unable to access OMERO.web you may need to adjust the security policy::
     
     if [ $(getenforce) != Disabled ]; then
     
