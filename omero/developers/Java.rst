@@ -423,7 +423,7 @@ Using the Java API directly:
 
 ::
     
-    String paths = new String[] {"/pathTo/image1.dv", "/pathTo/image2.dv"};
+    String[] paths = new String[] {"/pathTo/image1.dv", "/pathTo/image2.dv"};
 
     ImportConfig config = new ome.formats.importer.ImportConfig();
     
