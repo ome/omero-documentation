@@ -7,6 +7,9 @@ Using server queries internally
     contain information for how to perform API queries. If that is the kind of
     information you are looking for, you may find
     :doc:`/developers/Modules/Api` more useful as a starting point.
+    OME's :presentations:`Hibernate 3.5 Training
+    <2017/Team-Training/Hibernate/>` additionally provides information
+    on both API queries and server internals.
 
 .. figure:: /images/omero-queries-queryfactory-collaboration.png
   :align: center
