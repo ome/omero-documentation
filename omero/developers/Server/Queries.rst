@@ -80,7 +80,7 @@ has one named parameter "name", which can be specified by the call:
 
 ::
 
-            parameters.addString("name","<myNamHere>");
+            parameters.addString("name","<myNameHere>");
 
 Positional parameters of the form
 
