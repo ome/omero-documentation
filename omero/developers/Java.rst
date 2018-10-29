@@ -423,7 +423,7 @@ Using the Java API directly:
 
 ::
     
-    String paths = new String[] {"/pathTo/image1.dv", "/pathTo/image2.dv"};
+    String[] paths = new String[] {"/pathTo/image1.dv", "/pathTo/image2.dv"};
 
     ImportConfig config = new ome.formats.importer.ImportConfig();
     
@@ -439,10 +439,9 @@ Using the Java API directly:
     config.password.set("omero");
     
     // the imported image will go into 'orphaned images' unless
-    // you specify a particular existing dataset like this:    
-    // config.targetClass.set("omero.model.Dataset");
-    // config.targetId.set(1L);
-        
+    // you specify a particular existing dataset like this:
+    // config.target.set("Dataset:123");
+    
     OMEROMetadataStoreClient store;
     try {
         store = config.createStore();
