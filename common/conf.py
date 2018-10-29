@@ -157,6 +157,7 @@ extlinks = {
     'bf' : (oo_root + '/bio-formats/%s', ''),
     'secvuln' : (oo_root + '/security/advisories/%s', ''),
     'security' : (oo_root + '/security/%s', ''),
+    'presentations' : (downloads_root + '/presentations/%s', ''),
     # Doc links
     'model_doc' : (docs_root + '/latest/ome-model/%s', ''),
     'devs_doc' : (docs_root + '/contributing/%s', ''),
