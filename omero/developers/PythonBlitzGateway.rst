@@ -21,6 +21,10 @@ is a wrapper for the OMERO client and session objects. It provides
 various methods for connecting to the OMERO server, querying the status
 or context of the current connection and retrieving data objects from OMERO.
 
+BlitzGateway can be used as a context manager to ensure the underlying client connection is automatically closed.
+
+For examples see :ref:`python-code-samples`.
+
 
 Model object wrappers
 """""""""""""""""""""
