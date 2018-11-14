@@ -61,24 +61,70 @@ client to choose suitable data IDs before editing and running the code
 samples.
 
 
+.. _python-code-samples:
+
 Code samples
 ------------
 
 Connect to OMERO
 ^^^^^^^^^^^^^^^^
 
+-  **Import OMERO and the BlitzGateway**
+
+::
+
+    import omero.clients
+    from omero.gateway import BlitzGateway
+
+
 -  **Create a connection**
 
 ::
 
     conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT)
-    conn.connect() 
+    conn.connect()
 
-    # Using secure connection.
-    # By default, once we have logged in, data transfer is not encrypted
-    # (faster)
-    # To use a secure connection, call setSecure(True): 
-    conn.setSecure(True)
+
+-  **Create a secure-only connection**
+
+   By default, once we have logged in, data transfer is not encrypted.
+   To ensure all data is transferred securely pass the ``secure`` flag.
+
+::
+
+    conn = BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT, secure=True)
+    conn.connect()
+
+
+-  **Create a connection using a context manager**
+
+   The BlitzGateway should be closed after use to free up server resources.
+   This can be automatically done by using it as a context manager.
+   This also automatically calls ``connect()``.
+
+::
+
+    with BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT, secure=True) as conn:
+        for p in conn.getObjects('Project'):
+            print p.name
+        ...
+    # conn.close() is automatically called
+
+
+-  **Create a connection using an existing session**
+
+   The BlitzGateway can also be initialized from an existing ``omero.client``
+   object.
+
+::
+
+    >>> client = omero.client(HOST, PORT)
+    >>> session = client.createSession(USERNAME, PASSWORD)
+    >>> conn = BlitzGateway(client_obj=client)
+
+In this example the BlitzGateway and client will not be closed automatically.
+If nothing else is using the client object you could use ``with BlitzGateway(client_obj=client) as conn``.
+
 
 -  **Current session details**
 
@@ -132,10 +178,13 @@ Connect to OMERO
 
 -  **Close connection**
 
+   If you did not use the context manager close the session to free up server
+   resources.
+
 ::
 
-    # When you are done, close the session to free up server resources.
     conn.close()
+
 
 Read data
 ^^^^^^^^^
