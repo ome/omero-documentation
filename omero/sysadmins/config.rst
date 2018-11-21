@@ -2280,7 +2280,7 @@ Default: `[]`
 
 omero.web.ui.metadata_panes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Manage Metadata pane accordion. This functionality is limited to the exiting sections.
+Manage Metadata pane accordion. This functionality is limited to the existing sections.
 
 Default: `[{"name": "tag", "label": "Tags", "index": 1},{"name": "map", "label": "Key-Value Pairs", "index": 2},{"name": "table", "label": "Tables", "index": 3},{"name": "file", "label": "Attachments", "index": 4},{"name": "comment", "label": "Comments", "index": 5},{"name": "rating", "label": "Ratings", "index": 6},{"name": "other", "label": "Others", "index": 7}]`
 
@@ -2307,6 +2307,14 @@ omero.web.use_x_forwarded_host
 Specifies whether to use the X-Forwarded-Host header in preference to the Host header. This should only be enabled if a proxy which sets this header is in use.
 
 Default: `false`
+
+.. property:: omero.web.user_dropdown
+
+omero.web.user_dropdown
+^^^^^^^^^^^^^^^^^^^^^^^
+Whether or not to include a user dropdown in the base template. Particularly useful when used in combination with the OMERO.web public user where logging in may not make sense.
+
+Default: `true`
 
 .. property:: omero.web.viewer.view
 
