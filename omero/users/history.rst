@@ -5,6 +5,29 @@
 OMERO version history
 =====================
 
+5.5.0-m1 (November 2018)
+------------------------
+
+This release focuses on improving the Desktop client to ease integration with third-party applications e.g. ImageJ/Fiji. The Desktop client can now do offline imports using `ome-smuggler <https://github.com/openmicroscopy/omero-ms-queue/>`_.
+Additionally, this release improves the Web interface when OMERO is opened to the public
+and contains some useful CLI improvements.
+
+Further improvements include:
+
+- insight: allow to import data using ome-smuggler
+- insight: indicate in login screen that it is possible to use session ID to connect
+- ImageJ plugin insight-ij: improve saving of ROIs and Measurements
+- web: improve public user support
+- server: do not set the trustStore properties if empty
+- cli: improve logging of error when importing data via cli command
+- cli: clearly indicate empty log files when running a diagnostic
+- cli: fix bug when running `config load` passing a directory instead of a file
+- cli: add option to delete keys from map annotations
+
+Developer improvements include:
+
+- JavaGateway: add helper method to manipulate ROI masks 
+
 5.4.9 (October 2018)
 --------------------
 
