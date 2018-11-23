@@ -36,7 +36,7 @@ Java
 Oracle Java may be downloaded from the `Oracle website
 <https://www.oracle.com/technetwork/java/javase/downloads/index.html>`_.
 
-After installing JDK 7 or JDK 8, check your installation works by
+After installing JDK 8, check your installation works by
 running::
 
     $ java -version
