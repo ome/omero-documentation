@@ -197,7 +197,7 @@ Ice
 
 .. note::
 
-    OMERO |version| supports 3.5 and 3.6 on UNIX and UNIX-like platforms. You
+    OMERO |version| supports 3.6 on UNIX and UNIX-like platforms. You
     must install the correct version of OMERO.server (see
     :downloads:`Downloads <>`).
 
@@ -660,7 +660,7 @@ output of the diagnostics command:
     OMERO Diagnostics |release|
     ================================================================================
 
-    Commands:   java -version                  1.7.0     (/usr/bin/java)
+    Commands:   java -version                  1.8.0     (/usr/bin/java)
     Commands:   python -V                      2.7.9     (/usr/bin/python)
     Commands:   icegridnode --version          3.6.3     (/usr/bin/icegridnode)
     Commands:   icegridadmin --version         3.6.3     (/usr/bin/icegridadmin)

@@ -31,10 +31,6 @@ Prerequisites
     limitation in the Windows PE-COFF executable format used for DLLs,
     even on 64-bit systems.  Workarounds include:
 
-    - using :program:`Ice` 3.5 (requires building :program:`Ice`
-      against Python 2.7 with the same version of :program:`Visual
-      Studio`)
-
     - it is hoped that :program:`Ice` 3.7 (when released) will resolve
       the problem since it generates far fewer symbols than 3.6
 
