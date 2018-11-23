@@ -144,10 +144,6 @@ If possible, install the following packages:
     * - RedHat
       - python nginx
 
-.. note::
-    CentOS 6 users should read :doc:`../server-centos6-ice36`
-    and follow the instructions there to install Python and the required modules.
-
 .. _gunicorn_default_configuration:
 
 Gunicorn configuration
