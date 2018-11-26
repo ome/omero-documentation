@@ -33,12 +33,6 @@ yum -y install ice-all-runtime
 
 pip install "zeroc-ice>3.5,<3.7"
 #end-recommended-ice
-#start-supported-ice
-curl -o /etc/yum.repos.d/zeroc-ice-el7.repo \
-http://download.zeroc.com/Ice/3.5/el7/zeroc-ice-el7.repo
-yum -y install gcc-c++
-yum -y install ice ice-python ice-servers
-#end-supported-ice
 
 
 # install Postgres
@@ -77,9 +71,6 @@ psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 #start-copy-omeroscript
 cp settings.env settings-web.env step04_all_omero.sh setup_omero_db.sh ~omero 
 #end-copy-omeroscript
-#start-release-ice35
-/home/omero/omeroenv/bin/omego download --ice 3.5 --branch 5.2 server
-#end-release-ice35
 #start-release-ice36
 cd ~omero
 SERVER=https://downloads.openmicroscopy.org/latest/omero5/server-ice36.zip
