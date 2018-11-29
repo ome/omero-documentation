@@ -30,7 +30,7 @@ Prerequisites
     unable to build |OmeroCpp| for Windows as a result of a 16-bit
     limitation in the Windows PE-COFF executable format used for DLLs,
     even on 64-bit systems.  It is hoped that :program:`Ice` 3.7
-    (when released) will resolve the problem since it generates
+    will resolve the problem since it generates
     far fewer symbols than 3.6.
 
 Restrictions
