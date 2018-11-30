@@ -11,7 +11,7 @@ Requirements
 
 If you would like to help test the Tables API, you will need the following installed:
 
--  `HDF5 <https://www.hdfgroup.org/HDF5/release/obtain5.html>`_
+-  `HDF5 <https://www.hdfgroup.org/downloads/hdf5/>`_
 -  `NumPy <http://numpy.sourceforge.net/numdoc/HTML/numdoc.htm>`_ points to downloads at
    http://sourceforge.net/projects/numpy/
 -  `PyTables <http://pytables.github.com/downloads.html>`_ (Some packages include HDF5)
