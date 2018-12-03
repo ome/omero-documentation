@@ -38,6 +38,6 @@ the :file:`bin` directory. To start the |CLI| in shell mode:
 .. parsed-literal::
 
     $ bin/omero
-    OMERO Python Shell. Version |release|-ice35
+    OMERO Python Shell. Version |release|-ice36
     Type "help" for more information, "quit" or Ctrl-D to exit
     omero>

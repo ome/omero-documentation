@@ -57,7 +57,7 @@ To install Ice 3.6:
 To install PostgreSQL 9.6:
 
 .. literalinclude:: walkthrough/walkthrough_centos7.sh
-    :start-after: #end-supported-ice
+    :start-after: # install Postgres
     :end-before: #end-step01
 
 Create an omero system user, and a directory for the OMERO repository:

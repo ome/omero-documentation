@@ -22,9 +22,7 @@ for `OpenJDK
 :ticket:`12612` and `this ome-users thread <http://lists.openmicroscopy.org.uk/pipermail/ome-users/2015-November/005723.html>`__
 for more information. OracleJDK8 is also supported, but the earliest releases
 have had problems. The latest OpenJDK8 or OracleJDK8 should work correctly (we
-have checked both OpenJDK 1.8.0_45-internal and OracleJDK 1.8.0_66). OpenJDK
-and OracleJDK version 7 are also supported (we have tested OracleJDK 1.7.0_80
-and OpenJDK 1.7.0_85).
+have checked both OpenJDK 1.8.0_45-internal and OracleJDK 1.8.0_66).
 
 Ubuntu issues
 -------------

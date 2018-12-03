@@ -10,10 +10,6 @@ of commands.
 
 .. seealso::
 
-    :doc:`server-centos6-ice36`
-        Instructions for installing OMERO.server from scratch on
-        CentOS 6 with Python 2.7 and Ice 3.6.
-
     :doc:`server-centos7-ice36`
         Instructions for installing OMERO.server from scratch on
         CentOS 7 with Ice 3.6.
@@ -36,7 +32,6 @@ of commands.
     :titlesonly:
     :hidden:
 
-    server-centos6-ice36
     server-centos7-ice36
     server-ubuntu-ice36
     server-debian9-ice36
@@ -100,9 +95,9 @@ If possible, install one of the following packages:
 +-----------+---------------------------+
 | System    | Package                   |
 +===========+===========================+
-| BSD Ports | java/openjdk7             |
+| BSD Ports | java/openjdk8             |
 +-----------+---------------------------+
-| Debian    | openjdk-7-jre             |
+| Debian    | openjdk-8-jre             |
 +-----------+---------------------------+
 | Homebrew  | N/A (install Oracle Java) |
 +-----------+---------------------------+
@@ -133,9 +128,9 @@ To check which version of Java is currently available::
     $ which java
     /usr/bin/java
     $ java -version
-    java version "1.7.0_51"
-    Java(TM) SE Runtime Environment (build 1.7.0_51-b13)
-    Java HotSpot(TM) 64-Bit Server VM (build 24.51-b03, mixed mode)
+    java version "1.8.0_51"
+    Java(TM) SE Runtime Environment (build 1.8.0_51-b16)
+    Java HotSpot(TM) 64-Bit Server VM (build 25.51-b03, mixed mode)
 
 Python 2
 ^^^^^^^^
@@ -197,16 +192,12 @@ If possible, install the following packages:
     * - RedHat
       - python
 
-.. note::
-    CentOS 6 users should read :doc:`server-centos6-ice36`
-    and follow the instructions there to install Python and the required modules.
-
 Ice
 ^^^
 
 .. note::
 
-    OMERO |version| supports 3.5 and 3.6 on UNIX and UNIX-like platforms. You
+    OMERO |version| supports 3.6 on UNIX and UNIX-like platforms. You
     must install the correct version of OMERO.server (see
     :downloads:`Downloads <>`).
 
@@ -223,10 +214,6 @@ bugfixes which are not present in the upstream releases.
 If needed, source and binary packages are available from ZeroC_. The
 latest release is available from the :zeroc:`ZeroC website
 <download.html>`.
-
-.. note::
-    CentOS 6 users should read :doc:`server-centos6-ice36`
-    and follow the instructions there to install Ice.
 
 .. note::
     ZeroC_ Ice can always be built from source code for specific
@@ -403,9 +390,6 @@ The following environment variables may be configured:
 After making any needed changes, either source the corresponding file
 or log back in for them to take effect. Run ``env`` to check them.
 
-.. note::
-    CentOS 6 users should read :doc:`server-centos6-ice36` 
-    and set the needed environment variables as documented.
 
 Creating a database
 -------------------
@@ -676,7 +660,7 @@ output of the diagnostics command:
     OMERO Diagnostics |release|
     ================================================================================
 
-    Commands:   java -version                  1.7.0     (/usr/bin/java)
+    Commands:   java -version                  1.8.0     (/usr/bin/java)
     Commands:   python -V                      2.7.9     (/usr/bin/python)
     Commands:   icegridnode --version          3.6.3     (/usr/bin/icegridnode)
     Commands:   icegridadmin --version         3.6.3     (/usr/bin/icegridadmin)
