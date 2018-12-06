@@ -222,11 +222,11 @@ treatment conditions represented in each figure panel.
 For example, Project
 `Schleicher_etal_figure7_c <https://omero.lifesci.dundee.ac.uk/webclient/?show=project-27920>`_
 contains images underlying the
-`publication Figure panel 7c <https://royalsocietypublishing.org/cms/attachment/36fd7495-4d87-454f-952e-a581da261f71/rsob170099f07.jpg>`_.
+`publication Figure panel 7(c) <https://royalsocietypublishing.org/cms/attachment/36fd7495-4d87-454f-952e-a581da261f71/rsob170099f07.jpg>`_.
 Some Projects underlie two publication figure panels, such as Project
 `Schleicher_etal_figure2_a_c <https://omero.lifesci.dundee.ac.uk/webclient/?show=project-27917>`_
-where representative images are shown in panel a and the
-corresponding quantification is shown in panel c of `Figure 2 <https://royalsocietypublishing.org/cms/attachment/aac23d26-2197-4dc1-8f85-7bb5686f926d/rsob170099f02.jpg>`_
+where representative images are shown in panel (a) and the
+corresponding quantification is shown in panel (c) of `Figure 2 <https://royalsocietypublishing.org/cms/attachment/aac23d26-2197-4dc1-8f85-7bb5686f926d/rsob170099f02.jpg>`_.
 This makes clear which original images are underlying which figure panels
 in the publication.
 
