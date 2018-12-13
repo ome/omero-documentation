@@ -1,7 +1,0 @@
-# Python installation requirements for OMERO.
-# ===========================================
-#
-#     pip install -r requirements_centos6_py27_ius.txt
-#
-numpy
-omego==0.4.0
