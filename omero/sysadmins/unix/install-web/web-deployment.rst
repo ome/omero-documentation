@@ -70,11 +70,11 @@ more specific walkthrough listed below.
     :hidden:
 
     walkthrough/omeroweb-install-centos7-ice3.6
-    walkthrough/omeroweb-install-ubuntu-ice3.6
-    walkthrough/omeroweb-install-debian-ice3.6
+    walkthrough/omeroweb-install-ubuntu1604-ice3.6
+    walkthrough/omeroweb-install-debian9-ice3.6
     walkthrough/omeroweb-install-with-server-centos7-ice3.6
-    walkthrough/omeroweb-install-with-server-ubuntu-ice3.6
-    walkthrough/omeroweb-install-with-server-debian-ice3.6
+    walkthrough/omeroweb-install-with-server-ubuntu1604-ice3.6
+    walkthrough/omeroweb-install-with-server-debian9-ice3.6
     walkthrough/omeroweb-install-osx-ice3.6
 
 .. note:: Support for Apache deployment has been dropped in 5.3.0.
