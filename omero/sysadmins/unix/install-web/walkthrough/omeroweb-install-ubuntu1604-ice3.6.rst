@@ -4,7 +4,7 @@
 OMERO.web installation separately from OMERO.server on Ubuntu 16.04 and IcePy 3.6
 =================================================================================
 
-Please first read :doc:`../../server-ubuntu-ice36`.
+Please first read :doc:`../../server-ubuntu1604-ice36`.
 
 
 This is an example walkthrough for installing OMERO.web decoupled from the OMERO.server in a **virtual environment** using OMERO.py and a dedicated system user. Installing OMERO.web in a virtual environment is the preferred way. For convenience in this walkthrough, we will use the **omero system user** and define the main OMERO.web configuration options as environment variables.
