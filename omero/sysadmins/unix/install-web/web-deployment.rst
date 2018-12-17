@@ -50,11 +50,11 @@ more specific walkthrough listed below.
         Instructions for installing OMERO.web with OMERO.server 
         on CentOS 7 with Ice 3.6.
 
-    :doc:`walkthrough/omeroweb-install-with-server-ubuntu-ice3.6`
+    :doc:`walkthrough/omeroweb-install-with-server-ubuntu1604-ice3.6`
         Instructions for installing OMERO.web with
         OMERO.server on Ubuntu 16.04 with Ice 3.6.
 
-    :doc:`walkthrough/omeroweb-install-with-server-debian-ice3.6`
+    :doc:`walkthrough/omeroweb-install-with-server-debian9-ice3.6`
         Instructions for installing OMERO.web with
         OMERO.server on Debian 9 with Ice 3.6.
 
