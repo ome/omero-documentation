@@ -38,11 +38,11 @@ more specific walkthrough listed below.
         Instructions for installing **separately** OMERO.web from
         scratch on CentOS 7 with Ice 3.6.
 
-    :doc:`walkthrough/omeroweb-install-ubuntu-ice3.6`
+    :doc:`walkthrough/omeroweb-install-ubuntu1604-ice3.6`
         Instructions for installing **separately** OMERO.web from
         scratch on Ubuntu 16.04 with Ice 3.6.
 
-    :doc:`walkthrough/omeroweb-install-debian-ice3.6`
+    :doc:`walkthrough/omeroweb-install-debian9-ice3.6`
         Instructions for installing **separately** OMERO.web from
         scratch on Debian 9 with Ice 3.6.
 
@@ -50,11 +50,11 @@ more specific walkthrough listed below.
         Instructions for installing OMERO.web with OMERO.server 
         on CentOS 7 with Ice 3.6.
 
-    :doc:`walkthrough/omeroweb-install-with-server-ubuntu-ice3.6`
+    :doc:`walkthrough/omeroweb-install-with-server-ubuntu1604-ice3.6`
         Instructions for installing OMERO.web with
         OMERO.server on Ubuntu 16.04 with Ice 3.6.
 
-    :doc:`walkthrough/omeroweb-install-with-server-debian-ice3.6`
+    :doc:`walkthrough/omeroweb-install-with-server-debian9-ice3.6`
         Instructions for installing OMERO.web with
         OMERO.server on Debian 9 with Ice 3.6.
 
@@ -70,11 +70,11 @@ more specific walkthrough listed below.
     :hidden:
 
     walkthrough/omeroweb-install-centos7-ice3.6
-    walkthrough/omeroweb-install-ubuntu-ice3.6
-    walkthrough/omeroweb-install-debian-ice3.6
+    walkthrough/omeroweb-install-ubuntu1604-ice3.6
+    walkthrough/omeroweb-install-debian9-ice3.6
     walkthrough/omeroweb-install-with-server-centos7-ice3.6
-    walkthrough/omeroweb-install-with-server-ubuntu-ice3.6
-    walkthrough/omeroweb-install-with-server-debian-ice3.6
+    walkthrough/omeroweb-install-with-server-ubuntu1604-ice3.6
+    walkthrough/omeroweb-install-with-server-debian9-ice3.6
     walkthrough/omeroweb-install-osx-ice3.6
 
 .. note:: Support for Apache deployment has been dropped in 5.3.0.

@@ -4,7 +4,7 @@
 OMERO.web installation with OMERO.server on Ubuntu 16.04 and IcePy 3.6
 ======================================================================
 
-Please first read :doc:`../../server-ubuntu-ice36`.
+Please first read :doc:`../../server-ubuntu1604-ice36`.
 
 This is an example walkthrough for installing OMERO.web with OMERO.server using NGINX.
 For convenience in this walkthrough, we will use the same configuration
