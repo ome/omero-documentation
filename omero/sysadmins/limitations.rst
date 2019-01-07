@@ -10,29 +10,6 @@ mismatch between the original data import times stored in the server and the
 way the clients report them. A fix for this is forthcoming but will not be in
 5.1.
 
-Java issues
------------
-
-OpenJDK8 is supported, however some builds of some releases (such as
-the current Ubuntu build of 8u40) have broken JPEG support, reported
-for `OpenJDK
-<https://icedtea.classpath.org/bugzilla/show_bug.cgi?id=1393>`__ and
-`Ubuntu
-<https://bugs.launchpad.net/ubuntu/+source/openjdk-8/+bug/1421501>`__. See
-:ticket:`12612` and `this ome-users thread <http://lists.openmicroscopy.org.uk/pipermail/ome-users/2015-November/005723.html>`__
-for more information. OracleJDK8 is also supported, but the earliest releases
-have had problems. The latest OpenJDK8 or OracleJDK8 should work correctly (we
-have checked both OpenJDK 1.8.0_45-internal and OracleJDK 1.8.0_66).
-
-Ubuntu issues
--------------
-
-Importing using desktop clients
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Under older Ubuntu installations, the 'import folder' option in the desktop
-clients currently does not work.
-
 Searching
 ---------
 
@@ -60,13 +37,6 @@ effect only for new logins, so the server and the shell or environment
 the server is started from will require restarting.  Run ``ulimit -a``
 as the user running OMERO to verify that the changes have taken
 effect.
-
-Deleting datasets
------------------
-
-If you have a dataset containing any images which are also present in any
-other datasets, you will not be able to delete it. First, you must remove
-the shared images by cutting the links.
 
 Changing group permissions
 --------------------------
