@@ -7,8 +7,7 @@ Time zone
 We do not recommend changing the time zone on your server. The server is
 currently set to use local time and changing time zones will result in a
 mismatch between the original data import times stored in the server and the
-way the clients report them. A fix for this is forthcoming but will not be in
-5.1.
+way the clients report them. A fix for this is forthcoming.
 
 Searching
 ---------
