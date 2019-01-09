@@ -25,6 +25,11 @@ connection e.g. Python:
    need the :javadoc:`API for these objects <slice2html/omero/model.html>`,
    e.g. Dataset, Image, Pixels, etc.
 
+-  Some services or their operations may be marked as being deprecated.
+   You may use them but do seek :community:`developer support <>` if you
+   rely on them and can find no alternative as the deprecation means
+   that *you are at risk of our removing them with no further notice*.
+
 Services list
 -------------
 
