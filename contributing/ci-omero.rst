@@ -249,11 +249,3 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
         #. Checks out :omero_scc_branch:`develop/merge/daily` 
         #. Builds OMERO.server and starts it
         #. Runs the robot framework tests and collect the results
-
-    :jenkinsjob:`OMERO-DEV-merge-homebrew`
-
-        This job tests the installation of OMERO using Homebrew
-
-        #. Cleans :file:`/usr/local`
-        #. Installs Homebrew from https://github.com/ome/omero-install
-        #. Installs OMERO via :file:`osx/install_homebrew.sh`
