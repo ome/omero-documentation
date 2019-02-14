@@ -77,13 +77,11 @@ https://github.com/openmicroscopy/prod-playbooks/blob/master/requirements.yml
 and https://github.com/IDR/deployment/blob/master/ansible/requirements.yml
 for examples of such files.
 
-Release process
----------------
+The release of an Ansible role and its deployment to Galaxy release happens
+by using the
+`Travis integration <https://docs.ansible.com/ansible/latest/reference_appendices/galaxy.html#travis-integrations>`_ on release tag.
 
-Deployment of a role release happens using the
-`Travis integration <https://docs.ansible.com/ansible/latest/reference_appendices/galaxy.html#travis-integrations>`_.
-
-A PGP-signed tag should be created for the released version e.g.
+A PGP-signed tag of form `x.y.z` should be created for the released version
 using :command:`scc tag-release` or :command:`git tag -s` and pushed to the
 upstream repository::
 
