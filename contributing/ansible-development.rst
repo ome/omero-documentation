@@ -13,9 +13,9 @@ Source code
 -----------
 
 The source code of a Java library should be maintained under version control
-using Git_ and hosted on GitHub_. Each directory layout should follow the 
-standard
-`Ansible role layout <https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#role-directory-structure>`_::
+using Git_ and hosted on GitHub_. Each directory layout should minimally follow the  standard
+`Ansible role layout <https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#role-directory-structure>`_ including other files and folders for testing and
+deployment. A typical role structure is shown below::
 
     defaults/           # Default variables
     handlers/           # Handlers
@@ -33,19 +33,20 @@ Versioning
 
 .. _PEP440: https://www.python.org/dev/peps/pep-0440/#semantic-versioning
 
-Ansible roles must follow PEP440_ rules for versioning. Additionally final
-releases must be compliant with `Semantic Versioning`_ i.e. the version must
-be expressed as `MAJOR.MINOR.PATCH` and:
+Ansible roles must follow the PEP440_ scheme for versioning. Final releases
+must also be compliant with `Semantic Versioning`_ i.e. a final version must
+be expressed as `MAJOR.MINOR.PATCH` where:
 
-- the MAJOR version must be incremented when you make incompatible API changes,
-- the MINOR version must be incremented when you add functionality in a
+- the MAJOR version must be incremented when incompatible API changes are made,
+- the MINOR version must be incremented when functionality is added in a
   backwards-compatible manner, and
-- the PATCH version must be incremented when you make backwards-compatible bug
-  fixes.
+- the PATCH version must be incremented when you backwards-compatible bug
+  fixes are made.
 
-Release tags must be expressed as `MAJOR.MINOR.PATCH` with no prefix.
+Final releases must be tagged with a tag matching the version i.e. 
+`MAJOR.MINOR.PATCH` with no prefix for integration with Galaxy.
 
-Development releases or pre-releases must follow the PEP440_ standard e.g.
+Development releases or pre-releases must follow the PEP440_ scheme e.g.
 `MAJOR.MINOR.PATCH.dev1`, `MAJOR.MINOR.PATCHa1` `MAJOR.MINOR.PATHrc1`.
 
 Testing and Continuous Integration
@@ -54,19 +55,19 @@ Testing and Continuous Integration
 .. _Molecule: https://molecule.readthedocs.io/
 
 For each Ansible role, a :file:`molecule` folder should be configured allowing
-the testing of the role using  Molecule_. One or multiple scenarios should be
+the testing to be tested using  Molecule_. One or multiple scenarios should be
 configured using at least a Docker driver if possible.
 
 Continuous Integration of Ansible roles is performed using Travis CI.
 
 .. note::
-   OME Ansible roles are getting progressively upgraded to Molecule 2.x. New
-   roles should be configured using Molecule 2.x.
+   OME Ansible roles are getting progressively upgraded from Molecule 1.x to 
+   Molecule 2.x. New roles should be configured using Molecule 2.x.
 
 Distribution
 ------------
 
-All OME Ansible roles should be deployed to
+All core OME Ansible roles should be deployed to
 `Ansible Galaxy <https://galaxy.ansible.com>`_ under the
 `openmicroscopy <https://galaxy.ansible.com/openmicroscopy/>`_  organization.
 
