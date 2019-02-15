@@ -13,7 +13,10 @@ Source code
 -----------
 
 The source code of a Java library should be maintained under version control
-using Git_ and hosted on GitHub_. Each directory layout should minimally follow the  standard
+using Git_ and hosted on GitHub_ under the
+`openmicroscopy <http://github.com/openmicroscopy/>`__ organization.
+Git repositories should be named as `ansible-role-<ROLE_NAME>`. Each directory
+layout should minimally follow the standard
 `Ansible role layout <https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#role-directory-structure>`_ including other files and folders for testing and
 deployment. A typical role structure is shown below::
 
@@ -56,7 +59,11 @@ Testing and Continuous Integration
 
 For each Ansible role, a :file:`molecule` folder should be configured allowing
 the testing to be tested using  Molecule_. One or multiple scenarios should be
-configured using at least a Docker driver if possible.
+configured using at least a Docker driver if possible. A generic
+:file:`molecule` folder can be initialized using the following command::
+
+    molecule init scenario -r ansible-role-<NAME> -s default -d docker
+
 
 Continuous Integration of Ansible roles is performed using Travis CI.
 
@@ -64,12 +71,14 @@ Continuous Integration of Ansible roles is performed using Travis CI.
    OME Ansible roles are getting progressively upgraded from Molecule 1.x to 
    Molecule 2.x. New roles should be configured using Molecule 2.x.
 
-Distribution
-------------
+Distribution and support
+------------------------
 
 All core OME Ansible roles should be deployed to
 `Ansible Galaxy <https://galaxy.ansible.com>`_ under the
-`openmicroscopy <https://galaxy.ansible.com/openmicroscopy/>`_  organization.
+`openmicroscopy <https://galaxy.ansible.com/openmicroscopy/>`__ organization.
+All roles must support EL 7 as a primary platform. New roles should also
+include Ubuntu as a supported platform whenever possible.
 
 Ansible playbooks can consume these roles using a :file:`requirements.yml`
 file - see
