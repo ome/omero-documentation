@@ -77,8 +77,8 @@ Distribution and support
 All core OME Ansible roles should be deployed to
 `Ansible Galaxy <https://galaxy.ansible.com>`_ under the
 `openmicroscopy <https://galaxy.ansible.com/openmicroscopy/>`__ organization.
-All roles must support EL 7 as a primary platform. New roles should also
-include Ubuntu as a supported platform whenever possible.
+All roles must support RHEL/CentOS 7 as a primary platform. New roles should
+also include Ubuntu as a supported platform whenever possible.
 
 Ansible playbooks can consume these roles using a :file:`requirements.yml`
 file - see
@@ -87,8 +87,9 @@ and https://github.com/IDR/deployment/blob/master/ansible/requirements.yml
 for examples of such files.
 
 The release of an Ansible role and its deployment to Galaxy release happens
-by using the
-`Travis integration <https://docs.ansible.com/ansible/latest/reference_appendices/galaxy.html#travis-integrations>`_ on release tag.
+by triggering a role import in Galaxy using the
+`Travis integration <https://docs.ansible.com/ansible/latest/reference_appendices/galaxy.html#travis-integrations>`_
+on each release tag.
 
 A PGP-signed tag of form `x.y.z` should be created for the released version
 using :command:`scc tag-release` or :command:`git tag -s` and pushed to the
