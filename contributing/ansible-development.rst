@@ -22,7 +22,7 @@ deployment. A typical role structure is shown below::
 
     defaults/           # Default variables
     handlers/           # Handlers
-    meta/               # Role metadaa
+    meta/               # Role metadata
         main.yml        # Dependencies and Galaxy metadata
     molecule/           # Test
     tasks/              # Main list of tasks to be executed
@@ -43,14 +43,14 @@ be expressed as `MAJOR.MINOR.PATCH` where:
 - the MAJOR version must be incremented when incompatible API changes are made,
 - the MINOR version must be incremented when functionality is added in a
   backwards-compatible manner, and
-- the PATCH version must be incremented when you backwards-compatible bug
+- the PATCH version must be incremented when backwards-compatible bug
   fixes are made.
 
 Final releases must be tagged with a tag matching the version i.e. 
-`MAJOR.MINOR.PATCH` with no prefix for integration with Galaxy.
+`MAJOR.MINOR.PATCH` with no prefix.
 
 Development releases or pre-releases must follow the PEP440_ scheme e.g.
-`MAJOR.MINOR.PATCH.dev1`, `MAJOR.MINOR.PATCHa1` `MAJOR.MINOR.PATHrc1`.
+`MAJOR.MINOR.PATCH.dev1`, `MAJOR.MINOR.PATCHa1` `MAJOR.MINOR.PATCHrc1`.
 
 Testing and Continuous Integration
 ----------------------------------
@@ -58,7 +58,7 @@ Testing and Continuous Integration
 .. _Molecule: https://molecule.readthedocs.io/
 
 For each Ansible role, a :file:`molecule` folder should be configured allowing
-the testing to be tested using  Molecule_. One or multiple scenarios should be
+the testing to be tested using  Molecule_. One or more scenarios should be
 configured using at least a Docker driver if possible. A generic
 :file:`molecule` folder can be initialized using the following command::
 
