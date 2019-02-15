@@ -12,10 +12,15 @@ OME roles registered in https://github.com/ome/ansible-roles.
 Source code
 -----------
 
-The source code of a Java library should be maintained under version control
+The source code of an Ansible role should be maintained under version control
 using Git_ and hosted on GitHub_ under the
 `openmicroscopy <http://github.com/openmicroscopy/>`__ organization.
-Git repositories should be named as `ansible-role-<ROLE_NAME>`. Each directory
+The Git repositories should be named as `ansible-role-<ROLENAME>`. Note that
+for role name composed of multiple words, setting the `role_name` in
+:file:`meta/main.yml` will update hyphens as underscores during import into
+Galaxy.
+
+Each directory
 layout should minimally follow the standard
 `Ansible role layout <https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#role-directory-structure>`_ including other files and folders for testing and
 deployment. A typical role structure is shown below::
@@ -49,9 +54,6 @@ be expressed as `MAJOR.MINOR.PATCH` where:
 Final releases must be tagged with a tag matching the version i.e. 
 `MAJOR.MINOR.PATCH` with no prefix.
 
-Development releases or pre-releases must follow the PEP440_ scheme e.g.
-`MAJOR.MINOR.PATCH.dev1`, `MAJOR.MINOR.PATCHa1` `MAJOR.MINOR.PATCHrc1`.
-
 Testing and Continuous Integration
 ----------------------------------
 
@@ -68,8 +70,9 @@ configured using at least a Docker driver if possible. A generic
 Continuous Integration of Ansible roles is performed using Travis CI.
 
 .. note::
+
    OME Ansible roles are getting progressively upgraded from Molecule 1.x to 
-   Molecule 2.x. New roles should be configured using Molecule 2.x.
+   Molecule 2.x. New roles must be configured using Molecule 2.x.
 
 Distribution and support
 ------------------------
@@ -78,7 +81,7 @@ All core OME Ansible roles should be deployed to
 `Ansible Galaxy <https://galaxy.ansible.com>`_ under the
 `openmicroscopy <https://galaxy.ansible.com/openmicroscopy/>`__ organization.
 All roles must support RHEL/CentOS 7 as a primary platform. New roles should
-also include Ubuntu as a supported platform whenever possible.
+also include Ubuntu 18.04 as a supported platform whenever possible.
 
 Ansible playbooks can consume these roles using a :file:`requirements.yml`
 file - see
