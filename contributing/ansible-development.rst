@@ -82,7 +82,7 @@ also include Ubuntu 18.04 as a supported platform whenever possible.
 The Galaxy role name should be `openmicroscopy.<ROLENAME>`. For overriding the
 default name derived from the GitHub repository name, the `role_name` variable
 should be set in :file:`meta/main.yml`. For role names composed of multiple
-words, note that the Galaxy import process will convert hyphens as underscores.
+words, note that the Galaxy import process will convert hyphens to underscores.
 
 Ansible playbooks can consume these roles using a :file:`requirements.yml`
 file - see
