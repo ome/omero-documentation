@@ -15,6 +15,7 @@ be valuable to a wider audience.
     code-contributions
     team-communication
     team-workflow
+    ansible-development
     java-development
     cpp-development
     development-tools
