@@ -65,6 +65,8 @@ removes a restriction so that they may exercise `SomePrivilege`.
   You may not clear a restriction from an administrator if you have that
   same restriction applying to yourself.
 
+.. _ReadSession-warning:
+
 .. warning::
 
   Never clear `AdminPrivilege:ReadSession` from a restricted
