@@ -32,6 +32,8 @@ scc_github_root = github_root + 'snoopycrimecop'
 omero_main_github_root = main_github_root + '/openmicroscopy/'
 bf_main_github_root = main_github_root + '/bioformats/'
 
+omero_subs_github_root = github_root + 'ome/omero-{}/{}/{}/%s'
+
 # OME contributing-specific extlinks
 contributing_extlinks = {
     # Github links
@@ -40,6 +42,12 @@ contributing_extlinks = {
     'omero_commit' : (omero_github_root + 'commit/%s', ''),
     'omero_pr' : (omero_main_github_root + 'pull/%s', ''),
     'omero_scc_branch' : (scc_github_root + '/openmicroscopy/tree/%s', ''),
+    'omero_model_source' : (omero_subs_github_root.format('model', 'blob', 'master'), ''),
+    'omero_common_source' : (omero_subs_github_root.format('common', 'blob', 'master'), ''),
+    'omero_romio_source' : (omero_subs_github_root.format('romio', 'blob', 'master'), ''),
+    'omero_renderer_source' : (omero_subs_github_root.format('renderer', 'blob', 'master'), ''),
+    'omero_server_source' : (omero_subs_github_root.format('server', 'blob', 'master'), ''),
+    'omero_blitz_source' : (omero_subs_github_root.format('blitz', 'blob', 'master'), ''),
     'bf_source' : (bf_github_root + 'blob/'+ branch + '/%s', ''),
     'bf_sourcedir' : (bf_github_root + 'tree/'+ branch + '/%s', ''),
     'bf_commit' : (bf_github_root + 'commit/%s', ''),
