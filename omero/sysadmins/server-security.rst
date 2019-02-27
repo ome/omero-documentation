@@ -102,6 +102,16 @@ Change the password using the generated SQL statement::
     UPDATE 1
 
 
+Stored data
+-----------
+
+The server's binary repository and database contain information that may
+be confidential. Afford access only on a limited and necessary basis.
+For example, the :ref:`ReadSession warning <ReadSession-warning>` is for
+naught if the restricted administrator can read the contents of the
+``session`` table.
+
+
 Java key- and truststores.
 ---------------------------
 

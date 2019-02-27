@@ -116,6 +116,11 @@ document but can be researched on the `PostgreSQL website <https://www.postgresq
 .. note:: Regular backups of your PostgreSQL database are crucial; you do not 
     want to be in the position of trying to restore your server without one.
 
+.. note:: Consider OMERO database dumps to be sensitive and be
+    accordingly cautious in allowing access to them. For example, the
+    ``session.uuid`` column contains UUIDs with which OMERO clients can
+    attach to existing sessions.
+
 Backing up your binary data store
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
