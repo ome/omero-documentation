@@ -49,10 +49,6 @@ OMERO jobs
     -   * Runs the robot framework tests
         * :term:`OMERO-DEV-merge-robotframework`
 
-    -   * Pushes SNAPSHOTS to Maven
-        * | :term:`OMERO-DEV-latest-maven`
-          | :term:`OMERO-DEV-merge-maven`
-
 .. _deployment_servers:
 
 Deployment servers and web
@@ -230,17 +226,6 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
         #. Collects the MATLAB artifacts from :term:`OMERO-DEV-merge-build`
         #. Runs the MATLAB unit tests under
            :file:`components/tools/OmeroM/test/unit` and collect the results
-
-    :jenkinsjob:`OMERO-DEV-merge-maven`
-
-        This job is used to generate SNAPSHOT jars and push them to artifactory.
-
-        #. Runs :file:`docs/hudson/OMERO.sh`
-        #. Executes the `release-hudson` target for the `ome.unstable` repository.
-
-    :jenkinsjob:`OMERO-DEV-latest-maven`
-
-        The same as :term:`OMERO-DEV-merge-maven`, but pushes to `ome.snapshots`.
 
     :jenkinsjob:`OMERO-DEV-merge-robotframework`
 
