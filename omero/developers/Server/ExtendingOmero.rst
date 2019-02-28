@@ -68,7 +68,7 @@ Code generation
 Since it is prohibitive to model full objects with the SAs, one alternative is
 to add types directly to the :doc:`generated code </developers/Model>`. By
 adding a file named ``*.ome.xml`` to
-:sourcedir:`components/model/resources/mappings` and running a full-build, it
+:model_sourcedir:`src/main/resources/mappings` and running a full-build, it
 is possible to have new objects generated in all
 :doc:`/developers/server-blitz` languages. Supported fields include:
 
@@ -119,12 +119,12 @@ Services
 --------
 
 Traditionally, services were added via Java interfaces in the
-:sourcedir:`components/common/src/ome/api`
+:common_sourcedir:`src/main/java/ome/api`
 package. The creation of such "core" services is described under
 :doc:`/developers/Server/HowToCreateAService`. However,
 with the introduction of :doc:`/developers/server-blitz`, it is also
 possible to write blitz-only services which are defined by a slice
-definition under :sourcedir:`components/blitz/resources/omero`.
+definition under :blitz_sourcedir:`src/main/slice/omero`.
 
 A core service is required when server internal code should also make
 use of the interface. Since this is very rarely the case for third-party
@@ -144,8 +144,8 @@ The easiest possible service definition in slice is:
         };
       };
 
-This should be added to any existing or a new ``*.ice`` file under the
-``blitz/resources/omero`` directory. After the next ant build, stubs
+This should be added to any existing or a new :file:`*.ice` file under the
+:file:`src/main/slice/omero` directory. After the next ant build, stubs
 will be created for all the :doc:`/developers/server-blitz` languages,
 i.e.  |OmeroJava|, |OmeroPy|, and |OmeroCpp|.
 
@@ -204,7 +204,7 @@ Rather than subclassing the ``_Disp`` object, it is also possible to
 implement the ``_Tie`` interface for your new service. This allows
 wrapping and testing your implementation more easily at the cost of a
 little indirection. You can see how such an object is configured in
-:source:`blitz-servantDefinitions <components/blitz/resources/ome/services/blitz-servantDefinitions.xml#L36>`.
+:blitz_source:`blitz-servantDefinitions <src/main/resources/ome/services/blitz-servantDefinitions.xml#L36>`.
 
 Java configuration
 ^^^^^^^^^^^^^^^^^^
@@ -243,8 +243,8 @@ The three patterns which are available are:
       :doc:`/developers/Server/PasswordProvider` and similar should
       be included at this level.
 
-See :sourcedir:`components/blitz/resources/ome/services`
-and :sourcedir:`components/server/resources/ome/services`
+See :blitz_sourcedir:`src/main/resources/ome/services`
+and :server_sourcedir:`src/main/resources/ome/services`
 for all the available objects.
 
 .. _JavaDeployment:

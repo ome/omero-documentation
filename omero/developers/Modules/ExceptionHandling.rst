@@ -6,7 +6,7 @@ Client exceptions
 
 The exceptions which can be received by a client due to a remote call on
 the OMERO server are all defined in
-:source:`components/blitz/resources/omero/ServerErrors.ice`
+:blitz_source:`src/main/slice/omero/ServerErrors.ice`
 (included below). This file contains two separate hierarchies rooted at
 ``Ice::Exception`` and ``omero::ServerError``. 
 
@@ -326,23 +326,23 @@ Interceptor
 ~~~~~~~~~~~
 
 Exception handling in the OMERO is centralized in an
-:doc:`/developers/Server/Aop` interceptor (:source:`source
-code </components/server/src/ome/services/util/ServiceHandler.java>`).
+:doc:`/developers/Server/Aop` interceptor (:server_source:`source
+code <src/main/java/ome/services/util/ServiceHandler.java>`).
 All exceptions thrown by code are caught in a
 ``try {} catch (Throwable t) {}`` block. Exceptions which do not subclass
-:source:`ome.conditions.RootException <components/model/src/ome/conditions/RootException.java>`
+:model_source:`ome.conditions.RootException <src/main/java/ome/conditions/RootException.java>`
 are wrapped in an
-:source:`ome.conditions.InternalException <components/model/src/ome/conditions/InternalException.java>`.
+:model_source:`ome.conditions.InternalException <src/main/java/ome/conditions/InternalException.java>`.
 
 The only exceptions to this are any interceptors which may be run before
 the exception handler is run. The order of interceptors is defined in
-:source:`services.xml <components/server/resources/ome/services/services.xml>`.
+:server_source:`services.xml <src/main/resources/ome/services/services.xml>`.
 
 Hierarchy
 ~~~~~~~~~
 
 The current exception hierarchy (package
-:sourcedir:`ome.conditions <components/model/src/ome/conditions>`)
+:model_sourcedir:`ome.conditions <src/main/java/ome/conditions>`)
 used is as follows:
 
 -  RootException

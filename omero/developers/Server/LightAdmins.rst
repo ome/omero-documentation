@@ -19,8 +19,8 @@ administrator without restrictions.
 Restrictions
 ------------
 
-The :source:`meta.ome.xml mapping
-<components/model/resources/mappings/meta.ome.xml>` lists all the values
+The :model_source:`meta.ome.xml mapping
+<src/main/resources/mappings/meta.ome.xml>` lists all the values
 of the :javadoc:`AdminPrivilege
 <slice2html/omero/model/AdminPrivilege.html>` enumeration. Each of those
 values corresponds to a kind of operation for which full administrators

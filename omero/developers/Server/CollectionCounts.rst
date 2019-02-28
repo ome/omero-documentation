@@ -2,7 +2,7 @@ Collection counts
 =================
 
 The
-:source:`IContainer <components/common/src/ome/api/IContainer.java>`
+:common_source:`IContainer <src/main/java/ome/api/IContainer.java>`
 interface has always provided a method for returning the count of some
 collection types via ``getDetails().getCounts()``. The server has database
 views for all link collections. These are accessed through HQL directly, such

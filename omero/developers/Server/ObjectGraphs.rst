@@ -37,8 +37,8 @@ This technical detail is important to understand if one wishes to,
 * change the types of :doc:`../Model` model objects or the permissible
   links among them
 
-* fix bugs in the related request objects defined in :source:`Graphs.ice
-  <components/blitz/resources/omero/cmd/Graphs.ice>` that may be
+* fix bugs in the related request objects defined in :blitz_source:`Graphs.ice
+  <src/main/slice/omero/cmd/Graphs.ice>` that may be
   submitted to :doc:`Sessions` for execution.
 
 
@@ -63,11 +63,11 @@ to include  ``[I]``      ``INCLUDE``  n/a
 outside     ``[O]``      ``OUTSIDE``  n/a
 ==========  ===========  ===========  ===============
 
-"enum" refers to the enumerations defined in :source:`GraphPolicy.java
-<components/server/src/ome/services/graphs/GraphPolicy.java>`. Note also
+"enum" refers to the enumerations defined in :server_source:`GraphPolicy.java
+<src/main/java/ome/services/graphs/GraphPolicy.java>`. Note also
 that, as for the introduction to :doc:`../Modules/Delete`, "links" are
 simply edges in the graph, distinct from the classes implementing
-:source:`ILink.java <components/model/src/ome/model/ILink.java>` which
+:model_source:`ILink.java <src/main/java/ome/model/ILink.java>` which
 themselves have several links, not least to their parent and child
 objects.
 
@@ -85,8 +85,8 @@ objects it matches. Changed objects are themselves queued for
 examination and rule matching. The traversal is complete when all queued
 objects have been examined with no further transition rule matches.
 Rules that can abort the operation are checked only after the other
-rules have completed processing. :source:`GraphTraversal.java
-<components/server/src/ome/services/graphs/GraphTraversal.java>`'s
+rules have completed processing. :server_source:`GraphTraversal.java
+<src/main/java/ome/services/graphs/GraphTraversal.java>`'s
 ``planOperation`` method is at the heart of this matching process.
 
 
@@ -113,7 +113,7 @@ invisible, outside consideration in the execution phase. In the
 execution of an operation the graph traversal code removes links between
 included and excluded objects, but it allows links to remain between
 outside objects and other objects. Outside objects typically implement
-:source:`IGlobal.java <components/model/src/ome/model/IGlobal.java>` and
+:model_source:`IGlobal.java <src/main/java/ome/model/IGlobal.java>` and
 have no owner or group.
 
 An additional aspect of objects' state is if permissions are to be
@@ -134,25 +134,25 @@ Configuration
 Defining the model graph transition rules
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To reduce its complexity, :source:`GraphTraversal.java
-<components/server/src/ome/services/graphs/GraphTraversal.java>` does
+To reduce its complexity, :server_source:`GraphTraversal.java
+<src/main/java/ome/services/graphs/GraphTraversal.java>` does
 not include specific detail of how to traverse the graph of
 :doc:`../Model` model objects. Instead, subclasses of
-:source:`GraphPolicy.java
-<components/server/src/ome/services/graphs/GraphPolicy.java>` guide the
+:server_source:`GraphPolicy.java
+<src/main/java/ome/services/graphs/GraphPolicy.java>` guide the
 traversal of the model object graph, configured by
-:source:`blitz-graph-rules.xml
-<components/blitz/resources/ome/services/blitz-graph-rules.xml>` which
+:blitz_source:`blitz-graph-rules.xml
+<src/main/resources/ome/services/blitz-graph-rules.xml>` which
 names and defines the lists of transition rules. The named lists of
 rules are associated with request object classes by the definition of
 the ``graphRequestFactory`` bean in
-:source:`blitz-servantDefinitions.xml
-<components/blitz/resources/ome/services/blitz-servantDefinitions.xml>`,
+:blitz_source:`blitz-servantDefinitions.xml
+<src/main/resources/ome/services/blitz-servantDefinitions.xml>`,
 which also specifies which model object properties may never be set to
 ``null`` in executing any requested operation.
 
-:source:`blitz-graph-rules.xml
-<components/blitz/resources/ome/services/blitz-graph-rules.xml>` begins
+:blitz_source:`blitz-graph-rules.xml
+<src/main/resources/ome/services/blitz-graph-rules.xml>` begins
 with a comment that provides a key to the notation used for transition
 rules. The rules name and match model objects based on the state of the
 graph nodes, the types of the corresponding objects, the permissions the
@@ -257,8 +257,8 @@ that is to be deleted and an image that is not to be deleted.
 
 In reviewing the ``chgrpRules`` list, one sees conditions that require
 matching ``$to_private`` or ``!$to_private``. A request, in this case
-:source:`Chgrp2I.java
-<components/blitz/src/omero/cmd/graphs/Chgrp2I.java>`, may set arbitrary
+:blitz_source:`Chgrp2I.java
+<src/main/java/omero/cmd/graphs/Chgrp2I.java>`, may set arbitrary
 conditions upon which rules may be predicated. The ``to_private``
 condition, or its absence, is used to cause different behavior when the
 objects are being moved into a private group.
@@ -324,15 +324,15 @@ Encouragement
 On first reading, the above may feel daunting. If model object graph
 traversal is not working as desired, thus requires adjustment, review of
 debug logs from :file:`var/log/Blitz-0.log` typically pinpoints the
-cause and a minor adjustment to :source:`blitz-graph-rules.xml
-<components/blitz/resources/ome/services/blitz-graph-rules.xml>` often
+cause and a minor adjustment to :blitz_source:`blitz-graph-rules.xml
+<src/main/resources/ome/services/blitz-graph-rules.xml>` often
 suffices as the fix, with integration tests providing reassurance that
 the adjustment was acceptable. Sometimes it can take time and thought to
 devise that fix, but one can expect small changes to suffice to fix most
 bugs. In getting this new graph traversal implementation to initially
 pass integration testing, no test failures required a substantial
-rethink of the basic approach and :source:`GraphTraversal.java
-<components/server/src/ome/services/graphs/GraphTraversal.java>` itself
+rethink of the basic approach and :server_source:`GraphTraversal.java
+<src/main/java/ome/services/graphs/GraphTraversal.java>` itself
 did not require a significant rewrite.
 
 The actual lists of transition rules arose in part as a way to achieve

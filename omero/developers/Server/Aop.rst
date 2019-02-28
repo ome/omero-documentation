@@ -10,9 +10,9 @@ to be aware of what portions of the OMERO code base are "advised" and
 where to find the advisors (in the case of OMERO solely interceptors).
 
 In Spring_, advisors are declared in the bean definition files (under
-:sourcedir:`components/server/resources/ome/services`,
-:source:`services.xml <components/server/resources/ome/services/services.xml>`,
-:source:`hibernate.xml <components/server/resources/ome/services/hibernate.xml>`,
+:server_sourcedir:`src/main/resources/ome/services`,
+:server_source:`services.xml <src/main/resources/ome/services/services.xml>`,
+:server_source:`hibernate.xml <src/main/resources/ome/services/hibernate.xml>`,
 and others.
 
 In these configuration files, various Spring beans (shared objects) are

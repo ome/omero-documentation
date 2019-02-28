@@ -29,14 +29,14 @@ read-only. On creation of an :doc:`/developers/Server/Context`,
 the lookup for properties is (first wins):
 
 -  Properties passed into the constructor (if none, then the default
-   properties in :source:`config.xml <components/common/resources/ome/config.xml>`)
+   properties in :common_source:`config.xml <src/main/resources/ome/config.xml>`)
 -  System.properties set via "java -Dproperty=value"
 -  Configuration files in order listed.
 
 This ordering is defined for the various components via "placeholder
 configurers" in:
 
--  :source:`components/server/resources/ome/services/services.xml`
+-  :server_source:`src/main/resources/ome/services/services.xml`
 
 Once configured at start, all values declared in one of the mentioned
 ways can be used in Spring configurations via the syntax:

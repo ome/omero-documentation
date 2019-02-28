@@ -1,5 +1,5 @@
 .. Content for this page is generated using
-.. https://github.com/openmicroscopy/openmicroscopy/blob/develop/components/server/src/ome/services/graphs/GraphPathReport.java
+.. https://github.com/ome/omero-server/blob/master/src/main/java/ome/services/graphs/GraphPathReport.java
 
 Glossary of all OMERO Model Objects
 ===================================

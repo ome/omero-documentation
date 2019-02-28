@@ -33,7 +33,7 @@ connection e.g. Python:
 Services list
 -------------
 
-The :sourcedir:`ome.api <components/common/src/ome/api>` package in the common
+The :common_sourcedir:`ome.api <src/main/java/ome/api>` package in the common
 component defines the central "verbs" of the OMERO system. All external
 interactions with the system should happen with these verbs, or services. Each
 OMERO service belongs to a particular service level with each level calling
@@ -43,19 +43,19 @@ Service Level 1 (direct database and Hibernate connections)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  AdminService:
-   :source:`src <components/common/src/ome/api/IAdmin.java>`,
+   :common_source:`src <src/main/java/ome/api/IAdmin.java>`,
    :javadoc:`API <slice2html/omero/api/IAdmin.html>`
    for working with Experimenters, Groups and the current Context
    (switching groups etc.).
 -  ConfigService:
-   :source:`src <components/common/src/ome/api/IConfig.java>`,
+   :common_source:`src <src/main/java/ome/api/IConfig.java>`,
    :javadoc:`API <slice2html/omero/api/IConfig.html>`
    for getting and setting config parameters.
 -  ContainerService:
    :javadoc:`API <slice2html/omero/api/IContainer.html>`
    for loading Project, Dataset, Image, Screen, Plate hierarchies.
 -  LdapService:
-   :source:`src <components/common/src/ome/api/ILdap.java>`,
+   :common_source:`src <src/main/java/ome/api/ILdap.java>`,
    :javadoc:`API <slice2html/omero/api/ILdap.html>`
    for communicating with LDAP servers.
 -  MetadataService:
@@ -68,7 +68,7 @@ Service Level 1 (direct database and Hibernate connections)
    :javadoc:`API <slice2html/omero/api/IProjection.html>`
    for performing projections of Pixels sets.
 -  QueryService:
-   :source:`src <components/common/src/ome/api/IQuery.java>`,
+   :common_source:`src <src/main/java/ome/api/IQuery.java>`,
    :javadoc:`API <ome/api/IQuery.html>`
    for custom SQL-like queries.
 -  RenderingSettingsService
@@ -95,33 +95,33 @@ Service Level 1 (direct database and Hibernate connections)
    :javadoc:`API <slice2html/omero/api/ITypes.html>`
    for Enumerations.
 -  UpdateService:
-   :source:`src <components/common/src/ome/api/IUpdate.java>`,
+   :common_source:`src <src/main/java/ome/api/IUpdate.java>`,
    :javadoc:`API <ome/api/IUpdate.html>`
    for saving and editing omero.model objects.
 
 Service Level 2
 ^^^^^^^^^^^^^^^
 
--  :source:`IContainer <components/common/src/ome/api/IContainer.java>`
--  :source:`ITypes <components/common/src/ome/api/ITypes.java>`
+-  :common_source:`IContainer <src/main/java/ome/api/IContainer.java>`
+-  :common_source:`ITypes <src/main/java/ome/api/ITypes.java>`
 
 Stateful/Binary Services
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  RawFileStore:
-   :source:`src <components/common/src/ome/api/RawFileStore.java>`,
+   :common_source:`src <src/main/java/ome/api/RawFileStore.java>`,
    :javadoc:`API <ome/api/RawFileStore.html>` for reading and writing files
 -  RawPixelsStore:
-   :source:`src <components/common/src/ome/api/RawPixelsStore.java>`,
+   :common_source:`src <src/main/java/ome/api/RawPixelsStore.java>`,
    :javadoc:`API <ome/api/RawPixelsStore.html>` for reading and writing pixels data
 -  RenderingEngine:
-   :source:`src <components/common/src/omeis/providers/re/RenderingEngine.java>`,
+   :common_source:`src <src/main/java/omeis/providers/re/RenderingEngine.java>`,
    :javadoc:`API <slice2html/omero/api/RenderingEngine.html>` for viewing images,
    see :doc:`/developers/Server/RenderingEngine` for more details
 -  ThumbnailStore:
-   :source:`src <components/common/src/ome/api/ThumbnailStore.java>`,
+   :common_source:`src <src/main/java/ome/api/ThumbnailStore.java>`,
    :javadoc:`API <ome/api/ThumbnailStore.html>` for retrieving thumbnails
--  :source:`IScale <components/common/src/ome/api/IScale.java>` for scaling rendered images
+-  :common_source:`IScale <src/main/java/ome/api/IScale.java>` for scaling rendered images
 
 A complete list of service APIs can be found
 :javadoc:`here <slice2html/omero/api.html>` and some examples of API usage in
@@ -141,7 +141,7 @@ design is to make wildly separate definitions of queries (templates,
 db-stored, Java code, C# code, …) runnable on the server.
 
 IUpdate takes any graph composed of
-:source:`IObject <components/model/src/ome/model/IObject.java>`
+:model_source:`IObject <src/main/java/ome/model/IObject.java>`
 objects and checks them for dirtiness. All changes to the graph are
 stored in the database if the user calling IUpdate has the proper
 permissions, otherwise an exception is thrown.
@@ -162,7 +162,7 @@ Dirty checks follow the Three Commandments:
 Administration
 ^^^^^^^^^^^^^^
 
-The :source:`IAdmin <components/common/src/ome/api/IAdmin.java>` interface
+The :common_source:`IAdmin <src/main/java/ome/api/IAdmin.java>` interface
 defines all the actions necessary to administer the
 :doc:`/sysadmins/server-security`. It is explained further on the
 :doc:`/developers/Modules/Api/AdminInterface` page.
@@ -173,7 +173,7 @@ Model Object Java
 Certain operations, like those dealing with data management and viewing,
 happen more frequently than others e.g. defining microscopes. Those have
 been collected in the 
-:source:`IContainer <components/common/src/ome/api/IContainer.java>`
+:common_source:`IContainer <src/main/java/ome/api/IContainer.java>`
 interface. IContainer simplifies a few very common queries, and there is a
 related package ``omero.gateway.model.\*`` for working with the returned graphs.
 OMERO.insight works almost exclusively with the IContainer interface mostly 
@@ -215,7 +215,7 @@ See :doc:`/developers/build-system` for more information
 on how the annotated service will be deployed.
 In the case of :doc:`/developers/server-blitz`, the
 service must be properly defined under 
-:sourcedir:`components/blitz/resources`.
+:blitz_sourcedir:`src/main/slice/omero`.
 
 OMERO annotations for validation
 --------------------------------

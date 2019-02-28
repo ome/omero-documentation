@@ -3,29 +3,29 @@ Password Provider
 
 A :doc:`/developers/Server/PasswordProvider` is an implementation
 of the Java interface
-:source:`ome.security.auth.PasswordProvider <components/server/src/ome/security/auth/PasswordProvider.java>`.
+:server_source:`ome.security.auth.PasswordProvider <src/main/java/ome/security/auth/PasswordProvider.java>`.
 Several implementations exist currently:
 
--  :source:`ome.security.auth.JdbcPasswordProvider <components/server/src/ome/security/auth/JdbcPasswordProvider.java>`
+-  :server_source:`ome.security.auth.JdbcPasswordProvider <src/main/java/ome/security/auth/JdbcPasswordProvider.java>`
    is the most common provider, and uses the "password" table for
    storing passwords hashed using MD5 and salt per user.
--  :source:`ome.security.auth.FilePasswordProvider <components/server/src/ome/security/auth/FilePasswordProvider.java>`
+-  :server_source:`ome.security.auth.FilePasswordProvider <src/main/java/ome/security/auth/FilePasswordProvider.java>`
    is rarely used, but in some scenarios may be useful since it permits
    setting usernames and passwords in a plain text file.
--  :source:`ome.security.auth.LdapPasswordProvider <components/server/src/ome/security/auth/LdapPasswordProvider.java>`
+-  :server_source:`ome.security.auth.LdapPasswordProvider <src/main/java/ome/security/auth/LdapPasswordProvider.java>`
    is a highly configurable provider which provides READ-ONLY access to
    an LDAP server and can create users and groups on the fly. See
    :doc:`/developers/Server/Ldap` for more information.
 
 The "chainedPasswordProvider"
-(:source:`ome.security.auth.PasswordProviders <components/server/src/ome/security/auth/PasswordProviders.java>`)
+(:server_source:`ome.security.auth.PasswordProviders <src/main/java/ome/security/auth/PasswordProviders.java>`)
 is configured for use by default in :ref:`security_configuration`
 under :property:`omero.security.password_provider`. It first checks with the
 ``LdapPasswordProvider`` and then falls back to the
 ``JdbcPasswordProvider``.
 
 To write your own provider, you can either subclass from
-:source:`ome.security.auth.ConfigurablePasswordProvider <components/server/src/ome/security/auth/ConfigurablePasswordProvider.java>`
+:server_source:`ome.security.auth.ConfigurablePasswordProvider <src/main/java/ome/security/auth/ConfigurablePasswordProvider.java>`
 as the providers above do, or write your own implementation from
 scratch. You will need to define your object in a Spring XML file
 matching the pattern ``ome/services/db-*.xml``. See
@@ -35,7 +35,7 @@ Things to keep in mind
 ----------------------
 
 -  All the existing implementations take care to publish a
-   :source:`LoginAttemptMessage <components/server/src/ome/services/messages/LoginAttemptMessage.java>`
+   :server_source:`LoginAttemptMessage <src/main/java/ome/services/messages/LoginAttemptMessage.java>`
    so that any :doc:`/developers/Server/LoginAttemptListener`
    implementation can properly react to failed logins. Your
    implementation should probably do the same.

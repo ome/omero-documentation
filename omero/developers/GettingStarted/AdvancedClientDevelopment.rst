@@ -98,7 +98,7 @@ language as would be expected. Aliases like "Ice::Long" are available
 for C++ to handle both 32 and 64 bit architectures.
 
 A simple struct can then be built out of any combination of these types.
-From :source:`components/blitz/resources/omero/System.ice`:
+From :blitz_source:`src/main/slice/omero/System.ice`:
 
 ::
 
@@ -121,7 +121,7 @@ provides only four built-in building blocks for creating a type hierarchy.
 
 -  **Sequences.** & **Dictionaries** : Most of the sequences and
    dictionaries in use by the |OmeroApi| are
-   defined in :source:`components/blitz/resources/omero/Collections.ice`.
+   defined in :blitz_source:`src/main/slice/omero/Collections.ice`.
    Each sequence or dictionary must be defined before it can be used in
    any class. By default a sequence will map to an array of the given
    type in Java or a vector in C++, but these mappings can be changed
@@ -130,7 +130,7 @@ provides only four built-in building blocks for creating a type hierarchy.
 
 -  **Constants.** : Most of the enumerations for
    |OmeroApi| are defined in
-   :source:`components/blitz/resources/omero/Constants.ice`.
+   :blitz_source:`src/main/slice/omero/Constants.ice`.
    These are values which can be defined once and then referenced in
    each of the supported programming languages. The only real surprise
    when working with enumerations is that in Java each constant is
@@ -238,7 +238,7 @@ or collection([]) rather than null.
 
 However, the database and OMERO support nullable values and so
 :doc:`/developers/server-blitz` defines a hierarchy of types which
-wraps the primitives: :source:`RTypes <components/blitz/resources/omero/RTypes.ice>`
+wraps the primitives: :blitz_source:`RTypes <src/main/slice/omero/RTypes.ice>`
 Since Ice allows references to be nulled, as opposed to primitives, it is
 possible to send null strings, integers, etc.
 
@@ -1031,15 +1031,15 @@ implement **multiple** interfaces. Much of the
 |OmeroModel|  in the RMI-based types
 (``ome.model``) was based on the use of interfaces.
 
--  :source:` IObject <components/model/src/ome/model/IObject.java>`
+-  :model_source:` IObject <src/main/java/ome/model/IObject.java>`
    is the root interface for all object types. **Methods**: ``getId()``,
    ``getDetails()``, …
--  :source:` IEnum <components/model/src/ome/model/IEnum.java>`
+-  :model_source:` IEnum <src/main/java/ome/model/IEnum.java>`
    is an enumeration value. **Methods**: ``getValue()``
--  :source:` ILink <components/model/src/ome/model/ILink.java>`
+-  :model_source:` ILink <src/main/java/ome/model/ILink.java>`
    is a link between two other types. **Methods**: ``getParent()``,
    ``getChild()``
--  :source:` IMutable <components/model/src/ome/model/IMutable.java>`
+-  :model_source:` IMutable <src/main/java/ome/model/IMutable.java>`
    is an instance for changes will be persisted. **Methods**:
    ``getVersion()``
 
@@ -1615,9 +1615,9 @@ ServiceFactory in hand, it is time to start accessing services.
 
 The collection of all services provided by OMERO is known as the
 |OmeroApi|. Each service is defined in a slice file under
-:sourcedir:`components/blitz/resources/omero`.
+:blitz_sourcedir:`src/main/slice/omero`.
 The central definitions are in
-:source:`components/blitz/resources/omero/API.ice`,
+:blitz_source:`src/main/slice/omero/API.ice`,
 along with the definition of
 ServiceFactory itself:
 

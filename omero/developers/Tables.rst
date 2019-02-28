@@ -15,7 +15,7 @@ For installation instructions, see :doc:`/sysadmins/server-tables`
 The interface
 -------------
 
-The :source:`slice definition file <components/blitz/resources/omero/Tables.ice>`
+The :blitz_source:`slice definition file <src/main/slice/omero/Tables.ice>`
 for the OMERO.tables API primarily defines two service interfaces and a type
 hierarchy.
 
@@ -407,7 +407,7 @@ store. Any suggestions or ideas would be
     `Condition Syntax <http://pytables.github.com/usersguide/condition_syntax.html>`_
         The PyTables condition syntax.
 
-    :source:`Tables.ice <components/blitz/resources/omero/Tables.ice>`
+    :blitz_source:`slice definition file <src/main/slice/omero/Tables.ice>`
         The API definition for OMERO.tables
 
     :sourcedir:`The Tables test suite <components/tools/OmeroPy/test/integration/tablestest/>`
@@ -415,7 +415,3 @@ store. Any suggestions or ideas would be
 
     :doc:`/sysadmins/server-tables`
         Installation requirements for install OMERO.tables
-
-
-
-

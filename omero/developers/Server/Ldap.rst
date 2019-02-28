@@ -50,7 +50,7 @@ NewUserGroupBean.java
 ---------------------
 
 The interface described for the ":bean:" ``new_user_group`` prefix, is
-:source:`ome.security.auth.NewUserGroupBean <components/server/src/ome/security/auth/NewUserGroupBean.java>`. It defines a
+:server_source:`ome.security.auth.NewUserGroupBean <src/main/java/ome/security/auth/NewUserGroupBean.java>`. It defines a
 single method: ``groups(…, AttributeSet set)`` which returns a list of
 ``ExperimenterGroup`` ids (``List<Long>``) which the user should be added to.
 
@@ -58,11 +58,11 @@ Other prefix handlers also implement the interface as examples. In the same
 package are:
 
 - ``:attribute:`` -
-   :source:`AttributeNewUserGroupBean.java <components/server/src/ome/security/auth/AttributeNewUserGroupBean.java>`
+   :server_source:`AttributeNewUserGroupBean.java <src/main/java/ome/security/auth/AttributeNewUserGroupBean.java>`
 - ``:ou:`` -
-   :source:`OrgUnitNewUserGroupBean <components/server/src/ome/security/auth/OrgUnitNewUserGroupBean.java>`
+   :server_source:`OrgUnitNewUserGroupBean <src/main/java/ome/security/auth/OrgUnitNewUserGroupBean.java>`
 - ``:query:`` -
-   :source:`QueryNewUserGroupBean <components/server/src/ome/security/auth/QueryNewUserGroupBean.java>`
+   :server_source:`QueryNewUserGroupBean <src/main/java/ome/security/auth/QueryNewUserGroupBean.java>`
 
 .. seealso::
 

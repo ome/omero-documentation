@@ -77,16 +77,16 @@ Top-level and build
     Server is specified to ServiceFactory.
     These values can be overridden in local.properties.
 
-:source:`mapping.vm <components/dsl/resources/ome/dsl/object.vm>`
+:model_source:`object.vm <src/main/resources/templates/object.vm>`
     specifies the default permissions that all objects will have after
     construction, as well as attaches the security filter to all classes
     and collections.
 
-:source:`data.vm <components/dsl/resources/ome/dsl/psql-footer.vm>`
+:model_source:`psql-footer.vm <src/main/resources/templates/psql-footer.vm>`
     used by DSLTask to generate psql-footer.sql which is used to   
     bootstrap the database security system (root et al).
 
-:source:`common/build.xml <components/common/build.xml>`
+:file:`common/build.xml`
     contains an ant target (adduser) which will create a user and empty
     password from the command line. This target can also be called from
     the top-level (java omero adduser).
@@ -99,20 +99,20 @@ the server uses the information in /etc/local.properties to create a Login
     object. If no Login, Server, or Properties is provided to the
     ServiceFactory constructor, the empty
     properties defined in
-    :source:`ome/config.xml <components/common/resources/ome/config.xml>`
+    :common_source:`ome/config.xml <src/main/resources/ome/config.xml>`
     is used.
 
-:source:`IAdmin.java <components/common/src/ome/api/IAdmin.java>`
+:common_source:`IAdmin.java <src/main/java/ome/api/IAdmin.java>`
     main interface for administering accounts and privileges. See
     :doc:`/developers/Modules/Api/AdminInterface` for more.
 
-:source:`ITypes.java <components/common/src/ome/api/ITypes.java>`
+:common_source:`ITypes.java <src/main/java/ome/api/ITypes.java>`
     only related to security by necessity. The security system disallows
     the creation of certain "System-Types". Enumerations are one of
     these. ITypes, however, provides a createEnumeration method with
     general access.
 
-:source:`GraphHolder.java <components/model/src/ome/model/internal/GraphHolder.java>`
+:model_source:`GraphHolder.java <src/main/java/ome/model/internal/GraphHolder.java>`
     all model objects (implementations of IObject have a never-null
     GraphHolder instance available. This graph holder is responsible for
     various OMERO and Hibernate internal processes. One of these is the
@@ -120,66 +120,66 @@ the server uses the information in /etc/local.properties to create a Login
     within the GraphHolder grants certain privileges to that IObject.
     This logic is encapsulated within the SecuritySystem.
 
-:source:`Details.java <components/model/src/ome/model/internal/Details.java>`
+:model_source:`Details.java <src/main/java/ome/model/internal/Details.java>`
     contains all the fields necessary to perform access control, such as owner, group,
     and permissions.
 
-:source:`Permissions.java <components/model/src/ome/model/internal/Permissions.java>`
+:model_source:`Permissions.java <src/main/java/ome/model/internal/Permissions.java>`
     representation of rights and roles. For more information, see
     :doc:`/sysadmins/server-permissions`.
 
-:source:`Token.java <components/model/src/ome/model/internal/Token.java>`
+:model_source:`Token.java <src/main/java/ome/model/internal/Token.java>`
     an extremely simple class ("public class Token {}") which is only
     significant when it is equivalent ("==") to a privileged Token
     stored within the SecuritySystem.
 
-:source:`IEnum.java <components/model/src/ome/model/IEnum.java>`
+:model_source:`IEnum.java <src/main/java/ome/model/IEnum.java>`
     the only non-access control related types which are considered
     "System-Types" are enumerations. IEnum is a marker interface for all
     enumerations and creation of IEnum implementations can only be
     performed through ITypes.
 
-:source:`SecurityViolation.java <components/model/src/ome/conditions/SecurityViolation.java>`
+:model_source:`SecurityViolation.java <src/main/java/ome/conditions/SecurityViolation.java>`
     the exception thrown by the
     :doc:`/developers/Server/SecuritySystem` at the first hint of
     misdoings.
 
-:source:`Principal.java <components/common/src/ome/system/Principal.java>`
+:common_source:`Principal.java <src/main/java/ome/system/Principal.java>`
     an Omero-speciific implementation of the java.security.Principal
     interface. Carries in addition to the typical name field,
     information about the user group, the event type, and the session
     umasks.
 
-:source:`meta.ome.xml <components/model/resources/mappings/meta.ome.xml>`
+:model_source:`meta.ome.xml <src/main/resources/mappings/meta.ome.xml>`
 
 JBoss-only
 ^^^^^^^^^^
 
-:source:`ServiceFactory.java <components/common/src/ome/system/ServiceFactory.java>`
-:source:`Login.java <components/common/src/ome/system/Login.java>`
-:source:`Server.java <components/common/src/ome/system/Server.java>`
+:common_source:`ServiceFactory.java <src/main/java/ome/system/ServiceFactory.java>`
+:common_source:`Login.java <src/main/java/ome/system/Login.java>`
+:common_source:`Server.java <src/main/java/ome/system/Server.java>`
 
 
 Server side
 ~~~~~~~~~~~
 
-:source:`AdminImpl.java <components/server/src/ome/logic/AdminImpl.java>`
-:source:`CurrentDetails.java <components/server/src/ome/security/basic/CurrentDetails.java>`
-:source:`SecureAction.java <components/server/src/ome/security/SecureAction.java>`
-:source:`SecuritySystem.java <components/server/src/ome/security/SecuritySystem.java>`
-:source:`BasicSecuritySystem.java <components/server/src/ome/security/basic/BasicSecuritySystem.java>`
-:source:`ACLEventListener.java <components/server/src/ome/security/ACLEventListener.java>`
-:source:`EventHandler.java <components/server/src/ome/security/basic/EventHandler.java>`
-:source:`MergeEventListener.java <components/server/src/ome/security/basic/MergeEventListener.java>`
-:source:`OmeroInterceptor.java <components/server/src/ome/security/basic/OmeroInterceptor.java>`
-:source:`SessionHandler.java <components/server/src/ome/tools/hibernate/SessionHandler.java>`
-:source:`SecurityFilter.java <components/server/src/ome/security/SecurityFilter.java>`
-:source:`EventLogListener.java <components/server/src/ome/security/basic/EventLogListener.java>`
-:source:`EventListenersFactoryBean.java <components/server/src/ome/security/basic/EventListenersFactoryBean.java>`
-:source:`LocalAdmin.java <components/server/src/ome/api/local/LocalAdmin.java>`
-:source:`hibernate.xml <components/server/resources/ome/services/hibernate.xml>`
-:source:`sec-system.xml <components/server/resources/ome/services/sec-system.xml>`
-:source:`services.xml <components/server/resources/ome/services/services.xml>`
+:server_source:`AdminImpl.java <src/main/java/ome/logic/AdminImpl.java>`
+:server_source:`CurrentDetails.java <src/main/java/ome/security/basic/CurrentDetails.java>`
+:server_source:`SecureAction.java <src/main/java/ome/security/SecureAction.java>`
+:server_source:`SecuritySystem.java <src/main/java/ome/security/SecuritySystem.java>`
+:server_source:`BasicSecuritySystem.java <src/main/java/ome/security/basic/BasicSecuritySystem.java>`
+:server_source:`ACLEventListener.java <src/main/java/ome/security/ACLEventListener.java>`
+:server_source:`EventHandler.java <src/main/java/ome/security/basic/EventHandler.java>`
+:server_source:`MergeEventListener.java <src/main/java/ome/security/basic/MergeEventListener.java>`
+:server_source:`OmeroInterceptor.java <src/main/java/ome/security/basic/OmeroInterceptor.java>`
+:server_source:`SessionHandler.java <src/main/java/ome/tools/hibernate/SessionHandler.java>`
+:server_source:`SecurityFilter.java <src/main/java/ome/security/SecurityFilter.java>`
+:server_source:`EventLogListener.java <src/main/java/ome/security/basic/EventLogListener.java>`
+:server_source:`EventListenersFactoryBean.java <src/main/java/ome/security/basic/EventListenersFactoryBean.java>`
+:server_source:`LocalAdmin.java <src/main/java/ome/api/local/LocalAdmin.java>`
+:server_source:`hibernate.xml <src/main/resources/ome/services/hibernate.xml>`
+:server_source:`sec-system.xml <src/main/resources/ome/services/sec-system.xml>`
+:server_source:`services.xml <src/main/resources/ome/services/services.xml>`
 
 End-to-end
 ----------
@@ -360,7 +360,7 @@ ServiceFactory, logging in is trivial. One
 need only set several System properties or place them in an
 omero.properties file somewhere on the classpath. 
 Internally, Spring takes the System properties and creates an
-:source:`ome.system.Principal <components/common/src/ome/system/Principal.java>`
+:common_source:`ome.system.Principal <src/main/java/ome/system/Principal.java>`
 instance. This is then passed to the server on each invocation of a
 proxy obtained from JNDI.
 
@@ -371,7 +371,7 @@ Much of this infrastructure is not available to server-side code (no
 ome/client/spring.xml, no ServiceFactory,
 etc.). As such, the Principal needs to be manually created and provided
 to the server-side
-:source:`SecuritySystem.java <components/server/src/ome/security/SecuritySystem.java>`.
+:server_source:`SecuritySystem.java <src/main/java/ome/security/SecuritySystem.java>`.
 
 Basically it amounts to this:
 
@@ -381,7 +381,7 @@ Basically it amounts to this:
       securitySystem.login( p );
 
 This must be run otherwise the
-:source:`EventHandler <components/server/src/ome/security/basic/EventHandler.java>`
+:server_source:`EventHandler <src/main/java/ome/security/basic/EventHandler.java>`
 will throw a security exception. 
 
 .. note::

@@ -78,8 +78,8 @@ the dependencies holding them together.
 Model description
 -----------------
 
-See :source:`acquisition.ome.xml
-<components/model/resources/mappings/acquisition.ome.xml>`.
+See :model_source:`acquisition.ome.xml
+<src/main/resources/mappings/acquisition.ome.xml>`.
 
 - ``ome.model.fs.Fileset``
 
@@ -102,8 +102,8 @@ See :source:`acquisition.ome.xml
     ``IndexingJob``, etc.). *Later jobs may also be added like a
     re-parse job, a re-check of the hashes to detect corruption, or an
     archive job*.
-  - For job definitions, see :source:`jobs.ome.xml
-    <components/model/resources/mappings/jobs.ome.xml>`.
+  - For job definitions, see :model_source:`jobs.ome.xml
+    <src/main/resources/mappings/jobs.ome.xml>`.
   - Some subclasses have a ``versionInfo`` property for storing
     a snapshot of process information along with software
     versions. Most important for knowing how files were parsed, therefore
