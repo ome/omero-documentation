@@ -87,13 +87,38 @@ rst_epilog += """
 """ % (previousversion, conf_autogen.current_dbver,
        conf_autogen.previous_dbver)
 
+omero_subs_github_root = github_root + 'ome/{}/{}/{}/%s'
+
 # OMERO-specific extlinks
 omero_extlinks = {
-    # Github links
+    # GitHub links
     'source' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
     'sourcedir' : (omero_github_root + 'tree/'+ branch + '/%s', ''),
     'commit' : (omero_github_root + 'commit/%s', ''),
     'omedocs' : (doc_github_root + '%s', ''),
+    # GitHub decoupled subcomponents
+    'dsl_plugin_source' : (omero_subs_github_root.format('omero-dsl-plugin', 'blob', 'master'), ''),
+    'dsl_plugin_sourcedir' : (omero_subs_github_root.format('omero-dsl-plugin', 'tree', 'master'), ''),
+    'blitz_plugin_source' : (omero_subs_github_root.format('omero-blitz-plugin', 'blob', 'master'), ''),
+    'blitz_plugin_sourcedir' : (omero_subs_github_root.format('omero-blitz-plugin', 'tree', 'master'), ''),
+    'ice_builder_source' : (omero_subs_github_root.format('ice-builder-gradle', 'blob', 'master'), ''),
+    'ice_builder_sourcedir' : (omero_subs_github_root.format('ice-builder-gradle', 'tree', 'master'), ''),
+    'model_source' : (omero_subs_github_root.format('omero-model', 'blob', 'master'), ''),
+    'model_sourcedir' : (omero_subs_github_root.format('omero-model', 'tree', 'master'), ''),
+    'common_source' : (omero_subs_github_root.format('omero-common', 'blob', 'master'), ''),
+    'common_sourcedir' : (omero_subs_github_root.format('omero-common', 'tree', 'master'), ''),
+    'romio_source' : (omero_subs_github_root.format('omero-romio', 'blob', 'master'), ''),
+    'romio_sourcedir' : (omero_subs_github_root.format('omero-romio', 'tree', 'master'), ''),
+    'renderer_source' : (omero_subs_github_root.format('omero-renderer', 'blob', 'master'), ''),
+    'renderer_sourcedir' : (omero_subs_github_root.format('omero-renderer', 'tree', 'master'), ''),
+    'server_source' : (omero_subs_github_root.format('omero-server', 'blob', 'master'), ''),
+    'server_sourcedir' : (omero_subs_github_root.format('omero-server', 'tree', 'master'), ''),
+    'blitz_source' : (omero_subs_github_root.format('omero-blitz', 'blob', 'master'), ''),
+    'blitz_sourcedir' : (omero_subs_github_root.format('omero-blitz', 'tree', 'master'), ''),
+    'matlab_source' : (omero_subs_github_root.format('omero-matlab', 'blob', 'master'), ''),
+    'matlab_sourcedir' : (omero_subs_github_root.format('omero-matlab', 'tree', 'master'), ''),
+    'insight_source' : (omero_subs_github_root.format('omero-insight', 'blob', 'master'), ''),
+    'insight_sourcedir' : (omero_subs_github_root.format('omero-insight', 'tree', 'master'), ''),
     # API links
     'javadoc' : (downloads_root + '/latest/omero5.4/api/%s', ''),
     'pythondoc' : (downloads_root + '/latest/omero5.4/api/python/%s', ''),
