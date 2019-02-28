@@ -22,8 +22,8 @@ described below.
 
 Changes to the :model_doc:`OME-XML model <developers/model-overview.html>`
 typically require corresponding changes in the OMERO data schema as
-defined in its :omero_source:`XML mappings files
-<components/model/resources/mappings/>`. These feed into OMERO's database
+defined in its :omero_model_source:`XML mappings files
+<src/main/resources/mappings/>`. These feed into OMERO's database
 schema so this process is then required.
 
 Patch number conflicts
@@ -43,16 +43,16 @@ Model object proxies
 --------------------
 
 Changes to model objects that are passed from the server to clients may
-require corresponding changes to be made to the :omero_source:`IceMapper
-<components/blitz/src/omero/util/IceMapper.java>` class so that the
+require corresponding changes to be made to the :omero_blitz_source:`IceMapper
+<src/main/java/omero/util/IceMapper.java>` class so that the
 client-side proxy objects are properly populated.
 
 For example, :omero_commit:`commit 8815a409
 <8815a409e24b41ff4c68829657ad98a278594ade>` adds fields to the `Roles` class
-in the server's :omero_source:`System.ice
-<components/blitz/resources/omero/System.ice>` whose instances can be passed
-to clients via the :omero_source:`admin service API
-<components/blitz/resources/omero/api/IAdmin.ice>` so a further
+in the server's :omero_blitz_source:`System.ice
+<src/main/slice/omero/System.ice>` whose instances can be passed
+to clients via the :omero_blitz_source:`admin service API
+<src/main/slice/omero/api/IAdmin.ice>` so a further
 :omero_commit:`commit 2426042a <2426042a4f0b5e31a6e9743844da168a9e550375>` was
 needed to populate those fields in the proxy object.
 

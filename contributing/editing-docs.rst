@@ -439,12 +439,12 @@ Model glossary
 """"""""""""""
 
 Content for :omero_doc:`Glossary of all OMERO Model Objects <developers/Model/EveryObject.html>`
-is generated using :omero_source:`GraphPathReport <components/server/src/ome/services/graphs/GraphPathReport.java>`.
+is generated using :omero_server_source:`GraphPathReport <src/main/java/ome/services/graphs/GraphPathReport.java>`.
 
 To update the content:
 
--  Run the command indicated in :omero_source:`GraphPathReport <components/server/src/ome/services/graphs/GraphPathReport.java>`
-   to generate EveryObject.rst
+-  Run the command indicated in :omero_server_source:`GraphPathReport <src/main/java/ome/services/graphs/GraphPathReport.java>`
+   to generate :file:`EveryObject.rst`
 -  Replace `EveryObject.rst <https://github.com/openmicroscopy/ome-documentation/blob/develop/omero/developers/Model/EveryObject.rst>`_
    with the generated one
 -  Open a PR with any changes
