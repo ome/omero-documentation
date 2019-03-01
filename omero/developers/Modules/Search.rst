@@ -45,8 +45,8 @@ Indexing
 --------
 
 Successful searching depends on understanding how the text is indexed.
-The default analyzer used is :source:`the
-FullTextAnalyzer <components/server/src/ome/services/fulltext/FullTextAnalyzer.java>`.
+The default analyzer used is :server_source:`the
+FullTextAnalyzer <src/main/java/ome/services/fulltext/FullTextAnalyzer.java>`.
 
 ::
 
@@ -240,7 +240,7 @@ quick and straightforward.
 
 Similarly, :doc:`/developers/Modules/Search/Bridges` provide a mechanism
 for parsing all metadata entering the system. One built in bridge (the
-:source:`FullTextBridge <components/server/src/ome/services/fulltext/FullTextBridge.java>`)
+:server_source:`FullTextBridge <src/main/java/ome/services/fulltext/FullTextBridge.java>`)
 parses out the fields mentioned above, but by creating your own bridge
 it is possible to extract more information specific to your site.
 

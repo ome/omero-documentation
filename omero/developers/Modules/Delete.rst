@@ -46,7 +46,7 @@ Delete behavior (technical)
 Configuring what gets deleted is done using XML files. Since OMERO 5.1,
 the delete behavior defaults to a :doc:`../Server/ObjectGraphs`
 implementation that is configured by
-:source:`components/blitz/resources/ome/services/blitz-graph-rules.xml`.
+:blitz_source:`src/main/resources/ome/services/blitz-graph-rules.xml`.
 
 Delete Image
 ~~~~~~~~~~~~

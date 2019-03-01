@@ -2,8 +2,8 @@ OMERO upgrade checks
 ====================
 
 On each startup the OMERO server checks for available upgrades via the
-:source:`UpgradeCheck class 
-<components/common/src/ome/system/UpgradeCheck.java>`.
+:common_source:`UpgradeCheck class
+<src/main/java/ome/system/UpgradeCheck.java>`.
 An HTTP GET call is made to the URL configured in
 :source:`etc/omero.properties` as ``omero.upgrades.url``, currently
 \http://upgrade.openmicroscopy.org.uk by default (note that viewing that link

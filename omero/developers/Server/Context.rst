@@ -10,7 +10,7 @@ restricted to a single task).
 
 The container for all OMERO applications is the
 :doc:`/developers/Server/Context`
-(:source:`components/common/src/ome/system/OmeroContext.java`).
+(:common_source:`src/main/java/ome/system/OmeroContext.java`).
 Based on the Spring_ configuration backing the context, it can be one of
 ``client``, ``internal``, or ``managed``. The use of a ServiceFactory
 simplifies this usage for the client. 
@@ -28,7 +28,7 @@ changes can be persisted.
 A session can span multiple calls by being disconnected from the
 underlying database transaction, and then reconnected to a new
 transaction on the next call (see
-:source:`components/server/src/ome/tools/hibernate/SessionHandler.java`
+:server_source:`src/main/java/ome/tools/hibernate/SessionHandler.java`
 for the implementation).
 
 

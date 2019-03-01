@@ -157,9 +157,8 @@ Using Eclipse to run tests
 
 To facilitate importing OMERO components into Eclipse, there are
 :file:`.project` and :file:`.classpath-template` files stored in each
-component directory (e.g. :source:`common's
-.classpath <components/common/.classpath-template>` and :source:`common's
-.project </components/common/.project>`).
+component directory (e.g. :common_sourcedir:`common <>`'s
+:file:`.project` and :file:`.classpath-template`).
 
 There are also top-level :file:`.classpath` and :file:`.project` files which
 allow for importing all components as a single project, but this approach
@@ -392,10 +391,10 @@ for which a test is being written should be added in the TestNG annotation:
 
     @Test(groups = "ticket:60")
 
-This works at either the method level (see :source:`SetsAndLinksTest.java
-<components/model/test/ome/model/utests/SetsAndLinksTest.java>`)
-or the class level (see :source:`UniqueResultTest.java
-<components/server/test/ome/server/itests/query/UniqueResultTest.java>`).
+This works at either the method level (see :model_source:`SetsAndLinksTest.java
+<src/test/java/ome/model/utests/SetsAndLinksTest.java>`)
+or the class level (see :server_source:`UniqueResultTest.java
+<src/test/java/ome/server/itests/query/UniqueResultTest.java>`).
 
 The tests under :sourcedir:`components/tools/OmeroJava/test` will be the
 starting point for most Java-client developers coming to OMERO. An example

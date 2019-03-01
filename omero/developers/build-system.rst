@@ -79,7 +79,7 @@ OMERO::
 
 Unfortunately, just the above snapshot of the code repository omits some
 of the most important code. Many megabytes of source code is generated both by
-our own :sourcedir:`DSLTask <components/dsl>` as well as by
+our own :dsl_plugin_sourcedir:`DSLTask <>` as well as by
 the Ice_ ``slice2java``, ``slice2cpp``, and
 ``slice2py`` code generators. These take an intermediate representation
 of the :model_doc:`OME-Model <ome-xml/>` and generate our |OmeroModel|.

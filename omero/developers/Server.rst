@@ -10,18 +10,18 @@ aspects.
 
 -  A request reaches the server over
    one of the two remoting protocols: RMI or ICE. First, the
-   :source:`Principal <components/common/src/ome/system/Principal.java>`
+   :common_source:`Principal <src/main/java/ome/system/Principal.java>`
    is examined for a valid :doc:`session </developers/Server/Sessions>` which
-   was created via :source:`ISession.createSession(String username, String
-   password) <components/common/src/ome/api/ISession.java>`.
+   was created via :common_source:`ISession.createSession(String username, String
+   password) <src/main/java/ome/api/ISession.java>`.
 
 -  These values are checked against the ``experimenter``,
    ``experimentergroup`` and ``password`` tables. A valid login consists
    of a user name which is to be found in the ``omename`` column of
    ``experimenter``. This row from ``experimenter`` must also be
    contained in the "user" experimenter group which is done via the
-   mapping table ``groupexperimentermap`` (see :source:`this SQL
-   template <components/dsl/resources/ome/dsl/psql-footer.vm>`
+   mapping table ``groupexperimentermap`` (see :model_source:`this SQL
+   template <src/main/resources/templates/psql-footer.vm>`
    for how ``root`` and the intial groups are setup).
 
 -  If the server is configured for :doc:`LDAP Authentication
@@ -51,13 +51,13 @@ aspects.
    :doc:`application context </developers/Server/Context>`.
 
 -  The actual service implementation (from
-   :sourcedir:`ome.logic <components/server/src/ome/logic>`
+   :server_sourcedir:`ome.logic <src/main/java/ome/logic>`
    or
-   :sourcedir:`ome.services <components/server/src/ome/services>`)
+   :server_sourcedir:`ome.services <src/main/java/ome/services>`)
    will be either read-only
-   (:source:`IQuery <components/common/src/ome/api/IQuery.java>`-based)
+   (:common_source:`IQuery <src/main/java/ome/api/IQuery.java>`-based)
    or a read-write
-   (:source:`IUpdate <components/common/src/ome/api/IUpdate.java>`-based).
+   (:common_source:`IUpdate <src/main/java/ome/api/IUpdate.java>`-based).
 
 -  In the case of a read-only action, the implementation asks the
    database layer for the needed object graph, transforms them where
@@ -124,7 +124,7 @@ Server design
 
    Server Design
 
-The server logic resides in the :sourcedir:`components/server`
+The server logic resides in the :server_sourcedir:`server <>`
 component.
 
 Topics

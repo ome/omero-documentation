@@ -13,23 +13,23 @@ Components
 
 The primary classes which make up the Import Library are:
 
--  :source:`ImportLibrary.java <components/blitz/src/ome/formats/importer/ImportLibrary.java>`
+-  :blitz_source:`ImportLibrary.java <src/main/java/ome/formats/importer/ImportLibrary.java>`
    itself, which is the main driver
--  :source:`ImportCandidates.java <components/blitz/src/ome/formats/importer/ImportCandidates.java>`
+-  :blitz_source:`ImportCandidates.java <src/main/java/ome/formats/importer/ImportCandidates.java>`
    which takes file paths and determines the proper files to import
--  :source:`ImportConfig.java <components/blitz/src/ome/formats/importer/ImportConfig.java>`,
+-  :blitz_source:`ImportConfig.java <src/main/java/ome/formats/importer/ImportConfig.java>`,
    an extensible mechanism for storing the properties used during import
--  :source:`ImportEvent.java <components/blitz/src/ome/formats/importer/ImportEvent.java>`,
+-  :blitz_source:`ImportEvent.java <src/main/java/ome/formats/importer/ImportEvent.java>`,
    the various events raised during import to ``IObserver``\ and
    ``IObservable`` implementations
--  :source:`OMEROMetadataStoreClient.java <components/blitz/src/ome/formats/OMEROMetadataStoreClient.java>`,
+-  :blitz_source:`OMEROMetadataStoreClient.java <src/main/java/ome/formats/OMEROMetadataStoreClient.java>`,
    the low-level connection to the server
--  :source:`OMEROWrapper.java <components/blitz/src/ome/formats/importer/OMEROWrapper.java>`,
+-  :blitz_source:`OMEROWrapper.java <src/main/java/ome/formats/importer/OMEROWrapper.java>`,
    the OMERO adapter for the Bio-Formats ``ImageReaders`` class
 -  In OMERO.insight, the main entry point is the importImage method of
-   :source:`OMEROGateway.java <components/insight/SRC/org/openmicroscopy/shoola/env/data/OMEROGateway.java>`
+   :insight_source:`OMEROGateway.java <SRC/org/openmicroscopy/shoola/env/data/OMEROGateway.java>`
 -  In the CLI, the main entry point is the
-   :source:`CommandLineImporter <components/blitz/src/ome/formats/importer/cli/CommandLineImporter.java>`
+   :blitz_source:`CommandLineImporter <src/main/java/ome/formats/importer/cli/CommandLineImporter.java>`
    class
 
 Earlier Import Workflow

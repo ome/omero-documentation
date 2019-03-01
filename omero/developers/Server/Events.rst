@@ -7,7 +7,7 @@ What is an event?
 As described under :doc:`/developers/Server/Context`, each method
 call takes place within a single application context (always the same),
 session, and event. Of these, only event is guaranteed to be unique for
-every task\*. The :source:`components/server/src/ome/security/basic/EventHandler.java`
+every task\*. The :server_source:`src/main/java/ome/security/basic/EventHandler.java`
 is responsible for creating new events.
 
 Events as audit log

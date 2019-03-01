@@ -3,12 +3,12 @@ LoginAttemptListener
 
 All the :doc:`/developers/Server/PasswordProvider` implementations
 provided by default publish a
-":source:`LoginAttemptMessage <components/server/src/ome/services/messages/LoginAttemptMessage.java>`\ "
+":server_source:`LoginAttemptMessage <src/main/java/ome/services/messages/LoginAttemptMessage.java>`\ "
 every time they check a password value. This permits any
 ``org.springframework.context.ApplicationListener<LoginAttemptMessage>``
 to react to the login. Only one implementation is active by default (as
 of 4.2.1):
-:source:`ome.security.auth.LoginAttemptListener <components/server/src/ome/security/auth/LoginAttemptListener.java>`
+:server_source:`ome.security.auth.LoginAttemptListener <src/main/java/ome/security/auth/LoginAttemptListener.java>`
 which throttles logins after a given number of failed attempts.
 Configuration for this listener is available in :ref:`security_configuration`:
 

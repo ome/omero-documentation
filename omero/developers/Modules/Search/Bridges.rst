@@ -13,7 +13,7 @@ all of your metadata for later searching. If, however, there is more
 metadata that you would like to add to the index, you can implement the
 ``org.hibernate.search.bridge.FieldBridge`` interface yourself, or
 subclass the helper class
-:source:`components/server/src/ome/services/fulltext/BridgeHelper.java`
+:server_source:`src/main/java/ome/services/fulltext/BridgeHelper.java`
 
 Example
 -------
@@ -45,7 +45,7 @@ Custom bridges are configured in :ref:`search_configuration` but can be
 overridden via the :doc:`standard configuration mechanisms </sysadmins/unix/server-installation>`.
 The :property:`omero.search.bridges` property defines a comma-separated list of
 bridge classes which will be passed to
-:source:`components/server/src/ome/services/fulltext/FullTextBridge.java`.
+:server_source:`src/main/java/ome/services/fulltext/FullTextBridge.java`.
 
 See :ref:`JavaDeployment`
 for how to have your bridge classes included on the server's classpath
@@ -54,7 +54,7 @@ if it doesn't get built by the :doc:`/developers/build-system`.
 Available bridges
 -----------------
 
-See :sourcedir:`components/server/src/ome/services/fulltext/bridges`
+See :server_sourcedir:`src/main/java/ome/services/fulltext/bridges`
 for a list of provided (example) bridges.
 
 Re-indexing
