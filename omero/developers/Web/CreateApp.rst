@@ -99,7 +99,7 @@ installable from PyPI. If you opt to do so, a few files need to be added:
 
 - ``MANIFEST.in`` - a file needed in certain cases to package files not automatically included
 
-See `Packaging and Distributing Projects <https://packaging.python.org/distributing/>`_ for more details. 
+See `Packaging and Distributing Projects <https://packaging.python.org/guides/distributing-packages-using-setuptools/>`_ for more details.
 
 Add the essential files to your app
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
