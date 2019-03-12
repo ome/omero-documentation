@@ -81,7 +81,7 @@ source directory are the starting point for all code generation. Currently
 however, the files under :model_sourcedir:`src/main/resources/mappings`
 are hand-written based on the XSD files.
 
-The ant task created from the :dsl_plugin_sourcedir:`dsl/src` Java files
+The ant task created from the :dsl_plugin_sourcedir:`src` Java files
 is then used to turn the mapping files into generated Java code under the
 :file:`model/target/generated/src` directory. These classes are all within the
 ome.model package. A few hand-written Java classes can also be found in
