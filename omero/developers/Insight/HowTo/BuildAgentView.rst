@@ -10,7 +10,7 @@ How to build an agent's view
 This section explains how a view of the agent is created. All our
 agents follow the same approach. To see the code while
 reading the notes, go to
-:insight_sourcedir:`SRC/org/openmicroscopy/shoola/agents/treeviewer/view`.
+:insight_sourcedir:`src/main/java/org/openmicroscopy/shoola/agents/treeviewer/view`.
 
 Using the previous example ``MyBrowserAgent`` (see :doc:`/developers/Insight/HowTo/BuildAgent`):
 
