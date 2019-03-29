@@ -37,7 +37,7 @@ server, read a series of images and close the connection.
    client.closeSession();
 
 Examples of usage of the OMERO.matlab toolbox are provided in the
-:sourcedir:`training examples <examples>` directory.
+:matlab_sourcedir:`training examples <examples>` directory.
 
 Configuring the OMERO.matlab connection
 ---------------------------------------
@@ -630,7 +630,7 @@ This is useful when you need the ``Pixels`` intensity.
     store.close();
 
 .. seealso::
-  :source:`RawDataAccess.m <examples/RawDataAccess.m>`
+  :matlab_source:`RawDataAccess.m <examples/RawDataAccess.m>`
     Example script showing methods to retrieve the pixel data from an image
 
 Annotations
@@ -1085,7 +1085,7 @@ function::
 Rendering images
 -----------------
 
-The :source:`RenderImages.m <examples/RenderImages.m>` example
+The :matlab_source:`RenderImages.m <examples/RenderImages.m>` example
 script shows how to initialize the rendering engine and render an image.
 
 Creating Image
