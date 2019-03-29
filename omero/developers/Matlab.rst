@@ -37,7 +37,7 @@ server, read a series of images and close the connection.
    client.closeSession();
 
 Examples of usage of the OMERO.matlab toolbox are provided in the
-:sourcedir:`training examples <examples/Training/matlab>` directory.
+:sourcedir:`training examples <examples>` directory.
 
 Configuring the OMERO.matlab connection
 ---------------------------------------
@@ -630,7 +630,7 @@ This is useful when you need the ``Pixels`` intensity.
     store.close();
 
 .. seealso::
-  :source:`RawDataAccess.m <examples/Training/matlab/RawDataAccess.m>`
+  :source:`RawDataAccess.m <examples/RawDataAccess.m>`
     Example script showing methods to retrieve the pixel data from an image
 
 Annotations
@@ -749,7 +749,7 @@ by the content of ``local_file_path`` using::
     updateFileAnnotation(session, fileAnnotation, local_file_path);
 
 .. seealso::
-  :matlab_source:`WriteData.m <examples/Training/matlab/WriteData.m>`
+  :matlab_source:`WriteData.m <examples/WriteData.m>`
     Example script showing methods to write, link and retrieve annotations.
 
 Writing data
@@ -814,7 +814,7 @@ context is determined by the parent screen::
     plate2 = createPlate(session, 'plate name', screen2.getId().getValue());
 
 .. seealso::
-  :matlab_source:`WriteData.m <examples/Training/matlab/WriteData.m>`
+  :matlab_source:`WriteData.m <examples/WriteData.m>`
     Example script showing methods to create projects, datasets, plates and
     screens.
 
@@ -1085,13 +1085,13 @@ function::
 Rendering images
 -----------------
 
-The :source:`RenderImages.m <examples/Training/matlab/RenderImages.m>` example
+The :source:`RenderImages.m <examples/RenderImages.m>` example
 script shows how to initialize the rendering engine and render an image.
 
 Creating Image
 --------------
 
-The :matlab_source:`CreateImage.m <examples/Training/matlab/CreateImage.m>` example
+The :matlab_source:`CreateImage.m <examples/CreateImage.m>` example
 script shows how to create an image in OMERO. A similar approach can be
 applied when uploading an image. To upload individual planes onto the server,
 the data must be converted into a byte (int8) array first. If the ``Pixels``
