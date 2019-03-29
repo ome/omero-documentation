@@ -83,7 +83,7 @@ Keeping your session alive
 For executing any long running task, you will need a background thread
 which keeps your session alive. If you are familiar with MATLAB
 ``Timers`` you can use
-:matlab_source:`omeroKeepAlive.m <components/tools/OmeroM/src/omeroKeepAlive.m>`
+:matlab_source:`omeroKeepAlive.m <src/main/omeroKeepAlive.m>`
 directly or modify it to your liking. By default the function creates a default 60-second timer.
 
 ::
@@ -541,7 +541,7 @@ and ``t`` in ``[0, sizeT - 1]``.
 -  **Plane**
 
 The plane of an input image at coordinates ``(z, c, t)`` can be retrieved using
-the :matlab_source:`getPlane <components/tools/OmeroM/src/image/getPlane.m>`
+the :matlab_source:`getPlane <src/main/image/getPlane.m>`
 function::
 
     plane = getPlane(session, image, z, c, t);
@@ -554,7 +554,7 @@ Alternatively, the image identifier can be passed to the function::
 
 The tile of an input image at coordinates ``(z, c, t)`` originated at ``(x, y)`` (where ``x`` in ``[0, sizeX - 1]``, ``y`` in ``[0, sizeY - 1]``) and
 of dimensions ``(w, h)`` can be retrieved using the
-:matlab_source:`getTile <components/tools/OmeroM/src/image/getTile.m>` function::
+:matlab_source:`getTile <src/main/image/getTile.m>` function::
 
     tile = getTile(session, image, z, c, t, x, y, w, h);
 
@@ -565,7 +565,7 @@ Alternatively, the image identifier can be passed to the function::
 -  **Stack**
 
 The stack of an input image at coordinates ``(c, t)`` can be retrieved using the
-:matlab_source:`getStack <components/tools/OmeroM/src/image/getStack.m>` function::
+:matlab_source:`getStack <src/main/image/getStack.m>` function::
 
     stack = getStack(session, image, c, t);
 
@@ -639,7 +639,7 @@ Annotations
 -  **Reading annotations by ID**
 
 If the identifier of the annotation of a given type is known, the annotation
-can be retrieved from the server using the generic :matlab_source:`getAnnotations <components/tools/OmeroM/src/annotations/getAnnotations.m>` function::
+can be retrieved from the server using the generic :matlab_source:`getAnnotations <src/main/annotations/getAnnotations.m>` function::
 
     tagAnnotations = getAnnotations(session, 'tag', tagIds);
 
@@ -651,7 +651,7 @@ e.g. to retrieve tag annotations::
 -  **Reading annotations linked to an object**
 
 The annotations of a given type linked to a given object can be
-retrieved using the generic :matlab_source:`getObjectAnnotations <components/tools/OmeroM/src/annotations/getObjectAnnotations.m>` function::
+retrieved using the generic :matlab_source:`getObjectAnnotations <src/main/annotations/getObjectAnnotations.m>` function::
 
     tagAnnotations = getObjectAnnotations(session, 'tag', 'image', imageIds);
 
@@ -684,7 +684,7 @@ identifier::
 -  **Reading file annotations**
 
 The content of a file annotation can be downloaded to local disk using the
-:matlab_source:`getFileAnnotationContent <components/tools/OmeroM/src/annotations/getFileAnnotationContent.m>`
+:matlab_source:`getFileAnnotationContent <src/main/annotations/getFileAnnotationContent.m>`
 function. If the file annotation has been retrieved from the server as
 ``fileAnnotation``, then the content of its ``OriginalFile`` can be downloaded
 under ``target_file`` using::
@@ -732,7 +732,7 @@ key/value pair::
     fileAnnotation = writeFileAnnotation(session, local_file_path, 'group', groupId);
 
 Existing annotations can be linked to existing objects on the server using the
-:matlab_source:`linkAnnotation <components/tools/OmeroM/src/annotations/linkAnnotation.m>`
+:matlab_source:`linkAnnotation <src/main/annotations/linkAnnotation.m>`
 function. For example, to link a tag annotation and a file annotation to the
 image ``image_id``::
 
@@ -741,7 +741,7 @@ image ``image_id``::
 
 For existing file annotations, it is possible to replace the content of the
 original file without having to recreate a new file annotation using the
-:matlab_source:`updateFileAnnotation <components/tools/OmeroM/src/annotations/updateFileAnnotation.m>` function.
+:matlab_source:`updateFileAnnotation <src/main/annotations/updateFileAnnotation.m>` function.
 If the file annotation has been retrieved from the server as
 ``fileAnnotation``, then the content of its ``OriginalFile`` can be replaced
 by the content of ``local_file_path`` using::
@@ -931,7 +931,7 @@ attaches it to an image::
 
 .. seealso::
 
-    :matlab_sourcedir:`ROI utility functions <components/tools/OmeroM/src/roi>`
+    :matlab_sourcedir:`ROI utility functions <src/main/roi>`
         OMERO.matlab functions for creating and managing Shape and ROI
         objects.
 
@@ -1072,14 +1072,14 @@ It is possible to delete projects, datasets, images, ROIs, etc. and
 objects linked to them depending on the specified options (see
 :doc:`/developers/Modules/Delete`). For example, images of known identifiers
 can be deleted from the server using the
-:matlab_source:`deleteImages <components/tools/OmeroM/src/delete/deleteImages.m>`
+:matlab_source:`deleteImages <src/main/delete/deleteImages.m>`
 function::
 
     deleteImages(session, imageIds);
 
 .. seealso::
 
-    :matlab_source:`deleteProjects <components/tools/OmeroM/src/delete/deleteProjects.m>`, :matlab_source:`deleteDatasets <components/tools/OmeroM/src/delete/deleteDatasets.m>`, :matlab_source:`deleteScreens <components/tools/OmeroM/src/delete/deleteScreens.m>`, :matlab_source:`deletePlates <components/tools/OmeroM/src/delete/deletePlates.m>`
+    :matlab_source:`deleteProjects <src/main/delete/deleteProjects.m>`, :matlab_source:`deleteDatasets <src/main/delete/deleteDatasets.m>`, :matlab_source:`deleteScreens <src/main/delete/deleteScreens.m>`, :matlab_source:`deletePlates <src/main/delete/deletePlates.m>`
         Utility functions to delete objects.
 
 Rendering images
@@ -1096,5 +1096,5 @@ script shows how to create an image in OMERO. A similar approach can be
 applied when uploading an image. To upload individual planes onto the server,
 the data must be converted into a byte (int8) array first. If the ``Pixels``
 object has been created, this conversion can done using the
-:matlab_source:`toByteArray <components/tools/OmeroM/src/helper/toByteArray.m>`
+:matlab_source:`toByteArray <src/main/helper/toByteArray.m>`
 function.
