@@ -214,7 +214,7 @@ indicating how to load projects, datasets, screens.
 
 The projects owned by the session user in the context of the session group can
 be retrieved using the
-:matlab_source:`getProjects <components/tools/OmeroM/src/io/getProjects.m>` function::
+:matlab_source:`getProjects <src/main/io/getProjects.m>` function::
 
     projects = getProjects(session)
 
@@ -267,7 +267,7 @@ argument::
   memory-consuming depending on the amount of data.
 
 To return the orphaned datasets i.e. datasets not in a project, as well as the projects, you can query the second output argument of
-:matlab_source:`getProjects <components/tools/OmeroM/src/io/getProjects.m>`::
+:matlab_source:`getProjects <src/main/io/getProjects.m>`::
 
     [projects, orphanedDatasets] = getProjects(session)
 
@@ -298,7 +298,7 @@ To filter projects by group, use the ``group`` parameter/key value. A value of
 
 The datasets owned by the session user in the context of the session group can
 be retrieved using the
-:matlab_source:`getDatasets <components/tools/OmeroM/src/io/getDatasets.m>` function::
+:matlab_source:`getDatasets <src/main/io/getDatasets.m>` function::
 
     datasets = getDatasets(session)
 
@@ -344,7 +344,7 @@ To filter datasets by group, use the ``group`` parameter/key value. A value of
 
 The images owned by the session user in the context of the session group can
 be retrieved using the
-:matlab_source:`getImages <components/tools/OmeroM/src/io/getImages.m>` function::
+:matlab_source:`getImages <src/main/io/getImages.m>` function::
 
     images = getImages(session)
 
@@ -400,7 +400,7 @@ to access valuable data about the ``Image``::
 
 The screens owned by the session user in the context of the session group can
 be retrieved using the
-:matlab_source:`getScreens <components/tools/OmeroM/src/io/getScreens.m>` function::
+:matlab_source:`getScreens <src/main/io/getScreens.m>` function::
 
     screens = getScreens(session)
 
@@ -423,7 +423,7 @@ Note that the wells are not loaded. The plate objects can be accessed using::
 
 To return the orphaned plates as well as the screens, you can query the
 second output argument of
-:matlab_source:`getScreens <components/tools/OmeroM/src/io/getScreens.m>`::
+:matlab_source:`getScreens <src/main/io/getScreens.m>`::
 
     [screens, orphanedPlates] = getScreens(session)
 
@@ -454,7 +454,7 @@ To filter screens by group, use the ``group`` parameter/key value. A value of
 
 The screens owned by the session user in the context of the session group can
 be retrieved using the
-:matlab_source:`getPlates <components/tools/OmeroM/src/io/getPlates.m>` function::
+:matlab_source:`getPlates <src/main/io/getPlates.m>` function::
 
     plates = getPlates(session)
 
@@ -758,7 +758,7 @@ Writing data
 -  **Projects/Datasets**
 
 Projects and datasets can be created in the context of the session group
-using the :matlab_source:`createProject <components/tools/OmeroM/src/io/createProject.m>` and :matlab_source:`createDataset <components/tools/OmeroM/src/io/createDataset.m>` functions::
+using the :matlab_source:`createProject <src/main/io/createProject.m>` and :matlab_source:`createDataset <src/main/io/createDataset.m>` functions::
 
     % Create a new project in the context of the session group
     newproject = createProject(session, 'project name');
@@ -787,7 +787,7 @@ context is determined by the parent project::
 -  **Screens/Plates**
 
 Screens and plates can be created in the context of the session group
-using the :matlab_source:`createScreen <components/tools/OmeroM/src/io/createScreen.m>` and :matlab_source:`createPlate <components/tools/OmeroM/src/io/createPlate.m>` functions::
+using the :matlab_source:`createScreen <src/main/io/createScreen.m>` and :matlab_source:`createPlate <src/main/io/createPlate.m>` functions::
 
     % Create a new screen in the context of the session group
     newscreen = createScreen(session, 'screen name');
