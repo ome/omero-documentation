@@ -37,7 +37,7 @@ server, read a series of images and close the connection.
    client.closeSession();
 
 Examples of usage of the OMERO.matlab toolbox are provided in the
-:sourcedir:`training examples <examples/Training/matlab>` directory.
+:matlab_sourcedir:`training examples <examples>` directory.
 
 Configuring the OMERO.matlab connection
 ---------------------------------------
@@ -83,7 +83,7 @@ Keeping your session alive
 For executing any long running task, you will need a background thread
 which keeps your session alive. If you are familiar with MATLAB
 ``Timers`` you can use
-:matlab_source:`omeroKeepAlive.m <components/tools/OmeroM/src/omeroKeepAlive.m>`
+:matlab_source:`omeroKeepAlive.m <src/main/omeroKeepAlive.m>`
 directly or modify it to your liking. By default the function creates a default 60-second timer.
 
 ::
@@ -214,7 +214,7 @@ indicating how to load projects, datasets, screens.
 
 The projects owned by the session user in the context of the session group can
 be retrieved using the
-:matlab_source:`getProjects <components/tools/OmeroM/src/io/getProjects.m>` function::
+:matlab_source:`getProjects <src/main/io/getProjects.m>` function::
 
     projects = getProjects(session)
 
@@ -267,7 +267,7 @@ argument::
   memory-consuming depending on the amount of data.
 
 To return the orphaned datasets i.e. datasets not in a project, as well as the projects, you can query the second output argument of
-:matlab_source:`getProjects <components/tools/OmeroM/src/io/getProjects.m>`::
+:matlab_source:`getProjects <src/main/io/getProjects.m>`::
 
     [projects, orphanedDatasets] = getProjects(session)
 
@@ -298,7 +298,7 @@ To filter projects by group, use the ``group`` parameter/key value. A value of
 
 The datasets owned by the session user in the context of the session group can
 be retrieved using the
-:matlab_source:`getDatasets <components/tools/OmeroM/src/io/getDatasets.m>` function::
+:matlab_source:`getDatasets <src/main/io/getDatasets.m>` function::
 
     datasets = getDatasets(session)
 
@@ -344,7 +344,7 @@ To filter datasets by group, use the ``group`` parameter/key value. A value of
 
 The images owned by the session user in the context of the session group can
 be retrieved using the
-:matlab_source:`getImages <components/tools/OmeroM/src/io/getImages.m>` function::
+:matlab_source:`getImages <src/main/io/getImages.m>` function::
 
     images = getImages(session)
 
@@ -400,7 +400,7 @@ to access valuable data about the ``Image``::
 
 The screens owned by the session user in the context of the session group can
 be retrieved using the
-:matlab_source:`getScreens <components/tools/OmeroM/src/io/getScreens.m>` function::
+:matlab_source:`getScreens <src/main/io/getScreens.m>` function::
 
     screens = getScreens(session)
 
@@ -423,7 +423,7 @@ Note that the wells are not loaded. The plate objects can be accessed using::
 
 To return the orphaned plates as well as the screens, you can query the
 second output argument of
-:matlab_source:`getScreens <components/tools/OmeroM/src/io/getScreens.m>`::
+:matlab_source:`getScreens <src/main/io/getScreens.m>`::
 
     [screens, orphanedPlates] = getScreens(session)
 
@@ -454,7 +454,7 @@ To filter screens by group, use the ``group`` parameter/key value. A value of
 
 The screens owned by the session user in the context of the session group can
 be retrieved using the
-:matlab_source:`getPlates <components/tools/OmeroM/src/io/getPlates.m>` function::
+:matlab_source:`getPlates <src/main/io/getPlates.m>` function::
 
     plates = getPlates(session)
 
@@ -541,7 +541,7 @@ and ``t`` in ``[0, sizeT - 1]``.
 -  **Plane**
 
 The plane of an input image at coordinates ``(z, c, t)`` can be retrieved using
-the :matlab_source:`getPlane <components/tools/OmeroM/src/image/getPlane.m>`
+the :matlab_source:`getPlane <src/main/image/getPlane.m>`
 function::
 
     plane = getPlane(session, image, z, c, t);
@@ -554,7 +554,7 @@ Alternatively, the image identifier can be passed to the function::
 
 The tile of an input image at coordinates ``(z, c, t)`` originated at ``(x, y)`` (where ``x`` in ``[0, sizeX - 1]``, ``y`` in ``[0, sizeY - 1]``) and
 of dimensions ``(w, h)`` can be retrieved using the
-:matlab_source:`getTile <components/tools/OmeroM/src/image/getTile.m>` function::
+:matlab_source:`getTile <src/main/image/getTile.m>` function::
 
     tile = getTile(session, image, z, c, t, x, y, w, h);
 
@@ -565,7 +565,7 @@ Alternatively, the image identifier can be passed to the function::
 -  **Stack**
 
 The stack of an input image at coordinates ``(c, t)`` can be retrieved using the
-:matlab_source:`getStack <components/tools/OmeroM/src/image/getStack.m>` function::
+:matlab_source:`getStack <src/main/image/getStack.m>` function::
 
     stack = getStack(session, image, c, t);
 
@@ -630,7 +630,7 @@ This is useful when you need the ``Pixels`` intensity.
     store.close();
 
 .. seealso::
-  :source:`RawDataAccess.m <examples/Training/matlab/RawDataAccess.m>`
+  :matlab_source:`RawDataAccess.m <examples/RawDataAccess.m>`
     Example script showing methods to retrieve the pixel data from an image
 
 Annotations
@@ -639,7 +639,7 @@ Annotations
 -  **Reading annotations by ID**
 
 If the identifier of the annotation of a given type is known, the annotation
-can be retrieved from the server using the generic :matlab_source:`getAnnotations <components/tools/OmeroM/src/annotations/getAnnotations.m>` function::
+can be retrieved from the server using the generic :matlab_source:`getAnnotations <src/main/annotations/getAnnotations.m>` function::
 
     tagAnnotations = getAnnotations(session, 'tag', tagIds);
 
@@ -651,7 +651,7 @@ e.g. to retrieve tag annotations::
 -  **Reading annotations linked to an object**
 
 The annotations of a given type linked to a given object can be
-retrieved using the generic :matlab_source:`getObjectAnnotations <components/tools/OmeroM/src/annotations/getObjectAnnotations.m>` function::
+retrieved using the generic :matlab_source:`getObjectAnnotations <src/main/annotations/getObjectAnnotations.m>` function::
 
     tagAnnotations = getObjectAnnotations(session, 'tag', 'image', imageIds);
 
@@ -684,7 +684,7 @@ identifier::
 -  **Reading file annotations**
 
 The content of a file annotation can be downloaded to local disk using the
-:matlab_source:`getFileAnnotationContent <components/tools/OmeroM/src/annotations/getFileAnnotationContent.m>`
+:matlab_source:`getFileAnnotationContent <src/main/annotations/getFileAnnotationContent.m>`
 function. If the file annotation has been retrieved from the server as
 ``fileAnnotation``, then the content of its ``OriginalFile`` can be downloaded
 under ``target_file`` using::
@@ -732,7 +732,7 @@ key/value pair::
     fileAnnotation = writeFileAnnotation(session, local_file_path, 'group', groupId);
 
 Existing annotations can be linked to existing objects on the server using the
-:matlab_source:`linkAnnotation <components/tools/OmeroM/src/annotations/linkAnnotation.m>`
+:matlab_source:`linkAnnotation <src/main/annotations/linkAnnotation.m>`
 function. For example, to link a tag annotation and a file annotation to the
 image ``image_id``::
 
@@ -741,7 +741,7 @@ image ``image_id``::
 
 For existing file annotations, it is possible to replace the content of the
 original file without having to recreate a new file annotation using the
-:matlab_source:`updateFileAnnotation <components/tools/OmeroM/src/annotations/updateFileAnnotation.m>` function.
+:matlab_source:`updateFileAnnotation <src/main/annotations/updateFileAnnotation.m>` function.
 If the file annotation has been retrieved from the server as
 ``fileAnnotation``, then the content of its ``OriginalFile`` can be replaced
 by the content of ``local_file_path`` using::
@@ -749,7 +749,7 @@ by the content of ``local_file_path`` using::
     updateFileAnnotation(session, fileAnnotation, local_file_path);
 
 .. seealso::
-  :matlab_source:`WriteData.m <examples/Training/matlab/WriteData.m>`
+  :matlab_source:`WriteData.m <examples/WriteData.m>`
     Example script showing methods to write, link and retrieve annotations.
 
 Writing data
@@ -758,7 +758,7 @@ Writing data
 -  **Projects/Datasets**
 
 Projects and datasets can be created in the context of the session group
-using the :matlab_source:`createProject <components/tools/OmeroM/src/io/createProject.m>` and :matlab_source:`createDataset <components/tools/OmeroM/src/io/createDataset.m>` functions::
+using the :matlab_source:`createProject <src/main/io/createProject.m>` and :matlab_source:`createDataset <src/main/io/createDataset.m>` functions::
 
     % Create a new project in the context of the session group
     newproject = createProject(session, 'project name');
@@ -787,7 +787,7 @@ context is determined by the parent project::
 -  **Screens/Plates**
 
 Screens and plates can be created in the context of the session group
-using the :matlab_source:`createScreen <components/tools/OmeroM/src/io/createScreen.m>` and :matlab_source:`createPlate <components/tools/OmeroM/src/io/createPlate.m>` functions::
+using the :matlab_source:`createScreen <src/main/io/createScreen.m>` and :matlab_source:`createPlate <src/main/io/createPlate.m>` functions::
 
     % Create a new screen in the context of the session group
     newscreen = createScreen(session, 'screen name');
@@ -814,7 +814,7 @@ context is determined by the parent screen::
     plate2 = createPlate(session, 'plate name', screen2.getId().getValue());
 
 .. seealso::
-  :matlab_source:`WriteData.m <examples/Training/matlab/WriteData.m>`
+  :matlab_source:`WriteData.m <examples/WriteData.m>`
     Example script showing methods to create projects, datasets, plates and
     screens.
 
@@ -931,7 +931,7 @@ attaches it to an image::
 
 .. seealso::
 
-    :matlab_sourcedir:`ROI utility functions <components/tools/OmeroM/src/roi>`
+    :matlab_sourcedir:`ROI utility functions <src/main/roi>`
         OMERO.matlab functions for creating and managing Shape and ROI
         objects.
 
@@ -1072,29 +1072,29 @@ It is possible to delete projects, datasets, images, ROIs, etc. and
 objects linked to them depending on the specified options (see
 :doc:`/developers/Modules/Delete`). For example, images of known identifiers
 can be deleted from the server using the
-:matlab_source:`deleteImages <components/tools/OmeroM/src/delete/deleteImages.m>`
+:matlab_source:`deleteImages <src/main/delete/deleteImages.m>`
 function::
 
     deleteImages(session, imageIds);
 
 .. seealso::
 
-    :matlab_source:`deleteProjects <components/tools/OmeroM/src/delete/deleteProjects.m>`, :matlab_source:`deleteDatasets <components/tools/OmeroM/src/delete/deleteDatasets.m>`, :matlab_source:`deleteScreens <components/tools/OmeroM/src/delete/deleteScreens.m>`, :matlab_source:`deletePlates <components/tools/OmeroM/src/delete/deletePlates.m>`
+    :matlab_source:`deleteProjects <src/main/delete/deleteProjects.m>`, :matlab_source:`deleteDatasets <src/main/delete/deleteDatasets.m>`, :matlab_source:`deleteScreens <src/main/delete/deleteScreens.m>`, :matlab_source:`deletePlates <src/main/delete/deletePlates.m>`
         Utility functions to delete objects.
 
 Rendering images
 -----------------
 
-The :source:`RenderImages.m <examples/Training/matlab/RenderImages.m>` example
+The :matlab_source:`RenderImages.m <examples/RenderImages.m>` example
 script shows how to initialize the rendering engine and render an image.
 
 Creating Image
 --------------
 
-The :matlab_source:`CreateImage.m <examples/Training/matlab/CreateImage.m>` example
+The :matlab_source:`CreateImage.m <examples/CreateImage.m>` example
 script shows how to create an image in OMERO. A similar approach can be
 applied when uploading an image. To upload individual planes onto the server,
 the data must be converted into a byte (int8) array first. If the ``Pixels``
 object has been created, this conversion can done using the
-:matlab_source:`toByteArray <components/tools/OmeroM/src/helper/toByteArray.m>`
+:matlab_source:`toByteArray <src/main/helper/toByteArray.m>`
 function.
