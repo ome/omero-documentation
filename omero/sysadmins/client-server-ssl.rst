@@ -30,8 +30,11 @@ External access to OMERO.server is managed by the Glacier2 component which can b
     omero config set omero.glacier2.IceSSL.CertFile server.p12
     omero config set omero.glacier2.IceSSL.Password secret
 
-For even stronger security disable anonymous ciphers too, and only allow ``HIGH``::
+For even stronger security require TLS 1.2, disable anonymous ciphers and only allow ``HIGH``::
 
+    omero config set omero.glacier2.IceSSL.Protocols tls1_2
+    omero config set omero.glacier2.IceSSL.ProtocolVersionMin tls1_2
+    omero config set omero.glacier2.IceSSL.ProtocolVersionMax tls1_2
     omero config set omero.glacier2.IceSSL.Ciphers HIGH
 
 Restart OMERO.server.
@@ -58,23 +61,24 @@ If you are a developer the following Ice properties can be passed to the ``omero
 
 - ``IceSSL.Ciphers=HIGH``
 - ``IceSSL.VerifyPeer=1``
-- ``IceSSL.Protocols=tls1_2``
 - ``IceSSL.VerifyDepthMax=0``
 - ``IceSSL.UsePlatformCAs=1``
+- ``IceSSL.Protocols=tls1_2`` (if required by the server configuration)
 
 If you have your own certificate authority replace ``IceSSL.UsePlatformCAs`` with:
 
 - ``IceSSL.CAs=/path/to/CA/public.cert``
 
 These properties check that the certificate chain is valid, but they do not verify that the hostname matches that of the certificate.
-To verify the hostname:
+To verify the hostname either set:
 
-- ``IceSSL.TrustOnly=CN=omero.example.org``
+- ``IceSSL.CheckCertName=1``
 
-where ``omero.example.org`` is the common name in the certificate.
-Multiple ``CN`` can be specified, for example to also support wildcard certificates:
+If your certificate hostname does not match exactly (for example, if you have a wildcard certificate) use the ``IceSSL.TrustOnly`` property instead:
 
 - ``IceSSL.TrustOnly=CN=omero.example.org;CN=*.example.org``
+
+Multiple ``CN`` can be specified, for example to also support wildcard certificates:
 
 
 Further information
