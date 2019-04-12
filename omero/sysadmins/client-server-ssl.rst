@@ -1,7 +1,7 @@
 Client Server SSL verification
 ==============================
 
-If you configure OMERO.web behind Nginx with a recognised SSL certificate your users can be sure that they are connecting to their intended server.
+If you configure OMERO.web behind Nginx with a recognized SSL certificate your users can be sure that they are connecting to their intended server.
 
 OMERO.server and clients do not automatically support host verification, so a
 `man-in-the-middle attack <https://www.cloudflare.com/learning/security/threats/man-in-the-middle-attack/>`_
