@@ -205,6 +205,8 @@ port using the server property :property:`omero.router.insecure`::
 
     $ bin/omero config set omero.router.insecure "OMERO.Glacier2/router:ssl -p 4064 -h @omero.host@"
 
+If you want to force host verification see :doc:`client-server-ssl`.
+
 --------------
 
 .. seealso:: :doc:`server-ldap`
