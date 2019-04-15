@@ -9,7 +9,8 @@ See |DevelopingOmeroClients| and |OmeroModel|, for an introduction to
 Installing the OMERO.matlab toolbox
 -----------------------------------
 
--  Download the latest released version from the :downloads:`download page <>`.
+-  Download the latest released version from the
+   `Downloads page <https://www.openmicroscopy.org/omero/downloads/>`_.
 -  Unzip the directory anywhere on your system.
 -  In MATLAB, move to the newly unzipped directory and run ``loadOmero;``.
 -  The MATLAB files are now on your path, and the necessary jars are on
