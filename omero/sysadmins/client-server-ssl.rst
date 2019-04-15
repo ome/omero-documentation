@@ -15,11 +15,11 @@ Server certificate
 ------------------
 
 The easiest solution is to re-use the SSL certificates used to protect OMERO.web.
-First convert the public certificate ``server.pem`` and private key ``server.key`` to the PKCS12 format where ``secret`` is the password used to protect the combined output file ``server.p12``::
+First convert the public certificate :file:`server.pem` and private key :file:`server.key` to the PKCS12 format where ``secret`` is the password used to protect the combined output file :file:`server.p12`::
 
     openssl pkcs12 -export -out server.p12 -in server.pem -inkey server.key -passout pass:secret
 
-Copy ``server.p12`` to the OMERO.server host, for instance to ``/etc/ssl/omero/``.
+Copy :file:`server.p12` to the OMERO.server host, for instance to :file:`/etc/ssl/omero/`.
 
 External access to OMERO.server is managed by the Glacier2 component which can be configured as follows::
 
@@ -44,7 +44,7 @@ Internal certificate authority
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can also create your own certificates by creating a certificate authority (CA), and using that to create a server certificate.
-Set this additional server configuration property to point to the public CA certificate ``/etc/ssl/omero/cacert.pem``::
+Set this additional server configuration property to point to the public CA certificate :file:`/etc/ssl/omero/cacert.pem`::
 
     # TODO: Is this needed on the server side?
     omero config set omero.glacier2.IceSSL.CAs cacert.pem
