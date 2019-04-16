@@ -65,6 +65,10 @@ If you are a developer the following Ice properties can be passed to the ``omero
 - ``IceSSL.UsePlatformCAs=1``
 - ``IceSSL.Protocols=tls1_2`` (if required by the server configuration)
 
+Some platforms or languages do not support the cipher specification ``HIGH``.
+Instead you can specify a cipher family such as ``AES256`` or ``AES_256``.
+See the `IceSSL.Ciphers documentation <https://doc.zeroc.com/ice/3.6/property-reference/icessl#id-.IceSSL.*v3.6-IceSSL.Ciphers>`_.
+
 If you have your own certificate authority replace ``IceSSL.UsePlatformCAs`` with:
 
 - ``IceSSL.CAs=/path/to/CA/public.cert``
@@ -74,17 +78,16 @@ To verify the hostname either set:
 
 - ``IceSSL.CheckCertName=1``
 
-If your certificate hostname does not match exactly (for example, if you have a wildcard certificate) use the ``IceSSL.TrustOnly`` property instead:
+If your certificate hostname does not match exactly (for example, if you have a wildcard certificate) use the ``IceSSL.TrustOnly`` property instead.
+Multiple ``CN`` can be specified:
 
 - ``IceSSL.TrustOnly=CN=omero.example.org;CN=*.example.org``
-
-Multiple ``CN`` can be specified, for example to also support wildcard certificates:
 
 
 Further information
 -------------------
 
 - https://doc.zeroc.com/technical-articles/glacier2-articles/teach-yourself-glacier2-in-10-minutes#TeachYourselfGlacier2in10Minutes-UsingSSLwithGlacier2
-- https://doc.zeroc.com/ice/3.7/ice-plugins/icessl/configuring-icessl
-- https://doc.zeroc.com/ice/3.7/ice-plugins/icessl/setting-up-a-certificate-authority
-- https://doc.zeroc.com/ice/3.7/property-reference/icessl
+- https://doc.zeroc.com/ice/3.6/ice-plugins/icessl/configuring-icessl
+- https://doc.zeroc.com/ice/3.6/ice-plugins/icessl/setting-up-a-certificate-authority
+- https://doc.zeroc.com/ice/3.6/property-reference/icessl
