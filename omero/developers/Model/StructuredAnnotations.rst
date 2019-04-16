@@ -5,7 +5,7 @@ Structured annotations permit the attachment of data and metadata
 outside the OMERO data model to certain types within the model. The
 annotations are designed for individualized use by both sites and tools.
 Annotations can be attached to multiple instances simultaneously to
-quickly annotated all entities in a view. Each annotation has a "name"
+quickly annotate all entities in a view. Each annotation has a "name"
 which can be interpreted as a "namespace" by tools, which can filter out
 all unknown namespaces.
 
