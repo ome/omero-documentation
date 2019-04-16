@@ -71,7 +71,7 @@ See the `IceSSL.Ciphers documentation <https://doc.zeroc.com/ice/3.6/property-re
 
 If you have your own certificate authority replace ``IceSSL.UsePlatformCAs`` with:
 
-- ``IceSSL.CAs=/path/to/CA/public.cert``
+- ``IceSSL.CAs=/path/to/CA/cacert.cert``
 
 These properties check that the certificate chain is valid, but they do not verify that the hostname matches that of the certificate.
 To verify the hostname either set:
