@@ -251,6 +251,11 @@ For example
     mv /OMERO/ManagedRepository/user-0_2/2014-07/23/16-29-14.809/ /OMERO/ManagedRepository/pg-0_3/user-0_2/2014-07-23/16-49-23.543/
     mv /OMERO/ManagedRepository/user-0_2/2014-07/23/16-29-14.809.log /OMERO/ManagedRepository/pg-0_3/user-0_2/2014-07-23/16-49-23.543.log
 
+.. note::
+
+  The :program:`omero fs rename` subcommand is currently disabled
+  pending a bug-fix.
+
 Detailing disk usage
 ^^^^^^^^^^^^^^^^^^^^
 
