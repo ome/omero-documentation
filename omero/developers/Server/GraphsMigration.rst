@@ -112,7 +112,7 @@ used in OMERO 5.0 should now be written as,
 Java request factory
 --------------------
 
-A utility class :blitz_source:`Requests.java
+A utility class :java_gateway_source:`Requests.java
 <src/main/java/omero/gateway/util/Requests.java>`
 provides convenient instantiation of graph requests. This class allows
 the requests from the above Python examples to be created by,
