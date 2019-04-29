@@ -5,7 +5,8 @@ import glob
 import os
 import re
 import sys
-
+from omero.cli import CLI
+from omero.install.config_parser import PropertyParser
 
 def get_mmp(sqlfile):
     m = re.search('.*/?OMERO(\d+)\.(\d+)(\w*)__(\d+)', sqlfile)
@@ -16,12 +17,11 @@ def get_mmp(sqlfile):
 serverdir = sys.argv[1]
 required = {'omero.db.version': None, 'omero.db.patch': None,
             'versions.bioformats': None}
-with open(os.path.join(serverdir, 'etc', 'omero.properties')) as f:
-    for line in f.readlines():
-        m = re.match('([\w\.]+)=(.*)', line.strip())
-        if m and m.group(1) in required:
-            required[m.group(1)] = m.group(2)
-            print '%s = "%s"' % (m.group(1).replace('.', '_'), m.group(2))
+cli = CLI()
+property_lines = cli.get_config_property_lines(serverdir)
+for property in PropertyParser().parse_lines(property_lines):
+    if property.key in required:
+        required[property.key] = property.val
 
 current_dbver = '%s__%s' % (
     required['omero.db.version'], required['omero.db.patch'])
