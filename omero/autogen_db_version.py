@@ -5,6 +5,7 @@ import glob
 import os
 import re
 import sys
+from path import path
 from omero.cli import CLI
 from omero.install.config_parser import PropertyParser
 
@@ -14,7 +15,8 @@ def get_mmp(sqlfile):
     return mmp
 
 
-serverdir = sys.argv[1]
+serverdir = path(sys.argv[1])
+print serverdir
 required = {'omero.db.version': None, 'omero.db.patch': None,
             'versions.bioformats': None}
 cli = CLI()
