@@ -16,7 +16,7 @@ def get_mmp(sqlfile):
 
 
 serverdir = path(sys.argv[1])
-print serverdir
+
 required = {'omero.db.version': None, 'omero.db.patch': None,
             'versions.bioformats': None}
 cli = CLI()
