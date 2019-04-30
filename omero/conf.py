@@ -115,6 +115,8 @@ omero_extlinks = {
     'server_sourcedir' : (omero_subs_github_root.format('omero-server', 'tree', 'master'), ''),
     'blitz_source' : (omero_subs_github_root.format('omero-blitz', 'blob', 'master'), ''),
     'blitz_sourcedir' : (omero_subs_github_root.format('omero-blitz', 'tree', 'master'), ''),
+    'java_gateway_source' : (omero_subs_github_root.format('omero-java-gateway', 'blob', 'master'), ''),
+    'java_gateway_sourcedir' : (omero_subs_github_root.format('omero-java-gateway', 'tree', 'master'), ''),
     'matlab_source' : (omero_subs_github_root.format('omero-matlab', 'blob', 'master'), ''),
     'matlab_sourcedir' : (omero_subs_github_root.format('omero-matlab', 'tree', 'master'), ''),
     'insight_source' : (omero_subs_github_root.format('omero-insight', 'blob', 'master'), ''),

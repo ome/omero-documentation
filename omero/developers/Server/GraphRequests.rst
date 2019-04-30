@@ -116,7 +116,7 @@ Additionally, the ``group`` plugin offers the ``Chmod2`` request and the
 Request builders for Java
 -------------------------
 
-The Java gateway includes the :blitz_source:`Requests.java
+The Java gateway includes the :java_gateway_source:`Requests.java
 <src/main/java/omero/gateway/util/Requests.java>` class which
 offers Java developers a set of builders that use method-chaining to
 allow convenient construction of new instances of the above requests.
