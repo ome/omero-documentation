@@ -176,4 +176,5 @@ linkcheck_ignore += [r'http://localhost:\d+/?', 'http://localhost/',
 ]
 
 exclude_patterns = ['sysadmins/unix/walkthrough/requirements*',
-                    'downloads/inplace', 'downloads/cli']
+                    'downloads/inplace', 'downloads/cli',
+                    'changelog.rst']
