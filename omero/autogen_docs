@@ -12,7 +12,12 @@ WORKSPACE=${WORKSPACE:-$(pwd)}
 USER=${USER:-$(whoami)}
 
 echo "Copying history"
-cp $WORKSPACE/OMERO.server/history.rst omero/users/history.rst
+# inject link to change log
+touch $WORKSPACE/newfile.rst
+cat $WORKSPACE/omero/changelog.rst > $WORKSPACE/newfile.rst
+cat $WORKSPACE/OMERO.server/history.rst >> $WORKSPACE/newfile.rst
+cp $WORKSPACE/newfile.rst omero/users/history.rst
+rm $WORKSPACE/newfile.rst
 
 echo "Generating configuration properties page"
 $WORKSPACE/OMERO.server/bin/omero config parse --rst | sed "s|$WORKSPACE|/home/omero|" > omero/sysadmins/config.rst
