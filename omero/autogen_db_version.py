@@ -17,8 +17,7 @@ def get_mmp(sqlfile):
 
 serverdir = path(sys.argv[1])
 
-required = {'omero.db.version': None, 'omero.db.patch': None,
-            'versions.bioformats': None}
+required = {'omero.db.version': None, 'omero.db.patch': None}
 cli = CLI()
 property_lines = cli.get_config_property_lines(serverdir)
 for property in PropertyParser().parse_lines(property_lines):
