@@ -5,6 +5,15 @@
 OMERO version history
 =====================
 
+5.5.0-m6 (April 2019)
+---------------------
+
+ - build: use omero-java-gateway instead of omero-blitz
+ - build: move omero.properties to omero-* repositories
+ - web: fix date display
+ - web: remove / from 3rdparty in ome.viewportImage.js
+ - cli: disable foreground indexing
+
 5.5.0-m5 (April 2019)
 ---------------------
 
@@ -32,7 +41,7 @@ separate repositories:
 - https://github.com/ome/omero-model
 - https://github.com/ome/omero-common
 - https://github.com/ome/omero-romio
-- https://github.com/ome/omero-renderer
+- https://github.com/ome/omero-rendering
 - https://github.com/ome/omero-server
 - https://github.com/ome/omero-blitz
 - https://github.com/ome/omero-insight
@@ -77,6 +86,17 @@ Further improvements include:
 Developer improvements include:
 
 - JavaGateway: add helper method to manipulate ROI masks 
+
+5.4.10 (January 2019)
+---------------------
+
+This release addresses a login issue for Java clients such as
+OMERO.insight. New releases of Java include a change to the
+``java.security`` file that disables anonymous cipher suites. This
+change causes ``SSLHandshakeException`` when the client attempts to
+authenticate to OMERO.blitz. The OMERO 5.4.10 release has some clients
+check the security property ``jdk.tls.disabledAlgorithms`` for the value
+"anon" and remove it if present thus allowing authentication to proceed.
 
 5.4.9 (October 2018)
 --------------------

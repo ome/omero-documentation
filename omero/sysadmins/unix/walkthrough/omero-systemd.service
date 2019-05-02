@@ -5,6 +5,7 @@ Description=OMERO.server
 After=postgresql-9.4.service
 After=postgresql-9.5.service
 After=postgresql-9.6.service
+After=postgresql-10.service
 After=network.service
 
 [Service]

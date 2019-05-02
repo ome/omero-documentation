@@ -34,12 +34,8 @@ apt-get -y install python-{pillow,numpy}
 #end-web-dependencies
 # install Ice
 #start-recommended-ice
-# to be installed if recommended/suggested is false
-apt-get -y install build-essential python-dev
-
-apt-get -y install libssl-dev libbz2-dev libmcpp-dev libdb++-dev libdb-dev libdb-java
 apt-get -y install zeroc-ice-all-runtime
-pip install "zeroc-ice>3.5,<3.7"
+pip install https://github.com/ome/zeroc-ice-py-debian9/releases/download/0.1.0/zeroc_ice-3.6.4-cp27-cp27mu-linux_x86_64.whl
 #end-recommended-ice
 
 

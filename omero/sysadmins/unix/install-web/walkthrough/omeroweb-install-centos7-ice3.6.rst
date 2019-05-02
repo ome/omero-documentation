@@ -24,16 +24,8 @@ Installing prerequisites
 
 **The following steps are run as root.**
 
-Install ZeroC IcePy 3.6. IcePy is managed by PyPI_, a package management system used to install and manage software packages written in Python. IcePy will be installed as part of the OMERO.web requirements::
-    
-    yum -y install gcc gcc-c++ python-devel
-    
-    yum -y install libdb-utils openssl-devel bzip2-devel
-    
-    # reset the locale changed by installing gcc
-    localedef -i en_US -f UTF-8 en_US.UTF-8
 
-Install other dependencies. The number of dependencies to install depends on the way you plan to install OMERO.web. If you wish to install it in a virtual environment created with ``--system-site-packages`` *on* (**option 1**), you will need to install ``python-pillow`` and ``numpy``. If you wish to install it in a virtual environment with ``--system-site-packages`` *off*, a few more dependencies will be required (**option 2**)::
+Install dependencies. The number of dependencies to install depends on the way you plan to install OMERO.web. If you wish to install it in a virtual environment created with ``--system-site-packages`` *on* (**option 1**), you will need to install ``python-pillow`` and ``numpy``. If you wish to install it in a virtual environment with ``--system-site-packages`` *off*, a few more dependencies will be required (**option 2**)::
     
     # dependencies common to both options
     yum -y install epel-release
@@ -86,6 +78,11 @@ Install OMERO.web using OMERO.py::
     ln -s OMERO.py-* OMERO.py
 
 **The following steps are run as the omero system user.**
+
+Install ZeroC IcePy 3.6::
+    
+    # option 1 and option 2
+    /home/omero/omerowebvenv/bin/pip install --upgrade https://github.com/ome/zeroc-ice-py-centos7/releases/download/0.1.0/zeroc_ice-3.6.4-cp27-cp27mu-linux_x86_64.whl
 
 Install the OMERO.web requirements. Select one of the commands corresponding to the way you have opted to install it::
     
