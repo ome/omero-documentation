@@ -37,7 +37,7 @@ pip install "zeroc-ice>3.5,<3.7"
 
 # install Postgres
 # Postgres, reconfigure to allow TCP connections
-yum -y install http://yum.postgresql.org/9.6/redhat/rhel-7-x86_64/pgdg-centos96-9.6-3.noarch.rpm
+yum -y install http://yum.postgresql.org/9.6/redhat/rhel-7-x86_64/pgdg-redhat96-9.6-3.noarch.rpm
 yum -y install postgresql96-server postgresql96
 
 PGSETUP_INITDB_OPTIONS=--encoding=UTF8 /usr/pgsql-9.6/bin/postgresql96-setup initdb

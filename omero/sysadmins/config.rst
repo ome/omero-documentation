@@ -470,6 +470,7 @@ you can modify the defaults.
 Note: some other properties are defined in
 the file :file:`etc/profiles/${omero.db.profile}`
 Especially of importance is :property:`omero.db.port`
+Set during the build
 
 Default: `psql`
 
@@ -775,7 +776,7 @@ via the new_user_group setting should be made a
 "manager", i.e. owner, of the queried group. E.g.
 ``omero.ldap.new_user_group_owner=(owner=@{dn})``
 will use the 'manager' attribute to set the 'owner'
-flag in the database. This query element is appened
+flag in the database. This query element is appended
 to any query used by new_user_group with an AND.
 
 This property is not used by new_user_group type
@@ -1855,6 +1856,20 @@ Sets the password of the truststore
 Default: `[empty]`
 
 
+.. _version_configuration:
+
+Version
+-------
+
+.. property:: omero.version
+
+omero.version
+^^^^^^^^^^^^^
+Value dynamically set during the build
+
+Default: `5.5.0-m7`
+
+
 .. _web_configuration:
 
 Web
@@ -1872,7 +1887,7 @@ Default: `[]`
 
 omero.web.application_server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-OMERO.web is configured to run in Gunicorn as a generic WSGI application by default. If you are using Apache change this to "wsgi" before generating your web server configuration. Available options: "wsgi-tcp" (Gunicorn), "wsgi" (Apache)
+OMERO.web is configured to run in Gunicorn as a generic WSGI (TCP)application by default. Available options: ``wsgi-tcp`` (Gunicorn, default), ``wsgi`` (Advanced users only, e.g. manual Apache configuration with ``mod_wsgi``).
 
 Default: `wsgi-tcp`
 
@@ -1964,6 +1979,30 @@ A boolean that turns on/off debug mode. Use debug mode only in development, not 
 
 Default: `false`
 
+.. property:: omero.web.django_additional_settings
+
+omero.web.django_additional_settings
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Additional Django settings as list of key-value tuples. Use this to set or override Django settings that aren't managed by OMERO.web. E.g. ``["CUSTOM_KEY", "CUSTOM_VALUE"]``
+
+Default: `[]`
+
+.. property:: omero.web.feedback.comment.enabled
+
+omero.web.feedback.comment.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Enable the feedback form for comments. These comments are sent to the URL in ``omero.qa.feedback`` (OME team by default).
+
+Default: `true`
+
+.. property:: omero.web.feedback.error.enabled
+
+omero.web.feedback.error.enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Enable the feedback form for errors. These errors are sent to the URL in ``omero.qa.feedback`` (OME team by default).
+
+Default: `true`
+
 .. property:: omero.web.index_template
 
 omero.web.index_template
@@ -1979,6 +2018,22 @@ omero.web.logdir
 A path to the custom log directory.
 
 Default: `/home/omero/OMERO.server/var/log`
+
+.. property:: omero.web.login.client_downloads_base
+
+omero.web.login.client_downloads_base
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Base URL for latest client downloads. Template parameters ``{major}`` ``{minor}`` ``{patch}`` will be substituted with the current OMERO.web version.
+
+Default: `https://downloads.openmicroscopy.org/latest/omero{major}.{minor}`
+
+.. property:: omero.web.login.show_client_downloads
+
+omero.web.login.show_client_downloads
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Whether to link to official client downloads on the login page
+
+Default: `true`
 
 .. property:: omero.web.login_logo
 

@@ -26,7 +26,6 @@ Installing prerequisites
 ------------------------
 
 
-
 Install dependencies::
     
     brew install python 
@@ -66,6 +65,8 @@ Install dependencies::
     brew install python 
     brew install nginx
     pip install --upgrade virtualenv
+
+
 
 Install the OMERO.web requirements. Select one of the commands corresponding to the way you have opted to install it::
     
