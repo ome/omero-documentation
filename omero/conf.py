@@ -127,7 +127,9 @@ omero_extlinks = {
     # Downloads
     'downloads' : (downloads_root + '/latest/omero5.4/%s', ''),
     # Versioned Bio-Formats doc link
-    'bf_v_doc' : (docs_root + '/bio-formats/' + conf_autogen.versions_bioformats + '/' + '%s', ''),
+    # TODO: Extract version from properties
+    #'bf_v_doc' : (docs_root + '/bio-formats/' + conf_autogen.versions_bioformats + '/' + '%s', ''),
+    'bf_v_doc' : (docs_root + '/bio-formats/5.9.2/%s', ''),
     # Miscellaneous links
     'springdoc' : ('https://docs.spring.io/spring/docs/%s', ''),
     'ivydoc' : ('https://ant.apache.org/ivy/history/2.3.0/%s', ''),
