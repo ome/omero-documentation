@@ -92,6 +92,9 @@ the help builds.
 	-	* Publish the OME help website
 		* :term:`OME-help-release`
 
+	-	* Review PRs opened against the Presentations website
+		* :term:`PRESENTATIONS-merge`
+
 OME Files comprises OME Model, OME Files C++ and OME CMake Super-Build Sphinx
 manuals, which are taken from separate repositories but built and hosted as a
 bundle.
@@ -306,6 +309,14 @@ The following set of jobs is used to review or publish the content of the
 		   to https://github.com/ome/omero-figure/tree/gh-pages. If
 		   this PR is merged, the GitHub Pages service updates the content of
 		   https://figure.openmicroscopy.org
+
+	:jenkinsjob:`PRESENTATIONS-merge`
+
+		This job is used to review the PRs opened against the master branch of
+		https://github.com/ome/presentations
+
+		#. |merge| and pushes the branch to https://github.com/snoopycrimecop/presentations
+		#. The GitHub Pages service deploys the staging website content under https://snoopycrimecop.github.io/presentations/
 
 OME Files
 ^^^^^^^^^
