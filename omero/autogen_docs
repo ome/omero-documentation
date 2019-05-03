@@ -14,8 +14,8 @@ USER=${USER:-$(whoami)}
 echo "Copying history"
 # inject link to change log
 touch newfile.rst
-cat omero/changelog.rst > $WORKSPACE/newfile.rst
-cat $WORKSPACE/OMERO.server/history.rst >> $WORKSPACE/newfile.rst
+cat omero/changelog.rst > newfile.rst
+cat $WORKSPACE/OMERO.server/history.rst >> newfile.rst
 mv newfile.rst omero/users/history.rst
 
 echo "Generating configuration properties page"
