@@ -122,7 +122,7 @@ under the :jenkinsview:`DEV` view tab of Jenkins.
         This job updates the submodules on the develop branch
 
         #. |updatesubmodules| and pushes the merge branch to
-           :omero_scc_branch:`develop/latest/submodules`
+           :omero_scc_branch:`develop_latest_submodules`
         #. If the submodules are updated, opens a new PR or updates the
            existing develop submodules PR
 
