@@ -106,7 +106,7 @@ institution.
     the ``Sudo`` restriction can become other users, the security system
     prevents their using sudo to elevate their own administrative
     powers. An administrator cannot sudo to become ``root`` to escape
-    their restrictions. :javadoc:`A security filter
+    their restrictions. :javadoc_server:`A security filter
     <ome/security/basic/LightAdminPrivilegesSecurityFilter.html>`
     assists in enforcing ``ReadSession``.
 
@@ -206,7 +206,7 @@ indirect means of authenticating legitimately set values. Each running
 server has a secret key recorded in the `uuid` property of :ref:`Node
 <OMERO model class Node>`. This key is not available to OMERO clients,
 it is internal to the server. To set a new file's ``repo`` the
-:javadoc:`repository DAO
+:javadoc_server:`repository DAO
 <ome/services/blitz/repo/RepositoryDaoImpl.html>` prefixes the file's
 ``name`` with the server's secret key. A database trigger recognizes
 this key from the ``node`` table, removes the prefix from the ``name``,
@@ -216,11 +216,11 @@ then allows the value of ``repo`` to be set.
 Database triggers
 -----------------
 
-While :javadoc:`BasicACLVoter <ome/security/basic/BasicACLVoter.html>`
-and :javadoc:`OmeroInterceptor
+While :javadoc_server:`BasicACLVoter <ome/security/basic/BasicACLVoter.html>`
+and :javadoc_server:`OmeroInterceptor
 <ome/security/basic/OmeroInterceptor.html>` carry the bulk of the burden
 of enforcing restrictions on administrators, together with
-:javadoc:`AdminImpl <ome/logic/AdminImpl.html>` for the user and group
+:javadoc_server:`AdminImpl <ome/logic/AdminImpl.html>` for the user and group
 management restrictions, the database system itself is also a key
 enforcement mechanism.
 
@@ -235,14 +235,14 @@ OMERO 5.4 introduced two tables:
 ``_roles``
     notes the server's configured IDs for special users and groups, such
     as ``root`` and ``system`` which are both usually ``0``; set by
-    :javadoc:`DBUserCheck <ome/services/util/DBUserCheck.html>` on
+    :javadoc_server:`DBUserCheck <ome/services/util/DBUserCheck.html>` on
     server startup
 
 ``_current_admin_privileges``
    notes the restrictions *not* applying to the current user on a
-   per-transaction basis; maintained by :javadoc:`OmeroInterceptor
+   per-transaction basis; maintained by :javadoc_server:`OmeroInterceptor
    <ome/security/basic/OmeroInterceptor.html>` and frequently cleared by
-   :javadoc:`LightAdminPrivilegesCleanup
+   :javadoc_server:`LightAdminPrivilegesCleanup
    <ome/security/basic/LightAdminPrivilegesCleanup.html>`
 
 An example database trigger would be ``user_config_delete_trigger`` on

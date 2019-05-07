@@ -13,13 +13,13 @@ converting their internal unit to the OME default.
 Supported units
 ---------------
 
-* :javadoc:`Electric potential <omero/model/ElectricPotentialI.html>`
-* :javadoc:`Frequency <omero/model/FrequencyI.html>`
-* :javadoc:`Length <omero/model/LengthI.html>`
-* :javadoc:`Power <omero/model/PowerI.html>`
-* :javadoc:`Pressure <omero/model/PressureI.html>`
-* :javadoc:`Temperature <omero/model/TemperatureI.html>`
-* :javadoc:`Time <omero/model/TimeI.html>`
+* :javadoc_model:`Electric potential <omero/model/ElectricPotentialI.html>`
+* :javadoc_model:`Frequency <omero/model/FrequencyI.html>`
+* :javadoc_model:`Length <omero/model/LengthI.html>`
+* :javadoc_model:`Power <omero/model/PowerI.html>`
+* :javadoc_model:`Pressure <omero/model/PressureI.html>`
+* :javadoc_model:`Temperature <omero/model/TemperatureI.html>`
+* :javadoc_model:`Time <omero/model/TimeI.html>`
 
 Each of the supported units contain a number of values from the
 International System of Units (SI) in the most common prefixes from
