@@ -20,7 +20,7 @@ AcquisitionMode
 Used by: :ref:`LogicalChannel.mode <OMERO model class LogicalChannel>`
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class AdminPrivilege:
@@ -29,7 +29,7 @@ AdminPrivilege
 """"""""""""""
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class AffineTransform:
@@ -46,11 +46,11 @@ Properties:
   | a10: ``double``
   | a11: ``double``
   | a12: ``double``
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class Annotation:
@@ -65,11 +65,11 @@ Used by: :ref:`AnnotationAnnotationLink.child <OMERO model class AnnotationAnnot
 Properties:
   | annotationLinks: :ref:`AnnotationAnnotationLink <OMERO model class AnnotationAnnotationLink>` (multiple)
   | description: ``text`` (optional)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | name: ``text`` (optional)
   | ns: ``text`` (optional)
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
@@ -83,11 +83,11 @@ Used by: :ref:`Annotation.annotationLinks <OMERO model class Annotation>`
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -121,7 +121,7 @@ ArcType
 Used by: :ref:`Arc.type <OMERO model class Arc>`
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class BasicAnnotation:
@@ -151,7 +151,7 @@ Binning
 Used by: :ref:`DetectorSettings.binning <OMERO model class DetectorSettings>`
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class BooleanAnnotation:
@@ -183,11 +183,11 @@ Properties:
   | alpha: ``integer`` (optional)
   | annotationLinks: :ref:`ChannelAnnotationLink <OMERO model class ChannelAnnotationLink>` (multiple)
   | blue: ``integer`` (optional)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | green: ``integer`` (optional)
   | logicalChannel: :ref:`LogicalChannel <OMERO model class LogicalChannel>`
   | lookupTable: ``text`` (optional)
@@ -205,11 +205,11 @@ Used by: :ref:`Channel.annotationLinks <OMERO model class Channel>`
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Channel <OMERO model class Channel>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -225,11 +225,11 @@ Properties:
   | alpha: ``integer``
   | blue: ``integer``
   | coefficient: ``double``
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | family: :ref:`Family <OMERO model class Family>`
   | green: ``integer``
   | inputEnd: ``double``
@@ -249,7 +249,7 @@ ChecksumAlgorithm
 Used by: :ref:`OriginalFile.hasher <OMERO model class OriginalFile>`
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class CodomainMapContext:
@@ -263,11 +263,11 @@ Used by: :ref:`ChannelBinding.spatialDomainEnhancement <OMERO model class Channe
 
 Properties:
   | channelBinding: :ref:`ChannelBinding <OMERO model class ChannelBinding>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class CommentAnnotation:
@@ -296,7 +296,7 @@ ContrastMethod
 Used by: :ref:`LogicalChannel.contrastMethod <OMERO model class LogicalChannel>`
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class ContrastStretchingContext:
@@ -325,7 +325,7 @@ Correction
 Used by: :ref:`Objective.correction <OMERO model class Objective>`
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class DBPatch:
@@ -336,7 +336,7 @@ DBPatch
 Properties:
   | currentPatch: ``integer``
   | currentVersion: ``string``
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | finished: ``timestamp`` (optional)
   | message: ``string`` (optional)
   | previousPatch: ``integer``
@@ -352,11 +352,11 @@ Used by: :ref:`DatasetAnnotationLink.parent <OMERO model class DatasetAnnotation
 Properties:
   | annotationLinks: :ref:`DatasetAnnotationLink <OMERO model class DatasetAnnotationLink>` (multiple)
   | description: ``text`` (optional)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | imageLinks: :ref:`DatasetImageLink <OMERO model class DatasetImageLink>` (multiple)
   | name: ``text``
   | projectLinks: :ref:`ProjectDatasetLink <OMERO model class ProjectDatasetLink>` (multiple)
@@ -371,11 +371,11 @@ Used by: :ref:`Dataset.annotationLinks <OMERO model class Dataset>`
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Dataset <OMERO model class Dataset>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -388,11 +388,11 @@ Used by: :ref:`Dataset.imageLinks <OMERO model class Dataset>`, :ref:`Image.data
 
 Properties:
   | child: :ref:`Image <OMERO model class Image>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Dataset <OMERO model class Dataset>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -406,11 +406,11 @@ Used by: :ref:`DetectorAnnotationLink.parent <OMERO model class DetectorAnnotati
 Properties:
   | amplificationGain: ``double`` (optional)
   | annotationLinks: :ref:`DetectorAnnotationLink <OMERO model class DetectorAnnotationLink>` (multiple)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | gain: ``double`` (optional)
   | instrument: :ref:`Instrument <OMERO model class Instrument>`
   | lotNumber: ``string`` (optional)
@@ -433,11 +433,11 @@ Used by: :ref:`Detector.annotationLinks <OMERO model class Detector>`
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Detector <OMERO model class Detector>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -450,11 +450,11 @@ Used by: :ref:`LogicalChannel.detectorSettings <OMERO model class LogicalChannel
 
 Properties:
   | binning: :ref:`Binning <OMERO model class Binning>` (optional)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | detector: :ref:`Detector <OMERO model class Detector>`
   | gain: ``double`` (optional)
   | integration: ``integer`` (optional)
@@ -474,7 +474,7 @@ DetectorType
 Used by: :ref:`Detector.type <OMERO model class Detector>`
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class Dichroic:
@@ -486,11 +486,11 @@ Used by: :ref:`DichroicAnnotationLink.parent <OMERO model class DichroicAnnotati
 
 Properties:
   | annotationLinks: :ref:`DichroicAnnotationLink <OMERO model class DichroicAnnotationLink>` (multiple)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | instrument: :ref:`Instrument <OMERO model class Instrument>`
   | lotNumber: ``string`` (optional)
   | manufacturer: ``string`` (optional)
@@ -507,11 +507,11 @@ Used by: :ref:`Dichroic.annotationLinks <OMERO model class Dichroic>`
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Dichroic <OMERO model class Dichroic>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -523,7 +523,7 @@ DimensionOrder
 Used by: :ref:`Pixels.dimensionOrder <OMERO model class Pixels>`
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class DoubleAnnotation:
@@ -588,7 +588,7 @@ Used by: :ref:`AffineTransform.details.creationEvent <OMERO model class AffineTr
 
 Properties:
   | containingEvent: :ref:`Event <OMERO model class Event>` (optional)
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | experimenter: :ref:`Experimenter <OMERO model class Experimenter>`
   | experimenterGroup: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | logs: :ref:`EventLog <OMERO model class EventLog>` (multiple)
@@ -606,7 +606,7 @@ Used by: :ref:`Event.logs <OMERO model class Event>`
 
 Properties:
   | action: ``string``
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | entityId: ``long``
   | entityType: ``string``
   | event: :ref:`Event <OMERO model class Event>`
@@ -619,7 +619,7 @@ EventType
 Used by: :ref:`Event.type <OMERO model class Event>`
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class Experiment:
@@ -631,11 +631,11 @@ Used by: :ref:`Image.experiment <OMERO model class Image>`, :ref:`MicrobeamManip
 
 Properties:
   | description: ``text`` (optional)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | microbeamManipulation: :ref:`MicrobeamManipulation <OMERO model class MicrobeamManipulation>` (multiple)
   | type: :ref:`ExperimentType <OMERO model class ExperimentType>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
@@ -648,7 +648,7 @@ ExperimentType
 Used by: :ref:`Experiment.type <OMERO model class Experiment>`
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class Experimenter:
@@ -661,7 +661,7 @@ Used by: :ref:`AffineTransform.details.owner <OMERO model class AffineTransform>
 Properties:
   | annotationLinks: :ref:`ExperimenterAnnotationLink <OMERO model class ExperimenterAnnotationLink>` (multiple)
   | config: list (multiple)
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | email: ``string`` (optional)
   | firstName: ``string``
   | groupExperimenterMap: :ref:`GroupExperimenterMap <OMERO model class GroupExperimenterMap>` (multiple)
@@ -681,11 +681,11 @@ Used by: :ref:`Experimenter.annotationLinks <OMERO model class Experimenter>`
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -700,7 +700,7 @@ Properties:
   | annotationLinks: :ref:`ExperimenterGroupAnnotationLink <OMERO model class ExperimenterGroupAnnotationLink>` (multiple)
   | config: list (multiple)
   | description: ``text`` (optional)
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | groupExperimenterMap: :ref:`GroupExperimenterMap <OMERO model class GroupExperimenterMap>` (multiple)
   | ldap: ``boolean``
   | name: ``string``
@@ -715,11 +715,11 @@ Used by: :ref:`ExperimenterGroup.annotationLinks <OMERO model class Experimenter
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -731,10 +731,10 @@ ExternalInfo
 Used by: :ref:`AcquisitionMode.details.externalInfo <OMERO model class AcquisitionMode>`, :ref:`AdminPrivilege.details.externalInfo <OMERO model class AdminPrivilege>`, :ref:`AffineTransform.details.externalInfo <OMERO model class AffineTransform>`, :ref:`Annotation.details.externalInfo <OMERO model class Annotation>`, :ref:`AnnotationAnnotationLink.details.externalInfo <OMERO model class AnnotationAnnotationLink>`, :ref:`ArcType.details.externalInfo <OMERO model class ArcType>`, :ref:`Binning.details.externalInfo <OMERO model class Binning>`, :ref:`Channel.details.externalInfo <OMERO model class Channel>`, :ref:`ChannelAnnotationLink.details.externalInfo <OMERO model class ChannelAnnotationLink>`, :ref:`ChannelBinding.details.externalInfo <OMERO model class ChannelBinding>`, :ref:`ChecksumAlgorithm.details.externalInfo <OMERO model class ChecksumAlgorithm>`, :ref:`CodomainMapContext.details.externalInfo <OMERO model class CodomainMapContext>`, :ref:`ContrastMethod.details.externalInfo <OMERO model class ContrastMethod>`, :ref:`Correction.details.externalInfo <OMERO model class Correction>`, :ref:`DBPatch.details.externalInfo <OMERO model class DBPatch>`, :ref:`Dataset.details.externalInfo <OMERO model class Dataset>`, :ref:`DatasetAnnotationLink.details.externalInfo <OMERO model class DatasetAnnotationLink>`, :ref:`DatasetImageLink.details.externalInfo <OMERO model class DatasetImageLink>`, :ref:`Detector.details.externalInfo <OMERO model class Detector>`, :ref:`DetectorAnnotationLink.details.externalInfo <OMERO model class DetectorAnnotationLink>`, :ref:`DetectorSettings.details.externalInfo <OMERO model class DetectorSettings>`, :ref:`DetectorType.details.externalInfo <OMERO model class DetectorType>`, :ref:`Dichroic.details.externalInfo <OMERO model class Dichroic>`, :ref:`DichroicAnnotationLink.details.externalInfo <OMERO model class DichroicAnnotationLink>`, :ref:`DimensionOrder.details.externalInfo <OMERO model class DimensionOrder>`, :ref:`Event.details.externalInfo <OMERO model class Event>`, :ref:`EventLog.details.externalInfo <OMERO model class EventLog>`, :ref:`EventType.details.externalInfo <OMERO model class EventType>`, :ref:`Experiment.details.externalInfo <OMERO model class Experiment>`, :ref:`ExperimentType.details.externalInfo <OMERO model class ExperimentType>`, :ref:`Experimenter.details.externalInfo <OMERO model class Experimenter>`, :ref:`ExperimenterAnnotationLink.details.externalInfo <OMERO model class ExperimenterAnnotationLink>`, :ref:`ExperimenterGroup.details.externalInfo <OMERO model class ExperimenterGroup>`, :ref:`ExperimenterGroupAnnotationLink.details.externalInfo <OMERO model class ExperimenterGroupAnnotationLink>`, :ref:`ExternalInfo.details.externalInfo <OMERO model class ExternalInfo>`, :ref:`Family.details.externalInfo <OMERO model class Family>`, :ref:`FilamentType.details.externalInfo <OMERO model class FilamentType>`, :ref:`Fileset.details.externalInfo <OMERO model class Fileset>`, :ref:`FilesetAnnotationLink.details.externalInfo <OMERO model class FilesetAnnotationLink>`, :ref:`FilesetEntry.details.externalInfo <OMERO model class FilesetEntry>`, :ref:`FilesetJobLink.details.externalInfo <OMERO model class FilesetJobLink>`, :ref:`Filter.details.externalInfo <OMERO model class Filter>`, :ref:`FilterAnnotationLink.details.externalInfo <OMERO model class FilterAnnotationLink>`, :ref:`FilterSet.details.externalInfo <OMERO model class FilterSet>`, :ref:`FilterSetEmissionFilterLink.details.externalInfo <OMERO model class FilterSetEmissionFilterLink>`, :ref:`FilterSetExcitationFilterLink.details.externalInfo <OMERO model class FilterSetExcitationFilterLink>`, :ref:`FilterType.details.externalInfo <OMERO model class FilterType>`, :ref:`Folder.details.externalInfo <OMERO model class Folder>`, :ref:`FolderAnnotationLink.details.externalInfo <OMERO model class FolderAnnotationLink>`, :ref:`FolderImageLink.details.externalInfo <OMERO model class FolderImageLink>`, :ref:`FolderRoiLink.details.externalInfo <OMERO model class FolderRoiLink>`, :ref:`Format.details.externalInfo <OMERO model class Format>`, :ref:`GroupExperimenterMap.details.externalInfo <OMERO model class GroupExperimenterMap>`, :ref:`Illumination.details.externalInfo <OMERO model class Illumination>`, :ref:`Image.details.externalInfo <OMERO model class Image>`, :ref:`ImageAnnotationLink.details.externalInfo <OMERO model class ImageAnnotationLink>`, :ref:`ImagingEnvironment.details.externalInfo <OMERO model class ImagingEnvironment>`, :ref:`Immersion.details.externalInfo <OMERO model class Immersion>`, :ref:`Instrument.details.externalInfo <OMERO model class Instrument>`, :ref:`InstrumentAnnotationLink.details.externalInfo <OMERO model class InstrumentAnnotationLink>`, :ref:`Job.details.externalInfo <OMERO model class Job>`, :ref:`JobOriginalFileLink.details.externalInfo <OMERO model class JobOriginalFileLink>`, :ref:`JobStatus.details.externalInfo <OMERO model class JobStatus>`, :ref:`LaserMedium.details.externalInfo <OMERO model class LaserMedium>`, :ref:`LaserType.details.externalInfo <OMERO model class LaserType>`, :ref:`LightPath.details.externalInfo <OMERO model class LightPath>`, :ref:`LightPathAnnotationLink.details.externalInfo <OMERO model class LightPathAnnotationLink>`, :ref:`LightPathEmissionFilterLink.details.externalInfo <OMERO model class LightPathEmissionFilterLink>`, :ref:`LightPathExcitationFilterLink.details.externalInfo <OMERO model class LightPathExcitationFilterLink>`, :ref:`LightSettings.details.externalInfo <OMERO model class LightSettings>`, :ref:`LightSource.details.externalInfo <OMERO model class LightSource>`, :ref:`LightSourceAnnotationLink.details.externalInfo <OMERO model class LightSourceAnnotationLink>`, :ref:`Link.details.externalInfo <OMERO model class Link>`, :ref:`LogicalChannel.details.externalInfo <OMERO model class LogicalChannel>`, :ref:`Medium.details.externalInfo <OMERO model class Medium>`, :ref:`MicrobeamManipulation.details.externalInfo <OMERO model class MicrobeamManipulation>`, :ref:`MicrobeamManipulationType.details.externalInfo <OMERO model class MicrobeamManipulationType>`, :ref:`Microscope.details.externalInfo <OMERO model class Microscope>`, :ref:`MicroscopeType.details.externalInfo <OMERO model class MicroscopeType>`, :ref:`Namespace.details.externalInfo <OMERO model class Namespace>`, :ref:`NamespaceAnnotationLink.details.externalInfo <OMERO model class NamespaceAnnotationLink>`, :ref:`Node.details.externalInfo <OMERO model class Node>`, :ref:`NodeAnnotationLink.details.externalInfo <OMERO model class NodeAnnotationLink>`, :ref:`OTF.details.externalInfo <OMERO model class OTF>`, :ref:`Objective.details.externalInfo <OMERO model class Objective>`, :ref:`ObjectiveAnnotationLink.details.externalInfo <OMERO model class ObjectiveAnnotationLink>`, :ref:`ObjectiveSettings.details.externalInfo <OMERO model class ObjectiveSettings>`, :ref:`OriginalFile.details.externalInfo <OMERO model class OriginalFile>`, :ref:`OriginalFileAnnotationLink.details.externalInfo <OMERO model class OriginalFileAnnotationLink>`, :ref:`PhotometricInterpretation.details.externalInfo <OMERO model class PhotometricInterpretation>`, :ref:`Pixels.details.externalInfo <OMERO model class Pixels>`, :ref:`PixelsOriginalFileMap.details.externalInfo <OMERO model class PixelsOriginalFileMap>`, :ref:`PixelsType.details.externalInfo <OMERO model class PixelsType>`, :ref:`PlaneInfo.details.externalInfo <OMERO model class PlaneInfo>`, :ref:`PlaneInfoAnnotationLink.details.externalInfo <OMERO model class PlaneInfoAnnotationLink>`, :ref:`Plate.details.externalInfo <OMERO model class Plate>`, :ref:`PlateAcquisition.details.externalInfo <OMERO model class PlateAcquisition>`, :ref:`PlateAcquisitionAnnotationLink.details.externalInfo <OMERO model class PlateAcquisitionAnnotationLink>`, :ref:`PlateAnnotationLink.details.externalInfo <OMERO model class PlateAnnotationLink>`, :ref:`Project.details.externalInfo <OMERO model class Project>`, :ref:`ProjectAnnotationLink.details.externalInfo <OMERO model class ProjectAnnotationLink>`, :ref:`ProjectDatasetLink.details.externalInfo <OMERO model class ProjectDatasetLink>`, :ref:`ProjectionAxis.details.externalInfo <OMERO model class ProjectionAxis>`, :ref:`ProjectionDef.details.externalInfo <OMERO model class ProjectionDef>`, :ref:`ProjectionType.details.externalInfo <OMERO model class ProjectionType>`, :ref:`Pulse.details.externalInfo <OMERO model class Pulse>`, :ref:`QuantumDef.details.externalInfo <OMERO model class QuantumDef>`, :ref:`Reagent.details.externalInfo <OMERO model class Reagent>`, :ref:`ReagentAnnotationLink.details.externalInfo <OMERO model class ReagentAnnotationLink>`, :ref:`RenderingDef.details.externalInfo <OMERO model class RenderingDef>`, :ref:`RenderingModel.details.externalInfo <OMERO model class RenderingModel>`, :ref:`Roi.details.externalInfo <OMERO model class Roi>`, :ref:`RoiAnnotationLink.details.externalInfo <OMERO model class RoiAnnotationLink>`, :ref:`Screen.details.externalInfo <OMERO model class Screen>`, :ref:`ScreenAnnotationLink.details.externalInfo <OMERO model class ScreenAnnotationLink>`, :ref:`ScreenPlateLink.details.externalInfo <OMERO model class ScreenPlateLink>`, :ref:`Session.details.externalInfo <OMERO model class Session>`, :ref:`SessionAnnotationLink.details.externalInfo <OMERO model class SessionAnnotationLink>`, :ref:`Shape.details.externalInfo <OMERO model class Shape>`, :ref:`ShapeAnnotationLink.details.externalInfo <OMERO model class ShapeAnnotationLink>`, :ref:`ShareMember.details.externalInfo <OMERO model class ShareMember>`, :ref:`StageLabel.details.externalInfo <OMERO model class StageLabel>`, :ref:`StatsInfo.details.externalInfo <OMERO model class StatsInfo>`, :ref:`Thumbnail.details.externalInfo <OMERO model class Thumbnail>`, :ref:`TransmittanceRange.details.externalInfo <OMERO model class TransmittanceRange>`, :ref:`Well.details.externalInfo <OMERO model class Well>`, :ref:`WellAnnotationLink.details.externalInfo <OMERO model class WellAnnotationLink>`, :ref:`WellReagentLink.details.externalInfo <OMERO model class WellReagentLink>`, :ref:`WellSample.details.externalInfo <OMERO model class WellSample>`
 
 Properties:
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | entityId: ``long``
   | entityType: ``string``
   | lsid: ``string`` (optional)
@@ -748,7 +748,7 @@ Family
 Used by: :ref:`ChannelBinding.family <OMERO model class ChannelBinding>`
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class Filament:
@@ -781,7 +781,7 @@ FilamentType
 Used by: :ref:`Filament.type <OMERO model class Filament>`
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class FileAnnotation:
@@ -811,11 +811,11 @@ Used by: :ref:`FilesetAnnotationLink.parent <OMERO model class FilesetAnnotation
 
 Properties:
   | annotationLinks: :ref:`FilesetAnnotationLink <OMERO model class FilesetAnnotationLink>` (multiple)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | images: :ref:`Image <OMERO model class Image>` (multiple)
   | jobLinks: :ref:`FilesetJobLink <OMERO model class FilesetJobLink>` (multiple)
   | templatePrefix: ``text``
@@ -831,11 +831,11 @@ Used by: :ref:`Fileset.annotationLinks <OMERO model class Fileset>`
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Fileset <OMERO model class Fileset>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -848,11 +848,11 @@ Used by: :ref:`Fileset.usedFiles <OMERO model class Fileset>`, :ref:`OriginalFil
 
 Properties:
   | clientPath: ``text``
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | fileset: :ref:`Fileset <OMERO model class Fileset>`
   | originalFile: :ref:`OriginalFile <OMERO model class OriginalFile>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
@@ -866,11 +866,11 @@ Used by: :ref:`Fileset.jobLinks <OMERO model class Fileset>`
 
 Properties:
   | child: :ref:`Job <OMERO model class Job>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Fileset <OMERO model class Fileset>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -883,11 +883,11 @@ Used by: :ref:`FilterAnnotationLink.parent <OMERO model class FilterAnnotationLi
 
 Properties:
   | annotationLinks: :ref:`FilterAnnotationLink <OMERO model class FilterAnnotationLink>` (multiple)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | emissionFilterLink: :ref:`FilterSetEmissionFilterLink <OMERO model class FilterSetEmissionFilterLink>` (multiple)
   | excitationFilterLink: :ref:`FilterSetExcitationFilterLink <OMERO model class FilterSetExcitationFilterLink>` (multiple)
   | filterWheel: ``string`` (optional)
@@ -909,11 +909,11 @@ Used by: :ref:`Filter.annotationLinks <OMERO model class Filter>`
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Filter <OMERO model class Filter>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -925,11 +925,11 @@ FilterSet
 Used by: :ref:`FilterSetEmissionFilterLink.parent <OMERO model class FilterSetEmissionFilterLink>`, :ref:`FilterSetExcitationFilterLink.parent <OMERO model class FilterSetExcitationFilterLink>`, :ref:`Instrument.filterSet <OMERO model class Instrument>`, :ref:`LogicalChannel.filterSet <OMERO model class LogicalChannel>`, :ref:`OTF.filterSet <OMERO model class OTF>`
 
 Properties:
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | dichroic: :ref:`Dichroic <OMERO model class Dichroic>` (optional)
   | emissionFilterLink: :ref:`FilterSetEmissionFilterLink <OMERO model class FilterSetEmissionFilterLink>` (multiple)
   | excitationFilterLink: :ref:`FilterSetExcitationFilterLink <OMERO model class FilterSetExcitationFilterLink>` (multiple)
@@ -949,11 +949,11 @@ Used by: :ref:`Filter.emissionFilterLink <OMERO model class Filter>`, :ref:`Filt
 
 Properties:
   | child: :ref:`Filter <OMERO model class Filter>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`FilterSet <OMERO model class FilterSet>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -966,11 +966,11 @@ Used by: :ref:`Filter.excitationFilterLink <OMERO model class Filter>`, :ref:`Fi
 
 Properties:
   | child: :ref:`Filter <OMERO model class Filter>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`FilterSet <OMERO model class FilterSet>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -982,7 +982,7 @@ FilterType
 Used by: :ref:`Filter.type <OMERO model class Filter>`
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class Folder:
@@ -996,11 +996,11 @@ Properties:
   | annotationLinks: :ref:`FolderAnnotationLink <OMERO model class FolderAnnotationLink>` (multiple)
   | childFolders: :ref:`Folder <OMERO model class Folder>` (multiple)
   | description: ``text`` (optional)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | imageLinks: :ref:`FolderImageLink <OMERO model class FolderImageLink>` (multiple)
   | name: ``text``
   | parentFolder: :ref:`Folder <OMERO model class Folder>` (optional)
@@ -1016,11 +1016,11 @@ Used by: :ref:`Folder.annotationLinks <OMERO model class Folder>`
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Folder <OMERO model class Folder>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -1033,11 +1033,11 @@ Used by: :ref:`Folder.imageLinks <OMERO model class Folder>`, :ref:`Image.folder
 
 Properties:
   | child: :ref:`Image <OMERO model class Image>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Folder <OMERO model class Folder>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -1050,11 +1050,11 @@ Used by: :ref:`Folder.roiLinks <OMERO model class Folder>`, :ref:`Roi.folderLink
 
 Properties:
   | child: :ref:`Roi <OMERO model class Roi>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Folder <OMERO model class Folder>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -1066,7 +1066,7 @@ Format
 Used by: :ref:`Image.format <OMERO model class Image>`
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class GenericExcitationSource:
@@ -1100,7 +1100,7 @@ Used by: :ref:`Experimenter.groupExperimenterMap <OMERO model class Experimenter
 
 Properties:
   | child: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | owner: ``boolean``
   | parent: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
@@ -1113,7 +1113,7 @@ Illumination
 Used by: :ref:`LogicalChannel.illumination <OMERO model class LogicalChannel>`
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class Image:
@@ -1129,11 +1129,11 @@ Properties:
   | archived: ``boolean`` (optional)
   | datasetLinks: :ref:`DatasetImageLink <OMERO model class DatasetImageLink>` (multiple)
   | description: ``text`` (optional)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | experiment: :ref:`Experiment <OMERO model class Experiment>` (optional)
   | fileset: :ref:`Fileset <OMERO model class Fileset>` (optional)
   | folderLinks: :ref:`FolderImageLink <OMERO model class FolderImageLink>` (multiple)
@@ -1159,11 +1159,11 @@ Used by: :ref:`Image.annotationLinks <OMERO model class Image>`
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Image <OMERO model class Image>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -1178,11 +1178,11 @@ Properties:
   | airPressure.unit: enumeration of :javadoc:`Pressure <ome/model/units/Pressure.html>` (optional)
   | airPressure.value: ``double`` (optional)
   | co2percent: ``double`` (optional)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | humidity: ``double`` (optional)
   | map: list (multiple)
   | temperature.unit: enumeration of :javadoc:`Temperature <ome/model/units/Temperature.html>` (optional)
@@ -1197,7 +1197,7 @@ Immersion
 Used by: :ref:`Objective.immersion <OMERO model class Objective>`
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class ImportJob:
@@ -1257,11 +1257,11 @@ Used by: :ref:`Detector.instrument <OMERO model class Detector>`, :ref:`Dichroic
 
 Properties:
   | annotationLinks: :ref:`InstrumentAnnotationLink <OMERO model class InstrumentAnnotationLink>` (multiple)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | detector: :ref:`Detector <OMERO model class Detector>` (multiple)
   | dichroic: :ref:`Dichroic <OMERO model class Dichroic>` (multiple)
   | filter: :ref:`Filter <OMERO model class Filter>` (multiple)
@@ -1281,11 +1281,11 @@ Used by: :ref:`Instrument.annotationLinks <OMERO model class Instrument>`
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Instrument <OMERO model class Instrument>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -1322,11 +1322,11 @@ Subclasses: :ref:`ImportJob <OMERO model class ImportJob>`, :ref:`IndexingJob <O
 Used by: :ref:`FilesetJobLink.child <OMERO model class FilesetJobLink>`, :ref:`JobOriginalFileLink.parent <OMERO model class JobOriginalFileLink>`
 
 Properties:
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | finished: ``timestamp`` (optional)
   | groupname: ``string``
   | message: ``string``
@@ -1348,11 +1348,11 @@ Used by: :ref:`Job.originalFileLinks <OMERO model class Job>`
 
 Properties:
   | child: :ref:`OriginalFile <OMERO model class OriginalFile>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Job <OMERO model class Job>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -1364,7 +1364,7 @@ JobStatus
 Used by: :ref:`Job.status <OMERO model class Job>`
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class Label:
@@ -1440,7 +1440,7 @@ LaserMedium
 Used by: :ref:`Laser.laserMedium <OMERO model class Laser>`
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class LaserType:
@@ -1451,7 +1451,7 @@ LaserType
 Used by: :ref:`Laser.type <OMERO model class Laser>`
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class LightEmittingDiode:
@@ -1484,11 +1484,11 @@ Used by: :ref:`LightPathAnnotationLink.parent <OMERO model class LightPathAnnota
 
 Properties:
   | annotationLinks: :ref:`LightPathAnnotationLink <OMERO model class LightPathAnnotationLink>` (multiple)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | dichroic: :ref:`Dichroic <OMERO model class Dichroic>` (optional)
   | emissionFilterLink: :ref:`LightPathEmissionFilterLink <OMERO model class LightPathEmissionFilterLink>` (multiple)
   | excitationFilterLink: :ref:`LightPathExcitationFilterLink <OMERO model class LightPathExcitationFilterLink>` (multiple)
@@ -1503,11 +1503,11 @@ Used by: :ref:`LightPath.annotationLinks <OMERO model class LightPath>`
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`LightPath <OMERO model class LightPath>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -1520,11 +1520,11 @@ Used by: :ref:`LightPath.emissionFilterLink <OMERO model class LightPath>`
 
 Properties:
   | child: :ref:`Filter <OMERO model class Filter>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`LightPath <OMERO model class LightPath>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -1537,11 +1537,11 @@ Used by: :ref:`LightPath.excitationFilterLink <OMERO model class LightPath>`
 
 Properties:
   | child: :ref:`Filter <OMERO model class Filter>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`LightPath <OMERO model class LightPath>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -1554,11 +1554,11 @@ Used by: :ref:`LogicalChannel.lightSourceSettings <OMERO model class LogicalChan
 
 Properties:
   | attenuation: ``double`` (optional)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | lightSource: :ref:`LightSource <OMERO model class LightSource>`
   | microbeamManipulation: :ref:`MicrobeamManipulation <OMERO model class MicrobeamManipulation>` (optional)
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
@@ -1576,11 +1576,11 @@ Used by: :ref:`Instrument.lightSource <OMERO model class Instrument>`, :ref:`Las
 
 Properties:
   | annotationLinks: :ref:`LightSourceAnnotationLink <OMERO model class LightSourceAnnotationLink>` (multiple)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | instrument: :ref:`Instrument <OMERO model class Instrument>`
   | lotNumber: ``string`` (optional)
   | manufacturer: ``string`` (optional)
@@ -1599,11 +1599,11 @@ Used by: :ref:`LightSource.annotationLinks <OMERO model class LightSource>`
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`LightSource <OMERO model class LightSource>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -1650,11 +1650,11 @@ Link
 """"
 
 Properties:
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class ListAnnotation:
@@ -1684,11 +1684,11 @@ Used by: :ref:`Channel.logicalChannel <OMERO model class Channel>`
 Properties:
   | channels: :ref:`Channel <OMERO model class Channel>` (multiple)
   | contrastMethod: :ref:`ContrastMethod <OMERO model class ContrastMethod>` (optional)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | detectorSettings: :ref:`DetectorSettings <OMERO model class DetectorSettings>` (optional)
   | emissionWave.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
   | emissionWave.value: ``double`` (optional)
@@ -1791,7 +1791,7 @@ Medium
 Used by: :ref:`ObjectiveSettings.medium <OMERO model class ObjectiveSettings>`
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class MetadataImportJob:
@@ -1827,11 +1827,11 @@ Used by: :ref:`Experiment.microbeamManipulation <OMERO model class Experiment>`,
 
 Properties:
   | description: ``text`` (optional)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | experiment: :ref:`Experiment <OMERO model class Experiment>`
   | lightSourceSettings: :ref:`LightSettings <OMERO model class LightSettings>` (multiple)
   | type: :ref:`MicrobeamManipulationType <OMERO model class MicrobeamManipulationType>`
@@ -1845,7 +1845,7 @@ MicrobeamManipulationType
 Used by: :ref:`MicrobeamManipulation.type <OMERO model class MicrobeamManipulation>`
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class Microscope:
@@ -1856,11 +1856,11 @@ Microscope
 Used by: :ref:`Instrument.microscope <OMERO model class Instrument>`
 
 Properties:
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | lotNumber: ``string`` (optional)
   | manufacturer: ``string`` (optional)
   | model: ``string`` (optional)
@@ -1876,7 +1876,7 @@ MicroscopeType
 Used by: :ref:`Microscope.type <OMERO model class Microscope>`
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class Namespace:
@@ -1889,7 +1889,7 @@ Used by: :ref:`NamespaceAnnotationLink.parent <OMERO model class NamespaceAnnota
 Properties:
   | annotationLinks: :ref:`NamespaceAnnotationLink <OMERO model class NamespaceAnnotationLink>` (multiple)
   | description: ``text`` (optional)
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | display: ``boolean`` (optional)
   | displayName: ``text`` (optional)
   | keywords: list (optional)
@@ -1906,11 +1906,11 @@ Used by: :ref:`Namespace.annotationLinks <OMERO model class Namespace>`
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Namespace <OMERO model class Namespace>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -1924,7 +1924,7 @@ Used by: :ref:`NodeAnnotationLink.parent <OMERO model class NodeAnnotationLink>`
 Properties:
   | annotationLinks: :ref:`NodeAnnotationLink <OMERO model class NodeAnnotationLink>` (multiple)
   | conn: ``text``
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | down: ``timestamp`` (optional)
   | scale: ``integer`` (optional)
   | sessions: :ref:`Session <OMERO model class Session>` (multiple)
@@ -1941,11 +1941,11 @@ Used by: :ref:`Node.annotationLinks <OMERO model class Node>`
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Node <OMERO model class Node>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -1976,11 +1976,11 @@ OTF
 Used by: :ref:`Instrument.otf <OMERO model class Instrument>`, :ref:`LogicalChannel.otf <OMERO model class LogicalChannel>`
 
 Properties:
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | filterSet: :ref:`FilterSet <OMERO model class FilterSet>` (optional)
   | instrument: :ref:`Instrument <OMERO model class Instrument>`
   | objective: :ref:`Objective <OMERO model class Objective>`
@@ -2002,11 +2002,11 @@ Properties:
   | annotationLinks: :ref:`ObjectiveAnnotationLink <OMERO model class ObjectiveAnnotationLink>` (multiple)
   | calibratedMagnification: ``double`` (optional)
   | correction: :ref:`Correction <OMERO model class Correction>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | immersion: :ref:`Immersion <OMERO model class Immersion>`
   | instrument: :ref:`Instrument <OMERO model class Instrument>`
   | iris: ``boolean`` (optional)
@@ -2029,11 +2029,11 @@ Used by: :ref:`Objective.annotationLinks <OMERO model class Objective>`
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Objective <OMERO model class Objective>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -2046,11 +2046,11 @@ Used by: :ref:`Image.objectiveSettings <OMERO model class Image>`
 
 Properties:
   | correctionCollar: ``double`` (optional)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | medium: :ref:`Medium <OMERO model class Medium>` (optional)
   | objective: :ref:`Objective <OMERO model class Objective>`
   | refractiveIndex: ``double`` (optional)
@@ -2067,11 +2067,11 @@ Properties:
   | annotationLinks: :ref:`OriginalFileAnnotationLink <OMERO model class OriginalFileAnnotationLink>` (multiple)
   | atime: ``timestamp`` (optional)
   | ctime: ``timestamp`` (optional)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | filesetEntries: :ref:`FilesetEntry <OMERO model class FilesetEntry>` (multiple)
   | hash: ``text`` (optional)
   | hasher: :ref:`ChecksumAlgorithm <OMERO model class ChecksumAlgorithm>` (optional)
@@ -2093,11 +2093,11 @@ Used by: :ref:`OriginalFile.annotationLinks <OMERO model class OriginalFile>`
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`OriginalFile <OMERO model class OriginalFile>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -2165,7 +2165,7 @@ PhotometricInterpretation
 Used by: :ref:`LogicalChannel.photometricInterpretation <OMERO model class LogicalChannel>`
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class PixelDataJob:
@@ -2200,11 +2200,11 @@ Used by: :ref:`Channel.pixels <OMERO model class Channel>`, :ref:`Image.pixels <
 
 Properties:
   | channels: :ref:`Channel <OMERO model class Channel>` (multiple)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | dimensionOrder: :ref:`DimensionOrder <OMERO model class DimensionOrder>`
   | image: :ref:`Image <OMERO model class Image>`
   | methodology: ``string`` (optional)
@@ -2242,11 +2242,11 @@ Used by: :ref:`OriginalFile.pixelsFileMaps <OMERO model class OriginalFile>`, :r
 
 Properties:
   | child: :ref:`Pixels <OMERO model class Pixels>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`OriginalFile <OMERO model class OriginalFile>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -2259,7 +2259,7 @@ Used by: :ref:`OTF.pixelsType <OMERO model class OTF>`, :ref:`Pixels.pixelsType 
 
 Properties:
   | bitSize: ``integer`` (optional)
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class PlaneInfo:
@@ -2273,11 +2273,11 @@ Properties:
   | annotationLinks: :ref:`PlaneInfoAnnotationLink <OMERO model class PlaneInfoAnnotationLink>` (multiple)
   | deltaT.unit: enumeration of :javadoc:`Time <ome/model/units/Time.html>` (optional)
   | deltaT.value: ``double`` (optional)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | exposureTime.unit: enumeration of :javadoc:`Time <ome/model/units/Time.html>` (optional)
   | exposureTime.value: ``double`` (optional)
   | pixels: :ref:`Pixels <OMERO model class Pixels>`
@@ -2301,11 +2301,11 @@ Used by: :ref:`PlaneInfo.annotationLinks <OMERO model class PlaneInfo>`
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`PlaneInfo <OMERO model class PlaneInfo>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -2341,11 +2341,11 @@ Properties:
   | columns: ``integer`` (optional)
   | defaultSample: ``integer`` (optional)
   | description: ``text`` (optional)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | externalIdentifier: ``string`` (optional)
   | name: ``text``
   | plateAcquisitions: :ref:`PlateAcquisition <OMERO model class PlateAcquisition>` (multiple)
@@ -2370,11 +2370,11 @@ Used by: :ref:`Plate.plateAcquisitions <OMERO model class Plate>`, :ref:`PlateAc
 Properties:
   | annotationLinks: :ref:`PlateAcquisitionAnnotationLink <OMERO model class PlateAcquisitionAnnotationLink>` (multiple)
   | description: ``text`` (optional)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | endTime: ``timestamp`` (optional)
   | maximumFieldCount: ``integer`` (optional)
   | name: ``text`` (optional)
@@ -2392,11 +2392,11 @@ Used by: :ref:`PlateAcquisition.annotationLinks <OMERO model class PlateAcquisit
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`PlateAcquisition <OMERO model class PlateAcquisition>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -2409,11 +2409,11 @@ Used by: :ref:`Plate.annotationLinks <OMERO model class Plate>`
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Plate <OMERO model class Plate>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -2527,11 +2527,11 @@ Properties:
   | annotationLinks: :ref:`ProjectAnnotationLink <OMERO model class ProjectAnnotationLink>` (multiple)
   | datasetLinks: :ref:`ProjectDatasetLink <OMERO model class ProjectDatasetLink>` (multiple)
   | description: ``text`` (optional)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | name: ``text``
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -2544,11 +2544,11 @@ Used by: :ref:`Project.annotationLinks <OMERO model class Project>`
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Project <OMERO model class Project>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -2561,11 +2561,11 @@ Used by: :ref:`Dataset.projectLinks <OMERO model class Dataset>`, :ref:`Project.
 
 Properties:
   | child: :ref:`Dataset <OMERO model class Dataset>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Project <OMERO model class Project>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -2577,7 +2577,7 @@ ProjectionAxis
 Used by: :ref:`ProjectionDef.axis <OMERO model class ProjectionDef>`
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class ProjectionDef:
@@ -2590,11 +2590,11 @@ Used by: :ref:`RenderingDef.projections <OMERO model class RenderingDef>`
 Properties:
   | active: ``boolean``
   | axis: :ref:`ProjectionAxis <OMERO model class ProjectionAxis>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | endPlane: ``integer`` (optional)
   | renderingDef: :ref:`RenderingDef <OMERO model class RenderingDef>`
   | startPlane: ``integer`` (optional)
@@ -2610,7 +2610,7 @@ ProjectionType
 Used by: :ref:`ProjectionDef.type <OMERO model class ProjectionDef>`
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class Pulse:
@@ -2621,7 +2621,7 @@ Pulse
 Used by: :ref:`Laser.pulse <OMERO model class Laser>`
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class QuantumDef:
@@ -2635,11 +2635,11 @@ Properties:
   | bitResolution: ``integer``
   | cdEnd: ``integer``
   | cdStart: ``integer``
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class Reagent:
@@ -2652,11 +2652,11 @@ Used by: :ref:`ReagentAnnotationLink.parent <OMERO model class ReagentAnnotation
 Properties:
   | annotationLinks: :ref:`ReagentAnnotationLink <OMERO model class ReagentAnnotationLink>` (multiple)
   | description: ``text`` (optional)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | name: ``text`` (optional)
   | reagentIdentifier: ``string`` (optional)
   | screen: :ref:`Screen <OMERO model class Screen>`
@@ -2672,11 +2672,11 @@ Used by: :ref:`Reagent.annotationLinks <OMERO model class Reagent>`
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Reagent <OMERO model class Reagent>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -2726,11 +2726,11 @@ Properties:
   | compression: ``double`` (optional)
   | defaultT: ``integer``
   | defaultZ: ``integer``
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | model: :ref:`RenderingModel <OMERO model class RenderingModel>`
   | name: ``text`` (optional)
   | pixels: :ref:`Pixels <OMERO model class Pixels>`
@@ -2747,7 +2747,7 @@ RenderingModel
 Used by: :ref:`RenderingDef.model <OMERO model class RenderingDef>`
 
 Properties:
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class ReverseIntensityContext:
@@ -2775,11 +2775,11 @@ Used by: :ref:`FolderRoiLink.child <OMERO model class FolderRoiLink>`, :ref:`Ima
 Properties:
   | annotationLinks: :ref:`RoiAnnotationLink <OMERO model class RoiAnnotationLink>` (multiple)
   | description: ``text`` (optional)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | folderLinks: :ref:`FolderRoiLink <OMERO model class FolderRoiLink>` (multiple)
   | image: :ref:`Image <OMERO model class Image>` (optional)
   | name: ``text`` (optional)
@@ -2796,11 +2796,11 @@ Used by: :ref:`Roi.annotationLinks <OMERO model class Roi>`
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Roi <OMERO model class Roi>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -2814,11 +2814,11 @@ Used by: :ref:`Reagent.screen <OMERO model class Reagent>`, :ref:`ScreenAnnotati
 Properties:
   | annotationLinks: :ref:`ScreenAnnotationLink <OMERO model class ScreenAnnotationLink>` (multiple)
   | description: ``text`` (optional)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | name: ``text``
   | plateLinks: :ref:`ScreenPlateLink <OMERO model class ScreenPlateLink>` (multiple)
   | protocolDescription: ``text`` (optional)
@@ -2838,11 +2838,11 @@ Used by: :ref:`Screen.annotationLinks <OMERO model class Screen>`
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Screen <OMERO model class Screen>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -2855,11 +2855,11 @@ Used by: :ref:`Plate.screenLinks <OMERO model class Plate>`, :ref:`Screen.plateL
 
 Properties:
   | child: :ref:`Plate <OMERO model class Plate>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Screen <OMERO model class Screen>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -2900,7 +2900,7 @@ Properties:
   | annotationLinks: :ref:`SessionAnnotationLink <OMERO model class SessionAnnotationLink>` (multiple)
   | closed: ``timestamp`` (optional)
   | defaultEventType: ``string``
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | events: :ref:`Event <OMERO model class Event>` (multiple)
   | message: ``text`` (optional)
   | node: :ref:`Node <OMERO model class Node>`
@@ -2923,11 +2923,11 @@ Used by: :ref:`Session.annotationLinks <OMERO model class Session>`
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Session <OMERO model class Session>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -2942,11 +2942,11 @@ Used by: :ref:`Roi.shapes <OMERO model class Roi>`, :ref:`ShapeAnnotationLink.pa
 
 Properties:
   | annotationLinks: :ref:`ShapeAnnotationLink <OMERO model class ShapeAnnotationLink>` (multiple)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | fillColor: ``integer`` (optional)
   | fillRule: ``string`` (optional)
   | fontFamily: ``string`` (optional)
@@ -2974,11 +2974,11 @@ Used by: :ref:`Shape.annotationLinks <OMERO model class Shape>`
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Shape <OMERO model class Shape>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -3018,7 +3018,7 @@ ShareMember
 
 Properties:
   | child: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Share <OMERO model class Share>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -3030,11 +3030,11 @@ StageLabel
 Used by: :ref:`Image.stageLabel <OMERO model class Image>`
 
 Properties:
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | name: ``text``
   | positionX.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
   | positionX.value: ``double`` (optional)
@@ -3052,11 +3052,11 @@ StatsInfo
 Used by: :ref:`Channel.statsInfo <OMERO model class Channel>`
 
 Properties:
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | globalMax: ``double``
   | globalMin: ``double``
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
@@ -3125,11 +3125,11 @@ Thumbnail
 Used by: :ref:`Pixels.thumbnails <OMERO model class Pixels>`
 
 Properties:
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | mimeType: ``string``
   | pixels: :ref:`Pixels <OMERO model class Pixels>`
   | ref: ``string`` (optional)
@@ -3194,11 +3194,11 @@ Properties:
   | cutOut.value: ``double`` (optional)
   | cutOutTolerance.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
   | cutOutTolerance.value: ``double`` (optional)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | transmittance: ``double`` (optional)
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -3257,11 +3257,11 @@ Properties:
   | annotationLinks: :ref:`WellAnnotationLink <OMERO model class WellAnnotationLink>` (multiple)
   | blue: ``integer`` (optional)
   | column: ``integer`` (optional)
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | externalDescription: ``text`` (optional)
   | externalIdentifier: ``string`` (optional)
   | green: ``integer`` (optional)
@@ -3283,11 +3283,11 @@ Used by: :ref:`Well.annotationLinks <OMERO model class Well>`
 
 Properties:
   | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Well <OMERO model class Well>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -3300,11 +3300,11 @@ Used by: :ref:`Reagent.wellLinks <OMERO model class Reagent>`, :ref:`Well.reagen
 
 Properties:
   | child: :ref:`Reagent <OMERO model class Reagent>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | parent: :ref:`Well <OMERO model class Well>`, see :javadoc:`ILink <ome/model/ILink.html>`
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
 
@@ -3316,11 +3316,11 @@ WellSample
 Used by: :ref:`Image.wellSamples <OMERO model class Image>`, :ref:`PlateAcquisition.wellSample <OMERO model class PlateAcquisition>`, :ref:`Well.wellSamples <OMERO model class Well>`
 
 Properties:
-  | details.creationEvent: :ref:`Event <OMERO model class Event>`
-  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
-  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
-  | details.updateEvent: :ref:`Event <OMERO model class Event>`
+  | details.creationEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional), see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`IObject <ome/model/IObject.html>`
+  | details.updateEvent: :ref:`Event <OMERO model class Event>`, see :javadoc:`IObject <ome/model/IObject.html>`
   | image: :ref:`Image <OMERO model class Image>`
   | plateAcquisition: :ref:`PlateAcquisition <OMERO model class PlateAcquisition>` (optional)
   | posX.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
