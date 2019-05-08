@@ -33,13 +33,10 @@ The required :file:`.jar` files can be obtained in a number of ways:
 Extended classpath
 ------------------
 
-To access all the functionality available in :file:`omero_client.jar` or
-to use the importer, you will need more jar files. To see all the
+To use the importer, you will need more jar files. To see all the
 current requirements, take a look at the builds on :jenkins:`Jenkins
-<>`, or alternatively examine the dependencies in the :file:`ivy.xml`
-files (e.g. :insight_source:`ivy.xml`). The
-:file:`omero_client.jar` file can be found within the OMERO.matlab
-toolbox available from the :downloads:`download page <>`.
+<>`, or alternatively examine the dependencies in the :file:`build.gradle`
+files (e.g. :insight_source:`build.gradle`).
 
 .. _javagateway:
 
