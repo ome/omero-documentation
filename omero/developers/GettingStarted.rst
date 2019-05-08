@@ -149,7 +149,7 @@ OMERO model
 
 You can browse the OMERO model in a number of ways, one of which is by
 looking at the database itself (see above). Another is via the
-:javadoc:`OMERO model API <slice2html/omero/model.html>` documentation.
+:slicedoc_blitz:`OMERO model API <omero/model.html>` documentation.
 
 However, due to the complexity of the OMERO model, it is helpful to have
 some starting points (follow links below to the docs themselves).
@@ -161,25 +161,25 @@ some starting points (follow links below to the docs themselves).
 Projects, datasets and images
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-:javadoc:`Projects <slice2html/omero/model/Project.html>`
+:slicedoc_blitz:`Projects <omero/model/Project.html>`
 and
-:javadoc:`Datasets <slice2html/omero/model/Dataset.html>`
+:slicedoc_blitz:`Datasets <omero/model/Dataset.html>`
 are many-to-many containers for
-:javadoc:`Images <slice2html/omero/model/Image.html>`
+:slicedoc_blitz:`Images <omero/model/Image.html>`
 (linked by
-:javadoc:`ProjectDatasetLinks <slice2html/omero/model/ProjectDatasetLink.html>`
+:slicedoc_blitz:`ProjectDatasetLinks <omero/model/ProjectDatasetLink.html>`
 and
-:javadoc:`DatasetImageLinks <slice2html/omero/model/DatasetImageLink.html>`
+:slicedoc_blitz:`DatasetImageLinks <omero/model/DatasetImageLink.html>`
 respectively).
 
 Projects, Datasets, Images and a number of other entities can be linked
-to Annotations :javadoc:`(abstract superclass) <slice2html/omero/model/Annotation.html>`
+to Annotations :slicedoc_blitz:`(abstract superclass) <omero/model/Annotation.html>`
 via specific links
-(:javadoc:`ProjectAnnotationLink <slice2html/omero/model/ProjectAnnotationLink.html>`,
-:javadoc:`DatasetAnnotationLink <slice2html/omero/model/DatasetAnnotationLink.html>`
+(:slicedoc_blitz:`ProjectAnnotationLink <omero/model/ProjectAnnotationLink.html>`,
+:slicedoc_blitz:`DatasetAnnotationLink <omero/model/DatasetAnnotationLink.html>`
 etc). Annotation subclasses such as
-:javadoc:`CommentAnnotation <slice2html/omero/model/CommentAnnotation.html>`,
-:javadoc:`FileAnnotation <slice2html/omero/model/FileAnnotation.html>`
+:slicedoc_blitz:`CommentAnnotation <omero/model/CommentAnnotation.html>`,
+:slicedoc_blitz:`FileAnnotation <omero/model/FileAnnotation.html>`
 etc. are stored in a single database table in OMERO (all Annotations have
 unique ID).
 
@@ -191,8 +191,8 @@ Images
    :alt:
 
 Images in OMERO are made up of many entities. These include core image
-components such as :javadoc:`Pixels <slice2html/omero/model/Pixels.html>` and
-:javadoc:`Channels <slice2html/omero/model/Channel.html>`, as well as a large
+components such as :slicedoc_blitz:`Pixels <omero/model/Pixels.html>` and
+:slicedoc_blitz:`Channels <omero/model/Channel.html>`, as well as a large
 number of additional metadata objects such as Instrument (microscope),
 Objective, Filters, Light Sources, and Detectors.
 

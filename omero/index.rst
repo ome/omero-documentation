@@ -32,9 +32,9 @@ Additional online resources can be found at:
 - `Demo server <http://qa.openmicroscopy.org.uk/registry/demo_account/>`_ -
   managed by the main OME team, providing the latest released versions of
   OMERO and plugins for you to try out
-- OMERO API documentation - :javadoc:`OmeroJava API <>`,
+- OMERO API documentation - :javadoc_blitz:`OmeroJava API <>`,
   :pythondoc:`OmeroPy API <>`,
-  :javadoc:`OmeroBlitz / Slice API <slice2html/>`
+  :slicedoc_blitz:`OmeroBlitz / Slice API <>`
 
 OMERO |release| uses the :schema:`June 2016 schema
 <Documentation/Generated/OME-2016-06/ome.html>` of the :model_doc:`OME Data

@@ -102,7 +102,7 @@ The iScript service
 -------------------
 
 The OMERO.blitz server provides a service called 
-:javadoc:`iScript <slice2html/omero/api/IScript.html>` that includes
+:slicedoc_blitz:`iScript <omero/api/IScript.html>` that includes
 methods to upload, delete, query and run scripts. To access these methods
 a session needs to be created and the script service started. However,
 you may find it more convenient to use the command line

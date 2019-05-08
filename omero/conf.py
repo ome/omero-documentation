@@ -130,6 +130,9 @@ omero_extlinks = {
     'javadoc_romio' : (docs_root + '/omero-romio/' + conf_autogen.version_romio + '/javadoc/%s', ''),
     'javadoc_common' : (docs_root + '/omero-common/' + conf_autogen.version_common + '/javadoc/%s', ''),
     'javadoc_model' : (docs_root + '/omero-model/' + conf_autogen.version_model + '/javadoc/%s', ''),
+    'slicedoc_blitz' : (docs_root + '/omero-blitz/' + conf_autogen.version_blitz + '/slice2html/%s', ''),
+    'slicedoc_server' : (docs_root + '/omero-server/' + conf_autogen.version_server + '/slice2html/%s', ''),
+
     'pythondoc' : (downloads_root + '/latest/omero5.4/api/python/%s', ''),
     # Downloads
     'downloads' : (downloads_root + '/latest/omero5.4/%s', ''),

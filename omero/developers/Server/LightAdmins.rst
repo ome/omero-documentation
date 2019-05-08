@@ -21,8 +21,8 @@ Restrictions
 
 The :model_source:`meta.ome.xml mapping
 <src/main/resources/mappings/meta.ome.xml>` lists all the values
-of the :javadoc:`AdminPrivilege
-<slice2html/omero/model/AdminPrivilege.html>` enumeration. Each of those
+of the :slicedoc_blitz:`AdminPrivilege
+<omero/model/AdminPrivilege.html>` enumeration. Each of those
 values corresponds to a kind of operation for which full administrators
 have greater privilege. If an administrator has any of the below
 restrictions then they do *not* have greater privilege for the
@@ -117,8 +117,8 @@ Working with restrictions
 Restricted administrators
 """""""""""""""""""""""""
 
-Since OMERO 5.4 the :javadoc:`admin service
-<slice2html/omero/api/IAdmin.html>` offers operations for managing
+Since OMERO 5.4 the :slicedoc_blitz:`admin service
+<omero/api/IAdmin.html>` offers operations for managing
 restrictions on administrators. ``createLightSystemUser`` creates a new
 restricted administrator. ``getAdminPrivileges`` and
 ``setAdminPrivileges`` manage the restrictions on an existing
@@ -157,8 +157,8 @@ which objects.
 Event context
 """""""""""""
 
-Since OMERO 5.4 the :javadoc:`event context
-<slice2html/omero/sys/EventContext.html>` for the current session,
+Since OMERO 5.4 the :slicedoc_blitz:`event context
+<omero/sys/EventContext.html>` for the current session,
 available from the admin service, has additional data members:
 
 * ``adminPrivileges`` that lists the restrictions *not* applying to the
@@ -224,7 +224,7 @@ of enforcing restrictions on administrators, together with
 management restrictions, the database system itself is also a key
 enforcement mechanism.
 
-The :javadoc:`update service <slice2html/omero/api/IUpdate.html>` is one
+The :slicedoc_blitz:`update service <omero/api/IUpdate.html>` is one
 means by which administrators may attempt to perform restricted
 operations. Hibernate's interceptors are not wholly suited to blocking
 exactly the prohibited actions so further barriers are built into the

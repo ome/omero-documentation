@@ -5,12 +5,12 @@ Migration is required
 ---------------------
 
 OMERO 5.1.0 introduced a new implementation of :doc:`ObjectGraphs`
-offered through the API via :javadoc:`Chgrp2
-<slice2html/omero/cmd/Chgrp2.html>`, :javadoc:`Chown2
-<slice2html/omero/cmd/Chown2.html>`, :javadoc:`Delete2
-<slice2html/omero/cmd/Delete2.html>`, and their superclass
-:javadoc:`GraphModify2 <slice2html/omero/cmd/GraphModify2.html>`. OMERO
-5.1.2 added :javadoc:`Chmod2 <slice2html/omero/cmd/Chmod2.html>`. The
+offered through the API via :slicedoc_blitz:`Chgrp2
+<omero/cmd/Chgrp2.html>`, :slicedoc_blitz:`Chown2
+<omero/cmd/Chown2.html>`, :slicedoc_blitz:`Delete2
+<omero/cmd/Delete2.html>`, and their superclass
+:slicedoc_blitz:`GraphModify2 <omero/cmd/GraphModify2.html>`. OMERO
+5.1.2 added :slicedoc_blitz:`Chmod2 <omero/cmd/Chmod2.html>`. The
 corresponding deprecated legacy request operations are *removed* in
 OMERO 5.3. Client code must be adjusted accordingly.
 
@@ -19,13 +19,13 @@ Target objects
 --------------
 
 For specifying which model objects to operate on, instead of using one
-request for each object, use :javadoc:`GraphModify2
-<slice2html/omero/cmd/GraphModify2.html>`'s ``targetObjects`` which
+request for each object, use :slicedoc_blitz:`GraphModify2
+<omero/cmd/GraphModify2.html>`'s ``targetObjects`` which
 allows specification of multiple model object classes, each with an
 unordered list of IDs, all in a single request. To specify a type, no
 longer use ``/``-delimited paths, but instead just the class name, e.g.
 ``Image`` instead of ``/Image``. To achieve a root-anchored subgraph
-operation use :javadoc:`SkipHead <slice2html/omero/cmd/SkipHead.html>`
+operation use :slicedoc_blitz:`SkipHead <omero/cmd/SkipHead.html>`
 to wrap your request: for instance, for ``/Image/Pixels/RenderingDef``,
 set the ``SkipHead`` request's ``targetObjects`` to the image(s), and
 set ``startFrom`` to ``RenderingDef``.
@@ -34,9 +34,9 @@ set ``startFrom`` to ``RenderingDef``.
 Translating options
 -------------------
 
-:javadoc:`GraphModify2 <slice2html/omero/cmd/GraphModify2.html>` offers
-``childOptions``, an ordered list of :javadoc:`ChildOption
-<slice2html/omero/cmd/graphs/ChildOption.html>` instances, each of which
+:slicedoc_blitz:`GraphModify2 <omero/cmd/GraphModify2.html>` offers
+``childOptions``, an ordered list of :slicedoc_blitz:`ChildOption
+<omero/cmd/graphs/ChildOption.html>` instances, each of which
 allows its applicability to annotations to be limited by namespace. Some
 examples:
 

@@ -4,7 +4,7 @@ Graph requests
 .. topic:: Overview
 
   The Blitz API offers several requests that are subclasses of
-  :javadoc:`GraphQuery <slice2html/omero/cmd/GraphQuery.html>`. These
+  :slicedoc_blitz:`GraphQuery <omero/cmd/GraphQuery.html>`. These
   may be submitted to the server for asynchronous processing of linked
   graphs of :doc:`OMERO model objects <../Model/EveryObject>`. This
   section gives a brief overview of the graph requests and their
@@ -14,26 +14,26 @@ Graph requests
 Querying the model object graph
 -------------------------------
 
-:javadoc:`GraphQuery <slice2html/omero/cmd/GraphQuery.html>` (base class)
+:slicedoc_blitz:`GraphQuery <omero/cmd/GraphQuery.html>` (base class)
   The parent of the requests below, it includes a ``targetObjects``
   property that specifies from which model objects to start processing.
-  The :javadoc:`LegalGraphTargets
-  <slice2html/omero/cmd/LegalGraphTargets.html>` request can be used to
+  The :slicedoc_blitz:`LegalGraphTargets
+  <omero/cmd/LegalGraphTargets.html>` request can be used to
   determine which types of model object may be targeted.
 
-:javadoc:`DiskUsage2 <slice2html/omero/cmd/DiskUsage2.html>`
+:slicedoc_blitz:`DiskUsage2 <omero/cmd/DiskUsage2.html>`
   Report on the disk usage of the target objects and their contents by
   type, user and group. Includes a ``targetClasses`` property to allow
   specifying every visible instance of a type.
 
-:javadoc:`FindParents <slice2html/omero/cmd/FindParents.html>`
+:slicedoc_blitz:`FindParents <omero/cmd/FindParents.html>`
   Find the parents of the target objects, both direct and indirect.
   ``typesOfParents`` specifies the types of parents to report.
   ``stopBefore`` specifies types of model object to avoid in traversing
   the linked graph upward: those subgraphs are ignored unless otherwise
   reachable.
 
-:javadoc:`FindChildren <slice2html/omero/cmd/FindChildren.html>`
+:slicedoc_blitz:`FindChildren <omero/cmd/FindChildren.html>`
   Find the children of the target objects, both direct and indirect.
   ``typesOfChildren`` specifies the types of children to report.
   ``stopBefore`` specifies types of model object to avoid in traversing
@@ -44,11 +44,11 @@ Querying the model object graph
 Changing the model object graph
 -------------------------------
 
-:javadoc:`GraphModify2 <slice2html/omero/cmd/GraphModify2.html>` (base class)
+:slicedoc_blitz:`GraphModify2 <omero/cmd/GraphModify2.html>` (base class)
   The parent of the requests below, it includes a ``targetObjects``
   property that specifies from which model objects to start processing.
-  The :javadoc:`LegalGraphTargets
-  <slice2html/omero/cmd/LegalGraphTargets.html>` request can be used to
+  The :slicedoc_blitz:`LegalGraphTargets
+  <omero/cmd/LegalGraphTargets.html>` request can be used to
   determine which types of model object may be targeted.
 
   The ``childOptions`` property lists how to process the contents of
@@ -58,7 +58,7 @@ Changing the model object graph
   ``dryRun`` property is provided that enables attempting to obtain the
   same response or error without actually making any changes.
 
-:javadoc:`ChildOption <slice2html/omero/cmd/graphs/ChildOption.html>`
+:slicedoc_blitz:`ChildOption <omero/cmd/graphs/ChildOption.html>`
   By default if a 'child' object is contained by a 'parent' targeted
   object then it is processed along with its parent if it is not also
   contained by another parent object that is not targeted. Use requests'
@@ -70,24 +70,24 @@ Changing the model object graph
   annotations, the ``includeNs`` and ``excludeNs`` properties use the
   annotation namespace to limit the applicability of the override.
 
-:javadoc:`Chgrp2 <slice2html/omero/cmd/Chgrp2.html>`
+:slicedoc_blitz:`Chgrp2 <omero/cmd/Chgrp2.html>`
   Change the group ID of the targeted objects and their contents. The
   objects are moved to the group specified by the ``groupId`` property.
 
-:javadoc:`Chown2 <slice2html/omero/cmd/Chown2.html>`
+:slicedoc_blitz:`Chown2 <omero/cmd/Chown2.html>`
   Change the user ID of the targeted objects and their contents. The
   objects are given to the user specified by the ``userId`` property.
 
-:javadoc:`Chmod2 <slice2html/omero/cmd/Chmod2.html>`
+:slicedoc_blitz:`Chmod2 <omero/cmd/Chmod2.html>`
   Change the permissions for the targeted objects which must be groups.
   The ``permissions`` property specifies the new group type.
 
-:javadoc:`Delete2 <slice2html/omero/cmd/Delete2.html>`
+:slicedoc_blitz:`Delete2 <omero/cmd/Delete2.html>`
   Delete the targeted objects and their contents. For original file
   instances the underlying file in the server's binary repository may
   be deleted also.
 
-:javadoc:`Duplicate <slice2html/omero/cmd/Duplicate.html>`
+:slicedoc_blitz:`Duplicate <omero/cmd/Duplicate.html>`
   Duplicate a subgraph from the model object graph, starting from the
   targeted objects and recursing to their contents. The
   ``typesToDuplicate``, ``typesToReference``, ``typesToIgnore``
@@ -95,7 +95,7 @@ Changing the model object graph
   duplicating and with what in the original graph to link the duplicate
   subgraph.
 
-:javadoc:`SkipHead <slice2html/omero/cmd/SkipHead.html>`
+:slicedoc_blitz:`SkipHead <omero/cmd/SkipHead.html>`
   Defer processing to start only at specific contents of the targeted
   objects. The ``startFrom`` property specifies the types of object to
   actually target with the processing and the ``request`` property,
