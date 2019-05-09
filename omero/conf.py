@@ -120,7 +120,7 @@ omero_extlinks = {
     'matlab_source' : (omero_subs_github_root.format('omero-matlab', 'blob', 'v'+conf_autogen.version_matlab), ''),
     'matlab_sourcedir' : (omero_subs_github_root.format('omero-matlab', 'tree', 'v'+conf_autogen.version_matlab), ''),
     'insight_source' : (omero_subs_github_root.format('omero-insight', 'blob', 'v'+conf_autogen.version_matlab), ''),
-    'insight_sourcedir' : (omero_subs_github_root.format('omero-insight', 'tree', 'v'++conf_autogen.version_matlab), ''),
+    'insight_sourcedir' : (omero_subs_github_root.format('omero-insight', 'tree', 'v'+conf_autogen.version_matlab), ''),
     # API links
     'javadoc' : (downloads_root + '/latest/omero5.4/api/%s', ''),
     'javadoc_gateway_java' : (docs_root + '/omero-java-gateway/' + conf_autogen.version_gateway + '/javadoc/%s', ''),
