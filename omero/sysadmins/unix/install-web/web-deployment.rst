@@ -121,7 +121,7 @@ Prerequisites
 
 .. [2] Make sure to have `libjpeg <http://libjpeg.sourceforge.net/>`_ 
        installed when building Pillow_. We currently do not 
-       support version 3.0+.
+       support version 3.4 or higher.
 
 If possible, install the following packages:
 
