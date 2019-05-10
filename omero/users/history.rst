@@ -30,22 +30,28 @@ omero clients:
 OMERO version history
 =====================
 
+5.5.0-m7 (May 2019)
+-------------------
+
+- build: remove unused client jar
+- build: use Bio-Formats 6.1.0-m1 
+
 5.5.0-m6 (April 2019)
 ---------------------
 
- - build: use omero-java-gateway instead of omero-blitz
- - build: move omero.properties to omero-* repositories
- - web: fix date display
- - web: remove / from 3rdparty in ome.viewportImage.js
- - cli: disable foreground indexing
+- build: use omero-java-gateway instead of omero-blitz
+- build: move omero.properties to omero-* repositories
+- web: fix date display
+- web: remove / from 3rdparty in ome.viewportImage.js
+- cli: disable foreground indexing
 
 5.5.0-m5 (April 2019)
 ---------------------
 
- - test: fix and update tests following the migrations
- - web: remove usage of deprecated calls
- - web: remove apache config
- - doc: fix broken links following migration
+- test: fix and update tests following the migrations
+- web: remove usage of deprecated calls
+- web: remove apache config
+- doc: fix broken links following migration
 
 5.5.0-m4 (March 2019)
 ---------------------
@@ -66,7 +72,7 @@ separate repositories:
 - https://github.com/ome/omero-model
 - https://github.com/ome/omero-common
 - https://github.com/ome/omero-romio
-- https://github.com/ome/omero-rendering
+- https://github.com/ome/omero-renderer
 - https://github.com/ome/omero-server
 - https://github.com/ome/omero-blitz
 - https://github.com/ome/omero-insight
