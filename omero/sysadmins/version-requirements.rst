@@ -47,11 +47,11 @@ Operating systems
      * - 7.x
        - |Recommended|
        - |Recommended|
-       - |Recommended|
+       - |Dropped|
      * - 8.x
        - |Upcoming|
        - |Upcoming|
-       - |Upcoming|
+       - |Recommended|
 
 * Linux distribution Ubuntu LTS
 
@@ -127,7 +127,7 @@ Components
        - |Deprecated|
      * - 9.6
        - |Supported|
-       - |Supported|
+       - |Recommended|
        - |Deprecated|
      * - 10
        - |Upcoming|
@@ -136,7 +136,7 @@ Components
      * - 11
        - |Upcoming|
        - |Upcoming|
-       - |Supported|
+       - |Recommended|
 
   * Rationale: Current releases available for all supported systems
     from upstream and for CentOS/RHEL officially via SCL (software
@@ -161,12 +161,17 @@ Components
          - |Recommended|
          - |Recommended|
          - |Recommended|
+         - |Deprecated|
+       * - 3.5
+         - |Broken|
+         - |Broken|
+         - |Broken|
+         - |Supported|
+       * - 3.6
+         - |Broken|
+         - |Broken|
+         - |Broken|
          - |Recommended|
-       * - 3.x
-         - |Broken|
-         - |Broken|
-         - |Broken|
-         - |Broken|
 
   * Rationale: 2.7 is provided by all systems except for CentOS/RHEL
     6.x, however it is available officially via SCL.
@@ -209,7 +214,7 @@ Components
          - OMERO 5.6
        * - 7
          - |Deprecated|
-         - |Deprecated|
+         - |Dropped|
          - |Dropped|
        * - 8
          - |Recommended|
@@ -561,7 +566,7 @@ OMERO support policies
       - to Jan 2020
       - |Recommended|
       - |Recommended|
-      - |Recommended|
+      - |Deprecated|
       - `PEP 373 <https://www.python.org/dev/peps/pep-0373/>`__
     * - 3.2
       - from Feb 2011
@@ -589,21 +594,21 @@ OMERO support policies
       - to Sep 2020
       - |Broken|
       - |Broken|
-      - |Broken|
+      - |Supported|
       - `PEP 478 <https://www.python.org/dev/peps/pep-0478/>`__
     * - 3.6
       - from Dec 2016
       - to Dec 2021
       - |Broken|
       - |Broken|
-      - |Broken|
+      - |Recommended|
       - `PEP 494 <https://www.python.org/dev/peps/pep-0494/>`__
     * - 3.7
       - from Jun 2018
       - to Jun 2023
       - |Broken|
       - |Broken|
-      - |Broken|
+      - |Upcoming|
       - `PEP 537 <https://www.python.org/dev/peps/pep-0537/>`__
 
 .. [1] For OMERO.web, Python 2.7 is the minimum supported version.
@@ -643,7 +648,7 @@ Version provided by distribution
       - N/A
       - Yes
     * - 3.4
-      - N/A
+      - 7 (`EPEL <https://dl.fedoraproject.org/pub/epel/7/x86_64/>`__)
       - 14.04
       - N/A
       - Yes
@@ -653,7 +658,7 @@ Version provided by distribution
       - N/A
       - Yes
     * - 3.6
-      - N/A
+      - 7 (`EPEL <https://dl.fedoraproject.org/pub/epel/7/x86_64/>`__)
       - 18.04
       - Yes
       - Yes
@@ -880,7 +885,7 @@ OMERO support policies
       - to Apr 2019
       - |Upcoming|
       - |Supported|
-      - |Supported|
+      - |Recommended|
     * - 1.16
       - from Apr 2019
       - TBA
