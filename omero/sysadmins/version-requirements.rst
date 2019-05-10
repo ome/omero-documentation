@@ -15,11 +15,11 @@ supported either by an operating system distribution or their original
 developers.
 
 This section contains a summary of the changes made to the minimum
-version requirements for the current (|version|) release and also **possible** changes for
-the next release, albeit **tentatively at this point**. The
-intent is to provide a roadmap in order that sysadmins may plan ahead
-and ensure that prerequisites are in place ahead of time to ease
-future upgrades. The following sections provide more detailed
+version requirements for the current (|version|) release and also
+**possible** changes for the next release, albeit **tentatively at this
+point**. The intent is to provide a roadmap in order that sysadmins may
+plan ahead and ensure that prerequisites are in place ahead of time to
+ease future upgrades. The following sections provide more detailed
 information and the rationale for the changes.
 
 Please check the meaning of the various :ref:`symbols <support-levels>` used
