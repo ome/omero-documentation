@@ -205,6 +205,26 @@ Clients disable download as jpg/png/tiff above max pixel count.
 
 Default: `144000000`
 
+.. property:: omero.client.icetransports
+
+omero.client.icetransports
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+Comma separated list of Ice transports available to clients. The default
+value ("ssl,tcp") instructs Ice to open the ports specified by the
+omero.ports.ssl and omero.ports.tcp properties. Restricting to "ssl"
+will prevent all non-encrypted connections to the OMERO server.
+
+Additionally, there are two experimental values for using websockets:
+"ws" and "wss" for unencrypted and encrypted, respectively. The ports
+that are opened are controlled by the omero.ports.ws and omero.ports.wss
+properties. To enable all possible protocols use: "ssl,tcp,wss,ws".
+
+Note: When using websockets behind a web server like nginx, additional
+configuration may be needed.
+
+Default: `ssl,
+tcp`
+
 .. property:: omero.client.scripts_to_ignore
 
 omero.client.scripts_to_ignore
@@ -513,6 +533,55 @@ only developers will change this version to bump
 to a new major version.
 
 Default: `OMERO5.4`
+
+
+.. _glacier2_configuration:
+
+Glacier2
+--------
+
+.. property:: omero.glacier2.IceSSL
+
+omero.glacier2.IceSSL
+^^^^^^^^^^^^^^^^^^^^^
+Glacier2Template IceSSL defaults and overrides
+see https://doc.zeroc.com/ice/3.6/property-reference/icessl
+Any property beginning ``omero.glacier2.IceSSL.`` will be used to
+update the corresponding IceSSL. property
+
+Default: `[empty]`
+
+.. property:: omero.glacier2.IceSSL.Ciphers
+
+omero.glacier2.IceSSL.Ciphers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Glacier2Template SSL allowed cipher suites
+
+Default: `ADH:!LOW:!MD5:!EXP:!3DES:@STRENGTH`
+
+.. property:: omero.glacier2.IceSSL.ProtocolVersionMax
+
+omero.glacier2.IceSSL.ProtocolVersionMax
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Glacier2Template SSL maximum allowed protocol (mac bug)
+
+Default: `tls1_1`
+
+.. property:: omero.glacier2.IceSSL.Protocols
+
+omero.glacier2.IceSSL.Protocols
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Glacier2Template SSL allowed protocols
+
+Default: `tls1`
+
+.. property:: omero.glacier2.IceSSL.VerifyPeer
+
+omero.glacier2.IceSSL.VerifyPeer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Glacier2Template SSL verification requirements
+
+Default: `0`
 
 
 .. _grid_configuration:
@@ -1448,7 +1517,7 @@ Default: `4064`
 
 omero.ports.tcp
 ^^^^^^^^^^^^^^^
-The Glacier2 TCP port number to use
+The Glacier2 TCP port number to use (unencrypted)
 
 Default: `4063`
 
@@ -1963,6 +2032,22 @@ A list of origin hostnames that are authorized to make cross-site HTTP requests.
 
 Default: `[]`
 
+.. property:: omero.web.csrf_cookie_httponly
+
+omero.web.csrf_cookie_httponly
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Prevent CSRF cookie from being accessed in JavaScript. Currently disabled as it breaks background JavaScript POSTs in OMERO.web.
+
+Default: `false`
+
+.. property:: omero.web.csrf_cookie_secure
+
+omero.web.csrf_cookie_secure
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Restrict CSRF cookies to HTTPS only, you are strongly recommended to set this to ``true`` in production.
+
+Default: `false`
+
 .. property:: omero.web.databases
 
 omero.web.databases
@@ -2055,7 +2140,7 @@ Default: `{}`
 
 omero.web.login_view
 ^^^^^^^^^^^^^^^^^^^^
-
+The Django view name used for login. Use this to provide an alternative login workflow.
 
 Default: `weblogin`
 
@@ -2065,7 +2150,7 @@ omero.web.middleware
 ^^^^^^^^^^^^^^^^^^^^
 Warning: Only system administrators should use this feature. List of Django middleware classes in the form [{"class": "class.name", "index": FLOAT}]. See https://docs.djangoproject.com/en/1.8/topics/http/middleware/. Classes will be ordered by increasing index
 
-Default: `[{"index": 1, "class": "django.middleware.common.BrokenLinkEmailsMiddleware"},{"index": 2, "class": "django.middleware.common.CommonMiddleware"},{"index": 3, "class": "django.contrib.sessions.middleware.SessionMiddleware"},{"index": 4, "class": "django.middleware.csrf.CsrfViewMiddleware"},{"index": 5, "class": "django.contrib.messages.middleware.MessageMiddleware"}]`
+Default: `[{"index": 1, "class": "django.middleware.common.BrokenLinkEmailsMiddleware"},{"index": 2, "class": "django.middleware.common.CommonMiddleware"},{"index": 3, "class": "django.contrib.sessions.middleware.SessionMiddleware"},{"index": 4, "class": "django.middleware.csrf.CsrfViewMiddleware"},{"index": 5, "class": "django.contrib.messages.middleware.MessageMiddleware"},{"index": 6, "class": "django.middleware.clickjacking.XFrameOptionsMiddleware"}]`
 
 .. property:: omero.web.open_with
 
@@ -2111,7 +2196,7 @@ Default: `None`
 
 omero.web.pipeline_staticfile_storage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The file storage engine to use when collecting static files with the collectstatic management command. See `the documentation <http://django-pipeline.readthedocs.org/en/latest/storages.html>`_ for more details.
+The file storage engine to use when collecting static files with the collectstatic management command. See `the documentation <https://django-pipeline.readthedocs.org/en/latest/storages.html>`_ for more details.
 
 Default: `pipeline.storage.PipelineStorage`
 
@@ -2251,6 +2336,14 @@ The name to use for session cookies
 
 Default: `None`
 
+.. property:: omero.web.session_cookie_secure
+
+omero.web.session_cookie_secure
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Restrict session cookies to HTTPS only, you are strongly recommended to set this to ``true`` in production.
+
+Default: `false`
+
 .. property:: omero.web.session_engine
 
 omero.web.session_engine
@@ -2319,7 +2412,7 @@ Default: `[]`
 
 omero.web.thumbnails_batch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-Number of thumbnails retrieved to prevent from loading them all at once. Make sure the size is not too big, otherwise you may exceed limit request line, see http://docs.gunicorn.org/en/latest/settings.html?highlight=limit_request_line
+Number of thumbnails retrieved to prevent from loading them all at once. Make sure the size is not too big, otherwise you may exceed limit request line, see https://docs.gunicorn.org/en/latest/settings.html?highlight=limit_request_line
 
 Default: `50`
 
@@ -2391,7 +2484,7 @@ Default: `None`
 
 omero.web.wsgi_args
 ^^^^^^^^^^^^^^^^^^^
-A string representing Gunicorn additional arguments. Check Gunicorn Documentation http://docs.gunicorn.org/en/latest/settings.html
+A string representing Gunicorn additional arguments. Check Gunicorn Documentation https://docs.gunicorn.org/en/latest/settings.html
 
 Default: `None`
 
@@ -2399,7 +2492,7 @@ Default: `None`
 
 omero.web.wsgi_timeout
 ^^^^^^^^^^^^^^^^^^^^^^
-Workers silent for more than this many seconds are killed and restarted. Check Gunicorn Documentation http://docs.gunicorn.org/en/stable/settings.html#timeout
+Workers silent for more than this many seconds are killed and restarted. Check Gunicorn Documentation https://docs.gunicorn.org/en/stable/settings.html#timeout
 
 Default: `60`
 
@@ -2407,8 +2500,16 @@ Default: `60`
 
 omero.web.wsgi_workers
 ^^^^^^^^^^^^^^^^^^^^^^
-The number of worker processes for handling requests. Check Gunicorn Documentation http://docs.gunicorn.org/en/stable/settings.html#workers
+The number of worker processes for handling requests. Check Gunicorn Documentation https://docs.gunicorn.org/en/stable/settings.html#workers
 
 Default: `5`
+
+.. property:: omero.web.x_frame_options
+
+omero.web.x_frame_options
+^^^^^^^^^^^^^^^^^^^^^^^^^
+Whether to allow OMERO.web to be loaded in a frame.
+
+Default: `SAMEORIGIN`
 
 
