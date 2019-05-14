@@ -712,27 +712,27 @@ OMERO support policies
       - |Deprecated|
       - |Dropped|
       - |Dropped|
-      - :zerocforum:`3.5.0 <announcements/6093-ice-3-5-0-released>`,
-        :zerocforum:`3.5.1 <announcements/6283-ice-3-5-1-released>`
+      - :zerocforum:`3.5.0 <6093/ice-3-5-0-released>`,
+        :zerocforum:`3.5.1 <6283/ice-3-5-1-released>`
     * - 3.6
       - from June 2015
       - to TBA
       - |Recommended|
       - |Recommended|
       - |Recommended|
-      - :zerocforum:`3.6.0 <announcements/6631-ice-3-6-0-and-ice-touch-3-6-0-released>`
-        (:zerocforum:`3.6.1 <announcements/45941-ice-3-6-0-and-ice-touch-3-6-1-released>` |Broken|),
-        :zerocforum:`3.6.2 <announcements/46347-ice-ice-e-and-ice-touch-3-6-2-released>`,
-        :zerocforum:`3.6.3 <announcements/46475-ice-ice-e-and-ice-touch-3-6-3-released>`,
-        :zerocforum:`3.6.4 <announcements/46550-ice-ice-e-and-ice-touch-3-6-4-released>`
+      - :zerocforum:`3.6.0 <6631/ice-3-6-0-and-ice-touch-3-6-0-released>`
+        (:zerocforum:`3.6.1 <45941/ice-3-6-0-and-ice-touch-3-6-1-released>` |Broken|),
+        :zerocforum:`3.6.2 <46347/ice-ice-e-and-ice-touch-3-6-2-released>`,
+        :zerocforum:`3.6.3 <46475/ice-ice-e-and-ice-touch-3-6-3-released>`,
+        :zerocforum:`3.6.4 <46550/ice-ice-e-and-ice-touch-3-6-4-released>`
     * - 3.7
       - from July 2017
       - to TBA
       - |Unsupported|
       - |Unsupported|
       - |Unsupported|
-      - :zerocforum:`3.7.0 <announcements/46530-ice-3-7-0-and-ice-touch-3-7-0-released>`,
-        :zerocforum:`3.7.1 <announcements/46620/ice-3-7-1-released>`
+      - :zerocforum:`3.7.0 <46530/ice-3-7-0-and-ice-touch-3-7-0-released>`,
+        :zerocforum:`3.7.1 <46620/ice-3-7-1-released>`
 
 Version provided by distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
