@@ -134,12 +134,12 @@ Components
        - |Supported|
        - |Deprecated|
      * - 9.6
-       - |Supported|
        - |Recommended|
+       - |Supported|
        - |Deprecated|
      * - 10
        - |Upcoming|
-       - |Supported|
+       - |Recommended|
        - |Supported|
      * - 11
        - |Upcoming|
@@ -476,13 +476,13 @@ OMERO support policies
       - from Sep 2016
       - to Sep 2021
       - |Recommended|
-      - |Recommended|
+      - |Supported|
       - |Deprecated|
     * - 10
       - from Oct 2017
       - to Nov 2022
       - |Upcoming|
-      - |Supported|
+      - |Recommended|
       - |Supported|
     * - 11
       - from Oct 2018
