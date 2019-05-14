@@ -427,8 +427,6 @@ Package lists
       - `Reference <http://mirror.centos.org/centos/6/os/x86_64/Packages/>`__
     * - CentOS 7 / RHEL 7
       - `Reference <http://mirror.centos.org/centos/7/os/x86_64/Packages/>`__
-    * - CentOS 8 / RHEL 8
-      - `Reference <http://mirror.centos.org/centos/8/os/x86_64/Packages/>`__
     * - Ubuntu
       - `Reference <https://packages.ubuntu.com/search?keywords=foo&searchon=names&suite=all&section=all>`__
     * - Homebrew
