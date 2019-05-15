@@ -267,6 +267,10 @@ Components
          - |Upcoming|
          - |Supported|
          - |Recommended|
+       * - 1.16
+         - |Upcoming|
+         - |Upcoming|
+         - |Upcoming|
 
 .. _support-levels:
 
