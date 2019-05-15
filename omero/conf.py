@@ -123,7 +123,7 @@ omero_extlinks = {
     'insight_sourcedir' : (omero_subs_github_root.format('omero-insight', 'tree', 'v'+conf_autogen.version_matlab), ''),
     # API links
     'javadoc' : (downloads_root + '/latest/omero5.4/api/%s', ''),
-    'javadoc_gateway_java' : (docs_root + '/omero-java-gateway/' + conf_autogen.version_gateway + '/javadoc/%s', ''),
+    'javadoc_gateway_java' : (docs_root + '/omero-gateway/' + conf_autogen.version_gateway + '/javadoc/%s', ''),
     'javadoc_blitz' : (docs_root + '/omero-blitz/' + conf_autogen.version_blitz + '/javadoc/%s', ''),
     'javadoc_server' : (docs_root + '/omero-server/' + conf_autogen.version_server + '/javadoc/%s', ''),
     'javadoc_renderer' : (docs_root + '/omero-renderer/' + conf_autogen.version_renderer + '/javadoc/%s', ''),
