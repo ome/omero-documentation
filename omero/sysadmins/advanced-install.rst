@@ -10,3 +10,4 @@ Installing additional features
     omeromovie
     installing-scripts
     server-tables
+    websockets
