@@ -23,3 +23,16 @@ OMERO uses are not supported.
 
 For a full configuration example see
 https://github.com/ome/docker-example-omero-websockets
+
+
+Client connection
+-----------------
+
+You can connect to an OMERO websocket by setting the appropriate ``Ice.Config``
+properties in the :doc:`client
+<../developers/GettingStarted/AdvancedClientDevelopment>`, for example::
+
+    Ice.Default.Router="OMERO.Glacier2/router:wss -p 8443 -h example.org -r omero/websocket"
+
+Some clients also support for specifying the Ice transport in the host, e.g.
+``wss://example.org:8443/omero/websocket``.
