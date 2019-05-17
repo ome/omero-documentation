@@ -34,5 +34,5 @@ properties in the :doc:`client
 
     Ice.Default.Router="OMERO.Glacier2/router:wss -p 8443 -h example.org -r omero/websocket"
 
-Some clients also support for specifying the Ice transport in the host, e.g.
+Some clients also support specifying the Ice transport in the host, e.g.
 ``wss://example.org:8443/omero/websocket``.
