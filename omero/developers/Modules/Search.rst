@@ -223,8 +223,8 @@ gets expanded to:
 
       ACELL OR BCELL OR CCELL
 
-If there are more than :property:`omero.search.maxclause` terms in the expansion
-(default is 4096), then an exception will be thrown. This requires the
+If there are too many terms in the expansion
+then an exception will be thrown. This requires the
 user to enter a more refined search, but not because there are too many
 results, only because there is not enough room in memory to search on
 all terms at once.
