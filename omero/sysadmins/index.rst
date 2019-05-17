@@ -80,7 +80,6 @@ performance and security.
     :titlesonly:
 
     server-security
-    client-server-ssl
     server-ldap
     server-performance
     search
