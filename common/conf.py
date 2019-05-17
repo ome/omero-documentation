@@ -122,10 +122,15 @@ omero_github_root = github_root + user + '/openmicroscopy/'
 bf_github_root = github_root + user + '/bioformats/'
 doc_github_root = github_root + user + '/ome-documentation/'
 
-# Variables used to define Jenkins extlinks
+# Variables used to define Jenkins extlinks (ci-master)
 jenkins_root = 'https://ci.openmicroscopy.org'
 jenkins_job_root = jenkins_root + '/job'
 jenkins_view_root = jenkins_root + '/view'
+
+# Variables used to define Jenkins extlinks (merge-ci)
+mergeci_root = 'https://merge-ci.openmicroscopy.org/jenkins'
+mergeci_job_root = jenkins_root + '/job'
+mergeci_view_root = jenkins_root + '/view'
 
 # Variables used to define other extlinks
 cvs_root = 'http://cvs.openmicroscopy.org.uk'
@@ -142,10 +147,13 @@ extlinks = {
     'ticket' : (trac_root + '/ticket/%s', '#'),
     'milestone' : (trac_root + '/milestone/%s', ''),
     'report' : (trac_root + '/report/%s', ''),
-    # Jenkins links
+    # Jenkins links (ci-master)
     'jenkins' : (jenkins_root + '/%s', ''),
     'jenkinsjob' : (jenkins_job_root + '/%s', ''),
     'jenkinsview' : (jenkins_view_root + '/%s', ''),
+    # Jenkins links (merge-ci)
+    'mergeci' : (mergeci_root + '/%s', ''),
+    'mergeci_job' : (mergeci_job_root + '/%s', ''),
     # Mailing list/forum links
     'mailinglist' : (lists_root + '/mailman/listinfo/%s', ''),
     'ome-users' : (lists_root + '/pipermail/ome-users/%s' ,''),

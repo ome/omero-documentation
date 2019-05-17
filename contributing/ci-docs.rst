@@ -20,7 +20,7 @@ More detail on how and where to edit OME documentation is available on the
 		* :term:`OMERO-DEV-latest-docs`
 
 	-	* Builds the OMERO documentation for review
-		* :term:`OMERO-DEV-merge-docs`
+		* :term:`OMERO-docs`
 
 	-	* Builds the auto-generated OMERO documentation
 		* :term:`OMERO-DEV-latest-docs-autogen`
@@ -148,7 +148,7 @@ The branch for the 5.x series of the OMERO documentation is develop.
 		#. |sphinxbuild|
 		#. |linkcheck|
 
-	:jenkinsjob:`OMERO-DEV-merge-docs`
+	:jenkinsjob:`OMERO-docs`
 
 		This job is used to review the PRs opened against the develop branch
 		of the OMERO 5.x documentation
