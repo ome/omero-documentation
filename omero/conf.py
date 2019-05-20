@@ -97,6 +97,7 @@ omero_extlinks = {
     'commit' : (omero_github_root + 'commit/%s', ''),
     'omedocs' : (doc_github_root + '%s', ''),
     # GitHub decoupled subcomponents
+    'omero_subs_github_repo_root' : (github_root + 'ome/%s', ''),
     'dsl_plugin_source' : (omero_subs_github_root.format('omero-dsl-plugin', 'blob', 'v'+conf_autogen.version_dsl_plugin), ''),
     'dsl_plugin_sourcedir' : (omero_subs_github_root.format('omero-dsl-plugin', 'tree', 'v'+conf_autogen.version_dsl_plugin), ''),
     'blitz_plugin_source' : (omero_subs_github_root.format('omero-blitz-plugin', 'blob', 'v'+conf_autogen.version_blitz_plugin), ''),
