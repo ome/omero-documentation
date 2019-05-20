@@ -148,7 +148,7 @@ The branch for the 5.x series of the OMERO documentation is develop.
 		#. |sphinxbuild|
 		#. |linkcheck|
 
-	:jenkinsjob:`OMERO-docs`
+	:mergecijob:`OMERO-docs`
 
 		This job is used to review the PRs opened against the develop branch
 		of the OMERO 5.x documentation

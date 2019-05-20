@@ -129,8 +129,8 @@ jenkins_view_root = jenkins_root + '/view'
 
 # Variables used to define Jenkins extlinks (merge-ci)
 mergeci_root = 'https://merge-ci.openmicroscopy.org/jenkins'
-mergeci_job_root = jenkins_root + '/job'
-mergeci_view_root = jenkins_root + '/view'
+mergeci_job_root = mergeci_root + '/job'
+mergeci_view_root = mergeci_root + '/view'
 
 # Variables used to define other extlinks
 cvs_root = 'http://cvs.openmicroscopy.org.uk'
@@ -153,7 +153,7 @@ extlinks = {
     'jenkinsview' : (jenkins_view_root + '/%s', ''),
     # Jenkins links (merge-ci)
     'mergeci' : (mergeci_root + '/%s', ''),
-    'mergeci_job' : (mergeci_job_root + '/%s', ''),
+    'mergecijob' : (mergeci_job_root + '/%s', ''),
     # Mailing list/forum links
     'mailinglist' : (lists_root + '/mailman/listinfo/%s', ''),
     'ome-users' : (lists_root + '/pipermail/ome-users/%s' ,''),
