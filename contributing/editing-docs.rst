@@ -340,7 +340,7 @@ Building/reviewing PRs via the CI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Once a PR is open, you can build it for review using the
-:jenkinsjob:`OMERO-DEV-merge-docs` job on the Jenkins CI. Staging
+:mergecijob:`OMERO-docs` job on the Jenkins CI. Staging
 documentation are no longer deployed at a URL but you can download it as a zip
 for review with the correct styling from the top centre panel in the job,
 under ‘Last Successful Artifacts’.
