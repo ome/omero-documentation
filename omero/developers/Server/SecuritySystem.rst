@@ -59,8 +59,8 @@ security.
 Top-level and build
 ~~~~~~~~~~~~~~~~~~~
 
-:source:`omero.properties <etc/omero.properties>`
-    contains login and connection information for the database and OMERO.
+:model_source:`omero-model.properties <src/main/resources/omero-model.properties>`
+    contains login and connection information for the database.
 
 :source:`build.properties.example <etc/build.properties>`
     contains the default root password. This can be overridden with your
@@ -95,12 +95,10 @@ Top-level and build
 Client and common
 ~~~~~~~~~~~~~~~~~
 
-the server uses the information in /etc/local.properties to create a Login
-    object. If no Login, Server, or Properties is provided to the
-    ServiceFactory constructor, the empty
-    properties defined in
-    :common_source:`ome/config.xml <src/main/resources/ome/config.xml>`
-    is used.
+The server uses the information in :source:`local.properties <etc/local.properties>`
+to create a Login object. If no Login, Server, or Properties is provided to the
+ServiceFactory constructor, the empty properties defined in
+:common_source:`ome/config.xml <src/main/resources/ome/config.xml>` is used.
 
 :common_source:`IAdmin.java <src/main/java/ome/api/IAdmin.java>`
     main interface for administering accounts and privileges. See
@@ -211,10 +209,10 @@ ServiceFactory. The user can also set the
 umask property on ServiceFactory\_. This value is mutable and can be set
 at anytime.
 
-The values are converted to java.util.Properties which are merged with
-the properties from the \*.properties files from /etc to create the
+The values are converted to `java.util.Properties` which are merged with
+the properties from the \*.properties files to create the
 client :doc:`/developers/Server/Context` (also known as the "application context"). The
-context contains a Principal and user credentials (password etc.) which
+context contains a Principal and user credentials (password, etc.) which
 are associated with the thread before each method execution in a
 specialized TargetSource. Finally, these objects are serialized to the
 application server along with the method arguments.
@@ -348,7 +346,7 @@ the server-side :doc:`/developers/Server/Context`. Currently,
 there is no client-side security system. See :ticket:`234`.
 
 The :doc:`/developers/Server/SecuritySystem` and its current only
-implementation BasicSecuritySystem? are somewhat inert and expect
+implementation :server_source:`BasicSecuritySystem <src/main/java/ome/security/basic/BasicSecuritySystem.java>` are somewhat inert and expect
 well-defined and trusted (see :ticket:`235`) methods
 to invoke callbacks during the proper Hibernate phase.
 
