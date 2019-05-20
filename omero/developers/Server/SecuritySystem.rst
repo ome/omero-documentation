@@ -86,11 +86,6 @@ Top-level and build
     used by DSLTask to generate psql-footer.sql which is used to   
     bootstrap the database security system (root et al).
 
-:file:`common/build.xml`
-    contains an ant target (adduser) which will create a user and empty
-    password from the command line. This target can also be called from
-    the top-level (java omero adduser).
-
 
 Client and common
 ~~~~~~~~~~~~~~~~~
