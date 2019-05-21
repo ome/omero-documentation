@@ -175,7 +175,7 @@ extlinks = {
     # Miscellaneous links
     'snapshot' : (cvs_root + '/snapshots/%s', ''),
     'zeroc' : ('https://zeroc.com/%s', ''),
-    'zerocforum' : ('https://forums.zeroc.com/forum/%s', ''),
+    'zerocforum' : ('https://forums.zeroc.com/discussion/%s', ''),
     'zerocdoc' : ('https://doc.zeroc.com/%s', ''),
     'djangodoc' : ('https://docs.djangoproject.com/en/1.8/%s', ''),
     'doi' : ('https://dx.doi.org/%s', ''),
