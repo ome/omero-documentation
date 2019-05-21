@@ -93,7 +93,7 @@ Client and common
 The server uses the information in :source:`local.properties <etc/local.properties>`
 to create a Login object. If no Login, Server, or Properties is provided to the
 ServiceFactory constructor, the empty properties defined in
-:common_source:`ome/config.xml <src/main/resources/ome/config.xml>` is used.
+:common_source:`ome/config.xml <src/main/resources/ome/config.xml>` are used.
 
 :common_source:`IAdmin.java <src/main/java/ome/api/IAdmin.java>`
     main interface for administering accounts and privileges. See
