@@ -341,9 +341,10 @@ the server-side :doc:`/developers/Server/Context`. Currently,
 there is no client-side security system. See :ticket:`234`.
 
 The :doc:`/developers/Server/SecuritySystem` and its current only
-implementation :server_source:`BasicSecuritySystem <src/main/java/ome/security/basic/BasicSecuritySystem.java>` are somewhat inert and expect
-well-defined and trusted (see :ticket:`235`) methods
-to invoke callbacks during the proper Hibernate phase.
+implementation :server_source:`BasicSecuritySystem
+<src/main/java/ome/security/basic/BasicSecuritySystem.java>` are
+somewhat inert and expect well-defined and trusted (see :ticket:`235`)
+methods to invoke callbacks during the proper Hibernate phase.
 
 Logging in (client-side)
 ------------------------
