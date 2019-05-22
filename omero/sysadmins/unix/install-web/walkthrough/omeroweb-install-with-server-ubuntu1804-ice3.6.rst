@@ -81,7 +81,7 @@ root user by going to http://localhost/ in your web browser.
 In addition :download:`omero-web-init.d <../../walkthrough/omero-web-init.d>`
 is available should you wish to start OMERO.web automatically.
 
-.. _linux_walkthrough_regular_tasks:
+.. _linux_walkthrough_ubuntu1804_regular_tasks:
 
 Regular tasks
 -------------
