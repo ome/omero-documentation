@@ -1225,6 +1225,8 @@ Properties:
   | username: ``string`` from :ref:`Job <OMERO model class Job>`
   | version: ``integer`` (optional) from :ref:`Job <OMERO model class Job>`
 
+.. warning:: This model object is deprecated.
+
 .. _OMERO model class IndexingJob:
 
 IndexingJob
@@ -2157,6 +2159,8 @@ Properties:
   | transform: :ref:`AffineTransform <OMERO model class AffineTransform>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | version: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
 
+.. warning:: This model object is deprecated.
+
 .. _OMERO model class PhotometricInterpretation:
 
 PhotometricInterpretation
@@ -2217,7 +2221,7 @@ Properties:
   | pixelsFileMaps: :ref:`PixelsOriginalFileMap <OMERO model class PixelsOriginalFileMap>` (multiple)
   | pixelsType: :ref:`PixelsType <OMERO model class PixelsType>`
   | planeInfo: :ref:`PlaneInfo <OMERO model class PlaneInfo>` (multiple)
-  | relatedTo: :ref:`Pixels <OMERO model class Pixels>` (optional)
+  | relatedTo: :ref:`Pixels <OMERO model class Pixels>` (optional) (deprecated)
   | settings: :ref:`RenderingDef <OMERO model class RenderingDef>` (multiple)
   | sha1: ``string``
   | significantBits: ``integer`` (optional)
@@ -2232,6 +2236,8 @@ Properties:
   | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
   | waveIncrement: ``integer`` (optional)
   | waveStart: ``integer`` (optional)
+
+.. warning:: This model object has a deprecated property.
 
 .. _OMERO model class PixelsOriginalFileMap:
 
