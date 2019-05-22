@@ -18,6 +18,10 @@ of commands.
         Instructions for installing OMERO.server from scratch on
         Ubuntu 14.04 and Ubuntu 16.04 with Ice 3.6.
 
+    :doc:`server-ubuntu1804-ice36`
+        Instructions for installing OMERO.server from scratch on
+        Ubuntu 18.04 with Ice 3.6.
+
     :doc:`server-debian9-ice36`
         Instructions for installing OMERO.server from scratch on
         Debian 9 with Ice 3.6.
@@ -34,6 +38,7 @@ of commands.
 
     server-centos7-ice36
     server-ubuntu1604-ice36
+    server-ubuntu1804-ice36
     server-debian9-ice36
     server-install-homebrew
 
