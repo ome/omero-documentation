@@ -67,7 +67,7 @@ rst_epilog += """
 .. |current_dbver|  replace:: %s
 .. |previous_dbver|  replace:: %s
 .. |iceversion| replace:: 3.6.4
-.. |postgresversion| replace:: 9.4
+.. |postgresversion| replace:: 10
 .. |javaversion| replace:: 1.8
 
 .. |Broken| image:: /images/broken.png
