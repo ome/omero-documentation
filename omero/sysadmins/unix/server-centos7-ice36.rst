@@ -34,9 +34,9 @@ Installing prerequisites
 
 **The following steps are run as root.**
 
-Install Java 1.8, Ice 3.6 and PostgreSQL 9.6:
+Install Java |javaversion|, Ice |iceversion| and PostgreSQL |postgresversion|:
 
-To install Java 1.8 and other dependencies:
+To install Java javaversion| and other dependencies:
 
 .. literalinclude:: walkthrough/walkthrough_centos7.sh
     :start-after: #start-step01
@@ -48,13 +48,13 @@ To install dependencies required by OMERO core scripts:
     :start-after: #start-web-dependencies
     :end-before: #end-web-dependencies
 
-To install Ice 3.6:
+To install Ice |iceversion|:
 
 .. literalinclude:: walkthrough/walkthrough_centos7.sh
     :start-after: #start-recommended-ice
     :end-before: #end-recommended-ice
 
-To install PostgreSQL 9.6:
+To install PostgreSQL |postgresversion|:
 
 .. literalinclude:: walkthrough/walkthrough_centos7.sh
     :start-after: # install Postgres
