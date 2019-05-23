@@ -37,6 +37,7 @@ omero_subs_github_root = github_root + 'ome/omero-{}/{}/{}/%s'
 # OME contributing-specific extlinks
 contributing_extlinks = {
     # Github links
+    'omero_subs_github_repo_root' : (github_root + 'ome/%s', ''),
     'omero_source' : (omero_github_root + 'blob/'+ branch + '/%s', ''),
     'omero_sourcedir' : (omero_github_root + 'tree/'+ branch + '/%s', ''),
     'omero_commit' : (omero_github_root + 'commit/%s', ''),

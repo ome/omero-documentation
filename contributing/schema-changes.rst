@@ -59,7 +59,7 @@ needed to populate those fields in the proxy object.
 Database patch numbers
 ----------------------
 
-:omero_source:`omero.properties <etc/omero.properties>` contains a
+:omero_model_source:`omero-model.properties <src/main/resources/omero-model.properties>` contains a
 configuration setting for :literal:`omero.db.patch`. An existing OMERO
 database records the patch number of its schema, as demonstrated from
 the :literal:`psql` shell:
@@ -73,10 +73,11 @@ the :literal:`psql` shell:
         (1 row)
 
 indicating that a database is on patch version 4. Correspondingly,
+in :omero_subs_github_repo_root:`omero-model`,
 
 ::
 
-        $ grep ^omero.db.patch= etc/omero.properties
+        $ grep ^omero.db.patch= src/main/java/resources/omero-model.properties
         omero.db.patch=4
 
 By incrementing the patch number with each schema change, OMERO.server
@@ -99,13 +100,13 @@ must be supplied as part of the code changes to upgrade the database from:
   :file:`sql/psql/OMERO5.1DEV__5/OMERO5.1DEV__4`.
 
 In your git branch with the code that requires a schema change, edit
-:omero_source:`omero.properties <etc/omero.properties>` and increment the
-value of :literal:`omero.db.patch`. For instance, in the above
+:omero_model_source:`omero-model.properties <src/main/resources/omero-model.properties>`
+and increment the value of :literal:`omero.db.patch`. For instance, in the above
 example, edit the file so that
 
 ::
 
-        $ grep ^omero.db.patch= etc/omero.properties
+        $ grep ^omero.db.patch= src/main/java/resources/omero-model.properties
         omero.db.patch=5
 
 Move the previous patch's SQL scripts into their new directory.
@@ -140,5 +141,5 @@ diff` reports should help you to create a new
 :file:`sql/psql/OMERO5.1DEV__5/OMERO5.1DEV__4.sql`.
 
 When you commit your code and issue a pull request, include the
-changes to :omero_source:`omero.properties <etc/omero.properties>` and
+changes to :omero_model_source:`omero-model.properties <src/main/resources/omero-model.properties>` and
 :omero_sourcedir:`sql/psql` among the commits in the pull request.
