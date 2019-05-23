@@ -14,10 +14,8 @@ apt-get -y install unzip wget bc
 apt-get -y install cron
 
 # install Java
-apt-get -y install software-properties-common
-add-apt-repository -y ppa:openjdk-r/ppa
-apt-get update
-apt-get -y install openjdk-8-jre
+apt-get update -q
+apt-get install -y openjdk-8-jre
 
 # install dependencies
 
