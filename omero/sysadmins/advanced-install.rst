@@ -10,4 +10,5 @@ Installing additional features
     omeromovie
     installing-scripts
     server-tables
+    client-server-ssl
     websockets
