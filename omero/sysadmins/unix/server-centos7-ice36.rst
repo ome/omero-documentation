@@ -36,7 +36,7 @@ Installing prerequisites
 
 Install Java |javaversion|, Ice |iceversion| and PostgreSQL |postgresversion|:
 
-To install Java javaversion| and other dependencies:
+To install Java |javaversion| and other dependencies:
 
 .. literalinclude:: walkthrough/walkthrough_centos7.sh
     :start-after: #start-step01
