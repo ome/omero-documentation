@@ -34,9 +34,11 @@ different profile, e.g.::
 The values set via :program:`omero config set` override those compiled into the
 server jars. The default values which are set can be seen in
 :doc:`/sysadmins/config`. To add several values to a configuration, you can
-pipe them via standard in using :program:`omero config load`::
+pipe them via standard in using :program:`omero config load`. To grep for the example
+the LDAP configuration from
+:server_source:`omero-server.properties <src/main/resources/omero-server.properties>` ::
 
-    $ grep omero.ldap etc/omero.properties | OMERO_CONFIG=ldap bin/omero config load
+    $ grep omero.ldap src/main/resources/omero-server.properties | OMERO_CONFIG=ldap bin/omero config load
 
     $ OMERO_CONFIG=ldap bin/omero config get
     omero.ldap.attributes=objectClass
