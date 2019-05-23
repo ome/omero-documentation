@@ -59,7 +59,7 @@ Developers
 ----------
 
 To use the UpgradeCheck class from your own
-code, it is necessary to have ``common.jar`` on your classpath. Then,
+code, it is necessary to have ``omero-common.jar`` on your classpath. Then,
 
 ::
 
