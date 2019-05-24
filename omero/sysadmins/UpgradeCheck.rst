@@ -59,12 +59,11 @@ Developers
 ----------
 
 To use the UpgradeCheck class from your own
-code, it is necessary to have ``omero-common.jar`` on your classpath. Then,
+code, it is necessary to have ``omero-gateway-x.y.z.jar`` on your classpath. Then,
 
 ::
 
-        ResourceBundle bundle = ResourceBundle.getBundle("omero")
-        String version = bundle.getString("omero.version");
+        String version = Yourclass.class.getPackage().getImplementationVersion();
         String url = bundle.getString("omero.upgrades.url");
         ome.system.UpgradeCheck check = new UpgradeCheck(
           url, version, "insight"); // Or "importer", etc.
