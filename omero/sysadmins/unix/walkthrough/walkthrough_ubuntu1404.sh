@@ -44,10 +44,10 @@ pip install https://github.com/ome/zeroc-ice-py-ubuntu1404/releases/download/0.1
 
 # install Postgres
 apt-get -y install apt-transport-https
-add-apt-repository -y "deb https://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main 9.6"
+add-apt-repository -y "deb https://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main 10"
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 apt-get update
-apt-get -y install postgresql-9.6
+apt-get -y install postgresql-10
 service postgresql start
 
 #end-step01
@@ -77,7 +77,7 @@ cp settings.env settings-web.env step04_all_omero.sh setup_omero_db.sh ~omero
 #start-release-ice36
 cd ~omero
 SERVER=https://downloads.openmicroscopy.org/latest/omero5/server-ice36.zip
-wget $SERVER -O OMERO.server-ice36.zip
+wget -q $SERVER -O OMERO.server-ice36.zip
 unzip -q OMERO.server*
 #end-release-ice36
 ln -s OMERO.server-*/ OMERO.server

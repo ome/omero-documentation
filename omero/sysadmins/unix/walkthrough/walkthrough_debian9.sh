@@ -40,7 +40,12 @@ pip install https://github.com/ome/zeroc-ice-py-debian9/releases/download/0.1.0/
 
 
 # install Postgres
-apt-get -y install postgresql
+apt-get install -y gnupg
+echo "deb [arch=amd64] http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" > /etc/apt/sources.list.d/pgdg.list
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
+apt-get update
+apt-get install -y postgresql-10
+service postgresql start
 
 #end-step01
 
@@ -69,7 +74,7 @@ cp settings.env settings-web.env step04_all_omero.sh setup_omero_db.sh ~omero
 #start-release-ice36
 cd ~omero
 SERVER=https://downloads.openmicroscopy.org/latest/omero5/server-ice36.zip
-wget $SERVER -O OMERO.server-ice36.zip
+wget -q $SERVER -O OMERO.server-ice36.zip
 unzip -q OMERO.server*
 #end-release-ice36
 ln -s OMERO.server-*/ OMERO.server

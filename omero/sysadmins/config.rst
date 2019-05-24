@@ -1289,7 +1289,7 @@ pixeldata processing.
   :file:`docs/api/org/quartz/CronExpression.html` within the distribution.
 
 .. _Quartz Job Scheduler:
-  http://www.quartz-scheduler.org/downloads/
+  https://www.quartz-scheduler.org/downloads/
 
 |cron|
 
@@ -1343,6 +1343,15 @@ data types where no pyramid will be generated.
 
 Default: `3192`
 
+.. property:: omero.pixeldata.memoizer.dir
+
+omero.pixeldata.memoizer.dir
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The directory in which Bio-Formats may create
+memo files for images from the managed repository.
+
+Default: `${omero.data.dir}/BioFormatsCache`
+
 .. property:: omero.pixeldata.memoizer.dir.local
 
 omero.pixeldata.memoizer.dir.local
@@ -1360,7 +1369,7 @@ omero.pixeldata.memoizer_wait
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Maximum time in milliseconds that file parsing
 can take without the parsed metadata being
-cached to BioFormatsCache.
+cached to omero.pixeldata.memoizer.dir.
 
 Default: `0`
 
@@ -1522,6 +1531,28 @@ The Glacier2 TCP port number to use (unencrypted)
 Default: `4063`
 
 
+.. _query_configuration:
+
+Query
+-----
+
+.. property:: omero.query.timeout
+
+omero.query.timeout
+^^^^^^^^^^^^^^^^^^^
+For the query service how many seconds before a query times out.
+
+Default: `1000`
+
+.. property:: omero.query.timeout.admin
+
+omero.query.timeout.admin
+^^^^^^^^^^^^^^^^^^^^^^^^^
+How many seconds before a query times out for administrative users.
+
+Default: `${omero.query.timeout}`
+
+
 .. _scripts_configuration:
 
 Scripts
@@ -1609,7 +1640,7 @@ many script JobParams will be kept in memory
 for how long.
 
 For more information, see
-http://google.github.io/guava/releases/17.0/api/docs/com/google/common/cache/CacheBuilderSpec.html
+https://google.github.io/guava/releases/27.1-jre/api/docs/com/google/common/cache/CacheBuilderSpec.html
 
 Default: `maximumSize=1000`
 
@@ -1780,14 +1811,6 @@ roughly 100 bytes of memory.
 
 Default: `1000000`
 
-.. property:: omero.search.maxclause
-
-omero.search.maxclause
-^^^^^^^^^^^^^^^^^^^^^^
-Maximum number of OR-clauses to which a single search can expand
-
-Default: `4096`
-
 .. property:: omero.search.merge_factor
 
 omero.search.merge_factor
@@ -1936,7 +1959,7 @@ omero.version
 ^^^^^^^^^^^^^
 Value dynamically set during the build
 
-Default: `5.5.0-m7`
+Default: `5.5.0`
 
 
 .. _web_configuration:
