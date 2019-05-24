@@ -31,7 +31,7 @@ OMERO version history
 =====================
 
 5.5.0-rc1 (May 2019)
--------------------
+--------------------
 
 - build: use Bio-Formats 6.1.0
 - build: use release versions of omero-* dependencies
