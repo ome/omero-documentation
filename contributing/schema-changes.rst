@@ -86,6 +86,9 @@ match its code.
 
 Updating the schema and the SQL scripts
 ---------------------------------------
+.. warning::
+  This section is **NOT** up-to-date. Steps like using :literal:`build-schema` will not work with 5.5.0
+
 
 Users may wish to upgrade their database from an older version of OMERO to one
 that has your new schema. SQL upgrade scripts are provided to allow users to
