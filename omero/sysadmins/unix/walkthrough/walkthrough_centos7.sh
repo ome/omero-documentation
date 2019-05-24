@@ -36,16 +36,15 @@ pip install "zeroc-ice>3.5,<3.7"
 
 
 # install Postgres
-# Postgres, reconfigure to allow TCP connections
-yum -y install http://yum.postgresql.org/9.6/redhat/rhel-7-x86_64/pgdg-redhat96-9.6-3.noarch.rpm
-yum -y install postgresql96-server postgresql96
+yum -y install https://yum.postgresql.org/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm
+yum -y install postgresql10-server postgresql10
 
-PGSETUP_INITDB_OPTIONS=--encoding=UTF8 /usr/pgsql-9.6/bin/postgresql96-setup initdb
+PGSETUP_INITDB_OPTIONS=--encoding=UTF8 /usr/pgsql-10/bin/postgresql10-setup initdb
 
-sed -i.bak -re 's/^(host.*)ident/\1md5/' /var/lib/pgsql/9.6/data/pg_hba.conf
-systemctl start postgresql-9.6.service
+sed -i.bak -re 's/^(host.*)ident/\1md5/' /var/lib/pgsql/10/data/pg_hba.conf
+systemctl start postgresql-10.service
 
-systemctl enable postgresql-9.6.service
+systemctl enable postgresql-10.service
 
 #end-step01
 
@@ -74,7 +73,7 @@ cp settings.env settings-web.env step04_all_omero.sh setup_omero_db.sh ~omero
 #start-release-ice36
 cd ~omero
 SERVER=https://downloads.openmicroscopy.org/latest/omero5/server-ice36.zip
-wget $SERVER -O OMERO.server-ice36.zip
+wget -q $SERVER -O OMERO.server-ice36.zip
 unzip -q OMERO.server*
 #end-release-ice36
 ln -s OMERO.server-*/ OMERO.server
