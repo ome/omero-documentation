@@ -34,9 +34,9 @@ Installing prerequisites
 
 **The following steps are run as root.**
 
-Install Java |iceversion|, Ice |iceversion| and PostgreSQL |postgresversion|:
+Install Java |javaversion|, Ice |iceversion| and PostgreSQL |postgresversion|:
 
-To install Java |iceversion| and other dependencies:
+To install Java |javaversion| and other dependencies:
 
 .. literalinclude:: walkthrough/walkthrough_ubuntu1804.sh
     :start-after: #start-step01
