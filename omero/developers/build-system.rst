@@ -7,8 +7,12 @@ Build System
 
 .. _Ant: https://ant.apache.org
 .. _Ivy: https://ant.apache.org/ivy
+.. _Gradle: https://gradle.org/
 
-OMERO mostly uses an Ant_-based build with dependency management provided by
+Since 5.5, OMERO decouples many components and uses, for some components, an Gradle_-based build. The two overarching repositories are
+:omero_subs_github_repo_root:`omero-build` and :omero_subs_github_repo_root:`omero-gradle-plugins`. 
+See the README of each repositories for more details.
+OMERO still uses an Ant_-based build, for some components, with dependency management provided by
 Ivy_. :doc:`C++ code </developers/Cpp>` is built using Cmake and Python
 uses the traditional distutils/setuptools tools.
 
@@ -49,15 +53,6 @@ OMERO::
         |    \-- target ...................... Build output (deleted on clean)
         |
         |  NOTABLE COMPONENTS
-        |
-        |-- model ............................ The model component is special in that it produces
-        |                                      a jar specific to your database choice: model-psql.jar
-        |                                      The generated `ome.model.*` files contain Hibernate
-        |                                      annotations for object-relational mapping.
-        |
-        |-- blitz ............................ The blitz component also performs code generation
-        |                                      producing artifacts for Java, Python, and C++.
-        |                                      and other build tools.
         |     
         |--tools ............................. Other server-components with special build needs.
         |    |--build.xml .................... Build scripts
@@ -101,13 +96,6 @@ The main build targets are defined in the top-level :file:`build.xml` file.
 All available targets can be listed using::
 
     ./build.py -p
-
-Each of the component contains a :file:`build.xml` and can be built directly
-using::
-
-    ./build.py -f components/server/build.xml
-
-This will call the default ``dist`` target for each component.
 
 Ivy
 ^^^
@@ -164,7 +152,6 @@ The OMERO build system defines and uses four types of Ivy
 :ivydoc:`configurations <ivyfile/configurations.html>`:
 
 #. build: defines dependencies to be used for building
-#. server: defines dependencies to be bundled under :file:`lib/server`
 #. client: defines dependencies to be bundled under :file:`lib/client`
 #. test: defines dependencies to be used for running the tests
 
@@ -221,12 +208,6 @@ it is put, and what role it plays in the distribution.
     * - OMERO_SOURCE_PREFIX
       - OMERO_SOURCE_PREFIX/dist
       - Comments
-    * - components/blitz/target/blitz.jar
-      - :file:`lib/server`
-      - Primary Ice servants
-    * - components/blitz/target/server.jar
-      - :file:`lib/server`
-      - Primary server logic
     * - components/tools/OmeroCpp/lib*
       - :file:`lib/`
       - Native shared libraries
@@ -283,10 +264,8 @@ Building OMERO
 
 From the top-level folder of the OMERO repository,
 
-#. adjust the ``versions.bioformats`` property under
-   :file:`etc/omero.properties` to the version chosen for the Bio-Formats
+#. adjust the version of ``ome:formats-gpl`` in
+   :model_source:`build.gradle` to the version chosen for the Bio-Formats
    build
 
-#. run the build system as usual::
-
-     $ ./build.py build-dev
+#. publish locally :omero_subs_github_repo_root:`omero-model`
