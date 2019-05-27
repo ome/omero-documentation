@@ -11,7 +11,7 @@ OMERO.server:
   See :model_source:`omero-model.properties <src/main/resources/omero-model.properties>`,
   :common_source:`omero-common.properties <src/main/resources/omero-common.properties>`,
   :server_source:`omero-server.properties <src/main/resources/omero-server.properties>`,
-  :blitz_source:`omero-model.properties <src/main/resources/omero-blitz.properties>`.
+  :blitz_source:`omero-blitz.properties <src/main/resources/omero-blitz.properties>`.
 
 :source:`etc/hibernate.properties`
   Required by Hibernate since some properties are only configurable via a 

@@ -206,7 +206,7 @@ indirect means of authenticating legitimately set values. Each running
 server has a secret key recorded in the `uuid` property of :ref:`Node
 <OMERO model class Node>`. This key is not available to OMERO clients,
 it is internal to the server. To set a new file's ``repo`` the
-:javadoc_server:`repository DAO
+:javadoc_blitz:`repository DAO
 <ome/services/blitz/repo/RepositoryDaoImpl.html>` prefixes the file's
 ``name`` with the server's secret key. A database trigger recognizes
 this key from the ``node`` table, removes the prefix from the ``name``,
