@@ -77,7 +77,7 @@ in :omero_subs_github_repo_root:`omero-model`,
 
 ::
 
-        $ grep ^omero.db.patch= src/main/java/resources/omero-model.properties
+        $ grep ^omero.db.patch= src/main/resources/omero-model.properties
         omero.db.patch=4
 
 By incrementing the patch number with each schema change, OMERO.server
@@ -109,7 +109,7 @@ example, edit the file so that
 
 ::
 
-        $ grep ^omero.db.patch= src/main/java/resources/omero-model.properties
+        $ grep ^omero.db.patch= src/main/resources/omero-model.properties
         omero.db.patch=5
 
 Move the previous patch's SQL scripts into their new directory.
