@@ -11,7 +11,7 @@ Build System
 
 Since 5.5, OMERO decouples many components and uses, for some components, an Gradle_-based build. The two overarching repositories are
 :omero_subs_github_repo_root:`omero-build` and :omero_subs_github_repo_root:`omero-gradle-plugins`. 
-See the README of each repositories for more details.
+See the README of each repository for more details.
 OMERO still uses an Ant_-based build, for some components, with dependency management provided by
 Ivy_. :doc:`C++ code </developers/Cpp>` is built using Cmake and Python
 uses the traditional distutils/setuptools tools.
