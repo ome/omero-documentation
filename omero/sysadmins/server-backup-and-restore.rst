@@ -110,8 +110,8 @@ command. Here is an example backup script that can be placed in
     su $DATABASE_ADMIN -c "pg_dump -Fc -f $OUTPUT_DIRECTORY/$DATABASE.$DATE.pg_dump $DATABASE"
 
 Other database backup configurations are outside the scope of this
-document but can be researched on the `PostgreSQL website <https://www.postgresql.org/docs/9.4/interactive/backup.html>`_
-*(Chapter 24. Backup and Restore)*.
+document but can be researched on the `PostgreSQL website <https://www.postgresql.org/docs/10/backup.html>`_
+*(Chapter 25. Backup and Restore)*.
 
 .. note:: Regular backups of your PostgreSQL database are crucial; you do not 
     want to be in the position of trying to restore your server without one.
@@ -215,8 +215,8 @@ store <unix/server-binary-repository>` backup.
     `List of backup software <https://en.wikipedia.org/wiki/List_of_backup_software>`_
         Wikipedia page listing the backup softwares.
     
-    `PostgreSQL 9.4 Interactive Manual <https://www.postgresql.org/docs/9.4/interactive/backup.html>`_
-        Chapter 24: Backup and Restore
+    `PostgreSQL 10 Interactive Manual <https://www.postgresql.org/docs/10/backup.html>`_
+        Chapter 25: Backup and Restore
 
     `rdiff-backup documentation <https://www.nongnu.org/rdiff-backup/docs.html>`_
         Online documentation of rdiff-backup project
