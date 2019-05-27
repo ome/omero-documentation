@@ -152,6 +152,7 @@ The OMERO build system defines and uses four types of Ivy
 :ivydoc:`configurations <ivyfile/configurations.html>`:
 
 #. build: defines dependencies to be used for building
+#. server: defines dependencies to be bundled under :file:`lib/server`
 #. client: defines dependencies to be bundled under :file:`lib/client`
 #. test: defines dependencies to be used for running the tests
 
