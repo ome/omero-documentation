@@ -45,10 +45,10 @@ are acted upon in the proper order. For example, in deleting
 ``OriginalFile`` instances, a directory's contents are deleted before
 their containing directory is deleted.
 
-In OMERO.blitz, :javadoc_server:`BaseGraphTraversalProcessor
+In OMERO.blitz, :javadoc_blitz:`BaseGraphTraversalProcessor
 <omero/cmd/graphs/BaseGraphTraversalProcessor.html>` offers a useful
 base class for implementing ``Processor`` and
-:javadoc_server:`NullGraphTraversalProcessor
+:javadoc_blitz:`NullGraphTraversalProcessor
 <omero/cmd/graphs/NullGraphTraversalProcessor.html>` has no effects at
 all. Several graph requests define their own ``InternalProcessor``
 class.
@@ -67,22 +67,22 @@ the static ``parseRules`` method of :javadoc_server:`GraphPolicyRule
 instances. Each of those rules describes in textual form how it matches
 graph fragments and what to do in the event of a match.
 
-OMERO.blitz's :javadoc_server:`BaseGraphPolicyAdjuster
+OMERO.blitz's :javadoc_blitz:`BaseGraphPolicyAdjuster
 <omero/cmd/graphs/BaseGraphPolicyAdjuster.html>` provides convenient
 hooks for adjusting how an existing ``GraphPolicy`` transitions nodes.
 Classes that do such adjustment include,
 
-:javadoc_server:`ChildOptionsPolicy <omero/cmd/graphs/ChildOptionsPolicy.html>`
+:javadoc_blitz:`ChildOptionsPolicy <omero/cmd/graphs/ChildOptionsPolicy.html>`
     marks certain nodes as ``IS_LAST`` or ``IS_NOT_LAST`` once they are
     ``RELEVANT``
 
-:javadoc_server:`SkipHeadPolicy <omero/cmd/graphs/SkipHeadPolicy.html>`
+:javadoc_blitz:`SkipHeadPolicy <omero/cmd/graphs/SkipHeadPolicy.html>`
     #. in skipping the head, prevents traversal beyond certain node
        types
     #. in processing the remaining graph, preserves permissions
        overrides established in the first phase
 
-:javadoc_server:`SkipTailPolicy <omero/cmd/graphs/SkipTailPolicy.html>`
+:javadoc_blitz:`SkipTailPolicy <omero/cmd/graphs/SkipTailPolicy.html>`
     prevents traversal beyond certain node types
 
 OMERO.server provides the :javadoc_server:`GraphPolicyRulePredicate
@@ -98,11 +98,11 @@ OMERO.blitz graph requests
 --------------------------
 
 The :doc:`GraphRequests` of OMERO.blitz benefit from helper classes.
-:javadoc_server:`GraphRequestFactory
+:javadoc_blitz:`GraphRequestFactory
 <omero/cmd/graphs/GraphRequestFactory.html>` instantiates the graph
 request implementations and provides them means to create a
-context-aware :javadoc_server:`GraphHelper
+context-aware :javadoc_blitz:`GraphHelper
 <omero/cmd/graphs/GraphHelper.html>`. This helper includes the code that
 is common to many of the graph requests. Helper methods not requiring
-any context are instead collected in the stateless :javadoc_server:`GraphUtil
+any context are instead collected in the stateless :javadoc_blitz:`GraphUtil
 <omero/cmd/graphs/GraphUtil.html>`.
