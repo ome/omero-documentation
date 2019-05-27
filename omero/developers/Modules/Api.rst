@@ -69,7 +69,7 @@ Service Level 1 (direct database and Hibernate connections)
    for performing projections of Pixels sets.
 -  QueryService:
    :common_source:`src <src/main/java/ome/api/IQuery.java>`,
-   :javadoc_blitz:`API <ome/api/IQuery.html>`
+   :slicedoc_blitz:`API <omero/api/IQuery.html>`
    for custom SQL-like queries.
 -  RenderingSettingsService
    :slicedoc_blitz:`API <omero/api/IRenderingSettings.html>`
@@ -96,7 +96,7 @@ Service Level 1 (direct database and Hibernate connections)
    for Enumerations.
 -  UpdateService:
    :common_source:`src <src/main/java/ome/api/IUpdate.java>`,
-   :javadoc_blitz:`API <ome/api/IUpdate.html>`
+   :slicedoc_blitz:`API <omero/api/IUpdate.html>`
    for saving and editing omero.model objects.
 
 Service Level 2
@@ -110,17 +110,17 @@ Stateful/Binary Services
 
 -  RawFileStore:
    :common_source:`src <src/main/java/ome/api/RawFileStore.java>`,
-   :javadoc:`API <ome/api/RawFileStore.html>` for reading and writing files
+   :slicedoc_blitz:`API <omero/api/RawFileStore.html>` for reading and writing files
 -  RawPixelsStore:
    :common_source:`src <src/main/java/ome/api/RawPixelsStore.java>`,
-   :javadoc_blitz:`API <ome/api/RawPixelsStore.html>` for reading and writing pixels data
+   :slicedoc_blitz:`API <omero/api/RawPixelsStore.html>` for reading and writing pixels data
 -  RenderingEngine:
    :common_source:`src <src/main/java/omeis/providers/re/RenderingEngine.java>`,
    :slicedoc_blitz:`API <omero/api/RenderingEngine.html>` for viewing images,
    see :doc:`/developers/Server/RenderingEngine` for more details
 -  ThumbnailStore:
    :common_source:`src <src/main/java/ome/api/ThumbnailStore.java>`,
-   :javadoc_blitz:`API <ome/api/ThumbnailStore.html>` for retrieving thumbnails
+   :slicedoc_blitz:`API <omero/api/ThumbnailStore.html>` for retrieving thumbnails
 -  :common_source:`IScale <src/main/java/ome/api/IScale.java>` for scaling rendered images
 
 A complete list of service APIs can be found
