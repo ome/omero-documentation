@@ -230,7 +230,7 @@ Components
          - |Supported|
        * - 11
          - |Unsupported|
-         - |Supported|
+         - |Upcoming|
          - |Recommended|
 
   * Rationale: For OMERO 5.4 deprecate Java 7 because security support ended
@@ -807,7 +807,7 @@ OMERO support policies
       - from Sep 2018
       - to Oct 2024
       - |Unsupported|
-      - |Supported|
+      - |Upcoming|
       - |Recommended|
       - `Reference <https://access.redhat.com/articles/1299013>`__
 
