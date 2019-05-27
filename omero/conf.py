@@ -123,7 +123,7 @@ omero_extlinks = {
     'insight_source' : (omero_subs_github_root.format('omero-insight', 'blob', 'v'+conf_autogen.version_insight), ''),
     'insight_sourcedir' : (omero_subs_github_root.format('omero-insight', 'tree', 'v'+conf_autogen.version_insight), ''),
     # API links
-    'javadoc' : (downloads_root + '/latest/omero5.4/api/%s', ''),
+    'javadoc' : (downloads_root + '/latest/omero5.5/api/%s', ''),
     'javadoc_gateway_java' : (docs_root + '/omero-gateway/' + conf_autogen.version_gateway + '/javadoc/%s', ''),
     'javadoc_blitz' : (docs_root + '/omero-blitz/' + conf_autogen.version_blitz + '/javadoc/%s', ''),
     'javadoc_server' : (docs_root + '/omero-server/' + conf_autogen.version_server + '/javadoc/%s', ''),
@@ -134,9 +134,9 @@ omero_extlinks = {
     'slicedoc_blitz' : (docs_root + '/omero-blitz/' + conf_autogen.version_blitz + '/slice2html/%s', ''),
     'slicedoc_server' : (docs_root + '/omero-server/' + conf_autogen.version_server + '/slice2html/%s', ''),
 
-    'pythondoc' : (downloads_root + '/latest/omero5.4/api/python/%s', ''),
+    'pythondoc' : (downloads_root + '/latest/omero5.5/api/python/%s', ''),
     # Downloads
-    'downloads' : (downloads_root + '/latest/omero5.4/%s', ''),
+    'downloads' : (downloads_root + '/latest/omero5.5/%s', ''),
     # Versioned Bio-Formats doc link
     'bf_v_doc' : (docs_root + '/bio-formats/' + conf_autogen.version_bioformats + '/' + '%s', ''),
     # Miscellaneous links
