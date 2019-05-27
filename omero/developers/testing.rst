@@ -56,7 +56,7 @@ by default, see :ref:`using-markers-in-python-tests` for more details.
       :omero_subs_github_repo_root:`omero-model`, :omero_subs_github_repo_root:`omero-common`,
       :omero_subs_github_repo_root:`omero-romio`, :omero_subs_github_repo_root:`omero-renderer`,
       :omero_subs_github_repo_root:`omero-server`, :omero_subs_github_repo_root:`omero-blitz`,
-      :omero_subs_github_repo_root:`omero-gateway`. 
+      :omero_subs_github_repo_root:`omero-gateway-java`. 
 
 Running integration tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^
