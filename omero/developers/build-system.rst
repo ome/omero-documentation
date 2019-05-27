@@ -265,8 +265,8 @@ Building OMERO
 
 From the top-level folder of the OMERO repository,
 
-#. adjust the version of ``ome:formats-gpl`` in
+#. in :omero_subs_github_repo_root:`omero-model`, adjust the version of ``ome:formats-gpl`` in 
    :model_source:`build.gradle` to the version chosen for the Bio-Formats
    build
 
-#. publish locally :omero_subs_github_repo_root:`omero-model`
+#. publish locally the change using ``gradle publishToMavenLocal``
