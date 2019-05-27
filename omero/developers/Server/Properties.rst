@@ -6,7 +6,7 @@ distributions, several files are provided which help to configure
 OMERO.server:
 
 :source:`etc/omero.properties`
-  Since 5.5, the following repositories have now 
+  Since 5.5, the following repositories now have 
   a ``properties`` file with the properties used in the repository itself.
   See :model_source:`omero-model.properties <src/main/resources/omero-model.properties>`,
   :common_source:`omero-common.properties <src/main/resources/omero-common.properties>`,
