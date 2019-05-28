@@ -164,8 +164,7 @@ The branch for the 5.x series of the OMERO documentation is develop.
 		develop branch of the OMERO documentation
 
 		#. Checks out the develop branch of ome-documentation.git_
-		#. Downloads the OMERO.server and OMERO.clients from
-		   :term:`OMERO-DEV-latest`
+		#. Downloads the latest OMERO.server and OMERO.clients
 		#. Runs the :file:`omero/autogen_docs` autogeneration script
 		#. Pushes the auto-generated changes to
 		   :omedoc_scc_branch:`develop/latest/autogen`
@@ -176,8 +175,7 @@ The branch for the 5.x series of the OMERO documentation is develop.
 		develop branch of the OMERO documentation
 
 		#. Checks out :omedoc_scc_branch:`develop/merge/daily`
-		#. Downloads the OMERO.server and OMERO.clients from
-		   :term:`OMERO-DEV-merge-build`
+		#. Downloads the merge OMERO.server and OMERO.clients
 		#. Runs the :file:`omero/autogen_docs` autogeneration script
 		#. Pushes the auto-generated changes to
 		   :omedoc_scc_branch:`develop/merge/autogen`
