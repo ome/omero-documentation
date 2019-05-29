@@ -85,17 +85,17 @@ Jobs
         These jobs build the OMERO server components, the OMERO bundles and the
         OMERO clients from the integration branches created by the push jobs.
 
-    :jenkinsjob:`OMERO-server`
+    :mergecijob:`OMERO-server`
 
         This job deploys the server (see :ref:`deployment_servers`) created by
         :term:`OMERO-build`.
 
-    :jenkinsjob:`OMERO-web`
+    :mergecijob:`OMERO-web`
 
         This job deploys the Web application (see :ref:`deployment_servers`)
         created by :term:`OMERO-build`.
 
-    :jenkinsjob:`OMERO-test-integration`
+    :mergecijob:`OMERO-test-integration`
 
         This job deploys an OMERO.server and runs the OMERO.java, OMERO.py
         and OMERO.web integration tests.
