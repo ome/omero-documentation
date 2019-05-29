@@ -5,8 +5,8 @@ On each startup the OMERO server checks for available upgrades via the
 :common_source:`UpgradeCheck class
 <src/main/java/ome/system/UpgradeCheck.java>`.
 An HTTP GET call is made to the URL configured in
-:source:`etc/omero.properties` as ``omero.upgrades.url``, currently
-\http://upgrade.openmicroscopy.org.uk by default (note that viewing that link
+:common_source:`omero-common.properties <src/main/resources/omero-common.properties>` as ``omero.upgrades.url``, currently
+``http://upgrade.openmicroscopy.org.uk`` by default (note that viewing that link
 in your browser will redirect you to this page).
 
 .. note:: If you have been redirected here by clicking on a link to 
@@ -59,12 +59,11 @@ Developers
 ----------
 
 To use the UpgradeCheck class from your own
-code, it is necessary to have ``common.jar`` on your classpath. Then,
+code, it is necessary to have ``omero-gateway-x.y.z.jar`` on your classpath. Then,
 
 ::
 
-        ResourceBundle bundle = ResourceBundle.getBundle("omero")
-        String version = bundle.getString("omero.version");
+        String version = Yourclass.class.getPackage().getImplementationVersion();
         String url = bundle.getString("omero.upgrades.url");
         ome.system.UpgradeCheck check = new UpgradeCheck(
           url, version, "insight"); // Or "importer", etc.

@@ -51,6 +51,13 @@ Note that for tests written in Python the package `pytest` must be installed,
 see :ref:`writing-python-tests`. Also note that some Python tests are excluded
 by default, see :ref:`using-markers-in-python-tests` for more details.
 
+.. note::
+      Since 5.5, several components have been migrated to their own repository. The unit tests are now run using `Gradle <https://gradle.org/>`_. See the README.md file in the following repositories:
+      :omero_subs_github_repo_root:`omero-model`, :omero_subs_github_repo_root:`omero-common`,
+      :omero_subs_github_repo_root:`omero-romio`, :omero_subs_github_repo_root:`omero-renderer`,
+      :omero_subs_github_repo_root:`omero-server`, :omero_subs_github_repo_root:`omero-blitz`,
+      :omero_subs_github_repo_root:`omero-gateway-java`. 
+
 Running integration tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -157,7 +164,7 @@ Using Eclipse to run tests
 
 To facilitate importing OMERO components into Eclipse, there are
 :file:`.project` and :file:`.classpath-template` files stored in each
-component directory (e.g. :common_sourcedir:`common <>`'s
+component directory (e.g. :file:`tools/OmeroJava`'s
 :file:`.project` and :file:`.classpath-template`).
 
 There are also top-level :file:`.classpath` and :file:`.project` files which

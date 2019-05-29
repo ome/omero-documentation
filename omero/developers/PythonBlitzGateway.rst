@@ -30,7 +30,7 @@ Model object wrappers
 """""""""""""""""""""
 
 OMERO model objects, e.g. omero.model.Project, omero.model.Pixels etc.
-(see :javadoc:`full list <slice2html/omero/model.html>`)
+(see :slicedoc_blitz:`full list <omero/model.html>`)
 are code-generated and mapped to the OMERO database schema. They are
 language agnostic and their data is in the form of omero.rtypes as
 described in :ref:`about model objects <AdvancedClientDevelopment#Objects>`.
@@ -144,14 +144,14 @@ library, you can get hold of the |OmeroApi|.
 
 The gateway handles creation and reuse of the API services, so that new
 ones are not created unnecessarily. Services can be accessed using the
-methods of the underlying :javadoc:`Service
-Factory <slice2html/omero/api/ServiceFactory.html>`
+methods of the underlying :slicedoc_blitz:`Service
+Factory <omero/api/ServiceFactory.html>`
 with the Gateway handling reuse as needed. **Stateless** services (those
 retrieved with getXXX methods e.g.
-:javadoc:`getQueryService <slice2html/omero/api/ServiceFactory.html#getQueryService>`)
+:slicedoc_blitz:`getQueryService <omero/api/ServiceFactory.html#getQueryService>`)
 are always reused for each call, e.g. conn.getQueryService() whereas
 **stateful** services e.g.
-:javadoc:`createRenderingEngine <slice2html/omero/api/ServiceFactory.html#createRenderingEngine>`
+:slicedoc_blitz:`createRenderingEngine <omero/api/ServiceFactory.html#createRenderingEngine>`
 may be created each time.
 
 Not all methods of the service factory are currently supported in the

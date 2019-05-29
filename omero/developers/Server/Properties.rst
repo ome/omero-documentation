@@ -6,7 +6,12 @@ distributions, several files are provided which help to configure
 OMERO.server:
 
 :source:`etc/omero.properties`
-  Our central configuration file with all defaults
+  Since 5.5, the following repositories now have 
+  a ``properties`` file with the properties used in the repository itself.
+  See :model_source:`omero-model.properties <src/main/resources/omero-model.properties>`,
+  :common_source:`omero-common.properties <src/main/resources/omero-common.properties>`,
+  :server_source:`omero-server.properties <src/main/resources/omero-server.properties>`,
+  :blitz_source:`omero-blitz.properties <src/main/resources/omero-blitz.properties>`.
 
 :source:`etc/hibernate.properties`
   Required by Hibernate since some properties are only configurable via a 
@@ -24,8 +29,7 @@ OMERO.server:
 The most useful of the properties are listed in a :doc:`glossary
 </sysadmins/config>`.
 
-During the build, these files get stored in the ``blitz.jar`` and are
-read-only. On creation of an :doc:`/developers/Server/Context`,
+On creation of an :doc:`/developers/Server/Context`,
 the lookup for properties is (first wins):
 
 -  Properties passed into the constructor (if none, then the default
@@ -34,7 +38,7 @@ the lookup for properties is (first wins):
 -  Configuration files in order listed.
 
 This ordering is defined for the various components via "placeholder
-configurers" in:
+configurers" in the following file in :omero_subs_github_repo_root:`omero-server`:
 
 -  :server_source:`src/main/resources/ome/services/services.xml`
 

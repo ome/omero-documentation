@@ -623,7 +623,7 @@ OMERO tables
 -  **Table API**
 
 
-.. seealso:: :javadoc:` OMERO Tables <slice2html/omero/grid/Table.html>`
+.. seealso:: :slicedoc_blitz:` OMERO Tables <omero/grid/Table.html>`
 
 
 ::

@@ -377,12 +377,12 @@ regardless of the context used, has a fully functional
 allow the caller to interrogate the operations that are possible by the 
 current user on the object:
 
-- :javadoc:`canAnnotate() <slice2html/omero/model/Permissions.html#canAnnotate>`
-- :javadoc:`canChgrp() <slice2html/omero/model/Permissions.html#canChgrp>`
-- :javadoc:`canChown() <slice2html/omero/model/Permissions.html#canChown>`
-- :javadoc:`canDelete() <slice2html/omero/model/Permissions.html#canDelete>`
-- :javadoc:`canEdit() <slice2html/omero/model/Permissions.html#canEdit>`
-- :javadoc:`canLink() <slice2html/omero/model/Permissions.html#canLink>`
+- :slicedoc_blitz:`canAnnotate() <omero/model/Permissions.html#canAnnotate>`
+- :slicedoc_blitz:`canChgrp() <omero/model/Permissions.html#canChgrp>`
+- :slicedoc_blitz:`canChown() <omero/model/Permissions.html#canChown>`
+- :slicedoc_blitz:`canDelete() <omero/model/Permissions.html#canDelete>`
+- :slicedoc_blitz:`canEdit() <omero/model/Permissions.html#canEdit>`
+- :slicedoc_blitz:`canLink() <omero/model/Permissions.html#canLink>`
 
 Troubleshooting permissions issues
 ----------------------------------

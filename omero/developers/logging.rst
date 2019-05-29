@@ -19,7 +19,7 @@ size are limited.
 :source:`logback-cli.xml<etc/logback-cli.xml>`
 controls the output for the command line importer: all logging goes
 to standard err, while useful output (pixel ids, or used files) goes to
-standard out. It is contained within the blitz.jar itself. Therefore, to
+standard out. It is contained within the ``omero-blitz.jar`` itself. Therefore, to
 modify the settings use `-Dlogback.configurationFile=/path/to/logback.xml` or
 similar.
 
