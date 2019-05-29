@@ -32,7 +32,7 @@ Install dependencies. The number of dependencies to install depends on the way y
     
     yum -y install unzip
     
-    yum -y install python-pip
+    yum -y install python-{pip,jinja2}
     
     yum -y install nginx
     

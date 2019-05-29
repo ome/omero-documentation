@@ -10,7 +10,7 @@ Since OMERO 5.5, the following repositories have been decoupled.
 omero-build:
 ------------
 
-- omero-java-gateway :java_gateway_source:`CHANGELOG.md<CHANGELOG.md>`
+- omero-gateway-java :java_gateway_source:`CHANGELOG.md<CHANGELOG.md>`
 - omero-blitz :blitz_source:`CHANGELOG.md<CHANGELOG.md>`
 - omero-server :server_source:`CHANGELOG.md<CHANGELOG.md>`
 - omero-renderer :renderer_source:`CHANGELOG.md<CHANGELOG.md>`
@@ -78,7 +78,7 @@ separate repositories:
 - https://github.com/ome/omero-model
 - https://github.com/ome/omero-common
 - https://github.com/ome/omero-romio
-- https://github.com/ome/omero-renderer
+- https://github.com/ome/omero-rendering
 - https://github.com/ome/omero-server
 - https://github.com/ome/omero-blitz
 - https://github.com/ome/omero-insight

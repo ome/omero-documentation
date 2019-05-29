@@ -88,7 +88,7 @@ cp settings.env settings-web.env step04_all_omero.sh setup_omero_db.sh ~omero
 #end-copy-omeroscript
 #start-release-ice36
 cd ~omero
-SERVER=https://downloads.openmicroscopy.org/latest/omero5/server-ice36.zip
+SERVER=https://downloads.openmicroscopy.org/latest/omero5.5/server-ice36.zip
 wget -q $SERVER -O OMERO.server-ice36.zip
 unzip -q OMERO.server*
 #end-release-ice36
@@ -102,7 +102,7 @@ psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < OMERO.server/db.sql
 #end-step04
 #start-patch-openssl
 #start-seclevel
-sed -i 's/\("IceSSL.Ciphers".*ADH\)/\1:@SECLEVEL=0/' OMERO.server/lib/python/omero/clients.py OMERO.server/etc/templates/grid/templates.xml
+OMERO.server/bin/omero config set omero.glacier2.IceSSL.Ciphers HIGH:ADH:@SECLEVEL=0
 #end-seclevel
 #end-patch-openssl
 
