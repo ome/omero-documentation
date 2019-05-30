@@ -15,6 +15,15 @@ The Open Microscopy Environment website is at
 `<https://www.openmicroscopy.org>`_. Bio-Formats can be found at 
 `<https://www.openmicroscopy.org/bio-formats>`_.
 
+.. _community/resources/forums:
+
+Forums
+------
+
+The primary support channel is the :imagesc:`image.sc forum <>`. The
+legacy :forum:`OME forum <>` contains historical support topics and remains
+available as read-only.
+
 .. _community/resources/mailinglists:
 
 Mailing lists
@@ -34,25 +43,3 @@ The following lists are provided:
     approve all genuine posts within 24 hours on working days, but we
     encourage you to subscribe to take advantage of our active and supportive
     community.
-
-.. _community/resources/forums:
-
-Forums
-------
-
-Discussion on a number of topics is also available through our
-:forum:`forums <>`.  Forums include:
-
-- :forum:`OMERO <viewforum.php?f=3>`
-
-  + :forum:`User Discussion  <viewforum.php?f=4>`
-  + :forum:`Installation and Deployment  <viewforum.php?f=5>`
-  + :forum:`Developer Discussion  <viewforum.php?f=6>`
-
-- :forum:`Bio-Formats <viewforum.php?f=12>`
-
-  + :forum:`User Discussion <viewforum.php?f=13>`
-
-- :forum:`OME Data Model <viewforum.php?f=14>`
-
-  + :forum:`User Discussion and Suggestions <viewforum.php?f=15>`
