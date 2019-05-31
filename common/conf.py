@@ -141,8 +141,11 @@ lists_root = 'http://lists.openmicroscopy.org.uk'
 downloads_root = 'https://downloads.openmicroscopy.org'
 help_root = 'https://help.openmicroscopy.org'
 docs_root = 'https://docs.openmicroscopy.org'
+imagesc_root = 'https://forum.image.sc'
 
 extlinks = {
+    # image.sc
+    'imagesc' : (imagesc_root + '/%s', '#'),
     # Trac links
     'ticket' : (trac_root + '/ticket/%s', '#'),
     'milestone' : (trac_root + '/milestone/%s', ''),

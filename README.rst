@@ -474,10 +474,10 @@ Some URLs are widely used across the OME documentation. Using the Sphinx
 ``extlinks`` extension, a dictionary of aliases to base URLs has been defined
 for the following:
  
+* image.sc forum: ``:imagesc: `tag <tag>```
 * Trac tickets: ``:ticket: `3442```, displayed as ``<a>#3442</a>``
 * Snapshots: ``:snapshot: `omero/myzip.zip```
 * Website pages: ``:omero: `OMERO <>```
-* OME Forums: ``:forum: `viewforum.php?f=3```
 * Downloads: ``:downloads: `OMERO downloads <>```
 
 For the most up-to-date list, please consult ``conf.py`` (section
