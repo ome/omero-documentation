@@ -28,18 +28,6 @@ More detail on how and where to edit OME documentation is available on the
 	-	* Builds the auto-generated OMERO documentation for review
 		* :term:`OMERO-DEV-merge-docs-autogen`
 
-.. list-table::
-	:header-rows: 1
-
-	-	* Job task
-		* Bio-Formats 5.x series
-
-	-	* Builds the latest Bio-Formats documentation for publishing
-		* :term:`BIOFORMATS-DEV-latest-docs`
-
-	-	* Builds the Bio-Formats documentation for review
-		* :term:`BIOFORMATS-DEV-merge-docs`
-
 The OME Model, OME help and OME Contributing documentation sets are
 independent of the current OMERO/Bio-Formats version.
 
@@ -179,30 +167,6 @@ The branch for the 5.x series of the OMERO documentation is develop.
 		#. Runs the :file:`omero/autogen_docs` autogeneration script
 		#. Pushes the auto-generated changes to
 		   :omedoc_scc_branch:`develop/merge/autogen`
-
-Bio-Formats 5.x series
-^^^^^^^^^^^^^^^^^^^^^^
-
-The branch for the 5.x series of the Bio-Formats documentation is master.
-
-.. glossary::
-
-	:jenkinsjob:`BIOFORMATS-DEV-latest-docs`
-
-		This job is used to build the master branch of the Bio-Formats
-		documentation.
-
-		#. |sphinxbuild|
-		#. |linkcheck|
-
-	:jenkinsjob:`BIOFORMATS-DEV-merge-docs`
-
-		This job is used to review the PRs opened against the master branch
-		of the Bio-Formats documentation
-
-		#. |merge|
-		#. |sphinxbuild|
-		#. |linkcheck|
 
 OME Model and OME Contributing
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

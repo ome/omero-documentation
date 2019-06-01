@@ -1,109 +1,45 @@
 Bio-Formats jobs
 ----------------
 
-All jobs are listed under the :jenkinsview:`Bio-Formats` view tab of Jenkins.
-
 .. list-table::
-        :header-rows: 1
+    :header-rows: 1
 
-        -       * Job task
-                * 5.x series
+    -   * Job task
+        * Merge jobs
 
-        -       * Builds the latest Bio-Formats artifacts using Ant
-                * | :term:`BIOFORMATS-DEV-latest`
-                    :term:`BIOFORMATS-DEV-latest-win`
+    -   * Merges the PRs and couple versions
+        * :term:`BIOFORMATS-push`
 
-        -       * Builds the latest Bio-Formats artifacts using Maven
-                * :term:`BIOFORMATS-DEV-latest-maven`
+    -   * Builds the Bio-Formats artifacts
+        * | :term:`BIOFORMATS-merge`
+          | :term:`BIOFORMATS-image`
 
-        -       * Runs the daily Bio-Formats merge jobs
-                * :term:`BIOFORMATS-DEV-merge-daily`
+    -   * Builds the Bio-Formats documentation
+        * :term:`BIOFORMATS-merge-docs`
 
-        -       * Merges the PRs
-                * :term:`BIOFORMATS-DEV-merge-push`
+    -   * Runs the Bio-Formats non-regression tests
+        * :term:`BIOFORMATS-test-repo`
 
-        -       * Builds the merge Bio-Formats artifacts using Ant
-                * | :term:`BIOFORMATS-DEV-merge-build`
-                    :term:`BIOFORMATS-DEV-merge-build-win`
-
-        -       * Runs the MATLAB tests
-                * :term:`BIOFORMATS-DEV-merge-matlab`
-
-5.x.x series
-^^^^^^^^^^^^
-
-The branch for the 5.x series of Bio-Formats is develop.
 
 .. glossary::
 
-        :jenkinsjob:`BIOFORMATS-DEV-latest`
+    :mergecijob:`BIOFORMATS-push`
 
-                This job builds the latest Bio-Formats artifacts using Ant
+        This jobs merge all the PRs opened against the development branch of
+        https://github.com/ome/bio-formats-build and couple the component
+        versions
 
-                #. |buildBF|
-                #. Triggers downstream latest jobs
+    :mergecijob:`BIOFORMATS-merge`
+    :mergecijob:`BIOFORMATS-image`
 
-            See :jenkinsjob:`the build graph <BIOFORMATS-DEV-latest/lastSuccessfulBuild/BuildGraph>`
+        This job builds all the Bio-Formats artifacts using Ant
 
-        :jenkinsjob:`BIOFORMATS-DEV-latest-win`
+    :mergecijob:`BIOFORMATS-merge-docs`
 
-                This job builds the latest Bio-Formats artifacts using Ant
-                on Windows
+        This job builds the Bio-Formats documentation and runs the linkchecker
 
-        :jenkinsjob:`BIOFORMATS-DEV-latest-maven`
+    :mergecijob:`BIOFORMATS-test-repo`
 
-            This job builds the latest Bio-Formats artifacts using Maven and
-            uploads them to the `OME artifactory`_
-
-        :jenkinsjob:`BIOFORMATS-DEV-merge-daily`
-
-                This job runs the daily Bio-Formats jobs used for reviewing
-                the PRs opened against the develop branch of Bio-Formats by
-                running basic unit tests and checking for regressions across a
-                representative subset of the data repository
-
-                #. Triggers :term:`BIOFORMATS-DEV-merge-push`
-                #. Triggers :term:`BIOFORMATS-DEV-merge-build`
-                #. Triggers downstream merge projects
-
-                See :jenkinsjob:`the build graph <BIOFORMATS-DEV-merge-daily/lastSuccessfulBuild/BuildGraph>`
-
-        :jenkinsjob:`BIOFORMATS-DEV-merge-push`
-
-                This job merges all the PRs opened against develop
-
-                #. |merge|
-                #. Pushes the branch to :bf_scc_branch:`develop/merge/daily`
-
-        :jenkinsjob:`BIOFORMATS-DEV-merge-build`
-
-                This job builds the merge Bio-Formats artifacts using Ant
-
-                #. Checks out :bf_scc_branch:`develop/merge/daily`
-                #. |buildBF|
-                #. Triggers :term:`BIOFORMATS-DEV-merge-matlab`
-
-        :jenkinsjob:`BIOFORMATS-DEV-merge-build-win`
-
-                This job builds the merge Bio-Formats artifacts using Ant
-                on Windows
-
-        :jenkinsjob:`BIOFORMATS-DEV-merge-matlab`
-
-                This job runs the MATLAB tests of Bio-Formats
-
-                #. Collects the MATLAB artifacts and unit tests from
-                   :term:`BIOFORMATS-DEV-merge-build`
-                #. Runs the MATLAB unit tests under
-                   :file:`components/bio-formats/test/matlab` and collect the results
-
-        :jenkinsjob:`BIOFORMATS-DEV-merge-repository-subset`
-
-                This job runs the automated tests against a subset of the data
-                repository
-
-                #. |merge|
-                #. Runs automated tests against a subset of format directories
-                   under :file:`/ome/data_repo/curated/`. The list of
-                   directories to test by setting a space-separated list of
-                   formats for the ``DEFAULT_FORMAT_LIST`` variable.
+        This job consumes the Docker image built by :term:`BIOFORMATS-image`
+        and runs the non-regression automated tests against the curated QA
+        repository
