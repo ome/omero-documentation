@@ -87,7 +87,7 @@ Building/reviewing PRs via the CI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Once a PR is open, you can build it for review using the
-:jenkinsjob:`BIOFORMATS-DEV-merge-docs` job on
+:mergecijob:`BIOFORMATS-merge-docs` job on
 the Jenkins CI. Staging documentation is no longer deployed at a URL but you
 can download them as a zip for review with the correct styling by going to the
 workspace folder in the job.
@@ -195,81 +195,6 @@ Publishing
 
 The live webpages are updated as part of the release process.
 
-OME Files C++ documentation
----------------------------
-
-Hosted at `<https://docs.openmicroscopy.org/ome-files-cpp/>`_\{{version}}/ (no
-latest redirect currently).
-
-Builds
-^^^^^^
-
-The OME Files C++ docs are built as part of the OME Files docs bundle - see
-:doc:`ci-docs` and :doc:`ci-ome-files`.
-
-Source
-^^^^^^
-
-The Sphinx documentation is in the ``/docs/sphinx/`` folder in the code
-repository at `<https://github.com/ome/ome-files-cpp>`_.
-
-Building locally
-^^^^^^^^^^^^^^^^
-
-The build uses Sphinx via ``cmake``. You can build locally using ``make clean
-html`` provided you have both installed.
-
-Building/reviewing PRs via the CI
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Once a PR is open, you can build it for review using the
-:jenkinsjob:`OME-FILES-CPP-DEV-merge-docs` job on the Jenkins CI. Staging
-documentation is no longer deployed at a URL but you can download it as a
-zip for review with the correct styling from the job Workspace.
-
-Publishing
-^^^^^^^^^^
-
-The live webpages are updated as part of the release process.
-
-OME CMAKE Super-Build documentation
------------------------------------
-
-Hosted at
-`<https://docs.openmicroscopy.org/ome-cmake-superbuild/>`_\{{version}}/ (no
-latest redirect currently).
-
-Builds
-^^^^^^
-
-The OME Cmake super-build docs are built as part of the OME Files docs bundle
-- see :doc:`ci-docs` and :doc:`ci-ome-files`.
-
-Source
-^^^^^^
-
-The Sphinx documentation is in the ``/docs/sphinx/``
-folder in the code repository at
-`<https://github.com/ome/ome-cmake-superbuild>`_.
-
-Building locally
-^^^^^^^^^^^^^^^^
-
-The build uses Sphinx via ``cmake``. You can build locally using ``make clean
-html`` provided you have both installed.
-
-Building/reviewing PRs via the CI
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Once a PR is open, you can build it for review using the
-:jenkinsjob:`OME-FILES-CPP-DEV-merge-docs` job on the Jenkins CI. Staging
-documentation is no longer deployed at a URL but you can download them as a
-zip for review with the correct styling from the job Workspace.
-
-Publishing
-^^^^^^^^^^
-
-The live webpages are updated as part of the release process.
 
 OME Internal documentation (private)
 ------------------------------------
