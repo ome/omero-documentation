@@ -280,25 +280,3 @@ The following set of jobs is used to review or publish the content of the
 		#. |merge| and pushes the branch to https://github.com/snoopycrimecop/presentations
 		#. The GitHub Pages service deploys the staging website content under https://snoopycrimecop.github.io/presentations/
 
-OME Files
-^^^^^^^^^
-
-This bundle of Sphinx documentation has three components: OME Model
-documentation is located in the ome-model repository; OME Files C++
-documentation is located in the ome-files-cpp repository; OME CMake
-Super-Build documentation is located in the ome-cmake-superbuild repository.
-All are currently built from the master branches despite the build names.
-
-.. glossary::
-
-     :jenkinsjob:`OME-FILES-CPP-DEV-release-bundle-docs`
-
-	    This job is used to publish the master branches of the OME Model, OME
-	    Files C++ and OME CMake Super-Build Sphinx documentation as a single
-	    bundle
-
-	    #. |buildFilesSB|
-	    #. |deploy-doc| https://docs.openmicroscopy.org/ome-files-cpp/
-
-The merge and latest builds for this documentation set are detailed on the
-:doc:`ci-ome-files` page.
