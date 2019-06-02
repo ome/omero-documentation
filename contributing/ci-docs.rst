@@ -83,22 +83,6 @@ the help builds.
 	-	* Review PRs opened against the Presentations website
 		* :term:`PRESENTATIONS-merge`
 
-OME Files comprises OME Model, OME Files C++ and OME CMake Super-Build Sphinx
-manuals, which are taken from separate repositories but built and hosted as a
-bundle.
-
-.. list-table::
-	:header-rows: 1
-
-	-	* Job task
-		*
-
-	-	* Publish OME Files documentation
-		* :term:`OME-FILES-CPP-DEV-release-bundle-docs`
-
-	-	* Review OME Files documentation PRs
-		* :term:`OME-FILES-CPP-DEV-merge-docs`
-
 
 Configuration
 ^^^^^^^^^^^^^
