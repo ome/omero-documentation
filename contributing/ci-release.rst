@@ -18,6 +18,8 @@ view.
         * :jenkinsjob:`OMERO-DEV-release`
     -   * Generate the OMERO downloads page
         * :jenkinsjob:`OMERO-DEV-release-downloads`
+    -   * Deploy the documentation for the decoupled repositories
+        * :jenkinsjob:`OMERO-DEV-release-artifacts`
 
 .. list-table::
     :header-rows: 1
@@ -91,6 +93,13 @@ OMERO
         #. Checks out the `develop` branch of
            https://github.com/openmicroscopy/ome-release.git
         #. Runs `make clean omero`
+
+    :jenkinsjob:`OMERO-DEV-release-artifacts`
+        This job deploys the javadoc and the slice2html documentation
+
+        #. Loops through omero-{model,common,romio,renderer,blitz,gateway-java}
+        #. Checks the latest version available on artifacts.openmicroscopy.org
+        #. Deploys the documentation in the respective directory
 
 
 Documentation release jobs are documented on :doc:`ci-docs`.
