@@ -76,7 +76,7 @@ OMERO
 
     :jenkinsjob:`OMERO-DEV-release`
 
-        This matrix job builds the OMERO components with Ice 3.5
+        This matrix job builds the OMERO components with Ice 3.6
 
         #. Checks out the :envvar:`RELEASE` tag of the
            snoopycrimecop fork of openmicroscopy.git_
