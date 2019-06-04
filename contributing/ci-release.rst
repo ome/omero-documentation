@@ -98,7 +98,7 @@ OMERO
         This job deploys the Javadoc and the slice2html documentation
 
         #. Loops through omero-{model,common,romio,renderer,server,blitz,gateway-java}
-        #. Checks the latest version available on artifacts.openmicroscopy.org
+        #. Checks the latest version available on https://artifacts.openmicroscopy.org
         #. Deploys the documentation in the respective directory
 
 
