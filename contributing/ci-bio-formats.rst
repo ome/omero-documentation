@@ -11,7 +11,7 @@ Bio-Formats jobs
         * :term:`BIOFORMATS-push`
 
     -   * Builds the Bio-Formats artifacts
-        * | :term:`BIOFORMATS-merge`
+        * | :term:`BIOFORMATS-build`
           | :term:`BIOFORMATS-image`
 
     -   * Builds the Bio-Formats documentation
@@ -29,7 +29,7 @@ Bio-Formats jobs
         https://github.com/ome/bio-formats-build and couple the component
         versions
 
-    :mergecijob:`BIOFORMATS-merge`
+    :mergecijob:`BIOFORMATS-build`
     :mergecijob:`BIOFORMATS-image`
 
         This job builds all the Bio-Formats artifacts using Ant
