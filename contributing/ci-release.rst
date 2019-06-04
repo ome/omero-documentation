@@ -95,9 +95,9 @@ OMERO
         #. Runs `make clean omero`
 
     :jenkinsjob:`OMERO-DEV-release-artifacts`
-        This job deploys the javadoc and the slice2html documentation
+        This job deploys the Javadoc and the slice2html documentation
 
-        #. Loops through omero-{model,common,romio,renderer,blitz,gateway-java}
+        #. Loops through omero-{model,common,romio,renderer,server,blitz,gateway-java}
         #. Checks the latest version available on artifacts.openmicroscopy.org
         #. Deploys the documentation in the respective directory
 
