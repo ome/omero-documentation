@@ -15,7 +15,7 @@ Bio-Formats jobs
           | :term:`BIOFORMATS-image`
 
     -   * Builds the Bio-Formats documentation
-        * :term:`BIOFORMATS-merge-docs`
+        * :term:`BIOFORMATS-build-docs`
 
     -   * Runs the Bio-Formats non-regression tests
         * :term:`BIOFORMATS-test-repo`
@@ -34,7 +34,7 @@ Bio-Formats jobs
 
         This job builds all the Bio-Formats artifacts using Ant
 
-    :mergecijob:`BIOFORMATS-merge-docs`
+    :mergecijob:`BIOFORMATS-build-docs`
 
         This job builds the Bio-Formats documentation and runs the linkchecker
 
