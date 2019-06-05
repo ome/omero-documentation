@@ -522,18 +522,15 @@ OpenSSL version
 ^^^^^^^^^^^^^^^
 
 Weaker ciphers like ADH are disabled by default in OpenSSL 1.1.0,
-the version installed on Debian 9.
+the version installed on some recent operating systems including Debian 9.
 This means that it is not possible to connect to an OMERO.server
 using any OMERO clients e.g. the Java Desktop client,
 the OMERO.web client or the CLI.
-The parameter ``@SECLEVEL=0``, enabling the weaker ciphers, needs to be
-added in two files in order to allow connection.
+The parameter ``@SECLEVEL=0`` must be added to the server SSL configuration:
 
 .. literalinclude:: unix/walkthrough/walkthrough_debian9.sh
     :start-after: #start-seclevel
     :end-before: #end-seclevel
-
-Run ``python -m py_compile OMERO.server/lib/python/omero/clients.py`` to recompile the file.
 
 Restart the OMERO.server as normal for the changes to take effect.
 
