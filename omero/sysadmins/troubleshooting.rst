@@ -522,7 +522,7 @@ OpenSSL version
 ^^^^^^^^^^^^^^^
 
 Weaker ciphers like ADH are disabled by default in OpenSSL 1.1.0,
-the version installed on some recent operating systems including Debian 9.
+the version installed on some recent operating systems including Debian 9 and Ubuntu 18.04.
 This means that it is not possible to connect to an OMERO.server
 using any OMERO clients e.g. the Java Desktop client,
 the OMERO.web client or the CLI.
