@@ -7,17 +7,17 @@ Bio-Formats jobs
     -   * Job task
         * Merge jobs
 
-    -   * Merges the PRs and couple versions
+    -   * Merge the PRs and couple versions
         * :term:`BIOFORMATS-push`
 
-    -   * Builds the Bio-Formats artifacts
+    -   * Build the Bio-Formats artifacts
         * | :term:`BIOFORMATS-build`
           | :term:`BIOFORMATS-image`
 
-    -   * Builds the Bio-Formats documentation
+    -   * Build the Bio-Formats documentation
         * :term:`BIOFORMATS-build-docs`
 
-    -   * Runs the Bio-Formats non-regression tests
+    -   * Run the Bio-Formats non-regression tests
         * :term:`BIOFORMATS-test-repo`
 
 
@@ -25,8 +25,8 @@ Bio-Formats jobs
 
     :mergecijob:`BIOFORMATS-push`
 
-        This jobs merge all the PRs opened against the development branch of
-        https://github.com/ome/bio-formats-build and couple the component
+        This job merges all the PRs opened against the development branch of
+        https://github.com/ome/bio-formats-build and couples the component
         versions
 
     :mergecijob:`BIOFORMATS-build`
