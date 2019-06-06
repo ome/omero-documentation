@@ -9,6 +9,7 @@ comfortable for you::
     $ bin/omero db script --password secretpassword
 
 .. literalinclude:: /downloads/cli/db-script-example.txt
+   :language: none
 
 If you do not specify the OMERO root password on the command line you will be
 prompted to enter it.
