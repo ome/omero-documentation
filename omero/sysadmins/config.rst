@@ -1959,7 +1959,7 @@ omero.version
 ^^^^^^^^^^^^^
 Value dynamically set during the build
 
-Default: `5.5.0`
+Default: `5.5.2`
 
 
 .. _web_configuration:
@@ -2142,6 +2142,14 @@ omero.web.login.show_client_downloads
 Whether to link to official client downloads on the login page
 
 Default: `true`
+
+.. property:: omero.web.login_incorrect_credentials_text
+
+omero.web.login_incorrect_credentials_text
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The error message shown to users who enter an incorrect username or password.
+
+Default: `Connection not available, please check your user name and password.`
 
 .. property:: omero.web.login_logo
 
