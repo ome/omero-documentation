@@ -4,7 +4,7 @@ In-place import
 ===============
 
 In-place import allows files which are already present on the server machine
-to be imported into OMERO without the need to copy them. This requires
+to be imported into OMERO without the need to copy them into OMERO's ManagedRepository. This requires
 users to have shell (|SSH|, etc.) access to the server machine,
 and so there are a number of :ref:`limitations <limitations>`
 to this implementation. Development of this feature is on-going, with
@@ -13,7 +13,7 @@ improvements planned to enable a more user-friendly experience. This
 users, in-place import is essential for their use of OMERO.
 
 This feature is designed to allow imaging facilities to import large datasets
-into OMERO while keeping them safely stored in a secure repository which is
+into OMERO while keeping them safely stored in a secure location on the file system which is
 read-only for users. Leaving the data in a user's file system **is very
 dangerous** as they may forget they need to keep it or move to a different
 institution. **Under no circumstances should in-place import be used with
@@ -78,6 +78,8 @@ any significant disappointments.
 Also, there is still some data duplication when
 :model_doc:`pyramids <omero-pyramid/>` are generated. We are
 hoping to find a work-around for this in the future.
+
+Do not use this procedure to create links on data inside the ManagedRepository.
 
 .. _safety_tips:
 
