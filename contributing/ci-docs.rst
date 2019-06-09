@@ -28,7 +28,7 @@ More detail on how and where to edit OME documentation is available on the
 	-	* Builds the auto-generated OMERO documentation for review
 		* :term:`OMERO-DEV-merge-docs-autogen`
 
-The Bio-Formats documentation jobs are described in the :ref:`ci-bio-formats`
+The Bio-Formats documentation jobs are described in the :doc:`ci-bio-formats`
 section.
 
 The OME Model, OME help and OME Contributing documentation sets are
