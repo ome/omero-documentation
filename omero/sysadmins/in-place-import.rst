@@ -68,18 +68,18 @@ into, and then use their own OMERO accounts to import data. Alternatively,
 each OMERO user can be given an OS account with access rights to the data
 storage as well as the managed repository.
 
+Also, there is still some data duplication when
+:model_doc:`pyramids <omero-pyramid/>` are generated. We are
+hoping to find a work-around for this in the future.
+
 For soft linking with :literal:`--transfer=ln_s` it has been noticed
 that some plate imports run rather more slowly than usual. Other
 operations may also be affected. In determining if or how to use
 in-place import at your high-content screening facility, we thus
 recommend time profiling with representative data, and alerting us to
-any significant disappointments.
-
-Also, there is still some data duplication when
-:model_doc:`pyramids <omero-pyramid/>` are generated. We are
-hoping to find a work-around for this in the future.
-
-Do not use this procedure to create links on data inside the ManagedRepository.
+any significant disappointments. **Additionally, do not use soft links
+when pointing to data inside the ManagedRepository. If the originals
+are deleted, the data will be lost.**
 
 .. _safety_tips:
 
