@@ -125,15 +125,10 @@ edit_on_github_prefix = 'contributing'
 
 # Regular expressions that match URIs that should not be checked when doing a linkcheck build
 linkcheck_ignore += [r'http://localhost:\d+/?', 'http://localhost/',
-    'http://www.hibernate.org',
     'https://github.com/openmicroscopy/ome-internal',
     r'https://github.com/account/ssh',
-    r'https?://www\.openmicroscopy\.org/site/team/.*',
-    r'.*[.]?example\.com/.*',
     r'https://spreadsheets.google.com/.*',
     r'https://docs.google.com/.*',
     r'https://trac.openmicroscopy.org/ome/admin/.*',
-    r'https?://seabass.openmicroscopy.org/.*',
-    r'http://web-dev-.*.openmicroscopy.org/.*',
     r'https://oss.sonatype.org/.*',  # Requires login
 ]
