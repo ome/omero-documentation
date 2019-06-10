@@ -127,6 +127,7 @@ edit_on_github_prefix = 'contributing'
 linkcheck_ignore += [r'http://localhost:\d+/?', 'http://localhost/',
     'http://www.hibernate.org',
     'https://github.com/openmicroscopy/ome-internal',
+    r'https://github.com/account/ssh',
     r'https?://www\.openmicroscopy\.org/site/team/.*',
     r'.*[.]?example\.com/.*',
     r'https://spreadsheets.google.com/.*',
