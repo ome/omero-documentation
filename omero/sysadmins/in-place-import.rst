@@ -70,7 +70,7 @@ storage as well as the managed repository.
 
 Also, there is still some data duplication when
 :model_doc:`pyramids <omero-pyramid/>` are generated. We are
-hoping to find a work-around for this in the future.
+hoping to find a workaround for this in the future.
 
 For soft linking with :literal:`--transfer=ln_s` it has been noticed
 that some plate imports run rather more slowly than usual. Other
