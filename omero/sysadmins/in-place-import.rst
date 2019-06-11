@@ -77,9 +77,13 @@ that some plate imports run rather more slowly than usual. Other
 operations may also be affected. In determining if or how to use
 in-place import at your high-content screening facility, we thus
 recommend time profiling with representative data, and alerting us to
-any significant disappointments. **Additionally, do not use soft links
-when pointing to data inside the ManagedRepository. If the originals
-are deleted, the data will be lost.**
+any significant disappointments.
+
+.. warning::
+
+    Do not use soft links when pointing to data inside the
+    ManagedRepository. If the originals are deleted, the data will be
+    lost.
 
 .. _safety_tips:
 
