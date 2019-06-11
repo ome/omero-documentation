@@ -4,7 +4,7 @@ In-place import
 ===============
 
 In-place import allows files which are already present on the server machine
-to be imported into OMERO without the need to copy them into OMERO's ManagedRepository. This requires
+to be imported into OMERO without the need to upload them over an OMERO login session. This requires
 users to have shell (|SSH|, etc.) access to the server machine,
 and so there are a number of :ref:`limitations <limitations>`
 to this implementation. Development of this feature is on-going, with
