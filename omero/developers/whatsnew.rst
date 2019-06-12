@@ -2,7 +2,7 @@ What's new for OMERO 5.5 for developers
 =======================================
 
 This release focuses on decoupling the Java components to new,
-separate repositories, each with a new [Gradle](https://gradle.org) build system:
+separate repositories, each with a new `Gradle <https://gradle.org>`_ build system:
 
 - https://github.com/ome/omero-dsl-plugin
 - https://github.com/ome/omero-model
