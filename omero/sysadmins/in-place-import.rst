@@ -4,7 +4,7 @@ In-place import
 ===============
 
 In-place import allows files which are already present on the server machine
-to be imported into OMERO without the need to copy them into OMERO's ManagedRepository. This requires
+to be imported into OMERO without the need to upload them over an OMERO login session. This requires
 users to have shell (|SSH|, etc.) access to the server machine,
 and so there are a number of :ref:`limitations <limitations>`
 to this implementation. Development of this feature is on-going, with
@@ -13,8 +13,8 @@ improvements planned to enable a more user-friendly experience. This
 users, in-place import is essential for their use of OMERO.
 
 This feature is designed to allow imaging facilities to import large datasets
-into OMERO while keeping them safely stored in a secure location on the file system which is
-read-only for users. Leaving the data in a user's file system **is very
+into OMERO while keeping them safely stored on the file system in a secure location that is
+*read-only* for users. Leaving the data in a user's file system **is very
 dangerous** as they may forget they need to keep it or move to a different
 institution. **Under no circumstances should in-place import be used with
 temporary storage.**
@@ -77,9 +77,13 @@ that some plate imports run rather more slowly than usual. Other
 operations may also be affected. In determining if or how to use
 in-place import at your high-content screening facility, we thus
 recommend time profiling with representative data, and alerting us to
-any significant disappointments. **Additionally, do not use soft links
-when pointing to data inside the ManagedRepository. If the originals
-are deleted, the data will be lost.**
+any significant disappointments.
+
+.. warning::
+
+    Do not use soft links when pointing to data inside the
+    ManagedRepository. If the originals are deleted, the data will be
+    lost.
 
 .. _safety_tips:
 
