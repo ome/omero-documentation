@@ -1,7 +1,7 @@
 What's new for OMERO 5.5 for sysadmins
 ======================================
 
-- :doc:`version-requirements` has been updated to reflect other changes in
+- :doc:`version-requirements` has been updated to reflect changes in
   version support for 5.5.0 and tentative plans for 5.6.0.
 
 - A walkthrough has been added for
