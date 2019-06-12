@@ -544,10 +544,10 @@ Glacier2
 
 omero.glacier2.IceSSL
 ^^^^^^^^^^^^^^^^^^^^^
-Glacier2Template IceSSL defaults and overrides
-see https://doc.zeroc.com/ice/3.6/property-reference/icessl
+Glacier2Template IceSSL defaults and overrides,
+see https://doc.zeroc.com/ice/3.6/property-reference/icessl.
 Any property beginning ``omero.glacier2.IceSSL.`` will be used to
-update the corresponding IceSSL. property
+update the corresponding IceSSL. property.
 
 Default: `[empty]`
 
