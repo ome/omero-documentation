@@ -11,7 +11,7 @@ What's new for OMERO 5.5 for sysadmins
   :doc:`installing OMERO.web <unix/install-web/web-deployment>` either
   separately from or with OMERO.server on Ubuntu 18.04.
 
-- Add configuration option to fix OpenSSL issue.
+- Add ``omero.glacier2.IceSSL.*`` configuration options to fix OpenSSL issue.
 
 - Improve the documentation of :doc:`in-place-import`.
 
