@@ -15,7 +15,7 @@ What's new for OMERO 5.5 for sysadmins
 
 - Improve the documentation of :doc:`in-place-import`.
 
-- Add documentation on how to configure websockets see :doc:`websockets`.
+- Add documentation on how to configure websockets, see :doc:`websockets`.
 
 - Improve documentation on how to configure OMERO.web see :doc:`client-server-ssl`.
 
