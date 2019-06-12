@@ -17,7 +17,7 @@ What's new for OMERO 5.5 for sysadmins
 
 - Add documentation on how to configure websockets, see :doc:`websockets`.
 
-- Improve documentation on how to configure OMERO.web see :doc:`client-server-ssl`.
+- Improve documentation on how to configure OMERO.web, see :doc:`client-server-ssl`.
 
 For a full list of bug fixes and other improvements, see the
 :doc:`/users/history`.
