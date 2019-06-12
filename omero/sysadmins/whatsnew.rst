@@ -4,7 +4,7 @@ What's new for OMERO 5.5 for sysadmins
 - :doc:`version-requirements` has been updated to reflect other changes in
   version support for 5.5.0 and tentative plans for 5.6.0.
 
-- Walkthrough have been added for 
+- A walkthrough has been added for
   :doc:`installing OMERO.server <unix/server-ubuntu1804-ice36>` on Ubuntu 18.04.
 
 - Walkthroughs have been added for 
