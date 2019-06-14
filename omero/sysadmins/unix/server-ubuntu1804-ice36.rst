@@ -63,7 +63,7 @@ they both should be disabled by running the following command::
 
 To install PostgreSQL |postgresversion|:
 
-.. literalinclude:: walkthrough/walkthrough_debian9.sh
+.. literalinclude:: walkthrough/walkthrough_ubuntu1804.sh
     :start-after: # install Postgres
     :end-before: #end-step01
 
