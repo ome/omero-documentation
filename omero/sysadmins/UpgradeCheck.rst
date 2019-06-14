@@ -64,9 +64,9 @@ code, it is necessary to have ``omero-gateway-x.y.z.jar`` on your classpath. The
 ::
 
         String version = Yourclass.class.getPackage().getImplementationVersion();
-        String url = bundle.getString("omero.upgrades.url");
+        String url = session.getConfigService().getConfigValue("omero.upgrades.url");;
         ome.system.UpgradeCheck check = new UpgradeCheck(
-          url, version, "insight"); // Or "importer", etc.
+          url, version, "insight"); // Or "matlab", etc.
         check.run();
         check.isUpgradeNeeded();
         // optionally
