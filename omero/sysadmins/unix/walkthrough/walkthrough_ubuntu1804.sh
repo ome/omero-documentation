@@ -35,7 +35,7 @@ apt-get -y install python-{pillow,numpy}
 # install Ice
 #start-recommended-ice
 apt-get update && \
-apt-get install -y -q\
+apt-get install -y -q \
 build-essential \
 db5.3-util \
 libbz2-dev \
