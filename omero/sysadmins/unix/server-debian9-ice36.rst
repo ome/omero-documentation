@@ -125,9 +125,6 @@ added in two files in order to allow connection.
     :start-after: #start-seclevel
     :end-before: #end-seclevel
 
-Run ``python -m py_compile OMERO.server/lib/python/omero/clients.py`` to recompile the file.
-
-
 Running OMERO.server
 --------------------
 
