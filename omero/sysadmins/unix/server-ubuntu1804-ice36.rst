@@ -54,6 +54,11 @@ To install Ice |iceversion|:
     :start-after: #start-recommended-ice
     :end-before: #end-recommended-ice
 
+To make Ice available to all users, set the environment using :download:`omero-ice36.env <walkthrough/omero-ice36.env>`::
+
+    cat omero-ice36.env >> /etc/profile
+  
+
 As part of the installation of Ice, two new daemons are installed and automatically started.
 In order for the OMERO.server to start correctly,
 they both should be disabled by running the following command::
