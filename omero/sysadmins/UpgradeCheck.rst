@@ -59,7 +59,7 @@ Developers
 ----------
 
 To use the UpgradeCheck class from your own
-code, it is necessary to have ``omero-gateway-x.y.z.jar`` on your classpath. Then,
+code, it is necessary to have ``omero-common-x.y.z.jar`` on your classpath. Then,
 
 ::
 
