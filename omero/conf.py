@@ -183,7 +183,10 @@ linkcheck_ignore += [r'http://localhost:\d+/?', 'http://localhost/',
     r'.*[.]?example\.com/.*',
     r'https://spreadsheets.google.com/.*',
     'https://msdn.microsoft.com/en-us/library/aa362244\(v=vs.85\).aspx',
-    r'https://testng.org/*'
+    'https://testng.org/',
+    # Those below may start working with Sphinx 2.1, see sphinx-doc #6381.
+    'https://www.cloudflare.com/',
+    'https://www.zenoss.com/'
 ]
 
 exclude_patterns = ['sysadmins/unix/walkthrough/requirements*',
