@@ -255,9 +255,9 @@ Useful metrics include:
     ome.io.nio.PixelsService.tileTimes
       Time taken to generate tiled-pyramids for a big image. (PixelData-only)
 
-.. _Check_MK: https://mathias-kettner.de/check_mk.html
-.. _Metrics: https://metrics.dropwizard.io
-.. _JConsole: http://openjdk.java.net/tools/svc/jconsole/
+.. _Check_MK: https://checkmk.com/
+.. _Metrics: https://metrics.dropwizard.io/
+.. _JConsole: https://openjdk.java.net/tools/svc/jconsole/
 .. _JVisualVM: https://visualvm.github.io/
 .. _Nagios: https://www.nagios.org/
 .. _Zenoss: https://www.zenoss.com/

@@ -380,7 +380,7 @@ Writing tests
 Writing Java tests
 ^^^^^^^^^^^^^^^^^^
 
-For more information on writing tests in general see `<https://testng.org>`_.
+For more information on writing tests in general see `<https://testng.org/>`_.
 For a test to be an "integration" test, place it in the "integration"
 TestNG group. If a test is temporarily broken, add it to the "broken" group:
 
