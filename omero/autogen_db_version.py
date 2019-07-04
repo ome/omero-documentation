@@ -50,7 +50,7 @@ print 'previous_dbver = "OMERO%d.%d%s__%d"' % previous_mmp
 
 print 'version_bioformats = "6.1.1"'
 print 'version_blitz = "5.5.3"'
-print 'version_server = "5.5.3"'
+print 'version_server = "5.5.4"'
 print 'version_romio = "5.5.2"'
 print 'version_renderer = "5.5.2"'
 print 'version_common = "5.5.2"'
