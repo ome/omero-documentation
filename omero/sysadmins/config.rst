@@ -1959,7 +1959,7 @@ omero.version
 ^^^^^^^^^^^^^
 Value dynamically set during the build
 
-Default: `5.5.2`
+Default: `5.5.4`
 
 
 .. _web_configuration:
@@ -2131,9 +2131,9 @@ Default: `/home/omero/OMERO.server/var/log`
 
 omero.web.login.client_downloads_base
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Base URL for latest client downloads. Template parameters ``{major}`` ``{minor}`` ``{patch}`` will be substituted with the current OMERO.web version.
+GitHub repository containing the Desktop client downloads
 
-Default: `https://downloads.openmicroscopy.org/latest/omero{major}.{minor}`
+Default: `ome/omero-insight`
 
 .. property:: omero.web.login.show_client_downloads
 
@@ -2446,6 +2446,22 @@ omero.web.thumbnails_batch
 Number of thumbnails retrieved to prevent from loading them all at once. Make sure the size is not too big, otherwise you may exceed limit request line, see https://docs.gunicorn.org/en/latest/settings.html?highlight=limit_request_line
 
 Default: `50`
+
+.. property:: omero.web.top_logo
+
+omero.web.top_logo
+^^^^^^^^^^^^^^^^^^
+Customize the webclient top bar logo. The recommended image height is 23 pixels and it must be hosted outside of OMERO.web.
+
+Default: `[empty]`
+
+.. property:: omero.web.top_logo_link
+
+omero.web.top_logo_link
+^^^^^^^^^^^^^^^^^^^^^^^
+The target location of the webclient top logo, default unlinked.
+
+Default: `[empty]`
 
 .. property:: omero.web.ui.center_plugins
 

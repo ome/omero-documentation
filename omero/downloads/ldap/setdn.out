@@ -4,7 +4,7 @@ usage: bin/omero ldap setdn [-h] [--user-id USER_ID] [--user-name USER_NAME]
                             [-w PASSWORD] [-k KEY] [--sudo ADMINUSER] [-q]
                             choice
 
-Enable LDAP login for user (admins only)
+Enable or disable LDAP login for user (admins only)
 
 Once LDAP login is enabled for a user, the password set via OMERO is
 ignored, and any attempt to change it will result in an error. When
