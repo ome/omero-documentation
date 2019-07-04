@@ -31,7 +31,7 @@ yum -y install openssl-devel bzip2-devel
 
 yum -y install ice-all-runtime
 
-pip install "zeroc-ice>3.5,<3.7"
+pip install https://github.com/ome/zeroc-ice-py-centos7/releases/download/0.1.0/zeroc_ice-3.6.4-cp27-cp27mu-linux_x86_64.whl
 #end-recommended-ice
 
 
@@ -39,7 +39,7 @@ pip install "zeroc-ice>3.5,<3.7"
 yum -y install https://yum.postgresql.org/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm
 yum -y install postgresql10-server postgresql10
 
-PGSETUP_INITDB_OPTIONS=--encoding=UTF8 /usr/pgsql-10/bin/postgresql10-setup initdb
+PGSETUP_INITDB_OPTIONS=--encoding=UTF8 /usr/pgsql-10/bin/postgresql-10-setup initdb
 
 sed -i.bak -re 's/^(host.*)ident/\1md5/' /var/lib/pgsql/10/data/pg_hba.conf
 systemctl start postgresql-10.service
