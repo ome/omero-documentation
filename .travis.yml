@@ -6,6 +6,11 @@ language: python
 # https://docs.travis-ci.com/user/workers/container-based-infrastructure/
 sudo: false
 
+addons:
+  apt:
+    packages:
+      - ant
+
 # https://docs.travis-ci.com/user/caching/
 cache: pip
 

@@ -357,7 +357,8 @@ add paths to :envvar:`PYTHONPATH` specifically for `pytest`.
 
         py.test --help
 
-and `<https://pytest.org/latest/usage.html>`_ for more help in running tests.
+and `<https://pytest.org/en/latest/usage.html>`_ for more help in
+running tests.
 
 Failing tests
 ^^^^^^^^^^^^^
@@ -444,7 +445,7 @@ To write and run Python tests you first need to install `pytest`:
 
     pip install pytest
 
-For more information on writing tests in general see `<https://pytest.org>`_.
+For more information on writing tests in general see `<https://pytest.org/>`_.
 
 Similar to the OmeroJava tests, the tests under
 :sourcedir:`components/tools/OmeroPy/test`,
