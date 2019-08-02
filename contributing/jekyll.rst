@@ -1,4 +1,4 @@
-Jekyll hosted websites
+Jekyll-hosted websites
 ======================
 
 A number of OME websites are produced using `Jekyll <https://jekyllrb.com/>`_,
