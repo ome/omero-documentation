@@ -80,7 +80,7 @@ static website and then deploying it on the web server:
   [Travis CI](https://travis-ci.org/openmicroscopy/www.openmicroscopy.org) and 
   deployed as an asset of the associated `GitHub release <https://github.com/openmicroscopy/www.openmicroscopy.org/releases>`_
 - a PR can then be opened against the
-  `Website deployment playbook <https://github.com/openmicroscopy/prod-playbooks/blob/master/www/www-jekyll.yml>`_ to consume the new release asset
+  `Website deployment playbook <https://github.com/openmicroscopy/prod-playbooks/blob/master/www/www-static.yml>`_ to consume the new release asset
 - the sysadmin team will then run the playbook to update the live website
 
 OME Blog
