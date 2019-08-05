@@ -222,6 +222,37 @@ Read data
             for image in dataset.listChildren():
                 print_obj(image, 4)
 
+-  **Get Objects by their ID or attributes**
+
+   The first argument for conn.getObjects() or conn.getObject() is the object type.
+   This is not case sensitive. Supported types are
+   "project", "dataset", "image", "screen", "plate", "plateacquisition", "acquisition", "well",
+   "roi", "shape", "experimenter", "experimentergroup", "originalfile", "fileset", "annotation"
+
+::
+
+    # Find objects by ID
+    projects = conn.getObjects("Project", [1, 2, 3])
+
+    # Single object. IDs are unique across all types of annotations
+    image = conn.getObject("Annotation", 1)
+
+    # Find an Object by attribute. E.g. 'name'
+    images = conn.getObjects("Image", attributes={"name": name})
+
+-  **Get different types of Annotations***
+
+   Supported types are: "tagannotation", "longannotation", "booleanannotation", "fileannotation",
+   "doubleannotation", "termannotation", "timestampannotation", "mapannotation"
+
+::
+
+    # List All Tags
+    conn.getObjects("TagAnnotation")
+
+    # Find Tags with a known text value
+    tags = conn.getObjects("TagAnnotation", attributes={"textValue": text})
+
 -  **Retrieve 'orphaned' objects**
 
 ::
@@ -310,6 +341,29 @@ Read data
                 well.getImage(index).getName(),\
                 well.getImage(index).getId()
 
+-  **List all annotations on an object. Get text from tags**
+
+::
+
+    for ann in project.listAnnotations():
+        print ann.getId(), ann.OMERO_TYPE,
+        print " added by ", ann.link.getDetails().getOwner().getOmeName()
+        if ann.OMERO_TYPE == omero.model.TagAnnotationI:
+            print "Tag value:", ann.getTextValue()
+
+-  **Get Links between Objects and Annotations**
+
+    # Find Images linked to Annotation(s), move them to another Annotation
+    for link in conn.getAnnotationLinks('Image', ann_ids=[ann_id]):
+        print "Image:", link.getParent().name
+        # Update the underlying omero.model.ImageAnnotationLinkI.child
+        link._obj.child = omero.model.TagAnnotationI(new_tag_id False)
+        link.save()
+
+    # Find Annotations linked to Object(s), filtering by namespace optional
+    for link in conn.getAnnotationLinks('Image', parent_ids=image_ids, ns=namespace):
+        print "Annotation ID:", link.getChild().id
+
 
 Groups and permissions
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -374,6 +428,28 @@ Read-Annotate groups, this will include other users' data - see
     projects = conn.listProjects()
     image = conn.getObject("Image", imageId)
     print "Image: ", image,
+
+- **To save an Object's owner as another user (Admins only)**
+
+::
+
+    tag_ann = omero.gateway.TagAnnotationWrapper(conn)
+    tag_ann.setTextValue("Not owned by me")
+    # update details of the wrapped omero.model.AnnotationI _obj
+    tag_ann._obj.details.owner = ExperimenterI(userId, False)
+    tag_ann.save()
+
+    # Alternatively, we can connect as another user, to perform several tasks
+    user = conn.getObject("Experimenter", userId).getName()
+    user_conn = conn.suConn(user)
+    # This annotation will be owned by user
+    map_ann = omero.gateway.MapAnnotationWrapper(user_conn)
+    map_ann.setNs(namespace)
+    map_ann.setValue(key_values)
+    map_ann.save()
+    # Link will be owned by the user
+    project.linkAnnotation(map_ann)
+    user_conn.close()
 
 Raw data access
 ^^^^^^^^^^^^^^^
@@ -471,6 +547,7 @@ Write data
 
     tag_ann = omero.gateway.TagAnnotationWrapper(conn)
     tag_ann.setValue("New Tag")
+    tag_ann.setDescription("Add optional description")
     tag_ann.save()
     project = conn.getObject("Project", projectId)
     project.linkAnnotation(tag_ann)
@@ -495,16 +572,6 @@ Write data
 ::
 
     print conn.countAnnotations('Project', [projectId])
-
--  **List all annotations on an object. Get text from tags**
-
-::
-
-    for ann in project.listAnnotations():
-        print ann.getId(), ann.OMERO_TYPE,
-        print " added by ", ann.link.getDetails().getOwner().getOmeName()
-        if ann.OMERO_TYPE == omero.model.TagAnnotationI:
-            print "Tag value:", ann.getTextValue()
 
 -  **How to create a file annotation and link to a Dataset**
 
@@ -533,9 +600,10 @@ Write data
     if not os.path.exists(path):
         os.makedirs(path)
     # Go through all the annotations on the Dataset. Download any file annotations
-    # we find.
+    # we find. Filter by namespace is optional
     print "\nAnnotations on Dataset:", dataset.getName()
-    for ann in dataset.listAnnotations():
+    namespace = "imperial.training.demo"
+    for ann in dataset.listAnnotations(ns=namespace):
         if isinstance(ann, omero.gateway.FileAnnotationWrapper):
             print "File ID:", ann.getFile().getId(), ann.getFile().getName(), \
                 "Size:", ann.getFile().getSize()
@@ -997,6 +1065,26 @@ Delete data
         print cb.getResponse()
     cb.close(True)      # close handle too
 
+- **Delete Annotations on an Object**
+
+::
+
+    i = conn.getObject("Image", image_id)
+    to_delete = []
+    # Optionally to filter by namespace
+    for ann in i.listAnnotations(ns=namespace):
+        to_delete.append(ann.id)
+    conn.deleteObjects('Annotation', to_delete, wait=True)
+
+- **Remove Annotations from an Object (unlink but don't delete)**
+
+::
+
+    i = conn.getObject("Image", image_id)
+    to_delete = []
+    for ann in i.listAnnotations():
+        to_delete.append(ann.link.id)
+    conn.deleteObjects("ImageAnnotationLink", to_delete, wait=True)
 
 Render Images
 ^^^^^^^^^^^^^
