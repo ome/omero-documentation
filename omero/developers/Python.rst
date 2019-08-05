@@ -224,10 +224,10 @@ Read data
 
 -  **Get Objects by their ID or attributes**
 
-   The first argument for conn.getObjects() or conn.getObject() is the object type.
+   The first argument for ``conn.getObjects()`` or ``conn.getObject()`` is the object type.
    This is not case sensitive. Supported types are
-   "project", "dataset", "image", "screen", "plate", "plateacquisition", "acquisition", "well",
-   "roi", "shape", "experimenter", "experimentergroup", "originalfile", "fileset", "annotation"
+   ``project``, ``dataset``, ``image``, ``screen``, ``plate``, ``plateacquisition``, ``acquisition``, ``well``,
+   ``roi``, ``shape``, ``experimenter``, ``experimentergroup``, ``originalfile``, ``fileset``, ``annotation``
 
 ::
 
@@ -242,8 +242,8 @@ Read data
 
 -  **Get different types of Annotations***
 
-   Supported types are: "tagannotation", "longannotation", "booleanannotation", "fileannotation",
-   "doubleannotation", "termannotation", "timestampannotation", "mapannotation"
+   Supported types are: ``tagannotation``, ``longannotation``, ``booleanannotation``, ``fileannotation``,
+   ``doubleannotation``, ``termannotation``, ``timestampannotation``, ``mapannotation``
 
 ::
 
