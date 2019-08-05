@@ -353,6 +353,8 @@ Read data
 
 -  **Get Links between Objects and Annotations**
 
+::
+
     # Find Images linked to Annotation(s), move them to another Annotation
     for link in conn.getAnnotationLinks('Image', ann_ids=[ann_id]):
         print "Image:", link.getParent().name
