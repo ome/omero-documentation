@@ -38,6 +38,8 @@ which must be the same major version, i.e. |version|.x.
 All the code examples below can be found at
 :sourcedir:`examples/Training/python`.
 
+More complete workflow examples can be `found below  <#example-workflow-scripts>`_.
+
 
 If you want to run the examples, you will need to download and
 configure them to connect to your own server e.g. ``HOST = "localhost"``.
@@ -1239,6 +1241,29 @@ Filesets - added in OMERO 5.0
 ::
 
     fileset = conn.getObject("Fileset", fs_id)
+
+
+Example workflow scripts
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+These scripts provide some examples of how the code snippets above
+can be combined into longer workflows.
+
+-  **Simple FRAP**.  `simple_frap.py <https://github.com/ome/training-scripts/blob/master/practical/python/server/simple_frap.py>`_
+
+   This script has examples of:
+
+   - ``conn.getObjects()`` to get Datasets and their Images
+   - ``roi_service.findByImage()`` to get ROIs on each Image
+   - ``roi_service.getShapeStatsRestricted()`` to get intensity stats for each timepoint
+
+-  **Gaussian Filter**. `scipy_gaussian_filter.py  <https://github.com/ome/training-scripts/blob/master/practical/python/server/scipy_gaussian_filter.py>`_
+
+   This script has examples of:
+
+   - ``pixels.getPlanes(zct_list)`` to get numpy planes from an Image
+   - ``conn.createImageFromNumpySeq()`` to create a new Image from numpy planes
+   - ``DatasetWrapper()`` to create a new Dataset
 
 
 Python OMERO.scripts
