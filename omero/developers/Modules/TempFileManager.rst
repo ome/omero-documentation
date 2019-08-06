@@ -68,7 +68,3 @@ and
 .. note::
 
     All contents of the generated directory will be deleted.
-
-.. seealso::
-
-    :ticket:`1534`
