@@ -227,15 +227,16 @@ Read data
    The first argument for ``conn.getObjects()`` or ``conn.getObject()`` is the object type.
    This is not case sensitive. Supported types are
    ``project``, ``dataset``, ``image``, ``screen``, ``plate``, ``plateacquisition``, ``acquisition``, ``well``,
-   ``roi``, ``shape``, ``experimenter``, ``experimentergroup``, ``originalfile``, ``fileset``, ``annotation``
+   ``roi``, ``shape``, ``experimenter``, ``experimentergroup``, ``originalfile``, ``fileset``, ``annotation``.
+   You can find attributes of these objects at :slicedoc_blitz:`OMERO model API <omero/model.html>`.
 
 ::
 
-    # Find objects by ID
+    # Find objects by ID. NB: getObjects() returns a generator, not a list
     projects = conn.getObjects("Project", [1, 2, 3])
 
-    # Single object. IDs are unique across all types of annotations
-    image = conn.getObject("Annotation", 1)
+    # Get a single object by ID. Can use "Annotation" for all types of annotations by ID
+    annotation = conn.getObject("Annotation", 1)
 
     # Find an Object by attribute. E.g. 'name'
     images = conn.getObjects("Image", attributes={"name": name})
@@ -247,7 +248,7 @@ Read data
 
 ::
 
-    # List All Tags
+    # List All Tags that you have permission to access
     conn.getObjects("TagAnnotation")
 
     # Find Tags with a known text value
@@ -341,7 +342,7 @@ Read data
                 well.getImage(index).getName(),\
                 well.getImage(index).getId()
 
--  **List all annotations on an object. Get text from tags**
+-  **List all annotations on an object. Filter for Tags and get textValue**
 
 ::
 
@@ -355,14 +356,18 @@ Read data
 
 ::
 
-    # Find Images linked to Annotation(s), move them to another Annotation
-    for link in conn.getAnnotationLinks('Image', ann_ids=[ann_id]):
-        print "Image:", link.getParent().name
-        # Update the underlying omero.model.ImageAnnotationLinkI.child
-        link._obj.child = omero.model.TagAnnotationI(new_tag_id False)
+    # Find Images linked to Annotation(s), unlink Images from these annotations
+    # and link them to another Tag Annotation
+    annotation_ids = [1, 2, 3]
+    tag_id = 4
+    for link in conn.getAnnotationLinks('Image', ann_ids=annotation_ids):
+        print "Image ID:", link.getParent().id
+        print "Annotation ID:", link.getChild().id
+        # Update the child of the underlying omero.model.ImageAnnotationLinkI
+        link._obj.child = omero.model.TagAnnotationI(tag_id, False)
         link.save()
 
-    # Find Annotations linked to Object(s), filtering by namespace optional
+    # Find Annotations linked to Object(s), filter by namespace (optional)
     for link in conn.getAnnotationLinks('Image', parent_ids=image_ids, ns=namespace):
         print "Annotation ID:", link.getChild().id
 
@@ -431,7 +436,7 @@ Read-Annotate groups, this will include other users' data - see
     image = conn.getObject("Image", imageId)
     print "Image: ", image,
 
-- **To save an Object's owner as another user (Admins only)**
+- **To set (or change) the owner of an object (Admins only)**
 
 ::
 
@@ -441,7 +446,8 @@ Read-Annotate groups, this will include other users' data - see
     tag_ann._obj.details.owner = ExperimenterI(userId, False)
     tag_ann.save()
 
-    # Alternatively, we can connect as another user, to perform several tasks
+    # If we want to perform multiple tasks it may be more convenient to
+    # connect as another user. We can use 'user_conn' exactly as for 'conn'
     user = conn.getObject("Experimenter", userId).getName()
     user_conn = conn.suConn(user)
     # This annotation will be owned by user
@@ -537,10 +543,12 @@ Write data
 
 ::
 
-    project = conn.getObject("Project", projectId)
     link = omero.model.ProjectDatasetLinkI()
-    link.setParent(omero.model.ProjectI(project.getId(), False))
-    link.setChild(dataset_obj)
+    # We can use a 'loaded' object, but we might get an Exception
+    # link.setChild(dataset_obj)
+    # Better to use an 'unloaded' objects (loaded = False)
+    link.setChild(omero.model.DatasetI(dataset_obj.id.val, False))
+    link.setParent(omero.model.ProjectI(projectId, False))
     conn.getUpdateService().saveObject(link)
 
 -  **Annotate Project with a new 'tag'**
