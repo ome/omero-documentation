@@ -1,20 +1,15 @@
 MATLAB and Python
 =================
 
-MATLAB functionality can be mixed into Python scripts via the
-Python package `Mlabwrap <http://mlabwrap.sourceforge.net>`_.
+MATLAB functionality can be mixed into Python scripts using the
+MATLAB Engine API for Python.
 
-Installing Mlabwrap
--------------------
+Installing MATLAB Engine API
+----------------------------
 
-To install MlabWrap follow the
-`installation guide <http://mlabwrap.sourceforge.net/#installation>`_ and
-make sure that the paths are set for the environment variables:
-
-::
-
-    LD_LIBRARY_PATH=$MATLABROOT/bin/Platform
-    MLABRAW_CMD_STR=$MATLABROOT/bin/matlab
+To install the MATLAB Engine API for Python follow the
+`installation guide <https://www.mathworks.com/help/matlab/matlab_external/install-the-matlab-engine-for-python.html>`_.
+It is possible to install it into a virtual environment.
 
 Example MATLAB scripts
 ----------------------
@@ -28,19 +23,32 @@ Calling a simple MATLAB function
 
 ::
 
-    import omero, omero.scripts as scripts
-    # import mlabwrap to launch matlab.
-    from mlabwrap import matlab;  
-    client = scripts.client("rand.py", "Get matrix of random numbers drawn from a uniform distribution",
-                            scripts.Long("x").inout(), scripts.Long("y").inout())
+    import omero.scripts as scripts
 
-    x = client.getInput("x").val
-    y  = client.getInput("y").val
+    import matlab.engine
 
-    # call the matlab rand function via mlabwrap will automatically launch matlab 
-    # if it is not already running on the system and call the rand method.
-    val = matlab.rand(x,y);
-    print val
+    client = scripts.client('prime.py',
+                            """
+    This script checks if the specified number is a prime number.
+        """,
+        scripts.Long(
+            "x", optional=False, grouping="1",
+            description="Number to check."))
+    try:
+        # process the list of args above.
+        params = {}
+        for key in client.getInputKeys():
+            if client.getInput(key):
+                params[key] = client.getInput(key, unwrap=True)
+        x = params.get("x")
+        # start the MATLAB engine
+        eng = matlab.engine.start_matlab("-nodisplay")
+        tf = eng.isprime(x)
+        print(tf)
+        eng.quit()
+    finally:
+        client.closeSession()
+
 
 Using the OMERO interface inside MATLAB
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -50,46 +58,147 @@ object and accessing the same client instance as the script.
 
 ::
 
-    import omero, omero.scripts as scripts
-    # import mlabwrap to launch matlab.
-    from mlabwrap import matlab;  
-    client = scripts.client("projection.py", "Call the matlab projection code",
-                            scripts.String("iceConfig").in(), scripts.String("user").in(),
-                            scripts.String("password"),
-                            scripts.Long("pixelsId").inout(), scripts.String("method").inout()
-                            scripts.Long("stack").inout())
+    import omero
 
-    iceConfig = client.getInput("pixelsId").val
-    user = client.getInput("pixelsId").val
-    password = client.getInput("pixelsId").val
-    method  = client.getInput("method").val
-    stack = client.getInput("stack").val;
+    import omero.scripts as scripts
+    from omero.rtypes import rlong
+    from omero.gateway import BlitzGateway
+    from omero.rtypes import robject, rstring
 
-    image = matlab.performProjection(iceConfig, username, password, pixelsId, stack, method);
+    import matlab.engine
 
-The MATLAB projection method
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    dataTypes = [rstring('Dataset')] 
+    client = scripts.client('frap.py',
+                            """
+    This script does simple FRAP analysis using Ellipse ROIs previously
+    saved on images. If matplotlib is installed, data is plotted and new
+    OMERO images are created from the plots.
+    Call the matlab frap code.
+        """,
+        scripts.String(
+            "Data_Type", optional=False, grouping="1",
+            description="Choose source of images",
+            values=dataTypes, default="Dataset"),
+
+        scripts.Long(
+            "ID", optional=False, grouping="2",
+            description="Dataset ID."))
+    try:
+        # process the list of args above.
+        params = {}
+        for key in client.getInputKeys():
+            if client.getInput(key):
+                params[key] = client.getInput(key, unwrap=True)
+        dataset_id = params.get("ID")
+        # wrap client to use the Blitz Gateway
+        conn = BlitzGateway(client_obj=client)
+        # start the MATLAB engine
+        eng = matlab.engine.start_matlab("-nodisplay")
+        # Add the OMERO.matlab toolbox the MATLABPATH
+        eng.addpath("PATH_TO_TOOLBOX/OMERO.matlab-xxx")
+        # Add the frap function to the MATLABPATH.
+        # For convenience this could
+        # be placed in the OMERO.matlab toolbox folder
+        eng.addpath("PATH_TO_FRAP")
+        eng.frap(conn.getEventContext().sessionUuid, dataset_id, nargout=0)
+        eng.quit()
+        client.setOutput("Message", rstring("frap script completed"))
+
+    finally:
+        client.closeSession()
+
+The MATLAB frap method
+^^^^^^^^^^^^^^^^^^^^^^
 ::
 
-    function performProjection(iceConfig, username, password, pixelsId, zSection, method)
+    function T = frap(sessionId, datasetId)
 
-    omerojavaService = createOmeroJavaService(iceConfig, username, password);
-    pixels = getPixels(omerojavaService, pixelsId);
-    stack = getPlaneStack(omerojavaService, pixelsId, zSection);
-    projectedImage = ProjectionOnStack(stack, method);
+    p = inputParser;
+    p.addRequired('sessionId',@(x) isscalar(x));
+    p.addRequired('datasetId',@(x) isscalar(x));
 
-::
+    client = loadOmero();
+    client.enableKeepAlive(60);
+    % Join an OMERO session
+    session = client.joinSession(sessionId);
+    % Initiliaze the service used to load the Regions of Interest (ROI)
+    service = session.getRoiService();
 
-    function [resultImage] = ProjectionOnStack(imageStack,type)
+    % Retrieve the Dataset with the Images
+    dataset = getDatasets(session, datasetId, true);
+    images = toMatlabList(dataset.linkedImageList);
 
-    [zSections, X, Y] = size(imageStack);
+    % Iterate through the images
 
-    if(strcmp(type,'mean') || strcmp(type, 'sum'))
-        resultImage = squeeze(sum(imageStack));
-        if(strcmp(type,'mean'))
-            resultImage = resultImage./zSections;
+    for i = 1 : numel(images)
+        image = images(i);
+        imageId = image.getId().getValue();
+        pixels = image.getPrimaryPixels();
+        sizeT = pixels.getSizeT().getValue(); % The number of timepoints
+
+        % Load the ROIs linked to the Image. Only keep the Ellipses
+        roiResult = service.findByImage(imageId, []);
+        rois = roiResult.rois;
+        if rois.size == 0
+            continue;
         end
-    end
-    if(strcmp(type,'max'))
-        resultImage = squeeze(max(imageStack,[],1));
+        toAnalyse = java.util.ArrayList;
+        for thisROI  = 1:rois.size
+            roi = rois.get(thisROI-1);
+            for ns = 1:roi.sizeOfShapes
+                shape = roi.getShape(ns-1);
+                if (isa(shape, 'omero.model.Ellipse'))
+                    toAnalyse.add(java.lang.Long(shape.getId().getValue()));
+                end
+            end
+        end
+
+        % We analyse the first z and the first channel
+        keys = strings(1, sizeT);
+        values = strings(1, sizeT);
+        means = zeros(1, sizeT);
+        for t = 0:sizeT-1
+            % OMERO index starts at 0
+            stats = service.getShapeStatsRestricted(toAnalyse, 0, t, [0]);
+            calculated = stats(1,1);
+            mean = calculated.mean(1,1);
+            index = t+1;
+            keys(1, index) = num2str(t);
+            values(1, index) = num2str(mean);
+            means(1, index) = mean;
+        end
+        % create a map annotation and link it to the Image
+        mapAnnotation = writeMapAnnotation(session, cellstr(keys), cellstr(values), 'namespace', 'demo.simple_frap_data');
+        linkAnnotation(session, mapAnnotation, 'image', imageId);
+
+        % Create a CSV
+        headers = 'Image_name,ImageID,Timepoint,Mean';
+        tmpName = [tempname,'.csv'];
+        [filepath,imageName,ext] = fileparts(tmpName);
+        f = fullfile(filepath, 'results_frap.csv');
+        fileID = fopen(f,'w');
+        fprintf(fileID,'%s\n',headers);
+        for j = 1 : numel(keys)
+            row = strcat(char(imageName), ',', num2str(imageId), ',', keys(1, j), ',', values(1, j));
+            fprintf(fileID,'%s\n',row);
+        end
+        fclose(fileID);
+        % Create a file annotation
+        fileAnnotation = writeFileAnnotation(session, f, 'mimetype', 'text/csv', 'namespace', 'training.demo');
+        linkAnnotation(session, fileAnnotation, 'image', imageId);
+
+        % Plot the result
+        time = 1:sizeT;
+        fig = plot(means);
+        xlabel('Timepoint'), ylabel('Values');
+        % Save the plot as png
+        name = strcat(char(image.getName().getValue()),'_FRAP_plot.png');
+        saveas(fig,name);
+        % Upload the Image as an attachment
+        fileAnnotation = writeFileAnnotation(session, name);
+        linkAnnotation(session, fileAnnotation, 'image', imageId);
+        % Delete the local file
+        delete(name)
+    
     end
