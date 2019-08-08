@@ -8,8 +8,8 @@ Installing MATLAB Engine API
 ----------------------------
 
 To install the MATLAB Engine API for Python follow the
-`installation guide <https://www.mathworks.com/help/matlab/matlab_external/install-the-matlab-engine-for-python.html>`_.
-It is possible to install it into a virtual environment.
+`installation guide <https://www.mathworks.com/help/matlab/matlab_external/install-the-matlab-engine-for-python.html>`_. You only need to run ``python setup.py install``, most likely as an administrator.
+It is possible to install the engine into a virtual environment.
 
 Example MATLAB scripts
 ----------------------
@@ -55,6 +55,19 @@ Using the OMERO interface inside MATLAB
 
 This example shows the MATLAB script being called, passed to the client
 object and accessing the same client instance as the script.
+
+You will need to have the OMERO.matlab toolbox installed on the server:
+
+  - download the toolbox from the `GitHub releases page <https://www.mathworks.com/help/matlab/matlab_external/install-the-matlab-engine-for-python.html>`_
+  - unzip
+  - enter the full path to the toolbox in the OMERO script below.
+
+Create a ``frap.m``, copy the MATLAB function below.
+Save the file to the server. Enter the full path to the directory
+containing the scipt in the example OMERO script below.
+
+Note that this script expects to run on timelapse images with at least one Ellipse
+not linked to a T-index.
 
 ::
 
@@ -108,8 +121,8 @@ object and accessing the same client instance as the script.
     finally:
         client.closeSession()
 
-The MATLAB frap method
-^^^^^^^^^^^^^^^^^^^^^^
+The MATLAB frap function
+^^^^^^^^^^^^^^^^^^^^^^^^
 ::
 
     function T = frap(sessionId, datasetId)
