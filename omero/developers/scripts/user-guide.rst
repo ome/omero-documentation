@@ -138,7 +138,7 @@ Download / Edit script
 The easiest way to get started is to take an existing script and edit it
 for your needs. An example created for the purpose of this tutorial can
 be found at
-:source:`Edit_Descriptions.py <examples/ScriptingService/ d.py>`.
+:source:`Edit_Descriptions.py <examples/ScriptingService/Edit_Descriptions.py>`.
 You should organize your scripts on your local machine in a way that
 makes sense to users, since your local file paths will be mimicked on
 the server and used to organize script menus in the clients (see screen-shot
