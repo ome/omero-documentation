@@ -60,8 +60,8 @@ convenience. Copying or moving a file of an importable file type into a
 named directory or nested subdirectory will initiate an automatic import
 of that file for that user. Multi-file formats will be imported after
 the last required file of a set is copied into the directory. Images and
-plates will be imported into the group the user was last logged into, with
-images placed into ``Orphaned images``.
+plates will be imported into the default group of the user, with
+images placed into ``Orphaned images`` unless the ``target`` option was configured (see below and :doc:`/users/cli/import-target`).
 
 Acquisition systems can then be configured to drop a user's images into
 a given DropBox.
@@ -152,7 +152,13 @@ different type of file, etc. Any value missing from the configuration
 (e.g. ``value="1;;2"``) will be replaced by the default value.
 
 One example alternative configuration would be to watch specific
-directories for specific users. In the example below two directories are
+directories for specific users.
+
+.. note::
+
+    Temporarily, there is a `problem <https://trello.com/c/7P6s5W6H/435-bug-dropbox-importusers>`_ which prevents specific DropBox configurations for specific users. You can still configure the DropBox in a way which gives all the users the same Advanced configs. To achieve this, do not specify the "importUsers" parameter and always just use the "amy" or just the "zak" part of the other parameters or concatenate the "zak" parameters with "amy" parameters in the examples below.
+
+In the example below two directories are
 monitored, one for user ``amy`` and one for ``zak``:
 
 ::
@@ -356,7 +362,7 @@ Here's a full example of a configuration for two users:
     <property name="omero.fs.fileBatch"       value="10;10"/>
     <property name="omero.fs.throttleImport"  value="10;10"/>
     <property name="omero.fs.readers"         value="/home/amy/my_readers.txt;"/>
-    <property name="omero.fs.importArgs"      value="--report;--report --email zak@example.com"/>
+    <property name="omero.fs.importArgs"      value="-T \"regex:^.*/(?<Container1>.*?)\";--report --email zak@example.com"/>
 
 .. seealso:: 
 
