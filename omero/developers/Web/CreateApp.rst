@@ -14,26 +14,49 @@ All official OMERO applications can be installed from PyPI_.
 Getting set up
 --------------
 
-In order to deploy OMERO.web in a development or testing environment please 
+In order to deploy OMERO.web in a development or testing environment,
+you can use Docker as described below (recommended) or 
 follow the instructions under :doc:`Deployment`.
-
-You should make sure that you can access the webclient on
-your local machine before starting to develop your own code. Be sure to
-use the correct port number, e.g.
-
--  `http://localhost:4080/webclient/ <http://localhost:4080/webclient/>`_
-
-When you edit and save your app, Django will automatically detect this and you
-only need to refresh your browser to see the changes.
 
 If you want to make changes to the OMERO.web code itself, go to
 :doc:`/developers/Web/EditingOmeroWeb`.
 
-You can place your app anywhere on your :envvar:`PYTHONPATH`,
-as long as it can be imported by OMERO.web.
+Use the app template
+--------------------
+
+Go to `https://github.com/will-moore/omero-web-apps-examples <https://github.com/will-moore/omero-web-apps-examples>`_.
+Click 'Use this template' as `described here
+<https://help.github.com/en/articles/creating-a-repository-from-a-template>`_.
+
+Choose a name for your new app, for example ``omero-demo-webapp``.
+Go to the directory where you want your app to live and clone it:
+
+::
+
+    $ cd /path/to/dir/
+    $ git clone https://github.com/will-moore/omero-demo-webapp
+
+You can now use `omero-web-docker <https://github.com/ome/omero-web-docker/>`_
+to run this. Here we add ``minimal_webapp`` to the installed apps and map the
+directory to the ``site-packages`` directory in the Docker instance.
+We also choose the OMERO server we want to connect to.
+You need to edit the ``demo.openmicroscopy.org`` and ``/path/to/dir/`` in the
+following command:
+
+::
+
+    $ docker run -it -e OMEROHOST=demo.openmicroscopy.org -p 4080:4080 -e CONFIG_omero_web_apps='["minimal_webapp"]' -v /path/to/dir/omero-demo-webapp/minimal-webapp/minimal_webapp:/opt/omero/web/venv/lib/python2.7/site-packages/minimal_webapp openmicroscopy/omero-web-standalone
+
+This will run Docker interactively in the terminal.
+Now go to `http://localhost:4080/minimal_webapp/ <http://localhost:4080/minimal_webapp/>`_.
+You should be redirected to the login screen and then back to the ``minimal_webapp``
+page which will display your Name and list your Projects.
 
 Creating an app
 ---------------
+
+You can place your app anywhere on your :envvar:`PYTHONPATH`,
+as long as it can be imported by OMERO.web.
 
 We suggest you use `GitHub <https://github.com/>`_ (as we do) since it is much easier for us to
 help you with any problems you have if we can see your code. The steps below

@@ -5,8 +5,27 @@ Getting set up
 --------------
 
 You will need to have an OMERO server running that you can connect to. This
-will typically be on your own machine, although you can also connect to an
-external OMERO server. You can add the server to the
+could be on your own machine or you can connect to an
+external OMERO server.
+
+Using Docker
+------------
+
+If you are not working on the OMERO.web code itself, you can use
+`omero-web-docker <https://github.com/ome/omero-web-docker/>`_
+to run OMERO.web. This allows you to develop your own OMERO.web
+app without needing to install OMERO.web on your development machine.
+
+If you are using this option, you can go directly to the
+:doc:`/developers/Web/CreateApp` page which describes this process.
+
+Installing OMERO.web
+--------------------
+
+You will need to follow the install instructions for OMERO.web,
+either as a standalone install, or as part of the OMERO.server install.
+
+If you want to connect to a remote server, you can add the server to the
 :property:`omero.web.server_list` and choose that server when you log in.
 You should enable :property:`omero.web.debug` and start a lightweight
 development Web server on your local machine.
