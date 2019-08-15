@@ -21,7 +21,7 @@ Most of the points below are implemented in the example :source:`Edit_Descriptio
 Script naming and file path
 ---------------------------
 
--  Script Name should be in the form 'Script\_Name.py'. The OMERO.web and Insight
+-  Script Name should be in the form 'Script\_Name.py'. The OMERO.web and OMERO.insight
    clients will replace underscores with spaces in the script selection menu.
 -  File paths - The clients will use the parent folder to build a
    scripts menu, capitalising and removing underscores. For example, a script
@@ -39,7 +39,7 @@ Parameters
 -  Parameter Names should be in the form 'Parameter\_Name'.
    Underscores will be replaced by spaces in the UI generated in
    the clients.
--  Where applicable, Parameters should be supplied with a list of
+-  Where applicable, parameters should be supplied with a list of
    options. For example:
 
    ::
@@ -55,7 +55,7 @@ Parameters
 
        scripts.String("Folder_Name", description="Name of folder to store images", default='Batch_Image_Export'),
 
--  Where applicable, Parameters should have min and max values, E.g:
+-  Where applicable, parameters should have min and max values, e.g.:
 
    ::
 
@@ -66,13 +66,13 @@ Parameter grouping / ordering
 
 Parameters are not ordered by default. They can be ordered and grouped
 by adding a "grouping" attribute, which is a string, where 'groups' are
-separated by a '.' E.g. "01.A". Parameters will be ordered by the
+separated by a '.' e.g. "01.A". Parameters will be ordered by the
 lexographic sorting of this string and groups indicated in the UI. In
 most cases this will simply be a common indentation of parameters in the
 same group. In addition, if the 'parent' parameter of a group is a
 boolean, then un-checking the check-box in the UI will disable the child
 parameters. For example a UI generated from the code below will have a
-'Show Scalebar' option. If this is un-checked, then the Size and Colour
+'Show Scalebar' option. If this is un-checked, then the 'Size' and 'Colour'
 parameters will be disabled and will not be passed to the script.
 
 ::
@@ -88,7 +88,7 @@ Both OMERO.insight and OMERO.web recognize and populate a pair of
 fields named 'Data\_Type' (string) and 'IDs' (Long list) with the objects 
 currently selected in the client UI when the script is launched. You should 
 specify the 'Data\_Type' options that your script should accept.
-E.g.
+For example:
 
 ::
 
@@ -110,7 +110,7 @@ Script outputs
 
        client.setOutput("Message", rstring("Script generated new Image"))
 
--  Scripts that generate an Image should return the ImageI object.
+-  Scripts that generate an Image should return the omero.model.ImageI object.
    The clients will provide a link to view the Image. The key that is used
    ("Image" in this example) is not important for this to work, but
    'image' should be an omero.model.ImageI object.
@@ -123,7 +123,7 @@ Script outputs
    return these objects. The clients will give users the option of
    downloading the File, and may also allow viewing of the file if it is
    of a suitable type. This should be set as the mimetype of the File
-   Annotation (e.g. 'plain/text', 'image/jpeg' etc.). In this example,
+   Annotation (e.g. 'plain/text', 'image/jpeg', etc.). In this example,
    fileAnnotation should be an omero.model.FileAnnotationI object, but
    could also be an omero.model.OriginalFileI object.
 
@@ -136,7 +136,7 @@ More tips
 
 -  Use the 'unwrap()' function from omero.rtypes to unwrap rtypes from
    the script parameters since this function will iteratively unwrap
-   lists, maps etc.
+   lists, maps, etc..
 
    ::
 
