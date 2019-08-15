@@ -156,7 +156,7 @@ directories for specific users.
 
 .. note::
 
-    Temporarily, there is a `problem <https://trello.com/c/7P6s5W6H/435-bug-dropbox-importusers>`_ which prevents specific DropBox configurations for specific users. You can still configure the DropBox in a way which gives all the users the same Advanced configs. To achieve this, do not specify the "importUsers" parameter and always just use the "amy" or just the "zak" part of the other parameters or concatenate the "zak" parameters with "amy" parameters in the examples below.
+    Temporarily, the "importUsers" parameter is disabled, because of a bug. You can still configure the DropBox in a way which gives all the users the same Advanced configs. To achieve this, do not specify the "importUsers" parameter and always just use the "amy" or just the "zak" part of the other parameters or concatenate the "zak" parameters with "amy" parameters in the examples below.
 
 In the example below two directories are
 monitored, one for user ``amy`` and one for ``zak``:
@@ -189,7 +189,7 @@ Each property takes the form of a single item or a semi-colon separated
 list of items. Where the item is a list, values within that list should
 be comma separated.
 
--   importUsers
+-   importUsers (temporarily disabled)
 
     The importUsers is either ``default`` or a list of OMERO user names. In the
     case of the value being ``default``, the same configuration is applied to
