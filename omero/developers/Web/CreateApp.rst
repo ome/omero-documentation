@@ -53,7 +53,12 @@ following commands:
 ::
 
     $ host=demo.openmicroscopy.org
-    $ docker run -it -e OMEROHOST=$host -p 4080:4080 -e CONFIG_omero_web_apps='["minimal_webapp"]' -v /path/to/dir/omero-demo-webapps/minimal-webapp/minimal_webapp:/opt/omero/web/venv/lib/python2.7/site-packages/minimal_webapp openmicroscopy/omero-web-standalone
+    $ pwd=$(pwd)
+    $ echo "config append omero.web.apps '\"minimal_webapp\"'" > config.omero
+    $ appdir=/Users/willadmin/Desktop/WEB-APP-EXAMPLES/omero-web-apps-examples/minimal-webapp
+    $ sp=/opt/omero/web/venv/lib/python2.7/site-packages
+    $ docker run -it -e OMEROHOST=demo.openmicroscopy.org -p 8000:4080 -v $appdir/minimal_webapp:$sp/minimal_webapp -v $pwd/config.omero:/opt/omero/web/config/config.omero openmicroscopy/omero-web-standalone
+
 
 This will run Docker in the foreground, showing the output in your terminal and allowing you to
 kill the container with Ctrl-C. You should see the following lines in the output, indicating
