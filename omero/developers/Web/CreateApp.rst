@@ -17,24 +17,16 @@ follow the install instructions under :doc:`Deployment`.
 If you want to make changes to the OMERO.web code itself, go to
 :doc:`/developers/Web/EditingOmeroWeb`.
 
-Create an app from the template example
----------------------------------------
+Clone the examples repository
+-----------------------------
 
-To get started quickly, we are going to create an app from a template repository
+To get started quickly, we are going to use a repository
 that contains several example OMERO.web apps.
-
-Go to the template repository
-`omero-web-apps-examples <https://github.com/will-moore/omero-web-apps-examples>`_.
-Click 'Use this template' as `described here
-<https://help.github.com/en/articles/creating-a-repository-from-a-template>`_
-and choose a name for your new repo, for example ``omero-demo-webapps``.
-
-Go to the directory where you want your app to live and clone it:
 
 ::
 
     $ cd /path/to/dir/
-    $ git clone https://github.com/<username>/omero-demo-webapps
+    $ git clone https://github.com/will-moore/omero-web-apps-examples
 
 Run your app with OMERO.web in a Docker container
 -------------------------------------------------
@@ -42,23 +34,28 @@ Run your app with OMERO.web in a Docker container
 We will run the simplest example app from the repo. This is called
 ``minimal_webapp``.
 
-You can now use `omero-web-docker <https://github.com/ome/omero-web-docker/>`_
+You can use `omero-web-docker <https://github.com/ome/omero-web-docker/>`_
 to run the app. Here we add ``minimal_webapp`` to the installed apps and map the
-directory to the ``site-packages`` directory in the Docker instance so that our
+app directory to the ``site-packages`` directory in the Docker instance so that our
 ``minimal_webapp`` module can be imported.
 We also choose the OMERO server we want to connect to.
 You need to edit the ``demo.openmicroscopy.org`` and ``/path/to/dir/`` in the
-following commands:
+following variables:
 
 ::
 
+    # Set some variables
     $ host=demo.openmicroscopy.org
-    $ pwd=$(pwd)
-    $ echo "config append omero.web.apps '\"minimal_webapp\"'" > config.omero
-    $ appdir=/Users/willadmin/Desktop/WEB-APP-EXAMPLES/omero-web-apps-examples/minimal-webapp
-    $ sp=/opt/omero/web/venv/lib/python2.7/site-packages
-    $ docker run -it -e OMEROHOST=demo.openmicroscopy.org -p 8000:4080 -v $appdir/minimal_webapp:$sp/minimal_webapp -v $pwd/config.omero:/opt/omero/web/config/config.omero openmicroscopy/omero-web-standalone
+    $ appdir=/path/to/dir/omero-web-apps-examples/minimal-webapp/minimal_webapp
+    $ docker_appdir=/opt/omero/web/venv/lib/python2.7/site-packages/minimal_webapp
+    $ config=$(pwd)/config.omero
+    $ docker_config=/opt/omero/web/config/config.omero
 
+    # Create a config file to add "minimal_webapp" to omero.web.apps
+    $ echo "config append omero.web.apps '\"minimal_webapp\"'" > $config
+
+    # Run docker container
+    $ docker run -it -e OMEROHOST=$host -p 4080:4080 -v $appdir:$docker_appdir -v $config:$docker_config openmicroscopy/omero-web-standalone
 
 This will run Docker in the foreground, showing the output in your terminal and allowing you to
 kill the container with Ctrl-C. You should see the following lines in the output, indicating
@@ -97,7 +94,7 @@ be added to the ``sys.path``.
     /absolute-path/to-your/Virtual/<env_name>/bin/python
 
     # Create a path configuration file .pth in site-packages
-    $ echo /path/to/dir/omero-demo-webapps/minimal-webapp >> /absolute-path/to-your/Virtual/<env_name>/lib/python2.7/site-packages/minimal_webapp.pth
+    $ echo /path/to/dir/omero-web-apps-examples/minimal-webapp >> /absolute-path/to-your/Virtual/<env_name>/lib/python2.7/site-packages/minimal_webapp.pth
 
 You also need to add your app to the :property:`omero.web.apps` setting:
 
@@ -107,23 +104,45 @@ You also need to add your app to the :property:`omero.web.apps` setting:
 
 ::
 
-    $ bin/omero config append omero.web.apps '"<appname>"'
+    $ bin/omero config append omero.web.apps '"minimal_webapp"'
 
 
-Exploring your app
-------------------
+Exploring the app
+-----------------
 
-The ``minimal_wepp app`` code is well documented to explain
+The ``minimal_webapp`` code is well documented to explain
 how the app is working.
 Briefly, the app supports a single URL defined in
-``minimal_webapp/urls.py`` which maps to the ``index`` fuction
+``minimal_webapp/urls.py`` which maps to the ``index`` function
 within ``minimal_webapp/views.py``. This uses the connection to
 OMERO, ``conn`` to load the current user's name and passes this
 to the ``index.html`` template to render the page.
 
 This page also includes the static ``app.js`` and ``app.css`` files.
-JavaScript is used to load Projects from the JSON API and
+JavaScript is used to load Projects from the :doc:`/developers/json-api` and
 display them on the page.
+
+Create an app from the template example
+---------------------------------------
+
+If you want to create your own app, you can use the example
+as a template.
+
+Go to the template repository
+`omero-web-apps-examples <https://github.com/will-moore/omero-web-apps-examples>`_.
+Click 'Use this template' as `described here
+<https://help.github.com/en/articles/creating-a-repository-from-a-template>`_
+and choose a name for your new repo, for example ``my_app``.
+
+Go to the directory where you want your app to live and clone it.
+Then run as above using a different ``appdir`` variable:
+
+::
+
+    $ cd /path/to/dir/
+    $ git clone https://github.com/<username>/my_app
+    $ appdir=/path/to/dir/my_app/minimal-webapp/minimal_webapp
+
 
 App settings
 ------------
