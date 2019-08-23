@@ -65,6 +65,7 @@ that OMERO.web is starting and the static files from your app are being included
 
     ...
     Starting OMERO.web
+    ...
     Copying '/opt/omero/web/venv/lib/python2.7/site-packages/minimal_webapp/static/minimal_webapp/app.css'
     Copying '/opt/omero/web/venv/lib/python2.7/site-packages/minimal_webapp/static/minimal_webapp/app.js'
     ...
@@ -135,42 +136,46 @@ Click 'Use this template' as `described here
 and choose a name for your new repo, for example ``my_app``.
 
 Go to the directory where you want your app to live and clone it.
-Then run as above using a different ``appdir`` variable:
+Then run as above with Docker or locally-installed OMERO.web, making sure
+that your app can be imported as before.
 
 ::
 
     $ cd /path/to/dir/
     $ git clone https://github.com/<username>/my_app
+
+    # To run with Docker, update this path
     $ appdir=/path/to/dir/my_app/minimal-webapp/minimal_webapp
+    # Then run as above...
 
 
 App settings
 ------------
 
 You can add settings to your app that allow configuration via the command line
-in the same way as for the base OMERO.web.
-The list of ``CUSTOM_SETTINGS_MAPPINGS`` in
-:sourcedir:`components/tools/OmeroWeb/omeroweb/settings.py` is a good
-source for examples of the different data types and parsers you can use.
+in the same way as for the base OMERO.web. The list of ``CUSTOM_SETTINGS_MAPPINGS`` in
+`settings.py <https://github.com/ome/omero-web/blob/master/omeroweb/settings.py>`_
+is a good source for examples of the different data types and parsers you can use.
 
-For example, if you want to create a user-defined setting organization-appname.foo,
+For example, if you want to create a user-defined setting appname.foo,
 that contains a dictionary of key-value pairs, you can add to
-``CUSTOM_SETTINGS_MAPPINGS`` in ``organization-appname/settings.py``::
+``CUSTOM_SETTINGS_MAPPINGS`` in ``appname/settings.py``::
 
     import json
     CUSTOM_SETTINGS_MAPPINGS = {
-        "omero.web.organization-appname.foo": ["FOO", '{"key": "val"}', json.loads]
+        "omero.web.appname.foo": ["FOO", '{"key": "val"}', json.loads]
     }
 
 From somewhere else in your app, you can then access the settings::
 
-    from organization-appname import settings
+    from appname import settings
 
     print settings.FOO
 
 Users can then configure this on the command line as follows::
 
-    $ bin/omero config set omero.web.organization-appname.foo '{"userkey": "userval"}'
+    $ bin/omero config set omero.web.appname.foo '{"userkey": "userval"}'
+
 
 Linking from Webclient
 ----------------------
