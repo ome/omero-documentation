@@ -211,8 +211,8 @@ Upgrade your database
 .. only:: point_release
 
     .. warning::
-        This section only concerns users upgrading from a |previousversion| or
-        earlier server. If upgrading from a |version| server, you do not need
+        This section only concerns users upgrading from a 5.3 or
+        earlier server. If upgrading from a 5.4 or 5.5 server, you do not need
         to upgrade the database.
 
 Ensure Unicode character encoding
@@ -272,7 +272,7 @@ to run.
     (1 row)
 
 
-If you are upgrading from a server earlier than |previousversion| then
+If you are upgrading from a server earlier than 5.3, then
 you must run the earlier upgrade scripts in sequence before the one
 above. There is no need to download and run the server from an
 intermediate major release but you must still study the upgrade
