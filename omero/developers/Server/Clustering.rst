@@ -47,6 +47,8 @@ redirected to it.
 
 .. seealso:: :doc:`/developers/Server/ScalingOmero`
 
+.. _read-only:
+
 Read-Only
 ---------
 
