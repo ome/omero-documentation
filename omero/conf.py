@@ -186,7 +186,8 @@ linkcheck_ignore += [r'http://localhost:\d+/?', 'http://localhost/',
     'https://testng.org/',
     # Those below may start working with Sphinx 2.1, see sphinx-doc #6381.
     'https://www.cloudflare.com/',
-    'https://www.zenoss.com/'
+    'https://www.zenoss.com/',
+    'https://forums.zeroc.com/*'
 ]
 
 exclude_patterns = ['sysadmins/unix/walkthrough/requirements*',
