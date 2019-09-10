@@ -69,8 +69,7 @@ Frequent backups taken while the server is still running are usually
 sufficient but you should be aware that they may not be consistent
 snapshots. The **safest** course of action is to perform
 backups during server downtime when possible, especially if you think you
-may need the backup. An alternative would be to restart the server so as
-to be in :ref:`read-only` mode for the duration of the backup process.
+may need the backup.
 
 You need to back up *(3)* only before you make changes. You can copy it into 
 ``/OMERO/backup`` to ensure it is kept safe::
