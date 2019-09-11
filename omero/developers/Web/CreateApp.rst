@@ -25,8 +25,7 @@ that contains several example OMERO.web apps.
 
 ::
 
-    $ cd /path/to/dir/
-    $ git clone https://github.com/will-moore/omero-web-apps-examples
+    $ git clone git@github.com:ome/omero-web-apps-examples.git
 
 Run your app with OMERO.web in a Docker container
 -------------------------------------------------
@@ -36,25 +35,30 @@ We will run the simplest example app from the repo. This is called
 
 You can use `omero-web-docker <https://github.com/ome/omero-web-docker/>`_
 to run the app. Here we add ``minimal_webapp`` to the installed apps and map the
-app directory to the ``site-packages`` directory in the Docker instance so that our
-``minimal_webapp`` module can be imported.
-We also choose the OMERO server we want to connect to.
-You need to edit the ``demo.openmicroscopy.org`` and ``/path/to/dir/`` in the
-following variables:
+app directory to the ``site-packages`` directory in the Docker instance so that
+python can import our ``minimal_webapp`` module.
 
 ::
 
-    # Set some variables
+    # You need to be in the project directory for this to work.
+    # cd omero-web-apps-examples/
+
+    # The OMERO server we want to connect to.
     $ host=demo.openmicroscopy.org
-    $ appdir=/path/to/dir/omero-web-apps-examples/minimal-webapp/minimal_webapp
+
+    # Path to the python module for the app.
+    $ appdir=$(pwd)/minimal-webapp/minimal_webapp
+
+    # Location within Docker instance we want to link the app, so it can be imported.
     $ docker_appdir=/opt/omero/web/venv/lib/python2.7/site-packages/minimal_webapp
+
+    # This example config file installs "minimal_webapp". See the file for more details.
     $ config=$(pwd)/config.omero
+
+    # Location within Docker instance we want to mount the config.
     $ docker_config=/opt/omero/web/config/config.omero
 
-    # Create a config file to add "minimal_webapp" to omero.web.apps
-    $ echo "config append omero.web.apps '\"minimal_webapp\"'" > $config
-
-    # Run docker container
+    # Run docker container.
     $ docker run -it -e OMEROHOST=$host -p 4080:4080 -v $appdir:$docker_appdir -v $config:$docker_config openmicroscopy/omero-web-standalone
 
 This will run Docker in the foreground, showing the output in your terminal and allowing you to
@@ -141,11 +145,9 @@ that your app can be imported as before.
 
 ::
 
-    $ cd /path/to/dir/
     $ git clone https://github.com/<username>/my_app
+    $ cd my_app
 
-    # To run with Docker, update this path
-    $ appdir=/path/to/dir/my_app/minimal-webapp/minimal_webapp
     # Then run as above...
 
 
