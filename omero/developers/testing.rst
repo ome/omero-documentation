@@ -339,7 +339,7 @@ To make use of the more advanced options available in `pytest` that are not
 accessible using :program:`setup.py test`, the :program:`py.test` script can
 be used directly. To use this :envvar:`PYTHONPATH` must contain the path to
 the OMERO Python libraries, see |BlitzGateway| as well as the  path to the
-:sourcedir:`OMERO Python test library <components/tools/OmeroPy/src/omero/testlib/>`.
+`OMERO Python test library <https://github.com/ome/omero-py/tree/master/src/omero/testlib/>`_.
 Alternatively, the `pytest` plugin :pypi:`pytest-pythonpath` can be used to
 add paths to :envvar:`PYTHONPATH` specifically for `pytest`.
 
@@ -447,13 +447,18 @@ To write and run Python tests you first need to install `pytest`:
 
 For more information on writing tests in general see `<https://pytest.org/>`_.
 
-Similar to the OmeroJava tests, the tests under
+Unit tests can be found in various repositories such as
+`omero-py <https://github.com/ome/omero-py/tree/master/test/unit>`_,
+`omero-web <https://github.com/ome/omero-web/tree/master/test/unit>`_ and
+`omero-dropbox <https://github.com/ome/omero-dropbox/tree/master/test/unit>`_.
+
+Integration tests which require OMERO.server to run are found in the
+``openmicroscopy`` repository. See:
 :sourcedir:`components/tools/OmeroPy/test`,
-:sourcedir:`components/tools/OmeroFS/test` and
-:sourcedir:`components/tools/OmeroWeb/test` will be the starting point
-for most Python-client developers coming to OMERO. Integration tests should
-be placed under the :file:`integration` subfolders. The file names must begin
-with `test_` for the tests to be found by `pytest`.
+:sourcedir:`components/tools/OmeroWeb/test` and
+:sourcedir:`components/tools/OmeroFS/test`.
+
+The file names must begin with `test_` for the tests to be found by `pytest`.
 
 ::
 
