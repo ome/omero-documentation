@@ -339,7 +339,7 @@ To make use of the more advanced options available in `pytest` that are not
 accessible using :program:`setup.py test`, the :program:`py.test` script can
 be used directly. To use this :envvar:`PYTHONPATH` must contain the path to
 the OMERO Python libraries, see |BlitzGateway| as well as the  path to the
-:sourcedir:`OMERO Python test library <components/tools/OmeroPy/src/omero/testlib/>`.
+`OMERO Python test library <https://github.com/ome/omero-py/blob/master/src/omero/testlib/__init__.py>`_.
 Alternatively, the `pytest` plugin :pypi:`pytest-pythonpath` can be used to
 add paths to :envvar:`PYTHONPATH` specifically for `pytest`.
 
@@ -511,7 +511,7 @@ There is one custom marker defined:
 Using the Python test library
 """""""""""""""""""""""""""""
 
-The :source:`OMERO Python test library <components/tools/OmeroPy/src/omero/testlib/__init__.py>`
+The `OMERO Python test library <https://github.com/ome/omero-py/blob/master/src/omero/testlib/__init__.py>`_
 defines an abstract ``ITest`` class that implements the connection set up as
 well as many methods shared amongst all Python integration tests.
 
@@ -574,7 +574,7 @@ Images can be imported using the ``ITest.import_fake_file()`` method::
 Writing OMERO.web tests
 """""""""""""""""""""""
 
-For OMERO.web integration tests, the :source:`OMERO.web test library <components/tools/OmeroWeb/omeroweb/testlib/__init__.py>`
+For OMERO.web integration tests, the `OMERO.web test library <https://github.com/ome/omero-web/blob/master/omeroweb/testlib/__init__.py>`_
 defines an abstract ``IWebTest`` class that inherits from ``ITest`` and
 also implements Django clients at the class setup using the
 :djangodoc:`Django testing tools <topics/testing/tools>`.

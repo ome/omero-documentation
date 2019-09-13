@@ -5,7 +5,7 @@ This page contains info on how to write your own views.py code, including
 documentation on the :file:`webclient/views.py` and
 :file:`webgateway/views.py` code. Although we aim to provide some useful notes
 and examples here, you will find the best source of examples is
-:source:`the code itself <components/tools/OmeroWeb/omeroweb/webclient/views.py>`.
+`the code itself <https://github.com/ome/omero-web/blob/master/omeroweb/webclient/views.py>`_.
 
 @Decorators
 -----------
