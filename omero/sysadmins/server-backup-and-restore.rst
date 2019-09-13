@@ -63,9 +63,9 @@ OMERO.server has three main backup sources:
     (assumed to be :file:`/OMERO`)
 3.  OMERO.server configuration
 
-.. warning:: You must back up *(1)* and *(2)* regularly.
+.. warning:: You must back up *(1)* and *(2)* frequently.
 
-Regular backups taken while the server is still running are usually
+Frequent backups taken while the server is still running are usually
 sufficient but you should be aware that they may not be consistent
 snapshots. The **safest** course of action is to perform
 backups during server downtime when possible, especially if you think you
@@ -113,7 +113,7 @@ Other database backup configurations are outside the scope of this
 document but can be researched on the `PostgreSQL website <https://www.postgresql.org/docs/10/backup.html>`_
 *(Chapter 25. Backup and Restore)*.
 
-.. note:: Regular backups of your PostgreSQL database are crucial; you do not 
+.. note:: Frequent backups of your PostgreSQL database are crucial; you do not
     want to be in the position of trying to restore your server without one.
 
 .. note:: Consider OMERO database dumps to be sensitive and be
@@ -127,7 +127,7 @@ Backing up your binary data store
 To simplify backup locations we have, in this document, located all
 database and configuration backups under ``/OMERO``, your :doc:`binary data
 store <unix/server-binary-repository>`. The entire contents of ``/OMERO`` should be
-backed up regularly as this will, especially if this document's
+backed up frequently as this will, especially if this document's
 conventions are followed, contain all the relevant data to restore your
 OMERO.server installation in the unlikely event of a system failure,
 botched upgrade or user malice.
