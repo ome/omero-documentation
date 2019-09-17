@@ -605,13 +605,19 @@ First load the annotations, cf. above.
     int index = 0;
     
     OriginalFile of;
+    IQueryPrx svc = gateway.getQueryService(ctx);
+
     try (FileOutputStream stream = new FileOutputStream(file)) {
         while (j.hasNext()) {
             annotation = j.next();
             if (annotation instanceof FileAnnotation && index == 0) {
                 fa = new FileAnnotationData((FileAnnotation) annotation);
-                //The id of the original file
-                of = getOriginalFile(fa.getFileID());
+                //Load the original file
+                ParametersI param = new ParametersI();
+                param.map.put("id", omero.rtypes.rlong(fa.getFileID()));
+                of =  (OriginalFile) svc.findByQuery(
+                      "select p from OriginalFile as p " +
+                        "where p.id = :id", param);
                 store.setFileId(fa.getFileID());
                 int offset = 0;
                 long size = of.getSize().getValue();
@@ -632,6 +638,7 @@ First load the annotations, cf. above.
         store.close();
     }
     file.delete();
+
 
 .. _java_omero_tables_code_samples:
 
