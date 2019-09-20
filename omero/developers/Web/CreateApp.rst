@@ -22,6 +22,7 @@ Clone the examples repository
 
 To get started quickly, we are going to use a repository
 that contains several example OMERO.web apps.
+Clone the app to a location of your choice:
 
 ::
 
@@ -33,7 +34,7 @@ Run your app with OMERO.web in a Docker container
 We will run the simplest example app from the repo. This is called
 ``minimal_webapp``.
 
-You can use `omero-web-docker <https://github.com/ome/omero-web-docker/>`_
+The following walk-through uses `omero-web-docker <https://github.com/ome/omero-web-docker/>`_
 to run the app. Here we add ``minimal_webapp`` to the installed apps and map the
 app directory to the ``site-packages`` directory in the Docker instance so that
 python can import our ``minimal_webapp`` module.
@@ -59,7 +60,7 @@ python can import our ``minimal_webapp`` module.
     $ docker_config=/opt/omero/web/config/config.omero
 
     # Run docker container.
-    $ docker run -it -e OMEROHOST=$host -p 4080:4080 -v $appdir:$docker_appdir -v $config:$docker_config openmicroscopy/omero-web-standalone
+    $ docker run -it --rm -e OMEROHOST=$host -p 4080:4080 -v $appdir:$docker_appdir -v $config:$docker_config openmicroscopy/omero-web-standalone
 
 This will run Docker in the foreground, showing the output in your terminal and allowing you to
 kill the container with Ctrl-C. You should see the following lines in the output, indicating
@@ -68,11 +69,10 @@ that OMERO.web is starting and the static files from your app are being included
 ::
 
     ...
-    Starting OMERO.web
-    ...
     Copying '/opt/omero/web/venv/lib/python2.7/site-packages/minimal_webapp/static/minimal_webapp/app.css'
     Copying '/opt/omero/web/venv/lib/python2.7/site-packages/minimal_webapp/static/minimal_webapp/app.js'
     ...
+    Starting OMERO.web...
 
 Now go to `http://localhost:4080/minimal_webapp/ <http://localhost:4080/minimal_webapp/>`_
 in your browser.
