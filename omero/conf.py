@@ -122,6 +122,12 @@ omero_extlinks = {
     'matlab_sourcedir' : (omero_subs_github_root.format('omero-matlab', 'tree', 'v'+conf_autogen.version_matlab), ''),
     'insight_source' : (omero_subs_github_root.format('omero-insight', 'blob', 'v'+conf_autogen.version_insight), ''),
     'insight_sourcedir' : (omero_subs_github_root.format('omero-insight', 'tree', 'v'+conf_autogen.version_insight), ''),
+    'web_source' : (omero_subs_github_root.format('omero-web', 'blob', 'v'+conf_autogen.version_web), ''),
+    'web_sourcedir' : (omero_subs_github_root.format('omero-web', 'tree', 'v'+conf_autogen.version_web), ''),
+    'py_source' : (omero_subs_github_root.format('omero-py', 'blob', 'v'+conf_autogen.version_py), ''),
+    'py_sourcedir' : (omero_subs_github_root.format('omero-py', 'tree', 'v'+conf_autogen.version_py), ''),
+    'dropbox_source' : (omero_subs_github_root.format('omero-dropbox', 'blob', 'v'+conf_autogen.version_dropbox), ''),
+    'dropbox_sourcedir' : (omero_subs_github_root.format('omero-dropbox', 'tree', 'v'+conf_autogen.version_dropbox), ''),
     # API links
     'javadoc' : (downloads_root + '/latest/omero5.5/api/%s', ''),
     'javadoc_gateway_java' : (docs_root + '/omero-gateway/' + conf_autogen.version_gateway + '/javadoc/%s', ''),
