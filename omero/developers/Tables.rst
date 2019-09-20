@@ -381,7 +381,7 @@ measurement and retrieve its results:
 :source:`iroi.py <examples/OmeroTables/iroi.py>`
 
 For an example of production code that parses out such measurements,
-see `populate_roi.py <https://github.com/ome/omero-py/blob/master/src/omero/util/populate_roi.py>`_.
+see :py_source:`populate_roi.py <src/omero/util/populate_roi.py>`.
 
 The `IRoi` interface has been integrated into OMERO.insight, allowing for
 the visualization and export of OMERO.tables:

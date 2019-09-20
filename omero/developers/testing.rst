@@ -339,7 +339,7 @@ To make use of the more advanced options available in `pytest` that are not
 accessible using :program:`setup.py test`, the :program:`py.test` script can
 be used directly. To use this :envvar:`PYTHONPATH` must contain the path to
 the OMERO Python libraries, see |BlitzGateway| as well as the  path to the
-`OMERO Python test library <https://github.com/ome/omero-py/tree/master/src/omero/testlib/>`_.
+:py_sourcedir:`OMERO Python test library <src/omero/testlib>`.
 Alternatively, the `pytest` plugin :pypi:`pytest-pythonpath` can be used to
 add paths to :envvar:`PYTHONPATH` specifically for `pytest`.
 
@@ -448,9 +448,9 @@ To write and run Python tests you first need to install `pytest`:
 For more information on writing tests in general see `<https://pytest.org/>`_.
 
 Unit tests can be found in various repositories such as
-`omero-py <https://github.com/ome/omero-py/tree/master/test/unit>`_,
-`omero-web <https://github.com/ome/omero-web/tree/master/test/unit>`_ and
-`omero-dropbox <https://github.com/ome/omero-dropbox/tree/master/test/unit>`_.
+:py_sourcedir:`omero-py <test/unit>`,
+:web_sourcedir:`omero-web <test/unit>`, and
+:dropbox_sourcedir:`omero-dropbox <test/unit>`.
 
 Integration tests which require OMERO.server to run are found in the
 ``openmicroscopy`` repository. See:
