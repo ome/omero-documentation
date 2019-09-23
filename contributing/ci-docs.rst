@@ -129,7 +129,7 @@ The branch for the 5.x series of the OMERO documentation is develop.
 		of the OMERO 5.x documentation
 
 		#. |merge|
-		#. Pushes the branch to :omedoc_scc_branch:`develop/merge/daily`
+		#. Pushes the branch to :omedoc_scc_branch:`merge_ci`
 		#. |sphinxbuild|
 		#. |linkcheck|
 
@@ -149,7 +149,7 @@ The branch for the 5.x series of the OMERO documentation is develop.
 		This job is used to review the component auto-generation for the
 		develop branch of the OMERO documentation
 
-		#. Checks out :omedoc_scc_branch:`develop/merge/daily`
+		#. Checks out :omedoc_scc_branch:`merge_ci`
 		#. Downloads the merge OMERO.server and OMERO.clients
 		#. Runs the :file:`omero/autogen_docs` autogeneration script
 		#. Pushes the auto-generated changes to
