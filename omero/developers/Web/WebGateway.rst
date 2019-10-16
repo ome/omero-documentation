@@ -51,7 +51,7 @@ Image viewer
     
         URL: https://your_host/webgateway/img_detail/<imageid>/
 
-        Template tag: {% url 'webgateway.views.full_viewer' image_id %}
+        Template tag: {% url 'webgateway_full_viewer' image_id %}
 
 
 
@@ -64,7 +64,7 @@ Images
 
        URL: https://your_host/webgateway/render_image/<imageid>/<z>/<t>/
 
-       Template tag: {% url 'webgateway.views.render_image' image_id theZ theT %}
+       Template tag: {% url 'webgateway_render_image' image_id theZ theT %}
        
    Omitting Z and T will use the default values:
 
@@ -73,7 +73,7 @@ Images
 
        URL: https://your_host/webgateway/render_image/<imageid>/
 
-       Template tag: {% url 'webgateway.views.render_image' image_id %}
+       Template tag: {% url 'webgateway_render_image' image_id %}
 
 -  Makes a jpeg laying out each active channel in a separate panel
 
@@ -81,7 +81,7 @@ Images
 
        URL: https://your_host/webgateway/render_split_channel/<imageId>/<z>/<t>/
 
-       Template tag: {% url 'webgateway.views.render_split_channel' image_id theZ theT %}
+       Template tag: {% url 'webgateway_render_split_channel' image_id theZ theT %}
 
 -  Plots the intensity of a row of pixels in an image. w is line width
 
@@ -89,7 +89,7 @@ Images
 
        URL: https://your_host/webgateway/render_row_plot/<imageId>/<z>/<t>/<y>/<w>
 
-       Template tag: {% url 'webgateway.views.render_row_plot' image_id theZ theT yPos width %}
+       Template tag: {% url 'webgateway_render_row_plot' image_id theZ theT yPos width %}
 
 -  Plots the intensity of a column of pixels in an image.
 
@@ -97,7 +97,7 @@ Images
 
        URL: https://your_host/webgateway/render_col_plot/<imageId>/<z>/<t>/<x>/<w>/
 
-       Template tag: {% url 'webgateway.views.render_col_plot' image_id theZ theT xPos width %}
+       Template tag: {% url 'webgateway_render_col_plot' image_id theZ theT xPos width %}
 
 -  Returns a jpeg of a thumbnail for an image. w and h are optional
    (default is 64). Specify just one to retain aspect ratio.
@@ -107,11 +107,11 @@ Images
 
        URL: https://your_host/webgateway/render_thumbnail/<imageId>/?z=10
 
-       Template tag: {% url 'webgateway.views.render_thumbnail' image_id %}?z=10    # default size, z=10
+       Template tag: {% url 'webgateway_render_thumbnail' image_id %}?z=10    # default size, z=10
 
        URL: https://your_host/webgateway/render_thumbnail/<imageId>/<w>/<h>
 
-       Template tag: {% url 'webgateway.views.render_thumbnail' image_id 100 %}     # size 100
+       Template tag: {% url 'webgateway_render_thumbnail' image_id 100 %}     # size 100
 
 
 Rendering settings
