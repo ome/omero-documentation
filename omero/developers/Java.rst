@@ -613,11 +613,7 @@ First load the annotations, cf. above.
             if (annotation instanceof FileAnnotation && index == 0) {
                 fa = new FileAnnotationData((FileAnnotation) annotation);
                 //Load the original file
-                ParametersI param = new ParametersI();
-                param.map.put("id", omero.rtypes.rlong(fa.getFileID()));
-                of =  (OriginalFile) svc.findByQuery(
-                      "select p from OriginalFile as p " +
-                        "where p.id = :id", param);
+                of = (OriginalFile) svc.get("OriginalFile", fa.getFileID());
                 store.setFileId(fa.getFileID());
                 int offset = 0;
                 long size = of.getSize().getValue();
