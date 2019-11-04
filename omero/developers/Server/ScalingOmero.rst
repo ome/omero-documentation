@@ -27,6 +27,8 @@ database, after ``max_connections`` invocations, all further attempts to
 connect to the server would fail with "too many connection" exceptions.
 Instead, OMERO uses a **connection pool** in front of Postgres, which
 manages many more simultaneous attempts to connect to the database.
+OMERO's connection pool size as determined by :property:`omero.db.poolsize`
+should be lower than ``max_connection``.
 
 With the default ``max_connection`` set to 64,
 it is possible to execute 500 queries simultaneously without database
