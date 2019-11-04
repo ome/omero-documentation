@@ -18,7 +18,7 @@ using Git_ and hosted on GitHub_ under the
 The Git repositories should be named as `ansible-role-<ROLENAME>`.
 
 Each directory layout should minimally follow the standard
-`Ansible role layout <https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#role-directory-structure>`_ including other files and folders for testing and
+:ansible_docs:`Ansible role layout <user_guide/playbooks_reuse_roles.html#role-directory-structure>` including other files and folders for testing and
 deployment. A typical role structure is shown below::
 
     defaults/           # Default variables
@@ -92,7 +92,7 @@ for examples of such files.
 
 The release of an Ansible role and its deployment to Galaxy release happens
 by triggering a role import in Galaxy using the
-`Travis integration <https://docs.ansible.com/ansible/latest/reference_appendices/galaxy.html#travis-integrations>`_
+:ansible_docs:`Travis integration <reference_appendices/galaxy.html#travis-integrations>`
 on each release tag.
 
 A PGP-signed tag of form `x.y.z` should be created for the released version
