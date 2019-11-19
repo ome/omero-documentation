@@ -5,7 +5,11 @@ import glob
 import os
 import re
 import sys
-from path import path
+try:
+    from omero_ext.path import path
+except ImportError:
+    # Python 2
+    from path import path
 from omero.cli import CLI
 from omero.install.config_parser import PropertyParser
 
