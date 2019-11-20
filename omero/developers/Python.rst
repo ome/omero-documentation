@@ -1,39 +1,21 @@
 OMERO Python language bindings
 ==============================
 
-:snapshot:`MOVIE: introduction to Blitz Gateway
-<movies/omero-4-3/mov/BlitzGatewayIntro-4.3.mov>`
+To access the OMERO.server Python API, you need to install the Python client
+libraries.
 
+From OMERO 5.6.0 release, the client library ``omero-py`` supports Python 3 and
+can be installed via ``pip``:
+
+    pip install omero-py
 
 In addition to the auto-generated Python libraries of the core |OmeroApi|,
-we have developed a more user-friendly Python module 'Blitz Gateway' that
+``omero-py`` includes a more user-friendly Python module 'Blitz Gateway' that
 facilitates several aspects of working with the Python API, such as
 connection handling, object graph traversal and lazy loading.
 
 This page gives you a large number of code samples to get you
 started. Then we describe a bit more about :doc:`PythonBlitzGateway`.
-
-The Python libraries are part of the server build and can be found under
-OMERO\_HOME/lib/python. These include the core omero.model objects and
-services as well as the Blitz Gateway code
-(at OMERO\_HOME/lib/python/omero/gateway/__init__.py).
-
-
-To use OmeroPy, you will need to download the libraries (e.g. as part of
-the server package) and setup your :envvar:`PYTHONPATH` to include them:
-
-.. parsed-literal::
-
-      export OMERO_PREFIX=~/Desktop/|OMEROserver|       # for example
-      export PYTHONPATH=$PYTHONPATH:$OMERO_PREFIX/lib/python
-
-.. |OMEROserver| replace:: OMERO.server-|release|-ice3x-byy
-
-
-You will also need Ice libraries as described in the 
-:doc:`/sysadmins/unix/server-installation` and an OMERO server to connect to,
-which must be the same major version, i.e. |version|.x.
-
 
 All the code examples below can be found at
 :sourcedir:`examples/Training/python`.
