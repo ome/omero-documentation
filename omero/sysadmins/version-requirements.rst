@@ -48,15 +48,19 @@ Operating systems
        - OMERO 5.4
        - OMERO 5.5
        - OMERO 5.6
+       - OMERO 6.0
      * - 6.x
        - |Deprecated|
+       - |Dropped|
        - |Dropped|
        - |Dropped|
      * - 7.x
        - |Recommended|
        - |Recommended|
+       - |Recommended|
        - |Dropped|
      * - 8.x
+       - |Upcoming|
        - |Upcoming|
        - |Upcoming|
        - |Recommended|
@@ -70,17 +74,26 @@ Operating systems
        - OMERO 5.4
        - OMERO 5.5
        - OMERO 5.6
+       - OMERO 6.0
      * - 14.04
        - |Supported|
        - |Supported|
+       - |Dropped|
        - |Dropped|
      * - 16.04
        - |Recommended|
        - |Recommended|
        - |Supported|
+       - |Dropped|
      * - 18.04
        - |Upcoming|
        - |Supported|
+       - |Recommended|
+       - |Supported|
+     * - 20.04
+       - |Upcoming|
+       - |Upcoming|
+       - |Upcoming|
        - |Recommended|
        
   * Only LTS versions are supported and tested. Non-LTS versions
@@ -98,11 +111,14 @@ Bitness
        - OMERO 5.4
        - OMERO 5.5
        - OMERO 5.6
+       - OMERO 6.0
      * - 32-bit
        - |Deprecated| for Ice and native code [client]
        - |Dropped|
        - |Dropped|
+       - |Dropped|
      * - 64-bit
+       - |Recommended|
        - |Recommended|
        - |Recommended|
        - |Recommended|
@@ -121,30 +137,42 @@ Components
        - OMERO 5.4
        - OMERO 5.5
        - OMERO 5.6
+       - OMERO 6.0
      * - 9.3
        - |Deprecated|
+       - |Dropped|
        - |Dropped|
        - |Dropped|
      * - 9.4
        - |Supported|
        - |Deprecated|
        - |Deprecated|
+       - |Dropped|
      * - 9.5
        - |Supported|
        - |Supported|
        - |Deprecated|
+       - |Dropped|
      * - 9.6
        - |Recommended|
        - |Supported|
+       - |Deprecated|
        - |Deprecated|
      * - 10
        - |Upcoming|
        - |Recommended|
        - |Supported|
+       - |Supported|
      * - 11
        - |Upcoming|
        - |Upcoming|
        - |Recommended|
+       - |Recommended|
+     * - 12
+       - |Upcoming|
+       - |Upcoming|
+       - |Upcoming|
+       - |Supported|
 
   * Rationale: Current releases available for all supported systems
     from upstream and for CentOS/RHEL officially via SCL (software
@@ -160,26 +188,43 @@ Components
          - OMERO.server 5.4
          - OMERO 5.5
          - OMERO 5.6
+         - OMERO 6.0
        * - 2.6
          - |Broken|
          - |Supported|
+         - |Dropped|
          - |Dropped|
          - |Dropped|
        * - 2.7
          - |Recommended|
          - |Recommended|
          - |Recommended|
-         - |Deprecated|
+         - |Dropped|
+         - |Dropped|
        * - 3.5
          - |Broken|
          - |Broken|
          - |Broken|
          - |Supported|
+         - |Deprecated|
        * - 3.6
          - |Broken|
          - |Broken|
          - |Broken|
          - |Recommended|
+         - |Supported|
+       * - 3.7
+         - |Broken|
+         - |Broken|
+         - |Broken|
+         - |Supported|
+         - |Recommended|
+       * - 3.8
+         - |Broken|
+         - |Broken|
+         - |Broken|
+         - |Upcoming|
+         - |Supported|
 
   * Rationale: 2.7 is provided by all systems except for CentOS/RHEL
     6.x, however it is available officially via SCL.
@@ -193,15 +238,19 @@ Components
          - OMERO 5.4
          - OMERO 5.5
          - OMERO 5.6
+         - OMERO 6.0
        * - 3.5
          - |Deprecated|
+         - |Dropped|
          - |Dropped|
          - |Dropped|
        * - 3.6
          - |Recommended|
          - |Recommended|
          - |Recommended|
+         - |Recommended|
        * - 3.7
+         - |Unsupported|
          - |Unsupported|
          - |Unsupported|
          - |Unsupported|
@@ -220,18 +269,32 @@ Components
          - OMERO 5.4
          - OMERO 5.5
          - OMERO 5.6
+         - OMERO 6.0
        * - 7
          - |Deprecated|
+         - |Dropped|
          - |Dropped|
          - |Dropped|
        * - 8
          - |Recommended|
          - |Recommended|
          - |Supported|
+         - |Deprecated|
        * - 11
          - |Unsupported|
          - |Supported|
          - |Recommended|
+         - |Supported|
+       * - 12
+         - |Unsupported|
+         - |Unsupported|
+         - |Supported|
+         - |Recommended|
+       * - 13
+         - |Unsupported|
+         - |Unsupported|
+         - |Supported|
+         - |Supported|
 
   * Rationale: For OMERO 5.4 deprecate Java 7 because security support ended
     in April 2015. MATLAB ships with Java 8 since R2017b.
@@ -341,11 +404,13 @@ General overview for `RHEL
       - OMERO 5.4
       - OMERO 5.5
       - OMERO 5.6
+      - OMERO 6.0
       - Details
     * - 6
       - from Nov 2010
       - to Nov 2020
       - |Deprecated|
+      - |Dropped|
       - |Dropped|
       - |Dropped|
       - `Reference <https://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
@@ -354,11 +419,13 @@ General overview for `RHEL
       - to June 2024
       - |Recommended|
       - |Recommended|
-      - |Dropped|
+      - |Recommended|
+      - |Deprecated|
       - `Reference <https://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
     * - 8
       - from May 2019
       - to May 2029
+      - |Upcoming|
       - |Upcoming|
       - |Upcoming|
       - |Recommended|
@@ -382,10 +449,12 @@ Linux (Ubuntu)
       - OMERO 5.4
       - OMERO 5.5
       - OMERO 5.6
+      - OMERO 6.0
     * - 14.04 LTS
       - from Apr 2014
       - to Apr 2019
       - |Supported|
+      - |Dropped|
       - |Dropped|
       - |Dropped|
     * - 16.04 LTS
@@ -394,11 +463,20 @@ Linux (Ubuntu)
       - |Recommended|
       - |Recommended|
       - |Supported|
+      - |Dropped|
     * - 18.04 LTS
       - from Apr 2018
       - to Apr 2028
       - |Upcoming|
       - |Supported|
+      - |Recommended|
+      - |Supported|
+    * - 20.04 LTS
+      - from Apr 2020
+      - to Apr 2030
+      - |Upcoming|
+      - |Upcoming|
+      - |Upcoming|
       - |Recommended|
 
 Only the LTS releases are supported due to resource limitations upon
