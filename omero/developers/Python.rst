@@ -10,7 +10,7 @@ can be installed via ``pip``:
     pip install omero-py
 
 In addition to the auto-generated Python libraries of the core |OmeroApi|,
-``omero-py`` includes a more user-friendly Python module 'Blitz Gateway' that
+``omero-py`` includes a more user-friendly Python module 'BlitzGateway' that
 facilitates several aspects of working with the Python API, such as
 connection handling, object graph traversal and lazy loading.
 
@@ -88,7 +88,7 @@ Connect to OMERO
 
     with BlitzGateway(USERNAME, PASSWORD, host=HOST, port=PORT, secure=True) as conn:
         for p in conn.getObjects('Project'):
-            print p.name
+            print(p.name)
         ...
     # conn.close() is automatically called
 
@@ -116,47 +116,47 @@ If nothing else is using the client object you could use ``with BlitzGateway(cli
     # can be changed by switching group in the OMERO.insight or OMERO.web clients. 
 
     user = conn.getUser()
-    print "Current user:"
-    print "   ID:", user.getId()
-    print "   Username:", user.getName()
-    print "   Full Name:", user.getFullName() 
+    print("Current user:")
+    print("   ID:", user.getId())
+    print("   Username:", user.getName())
+    print("   Full Name:", user.getFullName())
 
     # Check if you are an Administrator
-    print "   Is Admin:", conn.isAdmin()
+    print("   Is Admin:", conn.isAdmin())
     if not conn.isFullAdmin():
         # If 'Restricted Administrator' show privileges
-        print conn.getCurrentAdminPrivileges()
+        print(conn.getCurrentAdminPrivileges())
 
-    print "Member of:"
+    print("Member of:")
     for g in conn.getGroupsMemberOf():
-        print "   ID:", g.getName(), " Name:", g.getId()
+        print("   ID:", g.getName(), " Name:", g.getId())
     group = conn.getGroupFromContext()
-    print "Current group: ", group.getName() 
+    print("Current group: ", group.getName())
 
     # List the group owners and other members
     owners, members = group.groupSummary()
-    print "   Group owners:"
+    print("   Group owners:")
     for o in owners:
-        print "     ID: %s %s Name: %s" % (
-            o.getId(), o.getOmeName(), o.getFullName())
-        print "   Group members:"
+        print("     ID: %s %s Name: %s" % (
+            o.getId(), o.getOmeName(), o.getFullName()))
+        print("   Group members:")
     for m in members:
-        print "     ID: %s %s Name: %s" % (
-            m.getId(), m.getOmeName(), m.getFullName())
+        print("     ID: %s %s Name: %s" % (
+            m.getId(), m.getOmeName(), m.getFullName()))
 
-    print "Owner of:"
+    print("Owner of:")
     for g in conn.listOwnedGroups():
-        print "   ID: ", g.getName(), " Name:", g.getId()
+        print("   ID: ", g.getName(), " Name:", g.getId())
 
     # Added in OMERO 5.0
-    print "Admins:"
+    print("Admins:")
     for exp in conn.getAdministrators():
-        print "   ID: %s %s Name: %s" % (
-            exp.getId(), exp.getOmeName(), exp.getFullName())
+        print("   ID: %s %s Name: %s" % (
+            exp.getId(), exp.getOmeName(), exp.getFullName()))
 
     # The 'context' of our current session
     ctx = conn.getEventContext()
-    # print ctx     # for more info 
+    # print(ctx)     # for more info 
 
 -  **Close connection**
 
@@ -178,12 +178,12 @@ Read data
         Helper method to display info about OMERO objects.
         Not all objects will have a "name" or owner field.
         """
-        print """%s%s:%s  Name:"%s" (owner=%s)""" % (
+        print("""%s%s:%s  Name:"%s" (owner=%s)""" % (
             " " * indent,
             obj.OMERO_CLASS,
             obj.getId(),
             obj.getName(),
-            obj.getOwnerOmeName())
+            obj.getOwnerOmeName()))
 
 -  **List all Projects available to me, and their Datasets and Images**
 
@@ -210,7 +210,7 @@ Read data
 
     # We can use the 'orphaned' filter to find Datasets, Images
     # or Plates that are not in any parent container
-    print "\nList orphaned Datasets: \n", "=" * 50
+    print("\nList orphaned Datasets: \n", "=" * 50)
     datasets = conn.getObjects("Dataset", opts={'orphaned': True})
     for dataset in datasets:
         print_obj(dataset)
@@ -222,7 +222,7 @@ Read data
     # We can filter Images by their parent Dataset
     # We can also filter Datasets by 'project', Plates by 'screen',
     # Wells by 'plate'
-    print "\nImages in Dataset:", datasetId, "\n", "=" * 50
+    print("\nImages in Dataset:", datasetId, "\n", "=" * 50)
     for image in conn.getObjects('Image', opts={'dataset': datasetId}):
         print_obj(image)
 
@@ -232,19 +232,19 @@ Read data
 
     # Pixels and Channels will be loaded automatically as needed
     image = conn.getObject("Image", imageId)
-    print image.getName(), image.getDescription()
+    print(image.getName(), image.getDescription())
     # Retrieve information about an image.
-    print " X:", image.getSizeX()
-    print " Y:", image.getSizeY()
-    print " Z:", image.getSizeZ()
-    print " C:", image.getSizeC()
-    print " T:", image.getSizeT()
+    print(" X:", image.getSizeX())
+    print(" Y:", image.getSizeY())
+    print(" Z:", image.getSizeZ())
+    print(" C:", image.getSizeC())
+    print(" T:", image.getSizeT())
     # List Channels (loads the Rendering settings to get channel colors)
     for channel in image.getChannels():
-        print 'Channel:', channel.getLabel(),
-        print 'Color:', channel.getColor().getRGB()
-        print 'Lookup table:', channel.getLut()
-        print 'Is reverse intensity?', channel.isReverseIntensity()
+        print('Channel:', channel.getLabel())
+        print('Color:', channel.getColor().getRGB())
+        print('Lookup table:', channel.getLut())
+        print('Is reverse intensity?', channel.isReverseIntensity())
 
     # render the first timepoint, mid Z section
     z = image.getSizeZ() / 2
@@ -258,13 +258,13 @@ Read data
 ::
 
     size_x = image.getPixelSizeX()       # e.g. 0.132
-    print " Pixel Size X:", sizeX
+    print(" Pixel Size X:", sizeX)
     # Units support, new in OMERO 5.1.0
     size_x_obj = image.getPixelSizeX(units=True)
-    print " Pixel Size X:", size_x_obj.getValue(), "(%s)" % size_x_obj.getSymbol()
+    print(" Pixel Size X:", size_x_obj.getValue(), "(%s)" % size_x_obj.getSymbol())
     # To get the size with different units, e.g. Angstroms
     size_x_ang = image.getPixelSizeX(units="ANGSTROM")
-    print " Pixel Size X:", size_x_ang.getValue(), "(%s)" % size_x_ang.getSymbol()
+    print(" Pixel Size X:", size_x_ang.getValue(), "(%s)" % size_x_ang.getSymbol())
 
 -  **Retrieve Screening data**
 
@@ -281,16 +281,16 @@ Read data
 ::
 
     plate = conn.getObject("Plate", plateId)
-    print "\nNumber of fields:", plate.getNumberOfFields()
-    print "\nGrid size:", plate.getGridSize()
-    print "\nWells in Plate:", plate.getName()
+    print("\nNumber of fields:", plate.getNumberOfFields())
+    print("\nGrid size:", plate.getGridSize())
+    print("\nWells in Plate:", plate.getName())
     for well in plate.listChildren():
         index = well.countWellSample()
-        print "  Well: ", well.row, well.column, " Fields:", index
+        print("  Well: ", well.row, well.column, " Fields:", index)
         for index in xrange(0, index):
-            print "    Image: ", \
+            print("    Image: ", \
                 well.getImage(index).getName(),\
-                well.getImage(index).getId()
+                well.getImage(index).getId())
 
 
 Groups and permissions
@@ -301,7 +301,7 @@ Groups and permissions
 ::
 
     group = conn.getGroupFromContext()
-    print "Current group: ", group.getName()
+    print("Current group: ", group.getName())
 
 -  **Each group has defined Permissions set**
 
@@ -314,7 +314,7 @@ Groups and permissions
         'rwr---': 'READ-ONLY',
         'rwra--': 'READ-ANNOTATE',
         'rwrw--': 'READ-WRITE'}
-    print "Permissions: %s (%s)" % (permission_names[perm_string], perm_string)
+    print("Permissions: %s (%s)" % (permission_names[perm_string], perm_string))
 
 -  **By default, any query applies to ALL data that we can access in our
    Current group.**
@@ -327,13 +327,13 @@ Read-Annotate groups, this will include other users' data - see
 
     projects = conn.listProjects()      # may include other users' data
     for p in projects:
-        print p.getName(), "Owner: ", p.getDetails().getOwner().getFullName()
+        print(p.getName(), "Owner: ", p.getDetails().getOwner().getFullName())
 
 ::
 
     # Will return None if Image is not in current group
     image = conn.getObject("Image", imageId)
-    print "Image: ", image
+    print("Image: ", image)
 
 -  **In OMERO-4.4, we added 'cross-group' querying, use '-1'**
 
@@ -341,10 +341,10 @@ Read-Annotate groups, this will include other users' data - see
 
     conn.SERVICE_OPTS.setOmeroGroup('-1')
     image = conn.getObject("Image", imageId)     # Will query across all my groups
-    print "Image: ", image,
+    print("Image: ", image)
     if image is not None:
-        print "Group: ", image.getDetails().getGroup().getName(),
-        print image.getDetails().getGroup().getId()    # access groupId without loading group
+        print("Group: ", image.getDetails().getGroup().getName())
+        print(image.getDetails().getGroup().getId())    # access groupId without loading group
 
 -  **To query only a single group (not necessarily your 'current' group)**
 
@@ -355,7 +355,7 @@ Read-Annotate groups, this will include other users' data - see
     conn.SERVICE_OPTS.setOmeroGroup(group_id)
     projects = conn.listProjects()
     image = conn.getObject("Image", imageId)
-    print "Image: ", image,
+    print("Image: ", image)
 
 Raw data access
 ^^^^^^^^^^^^^^^
@@ -376,11 +376,11 @@ Raw data access
     z, t, c = 0, 0, 0                     # first plane of the image
     pixels = image.getPrimaryPixels()
     plane = pixels.getPlane(z, c, t)      # get a numpy array.
-    print "\nPlane at zct: ", z, c, t
-    print plane
-    print "shape: ", plane.shape
-    print "min:", plane.min(), " max:", plane.max(),\
-        "pixel type:", plane.dtype.name
+    print("\nPlane at zct: ", z, c, t)
+    print(plane)
+    print("shape: ", plane.shape)
+    print("min:", plane.min(), " max:", plane.max(),\
+        "pixel type:", plane.dtype.name)
 
 -  **Retrieve a given stack**
 
@@ -395,11 +395,11 @@ Raw data access
 
     # list of [ (0,0,0,(x,y,w,h)), (1,0,0,(x,y,w,h)), (2,0,0,(x,y,w,h))... ]
     zct_list = [(iz, c, t, tile) for iz in range(size_z)]
-    print "\nZ stack of tiles:"
+    print("\nZ stack of tiles:")
     planes = pixels.getTiles(zct_list)
     for i, p in enumerate(planes):
-        print "Tile:", zct_list[i], " min:", p.min(),\
-            " max:", p.max(), " sum:", p.sum()
+        print("Tile:", zct_list[i], " min:", p.min(),\
+            " max:", p.max(), " sum:", p.sum())
 
 -  **Retrieve a given hypercube**
 
@@ -410,10 +410,10 @@ Raw data access
         for c in range(size_c):          # all channels
             for t in range(size_t):      # all time-points
                 zct_list.append((z, c, t))
-    print "\nHyper stack of planes:"
+    print("\nHyper stack of planes:")
     planes = pixels.getPlanes(zct_list)
     for i, p in enumerate(planes):
-        print "plane zct:", zct_list[i], " min:", p.min(), " max:", p.max()
+        print("plane zct:", zct_list[i], " min:", p.min(), " max:", p.max())
 
 -  **Retrieve a histogram**
 
@@ -421,7 +421,7 @@ Raw data access
 
     # Get a 256 bin histogram for channel 0 and plane z=0/t=0:
     hist = image.getHistogram([0], 256, False, 0, 0)
-    print hist
+    print(hist)
 
 
 Write data
@@ -435,7 +435,7 @@ Write data
     dataset_obj.setName(rstring("New Dataset"))
     dataset_obj = conn.getUpdateService().saveAndReturnObject(dataset_obj)
     dataset_id = dataset_obj.getId().getValue()
-    print "New dataset, Id:", dataset_id
+    print("New dataset, Id:", dataset_id)
 
 -  **Link to Project**
 
@@ -476,17 +476,17 @@ Write data
 
 ::
 
-    print conn.countAnnotations('Project', [projectId])
+    print(conn.countAnnotations('Project', [projectId]))
 
 -  **List all annotations on an object. Get text from tags**
 
 ::
 
     for ann in project.listAnnotations():
-        print ann.getId(), ann.OMERO_TYPE,
-        print " added by ", ann.link.getDetails().getOwner().getOmeName()
+        print(ann.getId(), ann.OMERO_TYPE)
+        print(" added by ", ann.link.getDetails().getOwner().getOmeName())
         if ann.OMERO_TYPE == omero.model.TagAnnotationI:
-            print "Tag value:", ann.getTextValue()
+            print("Tag value:", ann.getTextValue())
 
 -  **How to create a file annotation and link to a Dataset**
 
@@ -499,11 +499,11 @@ Write data
         f.write('annotation test')
     # create the original file and file annotation (uploads the file etc.)
     namespace = "imperial.training.demo"
-    print "\nCreating an OriginalFile and FileAnnotation"
+    print("\nCreating an OriginalFile and FileAnnotation")
     file_ann = conn.createFileAnnfromLocalFile(
         file_to_upload, mimetype="text/plain", ns=namespace, desc=None)
-    print "Attaching FileAnnotation to Dataset: ", "File ID:", file_ann.getId(), \
-        ",", file_ann.getFile().getName(), "Size:", file_ann.getFile().getSize()
+    print("Attaching FileAnnotation to Dataset: ", "File ID:", file_ann.getId(), \
+        ",", file_ann.getFile().getName(), "Size:", file_ann.getFile().getSize())
     dataset.linkAnnotation(file_ann)     # link it to dataset.
 
 -  **Download a file annotation linked to a Dataset**
@@ -516,18 +516,18 @@ Write data
         os.makedirs(path)
     # Go through all the annotations on the Dataset. Download any file annotations
     # we find.
-    print "\nAnnotations on Dataset:", dataset.getName()
+    print("\nAnnotations on Dataset:", dataset.getName())
     for ann in dataset.listAnnotations():
         if isinstance(ann, omero.gateway.FileAnnotationWrapper):
-            print "File ID:", ann.getFile().getId(), ann.getFile().getName(), \
-                "Size:", ann.getFile().getSize()
+            print("File ID:", ann.getFile().getId(), ann.getFile().getName(), \
+                "Size:", ann.getFile().getSize())
             file_path = os.path.join(path, ann.getFile().getName())
 
             with open(str(file_path), 'w') as f:
-                print "\nDownloading file to", file_path, "..."
+                print("\nDownloading file to", file_path, "...")
                 for chunk in ann.getFileInChunks():
                     f.write(chunk)
-            print "File downloaded!"
+            print("File downloaded!")
 
 -  **Load all the file annotations with a given namespace**
 
@@ -539,14 +539,14 @@ Write data
     annotations = metadataService.loadSpecifiedAnnotations(
         'omero.model.FileAnnotation', ns_to_include, ns_to_exclude, None)
     for ann in annotations:
-        print ann.getId().getValue(), ann.getFile().getName().getValue()
+        print(ann.getId().getValue(), ann.getFile().getName().getValue())
 
 -  **Get first annotation with specified namespace**
 
 ::
 
     ann = dataset.getAnnotation(namespace)
-    print "Found Annotation with namespace: ", ann.getNs()
+    print("Found Annotation with namespace: ", ann.getNs())
 
 
 .. _python_omero_tables_code_samples:
@@ -611,23 +611,23 @@ OMERO tables
 ::
 
     open_table = resources.openTable(orig_file)
-    print "Table Columns:"
+    print("Table Columns:")
     for col in open_table.getHeaders():
-        print "   ", col.name
+        print("   ", col.name)
     rowCount = open_table.getNumberOfRows()
-    print "Row count:", rowCount
+    print("Row count:", rowCount)
 
 -  **Get data from every column of the specified rows**
 
 ::
 
     row_numbers = [3, 5, 7]
-    print "\nGet All Data for rows: ", row_numbers
+    print("\nGet All Data for rows: ", row_numbers)
     data = open_table.readCoordinates(range(rowCount))
     for col in data.columns:
-        print "Data for Column: ", col.name
+        print("Data for Column: ", col.name)
         for v in col.values:
-            print "   ", v
+            print("   ", v)
 
 -  **Get data from specified columns of specified rows**
 
@@ -636,13 +636,13 @@ OMERO tables
     col_numbers = [1]
     start = 3
     stop = 7
-    print "\nGet Data for cols: ", col_numbers,\
-        " and between rows: ", start, "-", stop
+    print("\nGet Data for cols: ", col_numbers,\
+        " and between rows: ", start, "-", stop)
     data = open_table.read(col_numbers, start, stop)
     for col in data.columns:
-        print "Data for Column: ", col.name
+        print("Data for Column: ", col.name)
         for v in col.values:
-            print "   ", v
+            print("   ", v)
 
 -  **Query the table for rows where the 'Uid' is in a particular range**
 
@@ -652,9 +652,9 @@ OMERO tables
         "(Uid > 2) & (Uid <= 8)", variables={}, start=0, stop=rowCount, step=0)
     data = open_table.readCoordinates(query_rows)
     for col in data.columns:
-        print "Query Results for Column: ", col.name
+        print("Query Results for Column: ", col.name)
         for v in col.values:
-            print "   ", v
+            print("   ", v)
     open_table.close()           # we're done
 
 -  **In future, to get the table back from Original File**
@@ -664,7 +664,7 @@ OMERO tables
     orig_table_file = conn.getObject(
         "OriginalFile", attributes={'name': table_name})    # if name is unique
     saved_table = resources.openTable(orig_table_file._obj)
-    print "Opened table with row-count:", saved_table.getNumberOfRows()
+    print("Opened table with row-count:", saved_table.getNumberOfRows())
     saved_table.close()
 
 ROIs
@@ -722,7 +722,7 @@ ROIs
 ::
 
     # create a rectangle shape (added to ROI below)
-    print ("Adding a rectangle at theZ: %s, theT: %s, X: %s, Y: %s, width: %s,"
+    print(("Adding a rectangle at theZ: %s, theT: %s, X: %s, Y: %s, width: %s,")
        " height: %s" % (z, t, x, y, width, height))
     rect = omero.model.RectangleI()
     rect.x = rdouble(x)
@@ -865,7 +865,7 @@ ROIs
     roi_service = conn.getRoiService()
     result = roi_service.findByImage(imageId, None)
     for roi in result.rois:
-        print "ROI:  ID:", roi.getId().getValue()
+        print("ROI:  ID:", roi.getId().getValue())
         for s in roi.copyShapes():
             shape = {}
             shape['id'] = s.getId().getValue()
@@ -903,12 +903,12 @@ ROIs
                 shape['height'] = s.getHeight().getValue()
             elif type(s) in (
                     omero.model.LabelI, omero.model.PolygonI):
-                print type(s), " Not supported by this code"
+                print(type(s), " Not supported by this code")
             # Do some processing here, or just print:
-            print "   Shape:",
+            print("   Shape:",)
             for key, value in shape.items():
-                print "  ", key, value,
-            print ""
+                print("  ", key, value,)
+            print("")
 
 -  **Get Pixel Intensities for ROIs**
 
@@ -925,12 +925,12 @@ ROIs
     the_t = 0
     stats = roi_service.getShapeStatsRestricted(shape_ids, the_z, the_t, [ch_index])
     for s in stats:
-        print "Points", s.pointsCount[ch_index],
-        print "Min", s.min[ch_index],
-        print "Mean", s.mean[ch_index],
-        print "Max", s.max[ch_index],
-        print "Sum", s.max[ch_index],
-        print "StdDev", s.stdDev[ch_index]
+        print("Points", s.pointsCount[ch_index])
+        print("Min", s.min[ch_index])
+        print("Mean", s.mean[ch_index])
+        print("Max", s.max[ch_index])
+        print("Sum", s.max[ch_index])
+        print("StdDev", s.stdDev[ch_index])
 
 -  **Remove shape from ROI**
 
@@ -941,7 +941,7 @@ ROIs
         for s in roi.copyShapes():
             # Find and remove the Shape we added above
             if s.getTextValue() and s.getTextValue().getValue() == "test-Ellipse":
-                print "Removing Shape from ROI..."
+                print("Removing Shape from ROI...")
                 roi.removeShape(s)
                 roi = updateService.saveAndReturnObject(roi)
 
@@ -970,13 +970,13 @@ Delete data
     # if you want to know when delete is finished or if there were any errors
     handle = conn.deleteObjects("Project", [project_id])
     cb = omero.callbacks.CmdCallbackI(conn.c, handle)
-    print "Deleting, please wait."
+    print("Deleting, please wait.")
     while not cb.block(500):
-        print "."
+        print(".")
     err = isinstance(cb.getResponse(), omero.cmd.ERR)
-    print "Error?", err
+    print("Error?", err)
     if err:
-        print cb.getResponse()
+        print(cb.getResponse())
     cb.close(True)      # close handle too
 
 
@@ -998,27 +998,27 @@ Render Images
 
 ::
 
-    print "Channel rendering settings:"
+    print("Channel rendering settings:")
     for ch in image.getChannels():
         # if no name, get emission wavelength or index
-        print "Name: ", ch.getLabel()
-        print "  Color:", ch.getColor().getHtml()
-        print "  Active:", ch.isActive()
-        print "  Levels:", ch.getWindowStart(), "-", ch.getWindowEnd()
-    print "isGreyscaleRenderingModel:", image.isGreyscaleRenderingModel()
-    print "Default Z/T positions:"
-    print "    Z = %s, T = %s" % (image.getDefaultZ(), image.getDefaultT())
+        print("Name: ", ch.getLabel())
+        print("  Color:", ch.getColor().getHtml())
+        print("  Active:", ch.isActive())
+        print("  Levels:", ch.getWindowStart(), "-", ch.getWindowEnd())
+    print("isGreyscaleRenderingModel:", image.isGreyscaleRenderingModel())
+    print("Default Z/T positions:")
+    print("    Z = %s, T = %s" % (image.getDefaultZ(), image.getDefaultT()))
 
 
 -  **Show the saved rendering settings on this image**
 
 ::
 
-    print "Rendering Defs on Image:"
+    print("Rendering Defs on Image:")
     for rdef in image.getAllRenderingDefs():
         img_data = image.getThumbnail(rdefId=rdef['id'])
-        print "   ID: %s (owner: %s %s)" % (
-            rdef['id'], rdef['owner']['firstName'], rdef['owner']['lastName'])
+        print("   ID: %s (owner: %s %s)" % (
+            rdef['id'], rdef['owner']['firstName'], rdef['owner']['lastName']))
 
 
 
@@ -1114,7 +1114,7 @@ Create Image
     i = conn.createImageFromNumpySeq(
         plane_gen(), "numpy image", size_z, size_c, size_t, description=desc,
         dataset=None)
-    print 'Created new Image:%s Name:"%s"' % (i.getId(), i.getName())
+    print('Created new Image:%s Name:"%s"' % (i.getId(), i.getName()))
 
 -  **Set the pixel size using units (added in 5.1.0)**
 
@@ -1167,8 +1167,8 @@ Here we set the pixel size X and Y to be 9.8 Angstroms
                     # an example we are doing "average"
                     # average of 2 channels
                     new_plane = (channel0 + channel1) / 2
-                    print "newPlane for z,t:", z, t, new_plane.dtype, \
-                        new_plane.min(), new_plane.max()
+                    print("newPlane for z,t:", z, t, new_plane.dtype, \
+                        new_plane.min(), new_plane.max())
                     yield new_plane
 
 ::
@@ -1194,19 +1194,19 @@ Filesets - added in OMERO 5.0
     fs_id = fileset.getId()
     # List all images that are in this fileset
     for fs_image in fileset.copyImages():
-        print fs_image.getId(), fs_image.getName()
+        print(fs_image.getId(), fs_image.getName())
     # List original imported files
     for orig_file in fileset.listFiles():
         name = orig_file.getName()
         path = orig_file.getPath()
-        print path, name
+        print(path, name)
 
 -  **Get Original Imported Files directly from the image**
 
 ::
 
     # this will include pre-FS data IF images were archived on import
-    print image.countImportedImageFiles()
+    print(image.countImportedImageFiles())
     # specifically count Fileset files
     file_count = image.countFilesetFiles()
     # list files
@@ -1214,7 +1214,7 @@ Filesets - added in OMERO 5.0
         for orig_file in image.getImportedImageFiles():
             name = orig_file.getName()
             path = orig_file.getPath()
-            print path, name
+            print(path, name)
 
 -  **Can get the Fileset using conn.getObject()**
 
