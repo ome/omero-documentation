@@ -523,7 +523,7 @@ Write data
                 "Size:", ann.getFile().getSize())
             file_path = os.path.join(path, ann.getFile().getName())
 
-            with open(str(file_path), 'w') as f:
+            with open(str(file_path), 'wb') as f:
                 print("\nDownloading file to", file_path, "...")
                 for chunk in ann.getFileInChunks():
                     f.write(chunk)
@@ -784,7 +784,7 @@ ROIs
             raise ValueError(message)
         steps = math.ceil(len(mask_bytes) / divider)
         mask = []
-        for i in range(long(steps)):
+        for i in range(int(steps)):
             binary = mask_bytes[
                 i * int(divider):i * int(divider) + int(divider)]
             format = str(int(byte_factor * len(binary))) + format_string
@@ -990,7 +990,7 @@ Render Images
     # Thumbnail is created using the current rendering settings on the image
     image = conn.getObject("Image", imageId)
     img_data = image.getThumbnail()
-    rendered_thumb = Image.open(StringIO(img_data))
+    rendered_thumb = Image.open(BytesIO(img_data))
     # renderedThumb.show()           # shows a pop-up
     rendered_thumb.save("thumbnail.jpg")
 
