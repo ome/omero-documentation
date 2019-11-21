@@ -335,45 +335,6 @@ Components
          - |Upcoming|
          - |Upcoming|
 
-.. _support-levels:
-
-Support levels
-==============
-
-The following table defines the symbols used throughout this page to
-describe the support status of a given component, as it progresses
-from being new and not supported, to supported and tested on a
-routine basis, and to finally being old and no longer supported
-nor tested.
-
-.. list-table::
-    :header-rows: 1
-
-    * - Level
-      - Meaning
-      - Description
-    * - |Upcoming|
-      - unsupported/new
-      - New version not yet regularly tested and not officially supported; may or may not work (use at own risk)
-    * - |Supported|
-      - supported/suboptimal
-      - Version which is tested, confirmed to work correctly, but may not offer optimal performance/experience
-    * - |Recommended|
-      - supported/optimal
-      - Version which is regularly tested, confirmed to work correctly, recommended for optimal performance/experience
-    * - |Deprecated|
-      - supported/deprecated
-      - Version which is less tested, expected to work correctly, but may not offer optimal performance/experience; official support may be dropped in the next major OMERO release
-    * - |Dropped|
-      - unsupported/old
-      - Old version no longer tested and no longer officially supported; may or may not work (use at own risk)
-    * - |Broken|
-      - unsupported/broken
-      - Known to not work
-    * - |Unsupported|
-      - unsupported/misc
-      - Not supported for some reason other than the above
-
 Operating system support
 ========================
 
@@ -1008,3 +969,42 @@ If no version is provided, a suitable repository is indicated.
       - 
       - `Reference <https://packages.ubuntu.com/search?keywords=nginx&searchon=names&suite=all&section=all>`__
       - 
+
+.. _support-levels:
+
+Support levels
+==============
+
+The following table defines the symbols used throughout this page to
+describe the support status of a given component, as it progresses
+from being new and not supported, to supported and tested on a
+routine basis, and to finally being old and no longer supported
+nor tested.
+
+.. list-table::
+    :header-rows: 1
+
+    * - Level
+      - Meaning
+      - Description
+    * - |Upcoming|
+      - unsupported/new
+      - New version not yet regularly tested and not officially supported; may or may not work (use at own risk)
+    * - |Supported|
+      - supported/suboptimal
+      - Version which is tested, confirmed to work correctly, but may not offer optimal performance/experience
+    * - |Recommended|
+      - supported/optimal
+      - Version which is regularly tested, confirmed to work correctly, recommended for optimal performance/experience
+    * - |Deprecated|
+      - supported/deprecated
+      - Version which is less tested, expected to work correctly, but may not offer optimal performance/experience; official support may be dropped in the next major OMERO release
+    * - |Dropped|
+      - unsupported/old
+      - Old version no longer tested and no longer officially supported; may or may not work (use at own risk)
+    * - |Broken|
+      - unsupported/broken
+      - Known to not work
+    * - |Unsupported|
+      - unsupported/misc
+      - Not supported for some reason other than the above
