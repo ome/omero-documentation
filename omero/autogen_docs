@@ -8,6 +8,7 @@
 set -u
 set -e
 set -x
+set -o pipefail
 WORKSPACE=${WORKSPACE:-$(pwd)}
 USER=${USER:-$(whoami)}
 

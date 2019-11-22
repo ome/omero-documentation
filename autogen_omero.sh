@@ -6,14 +6,18 @@ set -x
 # TODO
 echo no linkcheck
 
+# from the sub-script
+WORKSPACE=${WORKSPACE:-$(pwd)}
+USER=${USER:-$(whoami)}
+
 # VARIABLES #1
 MESSAGE="Update auto-generated documentation"
 PUSH_COMMAND="update-submodules develop --no-ask --push develop/latest/autogen"
-BRANCH=OMERO-DEV-latest
-OPEN_PR=true
+BRANCH=$1; shift
+OPEN_PR=false
 
 # VARIABLES #2
-RELEASE=$1; shift
+RELEASE=$BRANCH
 TAG_COMMAND="tag-release $RELEASE --no-ask --push --prefix=v"
 RSYNC_HOST=hudson-x@ome-web-rw.openmicroscopy.org
 DOWNLOADS_PATH=/uod/idr/www/downloads.openmicroscopy.org
@@ -28,20 +32,24 @@ SOURCE_BRANCH=v${OMERO_RELEASE}
 # checkout from ome
 # see also: https://trello.com/c/ZvmmNTZn/43-omero-auto-generated-documentation
 ###
-source $HOME/virtualenv/bin/activate
 
-omego download server --branch=$BRANCH --ice 3.6
-rm -rf OMERO.server*.zip
-ln -s OMERO.server* OMERO.server
+if [ ! -e OMERO.server ]; then
+    omego download server --branch=$BRANCH --ice 3.6
+    rm -rf OMERO.server*.zip
+    ln -s OMERO.server* OMERO.server
+fi
 
-export PYTHONPATH=$PYTHONPATH:$WORKSPACE/OMERO.server/lib/python
-(cd src && ./omero/autogen_docs)
+if [ ! -e omero-install ]; then
+    git clone git@github.com:ome/omero-install
+fi
 
-rm -f OMERO.server
-rm -rf OMERO.server*
+if [ ! -e omeroweb-install ]; then
+    git clone git@github.com:ome/omeroweb-install
+fi
 
-source $HOME/virtualenv/bin/activate
-cd src
+export PYTHONPATH=${PYTHONPATH:-}:$WORKSPACE/OMERO.server/lib/python
+./omero/autogen_docs
+
 if [[ -z $(git status -s) ]]; then
   echo "No local changes"
 else
