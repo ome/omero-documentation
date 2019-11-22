@@ -5,9 +5,17 @@ To access the OMERO.server Python API, you need to install the Python client
 libraries.
 
 From OMERO 5.6.0 release, the client library ``omero-py`` supports Python 3 and
-can be installed via ``pip``:
+can be installed via ``pip``. We recommend you use a virtual environment:
 
-    pip install omero-py
+    $ python3 -m venv py3_venv
+    $ source py3_venv/bin/activate
+    $ pip install omero-py
+    Successfully installed Pillow-6.2.1 future-0.18.2 omero-py-5.6.1 zeroc-ice-3.6.5
+
+    $ python
+    >>> from omero.gateway import BlitzGateway
+    >>> conn = BlitzGateway('username', 'password', host='omero.server', port=4064)
+    >>> conn.connect()
 
 In addition to the auto-generated Python libraries of the core |OmeroApi|,
 ``omero-py`` includes a more user-friendly Python module 'BlitzGateway' that
@@ -19,29 +27,6 @@ started. Then we describe a bit more about :doc:`PythonBlitzGateway`.
 
 All the code examples below can be found at
 :sourcedir:`examples/Training/python`.
-
-
-If you want to run the examples, you will need to download and
-configure them to connect to your own server e.g. ``HOST = "localhost"``.
-You can edit ``HOST, PORT, USERNAME and PASSWORD`` in
-the ``Parse_OMERO_Properties.py`` file and these values will be imported
-into the other scripts.
-
-Then you can run the scripts:
-
-::
-
-      $ python Connect_To_OMERO.py
-
-If all goes well, you should be connected to your OMERO server and see some
-details of your session printed out.
-
-All the following code examples can be downloaded and run in the same way.
-Some scripts will also need editing of other parameters, usually IDs from
-Projects, Datasets, Images etc. You can use the OMERO.insight or OMERO.web
-client to choose suitable data IDs before editing and running the code
-samples.
-
 
 .. _python-code-samples:
 
