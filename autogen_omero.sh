@@ -7,9 +7,9 @@ set -x
 echo no linkcheck
 
 # from the sub-script
-WORKSPACE=${WORKSPACE:-$(pwd)}
-USER=${USER:-$(whoami)}
-OMERODIR=${WORKSPACE}/OMERO.server
+export WORKSPACE=${WORKSPACE:-$(pwd)}
+export USER=${USER:-$(whoami)}
+export OMERODIR=${WORKSPACE}/OMERO.server
 
 # VARIABLES #1
 MESSAGE="Update auto-generated documentation"

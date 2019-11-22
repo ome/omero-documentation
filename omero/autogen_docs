@@ -49,7 +49,7 @@ echo "Generating omeroweb install walkthrough"
 (cd $WORKSPACE/omeroweb-install && ansible-playbook ./.travis/../ansible/omeroweb-install-doc.yml -i ./.travis/../ansible/hosts/osx-ice3.6 --extra-vars '{"os": "osx", "ice_version": "3.6", "clean": True}')
 (cd $WORKSPACE/omeroweb-install && ansible-playbook ./.travis/../ansible/omeroweb-install-doc.yml -i ./.travis/../ansible/hosts/debian-ice3.6 --extra-vars '{"os": "debian", "ice_version": "3.6", "clean": True}')
 
-mv $WORKSPACE/omeroweb-install/ansible/doc/* $WORKSPACE/src/omero/sysadmins/unix/install-web/walkthrough
+mv $WORKSPACE/omeroweb-install/ansible/doc/* $WORKSPACE/omero/sysadmins/unix/install-web/walkthrough
 
 echo "Copying omero-install Linux scripts"
 DIRECTORY=omero/sysadmins/unix/walkthrough/
@@ -65,11 +65,11 @@ rm walkthrough_*.sh
 
 for f in \
     README.md \
-    requirements* \
+    requirements\* \
     settings.env \
     settings-web.env \
-    setup_* \
-    omero-* \
+    setup_\* \
+    omero-\* \
     ; do
     cp $WORKSPACE/omero-install/linux/$f $DIRECTORY
 done
