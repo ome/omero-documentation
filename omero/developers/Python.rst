@@ -11,7 +11,10 @@ facilitates several aspects of working with the Python API, such as
 connection handling, object graph traversal and lazy loading.
 
 This page gives you a large number of code samples to get you
-started. Then we describe a bit more about :doc:`PythonBlitzGateway`.
+started. These are followed by some `longer examples  <#example-workflow-scripts>`_
+that show more complete workflows.
+
+To find more details about the BlitzGateway, see the :doc:`PythonBlitzGateway` page.
 
 The Python libraries are part of the server build and can be found under
 OMERO\_HOME/lib/python. These include the core omero.model objects and
@@ -37,8 +40,6 @@ which must be the same major version, i.e. |version|.x.
 
 All the code examples below can be found at
 :sourcedir:`examples/Training/python`.
-
-More complete workflow examples can be `found below  <#example-workflow-scripts>`_.
 
 
 If you want to run the examples, you will need to download and
@@ -1265,6 +1266,7 @@ can be combined into longer workflows.
    - ``conn.getObjects()`` to get Datasets and their Images
    - ``roi_service.findByImage()`` to get ROIs on each Image
    - ``roi_service.getShapeStatsRestricted()`` to get intensity stats for each timepoint
+
 
 -  **Gaussian Filter**. `scipy_gaussian_filter.py  <https://github.com/ome/training-scripts/blob/master/practical/python/server/scipy_gaussian_filter.py>`_
 
