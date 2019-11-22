@@ -9,6 +9,7 @@ echo no linkcheck
 # from the sub-script
 WORKSPACE=${WORKSPACE:-$(pwd)}
 USER=${USER:-$(whoami)}
+OMERODIR=${WORKSPACE}/OMERO.server
 
 # VARIABLES #1
 MESSAGE="Update auto-generated documentation"
@@ -47,7 +48,6 @@ if [ ! -e omeroweb-install ]; then
     git clone git@github.com:ome/omeroweb-install
 fi
 
-export PYTHONPATH=${PYTHONPATH:-}:$WORKSPACE/OMERO.server/lib/python
 ./omero/autogen_docs
 
 if [[ -z $(git status -s) ]]; then
