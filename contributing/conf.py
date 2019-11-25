@@ -61,7 +61,9 @@ contributing_extlinks = {
 
     # Doc links
     'omero_doc' : (docs_root + '/latest/omero/%s', ''),
-    'bf_doc' : (docs_root + '/latest/bio-formats/%s', '')
+    'bf_doc' : (docs_root + '/latest/bio-formats/%s', ''),
+
+    'ansible_docs' : ('https://docs.ansible.com/ansible/2.6/%s', ''),
     }
 extlinks.update(contributing_extlinks)
 
