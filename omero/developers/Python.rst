@@ -593,7 +593,7 @@ Write data
     with open(file_to_upload, 'w') as f:
         f.write('annotation test')
     # create the original file and file annotation (uploads the file etc.)
-    namespace = "imperial.training.demo"
+    namespace = "my.custom.demo.namespace"
     print "\nCreating an OriginalFile and FileAnnotation"
     file_ann = conn.createFileAnnfromLocalFile(
         file_to_upload, mimetype="text/plain", ns=namespace, desc=None)
@@ -612,7 +612,7 @@ Write data
     # Go through all the annotations on the Dataset. Download any file annotations
     # we find. Filter by namespace is optional
     print "\nAnnotations on Dataset:", dataset.getName()
-    namespace = "imperial.training.demo"
+    namespace = "my.custom.demo.namespace"
     for ann in dataset.listAnnotations(ns=namespace):
         if isinstance(ann, omero.gateway.FileAnnotationWrapper):
             print "File ID:", ann.getFile().getId(), ann.getFile().getName(), \
