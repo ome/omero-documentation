@@ -546,7 +546,7 @@ Write data
     link = omero.model.ProjectDatasetLinkI()
     # We can use a 'loaded' object, but we might get an Exception
     # link.setChild(dataset_obj)
-    # Better to use an 'unloaded' objects (loaded = False)
+    # Better to use an 'unloaded' object (loaded = False)
     link.setChild(omero.model.DatasetI(dataset_obj.id.val, False))
     link.setParent(omero.model.ProjectI(projectId, False))
     conn.getUpdateService().saveObject(link)
@@ -1346,4 +1346,3 @@ It is relatively straightforward to take the code samples above and
 re-use them in OMERO.scripts. This allows the code to be run on the
 OMERO server and called from either the OMERO.insight client or
 OMERO.web by any users of the server. See :doc:`/developers/scripts/user-guide`.
-
