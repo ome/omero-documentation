@@ -15,11 +15,11 @@ yum -y install java-1.8.0-openjdk
 
 # install dependencies
 
-yum -y install python-{pip,devel,virtualenv,yaml,jinja2,tables}
+yum -y install python3-{pip,devel,virtualenv,yaml,jinja2,tables}
 
 
 #start-web-dependencies
-yum -y install python-pillow numpy
+yum -y install python3-pillow numpy
 #end-web-dependencies
 # install Ice
 #start-recommended-ice
@@ -30,8 +30,6 @@ yum -y install libdb-utils
 yum -y install openssl-devel bzip2-devel
 
 yum -y install ice-all-runtime
-
-pip install https://github.com/ome/zeroc-ice-py-centos7/releases/download/0.1.0/zeroc_ice-3.6.4-cp27-cp27mu-linux_x86_64.whl
 #end-recommended-ice
 
 
@@ -66,32 +64,48 @@ su - postgres -c "createdb -E UTF8 -O '$OMERO_DB_USER' '$OMERO_DB_NAME'"
 psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 #end-step03
 
-#start-step04: As the omero system user, install the OMERO.server
+#start-step03bis: As the omero system user, create a virtual env and install dependenciees
+# Create a virtual env and activate it
+VIRTUALENV=${VIRTUALENV:-/home/omero/omeroenv}
+python3 -mvenv $VIRTUALENV
+. $VIRTUALENV/bin/activate
+
+# Install the Ice Python binding
+pip3 install https://github.com/ome/zeroc-ice-py-centos7/releases/download/0.2.1/zeroc_ice-3.6.5-cp36-cp36m-linux_x86_64.whl
+#end-step03bis
+
+#start-step04: As the omero system user, install the omero-py OMERO.server
 #start-copy-omeroscript
 cp settings.env settings-web.env step04_all_omero.sh setup_omero_db.sh ~omero 
 #end-copy-omeroscript
 #start-release-ice36
 cd ~omero
-SERVER=https://downloads.openmicroscopy.org/latest/omero5.5/server-ice36.zip
+#SERVER=https://downloads.openmicroscopy.org/latest/omero5.6/server-ice36.zip
+SERVER=https://downloads.openmicroscopy.org/omero/5.6.0-m2/artifacts/OMERO.server-5.6.0-m2-ice36-b126.zip
 wget -q $SERVER -O OMERO.server-ice36.zip
 unzip -q OMERO.server*
 #end-release-ice36
 ln -s OMERO.server-*/ OMERO.server
-OMERO.server/bin/omero config set omero.data.dir "$OMERO_DATA_DIR"
-OMERO.server/bin/omero config set omero.db.name "$OMERO_DB_NAME"
-OMERO.server/bin/omero config set omero.db.user "$OMERO_DB_USER"
-OMERO.server/bin/omero config set omero.db.pass "$OMERO_DB_PASS"
-OMERO.server/bin/omero db script -f OMERO.server/db.sql --password "$OMERO_ROOT_PASS"
+# set OMERODIR
+export OMERODIR=OMERO.server
+
+
+# Install omero-py
+pip3 install "omero-py>=5.6.dev4"
+
+omero config set omero.data.dir "$OMERO_DATA_DIR"
+omero config set omero.db.name "$OMERO_DB_NAME"
+omero config set omero.db.user "$OMERO_DB_USER"
+omero config set omero.db.pass "$OMERO_DB_PASS"
+omero db script -f OMERO.server/db.sql --password "$OMERO_ROOT_PASS"
 psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < OMERO.server/db.sql
 #end-step04
 
 #start-step05: As omero, install OMERO.web dependencies
-#web-requirements-recommended-start
-pip install -r OMERO.server/share/web/requirements-py27.txt
-#web-requirements-recommended-end
+
 #start-configure-nginx: As the omero system user, configure OMERO.web
-OMERO.server/bin/omero config set omero.web.application_server wsgi-tcp
-OMERO.server/bin/omero web config nginx --http "$WEBPORT" > OMERO.server/nginx.conf.tmp
+omero config set omero.web.application_server wsgi-tcp
+omero web config nginx --http "$WEBPORT" > /home/omero/OMERO.server/nginx.conf.tmp
 #end-configure-nginx
 # As root, install nginx
 #start-nginx-install
@@ -129,9 +143,11 @@ chmod go-rwx OMERO.server/etc OMERO.server/var
 
 #start-step08: As root, perform regular tasks
 #start-omeroweb-cron
+
 OMERO_USER=omero
 OMERO_SERVER=/home/omero/OMERO.server
-su - ${OMERO_USER} -c "${OMERO_SERVER}/bin/omero web clearsessions"
+VIRTUALENV=/home/omero/omeroenv
+su - ${OMERO_USER} -c ". ${VIRTUALENV}/bin/activate;OMERODIR=${OMERO_SERVER} omero web clearsessions"
 #end-omeroweb-cron
 #Copy omero-web-cron into the appropriate location
 #start-copy-omeroweb-cron

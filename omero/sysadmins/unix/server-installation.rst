@@ -6,25 +6,25 @@ UNIX-like platforms. This includes all BSD, Linux and Mac OS X
 systems. Depending upon which platform you are using, you may find a
 more specific walk-through listed below but we recommend you read through this
 page first as it explains the entire process rather than just being a series
-of commands.
+of commands.  
 
 .. seealso::
 
-    :doc:`server-centos7-ice36`
+    Recommended: :doc:`server-centos7-ice36`
         Instructions for installing OMERO.server from scratch on
-        CentOS 7 with Ice 3.6.
+        CentOS 7 with Ice 3.6 and Python 3.6.
 
-    :doc:`server-ubuntu1604-ice36`
+    Recommended: :doc:`server-ubuntu1804-ice36`
         Instructions for installing OMERO.server from scratch on
-        Ubuntu 14.04 and Ubuntu 16.04 with Ice 3.6.
+        Ubuntu 18.04 with Ice 3.6 and Python 3.6.
 
-    :doc:`server-ubuntu1804-ice36`
+    Supported: :doc:`server-ubuntu1604-ice36`
         Instructions for installing OMERO.server from scratch on
-        Ubuntu 18.04 with Ice 3.6.
+        Ubuntu 16.04 with Ice 3.6 and Python 3.5.
 
-    :doc:`server-debian9-ice36`
+    Supported: :doc:`server-debian9-ice36`
         Instructions for installing OMERO.server from scratch on
-        Debian 9 with Ice 3.6.
+        Debian 9 with Ice 3.6 and Python 3.5
 
     :doc:`server-install-homebrew`
         Instructions for installing and building OMERO.server on Mac
@@ -137,7 +137,7 @@ To check which version of Java is currently available::
     Java(TM) SE Runtime Environment (build 1.8.0_51-b16)
     Java HotSpot(TM) 64-Bit Server VM (build 25.51-b03, mixed mode)
 
-Python 2
+Python 3
 ^^^^^^^^
 
 Check you have Python (and check its version) by running:
@@ -145,9 +145,7 @@ Check you have Python (and check its version) by running:
 ::
 
     $ python --version
-    Python 2.7.10
-
-.. note:: OMERO does not currently support Python 3; you must use 2.7.
+    Python 3.6.4
 
 The following Python packages are required:
 
@@ -162,12 +160,10 @@ The following Python packages are required:
       - Scripting
       - `Numpy/Scipy page <https://www.scipy.org/Download>`_
 
-    * - PyTables (2.1.0 or higher) [1]_
+    * - PyTables (3.1.0 or higher)
       - :doc:`OMERO.tables </sysadmins/server-tables>`
       - `PyTables page <https://pytables.github.io/downloads.html>`_
 
-
-.. [1] From OMERO 5.5 PyTables 3.1 or higher will be required.
 
 .. note::
     Some of these can be ignored if you wish to forego some
@@ -186,13 +182,13 @@ If possible, install the following packages:
       - Package
 
     * - BSD Ports
-      - lang/python27 math/py-numpy devel/py-tables
+      - lang/python36 math/py-numpy devel/py-tables
 
     * - Debian
-      - python2.7 python-numpy python-tables
+      - python3 python-numpy python-tables
 
     * - Homebrew
-      - python2 numpy
+      - python3 numpy
 
     * - RedHat
       - python
