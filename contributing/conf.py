@@ -63,8 +63,15 @@ contributing_extlinks = {
     'figure_scc_branch': (scc_github_root + '/omero-figure/tree/%s', ''),
 
     # Doc links
+<<<<<<< HEAD
     'omero_doc': (docs_root + '/latest/omero/%s', ''),
     'bf_doc': (docs_root + '/latest/bio-formats/%s', '')
+=======
+    'omero_doc' : (docs_root + '/latest/omero/%s', ''),
+    'bf_doc' : (docs_root + '/latest/bio-formats/%s', ''),
+
+    'ansible_docs' : ('https://docs.ansible.com/ansible/2.6/%s', ''),
+>>>>>>> origin/develop
     }
 extlinks.update(contributing_extlinks)
 
