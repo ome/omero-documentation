@@ -456,7 +456,7 @@ Write data
     new_dataset = DatasetWrapper(conn, omero.model.DatasetI())
     new_dataset.setName('Scipy_Gaussian_Filter')
     new_dataset.save()
-    print "New dataset, Id:", new_dataset.id
+    print("New dataset, Id:", new_dataset.id)
     # Can get the underlying omero.model.DatasetI with:
     dataset_obj = new_dataset._obj
 
@@ -465,7 +465,7 @@ Write data
     dataset_obj.setName(rstring("New Dataset"))
     dataset_obj = conn.getUpdateService().saveAndReturnObject(dataset_obj, conn.SERVICE_OPTS)
     dataset_id = dataset_obj.getId().getValue()
-    print "New dataset, Id:", dataset_id
+    print("New dataset, Id:", dataset_id)
 
 -  **Link to Project**
 
