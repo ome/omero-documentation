@@ -5,17 +5,15 @@ Getting set up
 --------------
 
 You will need to have an OMERO server running that you can connect to. This
-could be on your own machine or you can connect to an
-external OMERO server.
+could be on your own machine ``localhost`` or you can connect to a
+remote OMERO server.
 
-Using Docker
-------------
+The preferred option for developing OMERO.web apps is to install
+``omero-web`` on your machine as described below.
 
-If you are not working on the OMERO.web code itself, you can use
+However, it is also possible to use
 `omero-web-docker <https://github.com/ome/omero-web-docker/>`_
-to run OMERO.web. This allows you to develop your own OMERO.web
-app without needing to install OMERO.web on your development machine.
-
+to run OMERO.web in a Docker container.
 If you are using this option, you can go directly to the
 :doc:`/developers/Web/CreateApp` page which describes this process.
 
@@ -23,7 +21,7 @@ Installing OMERO.web
 --------------------
 
 From OMERO 5.6.0 release, the ``omero-web`` library supports Python 3 and
-can be installed via ``pip``. We recommend you use a virtual environment:
+can be installed via ``pip``. We recommend you use a virtual environment::
 
     $ python3 -m venv py3_venv
     $ source py3_venv/bin/activate
@@ -39,9 +37,9 @@ Using the lightweight development server
 
 All that is required to use the Django lightweight development server
 is to set the :property:`omero.web.application_server` configuration option,
-turn :property:`omero.web.debug` on.
-We also configure a remote server to connect to, and then
-start the server up.
+and turn :property:`omero.web.debug` on.
+If you want to connect to a remote server, add that as shown.
+Then start up the development server to run in the foreground:
 
 ::
 
@@ -55,9 +53,12 @@ start the server up.
     Validating models...
 
     0 errors found
-    Django version 1.8, using settings 'omeroweb.settings'
+    Django version 1.11, using settings 'omeroweb.settings'
     Starting development server at http://127.0.0.1:4080/
     Quit the server with CONTROL-C.
+
+You should now be able to open http://localhost:4080 in your browser,
+choose the OMERO server and login.
 
 Using WSGI
 ----------

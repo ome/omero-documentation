@@ -11,7 +11,7 @@ Getting set up
 --------------
 
 In order to deploy OMERO.web in a development or testing environment,
-you can use Docker as described below (recommended) or 
+you can use Docker as described below or
 follow the install instructions under :doc:`Deployment`.
 
 If you want to make changes to the OMERO.web code itself, go to
@@ -28,11 +28,42 @@ Clone the app to a location of your choice:
 
     $ git clone git@github.com:ome/omero-web-apps-examples.git
 
-Run your app with OMERO.web in a Docker container
--------------------------------------------------
-
 We will run the simplest example app from the repo. This is called
 ``minimal_webapp``.
+
+Run your app with locally-installed OMERO.web
+---------------------------------------------
+
+If you have installed ``omero-web`` locally in a virtual environment
+as described in :doc:`Deployment`, you can simply install
+the minimal-webapp example via pip:
+
+::
+
+    $ cd omero-web-apps-examples/minimal-webapp
+    $ pip install -e .
+
+This installs the source code directly, allowing you to work on
+the installed code.
+
+You also need to add your app to the :property:`omero.web.apps` setting:
+
+.. note::
+
+    Here we use single quotes around double quotes.
+
+::
+
+    $ bin/omero config append omero.web.apps '"minimal_webapp"'
+
+Now you can restart your omero-web server and go to
+`http://localhost:4080/minimal_webapp/ <http://localhost:4080/minimal_webapp/>`_
+in your browser.
+You should be redirected to the login screen and then back to the ``minimal_webapp``
+page which will display your Name and list your Projects.
+
+Run your app with OMERO.web in a Docker container
+-------------------------------------------------
 
 The following walk-through uses `omero-web-docker <https://github.com/ome/omero-web-docker/>`_
 to run the app. Here we add ``minimal_webapp`` to the installed apps and map the
@@ -78,39 +109,6 @@ Now go to `http://localhost:4080/minimal_webapp/ <http://localhost:4080/minimal_
 in your browser.
 You should be redirected to the login screen and then back to the ``minimal_webapp``
 page which will display your Name and list your Projects.
-
-Run your app with locally-installed OMERO.web
----------------------------------------------
-
-If you have installed OMERO.web locally in a virtual environment
-(instead of using Docker), you can add a
-`path configuration file <https://docs.python.org/2/install/index.html#modifying-python-s-search-path>`_
-to the ``site-packages`` directory to allow the
-``minimal_webapp`` module to be imported.
-
-You need to specify the directory that *contains* ``minimal_webapp``
-(in this case it is the parent ``minimal-webapp`` directory) to
-be added to the ``sys.path``.
-
-::
-
-    # Find where your python is (run this within your venv)
-    $ which python
-    /absolute-path/to-your/Virtual/<env_name>/bin/python
-
-    # Create a path configuration file .pth in site-packages
-    $ echo /path/to/dir/omero-web-apps-examples/minimal-webapp >> /absolute-path/to-your/Virtual/<env_name>/lib/python2.7/site-packages/minimal_webapp.pth
-
-You also need to add your app to the :property:`omero.web.apps` setting:
-
-.. note::
-
-    Here we use single quotes around double quotes.
-
-::
-
-    $ bin/omero config append omero.web.apps '"minimal_webapp"'
-
 
 Exploring the app
 -----------------
