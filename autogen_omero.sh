@@ -14,19 +14,15 @@ export OMERODIR=${WORKSPACE}/OMERO.server
 # VARIABLES #1
 MESSAGE="Update auto-generated documentation"
 PUSH_COMMAND="update-submodules develop --no-ask --push develop/latest/autogen"
-BRANCH=$1; shift
 OPEN_PR=false
 export SPHINXOPTS=-W
 
-# TODO: using for now, but likely this should be an artifact copy
-# which likely points to a release-ci.
-if [ ! -e OMERO.server ]; then
-    omego download server --branch=$BRANCH --ice 3.6
-    rm -rf OMERO.server*.zip
-    ln -s OMERO.server* OMERO.server
-fi
+# Responsibilities of caller, likely omero-docs-superbuild
+test -e $WORKSPACE/OMERO.server
+test -e $WORKSPACE/omero-install
+test -e $WORKSPACE/omeroweb-install
 
-./omero/autogen_docs
+$WORKSPACE/ome-documentation/omero/autogen_docs
 
 if [[ -z $(git status -s) ]]; then
   echo "No local changes"
