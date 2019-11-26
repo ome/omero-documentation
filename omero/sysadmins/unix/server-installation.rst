@@ -147,7 +147,7 @@ Check you have Python (and check its version) by running:
 
 ::
 
-    $ python --version
+    $ python3 --version
     Python 3.6.4
 
 The following Python packages are required:

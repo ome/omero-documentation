@@ -58,26 +58,26 @@ After that, the following should succeed:
 
 ::
 
-    % python
-    Python 2.7.5+ (default, Aug  4 2013, 10:07:17)
-    [GCC 4.8.1] on linux2
+    % python3
+    Python 3.5.3 (default, Sep 27 2018, 17:25:39) 
+    [GCC 6.3.0 20170516] on linux
     Type "help", "copyright", "credits" or "license" for more information.
     >>> import tables
     >>> tables.test()
     -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    PyTables version:  2.4.0
-    HDF5 version:      1.8.11
-    NumPy version:     1.7.1
-    Numexpr version:   2.0.1 (not using Intel's VML/MKL)
+    PyTables version:  3.4.4
+    HDF5 version:      1.8.18
+    NumPy version:     1.17.4
+    Numexpr version:   2.7.0 (not using Intel's VML/MKL)
     Zlib version:      1.2.8 (in Python interpreter)
-    LZO version:       2.06 (Aug 12 2011)
+    LZO version:       2.09 (Feb 04 2015)
     BZIP2 version:     1.0.6 (6-Sept-2010)
-    Blosc version:     1.1.3 (2010-11-16)
-    Python version:    2.7.5+ (default, Aug  4 2013, 10:07:17)
-    [GCC 4.8.1]
-    Platform:          linux2-x86_64
+    Blosc version:     1.14.3 (2018-04-06)
+    Python version:    3.5.3 (default, Sep 27 2018, 17:25:39) 
+    [GCC 6.3.0 20170516]
+    Platform:          Linux-4.9.184-linuxkit-x86_64-with-debian-9.11
     Byte-ordering:     little
-    Detected cores:    8
+    Detected cores:    4
     …
 
 .. note::
@@ -90,7 +90,7 @@ After that, the following should succeed:
   your operating system's package installer if possible or if you must
   instead use PyPI_ directly::
 
-    pip install mock
+    pip3 install mock
 
 Once the required Python libraries are installed, starting OMERO will
 automatically start up the OMERO.tables service; there should be no need
