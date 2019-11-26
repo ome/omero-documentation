@@ -32,39 +32,30 @@ customization options.
 Depending upon which platform you are using, you may find a
 more specific walkthrough listed below.
 
+**Recommended:**
+
 .. seealso::
 
     :doc:`walkthrough/omeroweb-install-centos7-ice3.6`
         Instructions for installing **separately** OMERO.web from
         scratch on CentOS 7 with Ice 3.6.
 
-    :doc:`walkthrough/omeroweb-install-ubuntu1604-ice3.6`
-        Instructions for installing **separately** OMERO.web from
-        scratch on Ubuntu 16.04 with Ice 3.6.
-
     :doc:`walkthrough/omeroweb-install-ubuntu1804-ice3.6`
         Instructions for installing **separately** OMERO.web from
         scratch on Ubuntu 18.04 with Ice 3.6.
 
+**Supported:**
+
+.. seealso::
+
+
+    :doc:`walkthrough/omeroweb-install-ubuntu1604-ice3.6`
+        Instructions for installing **separately** OMERO.web from
+        scratch on Ubuntu 16.04 with Ice 3.6.
+
     :doc:`walkthrough/omeroweb-install-debian9-ice3.6`
         Instructions for installing **separately** OMERO.web from
         scratch on Debian 9 with Ice 3.6.
-
-    :doc:`walkthrough/omeroweb-install-with-server-centos7-ice3.6`
-        Instructions for installing OMERO.web with OMERO.server 
-        on CentOS 7 with Ice 3.6.
-
-    :doc:`walkthrough/omeroweb-install-with-server-ubuntu1604-ice3.6`
-        Instructions for installing OMERO.web with
-        OMERO.server on Ubuntu 16.04 with Ice 3.6.
-
-    :doc:`walkthrough/omeroweb-install-with-server-ubuntu1804-ice3.6`
-        Instructions for installing OMERO.web with
-        OMERO.server on Ubuntu 18.04 with Ice 3.6.
-
-    :doc:`walkthrough/omeroweb-install-with-server-debian9-ice3.6`
-        Instructions for installing OMERO.web with
-        OMERO.server on Debian 9 with Ice 3.6.
 
     :doc:`walkthrough/omeroweb-install-osx-ice3.6`
         Instructions for installing OMERO.web from scratch on
@@ -81,10 +72,6 @@ more specific walkthrough listed below.
     walkthrough/omeroweb-install-ubuntu1604-ice3.6
     walkthrough/omeroweb-install-ubuntu1804-ice3.6
     walkthrough/omeroweb-install-debian9-ice3.6
-    walkthrough/omeroweb-install-with-server-centos7-ice3.6
-    walkthrough/omeroweb-install-with-server-ubuntu1604-ice3.6
-    walkthrough/omeroweb-install-with-server-ubuntu1804-ice3.6
-    walkthrough/omeroweb-install-with-server-debian9-ice3.6
     walkthrough/omeroweb-install-osx-ice3.6
 
 .. note:: Support for Apache deployment has been dropped in 5.3.0.
@@ -94,44 +81,21 @@ more specific walkthrough listed below.
 
 This guide uses the example of deploying OMERO.web **separately** from OMERO.server with
 `NGINX <https://nginx.org/>`_ and `Gunicorn <https://docs.gunicorn.org/>`_.
-If you opt to install OMERO.web with the OMERO.server, change ``OMERO.py``
-to ``OMERO.server`` in the commands below.
 
 .. _omero_web_deployment:
 
 Prerequisites
 -------------
 
--  Python 2.7
+-  Python 3
 
-   -  :pypi:`virtualenv` (optional) tool to create isolated Python environments
+   -  Pillow_
 
-   -  PyPI_ a package management system used to install and manage
-      software packages written in Python. PyPI is already installed if
-      you are using Python 2 >=2.7.9
-
-   -  ZeroC_ IcePy 3.6
-
-   -  Django_ (1.8) [1]_
-
-   -  Pillow_ [2]_
-
-   -  `NumPy <https://www.numpy.org>`_ >=1.9 
-
-   -  Matplotlib_
+   -  `NumPy <https://www.numpy.org>`_ >=1.9
 
 -  A `WSGI <https://wsgi.readthedocs.org>`_-capable webserver such as
    `NGINX <https://nginx.org/>`_ and `Gunicorn <https://docs.gunicorn.org/>`_
 
-.. [1] The currently supported version of the django module used by
-       OMERO.web (1.8) requires Python 2.7. The older version (1.6)
-       will work with Python 2.6 but lacks security support, and is
-       consequently *not recommended for production use*. Python 2.7
-       and `Django 1.8`_ are required for security support.
-
-.. [2] Make sure to have `libjpeg <http://libjpeg.sourceforge.net/>`_ 
-       installed when building Pillow_. We currently do not 
-       support version 3.4 or higher.
 
 If possible, install the following packages:
 
@@ -142,17 +106,32 @@ If possible, install the following packages:
     * - System
       - Package
 
-    * - BSD Ports
-      - lang/python27 graphics/py-pillow math/py-matplotlib math/py-numpy www/nginx
-
     * - Debian
-      - python2.7 python-pil python-matplotlib python-numpy nginx
+      - python3 python3-pillow python3-numpy nginx
 
     * - Homebrew
-      - python pillow numpy matplotlib nginx
+      - python pillow numpy nginx
 
     * - RedHat
-      - python nginx
+      - python3 python3-pillow numpy nginx
+
+Installation
+------------
+
+From **OMERO 5.6.0** release, the ``omero-web`` library supports Python 3 and
+can be installed via ``pip``.
+
+We assume the following::
+
+    $ omero_user_home_dir=/home/omero
+    $ OMERODIR=${omero_user_home_dir}/omero
+
+We recommend you use a virtual environment::
+
+    $ python3 -m venv py3_venv
+    $ source py3_venv/bin/activate
+    $ pip install omero-web
+    $ OMERODIR=${OMERODIR}
 
 .. _gunicorn_default_configuration:
 
@@ -187,7 +166,7 @@ configuration redirect the output of the following command into a file:
 
 ::
 
-    $ OMERO.py/bin/omero web config nginx
+    $ omero web config nginx
 
 .. literalinclude:: nginx-omero.conf
 
@@ -200,7 +179,7 @@ a minimal configuration:
 
 ::
 
-    $ OMERO.py/bin/omero web config nginx-location > /home/omero/omero-web-location.include
+    $ omero web config nginx-location > {{ omero_user_home_dir }}/omero-web-location.include
 
 .. literalinclude:: omero-web-location.include
 
@@ -227,8 +206,8 @@ Start the Gunicorn worker processes listening by default on 127.0.0.1:4080:
 
 ::
 
-    $ OMERO.py/bin/omero web start
-    ... static files copied to '/home/omero/OMERO.py/lib/python/omeroweb/static'.
+    $ omero web start
+    ... static files copied to '/home/omero/omero/lib/python/omeroweb/static'.
     Starting OMERO.web... [OK]
 
 The Gunicorn workers are managed **separately** from other OMERO.server
@@ -237,9 +216,9 @@ following commands:
 
 ::
 
-    $ OMERO.py/bin/omero web status
+    $ omero web status
     OMERO.web status... [RUNNING] (PID 59217)
-    $ OMERO.py/bin/omero web stop
+    $ omero web stop
     Stopping OMERO.web... [OK]
     Django WSGI workers (PID 59217) killed.
 
@@ -333,9 +312,10 @@ In order to identify why OMERO.web is not available run:
 
 ::
 
-    $ OMERO.py/bin/omero web status
+    $ omero web status
 
-Then consult NGINX :file:`error.log` and :file:`OMERO.py/var/log/OMEROweb.log`
+
+Then consult NGINX :file:`error.log` and :file:`/home/omero/omero/var/log/OMEROweb.log`
 
 Check :ref:`troubleshooting-omeroweb` for more details.
 
@@ -349,7 +329,7 @@ using :property:`omero.web.wsgi_args`:
 
 ::
 
-    $ OMERO.py/bin/omero config set omero.web.wsgi_args -- "--log-level=DEBUG --error-logfile=/home/omero/OMERO.py/var/log/error.log".
+    $ omero config set omero.web.wsgi_args -- "--log-level=DEBUG --error-logfile=/home/omero/omero/var/log/error.log".
 
 
 .. _gunicorn_advance_configuration:
@@ -383,8 +363,8 @@ Additional settings can be configured by changing the following properties:
 - The number of worker threads for handling requests, see
   `Gunicorn threads <https://docs.gunicorn.org/en/stable/settings.html#threads>`_ ::
 
-      $ OMERO.py/bin/omero config set omero.web.wsgi_worker_class
-      $ OMERO.py/bin/omero config set omero.web.wsgi_threads $(2-4 x NUM_CORES)
+      $ omero config set omero.web.wsgi_worker_class
+      $ omero config set omero.web.wsgi_threads $(2-4 x NUM_CORES)
 
 .. _async_workers:
 
@@ -400,6 +380,6 @@ Additional settings can be configured by changing the following properties:
 - The maximum number of simultaneous clients, see
   `Gunicorn worker-connections <https://docs.gunicorn.org/en/stable/settings.html#worker-connections>`_ ::
 
-      $ OMERO.py/bin/omero config set omero.web.wsgi_worker_class gevent
-      $ OMERO.py/bin/omero config set omero.web.wsgi_worker_connections 1000
-      $ OMERO.py/bin/omero config set omero.web.application_server.max_requests 0
+      $ omero config set omero.web.wsgi_worker_class gevent
+      $ omero config set omero.web.wsgi_worker_connections 1000
+      $ omero config set omero.web.application_server.max_requests 0
