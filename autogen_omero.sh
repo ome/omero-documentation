@@ -30,7 +30,9 @@ set +u # PS1 issue
 . $WORKSPACE/venv/bin/activate
 set -u
 export PATH=$WORKSPACE/OMERO.server/bin:$PATH
-$WORKSPACE/ome-documentation/omero/autogen_docs
+
+cd $WORKSPACE/ome-documentation/
+omero/autogen_docs
 
 if [[ -z $(git status -s) ]]; then
   echo "No local changes"
@@ -43,7 +45,13 @@ else
   fi
 fi
 
-cd $WORKSPACE/ome-documentation/omero
+# OSX compatibility for testing
+MD5SUM=md5sum
+type $MD5SUM || MD5SUM=md5
+SHA1SUM=sha1sum
+type $SHA1SUM || SHA1SUM=shasum
+
+cd omero
 make clean html
 echo "Order deny,allow
 Deny from all
@@ -56,7 +64,7 @@ for x in $WORKSPACE/ome-documentation/omero/_build/*.zip
     base=`basename $x`
     dir=`dirname $x`
     pushd "$dir"
-    md5sum "$base" >> "$base.md5"
-    sha1sum "$base" >> "$base.sha1"
+    $MD5SUM "$base" >> "$base.md5"
+    $SHA1SUM "$base" >> "$base.sha1"
     popd
 done
