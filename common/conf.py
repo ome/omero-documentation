@@ -56,7 +56,7 @@ def get_previous_version(majornumber, minornumber=0):
 
 # Add any Sphinx extension module names here, as strings.
 # They can be extensions coming with Sphinx (named 'sphinx.ext.*')
-# or your custom ones.)
+# or your custom ones.
 extensions = ['omerodocs', 'sphinx.ext.extlinks', 'edit_on_github']
 
 # Configuration for the edit_on_github extension
