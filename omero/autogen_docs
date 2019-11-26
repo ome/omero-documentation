@@ -20,6 +20,7 @@ cat $WORKSPACE/OMERO.server/history.rst >> newfile.rst
 mv newfile.rst omero/users/history.rst
 
 echo "Generating configuration properties page"
+omero config parse --rst # Pre-run to see errors
 omero config parse --rst | sed "s|$WORKSPACE|/home/omero|" > omero/sysadmins/config.rst
 
 echo "Generating ldap setdn usage page"
