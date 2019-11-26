@@ -11,10 +11,7 @@ facilitates several aspects of working with the Python API, such as
 connection handling, object graph traversal and lazy loading.
 
 This page gives you a large number of code samples to get you
-started. These are followed by some `longer examples  <#example-workflow-scripts>`_
-that show more complete workflows.
-
-To find more details about the BlitzGateway, see the :doc:`PythonBlitzGateway` page.
+started. Then we describe a bit more about :doc:`PythonBlitzGateway`.
 
 The Python libraries are part of the server build and can be found under
 OMERO\_HOME/lib/python. These include the core omero.model objects and
@@ -1251,30 +1248,6 @@ Filesets - added in OMERO 5.0
 ::
 
     fileset = conn.getObject("Fileset", fs_id)
-
-
-Example workflow scripts
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-These scripts provide some examples of how the code snippets above
-can be combined into longer workflows.
-
--  **Simple FRAP**.  `simple_frap.py <https://github.com/ome/training-scripts/blob/master/practical/python/server/simple_frap.py>`_
-
-   This script has examples of:
-
-   - ``conn.getObjects()`` to get Datasets and their Images
-   - ``roi_service.findByImage()`` to get ROIs on each Image
-   - ``roi_service.getShapeStatsRestricted()`` to get intensity stats for each timepoint
-
-
--  **Gaussian Filter**. `scipy_gaussian_filter.py  <https://github.com/ome/training-scripts/blob/master/practical/python/server/scipy_gaussian_filter.py>`_
-
-   This script has examples of:
-
-   - ``pixels.getPlanes(zct_list)`` to get numpy planes from an Image
-   - ``conn.createImageFromNumpySeq()`` to create a new Image from numpy planes
-   - ``DatasetWrapper()`` to create a new Dataset
 
 
 Python OMERO.scripts
