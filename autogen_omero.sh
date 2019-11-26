@@ -25,6 +25,7 @@ test -e $WORKSPACE/omeroweb-install
 if [ ! -e $WORKSPACE/venv ]; then
     virtualenv $WORKSPACE/venv
     $WORKSPACE/venv/bin/pip install -r $WORKSPACE/OMERO.server/share/web/requirements-py27.txt
+    $WORKSPACE/venv/bin/pip install future
 fi
 set +u # PS1 issue
 . $WORKSPACE/venv/bin/activate
