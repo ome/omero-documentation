@@ -47,11 +47,12 @@ def runScript():
     try:
         scriptParams = client.getInputs(unwrap=True)
         message = 'Params: %s\n' % scriptParams
-        print message
+        print(message)
         client.setOutput('Message', rstring(str(message)))
 
     finally:
         client.closeSession()
+
 
 if __name__ == '__main__':
     runScript()

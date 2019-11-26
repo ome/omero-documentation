@@ -6,12 +6,17 @@ import glob
 import os
 import re
 import sys
-from path import path
+try:
+    from omero_ext.path import path
+except ImportError:
+    # Python 2
+    from path import path
 from omero.cli import CLI
 from omero.install.config_parser import PropertyParser
 
+
 def get_mmp(sqlfile):
-    m = re.search('.*/?OMERO(\d+)\.(\d+)(\w*)__(\d+)', sqlfile)
+    m = re.search(r'.*/?OMERO(\d+)\.(\d+)(\w*)__(\d+)', sqlfile)
     mmp = (int(m.group(1)), int(m.group(2)), m.group(3), int(m.group(4)))
     return mmp
 

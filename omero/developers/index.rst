@@ -109,6 +109,7 @@ Web
     Web
     Web/Deployment
     Web/CreateApp
+    Web/ReleaseApp
     Web/LinkingFromWebclient
     Web/WebclientPlugin
     Web/EditingOmeroWeb
