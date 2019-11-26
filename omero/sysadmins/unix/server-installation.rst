@@ -647,11 +647,11 @@ output of the diagnostics command:
     ================================================================================
 
     Commands:   java -version                  1.8.0     (/usr/bin/java)
-    Commands:   python -V                      3.6.3     (/usr/bin/python)
+    Commands:   python -V                      3.6.3     (/home/omero/omeroenv/bin/pythons)
     Commands:   icegridnode --version          3.6.5     (/usr/bin/icegridnode)
     Commands:   icegridadmin --version         3.6.5     (/usr/bin/icegridadmin)
     Commands:   psql --version                 9.6.15    (/usr/bin/psql)
-    Commands:   openssl version
+    Commands:   openssl version                1.0.2     (/usr/bin/openssl)
 
     Server:     icegridnode                    running
     Server:     Blitz-0                        active (pid = 30324, enabled)
