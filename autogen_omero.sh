@@ -22,6 +22,7 @@ test -e $WORKSPACE/OMERO.server
 test -e $WORKSPACE/omero-install
 test -e $WORKSPACE/omeroweb-install
 
+export PATH=$WORKSPACE/OMERO.server/bin:$PATH
 $WORKSPACE/ome-documentation/omero/autogen_docs
 
 if [[ -z $(git status -s) ]]; then
