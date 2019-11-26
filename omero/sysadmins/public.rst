@@ -57,11 +57,11 @@ To set this up on your OMERO.web installation:
 
   ::
 
-     $ bin/omero config set omero.web.public.enabled True
+     $ omero config set omero.web.public.enabled True
 
-     $ bin/omero config set omero.web.public.user '<username>'
+     $ omero config set omero.web.public.user '<username>'
 
-     $ bin/omero config set omero.web.public.password '<password>'
+     $ omero config set omero.web.public.password '<password>'
 
 - By default the public user is only allowed to perform GET requests. This
   means that the public user will not be able to Create, Edit or Delete data,
@@ -69,7 +69,7 @@ To set this up on your OMERO.web installation:
   If you want to allow these actions from the public user, you can change the
   :property:`omero.web.public.get_only` property::
 
-      $ bin/omero config set omero.web.public.get_only false
+      $ omero config set omero.web.public.get_only false
 
 .. _public.url_filter:
 
@@ -87,18 +87,18 @@ To set this up on your OMERO.web installation:
   - To allow all URLs from a single app, such as 'webgateway', use a filter
     for URLs that start with the app name. For example::
 
-       $ bin/omero config set omero.web.public.url_filter '^/webgateway'
+       $ omero config set omero.web.public.url_filter '^/webgateway'
 
     This filter permits all URLs needed for the full image viewer.
     If you wish to block webgateway URLs for downloading data, use::
 
-       $ bin/omero config set omero.web.public.url_filter '^/webgateway/(?!archived_files|download_as)'
+       $ omero config set omero.web.public.url_filter '^/webgateway/(?!archived_files|download_as)'
 
   - You may need to allow access to additional URLs for some apps.
     For example, the `OMERO.iviewer <https://www.openmicroscopy.org/omero/iviewer/>`_ also
     uses some ``webgateway`` and ``api`` URLs::
 
-       $ bin/omero config set omero.web.public.url_filter '^/iviewer|webgateway|api'
+       $ omero config set omero.web.public.url_filter '^/iviewer|webgateway|api'
 
   - You can use the full webclient UI for public browsing of images.
     Attempts by public user to create, edit or delete data will fail silently
@@ -106,13 +106,13 @@ To set this up on your OMERO.web installation:
     may also choose to disable various dialogs for these actions such as
     launching scripts or OME-TIFF export, for example::
 
-       $ bin/omero config set omero.web.public.url_filter '^/(webadmin/myphoto/|webclient/(?!(script_ui|ome_tiff|figure_script))|webgateway/(?!(archived_files|download_as))|iviewer|api)'
+       $ omero config set omero.web.public.url_filter '^/(webadmin/myphoto/|webclient/(?!(script_ui|ome_tiff|figure_script))|webgateway/(?!(archived_files|download_as))|iviewer|api)'
 
 - Set the :property:`omero.web.public.server_id` which the public user will be
   automatically connected to. Default: 1 (the first server in the
   :property:`omero.web.server_list`)::
 
-     $ bin/omero config set omero.web.public.server_id 1
+     $ omero config set omero.web.public.server_id 1
 
 
 If you enable public access to the main webclient but still wish registered

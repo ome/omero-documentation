@@ -13,7 +13,7 @@ on Posix systems. If you think files have been left behind e.g. after a
 hard-reboot, a script to clean these up is included in the OMERO.server
 distribution ``lib/python/omero/util/cleanse.py``, which can be used so::
 
-    $ bin/omero admin cleanse /OMERO
+    $ omero admin cleanse /OMERO
 
 Note that only items not listed in the relational database (i.e. previously
 failed deletes) and now empty directories will be cleaned up by this script.
@@ -74,7 +74,7 @@ may need the backup.
 You need to back up *(3)* only before you make changes. You can copy it into 
 ``/OMERO/backup`` to ensure it is kept safe::
 
-    $ bin/omero config get > /OMERO/backup/omero.config
+    $ omero config get > /OMERO/backup/omero.config
 
 Other backup sources
 """"""""""""""""""""

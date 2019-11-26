@@ -59,7 +59,6 @@ Indexer-0 process:
 
    ::
 
-       > bin/omero admin ice
        > omero admin ice
        Ice 3.6.3   Copyright (c) 2003-2016 ZeroC, Inc.
        >>> server list
@@ -106,26 +105,26 @@ initiate a re-indexing.
 
    ::
 
-       $ bin/omero admin reindex --prepare
+       $ omero admin reindex --prepare
 
 -  Remove the existing search Indexes by deleting the contents of the
    :file:`FullText` subdirectory of your :property:`omero.data.dir`:
 
    ::
 
-       $ bin/omero admin reindex --wipe
+       $ omero admin reindex --wipe
 
 -  Reset the indexer's progress counter in the database:
 
    ::
 
-       $ bin/omero admin reindex --reset 0
+       $ omero admin reindex --reset 0
 
 -  Re-enable/restart the indexer process:
 
    ::
 
-       $ bin/omero admin reindex --finish
+       $ omero admin reindex --finish
 
 Depending on the size of your database, it may take the indexer some time to
 finish re-indexing. During this time, your OMERO server will remain available
@@ -146,17 +145,17 @@ shutdown the OMERO server as normal and make any adjustments to the
 configuration that need to be made. Clear the contents of the :file:`FullText`
 directory and reset the indexing's progress counter as above::
 
-  $ bin/omero admin reindex --wipe
-  $ bin/omero admin reindex --reset 0
+  $ omero admin reindex --wipe
+  $ omero admin reindex --reset 0
 
 Then run the off-line re-indexing command::
 
-   $ bin/omero admin reindex --foreground
+   $ omero admin reindex --foreground
 
 Re-indexing the database in off-line mode will use a 1 GB heap by default, but
 this can be specified on the command-line with the ``--mem`` argument::
 
-   $ bin/omero admin reindex --foreground --mem=2g
+   $ omero admin reindex --foreground --mem=2g
 
 Other search configuration properties from :ref:`search_configuration` can be
 set for the processing by setting the :envvar:`JAVA_OPTS` environment
@@ -167,7 +166,7 @@ variable::
 Once foreground indexing is complete, re-enable the background indexer as
 above::
 
-    $ bin/omero admin reindex --finish
+    $ omero admin reindex --finish
 
 .. _search-monitoring:
 

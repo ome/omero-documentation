@@ -81,9 +81,9 @@ impossible to recover a lost one, instead a new one must be set by an admin.
 
 If the password for the root user is lost, the only way to reset it (in the
 absence of other admin accounts) is to manually update the password table. The
-``bin/omero`` command can generate the required SQL statement for you::
+``omero`` command can generate the required SQL statement for you::
 
-    $ bin/omero db password
+    $ omero db password
     Please enter password for OMERO root user:
     Please re-enter password for OMERO root user:
     UPDATE password SET hash = 'PJueOtwuTPHB8Nq/1rFVxg==' WHERE experimenter_id  = 0;
@@ -112,8 +112,8 @@ naught if the restricted administrator can read the contents of the
 ``session`` table.
 
 
-Java key- and truststores.
----------------------------
+Java key- and truststores
+-------------------------
 
 If your server is connecting to another server over |SSL|, you may need
 to configure a truststore and/or a keystore for the Java process. This
@@ -130,7 +130,7 @@ similar to the properties you configured during
 
    ::
 
-       bin/omero config set omero.security.trustStore /home/user/.keystore
+       omero config set omero.security.trustStore /home/user/.keystore
 
        A truststore is a database of trusted entities and their
        associated X.509 certificate chains authenticating the
@@ -151,13 +151,13 @@ similar to the properties you configured during
 
    ::
 
-       bin/omero config set omero.security.trustStorePassword secret
+       omero config set omero.security.trustStorePassword secret
 
 -  keystore path
 
    ::
 
-       bin/omero config set omero.security.keyStore /home/user/.mystore
+       omero config set omero.security.keyStore /home/user/.mystore
 
        A keystore is a database of private keys and their associated
        X.509 certificate chains authenticating the corresponding public
@@ -170,7 +170,7 @@ similar to the properties you configured during
 
    ::
 
-       bin/omero config set omero.security.keyStorePassword secret
+       omero config set omero.security.keyStorePassword secret
 
 .. _security_ssl:
 
@@ -198,12 +198,12 @@ can be modified using the :ref:`ports_configuration` configuration
 properties. For instance, to prefix all ports with 1, use
 :property:`omero.ports.prefix`::
 
-    $ bin/omero config set omero.ports.prefix 1
+    $ omero config set omero.ports.prefix 1
 
 You can disable unencrypted connections by redirecting clients to the |SSL|
 port using the server property :property:`omero.router.insecure`::
 
-    $ bin/omero config set omero.router.insecure "OMERO.Glacier2/router:ssl -p 4064 -h @omero.host@"
+    $ omero config set omero.router.insecure "OMERO.Glacier2/router:ssl -p 4064 -h @omero.host@"
 
 If you want to force host verification see :doc:`client-server-ssl`.
 

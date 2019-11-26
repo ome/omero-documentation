@@ -1,7 +1,7 @@
 Client Server SSL verification
 ==============================
 
-If you configure OMERO.web behind Nginx with a recognized SSL certificate your users can be sure that they are connecting to their intended server.
+If you configure OMERO.web behind NGINX with a recognized SSL certificate your users can be sure that they are connecting to their intended server.
 
 OMERO.server and clients do not automatically support host verification, so a
 `man-in-the-middle attack <https://www.cloudflare.com/learning/security/threats/man-in-the-middle-attack/>`_
@@ -46,7 +46,6 @@ Internal certificate authority
 You can also create your own certificates by creating a certificate authority (CA), and using that to create a server certificate.
 Set this additional server configuration property to point to the public CA certificate :file:`/etc/ssl/omero/cacert.pem`::
 
-    # TODO: Is this needed on the server side?
     omero config set omero.glacier2.IceSSL.CAs cacert.pem
 
 `Zeroc provide the Ice Certificate Utilities package <https://pypi.org/project/zeroc-icecertutils/>`_ to help create certificates, but if you know what you are doing you can use ``openssl`` directly.

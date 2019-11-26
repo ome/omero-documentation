@@ -91,15 +91,15 @@ directories need to be modified it is recommended that the DropBox system is
 stopped and then restarted around any changes, as below.
 ::
 
-    $ bin/omero admin ice server disable DropBox
-    $ bin/omero admin ice server stop DropBox
-    $ bin/omero admin ice server disable MonitorServer
-    $ bin/omero admin ice server stop MonitorServer
+    $ omero admin ice server disable DropBox
+    $ omero admin ice server stop DropBox
+    $ omero admin ice server disable MonitorServer
+    $ omero admin ice server stop MonitorServer
 
     # make any directory changes
 
-    $ bin/omero admin ice server enable MonitorServer
-    $ bin/omero admin ice server enable DropBox
+    $ omero admin ice server enable MonitorServer
+    $ omero admin ice server enable DropBox
 
 .. note::
 
@@ -338,7 +338,7 @@ be comma separated.
 Example
 ^^^^^^^
 
-Here's a full example of a configuration for two users:
+Here is a full example of a configuration for two users:
 
 ::
 

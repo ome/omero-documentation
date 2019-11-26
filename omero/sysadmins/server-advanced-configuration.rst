@@ -23,7 +23,7 @@ looks up the default **application descriptor** for your platform:
 
 ::
 
-	$ bin/omero admin start
+	$ omero admin start
 	No descriptor given. Using etc/grid/default.xml
 	Waiting on startup. Use CTRL-C to exit
 
@@ -32,8 +32,8 @@ parameters:
 
 ::
 
-    $ bin/omero admin start --help
-    usage: bin/omero admin start [-h] [-u USER] [file] [targets [targets ...]]
+    $ omero admin start --help
+    usage: omero admin start [-h] [-u USER] [file] [targets [targets ...]]
 
     Start icegridnode daemon and waits for required components to come up,
     i.e. status == 0
@@ -129,18 +129,18 @@ To run multiple servers on a single host, the easiest approach is to prefix all
 ports (SSL, TCP, registry) using :property:`omero.ports.prefix`::
 
     # First server
-    cd ~/OMERO.server-1
-    bin/omero admin start
+    OMERODIR = ~/OMERO.server-1
+    omero admin start
 
     # Second server
-    cd ~/OMERO.server-2
-    bin/omero config set omero.ports.prefix 1
-    bin/omero admin start
+    OMERODIR = ~/OMERO.server-2
+    omero config set omero.ports.prefix 1
+    omero admin start
 
     # Third server
-    cd ~/OMERO.server-3
-    bin/omero config set omero.ports.prefix 2
-    bin/omero admin start
+    OMERODIR = ~/OMERO.server-3
+    omero config set omero.ports.prefix 2
+    omero admin start
 
 
 Clients will need to use the appropriate port (4064, 14064 or 24064) to
