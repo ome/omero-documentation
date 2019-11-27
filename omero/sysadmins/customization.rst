@@ -5,8 +5,8 @@ The OMERO.web offer a flexible user interface that can be customized.
 The sections below describe how to set up these features.
 
 Note that depending on the deployment choice, OMERO.web will not activate
-configuration changes until Gunicorn is restarted using ``omero web
-restart``.
+configuration changes until Gunicorn is restarted using :command:`omero web
+restart`.
 
 
 Index page

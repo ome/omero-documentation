@@ -91,7 +91,7 @@ the omero user.
 
 We recommend to create a virtual environment
 
-Install the Ice Python binding using ``pip``:
+Install the Ice Python binding using :command:`pip`:
 
 .. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
     :start-after: #start-step03bis

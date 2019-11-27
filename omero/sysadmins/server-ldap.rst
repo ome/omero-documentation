@@ -257,7 +257,7 @@ the synchronization.
     if you have manually altered their membership, even if the membership now
     matches the LDAP group.
     
-    ``omero ldap setdn true --group-name $NAME`` can be used to make these
+    :program:`omero ldap setdn true --group-name $NAME` can be used to make these
     previous OMERO groups into LDAP groups.
 
 .. _legacy_password_providers:

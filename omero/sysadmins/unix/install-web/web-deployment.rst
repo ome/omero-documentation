@@ -89,8 +89,6 @@ Prerequisites
 
 -  Python 3
 
-   -  Pillow_
-
    -  `NumPy <https://www.numpy.org>`_ >=1.9
 
 -  A `WSGI <https://wsgi.readthedocs.org>`_-capable webserver such as
@@ -107,19 +105,19 @@ If possible, install the following packages:
       - Package
 
     * - Debian
-      - python3 python3-pillow python3-numpy nginx
+      - python3 python3-numpy nginx
 
     * - Homebrew
-      - python pillow numpy nginx
+      - python numpy nginx
 
     * - RedHat
-      - python3 python3-pillow numpy nginx
+      - python3 numpy nginx
 
 Installation
 ------------
 
 From **OMERO 5.6.0** release, the ``omero-web`` library supports Python 3 and
-can be installed via ``pip``.
+can be installed via :command:`pip`.
 
 We assume the following::
 

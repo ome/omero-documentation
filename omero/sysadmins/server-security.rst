@@ -81,7 +81,7 @@ impossible to recover a lost one, instead a new one must be set by an admin.
 
 If the password for the root user is lost, the only way to reset it (in the
 absence of other admin accounts) is to manually update the password table. The
-``omero`` command can generate the required SQL statement for you::
+:command:`omero` command can generate the required SQL statement for you::
 
     $ omero db password
     Please enter password for OMERO root user:

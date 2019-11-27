@@ -56,7 +56,7 @@ generated::
 
    omero admin removepyramids --endian=little
 
-We recommend you run the command with ``--dry-run`` first to list the pyramids
+We recommend you run the command with :command:`--dry-run` first to list the pyramids
 that will be deleted. If there are a large number of pyramids, you may need to
 run the command more than once since you cannot remove more than 500 pyramids in one call.
 For large installations, to avoid any timeout issue it is recommended to run the

@@ -100,7 +100,7 @@ the omero user.
 
 You will need to install the server corresponding to your Ice version.
 
-Install the Ice Python binding using ``pip``:
+Install the Ice Python binding using :command:`pip`:
 
 .. literalinclude:: walkthrough/walkthrough_debian9.sh
     :start-after: #start-step03bis
