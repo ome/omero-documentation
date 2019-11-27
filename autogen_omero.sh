@@ -27,7 +27,9 @@ if [ -e $WORKSPACE/venv ]; then
 fi
 python3 -m venv --system-site-packages $WORKSPACE/venv || virtualenv --system-site-packages $WORKSPACE/venv
 $WORKSPACE/venv/bin/pip install -r $WORKSPACE/OMERO.server/share/web/requirements-py27.txt
-$WORKSPACE/venv/bin/pip install future 'ansible<2.7' scc
+$WORKSPACE/venv/bin/pip install future 'ansible<2.7'
+$WORKSPACE/venv/bin/pip install -U PyYAML==5.1
+$WORKSPACE/venv/bin/pip install scc
 set +u # PS1 issue
 . $WORKSPACE/venv/bin/activate
 set -u
