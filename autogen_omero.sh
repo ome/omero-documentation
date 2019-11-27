@@ -57,13 +57,17 @@ SHA1SUM=sha1sum
 type $SHA1SUM || SHA1SUM=shasum
 
 cd omero
-make clean html
+run_ant(){
+    ant "$@" -Dsphinx.opts="$SPHINXOPTS" -Domero.release="$OMERO_RELEASE"
+}
+run_ant clean html
+
 echo "Order deny,allow
 Deny from all
 Allow from 134.36
 Allow from 10
 Satisfy Any" > _build/.htaccess
-make zip
+run_ant zip
 for x in $WORKSPACE/ome-documentation/omero/_build/*.zip
   do
     base=`basename $x`
