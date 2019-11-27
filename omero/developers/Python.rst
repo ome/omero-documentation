@@ -353,7 +353,7 @@ Read-Annotate groups, this will include other users' data - see
     image = conn.getObject("Image", imageId)
     print "Image: ", image
 
--  **In OMERO-4.4, we added 'cross-group' querying, use '-1'**
+-  **For cross-group querying, use ``-1``**
 
 ::
 
@@ -449,11 +449,20 @@ Write data
 
 ::
 
+    # Use omero.gateway.DatasetWrapper:
+    new_dataset = DatasetWrapper(conn, omero.model.DatasetI())
+    new_dataset.setName('Scipy_Gaussian_Filter')
+    new_dataset.save()
+    print("New dataset, Id:", new_dataset.id)
+    # Can get the underlying omero.model.DatasetI with:
+    dataset_obj = new_dataset._obj
+
+    # OR create the DatasetI directly:
     dataset_obj = omero.model.DatasetI()
     dataset_obj.setName(rstring("New Dataset"))
-    dataset_obj = conn.getUpdateService().saveAndReturnObject(dataset_obj)
+    dataset_obj = conn.getUpdateService().saveAndReturnObject(dataset_obj, conn.SERVICE_OPTS)
     dataset_id = dataset_obj.getId().getValue()
-    print "New dataset, Id:", dataset_id
+    print("New dataset, Id:", dataset_id)
 
 -  **Link to Project**
 
@@ -465,7 +474,7 @@ Write data
     link.setChild(dataset_obj)
     conn.getUpdateService().saveObject(link)
 
--  **Annotate Project with a new 'tag'**
+-  **Annotate Project with a new Tag**
 
 ::
 
@@ -475,7 +484,7 @@ Write data
     project = conn.getObject("Project", projectId)
     project.linkAnnotation(tag_ann)
 
--  **Added in OMERO 5.1: 'Map' annotations (list of key: value pairs)**
+-  **Add a Map Annotation (list of key: value pairs)**
 
 ::
 
