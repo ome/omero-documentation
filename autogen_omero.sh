@@ -32,6 +32,7 @@ set +u # PS1 issue
 . $WORKSPACE/venv/bin/activate
 set -u
 export PATH=$WORKSPACE/OMERO.server/bin:$PATH
+export PYTHONPATH=$WORKSPACE/OMERO.server/lib/python
 
 cd $WORKSPACE/ome-documentation/
 omero/autogen_docs
