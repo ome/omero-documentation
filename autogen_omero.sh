@@ -22,11 +22,12 @@ test -e $WORKSPACE/OMERO.server
 test -e $WORKSPACE/omero-install
 test -e $WORKSPACE/omeroweb-install
 
-if [ ! -e $WORKSPACE/venv ]; then
-    virtualenv $WORKSPACE/venv
-    $WORKSPACE/venv/bin/pip install -r $WORKSPACE/OMERO.server/share/web/requirements-py27.txt
-    $WORKSPACE/venv/bin/pip install future
+if [ -e $WORKSPACE/venv ]; then
+    rm -rf $WORKSPACE/venv
 fi
+python3 -m venv --system-site-packages $WORKSPACE/venv || virtualenv --system-site-packages $WORKSPACE/venv
+$WORKSPACE/venv/bin/pip install -r $WORKSPACE/OMERO.server/share/web/requirements-py27.txt
+$WORKSPACE/venv/bin/pip install future
 set +u # PS1 issue
 . $WORKSPACE/venv/bin/activate
 set -u
