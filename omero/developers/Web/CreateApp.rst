@@ -54,7 +54,7 @@ You also need to add your app to the :property:`omero.web.apps` setting:
 
 ::
 
-    $ bin/omero config append omero.web.apps '"minimal_webapp"'
+    $ omero config append omero.web.apps '"minimal_webapp"'
 
 Now you can restart your omero-web server and go to
 `http://localhost:4080/minimal_webapp/ <http://localhost:4080/minimal_webapp/>`_
@@ -170,11 +170,11 @@ From somewhere else in your app, you can then access the settings::
 
     from appname import settings
 
-    print settings.FOO
+    print(settings.FOO)
 
 Users can then configure this on the command line as follows::
 
-    $ bin/omero config set omero.web.appname.foo '{"userkey": "userval"}'
+    $ omero config set omero.web.appname.foo '{"userkey": "userval"}'
 
 
 Linking from Webclient

@@ -21,12 +21,17 @@ Installing OMERO.web
 --------------------
 
 From OMERO 5.6.0 release, the ``omero-web`` library supports Python 3 and
-can be installed via ``pip``. We recommend you use a virtual environment::
+can be installed via :command:`pip`. We need to specify a location :envvar:`OMERODIR`
+to create log files and a :file:`config.xml` file. This can be any existing
+directory. We recommend you use a virtual environment::
 
     $ python3 -m venv py3_venv
     $ source py3_venv/bin/activate
 
-    $ pip install "omero-web==v5.6.dev5"
+    # Somewhere to create config and log files
+    $ export OMERODIR=$(pwd)
+
+    $ pip install omero-web --pre
 
     Successfully installed Django-1.11.26 Pillow-6.2.1 django-pipeline-1.6.14
     future-0.18.2 gunicorn-20.0.0 omero-marshal-0.6.3 omero-py-5.6.dev5
