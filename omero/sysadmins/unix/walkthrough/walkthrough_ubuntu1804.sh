@@ -4,7 +4,6 @@ source settings.env
 source settings-web.env
 
 #start-step01: As root, install dependencies
-
 apt-get update
 
 # installed for convenience
@@ -18,20 +17,19 @@ apt-get update -q
 apt-get install -y openjdk-8-jre
 
 # install dependencies
-
 apt-get update
 apt-get -y install \
 	unzip \
 	wget \
-	python3-{pip,tables,venv,yaml,jinja2}
+	python3 \
+	python3-venv
 
 # to be installed if recommended/suggested is false
 apt-get -y install python3-setuptools python3-wheel
-
 #start-web-dependencies
 apt-get -y install zlib1g-dev
-apt-get -y install python3-{pillow,numpy}
 #end-web-dependencies
+#end-step01
 # install Ice
 #start-recommended-ice
 apt-get update && \
@@ -60,7 +58,6 @@ ldconfig
 apt-get update
 apt-get -y install postgresql
 service postgresql start
-
 #end-step01
 
 #start-step02: As root, create an omero system user and directory for the OMERO repository
@@ -72,44 +69,40 @@ chmod a+X ~omero
 mkdir -p "$OMERO_DATA_DIR"
 chown omero "$OMERO_DATA_DIR"
 #end-step02
-
 #start-step03: As root, create a database user and a database
-
 echo "CREATE USER $OMERO_DB_USER PASSWORD '$OMERO_DB_PASS'" | su - postgres -c psql
 su - postgres -c "createdb -E UTF8 -O '$OMERO_DB_USER' '$OMERO_DB_NAME'"
 
 psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 #end-step03
 
-#start-step03bis: As the omero system user, create a virtual env and install dependenciees
+#start-step03bis: As root, create a virtual env and install dependencies
 # Create a virtual env and activate it
-VIRTUALENV=${VIRTUALENV:-/home/omero/omeroenv}
-python3 -mvenv $VIRTUALENV
-. $VIRTUALENV/bin/activate
+VENV_SERVER=${VENV_SERVER:-/opt/omero/server/venv}
+python3 -mvenv $VENV_SERVER
+. $VENV_SERVER/bin/activate
 
 # Install the Ice Python binding
-pip3 install https://github.com/ome/zeroc-ice-py-ubuntu1804/releases/download/0.2.0/zeroc_ice-3.6.5-cp36-cp36m-linux_x86_64.whl
+pip install https://github.com/ome/zeroc-ice-py-ubuntu1804/releases/download/0.2.0/zeroc_ice-3.6.5-cp36-cp36m-linux_x86_64.whl
 #end-step03bis
 
-#start-step04: As the omero system user, install the omero-py OMERO.server
+#start-step04-pre: As root, install omero-py
+# Install omero-py
+pip install "omero-py>=5.6.dev4"
+#end-step04-pre
+
+#start-step04: As the omero user, download the OMERO.server and configure it
 #start-copy-omeroscript
 cp settings.env settings-web.env step04_all_omero.sh setup_omero_db.sh ~omero 
 #end-copy-omeroscript
 #start-release-ice36
-cd ~omero
+cd /home/omero
 #SERVER=https://downloads.openmicroscopy.org/latest/omero5.6/server-ice36.zip
 SERVER=https://downloads.openmicroscopy.org/omero/5.6.0-m2/artifacts/OMERO.server-5.6.0-m2-ice36-b126.zip
 wget -q $SERVER -O OMERO.server-ice36.zip
 unzip -q OMERO.server*
 #end-release-ice36
 ln -s OMERO.server-*/ OMERO.server
-# set OMERODIR
-export OMERODIR=OMERO.server
-
-
-# Install omero-py
-pip3 install "omero-py>=5.6.dev4"
-
 omero config set omero.data.dir "$OMERO_DATA_DIR"
 omero config set omero.db.name "$OMERO_DB_NAME"
 omero config set omero.db.user "$OMERO_DB_USER"
@@ -119,7 +112,6 @@ psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < OMERO.server/db.sql
 #end-step04
 #start-patch-openssl
 #start-seclevel
-. $VIRTUALENV/bin/activate
 omero config set omero.glacier2.IceSSL.Ciphers HIGH:ADH:@SECLEVEL=0
 #end-seclevel
 #end-patch-openssl
@@ -136,7 +128,7 @@ apt-get update
 apt-get -y install nginx
 #end-nginx-install
 #start-nginx-admin
-cp OMERO.server/nginx.conf.tmp /etc/nginx/sites-available/omero-web
+cp /home/omero/OMERO.server/nginx.conf.tmp /etc/nginx/sites-available/omero-web
 rm /etc/nginx/sites-enabled/default
 ln -s /etc/nginx/sites-available/omero-web /etc/nginx/sites-enabled/
 
@@ -160,8 +152,8 @@ chmod go-rwx OMERO.server/etc OMERO.server/var
 
 OMERO_USER=omero
 OMERO_SERVER=/home/omero/OMERO.server
-VIRTUALENV=/home/omero/omeroenv
-su - ${OMERO_USER} -c ". ${VIRTUALENV}/bin/activate;OMERODIR=${OMERO_SERVER} omero web clearsessions"
+SETTINGS=/home/omero/settings.env
+su - ${OMERO_USER} -c ". ${SETTINGS} omero web clearsessions"
 #end-omeroweb-cron
 #Copy omero-web-cron into the appropriate location
 #start-copy-omeroweb-cron
