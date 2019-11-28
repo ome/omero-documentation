@@ -138,7 +138,7 @@ ports (SSL, TCP, registry) using :property:`omero.ports.prefix`::
     omero admin start
 
     # Third server
-    OMERODIR = ~/OMERO.server-3
+    export OMERODIR=~/OMERO.server-3
     omero config set omero.ports.prefix 2
     omero admin start
 
