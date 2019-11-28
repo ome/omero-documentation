@@ -105,7 +105,7 @@ If possible, install the following packages:
       - Package
 
     * - Debian
-      - python3 python3-numpy nginx
+      - python3 nginx
 
     * - Homebrew
       - python numpy nginx
