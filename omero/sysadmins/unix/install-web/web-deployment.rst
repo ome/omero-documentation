@@ -108,7 +108,7 @@ If possible, install the following packages:
       - python3 nginx
 
     * - Homebrew
-      - python numpy nginx
+      - python nginx
 
     * - RedHat
       - python3 numpy nginx
