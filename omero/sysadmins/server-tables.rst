@@ -90,7 +90,7 @@ After that, the following should succeed:
   your operating system's package installer if possible or if you must
   instead use PyPI_ directly::
 
-    pip3 install mock
+    pip install mock
 
 Once the required Python libraries are installed, starting OMERO will
 automatically start up the OMERO.tables service; there should be no need
