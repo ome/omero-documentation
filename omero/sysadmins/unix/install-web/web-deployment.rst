@@ -122,7 +122,7 @@ can be installed via :command:`pip`.
 We assume the following::
 
     $ omero_user_home_dir=/home/omero
-    $ OMERODIR=${omero_user_home_dir}/omero
+    $ export OMERODIR=${omero_user_home_dir}/omero
 
 We recommend you use a virtual environment::
 
