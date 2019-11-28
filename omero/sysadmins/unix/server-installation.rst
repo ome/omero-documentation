@@ -185,7 +185,7 @@ If possible, install the following packages:
       - Package
 
     * - Debian
-      - python3 python3-numpy
+      - python3
 
     * - Homebrew
       - python3
