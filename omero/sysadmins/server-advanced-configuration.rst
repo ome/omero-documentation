@@ -129,7 +129,7 @@ To run multiple servers on a single host, the easiest approach is to prefix all
 ports (SSL, TCP, registry) using :property:`omero.ports.prefix`::
 
     # First server
-    OMERODIR = ~/OMERO.server-1
+    export OMERODIR=~/OMERO.server-1
     omero admin start
 
     # Second server
