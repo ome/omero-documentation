@@ -177,7 +177,7 @@ a minimal configuration:
 
 ::
 
-    $ omero web config nginx-location > {{ omero_user_home_dir }}/omero-web-location.include
+    $ omero web config nginx-location > ${omero_user_home_dir}/omero-web-location.include
 
 .. literalinclude:: omero-web-location.include
 
