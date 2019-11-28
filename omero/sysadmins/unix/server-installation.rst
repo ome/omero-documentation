@@ -188,7 +188,7 @@ If possible, install the following packages:
       - python3 python3-numpy
 
     * - Homebrew
-      - python3 numpy
+      - python3
 
     * - RedHat
       - python3
