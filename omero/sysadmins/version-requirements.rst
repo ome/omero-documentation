@@ -495,10 +495,12 @@ OMERO support policies
       - OMERO 5.4
       - OMERO 5.5
       - OMERO 5.6
+      - OMERO 6.0
     * - 9.3
       - from Sep 2013
       - to Sep 2018
       - |Deprecated|
+      - |Dropped|
       - |Dropped|
       - |Dropped|
     * - 9.4
@@ -507,23 +509,27 @@ OMERO support policies
       - |Supported|
       - |Deprecated|
       - |Dropped|
+      - |Dropped|
     * - 9.5
       - from Jan 2016
       - to Jan 2021
       - |Supported|
       - |Supported|
       - |Deprecated|
+      - |Dropped|
     * - 9.6
       - from Sep 2016
       - to Sep 2021
       - |Recommended|
       - |Supported|
       - |Deprecated|
+      - |Dropped|
     * - 10
       - from Oct 2017
       - to Nov 2022
       - |Upcoming|
       - |Recommended|
+      - |Supported|
       - |Supported|
     * - 11
       - from Oct 2018
@@ -531,9 +537,18 @@ OMERO support policies
       - |Upcoming|
       - |Upcoming|
       - |Recommended|
+      - |Recommended|
+    * - 12
+      - from Oct 2019
+      - to Nov 2024
+      - |Upcoming|
+      - |Upcoming|
+      - |Supported|
+      - |Supported|
     * - Details
       - 
       - `Reference <https://www.postgresql.org/support/versioning/>`__
+      - 
       - 
       - 
       - 
@@ -601,6 +616,7 @@ OMERO support policies
       - OMERO 5.4
       - OMERO 5.5
       - OMERO 5.6
+      - OMERO 6.0
       - Details
     * - 2.6
       - from Oct 2008
@@ -609,13 +625,15 @@ OMERO support policies
         |Supported| [2]_ 
       - |Dropped|
       - |Dropped|
+      - |Dropped|
       - `PEP 361 <https://www.python.org/dev/peps/pep-0361/>`__
     * - 2.7
       - from Jul 2010
       - to Jan 2020
       - |Recommended|
       - |Recommended|
-      - |Deprecated|
+      - |Dropped|
+      - |Dropped|
       - `PEP 373 <https://www.python.org/dev/peps/pep-0373/>`__
     * - 3.2
       - from Feb 2011
@@ -623,6 +641,7 @@ OMERO support policies
       - |Broken|
       - |Broken|
       - |Broken|
+      - |Unsupported|
       - `PEP 392 <https://www.python.org/dev/peps/pep-0392/>`__
     * - 3.3
       - from Sep 2012
@@ -630,6 +649,7 @@ OMERO support policies
       - |Broken|
       - |Broken|
       - |Broken|
+      - |Unsupported|
       - `PEP 398 <https://www.python.org/dev/peps/pep-0398/>`__
     * - 3.4
       - from Mar 2014
@@ -637,13 +657,15 @@ OMERO support policies
       - |Broken|
       - |Broken|
       - |Broken|
+      - |Unsupported|
       - `PEP 429 <https://www.python.org/dev/peps/pep-0429/>`__
     * - 3.5
       - from Sep 2015
       - to Sep 2020
       - |Broken|
       - |Broken|
-      - |Supported|
+      - |Unsupported|
+      - |Unsupported|
       - `PEP 478 <https://www.python.org/dev/peps/pep-0478/>`__
     * - 3.6
       - from Dec 2016
@@ -651,13 +673,15 @@ OMERO support policies
       - |Broken|
       - |Broken|
       - |Recommended|
+      - |Supported|
       - `PEP 494 <https://www.python.org/dev/peps/pep-0494/>`__
     * - 3.7
       - from Jun 2018
       - to Jun 2023
       - |Broken|
       - |Broken|
-      - |Upcoming|
+      - |Supported|
+      - |Recommended|
       - `PEP 537 <https://www.python.org/dev/peps/pep-0537/>`__
 
 .. [1] For OMERO.web, Python 2.7 is the minimum supported version.
@@ -748,11 +772,13 @@ OMERO support policies
       - OMERO 5.4
       - OMERO 5.5
       - OMERO 5.6
+      - OMERO 6.0
       - Details
     * - 3.5
       - from Mar 2013
       - to Oct 2013
       - |Deprecated|
+      - |Dropped|
       - |Dropped|
       - |Dropped|
       - :zerocforum:`3.5.0 <6093/ice-3-5-0-released>`,
@@ -763,14 +789,17 @@ OMERO support policies
       - |Recommended|
       - |Recommended|
       - |Recommended|
+      - |Recommended|
       - :zerocforum:`3.6.0 <6631/ice-3-6-0-and-ice-touch-3-6-0-released>`
         (:zerocforum:`3.6.1 <45941/ice-3-6-0-and-ice-touch-3-6-1-released>` |Broken|),
         :zerocforum:`3.6.2 <46347/ice-ice-e-and-ice-touch-3-6-2-released>`,
         :zerocforum:`3.6.3 <46475/ice-ice-e-and-ice-touch-3-6-3-released>`,
-        :zerocforum:`3.6.4 <46550/ice-ice-e-and-ice-touch-3-6-4-released>`
+        :zerocforum:`3.6.4 <46550/ice-ice-e-and-ice-touch-3-6-4-released>`,
+        :zerocforum:`3.6.5 <46700/ice-3-6-5-released>`.
     * - 3.7
       - from July 2017
       - to TBA
+      - |Unsupported|
       - |Unsupported|
       - |Unsupported|
       - |Unsupported|
@@ -827,11 +856,13 @@ OMERO support policies
       - OMERO 5.4
       - OMERO 5.5
       - OMERO 5.6
+      - OMERO 6.0
       - Details
     * - 7
       - from Jul 2011
       - to Apr 2015
       - |Deprecated|
+      - |Dropped|
       - |Dropped|
       - |Dropped|
       - `Reference <https://www.oracle.com/technetwork/java/eol-135779.html>`__
@@ -841,12 +872,14 @@ OMERO support policies
       - |Recommended|
       - |Recommended|
       - |Supported|
+      - |Deprecated|
       - `Reference <https://access.redhat.com/articles/1299013>`__
     * - 11
       - from Sep 2018
       - to Oct 2024
       - |Unsupported|
       - |Supported|
+      - |Recommended|
       - |Recommended|
       - `Reference <https://access.redhat.com/articles/1299013>`__
 
@@ -905,10 +938,12 @@ OMERO support policies
       - OMERO 5.4
       - OMERO 5.5
       - OMERO 5.6
+      - OMERO 6.0
     * - 1.6
       - from Apr 2014
       - to Apr 2015
       - |Deprecated|
+      - |Dropped|
       - |Dropped|
       - |Dropped|
     * - 1.8
@@ -917,30 +952,35 @@ OMERO support policies
       - |Supported|
       - |Deprecated|
       - |Dropped|
+      - |Dropped|
     * - 1.10
       - from Apr 2016
       - to Apr 2017
       - |Recommended|
       - |Supported|
       - |Deprecated|
+      - |Dropped|
     * - 1.12
       - from Apr 2017
       - to Apr 2018
       - |Supported|
       - |Recommended|
       - |Supported|
+      - |Deprecated|
     * - 1.14
       - from Apr 2018
       - to Apr 2019
       - |Upcoming|
       - |Supported|
       - |Recommended|
+      - |Supported|
     * - 1.16
       - from Apr 2019
       - TBA
       - |Upcoming|
       - |Upcoming|
-      - |Upcoming|
+      - |Recommended|
+      - |Recommended|
 
 Version provided by distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
