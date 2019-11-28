@@ -41,12 +41,6 @@ To install Java |javaversion| and other dependencies:
     :start-after: #start-step01
     :end-before: #start-web-dependencies
 
-To install dependencies required by OMERO core scripts:
-
-.. literalinclude:: walkthrough/walkthrough_debian9.sh
-    :start-after: #start-web-dependencies
-    :end-before: #end-web-dependencies
-
 To install Ice |iceversion|:
 
 .. literalinclude:: walkthrough/walkthrough_debian9.sh
@@ -86,10 +80,18 @@ Create a database user and initialize a new database for OMERO:
 Installing OMERO.server
 -----------------------
 
+**The following step is run as root.**
+
+We recommend to create a virtual environment and install the Ice Python binding using :command:`pip`:
+
+.. literalinclude:: walkthrough/walkthrough_debian9.sh
+    :start-after: #start-step03bis
+    :end-before: #end-step03bis
+
+
 **The following steps are run as the omero system user.**
 
-The rest of this walkthrough assumes the
-virtual environment and the OMERO.server are installed
+The rest of this walkthrough assumes the OMERO.server is installed
 into the home directory of the omero system user.
 
 Download, unzip and configure OMERO.
@@ -98,21 +100,13 @@ Note that this script requires the same environment variables that were set
 earlier in `settings.env`, so you may need to copy and/or source this file as
 the omero user.
 
-You will need to install the server corresponding to your Ice version.
-
-Install the Ice Python binding using :command:`pip`:
-
-.. literalinclude:: walkthrough/walkthrough_debian9.sh
-    :start-after: #start-step03bis
-    :end-before: #end-step03bis
-
 Install ``server-ice36.zip``:
 
 .. literalinclude:: walkthrough/walkthrough_debian9.sh
     :start-after: #start-release-ice36
     :end-before: #end-release-ice36
 
-Install ``omero-py`` and configure:
+Configure the server:
 
 .. literalinclude:: walkthrough/walkthrough_debian9.sh
     :start-after: #end-release-ice36
