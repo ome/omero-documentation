@@ -150,31 +150,6 @@ Check you have Python (and check its version) by running:
     $ python3 --version
     Python 3.6.4
 
-The following Python packages are required:
-
-.. list-table::
-    :header-rows: 1
-
-    * - Package
-      - Functionality
-      - Downloads
-
-    * - NumPy
-      - Scripting
-      - `Numpy/Scipy page <https://www.scipy.org/Download>`_
-
-    * - PyTables (3.4 or higher)
-      - :doc:`OMERO.tables </sysadmins/server-tables>`
-      - `PyTables page <https://pytables.github.io/downloads.html>`_
-
-
-.. note::
-    Some of these can be ignored if you wish to forego some
-    functionality but we recommend you just install everything. For
-    example, scripting is enabled by default so should not be assumed
-    optional even if you never expect your users to run scripts from
-    the clients.
-
 If possible, install the following packages:
 
 .. list-table::
@@ -195,12 +170,6 @@ If possible, install the following packages:
 
 Ice
 ^^^
-
-.. note::
-
-    OMERO |version| supports 3.6 on UNIX and UNIX-like platforms. You
-    must install the correct version of OMERO.server (see
-    :downloads:`Downloads <>`).
 
 The Ice version may vary, depending upon the distribution version you
 are using. The Ice versions in currently supported versions of Debian
@@ -487,14 +456,12 @@ Configuration
 
     ::
 
-        $ cd ~/omero/OMERO.server
         $ omero config set omero.db.name 'omero_database'
         $ omero config set omero.db.user 'db_user'
         $ omero config set omero.db.pass 'db_password'
 
     You can also check the values that have been set using::
 
-        $ cd ~/omero/OMERO.server
         $ omero config get
 
 -   If you have chosen a non-standard :doc:`OMERO binary repository
@@ -570,7 +537,7 @@ Configuration
          Password:         # omero_root_password
 
     You will be prompted for an OMERO username and password. Use the
-    username and password set when running ``bin/omero db script``.
+    username and password set when running :command:`omero db script`.
 
 -   If your users are going to be importing many files in one go, for example
     multiple plates, you should make sure you set the maximum number of open
