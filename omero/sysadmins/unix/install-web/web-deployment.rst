@@ -111,7 +111,7 @@ If possible, install the following packages:
       - python nginx
 
     * - RedHat
-      - python3 numpy nginx
+      - python3 nginx
 
 Installation
 ------------
