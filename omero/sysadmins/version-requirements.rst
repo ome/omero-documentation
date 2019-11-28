@@ -58,7 +58,7 @@ Operating systems
        - |Recommended|
        - |Recommended|
        - |Recommended|
-       - |Dropped|
+       - |Deprecated|
      * - 8.x
        - |Upcoming|
        - |Upcoming|
@@ -83,7 +83,7 @@ Operating systems
      * - 16.04
        - |Recommended|
        - |Recommended|
-       - |Supported|
+       - |Unsupported|
        - |Dropped|
      * - 18.04
        - |Upcoming|
@@ -146,7 +146,7 @@ Components
      * - 9.4
        - |Supported|
        - |Deprecated|
-       - |Deprecated|
+       - |Dropped|
        - |Dropped|
      * - 9.5
        - |Supported|
