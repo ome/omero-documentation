@@ -191,7 +191,7 @@ If possible, install the following packages:
       - python3 numpy
 
     * - RedHat
-      - python3 numpy
+      - python3
 
 Ice
 ^^^
@@ -712,4 +712,3 @@ Your OMERO.server installation will check for updates each time it is
 started from the *Open Microscopy Environment* update server. If you
 wish to disable this functionality you should do so now as outlined on
 the :doc:`/sysadmins/UpgradeCheck` page.
-
