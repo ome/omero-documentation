@@ -14,7 +14,7 @@ The current location of the data repositories can be found using the
 
 ::
 
-    $ bin/omero fs repos
+    $ omero fs repos
 
      # | Id | UUID                                 | Type    | Path
     ---+----+--------------------------------------+---------+-----------------------------------------
@@ -36,10 +36,10 @@ data directory is to be moved then the following steps should be used:
 
 ::
 
-    bin/omero admin stop
-    bin/omero config set omero.data.dir NEW
+    omero admin stop
+    omero config set omero.data.dir NEW
     mv OLD NEW
-    bin/omero admin start
+    omero admin start
 
 .. warning::
     The use of :program:`omero config set` is absolutely necessary here. The steps:
@@ -51,13 +51,13 @@ to ``/Volumes/omero``:
 
 ::
 
-    $ bin/omero admin stop
+    $ omero admin stop
     ...
-    $ bin/omero config set omero.data.dir /Volumes/omero
+    $ omero config set omero.data.dir /Volumes/omero
     $ mv /Users/omero/var/omero /Volumes/omero
-    $ bin/omero admin start
+    $ omero admin start
     ...
-    $ bin/omero fs repos
+    $ omero fs repos
 
      # | Id | UUID                                 | Type    | Path
     ---+----+--------------------------------------+---------+---------------------------------
@@ -75,10 +75,10 @@ steps should be used:
 
 ::
 
-    bin/omero admin stop
-    bin/omero config set omero.managed.dir NEW
+    omero admin stop
+    omero config set omero.managed.dir NEW
     mv OLD NEW
-    bin/omero admin start
+    omero admin start
 
 .. warning::
     The use of :program:`omero config set` is absolutely necessary here. The steps:
@@ -90,13 +90,13 @@ to ``/Volumes/imports/ManagedRepository``:
 
 ::
 
-    $ bin/omero admin stop
+    $ omero admin stop
     ...
-    $ bin/omero config set omero.managed.dir /Volumes/imports/ManagedRepository
+    $ omero config set omero.managed.dir /Volumes/imports/ManagedRepository
     $ mv /Users/omero/var/omero/ManagedRepository /Volumes/imports/ManagedRepository
-    $ bin/omero admin start
+    $ omero admin start
     ...
-    $ bin/omero fs repos
+    $ omero fs repos
 
      # | Id | UUID                                 | Type    | Path
     ---+----+--------------------------------------+---------+-----------------------------------
@@ -131,7 +131,7 @@ set up a subdirectory for that new volume in the existing Managed
 Repository:
 ::
 
-    bin/omero fs mkdir volume-B
+    omero fs mkdir volume-B
 
 This is the correct way to create
 :file:`/mnt/omero/ManagedRepository/volume-B` ready for new imports.
@@ -150,7 +150,7 @@ In either case the :property:`omero.fs.repo.path` must be updated in the server
 configuration. An example of adjusting its usual default value is:
 ::
 
-    bin/omero config set omero.fs.repo.path 'volume-B/%user%_%userId%//%year%-%month%/%day%/%time%'
+    omero config set omero.fs.repo.path 'volume-B/%user%_%userId%//%year%-%month%/%day%/%time%'
 
 After the OMERO server is started then new imports should upload onto
 the new storage volume. At a later date further storage volumes may be

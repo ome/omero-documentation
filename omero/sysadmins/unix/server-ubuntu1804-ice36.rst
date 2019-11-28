@@ -15,9 +15,8 @@ the supported versions.
 This should be read in conjunction with :doc:`../version-requirements`.
 
 This guide does not describe how to install OMERO.web.
-To deploy OMERO.web **separately** from OMERO.server (recommended), please read
-:doc:`install-web/walkthrough/omeroweb-install-ubuntu1804-ice3.6` or
-to deploy with OMERO.server :doc:`install-web/walkthrough/omeroweb-install-with-server-ubuntu1804-ice3.6`
+To deploy OMERO.web **separately** from OMERO.server, please read
+:doc:`install-web/walkthrough/omeroweb-install-ubuntu1804-ice3.6`.
 
 These instructions assume your Linux distribution is configured with a UTF-8
 locale (this is normally the default).
@@ -82,14 +81,23 @@ Installing OMERO.server
 
 **The following steps are run as the omero system user.**
 
-Download, unzip and configure OMERO. The rest of this walkthrough assumes the
-OMERO.server is installed into the home directory of the omero system user.
+The rest of this walkthrough assumes the
+virtual environment and the OMERO.server are installed
+into the home directory of the omero system user.
+
+Download, unzip and configure OMERO.
 
 Note that this script requires the same environment variables that were set
 earlier in `settings.env`, so you may need to copy and/or source this file as
 the omero user.
 
-You will need to install the server corresponding to your Ice version.
+We recommend to create a virtual environment
+
+Install the Ice Python binding using :command:`pip`:
+
+.. literalinclude:: walkthrough/walkthrough_ubuntu1804.sh
+    :start-after: #start-step03bis
+    :end-before: #end-step03bis
 
 Install ``server-ice36.zip``:
 
@@ -97,7 +105,7 @@ Install ``server-ice36.zip``:
     :start-after: #start-release-ice36
     :end-before: #end-release-ice36
 
-Configure:
+Install ``omero-py`` and configure:
 
 .. literalinclude:: walkthrough/walkthrough_ubuntu1804.sh
     :start-after: #end-release-ice36
@@ -125,7 +133,7 @@ Running OMERO.server
 
 OMERO should now be set up. To start the server run::
 
-    OMERO.server/bin/omero admin start
+    omero admin start
 
 In addition :download:`omero-init.d <walkthrough/omero-init.d>`
 is available should you wish to start OMERO automatically.
