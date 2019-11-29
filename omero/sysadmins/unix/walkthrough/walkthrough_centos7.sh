@@ -38,7 +38,7 @@ systemctl enable postgresql-10.service
 #end-step01
 
 #start-step02: As root, create an omero system user and directory for the OMERO repository
-useradd -m omero
+useradd -mr omero
 # Give a password to the omero user
 # e.g. passwd omero
 chmod a+X ~omero
@@ -57,15 +57,14 @@ psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 # Create a virtual env and activate it
 VENV_SERVER=${VENV_SERVER:-/opt/omero/server/venv}
 python3 -mvenv $VENV_SERVER
-. $VENV_SERVER/bin/activate
 
 # Install the Ice Python binding
-pip install https://github.com/ome/zeroc-ice-py-centos7/releases/download/0.2.1/zeroc_ice-3.6.5-cp36-cp36m-linux_x86_64.whl
+$VENV_SERVER/bin/pip install https://github.com/ome/zeroc-ice-py-centos7/releases/download/0.2.1/zeroc_ice-3.6.5-cp36-cp36m-linux_x86_64.whl
 #end-step03bis
 
 #start-step04-pre: As root, install omero-py
 # Install omero-py
-pip install "omero-py>=5.6.dev4"
+$VENV_SERVER/bin/pip install "omero-py>=5.6.dev4"
 #end-step04-pre
 
 #start-step04: As the omero user, download the OMERO.server and configure it

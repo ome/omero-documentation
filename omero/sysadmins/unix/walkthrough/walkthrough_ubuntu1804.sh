@@ -46,10 +46,10 @@ mcpp \
 zlib1g-dev
 
 cd /tmp
-wget -q https://github.com/ome/zeroc-ice-ubuntu1804/releases/download/0.2.0/Ice-3.6.5-ubuntu1804-amd64.tar.gz
-tar xf Ice-3.6.5-ubuntu1804-amd64.tar.gz
-mv opt/Ice-3.6.5 /opt
-echo /opt/Ice-3.6.5/lib/x86_64-linux-gnu > /etc/ld.so.conf.d/ice-x86_64.conf
+wget -q https://github.com/ome/zeroc-ice-ubuntu1804/releases/download/0.3.0/ice-3.6.5-0.3.0-ubuntu1804-amd64.tar.gz
+tar xf ice-3.6.5-0.3.0-ubuntu1804-amd64.tar.gz
+mv ice-3.6.5-0.3.0 /opt
+echo /opt/ice-3.6.5-0.3.0/lib/x86_64-linux-gnu > /etc/ld.so.conf.d/ice-x86_64.conf
 ldconfig
 #end-recommended-ice
 
@@ -61,7 +61,7 @@ service postgresql start
 #end-step01
 
 #start-step02: As root, create an omero system user and directory for the OMERO repository
-useradd -m omero
+useradd -mr omero
 # Give a password to the omero user
 # e.g. passwd omero
 chmod a+X ~omero
@@ -80,15 +80,14 @@ psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 # Create a virtual env and activate it
 VENV_SERVER=${VENV_SERVER:-/opt/omero/server/venv}
 python3 -mvenv $VENV_SERVER
-. $VENV_SERVER/bin/activate
 
 # Install the Ice Python binding
-pip install https://github.com/ome/zeroc-ice-py-ubuntu1804/releases/download/0.2.0/zeroc_ice-3.6.5-cp36-cp36m-linux_x86_64.whl
+$VENV_SERVER/bin/pip install https://github.com/ome/zeroc-ice-ubuntu1804/releases/download/0.3.0/zeroc_ice-3.6.5-cp36-cp36m-linux_x86_64.whl
 #end-step03bis
 
 #start-step04-pre: As root, install omero-py
 # Install omero-py
-pip install "omero-py>=5.6.dev4"
+$VENV_SERVER/bin/pip install "omero-py>=5.6.dev4"
 #end-step04-pre
 
 #start-step04: As the omero user, download the OMERO.server and configure it
