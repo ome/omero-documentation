@@ -48,15 +48,19 @@ Operating systems
        - OMERO 5.4
        - OMERO 5.5
        - OMERO 5.6
+       - OMERO 6.0
      * - 6.x
        - |Deprecated|
+       - |Dropped|
        - |Dropped|
        - |Dropped|
      * - 7.x
        - |Recommended|
        - |Recommended|
-       - |Dropped|
+       - |Recommended|
+       - |Deprecated|
      * - 8.x
+       - |Upcoming|
        - |Upcoming|
        - |Upcoming|
        - |Recommended|
@@ -70,17 +74,26 @@ Operating systems
        - OMERO 5.4
        - OMERO 5.5
        - OMERO 5.6
+       - OMERO 6.0
      * - 14.04
        - |Supported|
        - |Supported|
        - |Dropped|
+       - |Dropped|
      * - 16.04
        - |Recommended|
        - |Recommended|
-       - |Supported|
+       - |Unsupported|
+       - |Dropped|
      * - 18.04
        - |Upcoming|
        - |Supported|
+       - |Recommended|
+       - |Supported|
+     * - 20.04
+       - |Upcoming|
+       - |Upcoming|
+       - |Upcoming|
        - |Recommended|
        
   * Only LTS versions are supported and tested. Non-LTS versions
@@ -98,11 +111,14 @@ Bitness
        - OMERO 5.4
        - OMERO 5.5
        - OMERO 5.6
+       - OMERO 6.0
      * - 32-bit
        - |Deprecated| for Ice and native code [client]
        - |Dropped|
        - |Dropped|
+       - |Dropped|
      * - 64-bit
+       - |Recommended|
        - |Recommended|
        - |Recommended|
        - |Recommended|
@@ -121,30 +137,42 @@ Components
        - OMERO 5.4
        - OMERO 5.5
        - OMERO 5.6
+       - OMERO 6.0
      * - 9.3
        - |Deprecated|
+       - |Dropped|
        - |Dropped|
        - |Dropped|
      * - 9.4
        - |Supported|
        - |Deprecated|
-       - |Deprecated|
+       - |Dropped|
+       - |Dropped|
      * - 9.5
        - |Supported|
        - |Supported|
        - |Deprecated|
+       - |Dropped|
      * - 9.6
        - |Recommended|
        - |Supported|
+       - |Deprecated|
        - |Deprecated|
      * - 10
        - |Upcoming|
        - |Recommended|
        - |Supported|
+       - |Supported|
      * - 11
        - |Upcoming|
        - |Upcoming|
        - |Recommended|
+       - |Recommended|
+     * - 12
+       - |Upcoming|
+       - |Upcoming|
+       - |Upcoming|
+       - |Supported|
 
   * Rationale: Current releases available for all supported systems
     from upstream and for CentOS/RHEL officially via SCL (software
@@ -160,26 +188,43 @@ Components
          - OMERO.server 5.4
          - OMERO 5.5
          - OMERO 5.6
+         - OMERO 6.0
        * - 2.6
          - |Broken|
          - |Supported|
+         - |Dropped|
          - |Dropped|
          - |Dropped|
        * - 2.7
          - |Recommended|
          - |Recommended|
          - |Recommended|
-         - |Deprecated|
+         - |Dropped|
+         - |Dropped|
        * - 3.5
          - |Broken|
          - |Broken|
          - |Broken|
          - |Supported|
+         - |Deprecated|
        * - 3.6
          - |Broken|
          - |Broken|
          - |Broken|
          - |Recommended|
+         - |Supported|
+       * - 3.7
+         - |Broken|
+         - |Broken|
+         - |Broken|
+         - |Supported|
+         - |Recommended|
+       * - 3.8
+         - |Broken|
+         - |Broken|
+         - |Broken|
+         - |Upcoming|
+         - |Supported|
 
   * Rationale: 2.7 is provided by all systems except for CentOS/RHEL
     6.x, however it is available officially via SCL.
@@ -193,15 +238,19 @@ Components
          - OMERO 5.4
          - OMERO 5.5
          - OMERO 5.6
+         - OMERO 6.0
        * - 3.5
          - |Deprecated|
+         - |Dropped|
          - |Dropped|
          - |Dropped|
        * - 3.6
          - |Recommended|
          - |Recommended|
          - |Recommended|
+         - |Recommended|
        * - 3.7
+         - |Unsupported|
          - |Unsupported|
          - |Unsupported|
          - |Unsupported|
@@ -220,18 +269,32 @@ Components
          - OMERO 5.4
          - OMERO 5.5
          - OMERO 5.6
+         - OMERO 6.0
        * - 7
          - |Deprecated|
+         - |Dropped|
          - |Dropped|
          - |Dropped|
        * - 8
          - |Recommended|
          - |Recommended|
          - |Supported|
+         - |Deprecated|
        * - 11
          - |Unsupported|
          - |Supported|
          - |Recommended|
+         - |Supported|
+       * - 12
+         - |Unsupported|
+         - |Unsupported|
+         - |Supported|
+         - |Recommended|
+       * - 13
+         - |Unsupported|
+         - |Unsupported|
+         - |Supported|
+         - |Supported|
 
   * Rationale: For OMERO 5.4 deprecate Java 7 because security support ended
     in April 2015. MATLAB ships with Java 8 since R2017b.
@@ -272,45 +335,6 @@ Components
          - |Upcoming|
          - |Upcoming|
 
-.. _support-levels:
-
-Support levels
-==============
-
-The following table defines the symbols used throughout this page to
-describe the support status of a given component, as it progresses
-from being new and not supported, to supported and tested on a
-routine basis, and to finally being old and no longer supported
-nor tested.
-
-.. list-table::
-    :header-rows: 1
-
-    * - Level
-      - Meaning
-      - Description
-    * - |Upcoming|
-      - unsupported/new
-      - New version not yet regularly tested and not officially supported; may or may not work (use at own risk)
-    * - |Supported|
-      - supported/suboptimal
-      - Version which is tested, confirmed to work correctly, but may not offer optimal performance/experience
-    * - |Recommended|
-      - supported/optimal
-      - Version which is regularly tested, confirmed to work correctly, recommended for optimal performance/experience
-    * - |Deprecated|
-      - supported/deprecated
-      - Version which is less tested, expected to work correctly, but may not offer optimal performance/experience; official support may be dropped in the next major OMERO release
-    * - |Dropped|
-      - unsupported/old
-      - Old version no longer tested and no longer officially supported; may or may not work (use at own risk)
-    * - |Broken|
-      - unsupported/broken
-      - Known to not work
-    * - |Unsupported|
-      - unsupported/misc
-      - Not supported for some reason other than the above
-
 Operating system support
 ========================
 
@@ -341,11 +365,13 @@ General overview for `RHEL
       - OMERO 5.4
       - OMERO 5.5
       - OMERO 5.6
+      - OMERO 6.0
       - Details
     * - 6
       - from Nov 2010
       - to Nov 2020
       - |Deprecated|
+      - |Dropped|
       - |Dropped|
       - |Dropped|
       - `Reference <https://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
@@ -354,11 +380,13 @@ General overview for `RHEL
       - to June 2024
       - |Recommended|
       - |Recommended|
-      - |Dropped|
+      - |Recommended|
+      - |Deprecated|
       - `Reference <https://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
     * - 8
       - from May 2019
       - to May 2029
+      - |Upcoming|
       - |Upcoming|
       - |Upcoming|
       - |Recommended|
@@ -382,10 +410,12 @@ Linux (Ubuntu)
       - OMERO 5.4
       - OMERO 5.5
       - OMERO 5.6
+      - OMERO 6.0
     * - 14.04 LTS
       - from Apr 2014
       - to Apr 2019
       - |Supported|
+      - |Dropped|
       - |Dropped|
       - |Dropped|
     * - 16.04 LTS
@@ -394,11 +424,20 @@ Linux (Ubuntu)
       - |Recommended|
       - |Recommended|
       - |Supported|
+      - |Dropped|
     * - 18.04 LTS
       - from Apr 2018
       - to Apr 2028
       - |Upcoming|
       - |Supported|
+      - |Recommended|
+      - |Supported|
+    * - 20.04 LTS
+      - from Apr 2020
+      - to Apr 2030
+      - |Upcoming|
+      - |Upcoming|
+      - |Upcoming|
       - |Recommended|
 
 Only the LTS releases are supported due to resource limitations upon
@@ -456,10 +495,12 @@ OMERO support policies
       - OMERO 5.4
       - OMERO 5.5
       - OMERO 5.6
+      - OMERO 6.0
     * - 9.3
       - from Sep 2013
       - to Sep 2018
       - |Deprecated|
+      - |Dropped|
       - |Dropped|
       - |Dropped|
     * - 9.4
@@ -468,23 +509,27 @@ OMERO support policies
       - |Supported|
       - |Deprecated|
       - |Dropped|
+      - |Dropped|
     * - 9.5
       - from Jan 2016
       - to Jan 2021
       - |Supported|
       - |Supported|
       - |Deprecated|
+      - |Dropped|
     * - 9.6
       - from Sep 2016
       - to Sep 2021
       - |Recommended|
       - |Supported|
       - |Deprecated|
+      - |Dropped|
     * - 10
       - from Oct 2017
       - to Nov 2022
       - |Upcoming|
       - |Recommended|
+      - |Supported|
       - |Supported|
     * - 11
       - from Oct 2018
@@ -492,9 +537,18 @@ OMERO support policies
       - |Upcoming|
       - |Upcoming|
       - |Recommended|
+      - |Recommended|
+    * - 12
+      - from Oct 2019
+      - to Nov 2024
+      - |Upcoming|
+      - |Upcoming|
+      - |Supported|
+      - |Supported|
     * - Details
       - 
       - `Reference <https://www.postgresql.org/support/versioning/>`__
+      - 
       - 
       - 
       - 
@@ -562,6 +616,7 @@ OMERO support policies
       - OMERO 5.4
       - OMERO 5.5
       - OMERO 5.6
+      - OMERO 6.0
       - Details
     * - 2.6
       - from Oct 2008
@@ -570,13 +625,15 @@ OMERO support policies
         |Supported| [2]_ 
       - |Dropped|
       - |Dropped|
+      - |Dropped|
       - `PEP 361 <https://www.python.org/dev/peps/pep-0361/>`__
     * - 2.7
       - from Jul 2010
       - to Jan 2020
       - |Recommended|
       - |Recommended|
-      - |Deprecated|
+      - |Dropped|
+      - |Dropped|
       - `PEP 373 <https://www.python.org/dev/peps/pep-0373/>`__
     * - 3.2
       - from Feb 2011
@@ -584,6 +641,7 @@ OMERO support policies
       - |Broken|
       - |Broken|
       - |Broken|
+      - |Unsupported|
       - `PEP 392 <https://www.python.org/dev/peps/pep-0392/>`__
     * - 3.3
       - from Sep 2012
@@ -591,6 +649,7 @@ OMERO support policies
       - |Broken|
       - |Broken|
       - |Broken|
+      - |Unsupported|
       - `PEP 398 <https://www.python.org/dev/peps/pep-0398/>`__
     * - 3.4
       - from Mar 2014
@@ -598,13 +657,15 @@ OMERO support policies
       - |Broken|
       - |Broken|
       - |Broken|
+      - |Unsupported|
       - `PEP 429 <https://www.python.org/dev/peps/pep-0429/>`__
     * - 3.5
       - from Sep 2015
       - to Sep 2020
       - |Broken|
       - |Broken|
-      - |Supported|
+      - |Unsupported|
+      - |Unsupported|
       - `PEP 478 <https://www.python.org/dev/peps/pep-0478/>`__
     * - 3.6
       - from Dec 2016
@@ -612,13 +673,15 @@ OMERO support policies
       - |Broken|
       - |Broken|
       - |Recommended|
+      - |Supported|
       - `PEP 494 <https://www.python.org/dev/peps/pep-0494/>`__
     * - 3.7
       - from Jun 2018
       - to Jun 2023
       - |Broken|
       - |Broken|
-      - |Upcoming|
+      - |Supported|
+      - |Recommended|
       - `PEP 537 <https://www.python.org/dev/peps/pep-0537/>`__
 
 .. [1] For OMERO.web, Python 2.7 is the minimum supported version.
@@ -709,11 +772,13 @@ OMERO support policies
       - OMERO 5.4
       - OMERO 5.5
       - OMERO 5.6
+      - OMERO 6.0
       - Details
     * - 3.5
       - from Mar 2013
       - to Oct 2013
       - |Deprecated|
+      - |Dropped|
       - |Dropped|
       - |Dropped|
       - :zerocforum:`3.5.0 <6093/ice-3-5-0-released>`,
@@ -724,14 +789,17 @@ OMERO support policies
       - |Recommended|
       - |Recommended|
       - |Recommended|
+      - |Recommended|
       - :zerocforum:`3.6.0 <6631/ice-3-6-0-and-ice-touch-3-6-0-released>`
         (:zerocforum:`3.6.1 <45941/ice-3-6-0-and-ice-touch-3-6-1-released>` |Broken|),
         :zerocforum:`3.6.2 <46347/ice-ice-e-and-ice-touch-3-6-2-released>`,
         :zerocforum:`3.6.3 <46475/ice-ice-e-and-ice-touch-3-6-3-released>`,
-        :zerocforum:`3.6.4 <46550/ice-ice-e-and-ice-touch-3-6-4-released>`
+        :zerocforum:`3.6.4 <46550/ice-ice-e-and-ice-touch-3-6-4-released>`,
+        :zerocforum:`3.6.5 <46700/ice-3-6-5-released>`.
     * - 3.7
       - from July 2017
       - to TBA
+      - |Unsupported|
       - |Unsupported|
       - |Unsupported|
       - |Unsupported|
@@ -788,11 +856,13 @@ OMERO support policies
       - OMERO 5.4
       - OMERO 5.5
       - OMERO 5.6
+      - OMERO 6.0
       - Details
     * - 7
       - from Jul 2011
       - to Apr 2015
       - |Deprecated|
+      - |Dropped|
       - |Dropped|
       - |Dropped|
       - `Reference <https://www.oracle.com/technetwork/java/eol-135779.html>`__
@@ -802,12 +872,14 @@ OMERO support policies
       - |Recommended|
       - |Recommended|
       - |Supported|
+      - |Deprecated|
       - `Reference <https://access.redhat.com/articles/1299013>`__
     * - 11
       - from Sep 2018
       - to Oct 2024
       - |Unsupported|
       - |Supported|
+      - |Recommended|
       - |Recommended|
       - `Reference <https://access.redhat.com/articles/1299013>`__
 
@@ -866,10 +938,12 @@ OMERO support policies
       - OMERO 5.4
       - OMERO 5.5
       - OMERO 5.6
+      - OMERO 6.0
     * - 1.6
       - from Apr 2014
       - to Apr 2015
       - |Deprecated|
+      - |Dropped|
       - |Dropped|
       - |Dropped|
     * - 1.8
@@ -878,30 +952,35 @@ OMERO support policies
       - |Supported|
       - |Deprecated|
       - |Dropped|
+      - |Dropped|
     * - 1.10
       - from Apr 2016
       - to Apr 2017
       - |Recommended|
       - |Supported|
       - |Deprecated|
+      - |Dropped|
     * - 1.12
       - from Apr 2017
       - to Apr 2018
       - |Supported|
       - |Recommended|
       - |Supported|
+      - |Deprecated|
     * - 1.14
       - from Apr 2018
       - to Apr 2019
       - |Upcoming|
       - |Supported|
       - |Recommended|
+      - |Supported|
     * - 1.16
       - from Apr 2019
       - TBA
       - |Upcoming|
       - |Upcoming|
-      - |Upcoming|
+      - |Recommended|
+      - |Recommended|
 
 Version provided by distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -930,3 +1009,42 @@ If no version is provided, a suitable repository is indicated.
       - 
       - `Reference <https://packages.ubuntu.com/search?keywords=nginx&searchon=names&suite=all&section=all>`__
       - 
+
+.. _support-levels:
+
+Support levels
+==============
+
+The following table defines the symbols used throughout this page to
+describe the support status of a given component, as it progresses
+from being new and not supported, to supported and tested on a
+routine basis, and to finally being old and no longer supported
+nor tested.
+
+.. list-table::
+    :header-rows: 1
+
+    * - Level
+      - Meaning
+      - Description
+    * - |Upcoming|
+      - unsupported/new
+      - New version not yet regularly tested and not officially supported; may or may not work (use at own risk)
+    * - |Supported|
+      - supported/suboptimal
+      - Version which is tested, confirmed to work correctly, but may not offer optimal performance/experience
+    * - |Recommended|
+      - supported/optimal
+      - Version which is regularly tested, confirmed to work correctly, recommended for optimal performance/experience
+    * - |Deprecated|
+      - supported/deprecated
+      - Version which is less tested, expected to work correctly, but may not offer optimal performance/experience; official support may be dropped in the next major OMERO release
+    * - |Dropped|
+      - unsupported/old
+      - Old version no longer tested and no longer officially supported; may or may not work (use at own risk)
+    * - |Broken|
+      - unsupported/broken
+      - Known to not work
+    * - |Unsupported|
+      - unsupported/misc
+      - Not supported for some reason other than the above
