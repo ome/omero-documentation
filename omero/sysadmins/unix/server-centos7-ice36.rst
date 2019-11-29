@@ -70,12 +70,17 @@ Installing OMERO.server
 
 **The following step is run as root.**
 
-We recommend to create a virtual environment and install the Ice Python binding using :command:`pip`:
+We recommend to create a virtual environment and install the Ice Python binding using ``pip``:
 
 .. literalinclude:: walkthrough/walkthrough_centos7.sh
     :start-after: #start-step03bis
     :end-before: #end-step03bis
 
+Install ``omero-py``:
+
+.. literalinclude:: walkthrough/walkthrough_centos7.sh
+    :start-after: #start-step04-pre
+    :end-before: #end-step04-pre
 
 **The following steps are run as the omero system user.**
 
