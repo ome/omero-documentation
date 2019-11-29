@@ -10,12 +10,12 @@ a dedicated system user, and should be read in conjunction with
 for setting up your own test server. For production use you should also read
 the pages listed under :ref:`index-optimizing-server`.
 
-This guide describes how to install the **recommended** versions, not all
-the supported versions.
+This guide describes how to install using the **recommended** versions for
+Java, Ice, PostgreSQL.
 This should be read in conjunction with :doc:`../version-requirements`.
 
 This guide does not describe how to install OMERO.web.
-To deploy OMERO.web **separately** from OMERO.server, please read
+To deploy OMERO.web, please read
 :doc:`install-web/walkthrough/omeroweb-install-debian9-ice3.6`.
 
 These instructions assume your Linux distribution is configured with a UTF-8

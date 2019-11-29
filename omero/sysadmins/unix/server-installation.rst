@@ -6,7 +6,9 @@ UNIX-like platforms. This includes all BSD, Linux and Mac OS X
 systems. Depending upon which platform you are using, you may find a
 more specific walk-through listed below but we recommend you read through this
 page first as it explains the entire process rather than just being a series
-of commands.  
+of commands. The walk-throughs describs how to install the **recommended** versions,
+not all the supported versions.
+This should be read in conjunction with :doc:`../version-requirements`.
 
 **Recommended:**
 
