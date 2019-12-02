@@ -8,6 +8,7 @@ Please first read :doc:`../../server-ubuntu1804-ice36`.
 
 
 This is an example walkthrough for installing OMERO.web decoupled from the OMERO.server in a **virtual environment** using a dedicated system user. Installing OMERO.web in a virtual environment is the preferred way. For convenience in this walkthrough, we will use the **omero system user** and define the main OMERO.web configuration options as environment variables.
+    We recommend that you install OMERO.web in a different virtual environment that the one used to install ``omero-py``.
 
 
 **The following steps are run as root.**
@@ -94,6 +95,10 @@ For convenience the main OMERO.web configuration options have been defined as en
 
 
 Configure OMERO.web and create the NGINX OMERO configuration file::
+
+    export PATH=/opt/omero/web//bin:$PATH
+    mkdir -p $OMERODIR/etc/grid
+
 
     omero config set omero.web.application_server wsgi-tcp
     omero web config nginx --http "${WEBPORT}" --servername "${WEBSERVER_NAME}" > /home/omero/nginx.conf.tmp
