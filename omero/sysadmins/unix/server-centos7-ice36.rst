@@ -21,7 +21,7 @@ To deploy OMERO.web, please read
 These instructions assume your Linux distribution is configured with a UTF-8
 locale (this is normally the default).
 
-For convenience in this walkthrough the main OMERO configuration options have
+For convenience in this walkthrough, we will use the **omero system user** and the main OMERO configuration options have
 been defined as environment variables. When following this walkthrough you can
 either use your own values, or alternatively source :download:`settings.env <walkthrough/settings.env>`:
 
@@ -88,7 +88,8 @@ Install ``omero-py``:
 **The following steps are run as the omero system user.**
 
 The rest of this walkthrough assumes the OMERO.server is installed
-into the home directory of the omero system user.
+into the home directory of the **omero system user**. The variable ``OMERODIR`` set in :download:`settings.env <walkthrough/settings.env>` above **must** point to that location
+e.g. ``OMERODIR=/path_to_omero_server/OMERO.server``.
 
 Download, unzip and configure OMERO.
 
