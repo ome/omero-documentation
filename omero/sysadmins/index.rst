@@ -50,9 +50,8 @@ the best starting point is the :doc:`/developers/Server` for developers.
     :titlesonly:
 
     whatsnew
-    server-overview
-    system-requirements
-    version-requirements
+    System requirements: hardware specification and examples <system-requirements>
+    Version requirements: supported platforms and versions <version-requirements>
     server-setup-examples
     limitations
 
