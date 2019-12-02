@@ -22,8 +22,28 @@ plan ahead and ensure that prerequisites are in place ahead of time to
 ease future upgrades. The following sections provide more detailed
 information and the rationale for the changes.
 
-Please check the meaning of the various :ref:`symbols <support-levels>` used
-on this page. Any system/component with a green tick symbol is supported.
+.. list-table::
+    :header-rows: 1
+
+    * - Level
+      - Meaning
+    * - |Upcoming|
+      - unsupported/new
+    * - |Supported|
+      - supported/suboptimal
+    * - |Recommended|
+      - supported/optimal
+    * - |Deprecated|
+      - supported/deprecated
+    * - |Dropped|
+      - unsupported/old
+    * - |Broken|
+      - unsupported/broken
+    * - |Unsupported|
+      - unsupported/misc
+
+Please check the full :ref:`support levels table <support-levels>` for more info on
+each support level.
 
 Operating systems
 -----------------
