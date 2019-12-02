@@ -100,53 +100,56 @@ Requirements
 
 4. Install Python provided by Homebrew::
 
-    $ brew install python2
+    $ brew install python
 
    Homebrew installs Python in the following location::
 
-    '/usr/local/opt/python/libexec/bin'
+    '/usr/local/opt/python3/libexec/bin'
 
    Follow the instructions from the brew Python install and set your system to use the Homebrew version of Python 
    rather than the Python shipped with OS X. Add the following line to your :file:`.bash_profile`::
 
-    export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+    export PATH="/usr/local/opt/python3/libexec/bin:$PATH"
 
-5. Check that Python is working and is version 2.7.x::
+5. Check that Python is working and is version 3.7.x::
 
-    $ which python
-    /usr/local/opt/python/libexec/bin/python
+    $ which python3
+    /usr/local/opt/python3/libexec/bin/python
 
     $ python --version
-    Python 2.7.13
+    Python 3.7.4
 
 6. For developing with OMERO, or Python in general, we recommend the use of Virtualenv.
    Virtualenv allows development of Python applications without having to
    worry about clashing third-party packages for different Python projects.
 
-   Use pip to get `Virtualenv <https://virtualenv.pypa.io/en/stable/>`__::
+   Create a virtual environment for omero-py using Python 3::
 
-    $ pip install virtualenv
+    $ python3 -mvenv ~/Virtual/omero-server
 
-   With Virtualenv installed, create a virtual environment::
+   This will create a folder to hold Python libraries in the the directory :file:`~/Virtual/omero-server/lib`
 
-    $ virtualenv ~/Virtual/omero
+   Create a virtual environment for omero-web using Python 3::
 
-   This will create a folder to hold Python libraries in the the directory :file:`~/Virtual/omero/lib`
+    $ python3 -mvenv ~/Virtual/omero-web
+
+   This will create a folder to hold Python libraries in the the directory :file:`~/Virtual/omero-web/lib`
 
   .. note:: 
    You can activate the Virtualenv environment that we created using::
 
-    $ source ~/Virtual/omero/bin/activate
+    $ source ~/Virtual/omero-server/bin/activate
 
    This will switch to using Pip and Python in the Virtualenv directory
-   :file:`~/Virtual/omero/bin` and any Pip libraries you install, whilst the Virtualenv is activated, 
-   will be installed to :file:`source ~/Virtual/omero/lib`.
+   :file:`~/Virtual/omero-server/bin` and any Pip libraries you install, whilst the Virtualenv is activated, 
+   will be installed to :file:`source ~/Virtual/omero-server/lib`.
 
   .. note::
    **(Optional)** To make starting a Virtualenv environment easier,
    you can add an `alias` to your :file:`.bash_profile`::
 
-    alias startVmOmero="source ~/Virtual/omero/bin/activate"
+    alias startVmOmeroServer="source ~/Virtual/omero-server/bin/activate"
+    alias startVmOmeroWeb="source ~/Virtual/omero-web/bin/activate"
 
    Using the command-line terminal, reload your :file:`.bash_profile`::
 
@@ -154,7 +157,8 @@ Requirements
 
    Now you can activate the Virtualenv environment using::
 
-    $ startVmOmero
+    $ startVmOmeroServer
+    $ startVmOmeroWeb
 
 7. Install NGINX::
 
@@ -207,40 +211,46 @@ OMERO configuration
 
     $ open -a TextEdit.app ~/.bash_profile
 
-   Add an environment variable :envvar:`OMERO_SERVER` to the :file:`.bash_profile` which points
+   Add an environment variable :envvar:`OMERODIR` to the :file:`.bash_profile` which points
    to the location of the OMERO executable::
 
     # Pre-built server...
-    export OMERO_SERVER=/path/to/OMERO.server-x.x.x-ice36-bxx
+    export OMERODIR=/path/to/OMERO.server-x.x.x-ice36-bxx
     # ...OR locally built server
-    export OMERO_SERVER=/path/to/openmicroscopy/dist
+    export OMERODIR=/path/to/openmicroscopy/dist
 
    and add the OMERO executable to the OS X :envvar:`PATH`::
 
     # Add the OMERO distribution to PATH
-    export PATH=$OMERO_SERVER/bin:$PATH
+    export PATH=$OMERODIR/bin:$PATH
 
    Using the command-line terminal, reload your :file:`.bash_profile` using::
 
     $ source ~/.bash_profile
 
-   To ensure OMERO is correctly linked into your OS X :envvar:`PATH`, type the following in terminal and ensure
-   you get a similar output::
+Install OMERO.py
+----------------
 
-    $ which omero
-    # Pre-built server...
-    /path/to/OMERO.server-x.x.x-ice36-bxx/bin/omero
-    # ...OR locally built server
-    /path/to/openmicroscopy/dist/bin/omero
-
-3. Activate the Virtualenv environment that we created earlier in the "Requirements"
+1. Activate the Virtualenv environment that we created earlier in the "Requirements"
    section::
 
-    $ source ~/Virtual/Omero/bin/activate
+    $ source ~/Virtual/omero-server/bin/activate
 
-4. Install Python dependencies using pip::
+2. Install using pip::
 
-    $ pip install -r "${OMERO_SERVER}/share/web/requirements-py27-all.txt"
+    $ pip install "omero-py>=5.6.dev7"
+
+Install OMERO.web
+-----------------
+
+1. Activate the Virtualenv environment that we created earlier in the "Requirements"
+   section::
+
+    $ source ~/Virtual/omero-web/bin/activate
+
+2. Install using pip::
+
+    $ pip install "omero-web>=5.6.dev5"
 
 Database
 ^^^^^^^^
@@ -266,13 +276,17 @@ Database
     $ createuser -w -D -R -S db_user
     $ createdb -E UTF8 -O db_user omero_database
 
-3. Now set the OMERO configuration::
+3. Activate the omero-server virtualenv::
+
+    $ source ~/Virtual/omero-server/bin/activate
+
+4. Now set the OMERO configuration::
 
     $ omero config set omero.db.name omero_database
     $ omero config set omero.db.user db_user
     $ omero config set omero.db.pass db_password
 
-4. Create and run script to initialize the OMERO database::
+5. Create and run script to initialize the OMERO database::
 
     $ omero db script --password omero -f - | psql -h localhost -U db_user omero_database
 
@@ -287,7 +301,11 @@ Binary Repository
 OMERO.web
 ^^^^^^^^^
 
-Basic setup for OMERO using NGINX::
+1. Activate the omero-web virtualenv::
+
+    $ source ~/Virtual/omero-web/bin/activate
+
+2. Basic setup for OMERO using NGINX::
 
     $ mv /usr/local/etc/nginx/nginx.conf /usr/local/etc/nginx/nginx.conf.orig
     $ omero web config nginx-development > /usr/local/etc/nginx/nginx.conf
@@ -308,12 +326,14 @@ If necessary start PostgreSQL database server::
 
     $ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w start
 
-Start OMERO::
+Activate the omero-server virtualenv and start OMERO::
 
+    $ source ~/Virtual/omero-server/bin/activate
     $ omero admin start
 
-Start OMERO.web::
+Activate the omero-web virtualenv and start OMERO.web::
 
+    $ source ~/Virtual/omero-web/bin/activate
     $ omero web start
 
 Now connect to your OMERO.server using OMERO.insight or OMERO.web with the following credentials:
@@ -323,12 +343,14 @@ Now connect to your OMERO.server using OMERO.insight or OMERO.web with the follo
     U: root
     P: omero
 
-Stop OMERO.web::
+Activate the omero-web virtualenv and stop OMERO.web::
 
+    $ source ~/Virtual/omero-web/bin/activate
     $ omero web stop
 
-Stop OMERO::
+Activate the omero-server virtualenv and stop OMERO::
 
+    $ source ~/Virtual/omero-server/bin/activate
     $ omero admin stop
 
 
@@ -354,16 +376,17 @@ If you have followed this guide your :file:`.bash_profile` should look similar t
     export LANGUAGE=en_US:en
 
     # OMERO Server distribution directory
-    export OMERO_SERVER=/path/to/OMERO.server-x.x.x-ice36-bxx
+    export OMERODIR=/path/to/OMERO.server-x.x.x-ice36-bxx
 
     # Homebrew Python path
-    export BREW_PYTHON=/usr/local/opt/python/libexec/bin
+    export BREW_PYTHON=/usr/local/opt/python3/libexec/bin
 
     # Full path
-    export PATH=$OMERO_SERVER/bin:BREW_PYTHON:$PATH
+    export PATH=$OMERODIR/bin:BREW_PYTHON:$PATH
 
     # Start a virtual environment for developing Python
-    alias startVmOmero='source ~/Virtual/omero/bin/activate'
+    alias startVmOmeroServer='source ~/Virtual/omero-server/bin/activate'
+    alias startVmOmeroWeb='source ~/Virtual/omero-web/bin/activate'
 
 General considerations
 ^^^^^^^^^^^^^^^^^^^^^^
