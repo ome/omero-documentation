@@ -87,6 +87,7 @@ Configuring OMERO.web
 
 For convenience the main OMERO.web configuration options have been defined as environment variables. You can either use your own values, or alternatively use the following ones::
 
+    export OMERODIR=/home/omero/omero
     export WEBPORT=80
     export WEBSERVER_NAME=localhost
 
