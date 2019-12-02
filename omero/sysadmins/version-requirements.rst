@@ -2,7 +2,7 @@
 Version requirements
 ********************
 
-Summary of changes for OMERO 5.5 and provisional changes for 5.6
+Summary of changes for OMERO 5.6 and provisional changes for 6.0
 ================================================================
 
 Criteria for what is considered to be supportable includes whether
