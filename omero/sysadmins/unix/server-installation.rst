@@ -34,6 +34,10 @@ This should be read in conjunction with :doc:`../version-requirements`.
         Instructions for installing OMERO.server from scratch on
         Debian 9 with Ice 3.6 and Python 3.5
 
+**Development:**
+
+.. seealso::
+
     :doc:`server-install-homebrew`
         Instructions for installing and building OMERO.server on Mac
         OS X with dependencies installed using Homebrew. It is aimed at **developers**
