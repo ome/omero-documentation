@@ -6,15 +6,14 @@ source settings-web.env
 #start-step01: As root, install dependencies
 apt-get update
 
-# installed for convenience
 apt-get -y install unzip wget bc
 
-# to be installed if recommended/suggested is false
+# to be installed if daily cron tasks are configured
 apt-get -y install cron
 
 # install Java
 apt-get update -q
-apt-get install -y openjdk-8-jre
+apt-get install -y openjdk-11-jre
 
 # install dependencies
 apt-get update
@@ -55,8 +54,11 @@ ldconfig
 
 
 # install Postgres
+apt-get install -y gnupg
+echo "deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main" > /etc/apt/sources.list.d/pgdg.list
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 apt-get update
-apt-get -y install postgresql
+apt-get -y install postgresql-11
 service postgresql start
 #end-step01
 
@@ -78,7 +80,6 @@ psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 
 #start-step03bis: As root, create a virtual env and install dependencies
 # Create a virtual env and activate it
-VENV_SERVER=${VENV_SERVER:-/opt/omero/server/venv}
 python3 -mvenv $VENV_SERVER
 
 # Install the Ice Python binding

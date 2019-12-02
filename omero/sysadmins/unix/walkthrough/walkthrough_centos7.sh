@@ -6,11 +6,10 @@ source settings-web.env
 #start-step01: As root, install dependencies
 yum -y install epel-release
 
-# installed for convenience
 yum -y install unzip wget bc
 
 # install Java
-yum -y install java-1.8.0-openjdk
+yum -y install java-11-openjdk
 
 # install dependencies
 
@@ -26,15 +25,15 @@ yum -y install ice-all-runtime
 
 
 # install Postgres
-yum -y install https://yum.postgresql.org/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm
-yum -y install postgresql10-server postgresql10
+yum -y install https://yum.postgresql.org/11/redhat/rhel-7-x86_64/pgdg-redhat11-11-2.noarch.rpm
+yum -y install postgresql11-server postgresql11
 
-PGSETUP_INITDB_OPTIONS=--encoding=UTF8 /usr/pgsql-10/bin/postgresql-10-setup initdb
+PGSETUP_INITDB_OPTIONS=--encoding=UTF8 /usr/pgsql-11/bin/postgresql-11-setup initdb
 
-sed -i.bak -re 's/^(host.*)ident/\1md5/' /var/lib/pgsql/10/data/pg_hba.conf
-systemctl start postgresql-10.service
+sed -i.bak -re 's/^(host.*)ident/\1md5/' /var/lib/pgsql/11/data/pg_hba.conf
+systemctl start postgresql-11.service
 
-systemctl enable postgresql-10.service
+systemctl enable postgresql-11.service
 #end-step01
 
 #start-step02: As root, create an omero system user and directory for the OMERO repository
@@ -55,7 +54,6 @@ psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 
 #start-step03bis: As root, create a virtual env and install dependencies
 # Create a virtual env and activate it
-VENV_SERVER=${VENV_SERVER:-/opt/omero/server/venv}
 python3 -mvenv $VENV_SERVER
 
 # Install the Ice Python binding

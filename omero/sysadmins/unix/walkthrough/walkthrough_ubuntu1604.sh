@@ -6,17 +6,16 @@ source settings-web.env
 #start-step01: As root, install dependencies
 apt-get update
 
-# installed for convenience
 apt-get -y install unzip wget bc
 
-# to be installed if recommended/suggested is false
+# to be installed if daily cron tasks are configured
 apt-get -y install cron
 
 # install Java
 apt-get -y install software-properties-common
-add-apt-repository -y ppa:openjdk-r/ppa
-apt-get update
-apt-get -y install openjdk-8-jre
+add-apt-repository ppa:openjdk-r/ppa
+apt-get update -q
+apt-get install -y openjdk-11-jre
 
 # install dependencies
 apt-get update
@@ -44,11 +43,11 @@ apt-get -y install zeroc-ice-all-runtime
 
 # install Postgres
 apt-get -y install apt-transport-https
-add-apt-repository -y "deb https://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main 10"
+add-apt-repository -y "deb https://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main 11"
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 apt-get update
-apt-get -y install postgresql-10
-sed -i.bak -re 's/^(host.*)ident/\1md5/' /etc/postgresql/10/main/pg_hba.conf
+apt-get -y install postgresql-11
+sed -i.bak -re 's/^(host.*)ident/\1md5/' /etc/postgresql/11/main/pg_hba.conf
 service postgresql start
 #end-step01
 
@@ -70,7 +69,6 @@ psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 
 #start-step03bis: As root, create a virtual env and install dependencies
 # Create a virtual env and activate it
-VENV_SERVER=${VENV_SERVER:-/opt/omero/server/venv}
 python3 -mvenv $VENV_SERVER
 
 # Install the Ice Python binding
