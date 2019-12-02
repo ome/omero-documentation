@@ -53,6 +53,9 @@ To install PostgreSQL |postgresversion|:
     :start-after: # install Postgres
     :end-before: #end-step01
 
+.. Note:: if you are installing PostgreSQL in a Docker container, some of the commands above will not work. For more details check `step01_centos7_pg_deps.sh 
+ <https://github.com/ome/omero-install/blob/develop/linux/step01_centos7_pg_deps.sh>`_
+
 Create an omero system user, and a directory for the OMERO repository:
 
 .. literalinclude:: walkthrough/walkthrough_centos7.sh
