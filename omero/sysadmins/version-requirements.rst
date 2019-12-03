@@ -210,6 +210,19 @@ CI and testing. Only the last two LTS releases are supported (being a
 bit more frequent than CentOS/RHEL). There is currently no CI testing
 for any version.
 
+Microsoft Windows
+-----------------
+
+Client support only.
+See `blog post explanation <https://blog.openmicroscopy.org/tech-issues/future-plans/deployment/2016/03/22/windows-support/>`_
+
+MacOS X
+-------
+
+MacOS X is typically suited only to client use, not serious server
+deployment, although the server can be expected to build on versions with
+current security support for development purposes.
+
 
 Dependencies
 ============
