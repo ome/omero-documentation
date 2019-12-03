@@ -48,7 +48,7 @@ the current choices are:
 - Ice 3.6 (non-optional)
 - Java 11
 - Nginx 1.14
-- PostgreSQL 10
+- PostgreSQL 11
 
 
 Other options
