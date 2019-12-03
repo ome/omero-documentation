@@ -10,14 +10,16 @@ After=network.service
 
 [Service]
 User=omero
+Group=omero
+WorkingDirectorpy=/home/omero
 Type=forking
-PIDFile=/home/omero/OMERO.server/var/master/master.pid
 Restart=no
 RestartSec=10
 # Allow up to 5 min for start/stop
 TimeoutSec=300
-ExecStart=/home/omero/OMERO.server/bin/omero admin start
-ExecStop=/home/omero/OMERO.server/bin/omero admin stop
+Environment="OMERODIR=/home/omero/OMERO.server"
+ExecStart=/opt/omero/server/venv/bin/omero admin start
+ExecStop=/opt/omero/server/venv/bin/omero admin stop
 # If you want to enable in-place imports uncomment this:
 #UMask=0002
 

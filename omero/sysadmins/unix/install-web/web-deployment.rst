@@ -44,7 +44,7 @@ more specific walkthrough listed below.
         Instructions for installing **separately** OMERO.web from
         scratch on Ubuntu 18.04 with Ice 3.6.
 
-**Supported:**
+**Upcoming:**
 
 .. seealso::
 
@@ -129,7 +129,6 @@ We recommend you use a virtual environment::
     $ python3 -m venv py3_venv
     $ source py3_venv/bin/activate
     $ pip install omero-web
-    $ OMERODIR=${OMERODIR}
 
 .. _gunicorn_default_configuration:
 

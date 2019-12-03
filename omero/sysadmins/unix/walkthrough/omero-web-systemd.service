@@ -5,11 +5,11 @@ Requires=nginx.service
 [Service]
 User=omero
 Type=forking
-PIDFile=/home/omero/OMERO.server/var/django.pid
 Restart=on-failure
 RestartSec=10
-ExecStart=/home/omero/OMERO.server/bin/omero web start
-ExecStop=/home/omero/OMERO.server/bin/omero web stop
+Environment="OMERODIR=/home/omero/OMERO.server"
+ExecStart=/opt/omero/web/venv/bin/omero web start
+ExecStop=/opt/omero/web/venv/bin/omero web stop
 
 [Install]
 WantedBy=multi-user.target

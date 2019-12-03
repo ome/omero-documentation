@@ -10,18 +10,18 @@ a dedicated system user, and should be read in conjunction with
 for setting up your own test server. For production use you should also read
 the pages listed under :ref:`index-optimizing-server`.
 
-This guide describes how to install the **recommended** versions, not all
-the supported versions.
+This guide describes how to install using the **recommended** versions for
+Java, Ice, PostgreSQL.
 This should be read in conjunction with :doc:`../version-requirements`.
 
 This guide does not describe how to install OMERO.web.
-To deploy OMERO.web **separately** from OMERO.server, please read
+To deploy OMERO.web, please read
 :doc:`install-web/walkthrough/omeroweb-install-ubuntu1604-ice3.6`.
 
 These instructions assume your Linux distribution is configured with a UTF-8
 locale (this is normally the default).
 
-For convenience in this walkthrough the main OMERO configuration options have
+For convenience in this walkthrough we will use the **omero system user** and the main OMERO configuration options have
 been defined as environment variables. When following this walkthrough you can
 either use your own values, or alternatively source :download:`settings.env <walkthrough/settings.env>`:
 
@@ -40,12 +40,6 @@ To install Java |javaversion| and other dependencies:
 .. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
     :start-after: #start-step01
     :end-before: #start-web-dependencies
-
-To install dependencies required by OMERO core scripts:
-
-.. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
-    :start-after: #start-web-dependencies
-    :end-before: #end-web-dependencies
 
 To install Ice |iceversion|:
 
@@ -77,11 +71,25 @@ created database:
 Installing OMERO.server
 -----------------------
 
+**The following step is run as root.**
+
+We recommend to create a virtual environment and install the Ice Python binding using ``pip``:
+
+.. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
+    :start-after: #start-step03bis
+    :end-before: #end-step03bis
+
+Install ``omero-py``:
+
+.. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
+    :start-after: #start-step04-pre
+    :end-before: #end-step04-pre
+
 **The following steps are run as the omero system user.**
 
-The rest of this walkthrough assumes the
-virtual environment and the OMERO.server are installed
-into the home directory of the omero system user.
+The rest of this walkthrough assumes the OMERO.server is installed
+into the home directory of the **omero system user**. The variable ``OMERODIR`` set in :download:`settings.env <walkthrough/settings.env>` above **must** point to that location
+e.g. ``OMERODIR=/path_to_omero_server/OMERO.server``.
 
 Download, unzip and configure OMERO.
 
@@ -89,21 +97,13 @@ Note that this script requires the same environment variables that were set
 earlier in `settings.env`, so you may need to copy and/or source this file as
 the omero user.
 
-We recommend to create a virtual environment
-
-Install the Ice Python binding using :command:`pip`:
-
-.. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
-    :start-after: #start-step03bis
-    :end-before: #end-step03bis
-
 Install ``server-ice36.zip``:
 
 .. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
     :start-after: #start-release-ice36
     :end-before: #end-release-ice36
 
-Install ``omero-py`` and configure:
+Configure the server:
 
 .. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
     :start-after: #end-release-ice36
