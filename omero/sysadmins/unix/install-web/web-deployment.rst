@@ -150,6 +150,8 @@ Additional settings can be configured by changing the following properties:
 - :property:`omero.web.wsgi_args` Additional arguments. For more details
   check `Gunicorn Documentation <https://docs.gunicorn.org/en/stable/settings.html>`_.
 
+.. _omero_web_nginx_configuration:
+
 NGINX configuration
 -------------------
 

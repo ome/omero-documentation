@@ -40,7 +40,8 @@ need to export and re-import the configuration from your previous installation.
 
 ::
 
-    TODO: show steps
+    OLD_INSTALLATION/bin/omero config get --show-password > properties.backup
+    NEW_INSTALLATION/bin/omero config load properties.backup
 
 If you generated configuration stanzas using :program:`omero web config` which
 enables OMERO.web via NGINX, you should regenerate your config files,
@@ -50,7 +51,10 @@ require it.
 
 ::
 
-    TODO: show steps
+
+    NEW_INSTALLATION/bin/omero web config nginx > new.confg
+
+More examples can be found under :ref:`omero_web_nginx_configuration`.
 
 Dependencies
 ^^^^^^^^^^^^
