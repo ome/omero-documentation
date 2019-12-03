@@ -26,9 +26,8 @@ Installing prerequisites
 **The following steps are run as root.**
 
 
-Install dependencies. The number of dependencies to install depends on the way you plan to install OMERO.web. If you wish to install it in a virtual environment with ``--system-site-packages`` *off*, a few more dependencies will be required (**option 2**)::
+Install dependencies::
 
-    # dependencies common to both options
     yum -y install epel-release
 
     yum -y install unzip
@@ -37,30 +36,20 @@ Install dependencies. The number of dependencies to install depends on the way y
 
     yum -y install nginx
 
-    # To install OMERO.web using option 2
-    yum -y install python3-devel libjpeg-devel libtiff libtiff-devel zlib-devel
-
-
-
 
 Creating a virtual environment
 ------------------------------
 
 **The following steps are run as root.**
 
-Create the virtual environment. This is the preferred way to install OMERO.web::
+Create the virtual. This is the recommended way to install OMERO.web::
 
-    # option 1: in a virtual environment with --system-site-packages on
-    python3 -mvenv /opt/omero/web/venv --system-site-packages
-
-    # option 2: in a virtual environment with --system-site-packages off
     python3 -mvenv /opt/omero/web/venv
 
 
 
 Install ZeroC IcePy 3.6::
 
-    # option 1 and option 2
     /opt/omero/web/venv/bin/pip install --upgrade https://github.com/ome/zeroc-ice-py-centos7/releases/download/0.2.1/zeroc_ice-3.6.5-cp36-cp36m-linux_x86_64.whl
 
 
