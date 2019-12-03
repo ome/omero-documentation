@@ -15,10 +15,11 @@ Basic steps
    does not match one of the :doc:`recommended platforms <version-requirements>`,
    you may want to choose a new platform as your migration target. See
    `Choosing a platform`_ below.
-2. Instal OMERO.server and OMERO.web *separately*. All instructions like
-   `OMERO.server`_ and `OMERO.web`_ below as well as the main installation
+2. Install OMERO.server and OMERO.web *separately*. All instructions like
+   `OMERO.server`_ and `OMERO.web`_ below as well as the main
    :doc:`server <unix/server-installation>` and 
-   :doc:`web <unix/install-web/web-deployment>` pages assume separate installations.
+   :doc:`web <unix/install-web/web-deployment>` installation pages are assumed
+   to be separate installations throughout the documentation.
 3. Once both have been installed, perform a
    :doc:`backup and restore <server-backup-and-restore>` procedure
    and test your installation against the copy of your data.
@@ -30,7 +31,7 @@ We suggest Python 3.6. This is the default installation on the two recommended p
 CentOS 7 and Ubuntu 18.04.
 
 Both 3.5 and 3.7 should work and are slated to have support added, but Python 3.6 has received
-the most tested during the migration.
+the most testing during the migration.
 
 Similarly, other operating systems are slated for having support added, but help from the
 community would be very welcome! Obvious next candidates are CentOS 8 and Ubuntu 20.04.
