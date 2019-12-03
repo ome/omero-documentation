@@ -1,24 +1,14 @@
-What's new for OMERO 5.5 for developers
+What's new for OMERO 5.6 for developers
 =======================================
 
-This release focuses on decoupling the Java components to new,
-separate repositories, each with a new `Gradle <https://gradle.org>`_ build system:
+This release focuses on migrating all Python components to Python 3,
+and decoupling them into separate repositories with the benefit of
+permitting each to be released to PyPI independently:
 
-- https://github.com/ome/omero-dsl-plugin
-- https://github.com/ome/omero-model
-- https://github.com/ome/omero-common
-- https://github.com/ome/omero-romio
-- https://github.com/ome/omero-renderer
-- https://github.com/ome/omero-server
-- https://github.com/ome/omero-blitz
-- https://github.com/ome/omero-gateway-java
-- https://github.com/ome/omero-blitz-plugin
-- https://github.com/ome/omero-insight
-- https://github.com/ome/omero-matlab
-- https://github.com/ome/omero-javapackager-plugin
-- https://github.com/ome/omero-api-plugin
+- https://github.com/ome/omero-py
+- https://github.com/ome/omero-web
+- https://github.com/ome/omero-dropbox
+- https://github.com/ome/omero-marshal
 
-This has the goal of enabling more fine-grained releases.
-
-A new restriction is that the names of server configuration properties
-may include only letters, numbers and the symbols ".", "_", "-".
+For details on migrating your own code to Python 3, see
+:doc:`python3-migration`.
