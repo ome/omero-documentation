@@ -82,17 +82,17 @@ series of commands.
 Upgrading
 *********
 
-Starting with OMERO 5.6, separate OMERO.server and OMERO.web installations
-are assumed throughout the documentation, each with its own virtualenv. A
-combined installation is still possible.
+Starting with OMERO 5.6, OMERO.server and OMERO.web installations
+are assumed to be separate throughout documentation, each with its own virtualenv.
+and installation directory.
 
 .. toctree::
     :maxdepth: 1
     :titlesonly:
 
+    python3-migration
     server-upgrade
     omeroweb-upgrade
-    python3-migration
 
 .. _server_upgrading:
 

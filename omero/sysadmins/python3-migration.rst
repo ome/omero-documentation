@@ -1,5 +1,5 @@
-Migration from OMERO 5.5 (Python 2) to OMERO 5.6 (Python 3)
-===========================================================
+Migration to Python 3
+=====================
 
 .. warning::
 
@@ -105,7 +105,9 @@ to specify where the OMERO installation lives. This defines where configuration
 files and log files will be stored. Again, we suggest: file:`/opt/omero/web` as the
 root for your installation.
 
-You will need to also follow the :doc:`upgrade guide <omeroweb-upgrade>`.
+You will need to also follow the :doc:`upgrade guide <omeroweb-upgrade>`. In short,
+web upgrades should become much simpler since only a `pip install -U` of the appropriate
+libraries should be necessary.
 
 Plugins
 ^^^^^^^
