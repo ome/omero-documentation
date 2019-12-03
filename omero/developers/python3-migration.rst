@@ -76,7 +76,7 @@ If you are trying to turn a variable into a string, this may not do what you
 want since it might be creating a `unicode`.
 
 This is especially problematic for passing strings to Ice methods, which are
-implemented in the C++ and fail spectacularly if they receive non-string
+implemented in C++ and fail spectacularly if they receive non-string
 objects (like unicode).
 
 `future.utils.native_str` maintains the previous semantics producing builtin `str` objects.
@@ -105,4 +105,4 @@ Numerics
 `long` no longer exists. Replace `omero.rtypes.wrap(long_value)` with `omero.rtypes.rlong(long_value)`.
 
 Division with `/` now produces a floating point. For example, `choice * int(percent) / 100` no longer
-produces an int's in Python 3. Use `//`.
+produces an integer in Python 3. Use `//`.
