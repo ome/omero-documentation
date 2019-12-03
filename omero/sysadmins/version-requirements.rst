@@ -48,57 +48,57 @@ each support level.
 Bitness
 -------
 
-  .. list-table::
-     :header-rows: 1
+Rationale: OMERO is tested on 64-bit systems only.
 
-     * - Bitness
-       - OMERO 5.4
-       - OMERO 5.5
-       - OMERO 5.6
-       - OMERO 6.0
-     * - 32-bit
-       - |Deprecated| for Ice and native code [client]
-       - |Dropped|
-       - |Dropped|
-       - |Dropped|
-     * - 64-bit
-       - |Recommended|
-       - |Recommended|
-       - |Recommended|
-       - |Recommended|
+.. list-table::
+    :header-rows: 1
 
-  * Rationale: OMERO is tested on 64-bit systems only.
+    * - Bitness
+      - OMERO 5.4
+      - OMERO 5.5
+      - OMERO 5.6
+      - OMERO 6.0
+    * - 32-bit
+      - |Deprecated| for Ice and native code [client]
+      - |Dropped|
+      - |Dropped|
+      - |Dropped|
+    * - 64-bit
+      - |Recommended|
+      - |Recommended|
+      - |Recommended|
+      - |Recommended|
 
+NGINX
+-----
 
-* nginx
+.. list-table::
+    :header-rows: 1
 
-  .. list-table::
-       :header-rows: 1
-
-       * - nginx
-         - OMERO 5.4
-         - OMERO 5.5
-         - OMERO 5.6
-       * - 1.8
-         - |Deprecated|
-         - |Dropped|
-         - |Dropped|
-       * - 1.10
-         - |Recommended|
-         - |Supported|
-         - |Deprecated|
-       * - 1.12
-         - |Supported|
-         - |Recommended|
-         - |Supported|
-       * - 1.14
-         - |Upcoming|
-         - |Supported|
-         - |Recommended|
-       * - 1.16
-         - |Upcoming|
-         - |Upcoming|
-         - |Upcoming|
+    * - nginx
+      - OMERO 5.4
+      - OMERO 5.5
+      - OMERO 5.6
+    * - 1.8
+      - |Deprecated|
+      - |Dropped|
+      - |Dropped|
+    * - 1.10
+      - |Recommended|
+      - |Supported|
+      - |Deprecated|
+    * - 1.12
+      - |Supported|
+      - |Recommended|
+      - |Supported|
+    * - 1.14
+      - |Upcoming|
+      - |Supported|
+      - |Recommended|
+    * - 1.16
+      - |Upcoming|
+      - |Upcoming|
+      - |Upcoming|
 
 Operating system support
 ========================
