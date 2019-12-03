@@ -26,9 +26,6 @@ You may find the :doc:`/users/clients-overview` user guide useful before
 working through the installation and maintenance guides provided in this 
 section of the documentation.
 
-Developing the server
----------------------
-
 The server system is composed of several components, each of which runs
 in a separate process but is co-ordinated centrally.
 
@@ -78,12 +75,33 @@ series of commands.
     unix/server-postgresql
     advanced-install
 
-*************************
-Maintenance and Upgrading
-*************************
+.. Unclear if we consider the loss of this anchor a breaking change:
+.. _maintenance_and_upgrading:
 
-This section contains instructions for administering, troubleshooting,
-backing-up, and upgrading your installation.
+*********
+Upgrading
+*********
+
+Starting with OMERO 5.6, separate OMERO.server and OMERO.web installations
+are assumed throughout the documentation, each with its own virtualenv. A
+combined installation is still possible.
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    server-upgrade
+    omeroweb-upgrade
+    python3-migration
+
+.. _server_upgrading:
+
+***********
+Maintenance
+***********
+
+This section contains instructions for administering, troubleshooting, and
+backing-up your installation.
 
 .. toctree::
     :maxdepth: 1
@@ -92,8 +110,6 @@ backing-up, and upgrading your installation.
     troubleshooting
     cli/index
     server-backup-and-restore
-    server-upgrade
-    omeroweb-upgrade
     unix/install-web
     UpgradeCheck
     repository-move
