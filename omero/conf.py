@@ -215,7 +215,7 @@ def copy_legacy_redirects(app):
             src_path = app.srcdir + '/' + html_src_path
         if os.path.isfile(src_path):
             shutil.copyfile(src_path, target_path)
-            print "Copying %s to %s" % (src_path, target_path)
+            print("Copying %s to %s" % (src_path, target_path))
 
 
 def setup(app):
