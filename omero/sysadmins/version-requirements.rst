@@ -582,7 +582,10 @@ OMERO support policies
       - |Unsupported|
       - |Unsupported|
       - :zerocforum:`3.7.0 <46530/ice-3-7-0-and-ice-touch-3-7-0-released>`,
-        :zerocforum:`3.7.1 <46620/ice-3-7-1-released>`
+        :zerocforum:`3.7.1 <46620/ice-3-7-1-released>`,
+        :zerocforum:`3.7.2 <46670/ice-3-7-2-released>`,
+        :zerocforum:`3.7.3 <46704/ice-3-7-3-released>`.
+
 
 Version provided by distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
