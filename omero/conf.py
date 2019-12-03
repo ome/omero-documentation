@@ -204,19 +204,20 @@ exclude_patterns = ['sysadmins/unix/walkthrough/requirements*',
                     'changelog.rst']
 
 
-def copy_legacy_redirects(app):
+def copy_legacy_redirects(app, exception):
     """
     see: https://tech.signavio.com/2017/managing-sphinx-redirects
     """
+    print("Adding redirects:")
     redirect_files = ['sysadmins/server-overview.html']
     if app.builder.name == 'html':
         for html_src_path in redirect_files:
             target_path = app.outdir + '/' + html_src_path
             src_path = app.srcdir + '/' + html_src_path
-        if os.path.isfile(src_path):
-            shutil.copyfile(src_path, target_path)
-            print("Copying %s to %s" % (src_path, target_path))
+            if os.path.isfile(src_path):
+                shutil.copyfile(src_path, target_path)
+                print("  %s" % html_src_path)
 
 
 def setup(app):
-    app.connect('builder-inited', copy_legacy_redirects)
+    app.connect('build-finished', copy_legacy_redirects)
