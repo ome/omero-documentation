@@ -7,8 +7,7 @@ OMERO.web installation separately from OMERO.server on CentOS 7 and IcePy 3.6
 Please first read :doc:`../../server-centos7-ice36`.
 
 
-This is an example walkthrough for installing OMERO.web decoupled from the OMERO.server in a **virtual environment** using a dedicated system user. Installing OMERO.web in a virtual environment is the preferred way. For convenience in this walkthrough, we will use the **omero system user** and define the main OMERO.web configuration options as environment variables.
-    We recommend that you install OMERO.web in a different virtual environment that the one used to install ``omero-py``.
+This is an example walkthrough for installing OMERO.web decoupled from the OMERO.server in a **virtual environment** using a dedicated system user. Installing OMERO.web in a virtual environment is the preferred way. For convenience in this walkthrough, we will use the **omero system user** and define the main OMERO.web configuration options as environment variables. We recommend that you install OMERO.web in a different virtual environment that the one used to install ``omero-py``.
 
 
 **The following steps are run as root.**
@@ -85,6 +84,9 @@ Configuring OMERO.web
 
 For convenience the main OMERO.web configuration options have been defined as environment variables. You can either use your own values, or alternatively use the following ones::
 
+    # If you are installing OMERO.web and OMERO.server on the same machine.
+    # Point OMERODIR to the OMERO.server
+    # export OMERODIR=/path_to_omero_server/OMERO.server
     export OMERODIR=/home/omero/omero
     export WEBPORT=80
     export WEBSERVER_NAME=localhost
@@ -93,6 +95,8 @@ For convenience the main OMERO.web configuration options have been defined as en
 Configure OMERO.web and create the NGINX OMERO configuration file::
 
     export PATH=/opt/omero/web/venv/bin:$PATH
+    # The command below is not necessary if OMERODIR points to where the OMERO.server is installed
+    # i.e. OMERO.server and OMERO.web are installed on the same machine.
     mkdir -p $OMERODIR/etc/grid
 
 
