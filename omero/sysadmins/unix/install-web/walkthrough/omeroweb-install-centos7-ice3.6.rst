@@ -1,13 +1,13 @@
 .. walkthroughs are generated using ansible, see 
 .. https://github.com/ome/omeroweb-install
 
-OMERO.web installation separately from OMERO.server on CentOS 7 and IcePy 3.6
-=============================================================================
+OMERO.web installation on CentOS 7 and IcePy 3.6
+================================================
 
 Please first read :doc:`../../server-centos7-ice36`.
 
 
-This is an example walkthrough for installing OMERO.web decoupled from the OMERO.server in a **virtual environment** using a dedicated system user. Installing OMERO.web in a virtual environment is the preferred way. For convenience in this walkthrough, we will use the **omero system user** and define the main OMERO.web configuration options as environment variables.
+This is an example walkthrough for installing OMERO.web in a **virtual environment** using a dedicated system user. Installing OMERO.web in a virtual environment is the preferred way. For convenience in this walkthrough, we will use the **omero system user** and define the main OMERO.web configuration options as environment variables.
 
 
 **The following steps are run as root.**
