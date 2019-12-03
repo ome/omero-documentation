@@ -12,3 +12,7 @@ permitting each to be released to PyPI independently:
 
 For details on migrating your own code to Python 3, see
 :doc:`python3-migration`.
+
+Other changes which you need to be aware of:
+
+- The `path` module is now named `omero_ext.path`.
