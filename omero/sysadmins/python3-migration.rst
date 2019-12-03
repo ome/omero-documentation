@@ -15,11 +15,11 @@ Basic steps
    does not match one of the :doc:`recommended platforms <version-requirements>`,
    you may want to choose a new platform as your migration target. See
    `Choosing a platform`_ below.
-2. Install OMERO.server and OMERO.web *separately*. All instructions like
-   `OMERO.server`_ and `OMERO.web`_ below as well as the main
+2. Install OMERO.server and OMERO.web *separately*. Though not necessary, all
+   instructions like `OMERO.server`_ and `OMERO.web`_ below as well as the main
    :doc:`server <unix/server-installation>` and 
-   :doc:`web <unix/install-web/web-deployment>` installation pages are assumed
-   to be separate installations throughout the documentation.
+   :doc:`web <unix/install-web/web-deployment>` installation pages now assume
+   that the two are in separate installations.
 3. Once both have been installed, perform a
    :doc:`backup and restore <server-backup-and-restore>` procedure
    and test your installation against the copy of your data.
@@ -30,20 +30,21 @@ Choosing a platform
 We suggest Python 3.6. This is the default installation on the two recommended platforms,
 CentOS 7 and Ubuntu 18.04.
 
-Both 3.5 and 3.7 should work and are slated to have support added, but Python 3.6 has received
-the most testing during the migration.
+Both 3.5 and 3.7 should work and are slated to have support added, but Python 3.6 has been
+the focus of testing during the migration.
 
 Similarly, other operating systems are slated for having support added, but help from the
 community would be very welcome! Obvious next candidates are CentOS 8 and Ubuntu 20.04.
 
 Debian is more of an issue. Debian 9 is still on Python 3.5 and Debian 10 has moved to Ice 3.7
-so neither is particularly well supported at the moment.
+so neither is particularly well supported at the moment. We are examining workarounds like
+building Ice from source and/or building a .deb package.
 
 Other prerequisites
 -------------------
 
 OMERO's other prerequisites have not changed substantially but if you would like to take this
-opportunity to move to the :doc:`"recommended" version<version-requirements>` for all requirements,
+opportunity to move to the :doc:`recommended version<version-requirements>` for all requirements,
 the current choices are:
 
 - Ice 3.6 (non-optional)
@@ -51,55 +52,60 @@ the current choices are:
 - Nginx 1.14
 - PostgreSQL 11
 
-
 Other options
 -------------
 
-Additional options that you may like to look into:
+The installation walkthroughs provided in the documentation try to stick to a minimum installation.
+The only requirements are an understanding of the Unix shell, the standard package manager for your
+platform, and the regular Python distribution mechanisms.
 
-Ansible: if you would like to use ansible for deployment, the roles have been upgraded but are not yet fully released. Please get in touch or see the GitHub repositories for the latest info.
-Conda: If you'd like to use conda, that should work fine on most platforms.
+However, more advanced installation mechanisms are available if you are interested and have familiarity
+with the given mechanism:
 
+- `Ansible roles <https://galaxy.ansible.com/ome>`_ are available for most installation steps. The primary
+  roles, `omero-server` and `omero-web` have not yet been released and will need to be installed from
+  GitHub.
+
+- A `conda channel <https://anaconda.org/ome>_` provides pre-built packages needed by OMERO if you are
+  comfortable not using your platforms standard Python installation.
+
+- `Docker images <https://hub.docker.com/u/openmicroscopy>`_ are also available. Both the `omero-server`
+  and `omero-web` images are considered production quality.
+
+Please get in touch at https://forum.image.sc/c/data if you have any questions.
 
 OMERO.server
 ------------
 
 The steps for an OMERO.server installation have not changed substantially.
 
-First, download the OMERO.server.zip as you would usually do, and unpack it under your
+Download the OMERO.server.zip as you would usually do, and unpack it under your
 installation directory. We suggest: file:`/opt/omero/server/OMERO.server`
 
+We highly recommend a virtualenv-based installation for all of the Python
+dependencies. Follow the :doc:`standard installation instructions <unix/server-installation>`
+for your platform.
 All instructions ...
 
-Once you have your installation in place, you will need to follow the upgrade
-documentation. Again, if any of the above is not clear, please see the very
-extensive information on the documentation page. If in doubt, start [HERE]
-(where?)
-
+Once you have your installation in place, you will need to follow the
+:doc:`standard upgrade instructions <server-upgrade>`, working from
+a *copy* of your data.
 
 OMERO.web
 ---------
 
-Installing OMERO.web no longer requires downloading a package from
-https://downloads.openmicroscopy.org. The first choice to make is
-whether you want to continue the previous method or move to a `pip install`-only
-installation. If you don't need the Java libraries, `pip install` is likely more
-convenient.
+Although it is possible to also follow the previous installation steps
+for OMERO.web, installation no longer requires downloading a package from
+https://downloads.openmicroscopy.org. If you choose to follow this route,
+all requirements will be installed directly into the virtualenv for OMERO.web.
+Instructions are available under :doc:`web-deployment <unix/install-web/web-deployment>`.
 
 The primary change is that it is now required to set the :envvar:`OMERODIR` variable
 to specify where the OMERO installation lives. This defines where configuration
-files and log files will be stored.
+files and log files will be stored. Again, we suggest: file:`/opt/omero/web` as the
+root for your installation.
 
-Create an installation directory. We suggest: /opt/omero/web
-Create a virtualenv: e.g. `python -mvenv venv3`
-On some platforms, you may need to use python3 -mvenv venv3.
-We're preferring to not use system-site-packages at the moment.
-Choose between:
-Downloading the OMERO.py zip as previously and unpack.
-We suggest: /opt/omero/web/OMERO.web
-Running: pip install --pre omero-web
-mkdir -p OMERO.web/etc/ OMERO.web/var/
-export OMERODIR=$PWD/OMERO.web/
+You will need to also follow the :doc:`upgrade guide <omeroweb-upgrade>`.
 
 Plugins
 ^^^^^^^
