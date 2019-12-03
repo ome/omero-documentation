@@ -7,7 +7,7 @@ OMERO.web installation separately from OMERO.server on Debian 9 and IcePy 3.6
 Please first read :doc:`../../server-debian9-ice36`.
 
 
-This is an example walkthrough for installing OMERO.web decoupled from the OMERO.server in a **virtual environment** using a dedicated system user. Installing OMERO.web in a virtual environment is the preferred way. For convenience in this walkthrough, we will use the **omero system user** and define the main OMERO.web configuration options as environment variables. We recommend that you install OMERO.web in a different virtual environment that the one used to install ``omero-py``.
+This is an example walkthrough for installing OMERO.web decoupled from the OMERO.server in a **virtual environment** using a dedicated system user. Installing OMERO.web in a virtual environment is the preferred way. For convenience in this walkthrough, we will use the **omero system user** and define the main OMERO.web configuration options as environment variables.
 
 
 **The following steps are run as root.**
@@ -43,7 +43,7 @@ Creating a virtual environment
 
 **The following steps are run as root.**
 
-Create the virtual. This is the recommended way to install OMERO.web::
+Create the virtual environment. This is the recommended way to install OMERO.web::
 
     python3 -mvenv /opt/omero/web/
 
