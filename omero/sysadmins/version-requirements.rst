@@ -442,7 +442,7 @@ OMERO support policies
       - to Sep 2020
       - |Broken|
       - |Broken|
-      - |Unsupported|
+      - |Upcoming|
       - |Unsupported|
       - `PEP 478 <https://www.python.org/dev/peps/pep-0478/>`__
     * - 3.6
@@ -660,6 +660,22 @@ OMERO support policies
       - |Recommended|
       - |Recommended|
       - `Reference <https://access.redhat.com/articles/1299013>`__
+    * - 12
+      - from Sep 2018
+      - to Oct 2024
+      - |Unsupported|
+      - |Unsupported|
+      - |Supported|
+      - |Recommended|
+      -
+    * - 13
+      - from Sep 2018
+      - to Oct 2024
+      - |Unsupported|
+      - |Unsupported|
+      - |Supported|
+      - |Supported|
+      -
 
 Version provided by distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -757,7 +773,7 @@ OMERO support policies
       - TBA
       - |Upcoming|
       - |Upcoming|
-      - |Recommended|
+      - |Supported|
       - |Recommended|
 
 Version provided by distribution
