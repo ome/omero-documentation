@@ -22,7 +22,7 @@ This should be read in conjunction with :doc:`../version-requirements`.
         Instructions for installing OMERO.server from scratch on
         Ubuntu 18.04 with Ice 3.6 and Python 3.6.
 
-**Supported:**
+**Upcoming:**
 
 .. seealso::
 

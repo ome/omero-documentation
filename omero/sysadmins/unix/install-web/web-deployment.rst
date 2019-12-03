@@ -44,7 +44,7 @@ more specific walkthrough listed below.
         Instructions for installing **separately** OMERO.web from
         scratch on Ubuntu 18.04 with Ice 3.6.
 
-**Supported:**
+**Upcoming:**
 
 .. seealso::
 
