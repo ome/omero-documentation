@@ -6,4 +6,4 @@ set -eux
 
 #start-config
 omero config set omero.web.application_server wsgi-tcp
-omero web config $NGINXCMD --http "$WEBPORT" > /home/omero/OMERO.server/nginx.conf.tmp
+omero web config $NGINXCMD --http "$WEBPORT" > $OMERODIR/nginx.conf.tmp
