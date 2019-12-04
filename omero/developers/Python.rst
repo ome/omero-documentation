@@ -596,7 +596,6 @@ Write data
     if not os.path.exists(path):
         os.makedirs(path)
     # Go through all the annotations on the Dataset. Download any file annotations
-<<<<<<< HEAD
     # we find. Filter by namespace is optional
     print("\nAnnotations on Dataset:", dataset.getName())
     namespace = "my.custom.demo.namespace"
