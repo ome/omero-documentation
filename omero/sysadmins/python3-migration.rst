@@ -5,13 +5,13 @@ Migration to Python 3
 
   This is still a pre-release of OMERO 5.6. The instructions below
   are intended to help plan a migration path from your current OMERO
-  installation. We suggest you **not** perform the migration on your
+  installation. Do **not** perform the migration on your
   production systems until the 5.6.0 release is ready.
 
 Basic steps
 -----------
 
-1. Choose a platform and a python. If your current installation platform
+1. Choose a platform and a python version. If your current installation platform
    does not match one of the :doc:`recommended platforms <version-requirements>`,
    you may want to choose a new platform as your migration target. See
    `Choosing a platform`_ below.
@@ -30,7 +30,7 @@ Choosing a platform
 We suggest Python 3.6. This is the default installation on the two recommended platforms,
 CentOS 7 and Ubuntu 18.04.
 
-Both 3.5 and 3.7 should work and are slated to have support added, but Python 3.6 has been
+Both Python 3.5 and 3.7 should work and are slated to have support added, but Python 3.6 has been
 the focus of testing during the migration.
 
 Similarly, other operating systems are slated for having support added, but help from the
@@ -66,7 +66,7 @@ with the given mechanism:
   roles, `omero-server` and `omero-web` have not yet been released and will need to be installed from
   GitHub.
 
-- A `conda channel <https://anaconda.org/ome>_` provides pre-built packages needed by OMERO if you prefer
+- A `conda channel <https://anaconda.org/ome>`_ provides pre-built packages needed by OMERO if you prefer
   to use Anaconda/Miniconda instead of the Python distribution provided by your platform.
 
 - `Docker images <https://hub.docker.com/u/openmicroscopy>`_ are also available. Both the `omero-server`
@@ -80,7 +80,8 @@ OMERO.server
 The steps for an OMERO.server installation have not changed substantially.
 
 Download the OMERO.server.zip as you would usually do, and unpack it under your
-installation directory. We suggest: file:`/opt/omero/server/OMERO.server`
+installation directory. We suggest: file:`/opt/omero/server/` and symlink the unpacked
+directory to `OMERO.server`
 
 We highly recommend a virtualenv-based installation for all of the Python
 dependencies. Follow the :doc:`standard installation instructions <unix/server-installation>`
@@ -96,13 +97,13 @@ OMERO.web
 
 Although it is possible to also follow the previous installation steps
 for OMERO.web, installation no longer requires downloading a package from
-https://downloads.openmicroscopy.org. If you choose to follow this route,
+https://downloads.openmicroscopy.org. If you choose to follow this newly introduced route,
 all requirements will be installed directly into the virtualenv for OMERO.web.
 Instructions are available under :doc:`web-deployment <unix/install-web/web-deployment>`.
 
-The primary change is that it is now required to set the :envvar:`OMERODIR` variable
+Note that setting of :envvar:`OMERODIR` variable is now required
 to specify where the OMERO installation lives. This defines where configuration
-files and log files will be stored. Again, we suggest: file:`/opt/omero/web` as the
+files and log files will be stored.  We suggest: file:`/opt/omero/web` as the
 root for your installation.
 
 You will need to also follow the :doc:`upgrade guide <omeroweb-upgrade>`. In short,
