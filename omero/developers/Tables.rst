@@ -9,7 +9,8 @@ Large and small volumes of tabular data can be stored via named columns, and
 retrieved in bulk or via paging. A limited query language provides basic
 filtering and selecting.
 
-For installation instructions, see :doc:`/sysadmins/server-tables`
+Since 5.6, `PyTables <http://pytables.org>`__ are installed when installing
+``omero-py``.
 
 
 The interface
@@ -412,6 +413,3 @@ store. Any suggestions or ideas would be
 
     :sourcedir:`The Tables test suite <components/tools/OmeroPy/test/integration/tablestest/>`
         The testsuite for OMERO.tables
-
-    :doc:`/sysadmins/server-tables`
-        Installation requirements for install OMERO.tables

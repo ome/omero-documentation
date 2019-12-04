@@ -9,6 +9,5 @@ Installing additional features
     mail
     omeromovie
     installing-scripts
-    server-tables
     client-server-ssl
     websockets
