@@ -413,6 +413,3 @@ store. Any suggestions or ideas would be
 
     :sourcedir:`The Tables test suite <components/tools/OmeroPy/test/integration/tablestest/>`
         The testsuite for OMERO.tables
-
-    :doc:`/sysadmins/server-tables`
-        Installation requirements for install OMERO.tables
