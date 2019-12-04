@@ -1,9 +1,9 @@
 Migration from OMERO 5.5 (Python 2) to OMERO 5.6 (Python 3)
 ===========================================================
 
-This page serves as a collection of recommendations, which came up when OME team went through the migration to Python 3.
-This is not a complete
-guide but may serve as a useful starting point.
+This page serves as a collection of recommendations, developed as
+the OME team went through the migration to Python 3. This is not
+a complete guide but may serve as a useful starting point.
 
 For more information, please see a dedicated Python 3 page like
 http://python-future.org/.
@@ -12,7 +12,7 @@ Futurize
 --------
 
 Installing `future` from Python 3 is now required for all OMERO
-Python components. This library comes with `futurize` tool
+Python components. This library comes with the `futurize` tool
 which performs many of the basic transformations needed to
 migrate Python 2 code to Python 3:
 
