@@ -209,7 +209,10 @@ def copy_legacy_redirects(app, exception):
     see: https://tech.signavio.com/2017/managing-sphinx-redirects
     """
     print("Adding redirects:")
-    redirect_files = ['sysadmins/server-overview.html']
+    redirect_files = [
+        'sysadmins/server-overview.html',
+        'sysadmins/server-tables.html',
+    ]
     if app.builder.name == 'html':
         for html_src_path in redirect_files:
             target_path = app.outdir + '/' + html_src_path
