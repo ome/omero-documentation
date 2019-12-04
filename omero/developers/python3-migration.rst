@@ -39,28 +39,30 @@ to list if you need the previous behavior: `list(my_dict.keys())`.
 Strings
 -------
 
-One of if not the major hurdle in upgrading from Python 2 to Python 3 is the shift in
-strings. In Python 2, there is a separation between `str` and `unicode`. In Python 3,
-both of those are like `unicode` (but called `str`) and a new type was introduced:
-`bytes`. A good starting places to learn the difference is:
+Changes to the handling of strings was our major hurdle in upgrading from
+Python 2 to Python 3. In Python 2, there is a separation between `str` and
+`unicode`. In Python 3, both of those are like `unicode` (but called `str`)
+and a new type was introduced: `bytes`. A good starting places to learn the
+difference is:
 
 http://python-future.org/compatible_idioms.html?highlight=string#strings-and-bytes
 
-Complicating the matter further is our use of the `future` library, which tries
-to help support Python 2 and Python 3 at the same time. Imports including
-`past` or `future` should be looked up in the above guide.
+The `future` library which enables support for Python 2 and Python 3
+concurrently has its *own* `str` class. It is necessary to look at the
+imports for a module to know what `str` is being used.
 
-What is `str`??
-^^^^^^^^^^^^^^^
+Which `str` is it??
+^^^^^^^^^^^^^^^^^^^
 
-If nothing special is imported, `str` is the builtin `str` in Py2 (non-unicode) but unicode in Py3.
-String literals like "foo" are also of type `str`.
+If nothing special is imported, `str` is the builtin `str` which in Python 2
+is non-unicode and unicode in Python 3. String literals like "foo" are also of
+type `str`.
 
-If `unicode_literal` is imported, then "foo" is the same as u"foo" and is `unicode` in Python 2
-or just `str` in Python 3.
+If `unicode_literal` is imported, then "foo" is the same as u"foo" and is
+`unicode` in Python 2 or just `str` in Python 3.
 
-If `from builtins import str` is imported, then `str` is more like unicode and may fail existing
-calls to `isinstance()`.
+If `from builtins import str` is imported, then `str` is more like unicode and
+may fail existing calls to `isinstance()`.
 
 `isinstance(x, str)`
 ^^^^^^^^^^^^^^^^^^^^
