@@ -27,18 +27,20 @@ Basic steps
 Choosing a platform
 -------------------
 
-We suggest Python 3.6. This is the default installation on the two recommended platforms,
-CentOS 7 and Ubuntu 18.04.
+The two recommended platforms, CentOS 7 and Ubuntu 18.04, have Python 3.6 as
+default installation and have therefore received the most testing which is why
+Python 3.6 is the preferred version of Python.
 
-Both Python 3.5 and 3.7 should work and are slated to have support added, but Python 3.6 has been
-the focus of testing during the migration.
+Both Python 3.5 and 3.7 should work and are slated to have support added, but
+Python 3.6 has been the focus of testing during the migration.
 
-Similarly, other operating systems are slated for having support added, but help from the
-community would be very welcome! Obvious next candidates are CentOS 8 and Ubuntu 20.04.
+Similarly, other operating systems are slated for having support added, but help
+from the community would be very welcome! Obvious next candidates are CentOS 8
+and Ubuntu 20.04.
 
-Debian is more of an issue. Debian 9 is still on Python 3.5 and Debian 10 has moved to Ice 3.7
-so neither is particularly well supported at the moment. We are examining workarounds like
-building Ice from source and/or building a .deb package.
+Debian 9 is still on Python 3.5 and Debian 10 has moved to Ice 3.7 so neither is
+supported at the moment. We are working on a suitable set of installation
+guides.
 
 Other prerequisites
 -------------------
@@ -103,12 +105,13 @@ Instructions are available under :doc:`web-deployment <unix/install-web/web-depl
 
 Note that setting of :envvar:`OMERODIR` variable is now required
 to specify where the OMERO installation lives. This defines where configuration
-files and log files will be stored.  We suggest: file:`/opt/omero/web` as the
+files and log files will be stored.  We suggest :file:`/opt/omero/web` as the
 root for your installation.
 
-You will need to also follow the :doc:`upgrade guide <omeroweb-upgrade>`. In short,
-web upgrades should become much simpler since only a `pip install -U` of the appropriate
-libraries should be necessary.
+The :doc:`upgrade guide <omeroweb-upgrade>` can help you to transfer your
+previous configuration. Moving forward, however, web upgrades should be much
+simpler under Python 3. Only a `pip install -U` of the appropriate libraries
+should be necessary.
 
 Plugins
 ^^^^^^^
