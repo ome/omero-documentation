@@ -776,7 +776,7 @@ OMERO support policies
       - TBA
       - |Upcoming|
       - |Upcoming|
-      - |Supported|
+      - |Recommended|
       - |Recommended|
 
 Version provided by distribution
