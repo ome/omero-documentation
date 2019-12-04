@@ -98,7 +98,7 @@ NGINX
     * - 1.16
       - |Upcoming|
       - |Upcoming|
-      - |Upcoming|
+      - |Recommended|
 
 Operating system support
 ========================
