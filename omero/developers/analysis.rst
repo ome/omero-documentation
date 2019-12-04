@@ -37,8 +37,8 @@ interoperability issues. (See
 :doc:`ExtendingOmero </developers/Server/ExtendingOmero>`).
 
 For larger volumes of data, or data which needs to be queried,
-:doc:`/developers/Tables` provides a unified solution for the storage of
-columnar data from various sources, such as automated analysis results or
+:doc:`/developers/Tables` provides a unified and effective solution for the storage of
+tabular data from various sources, such as automated analysis results or
 script-based processing, and makes them available within OMERO.
 
 
