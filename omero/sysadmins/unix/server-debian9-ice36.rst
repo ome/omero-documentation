@@ -88,35 +88,37 @@ We recommend to create a virtual environment and install the Ice Python binding 
     :start-after: #start-step03bis
     :end-before: #end-step03bis
 
-
 Install ``omero-py``:
 
 .. literalinclude:: walkthrough/walkthrough_debian9.sh
     :start-after: #start-step04-pre
-    :end-before: #end-step04-pre
+    :end-before: #start-release-ice36
 
-**The following steps are run as the omero system user.**
-
-The rest of this walkthrough assumes the OMERO.server is installed
-into the home directory of the **omero system user**. The variable ``OMERODIR`` set in :download:`settings.env <walkthrough/settings.env>` above **must** point to that location
-e.g. ``OMERODIR=/path_to_omero_server/OMERO.server``.
-
-Download, unzip and configure OMERO.
-
-Note that this script requires the same environment variables that were set
-earlier in `settings.env`, so you may need to copy and/or source this file as
-the omero user.
-
-Install ``server-ice36.zip``:
+Download and unzip OMERO.server:
 
 .. literalinclude:: walkthrough/walkthrough_debian9.sh
     :start-after: #start-release-ice36
     :end-before: #end-release-ice36
 
-Configure the server:
+Change the ownership of the OMERO.server directory and create a symlink:
 
 .. literalinclude:: walkthrough/walkthrough_debian9.sh
     :start-after: #end-release-ice36
+    :end-before: #end-step04-pre
+
+**The following steps are run as the omero system user.**
+
+The variable ``OMERODIR`` set in :download:`settings.env <walkthrough/settings.env>` above **must** point to the location where OMERO.server is installed.
+e.g. ``OMERODIR=/path_to_omero_server/OMERO.server``.
+
+Note that this script requires the same environment variables that were set
+earlier in `settings.env`, so you may need to copy and/or source this file as
+the omero user.
+
+Configure the server:
+
+.. literalinclude:: walkthrough/walkthrough_debian9.sh
+    :start-after: #end-copy-omeroscript
     :end-before: #end-step04
 
 Patching OMERO.server

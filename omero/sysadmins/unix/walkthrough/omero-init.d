@@ -23,7 +23,7 @@ prog=omero
 # Read configuration variable file if it is present
 [ -r /etc/default/$prog ] && . /etc/default/$prog
 
-OMERO_SERVER=${OMERO_SERVER:-/home/omero/OMERO.server}
+OMERO_SERVER=${OMERO_SERVER:-/opt/omero/server/OMERO.server}
 OMERO_USER=${OMERO_USER:-omero}
 SETTINGS=${SETTINGS:-/home/omero/settings.env}
 

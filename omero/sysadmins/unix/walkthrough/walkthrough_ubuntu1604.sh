@@ -68,43 +68,45 @@ psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 #end-step03
 
 #start-step03bis: As root, create a virtual env and install dependencies
-# Create a virtual env and activate it
+# Create a virtual env
 python3 -mvenv $VENV_SERVER
 
 # Install the Ice Python binding
 $VENV_SERVER/bin/pip install https://github.com/ome/zeroc-ice-py-ubuntu1604/releases/download/0.2.0/zeroc_ice-3.6.5-cp35-cp35m-linux_x86_64.whl
 #end-step03bis
 
-#start-step04-pre: As root, install omero-py
+#start-step04-pre: As root, install omero-py, download the OMERO.server
 # Install omero-py
 $VENV_SERVER/bin/pip install "omero-py>=5.6.dev4"
-#end-step04-pre
-
-#start-step04: As the omero user, download the OMERO.server and configure it
-#start-copy-omeroscript
-cp settings.env settings-web.env step04_all_omero.sh setup_omero_db.sh ~omero 
-#end-copy-omeroscript
 #start-release-ice36
-cd /home/omero
+cd /opt/omero/server
 #SERVER=https://downloads.openmicroscopy.org/latest/omero5.6/server-ice36.zip
 SERVER=https://downloads.openmicroscopy.org/omero/5.6.0-m2/artifacts/OMERO.server-5.6.0-m2-ice36-b126.zip
 wget -q $SERVER -O OMERO.server-ice36.zip
 unzip -q OMERO.server*
 #end-release-ice36
+# change ownership of the folder
+chown -R omero OMERO.server-*
 ln -s OMERO.server-*/ OMERO.server
+#end-step04-pre
+
+#start-step04: As the omero user, configure it
+#start-copy-omeroscript
+cp settings.env settings-web.env step04_all_omero.sh setup_omero_db.sh ~omero 
+#end-copy-omeroscript
 omero config set omero.data.dir "$OMERO_DATA_DIR"
 omero config set omero.db.name "$OMERO_DB_NAME"
 omero config set omero.db.user "$OMERO_DB_USER"
 omero config set omero.db.pass "$OMERO_DB_PASS"
-omero db script -f OMERO.server/db.sql --password "$OMERO_ROOT_PASS"
-psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < OMERO.server/db.sql
+omero db script -f $OMERODIR/db.sql --password "$OMERO_ROOT_PASS"
+psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < $OMERODIR/db.sql
 #end-step04
 
 #start-step05: As omero, install OMERO.web dependencies
 
 #start-configure-nginx: As the omero system user, configure OMERO.web
 omero config set omero.web.application_server wsgi-tcp
-omero web config nginx --http "$WEBPORT" > /home/omero/OMERO.server/nginx.conf.tmp
+omero web config nginx --http "$WEBPORT" > $OMERODIR/nginx.conf.tmp
 #end-configure-nginx
 # As root, install nginx
 #start-nginx-install
@@ -112,7 +114,7 @@ apt-get update
 apt-get -y install nginx
 #end-nginx-install
 #start-nginx-admin
-cp /home/omero/OMERO.server/nginx.conf.tmp /etc/nginx/sites-available/omero-web
+cp $OMERODIR/nginx.conf.tmp /etc/nginx/sites-available/omero-web
 rm /etc/nginx/sites-enabled/default
 ln -s /etc/nginx/sites-available/omero-web /etc/nginx/sites-enabled/
 
@@ -125,7 +127,7 @@ service nginx start
 #end-step06
 
 #start-step07: As root, secure OMERO
-chmod go-rwx OMERO.server/etc OMERO.server/var
+chmod go-rwx $OMERODIR/etc $OMERODIR/var
 
 # Optionally restrict access to the OMERO data directory
 # chmod go-rwx "$OMERO_DATA_DIR"
@@ -135,7 +137,7 @@ chmod go-rwx OMERO.server/etc OMERO.server/var
 #start-omeroweb-cron
 
 OMERO_USER=omero
-OMERO_SERVER=/home/omero/OMERO.server
+OMERO_SERVER=/opt/omero/server/OMERO.server
 SETTINGS=/home/omero/settings.env
 su - ${OMERO_USER} -c ". ${SETTINGS} omero web clearsessions"
 #end-omeroweb-cron

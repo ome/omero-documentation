@@ -6,20 +6,21 @@ After=postgresql-9.4.service
 After=postgresql-9.5.service
 After=postgresql-9.6.service
 After=postgresql-10.service
+After=postgresql-11.service
 After=network.service
 
 [Service]
 User=omero
 Group=omero
-WorkingDirectorpy=/home/omero
+WorkingDirectorpy=/opt/omero
 Type=forking
 Restart=no
 RestartSec=10
 # Allow up to 5 min for start/stop
 TimeoutSec=300
-Environment="OMERODIR=/home/omero/OMERO.server"
-ExecStart=/opt/omero/server/venv/bin/omero admin start
-ExecStop=/opt/omero/server/venv/bin/omero admin stop
+Environment="OMERODIR=/opt/omero/server/OMERO.server"
+ExecStart=/opt/omero/server/venv3/bin/omero admin start
+ExecStop=/opt/omero/server/venv3/bin/omero admin stop
 # If you want to enable in-place imports uncomment this:
 #UMask=0002
 

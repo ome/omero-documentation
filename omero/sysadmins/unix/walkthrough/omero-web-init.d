@@ -25,7 +25,7 @@ prog=omero-web
 # also read the omero config
 [ -r /etc/default/omero ] && . /etc/default/omero
 
-OMERO_SERVER=${OMERO_SERVER:-/home/omero/OMERO.server}
+OMERO_SERVER=${OMERO_SERVER:-/opt/omero/server/OMERO.server}
 OMERO_USER=${OMERO_USER:-omero}
 SETTINGS=/home/omero/settings.env
 
