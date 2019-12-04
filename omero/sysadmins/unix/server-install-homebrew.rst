@@ -104,17 +104,17 @@ Requirements
 
    Homebrew installs Python in the following location::
 
-    '/usr/local/opt/python3/libexec/bin'
+    '/usr/local/opt/python/libexec/bin'
 
    Follow the instructions from the brew Python install and set your system to use the Homebrew version of Python 
    rather than the Python shipped with OS X. Add the following line to your :file:`.bash_profile`::
 
-    export PATH="/usr/local/opt/python3/libexec/bin:$PATH"
+    export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 5. Check that Python is working and is version 3.7.x::
 
-    $ which python3
-    /usr/local/opt/python3/libexec/bin/python
+    $ which python
+    /usr/local/opt/python/libexec/bin/python
 
     $ python --version
     Python 3.7.4
@@ -127,13 +127,13 @@ Requirements
 
     $ python3 -mvenv ~/Virtual/omero-server
 
-   This will create a folder to hold Python libraries in the the directory :file:`~/Virtual/omero-server/lib`
+   This will create a folder to hold Python libraries in the directory :file:`~/Virtual/omero-server/lib`
 
    Create a virtual environment for omero-web using Python 3::
 
     $ python3 -mvenv ~/Virtual/omero-web
 
-   This will create a folder to hold Python libraries in the the directory :file:`~/Virtual/omero-web/lib`
+   This will create a folder to hold Python libraries in the directory :file:`~/Virtual/omero-web/lib`
 
   .. note:: 
    You can activate the Virtualenv environment that we created using::
