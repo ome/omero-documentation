@@ -245,7 +245,7 @@ membership. With the following setting enabled, each time a user logs in to
 OMERO their LDAP groups will be read from the LDAP server and reflected in
 OMERO::
 
-    bin/omero config set omero.ldap.sync_on_login true
+    omero config set omero.ldap.sync_on_login true
 
 Admin actions carried out in the clients may not survive this
 synchronization e.g. if an admin has removed an LDAP user from an LDAP group
@@ -257,7 +257,7 @@ the synchronization.
     if you have manually altered their membership, even if the membership now
     matches the LDAP group.
     
-    ``bin/omero ldap setdn true --group-name $NAME`` can be used to make these
+    :program:`omero ldap setdn true --group-name $NAME` can be used to make these
     previous OMERO groups into LDAP groups.
 
 .. _legacy_password_providers:
@@ -274,7 +274,7 @@ command:
 
 ::
 
-    bin/omero config set omero.security.password_provider chainedPasswordProvider
+    omero config set omero.security.password_provider chainedPasswordProvider
 
 When the LDAP password provider implementation changes, previous versions can
 be configured as necessary.
@@ -287,7 +287,7 @@ be configured as necessary.
 
   ::
 
-    bin/omero config set omero.security.password_provider chainedPasswordProviderNoSalt
+    omero config set omero.security.password_provider chainedPasswordProviderNoSalt
 
 - ``chainedPasswordProvider431``
 
@@ -298,7 +298,7 @@ be configured as necessary.
 
   ::
 
-    bin/omero config set omero.security.password_provider chainedPasswordProvider431
+    omero config set omero.security.password_provider chainedPasswordProvider431
 
 .. seealso::
 
@@ -341,7 +341,7 @@ the same way as a specific Domain Service using LDAP, but it runs on different p
 
    ::
 
-       bin/omero config set omero.ldap.urls ldap://ldap.example.com:3268
+       omero config set omero.ldap.urls ldap://ldap.example.com:3268
 
    .. note::
 

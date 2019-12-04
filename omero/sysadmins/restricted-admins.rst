@@ -132,11 +132,11 @@ Client Details:
 - CLI: allows listing all images, groups and users and downloading the data::
 
     # List all users on server
-    $ bin/omero user list
+    $ omero user list
     # List all groups on server
-    $ bin/omero group list
+    $ omero group list
     # List all images on server
-    $ bin/omero fs images
+    $ omero fs images
 
 .. _Workflow 2:
 
@@ -191,14 +191,14 @@ Client details:
   <https://www.youtube.com/channel/UCyySB9ZzNi8aBGYqcxSrauQ>`_)::
 
     # Login as the Importer and sudo as the user you want to import for
-    $ bin/omero --sudo Importer -u user login
+    $ omero --sudo Importer -u user login
     # Create new containers belonging to the user
-    $ bin/omero obj new Dataset name=Dataset-of-user
-    $ bin/omero obj new Project name=Project-of-user
+    $ omero obj new Dataset name=Dataset-of-user
+    $ omero obj new Project name=Project-of-user
     # Link the containers
-    $ bin/omero obj new ProjectDatasetLink parent=Project:17 child=Dataset:13
+    $ omero obj new ProjectDatasetLink parent=Project:17 child=Dataset:13
     # Import into created Dataset
-    $ bin/omero import ~/Desktop/CMPO1.png -T Dataset:name:Dataset-of-user
+    $ omero import ~/Desktop/CMPO1.png -T Dataset:name:Dataset-of-user
 
 .. _Workflow 3:
 
@@ -258,16 +258,16 @@ Client details:
   is possible too (see :doc:`/users/cli/index`)::
 
     # Upload an official script
-    $ bin/omero script upload --official /PATH/TO/YOUR_SCRIPT
+    $ omero script upload --official /PATH/TO/YOUR_SCRIPT
     # Login to the group the original data are in
-    $ bin/omero -g testgroup login
+    $ omero -g testgroup login
     # Create new Dataset
-    $ bin/omero obj new Dataset name=new-dataset
+    $ omero obj new Dataset name=new-dataset
     # Import result images into the Dataset
-    $ bin/omero import -T Dataset:name:new-dataset /PATH/TO/RESULT/IMAGES
+    $ omero import -T Dataset:name:new-dataset /PATH/TO/RESULT/IMAGES
     # Transfer the ownership of the Dataset and
     # of the contained images to the user with ID:55
-    $ bin/omero chown 55 Dataset:112
+    $ omero chown 55 Dataset:112
 
 .. _Workflow 4:
 
@@ -367,30 +367,30 @@ Client Details:
   and Data Organizing::
 
     # Create new user and put them into 2 groups
-    $ bin/omero user add username firstname lastname group1 group2
+    $ omero user add username firstname lastname group1 group2
     # Edit login name of a user with ID:55
-    $ bin/omero obj update Experimenter:55 omeName=new-login-name
+    $ omero obj update Experimenter:55 omeName=new-login-name
     # Add a user to a group named "testgroup"
-    $ bin/omero group adduser --name testgroup --user-name newbieingroup
-    $ bin/omero group removeuser --name testgroup --user-name thegoner
+    $ omero group adduser --name testgroup --user-name newbieingroup
+    $ omero group removeuser --name testgroup --user-name thegoner
     # Make a user a group owner. Works also when the owner-to-be
     # is already a member of the group
-    $ bin/omero group adduser --name group --user-name ownertobe --as-owner
+    $ omero group adduser --name group --user-name ownertobe --as-owner
     # Remove a group owner from ownership of the group. Does not remove
     # the formerowner from group, just unsets the ownership.
-    $ bin/omero user leavegroup testgroup --name formerowner  --as-owner
+    $ omero user leavegroup testgroup --name formerowner  --as-owner
     # Move a Dataset hierarchy to group 5 and include all annotations
     # on the Dataset and objects linked to the Dataset
-    $ bin/omero chgrp 5 Dataset:51 --include Annotation
+    $ omero chgrp 5 Dataset:51 --include Annotation
     # Transfer ownership to user 55 of the Project 112
-    $ bin/omero chown 55 Project:112
+    $ omero chown 55 Project:112
     # Transfer the ownership of a Project-Dataset link. Useful in case the
     # link was created by the Organizer and links objects of others
-    $ bin/omero chown 55 ProjectDatasetLink:123
+    $ omero chown 55 ProjectDatasetLink:123
     # Transfer the ownership of Dataset-Image link
-    $ bin/omero chown 55 DatasetImageLink:154
+    $ omero chown 55 DatasetImageLink:154
     # Transfer all data of user 5 to user 11 (advanced, might be slow)
-    $ bin/omero chown 11 Experimenter:5
+    $ omero chown 11 Experimenter:5
 
 Key
 ^^^

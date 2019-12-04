@@ -189,6 +189,38 @@ Read data
             for image in dataset.listChildren():
                 print_obj(image, 4)
 
+-  **Get Objects by their ID or attributes**
+
+   The first argument for ``conn.getObjects()`` or ``conn.getObject()`` is the object type.
+   This is not case sensitive. Supported types are
+   ``project``, ``dataset``, ``image``, ``screen``, ``plate``, ``plateacquisition``, ``acquisition``, ``well``,
+   ``roi``, ``shape``, ``experimenter``, ``experimentergroup``, ``originalfile``, ``fileset``, ``annotation``.
+   You can find attributes of these objects at :slicedoc_blitz:`OMERO model API <omero/model.html>`.
+
+::
+
+    # Find objects by ID. NB: getObjects() returns a generator, not a list
+    projects = conn.getObjects("Project", [1, 2, 3])
+
+    # Get a single object by ID. Can use "Annotation" for all types of annotations by ID
+    annotation = conn.getObject("Annotation", 1)
+
+    # Find an Object by attribute. E.g. 'name'
+    images = conn.getObjects("Image", attributes={"name": name})
+
+-  **Get different types of Annotations***
+
+   Supported types are: ``tagannotation``, ``longannotation``, ``booleanannotation``, ``fileannotation``,
+   ``doubleannotation``, ``termannotation``, ``timestampannotation``, ``mapannotation``
+
+::
+
+    # List All Tags that you have permission to access
+    conn.getObjects("TagAnnotation")
+
+    # Find Tags with a known text value
+    tags = conn.getObjects("TagAnnotation", attributes={"textValue": text})
+
 -  **Retrieve 'orphaned' objects**
 
 ::
@@ -277,6 +309,35 @@ Read data
                 well.getImage(index).getName(),\
                 well.getImage(index).getId())
 
+-  **List all annotations on an object. Filter for Tags and get textValue**
+
+::
+
+    for ann in project.listAnnotations():
+        print ann.getId(), ann.OMERO_TYPE,
+        print " added by ", ann.link.getDetails().getOwner().getOmeName()
+        if ann.OMERO_TYPE == omero.model.TagAnnotationI:
+            print "Tag value:", ann.getTextValue()
+
+-  **Get Links between Objects and Annotations**
+
+::
+
+    # Find Images linked to Annotation(s), unlink Images from these annotations
+    # and link them to another Tag Annotation
+    annotation_ids = [1, 2, 3]
+    tag_id = 4
+    for link in conn.getAnnotationLinks('Image', ann_ids=annotation_ids):
+        print "Image ID:", link.getParent().id
+        print "Annotation ID:", link.getChild().id
+        # Update the child of the underlying omero.model.ImageAnnotationLinkI
+        link._obj.child = omero.model.TagAnnotationI(tag_id, False)
+        link.save()
+
+    # Find Annotations linked to Object(s), filter by namespace (optional)
+    for link in conn.getAnnotationLinks('Image', parent_ids=image_ids, ns=namespace):
+        print "Annotation ID:", link.getChild().id
+
 
 Groups and permissions
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -320,7 +381,7 @@ Read-Annotate groups, this will include other users' data - see
     image = conn.getObject("Image", imageId)
     print("Image: ", image)
 
--  **In OMERO-4.4, we added 'cross-group' querying, use '-1'**
+-  **For cross-group querying, use ``-1``**
 
 ::
 
@@ -341,6 +402,29 @@ Read-Annotate groups, this will include other users' data - see
     projects = conn.listProjects()
     image = conn.getObject("Image", imageId)
     print("Image: ", image)
+
+- **To set (or change) the owner of an object (Admins only)**
+
+::
+
+    tag_ann = omero.gateway.TagAnnotationWrapper(conn)
+    tag_ann.setTextValue("Not owned by me")
+    # update details of the wrapped omero.model.AnnotationI _obj
+    tag_ann._obj.details.owner = ExperimenterI(userId, False)
+    tag_ann.save()
+
+    # If we want to perform multiple tasks it may be more convenient to
+    # connect as another user. We can use 'user_conn' exactly as for 'conn'
+    user = conn.getObject("Experimenter", userId).getName()
+    user_conn = conn.suConn(user)
+    # This annotation will be owned by user
+    map_ann = omero.gateway.MapAnnotationWrapper(user_conn)
+    map_ann.setNs(namespace)
+    map_ann.setValue(key_values)
+    map_ann.save()
+    # Link will be owned by the user
+    project.linkAnnotation(map_ann)
+    user_conn.close()
 
 Raw data access
 ^^^^^^^^^^^^^^^
@@ -416,9 +500,18 @@ Write data
 
 ::
 
+    # Use omero.gateway.DatasetWrapper:
+    new_dataset = DatasetWrapper(conn, omero.model.DatasetI())
+    new_dataset.setName('Scipy_Gaussian_Filter')
+    new_dataset.save()
+    print("New dataset, Id:", new_dataset.id)
+    # Can get the underlying omero.model.DatasetI with:
+    dataset_obj = new_dataset._obj
+
+    # OR create the DatasetI directly:
     dataset_obj = omero.model.DatasetI()
     dataset_obj.setName(rstring("New Dataset"))
-    dataset_obj = conn.getUpdateService().saveAndReturnObject(dataset_obj)
+    dataset_obj = conn.getUpdateService().saveAndReturnObject(dataset_obj, conn.SERVICE_OPTS)
     dataset_id = dataset_obj.getId().getValue()
     print("New dataset, Id:", dataset_id)
 
@@ -426,23 +519,26 @@ Write data
 
 ::
 
-    project = conn.getObject("Project", projectId)
     link = omero.model.ProjectDatasetLinkI()
-    link.setParent(omero.model.ProjectI(project.getId(), False))
-    link.setChild(dataset_obj)
+    # We can use a 'loaded' object, but we might get an Exception
+    # link.setChild(dataset_obj)
+    # Better to use an 'unloaded' object (loaded = False)
+    link.setChild(omero.model.DatasetI(dataset_obj.id.val, False))
+    link.setParent(omero.model.ProjectI(projectId, False))
     conn.getUpdateService().saveObject(link)
 
--  **Annotate Project with a new 'tag'**
+-  **Annotate Project with a new Tag**
 
 ::
 
     tag_ann = omero.gateway.TagAnnotationWrapper(conn)
     tag_ann.setValue("New Tag")
+    tag_ann.setDescription("Add optional description")
     tag_ann.save()
     project = conn.getObject("Project", projectId)
     project.linkAnnotation(tag_ann)
 
--  **Added in OMERO 5.1: 'Map' annotations (list of key: value pairs)**
+-  **Add a Map Annotation (list of key: value pairs)**
 
 ::
 
@@ -483,7 +579,7 @@ Write data
     with open(file_to_upload, 'w') as f:
         f.write('annotation test')
     # create the original file and file annotation (uploads the file etc.)
-    namespace = "imperial.training.demo"
+    namespace = "my.custom.demo.namespace"
     print("\nCreating an OriginalFile and FileAnnotation")
     file_ann = conn.createFileAnnfromLocalFile(
         file_to_upload, mimetype="text/plain", ns=namespace, desc=None)
@@ -500,9 +596,11 @@ Write data
     if not os.path.exists(path):
         os.makedirs(path)
     # Go through all the annotations on the Dataset. Download any file annotations
-    # we find.
+<<<<<<< HEAD
+    # we find. Filter by namespace is optional
     print("\nAnnotations on Dataset:", dataset.getName())
-    for ann in dataset.listAnnotations():
+    namespace = "my.custom.demo.namespace"
+    for ann in dataset.listAnnotations(ns=namespace):
         if isinstance(ann, omero.gateway.FileAnnotationWrapper):
             print("File ID:", ann.getFile().getId(), ann.getFile().getName(), \
                 "Size:", ann.getFile().getSize())
@@ -964,6 +1062,26 @@ Delete data
         print(cb.getResponse())
     cb.close(True)      # close handle too
 
+- **Delete Annotations on an Object**
+
+::
+
+    i = conn.getObject("Image", image_id)
+    to_delete = []
+    # Optionally to filter by namespace
+    for ann in i.listAnnotations(ns=namespace):
+        to_delete.append(ann.id)
+    conn.deleteObjects('Annotation', to_delete, wait=True)
+
+- **Remove Annotations from an Object (unlink but don't delete)**
+
+::
+
+    i = conn.getObject("Image", image_id)
+    to_delete = []
+    for ann in i.listAnnotations():
+        to_delete.append(ann.link.id)
+    conn.deleteObjects("ImageAnnotationLink", to_delete, wait=True)
 
 Render Images
 ^^^^^^^^^^^^^
@@ -1215,4 +1333,3 @@ It is relatively straightforward to take the code samples above and
 re-use them in OMERO.scripts. This allows the code to be run on the
 OMERO server and called from either the OMERO.insight client or
 OMERO.web by any users of the server. See :doc:`/developers/scripts/user-guide`.
-

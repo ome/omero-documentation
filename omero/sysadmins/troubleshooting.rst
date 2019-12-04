@@ -60,8 +60,8 @@ your database. Therefore, you must configure the
 
 ::
 
-   $ bin/omero config set omero.db.user db_user
-   $ bin/omero config set omero.db.pass db_password
+   $ omero config set omero.db.user db_user
+   $ omero config set omero.db.pass db_password
 
 .. Note:: Do **not** use db_user or db_password here; substitute your own 
     username and password.

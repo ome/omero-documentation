@@ -22,7 +22,7 @@ modify. By default, a limited number of simultaneous connections
 
 ::
 
-	$ bin/omero config set omero.db.poolsize 100
+	$ omero config set omero.db.poolsize 100
 
 .. _jvm_memory_settings:
 
@@ -58,13 +58,13 @@ For example, the default, PercentStrategy, is equivalent to making the call:
 
 ::
 
-	$ bin/omero config set omero.jvmcfg.strategy percent
+	$ omero config set omero.jvmcfg.strategy percent
 
 This could be changed to use the ManualStrategy for all servers:
 
 ::
 
-	$ bin/omero config set omero.jvmcfg.strategy manual
+	$ omero config set omero.jvmcfg.strategy manual
 
 Strategies
 ^^^^^^^^^^
@@ -99,13 +99,13 @@ Examples
 
 ::
 
-	$ bin/omero config set omero.jvmcfg.percent.blitz 50
+	$ omero config set omero.jvmcfg.percent.blitz 50
 
 would raise the blitz heap size to 50% of the system memory seen.
 
 ::
 
-	$ bin/omero config set omero.jvmcfg.system_memory 24000
+	$ omero config set omero.jvmcfg.system_memory 24000
 
 would set the system memory seen to 24GB regardless of the actual amount of
 memory present in the system. The PercentageStrategy would use this as the
@@ -113,7 +113,7 @@ basis for setting the Java heap sizes for all services.
 
 ::
 
-	$ bin/omero config set omero.jvmcfg.max_system_memory 64000
+	$ omero config set omero.jvmcfg.max_system_memory 64000
 
 would raise the maximum system memory seen by an OMERO installation to 64000MB
 of system memory. Assuming there was at least 64000MB of memory installed
@@ -121,8 +121,8 @@ blitz would default to using 9600MB.
 
 ::
 
-	$ bin/omero config set omero.jvmcfg.strategy.indexer manual
-	$ bin/omero config set omero.jvmcfg.heap_size.indexer 2000
+	$ omero config set omero.jvmcfg.strategy.indexer manual
+	$ omero config set omero.jvmcfg.heap_size.indexer 2000
 
 would set the indexer heap size to 2000MB without modifying the settings for
 the other services.
@@ -135,13 +135,13 @@ View the memory settings that will apply to a newly started server.
 
 ::
 
-	$ bin/omero admin jvmcfg
+	$ omero admin jvmcfg
 
 After modifying any memory settings, be sure to restart your server.
 
 ::
 
-	$ bin/omero admin restart
+	$ omero admin restart
 
 .. seealso::
 

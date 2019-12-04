@@ -1,8 +1,8 @@
 Documentation files to be linked under the ``docs/sphinx`` directory of
 https://github.com/openmicroscopy/openmicroscopy.
 
-.. image:: https://travis-ci.org/openmicroscopy/ome-documentation.png
-   :target: https://travis-ci.org/openmicroscopy/ome-documentation
+.. image:: https://travis-ci.org/ome/ome-documentation.png
+   :target: https://travis-ci.org/ome/ome-documentation
 
 ***************************
 Getting Started With Sphinx

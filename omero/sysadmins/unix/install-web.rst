@@ -6,9 +6,9 @@ allows for the management, visualization (in a fully multi-dimensional
 image viewer) and annotation of images from a web browser. It also
 includes the ability to manage users and groups.
 
-Reading through :doc:`install-web/web-deployment` first is recommended.
-
-Note that the command ``bin/omero`` used throughout this page refers to ``OMERO.py/bin/omero`` if OMERO.web is deployed **separately** otherwise it refers to ``OMERO.server/bin/omero``.
+Please read through :doc:`install-web/web-deployment` first.
+We assume that OMERO.web has been in installed in a virtual environment
+as described in :doc:`install-web/web-deployment`.
 
 .. toctree::
     :maxdepth: 1
@@ -50,11 +50,11 @@ display a maintenance page.
       sessions documentation <topics/http/sessions/#browser-length-vs-persistent-sessions>`
       for more details. The default value is ``True``::
 
-          $ bin/omero config set omero.web.session_expire_at_browser_close "True"
+          $ omero config set omero.web.session_expire_at_browser_close "True"
 
    -  The age of session cookies, in seconds. The default value is ``86400``::
 
-          $ bin/omero config set omero.web.session_cookie_age 86400
+          $ omero config set omero.web.session_cookie_age 86400
 
 - Clear session:
 
@@ -65,10 +65,10 @@ display a maintenance page.
   :djangodoc:`Django file-based session documentation <topics/http/sessions/#using-file-based-sessions>` for more details. It is therefore the responsibility of the OMERO 
   administrator to purge the session cache using the provided management command::
       
-      $ bin/omero web clearsessions
+      $ omero web clearsessions
 
   It is recommended to call this command on a regular basis, for example 
-  as a :ref:`daily cron job<linux_walkthrough_regular_tasks>`, see
+  as a :download:`daily cron job <walkthrough/omero-web-cron>`, see
   :djangodoc:`Django clearing the session store documentation <topics/http/sessions/#clearing-the-session-store>` for more information.
 
 
@@ -79,20 +79,20 @@ Customizing your OMERO.web installation
 
 OMERO.web offers a number of configuration options.
 The configuration changes **will not be applied** until
-gunicorn is restarted using ``bin/omero web restart``.
+Gunicorn is restarted using ``omero web restart``.
 
 -  Session engine:
 
   -  OMERO.web offers alternative session backends to automatically delete stale data using the cache session store backend, see :djangodoc:`Django cached session documentation <topics/http/sessions/#using-cached-sessions>` for more details.
 
-  - `Redis 2.8+ <https://redis.io/>`_ requires `django-redis >= 4.4 and < 4.9 <https://niwinz.github.io/django-redis/latest/>`_ in order to be used with OMERO.web. We assume that Redis has already been installed. The `django-redis` package is now installed as part of the OMERO.web deployment. To configure the cache, run::
+  - `Redis 3.3+ <https://redis.io/>`_ requires `django-redis >= 4.10 <https://niwinz.github.io/django-redis/latest/>`_ in order to be used with OMERO.web. We assume that Redis has already been installed. The `django-redis` package is now installed as part of the OMERO.web deployment. To configure the cache, run::
 
-      $ bin/omero config set omero.web.caches '{"default": {"BACKEND": "django_redis.cache.
+      $ omero config set omero.web.caches '{"default": {"BACKEND": "django_redis.cache.
       RedisCache", "LOCATION": "redis://127.0.0.1:6379/0"}}'
 
   -  After installing all the cache prerequisites set the following::
 
-        $ bin/omero config set omero.web.session_engine django.contrib.sessions.backends.cache
+        $ omero config set omero.web.session_engine django.contrib.sessions.backends.cache
 
 
 - Use a prefix:
@@ -102,8 +102,8 @@ gunicorn is restarted using ``bin/omero web restart``.
   :property:`omero.web.static_url`. For example, to make OMERO.web appear at
   `http://example.org/omero/`::
 
-      $ bin/omero config set omero.web.prefix '/omero'
-      $ bin/omero config set omero.web.static_url '/omero/static/'
+      $ omero config set omero.web.prefix '/omero'
+      $ omero config set omero.web.static_url '/omero/static/'
 
   and regenerate your webserver configuration (see :ref:`omero_web_deployment`).
 
@@ -118,7 +118,7 @@ All configuration options can be found on various sections of
 :ref:`web_index` developers documentation. For the full list, refer to
 :ref:`web_configuration` properties or::
 
-	$ bin/omero web -h
+	$ omero web -h
 
 The most popular configuration options include:
 
@@ -142,23 +142,23 @@ with additional configuration of OMERO.web. See the
 `django-cors-headers <https://github.com/ottoyiu/django-cors-headers>`_ page
 for more details on the settings.
 
-Install the app and add it to the list of installed apps::
+In the virtual environment where OMERO.web is installed, install the app and add it to the list of installed apps::
 
   $ pip install django-cors-headers
-  $ bin/omero config append omero.web.apps '"corsheaders"'
+  $ omero config append omero.web.apps '"corsheaders"'
 
 Add the cors-headers middleware. Configuration of OMERO.web middleware
 was added in OMERO 5.3.2 and uses an 'index' to specify the ordering of middleware classes.
 It is important to add the ``CorsMiddleware`` as the first class and
 ``CorsPostCsrfMiddleware`` as the last, for example::
 
-  $ bin/omero config append omero.web.middleware '{"index": 0.5, "class": "corsheaders.middleware.CorsMiddleware"}'
-  $ bin/omero config append omero.web.middleware '{"index": 10, "class": "corsheaders.middleware.CorsPostCsrfMiddleware"}'
+  $ omero config append omero.web.middleware '{"index": 0.5, "class": "corsheaders.middleware.CorsMiddleware"}'
+  $ omero config append omero.web.middleware '{"index": 10, "class": "corsheaders.middleware.CorsPostCsrfMiddleware"}'
 
 Specify which origins are allowed access::
 
-  $ bin/omero config set omero.web.cors_origin_whitelist '["hostname.example.com"]'
+  $ omero config set omero.web.cors_origin_whitelist '["hostname.example.com"]'
 
 Or allow access from all origins::
 
-  $ bin/omero config set omero.web.cors_origin_allow_all True
+  $ omero config set omero.web.cors_origin_allow_all True

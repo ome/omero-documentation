@@ -34,11 +34,8 @@ POST, PUT and DELETE. These requests can then be protected as follows:
     that would cause the CSRF token to be leaked, leading to a vulnerability.
 
 - On each XMLHttpRequest set a custom X-CSRFToken header to the value of the
-  CSRF token and pass the CSRF token in data with every AJAX POST request. If
-  your custom template already benefits from
-  :ref:`loading built-in jQuery <jquery_and_jquery_ui>` template you do not need to do
-  anything as it already loads ``webgateway/js/ome.csrf.js``. Otherwise simply
-  import the script as follows:
+  CSRF token and pass the CSRF token in data with every AJAX POST request.
+  You can import a jQuery-based script to do this as follows:
 
   ::
 

@@ -51,11 +51,11 @@ This script echoes the input parameters as outputs.
 
     import omero, omero.scripts as scripts
     client = scripts.client("ping.py", "simple ping script",
-             scripts.Long("a"), scripts.String("b"))
+                            scripts.Long("a"), scripts.String("b"))
 
     keys = client.getInputKeys()
-    print "Keys found:"
-    print keys
+    print("Keys found:")
+    print(keys)
     for key in keys:
           client.setOutput(key, client.getInput(key))
 
@@ -74,7 +74,7 @@ and the script returns them as outputs.
 
     # Define the script name & description, and a single 'required' parameter
     client = scripts.client("Get_Channels.py", "Get channel names for an image",
-        scripts.Long("imageId", optional=False))
+                            scripts.Long("imageId", optional=False))
 
     # get the Image Id from the parameters.
     imageId = client.getInput("imageId", unwrap=True)   # unwrap the rtype
@@ -84,11 +84,11 @@ and the script returns them as outputs.
 
     # get the Image, print its name
     image = conn.getObject("Image", imageId)
-    print image.getName()
+    print(image.getName())
 
     # Print each channel 'label' (Name or Excitation wavelength)
     for i, ch in enumerate(image.getChannels()):
-        print ch.getLabel()
+        print(ch.getLabel())
         # Return as output. Key is string, value is rtype
         client.setOutput("Channel%s" % i, wrap(str(ch.getLabel())))
 
