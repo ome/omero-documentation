@@ -14,6 +14,7 @@
 
 import sys
 import os
+import shutil
 
 # Append the top level directory of the docs, so we can import from the
 # config dir.
@@ -201,3 +202,25 @@ linkcheck_ignore += [
 exclude_patterns = ['sysadmins/unix/walkthrough/requirements*',
                     'downloads/inplace', 'downloads/cli',
                     'changelog.rst']
+
+
+def copy_legacy_redirects(app, exception):
+    """
+    see: https://tech.signavio.com/2017/managing-sphinx-redirects
+    """
+    print("Adding redirects:")
+    redirect_files = [
+        'sysadmins/server-overview.html',
+        'sysadmins/server-tables.html',
+    ]
+    if app.builder.name == 'html':
+        for html_src_path in redirect_files:
+            target_path = app.outdir + '/' + html_src_path
+            src_path = app.srcdir + '/' + html_src_path
+            if os.path.isfile(src_path):
+                shutil.copyfile(src_path, target_path)
+                print("  %s" % html_src_path)
+
+
+def setup(app):
+    app.connect('build-finished', copy_legacy_redirects)

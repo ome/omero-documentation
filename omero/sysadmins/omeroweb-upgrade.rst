@@ -19,31 +19,42 @@ Upgrade checklist
     :local:
     :depth: 1
 
-Check prerequisities
-^^^^^^^^^^^^^^^^^^^^
+Check prerequisites
+^^^^^^^^^^^^^^^^^^^
 
 Before starting the upgrade, please ensure that you have reviewed and
 satisfied all the :doc:`system requirements <system-requirements>` with
 :doc:`correct versions <version-requirements>` for installation.
 
-Note that support for Apache deployment has been dropped in 5.3.0.
-
 Configuration
 ^^^^^^^^^^^^^
 
-Since OMERO 5.3, OMERO.web can be deployed **separately** from OMERO.server.
+This documentation assumes that OMERO.web is deployed **separately** from OMERO.server.
 This is the recommended installation set-up as they
 perform best under different circumstances and require a different set of
 dependencies. Please check :ref:`omero_web_deployment` for the latest advice
 on how to deploy OMERO.web.
 
-.. warning:: If you generated configuration stanzas using
-    :program:`omero web config` which enables OMERO.web via NGINX, they will
-    include **hard-coded links** to your previous version of OMERO. Therefore,
-    you should regenerate your config files when upgrading, remembering to
-    merge in any of your own modifications if necessary. You should carry out
-    this step even for minor version upgrades as there may be fixes which
-    require it.
+If you are migrating from a shared installation to separate installations, you will
+need to export and re-import the configuration from your previous installation.
+
+::
+
+    OLD_INSTALLATION/bin/omero config get --show-password > properties.backup
+    NEW_INSTALLATION/bin/omero config load properties.backup
+
+If you generated configuration stanzas using :program:`omero web config` which
+enables OMERO.web via NGINX, you should regenerate your config files,
+remembering to merge in any of your own modifications if necessary. You should
+carry out this step even for minor version upgrades as there may be fixes which
+require it.
+
+::
+
+
+    NEW_INSTALLATION/bin/omero web config nginx > new.confg
+
+More examples can be found under :ref:`omero_web_nginx_configuration`.
 
 Dependencies
 ^^^^^^^^^^^^
@@ -51,16 +62,7 @@ Dependencies
 While upgrading the server you should keep OMERO.web dependencies
 up to date to ensure that security updates are applied::
 
-    $ pip install --upgrade -r share/web/requirements-py27-all.txt
-
-.. warning:: Missing this step can result in OMERO.web failing to start after
-    upgrading.
-
-Since OMERO 5.2, the OMERO.web framework no longer bundles a copy of the
-Django package, instead manual installation of the Django dependency is
-required (the command above will do this for you). It is highly recommended to
-use `Django 1.8`_ (LTS) which requires Python 2.7. For more information see
-:ref:`python-requirements` on the :doc:`/sysadmins/version-requirements` page.
+    $ pip install --upgrade --pre omero-web
 
 Plugin updates
 ^^^^^^^^^^^^^^
@@ -70,96 +72,36 @@ reason, it is possible that an update of OMERO will cause issues with an older
 version of a plugin. It is best when updating the server to also install any
 available plugin updates according to their own documentation.
 
-Since 5.3, all official OMERO.web plugins can be installed from PyPI_.
+All official OMERO.web plugins can be installed from PyPI_.
 You should remove all previously installed plugins and install the latest
-versions using `pip <https://pip.pypa.io/en/stable/>`_.
+versions using pip.
 
-Also introduced in 5.3, the ``Open with`` configuration allows users to open
-data in other web applications e.g. open images in a custom viewer or open images
-in a new figure with OMERO.figure.
-After installing OMERO.figure (or any other app), run the following command
-to add it to the ``Open with`` options, so that the app is available from the context
-menu on the webclient tree::
+Restart OMERO.web
+^^^^^^^^^^^^^^^^^
 
-    $ bin/omero config append omero.web.open_with '["omero_figure", "new_figure",
-      {"supported_objects":["images"], "target": "_blank", "label": "OMERO.figure"}]'
+Finally, restart OMERO.web with the following command:
 
-Updating 'Open with' config
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ::
 
-If you have configured :property:`omero.web.open_with` prior to OMERO 5.3.3 and
-also set the default viewer with :property:`omero.web.viewer.view`, for example
-as described for :pypi:`OMERO.iviewer <omero-iviewer>` then you will find that
-``Open with > Image Viewer`` also opens the OMERO.iviewer
-instead of the ``webgateway`` viewer.
-
-To fix this, you need to update the ``Image Viewer`` option within
-your :property:`omero.web.open_with` config.
-
-The best way to do this without changing the ordering of the options is to
-``get`` the complete current config, edit the ``Image Viewer`` option, replacing
-``"webindex"`` with ``"webgateway"`` and then ``set`` this as the updated config::
-
-    $ bin/omero config get omero.web.open_with
-    [["Image viewer", "webindex", {"supported_objects": ["image"], "script_url": "we....
-
-    # Replace "webindex" with "webgateway" and paste everything back to set, within single quotes
-
-    $ bin/omero config set omero.web.open_with '[["Image viewer", "webgateway", {"supported_objects": ["image"], "scr....'
-
-Re-enabling the version checker
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If you used the workaround for :secvuln:`2017-SV4-guest-user` then you should
-revert the change to ``omero.web.check_version`` configuration property::
-
-   $ bin/omero config set omero.web.check_version true
-
+       $ bin/omero web restart
 
 Troubleshooting
 ^^^^^^^^^^^^^^^
 
 If you encounter errors during an OMERO.web upgrade, etc., you
-should retain as much log information as possible and notify the OMERO.server
+should retain as much log information as possible, including
+the output of :program:`omero web diagnostics` to the OMERO
 team via the mailing lists available on the :community:`support <>`
 page.
 
+Maintenance & Scaling
+^^^^^^^^^^^^^^^^^^^^^
 
-Update your OMERO.web server configuration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+If you have not already done so, there are a number of additional
+steps that can be performed on your OMERO.web installation to improve
+its functioning. For example, you may need to set up a regular task
+to clear out any stale OMERO.web session files. More information can
+be found under :ref:`omero_web_maintenance`.
 
-FastCGI support was removed in OMERO 5.2 and OMERO.web can be deployed
-using WSGI (see :ref:`omero_web_deployment` for more details).
-If you have already deployed OMERO.web using WSGI you should regenerate your
-config files, remembering to merge in any of your own modifications if
-necessary. **Due to changes in OMERO.web,
-you should carry out this step even for minor version upgrades as there may be
-fixes which require it.**
-
-If necessary ensure you have set up a regular task to clear out any stale
-OMERO.web session files as described in :ref:`omero_web_maintenance`.
-
-Migrating from Apache to NGINX
-""""""""""""""""""""""""""""""
-
-Support for Apache and mod_wsgi deployment was deprecated
-in OMERO 5.2.6 and dropped in 5.3.0.
-It is recommended to use a WSGI-capable server such as
-:doc:`NGINX and Gunicorn </sysadmins/unix/install-web/web-deployment>`.
-
-.. seealso::
-
-    :ref:`troubleshooting-omeroweb-migrate-to-nginx`
-
-Restart OMERO.web
-^^^^^^^^^^^^^^^^^
-
--  If anything goes wrong, please send the output of
-   :program:`omero web diagnostics` to
-   ome-users@lists.openmicroscopy.org.uk.
-
--  Start OMERO.web with the following command:
-
-   ::
-
-       $ bin/omero web restart
+Additionally, it is recommended to use a WSGI-capable server such as NGINX.
+Information can be found under :doc:`unix/install-web/web-deployment`.

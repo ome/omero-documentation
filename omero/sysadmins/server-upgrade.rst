@@ -20,13 +20,10 @@ the level of detail; upgrading should be a straightforward process.
     important steps that these instructions assume to already have been
     done by OMERO |previousversion| users. Before proceeding with these
     instructions you may first need to read the `instructions
-    <https://docs.openmicroscopy.org/latest/omero5.3/sysadmins/server-upgrade.html>`_
+    <https://docs.openmicroscopy.org/latest/omero5.5/sysadmins/server-upgrade.html>`_
     for upgrading *to* OMERO |previousversion| because some extra steps
     may be required beyond simply running the SQL upgrade scripts
     described below.
-    
-    If you are upgrading from 5.2 on **Windows** and need to migrate to Linux,
-    there is a guide in the `OMERO 5.3 documentation <https://docs.openmicroscopy.org/latest/omero5.3/sysadmins/windows-migration.html>`_.
 
 Upgrade checklist
 -----------------
@@ -35,8 +32,8 @@ Upgrade checklist
     :local:
     :depth: 1
 
-Check prerequisities
-^^^^^^^^^^^^^^^^^^^^
+Check prerequisites
+^^^^^^^^^^^^^^^^^^^
 
 Before starting the upgrade, please ensure that you have reviewed and
 satisfied all the :doc:`system requirements <system-requirements>` with
@@ -45,29 +42,6 @@ particular, ensure that you are running a suitable version of PostgreSQL
 to enable successful upgrading of the database, otherwise the upgrade
 script aborts with a message saying that your database server version is
 less than the OMERO prerequisite.
-
-Corrupted pyramids
-^^^^^^^^^^^^^^^^^^
-
-A bug introduced in OMERO 5.2.0 meant that corrupted pyramids were generated
-for large TIFF files with little endian encoding. This bug was fixed in
-OMERO 5.4.4 and corrupted pyramids need to be deleted to allow new ones to be
-generated::
-
-   omero admin removepyramids --endian=little
-
-We recommend you run the command with :command:`--dry-run` first to list the pyramids
-that will be deleted. If there are a large number of pyramids, you may need to
-run the command more than once since you cannot remove more than 500 pyramids in one call.
-For large installations, to avoid any timeout issue it is recommended to run the
-command with ``--wait=xxx`` where ``xxx`` is for example ``5000`` seconds.
-You can also specify a cut-off date (e.g. the
-date you upgraded to 5.2) so the command has fewer files to process; use
-``-h`` for details of the additional arguments possible.
-
-Attempting to remove pyramids imported before OMERO 5.0 (pre-FS) will result in messages
-like ``Failed to remove for image 20: pyramid-requires-fileset`` being printed out.
-You can safely ignore those messages. The pyramids are not corrupted.
 
 File limits
 ^^^^^^^^^^^
@@ -183,7 +157,6 @@ Copy new binaries
 Before copying the new binaries, stop the existing server::
 
     $ cd OMERO.server
-    $ bin/omero web stop
     $ bin/omero admin stop
 
 Your OMERO configuration is stored using :file:`config.xml` in the
@@ -294,26 +267,6 @@ run only on the specific version before the next upgrade script.
    version then you upgrade the database directly to OMERO 5.4.0 by
    using the above command with
    :file:`sql/psql/OMERO5.4__0/OMERO5.3__0.sql`.
-
-Remove the guest user password (optional)
-"""""""""""""""""""""""""""""""""""""""""
-
-If a password was set on the `guest` user to work around
-:secvuln:`2017-SV4-guest-user` then you will need to remove it to restore the
-forgotten password reset functionality in OMERO.web:
-
-.. parsed-literal::
-
-    $ psql -h localhost -U **db_user** **omero_database** < sql/psql/|current_dbver|/allow-guest-user-without-password.sql
-
-This can be done at any time during the OMERO 5.4 series and is optional if
-you do not deploy OMERO.web.
-
-.. note::
-
-    The above script assumes that the `guest` user has an ID of 1 as is
-    typical. Otherwise the script will do nothing until it is adjusted.
-    Please feel free to contact us for assistance with that if required.
 
 Optimize an upgraded database (optional)
 """"""""""""""""""""""""""""""""""""""""

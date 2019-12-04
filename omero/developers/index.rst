@@ -45,6 +45,7 @@ Introduction to OMERO
     :titlesonly:
 
     whatsnew
+    python3-migration
     installation
     build-system
     GettingStarted

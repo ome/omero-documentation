@@ -8,21 +8,65 @@ find it useful to read the
 :help:`Facility Managers help guide <facility-manager.html>` for an overview
 first).
 
-*****************
-Server Background
-*****************
+***************
+Getting started
+***************
+
+The OMERO server system provides storage and processing of image data
+which conforms to the :model_doc:`OME Specification <specifications/>`.
+It can be run on commodity hardware to provide your own storage needs,
+or run site-wide to provide a large-scale collaborative environment.
+
+Although getting started with the server is relatively straightforward,
+it does require installing several software systems, and more advanced
+usage including backups and integrated logins, needs a knowledgeable system 
+administrator.
+
+Usage
+#####
+
+You may find the :doc:`/users/clients-overview` user guide useful before 
+working through the installation and maintenance guides provided in this 
+section of the documentation.
+
+Components
+##########
+
+The server system is composed of several components, each of which runs
+in a separate process but is co-ordinated centrally.
+
+-  :doc:`/developers/server-blitz` - the data server provides access to 
+   metadata stored in a relational database as well as the binary image data 
+   on disk.
+-  :doc:`/sysadmins/dropbox` - a filesystem watcher which notifies the server
+   of newly uploaded or modified files and runs a fully automatic import 
+   (designed as the first implementation of :doc:`/developers/Server/FS` 
+   referred to in the architecture diagram).
+-  :doc:`/developers/server-processor` - a process-launcher for running user-defined
+   scripts.
+-  :doc:`/developers/Tables` - provide a way to efficiently store large,
+   tabular results.
+-  :doc:`OMERO.indexer </sysadmins/search>` - keeps a full-text search index
+   up-to-date for searching.
+
+If you are interested in building components for the server, modifying
+an existing component, or just looking for more background information, there 
+is a section about the server within the :doc:`/developers/index`;
+the best starting point is the :doc:`/developers/Server` for developers.
+
+Background reading
+##################
 
 .. toctree::
     :maxdepth: 2
     :titlesonly:
 
     whatsnew
-    server-overview
-    system-requirements
-    version-requirements
+    Version requirements: supported platforms and versions <version-requirements>
+    System requirements: hardware specification and examples <system-requirements>
     server-setup-examples
     limitations
-    
+
 ************
 Installation
 ************
@@ -46,12 +90,33 @@ series of commands.
     unix/server-postgresql
     advanced-install
 
-*************************
-Maintenance and Upgrading
-*************************
+.. Unclear if we consider the loss of this anchor a breaking change:
+.. _maintenance_and_upgrading:
 
-This section contains instructions for administering, troubleshooting,
-backing-up, and upgrading your installation.
+*********
+Upgrading
+*********
+
+Starting with OMERO 5.6, OMERO.server and OMERO.web installations
+are assumed to be separate throughout documentation, each with its own virtualenv.
+and installation directory.
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    python3-migration
+    server-upgrade
+    omeroweb-upgrade
+
+.. _server_upgrading:
+
+***********
+Maintenance
+***********
+
+This section contains instructions for administering, troubleshooting, and
+backing-up your installation.
 
 .. toctree::
     :maxdepth: 1
@@ -60,8 +125,6 @@ backing-up, and upgrading your installation.
     troubleshooting
     cli/index
     server-backup-and-restore
-    server-upgrade
-    omeroweb-upgrade
     unix/install-web
     UpgradeCheck
     repository-move
