@@ -219,11 +219,6 @@ OMERO configuration
     # ...OR locally built server
     export OMERODIR=/path/to/openmicroscopy/dist
 
-   and add the OMERO executable to the OS X :envvar:`PATH`::
-
-    # Add the OMERO distribution to PATH
-    export PATH=$OMERODIR/bin:$PATH
-
    Using the command-line terminal, reload your :file:`.bash_profile` using::
 
     $ source ~/.bash_profile
