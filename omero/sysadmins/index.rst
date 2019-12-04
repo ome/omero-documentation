@@ -22,9 +22,15 @@ it does require installing several software systems, and more advanced
 usage including backups and integrated logins, needs a knowledgeable system 
 administrator.
 
+Usage
+#####
+
 You may find the :doc:`/users/clients-overview` user guide useful before 
 working through the installation and maintenance guides provided in this 
 section of the documentation.
+
+Components
+##########
 
 The server system is composed of several components, each of which runs
 in a separate process but is co-ordinated centrally.
@@ -36,19 +42,28 @@ in a separate process but is co-ordinated centrally.
    of newly uploaded or modified files and runs a fully automatic import 
    (designed as the first implementation of :doc:`/developers/Server/FS` 
    referred to in the architecture diagram).
+-  :doc:`/developers/server-processor` - a process-launcher for running user-defined
+   scripts.
+-  :doc:`/developers/Tables` - provide a way to efficiently store large,
+   tabular results.
+-  :doc:`OMERO.indexer </sysadmins/search>` - keeps a full-text search index
+   up-to-date for searching.
 
 If you are interested in building components for the server, modifying
 an existing component, or just looking for more background information, there 
 is a section about the server within the :doc:`/developers/index`;
 the best starting point is the :doc:`/developers/Server` for developers.
 
+Background reading
+##################
+
 .. toctree::
     :maxdepth: 2
     :titlesonly:
 
     whatsnew
-    System requirements: hardware specification and examples <system-requirements>
     Version requirements: supported platforms and versions <version-requirements>
+    System requirements: hardware specification and examples <system-requirements>
     server-setup-examples
     limitations
 
