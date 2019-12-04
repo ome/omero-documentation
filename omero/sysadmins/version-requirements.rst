@@ -221,7 +221,7 @@ MacOS X
 
 MacOS X is typically suited only to client use, not serious server
 deployment, although the server can be expected to run on versions with
-current security support for development purposes.
+current security support for testing purposes.
 
 
 Dependencies
