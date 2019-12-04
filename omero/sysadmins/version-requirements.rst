@@ -5,22 +5,20 @@ Version requirements
 Summary of changes for OMERO 5.6 and provisional changes for 6.0
 ================================================================
 
-Criteria for what is considered to be supportable includes whether
-support by both upstream developers and operating system distributions
-will be available for the lifetime of the |version| release (including
-security support), and also upon our resources allocated to CI and
-testing. If we are not actively testing it, we **cannot** claim it is
-supported or functional. Software components must be provided and
-supported either by an operating system distribution or their original
-developers.
+We aim to support OMERO on the environments specified below, based
+on the availability of support by upstream developers and operating
+system distributions.
+This applies over the lifetime of the |version| release and includes
+security support.
+Support is limited to those environments on which OMERO is
+routinely tested.
 
-This section contains a summary of the changes made to the minimum
-version requirements for the current (|version|) release and also
-**possible** changes for the next release, albeit **tentatively at this
-point**. The intent is to provide a roadmap in order that sysadmins may
+This page details the minimum version requirements for the current
+(|version|) release and also **possible** changes for the next release.
+
+It is intended to provide a roadmap in order that sysadmins may
 plan ahead and ensure that prerequisites are in place ahead of time to
-ease future upgrades. The following sections provide more detailed
-information and the rationale for the changes.
+ease future upgrades.
 
 .. list-table::
     :header-rows: 1
