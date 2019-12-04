@@ -49,7 +49,7 @@ the current choices are:
 
 - Ice 3.6 (non-optional)
 - Java 11
-- Nginx 1.14
+- Nginx 1.14 or higher
 - PostgreSQL 11
 
 Other options
@@ -66,8 +66,8 @@ with the given mechanism:
   roles, `omero-server` and `omero-web` have not yet been released and will need to be installed from
   GitHub.
 
-- A `conda channel <https://anaconda.org/ome>_` provides pre-built packages needed by OMERO if you are
-  comfortable not using your platforms standard Python installation.
+- A `conda channel <https://anaconda.org/ome>_` provides pre-built packages needed by OMERO if you prefer
+  to use Anaconda/Miniconda instead of the Python distribution provided by your platform.
 
 - `Docker images <https://hub.docker.com/u/openmicroscopy>`_ are also available. Both the `omero-server`
   and `omero-web` images are considered production quality.
@@ -113,7 +113,7 @@ Plugins
 ^^^^^^^
 
 Core OMERO.web plugins have been updated for Python 3 and pre-released to
-PyPI. This means that there versions end in ".devX" and will only be installed
+PyPI. This means that their versions end in ".devX" and will only be installed
 by `pip install` if you add either a version specifier or the `--pre` flag.
 For example both of the following can be used to install the updated version
 of OMERO.iviewer:
