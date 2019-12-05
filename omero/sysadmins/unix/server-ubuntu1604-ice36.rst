@@ -4,11 +4,12 @@
 OMERO.server installation on Ubuntu 16.04
 =========================================
 
-This is an example walkthrough for installing OMERO on Ubuntu, using
+This is an example walkthrough for installing OMERO on Ubuntu 16.04, using
 a dedicated system user, and should be read in conjunction with
 :doc:`install-web`. You can use this as a guide
 for setting up your own test server. For production use you should also read
 the pages listed under :ref:`index-optimizing-server`.
+This guide will install Python 3.5.
 
 This guide describes how to install using the **recommended** versions for
 Java, Ice, PostgreSQL.
