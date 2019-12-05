@@ -60,9 +60,14 @@ Dependencies
 ^^^^^^^^^^^^
 
 While upgrading the server you should keep OMERO.web dependencies
-up to date to ensure that security updates are applied::
+up to date to ensure that security updates are applied:
 
-    $ pip install --upgrade --pre omero-web
+
+.. parsed-literal::
+
+
+      $ pip install --upgrade 'omero-web>=\ |omero_web|'
+
 
 Plugin updates
 ^^^^^^^^^^^^^^

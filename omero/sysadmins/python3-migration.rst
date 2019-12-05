@@ -118,15 +118,18 @@ Plugins
 
 Core OMERO.web plugins have been updated for Python 3 and pre-released to
 PyPI. This means that their versions end in ".devX" and will only be installed
-by `pip install` if you add either a version specifier or the `--pre` flag.
-For example both of the following can be used to install the updated version
-of OMERO.iviewer:
+by `pip install` if you add a version specifier:
 
 ::
 
     pip install 'omero-iviewer>=0.9.0.dev1'
-    # or
-    pip install --pre omero-iviewer
 
+You can also get pre-releases by adding the `--pre`, but this may introduce
+unintended pre-release versions of upstream requirements.
+
+::
+
+    # Beaware of the implications of this usage!
+    pip install --pre omero-iviewer
 
 We will be releasing full versions of each of the plugins over the next month.
