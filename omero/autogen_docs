@@ -34,7 +34,7 @@ omero import --javahelp 2> java-help.txt || echo "Dumped"
 sed 1,5d java-help.txt > omero/downloads/cli/help.out
 
 echo "Generating DB script example"
-omero db script --password secretpassword 2>&1 | sed "s|$WORKSPACE/|/home/omero/|" > omero/downloads/cli/db-script-example.txt
+omero db script --password secretpassword 2>&1 | sed "s|Saving to.*/|Saving to /home/omero/|" > omero/downloads/cli/db-script-example.txt
 
 echo "Generating Web configuration templates"
 # Nginx / WSGI
