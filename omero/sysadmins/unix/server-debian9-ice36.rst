@@ -5,7 +5,7 @@ OMERO.server installation on Debian 9
 =====================================
 
 This is an example walkthrough for installing OMERO on Debian 9, using
-a dedicated system user, and should be read in conjunction with
+a dedicated local system user, and should be read in conjunction with
 :doc:`install-web`. You can use this as a guide
 for setting up your own test server. For production use you should also read
 the pages listed under :ref:`index-optimizing-server`.
@@ -22,7 +22,7 @@ To deploy OMERO.web, please read
 These instructions assume your Linux distribution is configured with a UTF-8
 locale (this is normally the default).
 
-For convenience in this walkthrough we will use the **omero system user** and the main OMERO configuration options have
+For convenience in this walkthrough we will use the **omero-server system user** and the main OMERO configuration options have
 been defined as environment variables. When following this walkthrough you can
 either use your own values, or alternatively source :download:`settings.env <walkthrough/settings.env>`:
 
@@ -65,7 +65,7 @@ To install PostgreSQL |postgresversion|:
     :start-after: # install Postgres
     :end-before: #end-step01
 
-Create an omero system user, and a directory for the OMERO repository:
+Create a local omero-server system user, and a directory for the OMERO repository:
 
 .. literalinclude:: walkthrough/walkthrough_debian9.sh
     :start-after: #start-step02
@@ -107,7 +107,7 @@ Change the ownership of the OMERO.server directory and create a symlink:
     :start-after: #end-release-ice36
     :end-before: #end-step04-pre
 
-**The following steps are run as the omero system user.**
+**The following steps are run as the omero-server system user.**
 
 The variable ``OMERODIR`` set in :download:`settings.env <walkthrough/settings.env>` above **must** point to the location where OMERO.server is installed.
 e.g. ``OMERODIR=/path_to_omero_server/OMERO.server``.
@@ -140,7 +140,7 @@ added in two files in order to allow connection.
 Running OMERO.server
 --------------------
 
-**The following steps are run as the omero system user.**
+**The following steps are run as the omero-server system user.**
 
 OMERO should now be set up. To start the server run::
 
