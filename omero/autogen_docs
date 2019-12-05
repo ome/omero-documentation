@@ -10,6 +10,7 @@ set -e
 set -x
 set -o pipefail
 WORKSPACE=${WORKSPACE:-$(pwd)}
+WORKSPACE=${WORKSPACE%/}  # Remove trailing slashes
 USER=${USER:-$(whoami)}
 
 echo "Copying history"
@@ -21,7 +22,7 @@ mv newfile.rst omero/users/history.rst
 
 echo "Generating configuration properties page"
 omero config parse --rst # Pre-run to see errors
-omero config parse --rst | sed "s|$WORKSPACE|/home/omero|" > omero/sysadmins/config.rst
+omero config parse --rst | sed "s|$WORKSPACE|/home/omero/|" > omero/sysadmins/config.rst
 
 echo "Generating ldap setdn usage page"
 mkdir -p omero/downloads/ldap
@@ -34,13 +35,13 @@ sed 1,5d advanced-help.txt > omero/downloads/inplace/advanced-help.txt
 sed 1,5d java-help.txt > omero/downloads/cli/help.out
 
 echo "Generating DB script example"
-(cd $WORKSPACE && omero db script --password secretpassword 2>&1) | sed "s|$WORKSPACE|/home/omero|" > omero/downloads/cli/db-script-example.txt
+(cd $WORKSPACE && omero db script --password secretpassword 2>&1) | sed "s|$WORKSPACE|/home/omero/|" > omero/downloads/cli/db-script-example.txt
 
 echo "Generating Web configuration templates"
 # Nginx / WSGI
 omero config set omero.web.application_server wsgi-tcp
-omero web config nginx | sed "s|$WORKSPACE/OMERO.server|/home/omero/OMERO.py|g" > omero/sysadmins/unix/install-web/nginx-omero.conf
-omero web config nginx-location | sed "s|$WORKSPACE/OMERO.server|/home/omero/OMERO.py|g" | grep -v '^#' > omero/sysadmins/unix/install-web/nginx-location.conf
+omero web config nginx | sed "s|$WORKSPACE/OMERO.server|/home/omero/OMERO.web|g" > omero/sysadmins/unix/install-web/nginx-omero.conf
+omero web config nginx-location | sed "s|$WORKSPACE/OMERO.server|/home/omero/OMERO.web|g" | grep -v '^#' > omero/sysadmins/unix/install-web/nginx-location.conf
 omero web config nginx-location | sed "s|/opt/omero/web|/home/omero|g" | grep '^##' | cut -c3-
 > omero/sysadmins/unix/install-web/nginx-location-manual-wrapper.conf
 
