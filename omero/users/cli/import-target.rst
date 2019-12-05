@@ -64,6 +64,27 @@ examples above, for example::
 
     $ omero import ~/images/bd-pathway/2015-12-01_000/ -T Screen:+name:Pathway
 
+Importing to a Dataset inside a specific Project
+------------------------------------------------
+
+To import an image into a Dataset contained in a specific Project, use::
+
+    $ omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Project:name:"Proj1"/Dataset:name:"New Dataset"
+
+The above command will create a new Project ``Proj1`` and link the Dataset
+``New Dataset`` to it, except in case a Project named ``Proj1`` already exists.
+Then, the Dataset named ``New Dataset`` will be linked to this existing
+Project.
+
+Analogically, a new Dataset named ``New Dataset`` will be created for the
+import of the image and linked to the Project ``Proj1``, except in case a
+Dataset ``New Dataset`` already exists. Then, the existing Dataset will be used
+for the import of the image and linked to Project ``Proj1``.
+
+Note that ``New Dataset`` could have been linked prior to your import to some
+other Project (for example ``ProjP``). In such a case, the ``New Dataset`` will
+be linked both to ``ProjP`` and ``Proj1`` after the import.
+
 Importing using regular expressions
 -----------------------------------
 
