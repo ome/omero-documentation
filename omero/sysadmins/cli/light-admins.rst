@@ -32,7 +32,7 @@ For an administrator with user ID 123,
 
 .. code-block:: shell
 
-  $ bin/omero hql "SELECT ap.name FROM Experimenter user JOIN user.config AS ap WHERE user.id = 123 AND ap.name LIKE 'AdminPrivilege:%' AND LOWER(ap.value) <> 'true' ORDER BY ap.name"
+  $ omero hql "SELECT ap.name FROM Experimenter user JOIN user.config AS ap WHERE user.id = 123 AND ap.name LIKE 'AdminPrivilege:%' AND LOWER(ap.value) <> 'true' ORDER BY ap.name"
 
 lists their applicable restrictions such that the administrator may
 *not* exercise privileges for that operation.
@@ -45,7 +45,7 @@ For an administrator with user ID 123,
 
 .. code-block:: shell
 
-  $ bin/omero obj map-set Experimenter:123 config AdminPrivilege:SomePrivilege false
+  $ omero obj map-set Experimenter:123 config AdminPrivilege:SomePrivilege false
 
 restricts them so that they may no longer exercise `SomePrivilege`.
 
@@ -56,7 +56,7 @@ For an administrator with user ID 123,
 
 .. code-block:: shell
 
-  $ bin/omero obj map-set Experimenter:123 config AdminPrivilege:SomePrivilege true
+  $ omero obj map-set Experimenter:123 config AdminPrivilege:SomePrivilege true
 
 removes a restriction so that they may exercise `SomePrivilege`.
 

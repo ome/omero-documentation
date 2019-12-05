@@ -29,7 +29,7 @@ How to move data
 The :program:`omero chgrp` command moves objects between groups. Further help is
 available using the ``-h`` option::
 
-    $ bin/omero chgrp -h
+    $ omero chgrp -h
 
 This command will move entire graphs of objects based on the
 IDs of the topmost objects. The command can be modified to include the movement
@@ -55,10 +55,10 @@ Basic move
 
 ::
 
-    $ bin/omero chgrp 5 OriginalFile:101
-    $ bin/omero chgrp Group:5 Project:51
-    $ bin/omero chgrp ExperimenterGroup:5 Project:51
-    $ bin/omero chgrp lab_group Project:51
+    $ omero chgrp 5 OriginalFile:101
+    $ omero chgrp Group:5 Project:51
+    $ omero chgrp ExperimenterGroup:5 Project:51
+    $ omero chgrp lab_group Project:51
 
 In the first line, the original file with ID 101 will be moved to the group
 with ID 5. In the second and third, project 51 will be moved to group 5
@@ -76,16 +76,16 @@ significant, thus all three calls below are identical in moving
 project 51 and datasets 53 and 54 to group 5.
 ::
 
-    $ bin/omero chgrp 5 Project:51 Dataset:53,54
-    $ bin/omero chgrp 5 Dataset:54,53 Project:51
-    $ bin/omero chgrp 5 Dataset:53 Project:51 Dataset:54
+    $ omero chgrp 5 Project:51 Dataset:53,54
+    $ omero chgrp 5 Dataset:54,53 Project:51
+    $ omero chgrp 5 Dataset:53 Project:51 Dataset:54
 
 To move a number of objects with sequentially numbered IDs a hyphen can be used
 to specify an ID range. This form can also be mixed with comma-separated IDs.
 ::
 
-    $ bin/omero chgrp 5 Project:51 Dataset:53-56
-    $ bin/omero chgrp 5 Dataset:53-56,65,101-105,201,202
+    $ omero chgrp 5 Project:51 Dataset:53-56
+    $ omero chgrp 5 Dataset:53-56,65,101-105,201,202
 
 .. note::
     When moving multiple objects in a single command, if one object cannot
@@ -100,12 +100,12 @@ To move objects below a specified top-level object the following form
 of the object specifier is used.
 ::
 
-    $ bin/omero chgrp 5 Project/Dataset/Image:51
+    $ omero chgrp 5 Project/Dataset/Image:51
 
 Here the all of images under the project 51 would be moved. It is not
 necessary to specify intermediate objects in the hierarchy and so::
 
-    $ bin/omero chgrp 5 Project/Image:51
+    $ omero chgrp 5 Project/Image:51
 
 would have the same effect as the call above.
 
@@ -119,7 +119,7 @@ Including and excluding objects
     Linked objects that would not ordinarily be moved can be included in the
     move using the ``--include`` option::
 
-        $ bin/omero chgrp 5 Image:51 --include Annotation
+        $ omero chgrp 5 Image:51 --include Annotation
 
     This call would move any annotation objects linked to the image.
 
@@ -128,13 +128,13 @@ Including and excluding objects
     Linked objects that would ordinarily be moved can be excluded from the
     move using the ``--exclude`` option::
 
-        $ bin/omero chgrp 5 Project:51 --exclude Dataset
+        $ omero chgrp 5 Project:51 --exclude Dataset
 
     This will move project 51 but not any datasets contained in that project.
 
 The two options can be used together::
 
-     $ bin/omero chgrp 5 Project/Dataset:53 --exclude Image --include FileAnnotation
+     $ omero chgrp 5 Project/Dataset:53 --exclude Image --include FileAnnotation
 
 This will move any datasets under project 53, that are not otherwise
 contained elsewhere, excluding any images in those datasets but including
@@ -154,19 +154,19 @@ Further options
     command. However, each object can be moved separately and in the order
     given. Thus::
 
-        $ bin/omero chgrp 5 Dataset:53 Project:51 Dataset:54 --ordered
+        $ omero chgrp 5 Dataset:53 Project:51 Dataset:54 --ordered
 
     would be equivalent to making three separate calls::
 
-        $ bin/omero chgrp 5 Dataset:53
-        $ bin/omero chgrp 5 Project:51
-        $ bin/omero chgrp 5 Dataset:54
+        $ omero chgrp 5 Dataset:53
+        $ omero chgrp 5 Project:51
+        $ omero chgrp 5 Dataset:54
 
 .. option:: --report
 
     Provide a detailed report of what is moved::
 
-        $ bin/omero chgrp 5 Project:502 --report
+        $ omero chgrp 5 Project:502 --report
 
 .. option:: --dry-run
 

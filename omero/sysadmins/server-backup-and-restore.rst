@@ -22,7 +22,7 @@ failed deletes) and now empty directories will be cleaned up by this script.
 
     If you are cleaning a large repository and the process runs for a long
     time but does not appear to succeed, you may find that running
-    ``$ bin/omero sessions keepalive`` in one shell and then running the
+    ``$ omero sessions keepalive`` in one shell and then running the
     cleanse command from another shell allows the process to finish without
     timing out.
 
@@ -185,7 +185,7 @@ Once you have retrieved an OMERO.server package from the
 originally had installed, all that is required is to restore your backup
 preferences by running::
 
-    $ bin/omero config load /OMERO/backup/omero.config
+    $ omero config load /OMERO/backup/omero.config
 
 You should then follow the *Reconfiguration* steps of
 :doc:`install <unix/server-installation>`.

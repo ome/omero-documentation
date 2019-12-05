@@ -214,7 +214,7 @@ By default, the LDAP plugin is case-sensitive i.e. it will treat the usernames
 JSmith and jsmith as two different users. You can remove case sensitivity
 using::
 
-   bin/omero config set omero.security.ignore_case true
+   omero config set omero.security.ignore_case true
 
 .. warning:: Enabling this option will affect **all**, even non-LDAP,
    usernames in your OMERO system. It is the system administrator's

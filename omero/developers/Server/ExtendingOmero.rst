@@ -338,7 +338,7 @@ to add it to the "application descriptor" for your site. When using:
 
 ::
 
-      bin/omero admin start
+      omero admin start
 
 the application descriptor used is :file:`etc/grid/default.xml`.
 The ``<application>`` element contains various ``<node>``\ s. Each node

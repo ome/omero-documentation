@@ -81,8 +81,7 @@ modifying your OMERO.server configuration as follows:
 
 ::
 
-    $ cd OMERO.server
-    $ bin/omero config set omero.data.dir /mnt/really_big_disk/OMERO
+    $ omero config set omero.data.dir /mnt/really_big_disk/OMERO
 
 The suggested procedure is to shut down your OMERO.server instance, move
 your repository, change your :property:`omero.data.dir` and then start the
@@ -90,11 +89,10 @@ instance back up. For example:
 
 ::
 
-    $ cd OMERO.server
-    $ bin/omero admin stop
+    $ omero admin stop
     $ mv /OMERO /mnt/really_big_disk
-    $ bin/omero config set omero.data.dir /mnt/really_big_disk/OMERO
-    $ bin/omero admin start
+    $ omero config set omero.data.dir /mnt/really_big_disk/OMERO
+    $ omero admin start
 
 The :property:`omero.managed.dir` property for the OMERO.fs managed
 repository may be adjusted similarly, even to a directory outside
