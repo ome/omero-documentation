@@ -21,15 +21,15 @@ Importing to a Dataset or Screen
 For Dataset and Screen the currently supported discriminators are ``name``
 and ``id``. If the discriminator is omitted the default used is ``id``. So::
 
-    $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:id:2
-    $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
-    $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -d 2
+    $ omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:id:2
+    $ omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
+    $ omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -d 2
 
 will all have the same effect of importing the image to the Dataset with ID 2.
 
 The ``name`` discriminator can be used to select the target by name, and so::
 
-    $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:name:Sample01
+    $ omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:name:Sample01
 
 will import the image to the Dataset with name Sample01. If more than one
 Dataset exists with the specified name the most recently created will be used.
@@ -43,10 +43,10 @@ even if one with the correct name already exists.
 
 For example::
 
-    $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:+name:Samples
-    $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:-name:Samples
-    $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:%name:Samples
-    $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:@name:Samples
+    $ omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:+name:Samples
+    $ omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:-name:Samples
+    $ omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:%name:Samples
+    $ omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:@name:Samples
 
 The first case is equivalent to the previous example, the most recent Dataset
 will be used. In the second case the oldest Dataset will be used. In the third
@@ -57,12 +57,12 @@ case a new Dataset should be created even if one or more already exist.
 If the name contains spaces or other characters that cannot be used on the
 command line the pattern should be enclosed in quotes::
 
-    $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:name:"New Dataset"
+    $ omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:name:"New Dataset"
 
 To import a plate to a Screen target the same syntax can be used as in all the
 examples above, for example::
 
-    $ bin/omero import ~/images/bd-pathway/2015-12-01_000/ -T Screen:+name:Pathway
+    $ omero import ~/images/bd-pathway/2015-12-01_000/ -T Screen:+name:Pathway
 
 Importing using regular expressions
 -----------------------------------
@@ -75,7 +75,7 @@ omitted the qualified form of this ``+name`` will be used. The sequence
 or Screen name in the regular expression, the specific name ``Container1``
 must be used here. For example::
 
-    $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T "regex:^.*images/(?<Container1>.*?)"
+    $ omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T "regex:^.*images/(?<Container1>.*?)"
 
 would use a Dataset with name being the path following ``images/``,
 in this case ``dv``.
@@ -83,10 +83,10 @@ in this case ``dv``.
 The ``name`` discriminator can be explicitly used and, as in the previous
 section, also qualified::
 
-    $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T "regex:+name:^.*images/(?<Container1>.*?)"
-    $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T "regex:-name:^.*images/(?<Container1>.*?)"
-    $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T "regex:%name:^.*images/(?<Container1>.*?)"
-    $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T "regex:@name:^.*images/(?<Container1>.*?)"
+    $ omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T "regex:+name:^.*images/(?<Container1>.*?)"
+    $ omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T "regex:-name:^.*images/(?<Container1>.*?)"
+    $ omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T "regex:%name:^.*images/(?<Container1>.*?)"
+    $ omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T "regex:@name:^.*images/(?<Container1>.*?)"
 
 These each work in the same way as the previous Dataset examples.
 
@@ -102,7 +102,7 @@ example, if several BD Pathway HCS files are under the following paths::
 and the intended Screens for the import are ``week-1`` and ``week-2`` then
 the following could be used::
 
-    $ bin/omero import ~/images/bd-pathway/ -T "regex:+name:^.*bd-pathway/(?<Container1>[^/]*)/.*"
+    $ omero import ~/images/bd-pathway/ -T "regex:+name:^.*bd-pathway/(?<Container1>[^/]*)/.*"
 
 which would import one Plate into the Screen ``week-1`` and two Plates into
 the Screen ``week-2``, creating those Screens if necessary.
@@ -111,7 +111,7 @@ A useful way of determining the nested structure to help in constructing
 regular expressions is the option ``-f`` which displays the used files but
 does not import them::
 
-    $ bin/omero import -f ~/images/bd-pathway/week-1
+    $ omero import -f ~/images/bd-pathway/week-1
     ...
     2016-03-30 15:58:56,574 701        [      main] INFO      ome.formats.importer.ImportCandidates - 59 file(s) parsed into 1 group(s) with 1 call(s) to setId in 92ms. (99ms total) [0 unknowns]
     #======================================
@@ -162,26 +162,26 @@ the current group for the import:
 -   Explicitly log in using the :option:`omero login -g` option before running the import
     command::
 
-        $ bin/omero login -g group_name
-        $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
+        $ omero login -g group_name
+        $ omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
 
 -   Provide the :option:`omero login -g` option as part of the import command::
 
-        $ bin/omero import -g group_name ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
+        $ omero import -g group_name ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
 
 -   Use :program:`omero sessions group` to switch group before running the import
     command::
 
-        $ bin/omero sessions group 51
-        $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
+        $ omero sessions group 51
+        $ omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
 
 -   Use the :option:`omero login -k` option to reconnect to an active session for the
     target group::
 
-        $ bin/omero login -k c41a6f78-ba6e-4caf-aba3-a94378d5484c
-        $ bin/omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
+        $ omero login -k c41a6f78-ba6e-4caf-aba3-a94378d5484c
+        $ omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
         # or alternatively
-        $ bin/omero import -k c41a6f78-ba6e-4caf-aba3-a94378d5484c ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
+        $ omero import -k c41a6f78-ba6e-4caf-aba3-a94378d5484c ~/images/dv/SMN10ul03_R3D_D3D.dv -T Dataset:2
 
     The session ID can be found using the :program:`omero sessions list` command.
 
