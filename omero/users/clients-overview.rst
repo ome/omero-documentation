@@ -87,11 +87,6 @@ See the main website for a `list of released apps <https://www.openmicroscopy.or
 For more information and guides to using OMERO.web, see our
 :help:`help website <>`.
 
-There are also additional apps for OMERO.web such as
-`OMERO.figure <https://figure.openmicroscopy.org>`_, which provides all the
-tools you need to build figures from your images for publications and
-presentations.
-
 .. _omero-insight:
 
 OMERO.insight
