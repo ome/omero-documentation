@@ -124,7 +124,7 @@ by `pip install` if you add a version specifier:
 
     pip install 'omero-iviewer>=0.9.0.dev1'
 
-You can also get pre-releases by adding the `--pre`, but this may introduce
+You can also get pre-releases by adding `--pre`, but this may introduce
 unintended pre-release versions of upstream requirements.
 
 ::
