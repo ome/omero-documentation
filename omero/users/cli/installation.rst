@@ -1,43 +1,19 @@
 Installation
 ------------
 
-.. note:: The end of Windows support for OMERO.server means that the CLI is
-    unsupported on this platform too.
+.. note:: The the CLI is currently untested on Windows
+    but may be supported in future.
 
-Check you have Python_ installed by typing::
+We recommend installing in a Python virtual environment.
+Since OMERO5.6, only Python 3 is supported::
 
-    $ python --version
-    Python 2.7.9
+    python3.6 -mvenv venv
+    . venv/bin/activate
+    pip install omero-py
 
-Additionally, Ice_ must be installed on your machine::
+    # omero command is now available
+    omero login
 
-    $ python -c "import Ice"
-
-Check the :ref:`server requirements <server-requirements>` for the minimum and
-maximum supported versions.
-
-The |CLI| is currently bundled:
-
-- with the OMERO.server including all functionalities of the |CLI|
-- with the OMERO.python including all functionalities of the |CLI| except for
-  the import functionality
-
-Download the version corresponding to your system from the
-:downloads:`OMERO downloads <>` page.
-
-.. note::
-    The |CLI| is bundled with the OMERO.server but that does not imply you
-    must use that directory as a server. You can download the server zip to a
-    number of machines and use the |CLI| commands from each machine to access
-    an existing OMERO instance.
-
-Once the correct bundle is downloaded, the Python libraries of the |CLI| are
-located under the :file:`lib/python` directory and the executable is under
-the :file:`bin` directory. To start the |CLI| in shell mode:
-
-.. parsed-literal::
-
-    $ bin/omero
-    OMERO Python Shell. Version |release|-ice36
-    Type "help" for more information, "quit" or Ctrl-D to exit
-    omero>
+The |CLI| installed in this way provides all functionalities except import.
+Import requires jars in the OMERO.server package.
+See :doc:`/sysadmins/unix/server-installation`.
