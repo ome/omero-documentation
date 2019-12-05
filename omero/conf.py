@@ -218,6 +218,9 @@ def copy_legacy_redirects(app, exception):
             target_path = app.outdir + '/' + html_src_path
             src_path = app.srcdir + '/' + html_src_path
             if os.path.isfile(src_path):
+                target_dir = os.path.dirname(target_path)
+                if not os.path.exists(target_dir):
+                    os.makedirs(target_dir)
                 shutil.copyfile(src_path, target_path)
                 print("  %s" % html_src_path)
 
