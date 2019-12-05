@@ -2,7 +2,7 @@ Installation
 ------------
 
 .. note:: The the CLI is currently untested on Windows
-    but may be supported in future.
+    but may be supported in the future.
 
 We recommend installing in a Python virtual environment.
 Since OMERO5.6, only Python 3 is supported::
