@@ -323,8 +323,8 @@ Below are a number of example psql database queries:
     # trouble-shooting postgres
     omero=# select * from pg_stat_activity ;
 
-bin/omero hql
-^^^^^^^^^^^^^
+omero hql
+^^^^^^^^^
 
 You can use the :program:`omero hql` command to query a remote OMERO
 database, entering your login details when requested.
@@ -336,7 +336,7 @@ database, entering your login details when requested.
 
 ::
 
-    bin/omero hql -q --limit=10 "select name from OriginalFile where id=4106"
-    bin/omero hql -q --limit=10 "select id, textValue, file from Annotation a order by a.id desc"
-    bin/omero hql -q --limit=10 "select id, textValue from TagAnnotation a order by a.id desc"
-    bin/omero hql -q --limit=100 "select id, owner.id, started, userAgent from Session where closed is null"
+    omero hql -q --limit=10 "select name from OriginalFile where id=4106"
+    omero hql -q --limit=10 "select id, textValue, file from Annotation a order by a.id desc"
+    omero hql -q --limit=10 "select id, textValue from TagAnnotation a order by a.id desc"
+    omero hql -q --limit=100 "select id, owner.id, started, userAgent from Session where closed is null"

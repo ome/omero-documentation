@@ -206,7 +206,7 @@ explains the available options:
 
 ::
 
-    $ bin/omero import --advanced-help
+    $ omero import --advanced-help
 
 .. literalinclude:: /downloads/inplace/advanced-help.txt
 
@@ -216,7 +216,7 @@ a choice of which mechanism is used to get a file into OMERO.
 
 ::
 
-    $ bin/omero import --transfer=ln_s my_file.dv
+    $ omero import --transfer=ln_s my_file.dv
 
 .. literalinclude:: /downloads/inplace/soft-link-example.txt
 
@@ -354,7 +354,7 @@ placed in the `lib/clients` directory, you can invoke it using:
 
 ::
 
-    $ bin/omero import --transfer=example.package.ClassName ...
+    $ omero import --transfer=example.package.ClassName ...
 
 Related advanced options
 ------------------------
@@ -384,14 +384,14 @@ property to modify is `omero.fs.importArgs`:
 
 ::
 
-    $ bin/omero config set -- omero.fs.importArgs "--transfer=upload_rm"
+    $ omero config set -- omero.fs.importArgs "--transfer=upload_rm"
 
 This will **move** files into OMERO rather than leaving a copy in the
 DropBox directory.
 
 ::
 
-    $ bin/omero config set -- omero.fs.importArgs "--transfer=ln_rm"
+    $ omero config set -- omero.fs.importArgs "--transfer=ln_rm"
 
 This will also **move** files into OMERO rather than leaving a copy in the
 DropBox directory. For this to work, the two directories will need to

@@ -197,7 +197,7 @@ considered "published".
 #. Move the original images into the dedicated group using OMERO.web or
    :doc:`OMERO.cli </users/cli/chgrp>`. The CLI is best used where Images or
    Datasets are cross-linked to other Datasets or Projects in the original
-   group. The command ``bin/omero chgrp Project:$ID --include Dataset,Image``
+   group. The command ``omero chgrp Project:$ID --include Dataset,Image``
    cuts the cross-links in the original group and preserves the
    Project/Dataset/Image hierarchy prepared for the move by the author.
 #. If you have used OMERO.figure to create your figures for publication, you

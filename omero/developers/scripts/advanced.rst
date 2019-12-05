@@ -36,7 +36,7 @@ openmicroscopy.org.uk and user: will
 ::
 
     $ cd Desktop/OMERO.server-5.3.x-icexx-bxx/
-    $ bin/omero -s openmicroscopy.org.uk -u will script serve user
+    $ omero -s openmicroscopy.org.uk -u will script serve user
     $ password: ......
 
 You should see an output similar to the one below
@@ -58,8 +58,8 @@ start the user processor and give it the user's ID:
 ::
 
     $ cd Desktop/OMERO.server-5.3.x-icexx-bxx/
-    $ bin/omero user list
-    $ bin/omero script serve user=5
+    $ omero user list
+    $ omero script serve user=5
 
 From this point on, the user and admin workflows are the same, except
 for a couple of options that are not available to regular users. Also
@@ -106,7 +106,7 @@ The OMERO.blitz server provides a service called
 methods to upload, delete, query and run scripts. To access these methods
 a session needs to be created and the script service started. However,
 you may find it more convenient to use the command line
-``bin/omero script`` or the OMERO.insight client to work with scripts
+``omero script`` or the OMERO.insight client to work with scripts
 as described on the :doc:`/developers/scripts/user-guide`.
 
 Scripting service API

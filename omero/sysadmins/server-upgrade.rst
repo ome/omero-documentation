@@ -157,7 +157,7 @@ Copy new binaries
 Before copying the new binaries, stop the existing server::
 
     $ cd OMERO.server
-    $ bin/omero admin stop
+    $ omero admin stop
 
 Your OMERO configuration is stored using :file:`config.xml` in the
 :file:`etc/grid` directory under your OMERO.server directory. Assuming you
@@ -320,7 +320,7 @@ Restart your server
    .. parsed-literal::
 
        $ cd OMERO.server
-       $ bin/omero admin start
+       $ omero admin start
 
 -  If anything goes wrong, please send the output of
    :program:`omero admin diagnostics` to
@@ -349,5 +349,5 @@ and configure your server to use it.
 
 ::
 
-    $ bin/omero config set omero.db.name omero_from_backup
+    $ omero config set omero.db.name omero_from_backup
 

@@ -382,7 +382,7 @@ Multiple targets can be enabled at the same time:
 
 ::
 
-    bin/omero admin deploy etc/grid/default.xml debug secure someothertarget
+    omero admin deploy etc/grid/default.xml debug secure someothertarget
 
 Ice.MessageSizeMax
 ^^^^^^^^^^^^^^^^^^
@@ -411,8 +411,8 @@ their own log files.
 Shortcuts
 ^^^^^^^^^
 
-If the :file:`bin/omero` script is copied or symlinked to another name, then
-the script will separate the name on hyphens and execute :file:`bin/omero`
+If the :file:`omero` script is copied or symlinked to another name, then
+the script will separate the name on hyphens and execute :file:`omero`
 with the second and later parts **prepended** to the argument list.
 
 For example,
@@ -440,14 +440,14 @@ For example,
 
 ::
 
-    ln -s $OMERO_PREFIX/bin/omero /usr/local/bin/omero
+    ln -s $OMERODIR/bin/omero /usr/local/bin/omero
     omero-admin start
 
 The same works for putting :file:`bin/omero` on your path:
 
 ::
 
-    PATH=$OMERO_PREFIX/bin:$PATH
+    PATH=$OMERODIR/bin:$PATH
 
 This means that OMERO.grid can be unpacked
 anywhere, and as long as the user invoking the commands has the proper

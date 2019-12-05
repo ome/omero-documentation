@@ -66,7 +66,7 @@ in any HTML page, allowing use of resources directly from an OMERO server.
 
 ::
 
-    $ bin/omero config set omero.web.public.url_filter '^/webgateway'
+    $ omero config set omero.web.public.url_filter '^/webgateway'
 
 Provided the image corresponding to ``IMAGE_ID`` is in the PUBLIC group, it
 can be accessed via the link:

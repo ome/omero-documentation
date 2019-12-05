@@ -109,8 +109,8 @@ for their server, for example:
 
 ::
 
-    $ bin/omero config set omero.web.api.limit 100
-    $ bin/omero config set omero.web.api.max_limit 300
+    $ omero config set omero.web.api.limit 100
+    $ omero config set omero.web.api.max_limit 300
 
 The ``maxLimit`` setting prevents API consumers from requesting very
 large amounts of data by limiting the number of top-level objects that

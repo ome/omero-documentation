@@ -197,14 +197,6 @@ You can use the command line, OMERO.insight or the server file system to
 upload scripts. The ``script`` command line tool is discussed in more
 detail below.
 
-You may find it useful to add the OMERO.server/bin/ folder to your PATH
-so you can call ``bin/omero`` commands when working in the scripts folder.
-For example:
-
-.. parsed-literal::
-
-    export PATH=$PATH:/Users/will/Desktop/OMERO.server-|release|/bin/
-
 Upload the script we saved earlier, specifying it as 'official' (trusted
 to run on the server processor). You will need to log in the first time
 you use the :program:`omero script` command. The new script ID will be printed
@@ -307,7 +299,7 @@ Start by printing help for the script command:
 ::
 
     $ omero script -h
-    usage: /Users/will/Documents/workspace/Omero/dist/bin/omero script
+    usage: /Users/name/venv/bin/omero script
            [-h] <subcommand> ...
 
     Support for launching, uploading and otherwise managing OMERO.scripts
@@ -318,7 +310,7 @@ Start by printing help for the script command:
       -h, --help          show this help message and exit
 
     Subcommands:
-      Use /Users/will/Documents/workspace/Omero/dist/bin/omero script <subcommand> -h for more information.
+      Use omero script <subcommand> -h for more information.
 
       <subcommand>
         demo              Runs a short demo of the scripting system

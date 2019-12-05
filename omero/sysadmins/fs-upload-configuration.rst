@@ -30,9 +30,9 @@ Several properties determine where FS-imported files are stored:
 - ``omero.repo.dir`` (experimental) - value passed to all non-legacy, standalone
   repositories. This is not actively used, but would allow hosting
   repositories on multiple physical systems without the need for a shared
-  volume. For example, after running ``bin/omero admin start`` on the main
+  volume. For example, after running ``omero admin start`` on the main
   machine, it would be possible to launch nodes on various machines via
-  ``bin/omero node start fs-B``, ``bin/omero node start fs-C``, etc. Each of
+  ``omero node start fs-B``, ``omero node start fs-C``, etc. Each of
   these would pass a different ``omero.repo.dir`` value to its process.
 
 .. _template_path:

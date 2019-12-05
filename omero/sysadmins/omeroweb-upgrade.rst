@@ -29,19 +29,19 @@ satisfied all the :doc:`system requirements <system-requirements>` with
 Configuration
 ^^^^^^^^^^^^^
 
-This documentation assumes that OMERO.web is deployed **separately** from OMERO.server.
-This is the recommended installation set-up as they
-perform best under different circumstances and require a different set of
-dependencies. Please check :ref:`omero_web_deployment` for the latest advice
-on how to deploy OMERO.web.
+We now recommend that ``omero-web`` is installed in a separate python
+virtual environment.
 
-If you are migrating from a shared installation to separate installations, you will
+If you are migrating to a new virtual environment, where :envvar:`$OMERODIR`
+does not refer to a server with an existing config, you will
 need to export and re-import the configuration from your previous installation.
 
 ::
 
     OLD_INSTALLATION/bin/omero config get --show-password > properties.backup
-    NEW_INSTALLATION/bin/omero config load properties.backup
+
+    # omero-web virtual env
+    omero config load properties.backup
 
 If you generated configuration stanzas using :program:`omero web config` which
 enables OMERO.web via NGINX, you should regenerate your config files,
@@ -51,8 +51,7 @@ require it.
 
 ::
 
-
-    NEW_INSTALLATION/bin/omero web config nginx > new.confg
+    omero web config nginx > new.confg
 
 More examples can be found under :ref:`omero_web_nginx_configuration`.
 

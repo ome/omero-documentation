@@ -219,8 +219,8 @@ OMERO listen on port 8787 for a debugging connection.
 
 ::
 
-    bin/omero admin stop
-    bin/omero admin start debug
+    omero admin stop
+    omero admin start debug
 
 Then in Eclipse, you can create a new "Debug" configuration by clicking
 on :guilabel:`Remote Java Application`, and setting the port to 8787. These

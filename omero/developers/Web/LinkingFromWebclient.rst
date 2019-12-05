@@ -29,14 +29,14 @@ of links at the top of the webclient main pages.
 
    ::
 
-       $ bin/omero config append omero.web.ui.top_links '["Figure", "figure_index"]'
+       $ omero config append omero.web.ui.top_links '["Figure", "figure_index"]'
 
    From OMERO 5.1, you can add additional attributes to links using the format ``['Link Text', 'link', attrs]``.
    This can be used to add tool-tips and to open the link in a new "target" tab. For example:
 
    ::
 
-       $ bin/omero config append omero.web.ui.top_links '["Homepage", "http://myhome.com", {"title": "Homepage", "target": "_blank"}]'
+       $ omero config append omero.web.ui.top_links '["Homepage", "http://myhome.com", {"title": "Homepage", "target": "_blank"}]'
 
 
 Custom image viewer
@@ -58,7 +58,7 @@ For example, if you have webtest installed you can use the ``channel_overlay_vie
 
 ::
 
-    $ bin/omero config set omero.web.viewer.view webtest.views.channel_overlay_viewer
+    $ omero config set omero.web.viewer.view webtest.views.channel_overlay_viewer
 
 This will now direct the image viewer url at ``webclient/img_detail/<iid>/`` to this viewer.
 However, the existing viewer will still be available under webgateway at ``webgateway/img_detail/<iid>/``.
@@ -98,7 +98,7 @@ For example:
 
 ::
 
-    $ bin/omero config append omero.web.open_with '["xyz_viewer", "url_name", {"supported_objects": ["image"]}]'
+    $ omero config append omero.web.open_with '["xyz_viewer", "url_name", {"supported_objects": ["image"]}]'
 
 This will create a menu option named ``xyz_viewer`` that is only enabled when a
 single "image" is selected.
@@ -137,7 +137,7 @@ attribute to the options:
 
 ::
 
-    $ bin/omero config append omero.web.open_with '["xyz_viewer", "url_name", {"supported_objects": ["image"], "target": "_blank"}]'
+    $ omero config append omero.web.open_with '["xyz_viewer", "url_name", {"supported_objects": ["image"], "target": "_blank"}]'
 
 UI Label
 ^^^^^^^^
@@ -147,7 +147,7 @@ instead of using the ID.
 
 ::
 
-    $ bin/omero config append omero.web.open_with '["xyz_viewer", "url_name"], {"supported_objects": ["image"], "label": "X-Y-Z viewer"}]'
+    $ omero config append omero.web.open_with '["xyz_viewer", "url_name"], {"supported_objects": ["image"], "label": "X-Y-Z viewer"}]'
 
 JavaScript handlers
 ^^^^^^^^^^^^^^^^^^^
@@ -198,12 +198,12 @@ Then specify this location using the ``script_url`` option.
 ::
 
     # Script is saved at myviewer/static/myviewer/openwith.js
-    $ bin/omero config append omero.web.open_with '["xyz_viewer", "url_name"], {"script_url": "myviewer/openwith.js"}]'
+    $ omero config append omero.web.open_with '["xyz_viewer", "url_name"], {"script_url": "myviewer/openwith.js"}]'
 
     # 'Open with' option loads a script from the specified url.
     # The script will open any object with url https://www.ncbi.nlm.nih.gov/protein/:name
     # and is enabled when the :name of the object is a number (all digits)
-    $ bin/omero config append omero.web.open_with '["GenBank Protein", "https://www.ncbi.nlm.nih.gov/protein/", {"script_url": "https://will-moore.github.io/presentations/2016/OpenWith-Filtering-June-2016/openwith.js"}]'
+    $ omero config append omero.web.open_with '["GenBank Protein", "https://www.ncbi.nlm.nih.gov/protein/", {"script_url": "https://will-moore.github.io/presentations/2016/OpenWith-Filtering-June-2016/openwith.js"}]'
 
 
 OMERO.web plugins

@@ -301,7 +301,7 @@ For example to set a maximum heap space of 3GB:
 ::
 
             $ export JAVA_OPTS=-Xmx3G
-            $ bin/omero import ...
+            $ omero import ...
 
 
 DropBox fails to start: failed to get session

@@ -8,7 +8,7 @@ Once your database has been properly configured and your config profile
 is set to use that database, you are ready to start your server using the
 :program:`omero admin start` command::
 
-    $ bin/omero admin start
+    $ omero admin start
 
 This command performs the following operations in order:
 
@@ -52,7 +52,7 @@ Server stop
 To stop a running server, you can invoke the :program:`omero admin stop`
 subcommand::
 
-    $ bin/omero admin stop
+    $ omero admin stop
 
 This command does the following operations in order:
 
@@ -81,7 +81,7 @@ Server restart
 To stop and start the server in a single command, you can use the
 :program:`omero admin restart` command::
 
-    $ bin/omero admin restart
+    $ omero admin restart
 
 The ``restart`` subcommand supports the same options as :program:`omero admin start`.
 
@@ -90,7 +90,7 @@ Server diagnostics
 
 To debug a server or inspect the configuration, you can use the :program:`omero admin diagnostics` command::
 
-    $ bin/omero admin diagnostics
+    $ omero admin diagnostics
 
 The output of this command will report information about:
 
