@@ -8,6 +8,7 @@ echo no linkcheck
 
 # from the sub-script
 export WORKSPACE=${WORKSPACE:-$(pwd)}
+export WORKSPACE=${WORKSPACE%/}  # Remove trailing slashes
 export USER=${USER:-$(whoami)}
 export OMERODIR=${WORKSPACE}/OMERO.server
 
