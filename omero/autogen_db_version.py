@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function
 import glob
 import os
 import re
@@ -66,3 +67,6 @@ print('version_matlab = "5.5.0"')
 print('version_dsl_plugin = "5.5.0"')
 print('version_blitz_plugin = "5.5.0"')
 print('version_ice_builder = "1.5.0"')
+print('version_py = "5.6.0.dev6"')
+print('version_web = "5.6.0.dev6"')
+print('version_dropbox = "5.6.0.dev3"')

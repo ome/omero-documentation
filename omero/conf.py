@@ -69,6 +69,8 @@ rst_epilog += """
 .. |previousversion| replace:: %s
 .. |current_dbver|  replace:: %s
 .. |previous_dbver|  replace:: %s
+.. |version_py|  replace:: %s
+.. |version_web|  replace:: %s
 .. |iceversion| replace:: 3.6.5
 .. |postgresversion| replace:: 11
 .. |javaversion| replace:: 11
@@ -88,7 +90,9 @@ rst_epilog += """
 .. |Upcoming| image:: /images/upcoming.png
                :alt: Upcoming
 """ % (previousversion, conf_autogen.current_dbver,
-       conf_autogen.previous_dbver)
+       conf_autogen.previous_dbver,
+       conf_autogen.version_py,
+       conf_autogen.version_web)
 
 omero_subs_github_root = github_root + 'ome/{}/{}/{}/%s'
 
