@@ -4,7 +4,7 @@ Deleting objects
 The :program:`omero delete` command deletes objects. Further help is available
 using the ``-h`` option::
 
-    $ bin/omero delete -h
+    $ omero delete -h
 
 This command will remove entire graphs of objects based on
 the IDs of the topmost objects. The command can be modified to include the
@@ -34,8 +34,8 @@ Basic delete
 
 ::
 
-    $ bin/omero delete OriginalFile:101
-    $ bin/omero delete Project:51
+    $ omero delete OriginalFile:101
+    $ omero delete Project:51
 
 In the first line, the original file with ID 101 will be deleted. In the
 second, the project with ID 51 will be deleted including any datasets inside
@@ -51,17 +51,17 @@ significant, thus all three calls below are identical in deleting
 project 51 and datasets 53 and 54.
 ::
 
-    $ bin/omero delete Project:51 Dataset:53,54
-    $ bin/omero delete Dataset:54,53 Project:51
-    $ bin/omero delete Dataset:53 Project:51 Dataset:54
+    $ omero delete Project:51 Dataset:53,54
+    $ omero delete Dataset:54,53 Project:51
+    $ omero delete Dataset:53 Project:51 Dataset:54
 
 To delete a number of objects with sequentially numbered IDs a hyphen can be
 used to specify an ID range. This form can also be mixed with comma-separated
 IDs.
 ::
 
-    $ bin/omero delete Project:51 Dataset:53-56 --force
-    $ bin/omero delete Dataset:53-56,65,101-105,201,202 --force
+    $ omero delete Project:51 Dataset:53-56 --force
+    $ omero delete Dataset:53-56,65,101-105,201,202 --force
 
 When deleting multiple objects in a single command, if one object cannot
 be deleted then the whole command will fail and none of the specified
@@ -85,17 +85,17 @@ To delete objects below a specified top-level object the following form
 of the object specifier is used.
 ::
 
-    $ bin/omero delete Project/Dataset/Image:51
+    $ omero delete Project/Dataset/Image:51
 
 Here the all of images under the project 51 would be deleted. It is not
 necessary to specify intermediate objects in the hierarchy and so::
 
-    $ bin/omero delete Project/Image:51
+    $ omero delete Project/Image:51
 
 would have the same effect as the call above. Links can also be deleted
 and so::
 
-$ bin/omero delete Project/DatasetImageLink:51 Dataset/DatasetImageLink:53
+$ omero delete Project/DatasetImageLink:51 Dataset/DatasetImageLink:53
 
 would effectively orphan all images under project 51 and dataset 53 that are
 not also under other datasets.
@@ -109,13 +109,13 @@ Including and excluding objects
 
     Include linked objects that would not ordinarily be deleted::
 
-        $ bin/omero delete Image:51 --include FileAnnotation,TagAnnotation,TermAnnotation
+        $ omero delete Image:51 --include FileAnnotation,TagAnnotation,TermAnnotation
 
     As mentioned above these three annotation types are not deleted by default
     and so this call overrides that default by including any of the three
     annotation types in the delete::
 
-         $ bin/omero delete Image:51 --include Annotation
+         $ omero delete Image:51 --include Annotation
 
     This call would also delete any annotation objects linked to the image.
 
@@ -123,13 +123,13 @@ Including and excluding objects
 
     Exclude linked objects that would ordinarily be deleted::
 
-        $ bin/omero delete Project:51 --exclude Dataset
+        $ omero delete Project:51 --exclude Dataset
 
     This will delete project 51 but not any datasets contained in that project.
 
 The two options can be used together::
 
-     $ bin/omero delete Project/Dataset:53 --exclude Image --include FileAnnotation
+     $ omero delete Project/Dataset:53 --exclude Image --include FileAnnotation
 
 This will delete any datasets under project 53, that are not otherwise
 contained elsewhere, excluding any images in those datasets but including
@@ -151,19 +151,19 @@ Further options
     command. However, each object can be deleted separately and in the order
     given. Thus::
 
-        $ bin/omero delete Dataset:53 Project:51 Dataset:54 --ordered
+        $ omero delete Dataset:53 Project:51 Dataset:54 --ordered
 
     would be equivalent to making three separate calls::
 
-        $ bin/omero delete Dataset:53
-        $ bin/omero delete Project:51
-        $ bin/omero delete Dataset:54
+        $ omero delete Dataset:53
+        $ omero delete Project:51
+        $ omero delete Dataset:54
 
 .. option:: --report
 
     Provide a detailed report of what is deleted::
 
-        $ bin/omero delete Project:502 --report
+        $ omero delete Project:502 --report
         ...
         omero.cmd.Delete2 Project 502... ok
         Steps: 3
@@ -202,7 +202,7 @@ Further options
     Delete multiple objects in a single command. Both comma-separated lists
     and ranges of IDs using a hyphen will work::
     
-        $ bin/omero delete Project:51 Dataset:53-56,65,101-105 --force
+        $ omero delete Project:51 Dataset:53-56,65,101-105 --force
     
     The command will fail and no objects will be deleted if any of the
     specified objects cannot be deleted.
