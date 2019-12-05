@@ -68,7 +68,7 @@ psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 #end-step03
 
 #start-step03bis: As root, create a virtual env and install dependencies
-# Create a virtual env
+# Create a virtual env and activate it
 python3 -mvenv $VENV_SERVER
 
 # Install the Ice Python binding
@@ -80,8 +80,7 @@ $VENV_SERVER/bin/pip install https://github.com/ome/zeroc-ice-py-ubuntu1604/rele
 $VENV_SERVER/bin/pip install "omero-py>=5.6.dev4"
 #start-release-ice36
 cd /opt/omero/server
-#SERVER=https://downloads.openmicroscopy.org/latest/omero5.6/server-ice36.zip
-SERVER=https://downloads.openmicroscopy.org/omero/5.6.0-m2/artifacts/OMERO.server-5.6.0-m2-ice36-b126.zip
+SERVER=https://downloads.openmicroscopy.org/omero/5.6/server-ice36.zip
 wget -q $SERVER -O OMERO.server-ice36.zip
 unzip -q OMERO.server*
 #end-release-ice36
