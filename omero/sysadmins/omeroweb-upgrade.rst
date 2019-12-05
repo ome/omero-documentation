@@ -88,7 +88,7 @@ Finally, restart OMERO.web with the following command:
 
    ::
 
-       $ bin/omero web restart
+       $ omero web restart
 
 Troubleshooting
 ^^^^^^^^^^^^^^^
