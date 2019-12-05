@@ -47,9 +47,10 @@ omero web config nginx-location | sed "s|/opt/omero/web|/home/omero|g" | grep '^
 
 echo "Generating omeroweb install walkthrough"
 
-(cd $WORKSPACE/omeroweb-install && ansible-playbook ./.travis/../ansible/omeroweb-install-doc.yml -i ./.travis/../ansible/hosts/centos7-ice3.6 --extra-vars '{"os": "centos7", "ice_version": "3.6", "clean": True}')
-(cd $WORKSPACE/omeroweb-install && ansible-playbook ./.travis/../ansible/omeroweb-install-doc.yml -i ./.travis/../ansible/hosts/ubuntu-ice3.6 --extra-vars '{"os": "ubuntu", "ice_version": "3.6", "clean": True}')
-(cd $WORKSPACE/omeroweb-install && ansible-playbook ./.travis/../ansible/omeroweb-install-doc.yml -i ./.travis/../ansible/hosts/debian-ice3.6 --extra-vars '{"os": "debian", "ice_version": "3.6", "clean": True}')
+(cd $WORKSPACE/omeroweb-install && ansible-playbook ./.travis/../ansible/omeroweb-install-doc.yml -i ./.travis/../ansible/hosts/centos7-ice3.6 --extra-vars '{"os": "centos7", "ice_version": "3.6", "clean": True, "web_session": True}')
+(cd $WORKSPACE/omeroweb-install && ansible-playbook ./.travis/../ansible/omeroweb-install-doc.yml -i ./.travis/../ansible/hosts/ubuntu16.04-ice3.6 --extra-vars '{"os": "ubuntu16.04", "ice_version": "3.6", "clean": True, "web_session": True}')
+(cd $WORKSPACE/omeroweb-install && ansible-playbook ./.travis/../ansible/omeroweb-install-doc.yml -i ./.travis/../ansible/hosts/debian9-ice3.6 --extra-vars '{"os": "debian9", "ice_version": "3.6", "clean": True, "web_session": True}')
+(cd $WORKSPACE/omeroweb-install && ansible-playbook ./.travis/../ansible/omeroweb-install-doc.yml -i ./.travis/../ansible/hosts/ubuntu18.04-ice3.6 --extra-vars '{"os": "ubuntu16.04", "ice_version": "3.6", "clean": True, "web_session": True}')
 
 mv $WORKSPACE/omeroweb-install/ansible/doc/* $WORKSPACE/ome-documentation/omero/sysadmins/unix/install-web/walkthrough
 
