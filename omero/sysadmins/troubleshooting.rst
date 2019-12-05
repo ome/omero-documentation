@@ -186,30 +186,6 @@ can be problematic on 32-bit platforms due to certain bugs within the
 Java Virtual Machine including `Bug ID: 4724038 <https://bugs.java.com/bugdatabase/view_bug.do?bug_id=4724038>`_. A 64-bit
 platform for your OMERO.server is **HIGHLY** recommended.
 
-Import errors
--------------
-
-Import error when running bin/omero
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-::
-
-        Traceback (most recent call last):
-        File "bin/omero", line 67, in ?
-            import omero.cli
-        ImportError: No module named omero.cli
-
-If you get any import related errors while running :file:`bin/omero`, the
-most likely cause is that your PYTHONPATH is not properly set.
-
--  If you installed Ice globally via your package manager, make sure you
-   included ice-python.
-
--  If you installed Ice manually, e.g. under ``/opt/Ice-3.6.4`` you need
-   to add ``/opt/Ice-3.6.4/python`` (or similar) to your PYTHONPATH
-   environment variable. See the Ice installation instructions for more
-   information.
-
 
 .. _ulimit:
 
