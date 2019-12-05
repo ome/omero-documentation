@@ -24,7 +24,7 @@ Import command
 
 To import a file :file:`image.tif`, use::
 
-    $ bin/omero import image.tif
+    $ omero import image.tif
 
 Some of the options available to the import command are:
 
@@ -38,15 +38,15 @@ Some of the options available to the import command are:
 
     To avoid prompts for servername, port, username and group, use::
 
-        $ bin/omero import -s SERVER -p PORT -u USER -g GROUP image.tif
+        $ omero import -s SERVER -p PORT -u USER -g GROUP image.tif
 
 .. option:: -d DATASET_ID, -T TARGET, --target TARGET
     
     To import images into a Dataset::
 
-        $ bin/omero import image.tif -d 2  
-        $ bin/omero import image.tif -T Dataset:id:2
-        $ bin/omero import image.tif -T Dataset:name:Sample01
+        $ omero import image.tif -d 2
+        $ omero import image.tif -T Dataset:id:2
+        $ omero import image.tif -T Dataset:name:Sample01
 
     See :doc:`import-target` for more information on import targets.
 
@@ -59,8 +59,8 @@ Scanning folders prior to Import
 
     Display all the files that would be imported, then exit::
 
-        $ bin/omero import -f image.tif
-        $ bin/omero import -f images_folder
+        $ omero import -f image.tif
+        $ omero import -f images_folder
 
     This will output a list of all the files which would be imported in groups
     separated by "#" comments. Note that this usage does not require a running
@@ -70,7 +70,7 @@ Scanning folders prior to Import
 
     Set the number of directories to scan down for files (default: 4)::
 
-        $ bin/omero import --depth 7 images_folder
+        $ omero import --depth 7 images_folder
 
     The above example changes the depth to 7 folders.
 
@@ -83,7 +83,7 @@ Bulk import configuration
     
     To import a number of images with a similar configuration::
 
-        $ bin/omero import --bulk bulk.yml
+        $ omero import --bulk bulk.yml
 
     See :doc:`import-bulk` for more information on bulk imports.
 
@@ -131,12 +131,12 @@ Managing performance of imports
 
     Example of usage::
 
-        $ bin/omero import large_image --skip all
-        $ bin/omero import large_image --skip minmax
+        $ omero import large_image --skip all
+        $ omero import large_image --skip minmax
 
     Multiple import steps can be skipped by supplying multiple arguments::
 
-        $ bin/omero import large_image --skip checksum --skip minmax
+        $ omero import large_image --skip checksum --skip minmax
 
 .. option:: --parallel-fileset COUNT
 
@@ -206,7 +206,7 @@ Troubleshoot and report issues
 
     Set the debug level for the command line import output::
 
-        $ bin/omero import images_folder --debug WARN
+        $ omero import images_folder --debug WARN
 
 .. option:: --report
 
@@ -226,7 +226,7 @@ Troubleshoot and report issues
     The following command would import a broken image and upload it together
     with the import log if available in case of failure::
 
-        $ bin/omero import broken_image --report --upload --email my.email@domain.com
+        $ omero import broken_image --report --upload --email my.email@domain.com
 
 .. option:: --logs
 
@@ -235,7 +235,7 @@ Troubleshoot and report issues
     The following command would import a broken image and upload only the
     import log if available in case of failure::
 
-        $ bin/omero import broken_image --report --logs --email my.email@domain.com
+        $ omero import broken_image --report --logs --email my.email@domain.com
 
 Advanced import commands
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -248,7 +248,7 @@ Advanced import commands
 
     Java options can be passed after ``--`` ::
 
-       $ bin/omero import image.tif -- --name=test --description=TestDescription
+       $ omero import image.tif -- --name=test --description=TestDescription
 
     The above command will import the image "image.tif" with the name "test" into OMERO and with the OMERO
     description property set to "TestDescription". Visit :doc:`containers-annotations` to get a basic overview of how 
@@ -260,23 +260,23 @@ Advanced import commands
 
     ::
 
-    $ bin/omero import -- --advanced-help
+    $ omero import -- --advanced-help
 
     Examples of usage,
 
     To upload and remove the raw file from the local file-system after a successful import into OMERO, use::
 
-        $ bin/omero import -- --transfer=upload_rm my_file.dv
+        $ omero import -- --transfer=upload_rm my_file.dv
 
     As an OMERO administrator, to import images for other users, use::
 
-       $ bin/omero login --sudo root -s servername -u username -g groupname
-       $ bin/omero import image.tif
+       $ omero login --sudo root -s servername -u username -g groupname
+       $ omero import image.tif
 
     As an OMERO group owner, to import images for others, use::
 
-       $ bin/omero login --sudo owner -s servername -u username -g groupname
-       $ bin/omero import image.tif
+       $ omero login --sudo owner -s servername -u username -g groupname
+       $ omero import image.tif
 
     Some advanced import options are described in the :doc:`/sysadmins/in-place-import`
     section. Visit :doc:`sessions` to get a basic overview of how user sessions 
