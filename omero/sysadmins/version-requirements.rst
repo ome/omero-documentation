@@ -17,8 +17,7 @@ This page details the minimum version requirements for the current
 (|version|) release and also **possible** changes for the next release.
 
 It is intended to provide a roadmap in order that sysadmins may
-plan ahead and ensure that prerequisites are in place ahead of time to
-ease future upgrades.
+plan ahead and ensure that prerequisites are in place for future upgrades.
 
 .. list-table::
     :header-rows: 1
@@ -124,31 +123,31 @@ General overview for `RHEL
 
     * - Version
       - Release date
-      - Upstream support
+      - Supported until
       - OMERO 5.4
       - OMERO 5.5
       - OMERO 5.6
       - OMERO 6.0
       - Details
     * - 6
-      - from Nov 2010
-      - to Nov 2020
+      - Nov 2010
+      - Nov 2020
       - |Deprecated|
       - |Dropped|
       - |Dropped|
       - |Dropped|
       - `Reference <https://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
     * - 7
-      - from June 2014
-      - to June 2024
+      - June 2014
+      - June 2024
       - |Recommended|
       - |Recommended|
       - |Recommended|
       - |Deprecated|
       - `Reference <https://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
     * - 8
-      - from May 2019
-      - to May 2029
+      - May 2019
+      - May 2029
       - |Upcoming|
       - |Upcoming|
       - |Upcoming|
@@ -169,35 +168,35 @@ Linux (Ubuntu)
 
     * - Version
       - Release date
-      - Upstream support
+      - Supported until
       - OMERO 5.4
       - OMERO 5.5
       - OMERO 5.6
       - OMERO 6.0
     * - 14.04 LTS
-      - from Apr 2014
-      - to Apr 2019
+      - Apr 2014
+      - Apr 2019
       - |Supported|
       - |Dropped|
       - |Dropped|
       - |Dropped|
     * - 16.04 LTS
-      - from Apr 2016
-      - to Apr 2021
+      - Apr 2016
+      - Apr 2021
       - |Recommended|
       - |Recommended|
       - |Supported|
       - |Dropped|
     * - 18.04 LTS
-      - from Apr 2018
-      - to Apr 2028
+      - Apr 2018
+      - Apr 2028
       - |Upcoming|
       - |Supported|
       - |Recommended|
       - |Supported|
     * - 20.04 LTS
-      - from Apr 2020
-      - to Apr 2030
+      - Apr 2020
+      - Apr 2030
       - |Upcoming|
       - |Upcoming|
       - |Upcoming|
@@ -267,67 +266,60 @@ OMERO support policies
 
     * - Version
       - Release date
-      - Upstream support
+      - Supported until
       - OMERO 5.4
       - OMERO 5.5
       - OMERO 5.6
       - OMERO 6.0
     * - 9.3
-      - from Sep 2013
-      - to Sep 2018
+      - Sep 2013
+      - Sep 2018
       - |Deprecated|
       - |Dropped|
       - |Dropped|
       - |Dropped|
     * - 9.4
-      - from Dec 2014
-      - to Dec 2019
+      - Dec 2014
+      - Dec 2019
       - |Supported|
       - |Deprecated|
       - |Dropped|
       - |Dropped|
     * - 9.5
-      - from Jan 2016
-      - to Jan 2021
+      - Jan 2016
+      - Jan 2021
       - |Supported|
       - |Supported|
       - |Deprecated|
       - |Dropped|
     * - 9.6
-      - from Sep 2016
-      - to Sep 2021
+      - Sep 2016
+      - Sep 2021
       - |Recommended|
       - |Supported|
       - |Deprecated|
       - |Dropped|
     * - 10
-      - from Oct 2017
-      - to Nov 2022
+      - Oct 2017
+      - Nov 2022
       - |Upcoming|
       - |Recommended|
       - |Supported|
       - |Supported|
     * - 11
-      - from Oct 2018
-      - to Nov 2023
+      - Oct 2018
+      - Nov 2023
       - |Upcoming|
       - |Upcoming|
       - |Recommended|
       - |Recommended|
     * - 12
-      - from Oct 2019
-      - to Nov 2024
+      - Oct 2019
+      - Nov 2024
       - |Upcoming|
       - |Upcoming|
       - |Supported|
       - |Supported|
-    * - Details
-      - 
-      - `Reference <https://www.postgresql.org/support/versioning/>`__
-      - 
-      - 
-      - 
-      - 
 
 Version provided by distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -388,15 +380,15 @@ OMERO support policies
 
     * - Version
       - Release date
-      - Upstream support
+      - Supported until
       - OMERO 5.4
       - OMERO 5.5
       - OMERO 5.6
       - OMERO 6.0
       - Details
     * - 2.6
-      - from Oct 2008
-      - to Oct 2013
+      - Oct 2008
+      - Oct 2013
       - |Dropped| [1]_ 
         |Supported| [2]_ 
       - |Dropped|
@@ -404,56 +396,56 @@ OMERO support policies
       - |Dropped|
       - `PEP 361 <https://www.python.org/dev/peps/pep-0361/>`__
     * - 2.7
-      - from Jul 2010
-      - to Jan 2020
+      - Jul 2010
+      - Jan 2020
       - |Recommended|
       - |Recommended|
       - |Dropped|
       - |Dropped|
       - `PEP 373 <https://www.python.org/dev/peps/pep-0373/>`__
     * - 3.2
-      - from Feb 2011
-      - to Feb 2016
+      - Feb 2011
+      - Feb 2016
       - |Broken|
       - |Broken|
       - |Broken|
       - |Unsupported|
       - `PEP 392 <https://www.python.org/dev/peps/pep-0392/>`__
     * - 3.3
-      - from Sep 2012
-      - to Sep 2017
+      - Sep 2012
+      - Sep 2017
       - |Broken|
       - |Broken|
       - |Broken|
       - |Unsupported|
       - `PEP 398 <https://www.python.org/dev/peps/pep-0398/>`__
     * - 3.4
-      - from Mar 2014
-      - to Mar 2019
+      - Mar 2014
+      - Mar 2019
       - |Broken|
       - |Broken|
       - |Broken|
       - |Unsupported|
       - `PEP 429 <https://www.python.org/dev/peps/pep-0429/>`__
     * - 3.5
-      - from Sep 2015
-      - to Sep 2020
+      - Sep 2015
+      - Sep 2020
       - |Broken|
       - |Broken|
       - |Upcoming|
       - |Unsupported|
       - `PEP 478 <https://www.python.org/dev/peps/pep-0478/>`__
     * - 3.6
-      - from Dec 2016
-      - to Dec 2021
+      - Dec 2016
+      - Dec 2021
       - |Broken|
       - |Broken|
       - |Recommended|
       - |Supported|
       - `PEP 494 <https://www.python.org/dev/peps/pep-0494/>`__
     * - 3.7
-      - from Jun 2018
-      - to Jun 2023
+      - Jun 2018
+      - Jun 2023
       - |Broken|
       - |Broken|
       - |Supported|
@@ -518,16 +510,9 @@ Version provided by distribution
       - 
       - 
 
-At the moment 2.7 support is present upstream until 2020;
-3.x versions continue to be released and retired regularly in
-parallel. The limiting factor will be distribution support for 2.7 as
-major packages are slowly switching to 3.x and this might cause
-problems if our python module dependencies are no longer available
-without major effort.
+Python 2.7 support ends in 2020;
 
-The supported version of the Django module used by OMERO.web (1.8)
-requires Python 2.7. The older version (1.6) will work with Python
-2.6 but lacks security support so should *not* be used.
+The Django version used by OMERO.web (1.11.26) is supported on Python 3.5, 3.6 and 3.7
 
 .. _ice-requirements:
 
@@ -544,15 +529,15 @@ OMERO support policies
 
     * - Version
       - Release date
-      - Upstream support
+      - Supported until
       - OMERO 5.4
       - OMERO 5.5
       - OMERO 5.6
       - OMERO 6.0
       - Details
     * - 3.5
-      - from Mar 2013
-      - to Oct 2013
+      - Mar 2013
+      - Oct 2013
       - |Deprecated|
       - |Dropped|
       - |Dropped|
@@ -560,8 +545,8 @@ OMERO support policies
       - :zerocforum:`3.5.0 <6093/ice-3-5-0-released>`,
         :zerocforum:`3.5.1 <6283/ice-3-5-1-released>`
     * - 3.6
-      - from June 2015
-      - to TBA
+      - June 2015
+      - TBA
       - |Recommended|
       - |Recommended|
       - |Recommended|
@@ -573,8 +558,8 @@ OMERO support policies
         :zerocforum:`3.6.4 <46550/ice-ice-e-and-ice-touch-3-6-4-released>`,
         :zerocforum:`3.6.5 <46700/ice-3-6-5-released>`.
     * - 3.7
-      - from July 2017
-      - to TBA
+      - July 2017
+      - TBA
       - |Unsupported|
       - |Unsupported|
       - |Unsupported|
@@ -631,47 +616,47 @@ OMERO support policies
 
     * - Version
       - Release date
-      - Upstream support
+      - Supported until
       - OMERO 5.4
       - OMERO 5.5
       - OMERO 5.6
       - OMERO 6.0
       - Details
     * - 7
-      - from Jul 2011
-      - to Apr 2015
+      - Jul 2011
+      - Apr 2015
       - |Deprecated|
       - |Dropped|
       - |Dropped|
       - |Dropped|
       - `Reference <https://www.oracle.com/technetwork/java/eol-135779.html>`__
     * - 8
-      - from Mar 2014
-      - to Jun 2023
+      - Mar 2014
+      - Jun 2023
       - |Recommended|
       - |Recommended|
       - |Supported|
       - |Deprecated|
       - `Reference <https://access.redhat.com/articles/1299013>`__
     * - 11
-      - from Sep 2018
-      - to Oct 2024
+      - Sep 2018
+      - Oct 2024
       - |Unsupported|
       - |Supported|
       - |Recommended|
       - |Recommended|
       - `Reference <https://access.redhat.com/articles/1299013>`__
     * - 12
-      - from Sep 2018
-      - to Oct 2024
+      - Sep 2018
+      - Oct 2024
       - |Unsupported|
       - |Unsupported|
       - |Supported|
       - |Recommended|
       -
     * - 13
-      - from Sep 2018
-      - to Oct 2024
+      - Sep 2018
+      - Oct 2024
       - |Unsupported|
       - |Unsupported|
       - |Supported|
@@ -729,48 +714,48 @@ OMERO support policies
 
     * - Version
       - Release date
-      - Upstream support
+      - Supported until
       - OMERO 5.4
       - OMERO 5.5
       - OMERO 5.6
       - OMERO 6.0
     * - 1.6
-      - from Apr 2014
-      - to Apr 2015
+      - Apr 2014
+      - Apr 2015
       - |Deprecated|
       - |Dropped|
       - |Dropped|
       - |Dropped|
     * - 1.8
-      - from Apr 2015
-      - to Jan 2016
+      - Apr 2015
+      - Jan 2016
       - |Supported|
       - |Deprecated|
       - |Dropped|
       - |Dropped|
     * - 1.10
-      - from Apr 2016
-      - to Apr 2017
+      - Apr 2016
+      - Apr 2017
       - |Recommended|
       - |Supported|
       - |Deprecated|
       - |Dropped|
     * - 1.12
-      - from Apr 2017
-      - to Apr 2018
+      - Apr 2017
+      - Apr 2018
       - |Supported|
       - |Recommended|
       - |Supported|
       - |Deprecated|
     * - 1.14
-      - from Apr 2018
-      - to Apr 2019
+      - Apr 2018
+      - Apr 2019
       - |Upcoming|
       - |Supported|
       - |Recommended|
       - |Supported|
     * - 1.16
-      - from Apr 2019
+      - Apr 2019
       - TBA
       - |Upcoming|
       - |Upcoming|
