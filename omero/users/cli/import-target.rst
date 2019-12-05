@@ -71,7 +71,7 @@ To import an image into a Dataset contained in a specific Project, use::
 
     $ omero import ~/images/dv/SMN10ul03_R3D_D3D.dv -T Project:name:"Proj1"/Dataset:name:"New Dataset"
 
-The above command will create a new Project Proj1 and link the Dataset "New Dataset" to it, except in case a Project named Proj1 already exists. Then, the Dataset named "New Dataset" will be linked to this existing Project.
+The above command will create a new Project ``Proj1`` and link the Dataset ``New Dataset`` to it, except in case a Project named ``Proj1`` already exists. Then, the Dataset named ``New Dataset`` will be linked to this existing Project.
 
 Analogically, a new Dataset named "New Dataset" will be created for the import of the image and linked to the Project Proj1, except in case a Dataset "New Dataset" already exists. Then, the existing Dataset will be used for the import of the image and linked to Project Proj1.
 
