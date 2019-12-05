@@ -7,11 +7,11 @@ libraries.
 From OMERO 5.6.0 release, the client library ``omero-py`` supports Python 3 and
 can be installed via ``pip``. We recommend you use a virtual environment:
 
-::
+.. parsed-literal::
 
     $ python3 -m venv py3_venv
     $ source py3_venv/bin/activate
-    $ pip install omero-py
+    $ pip install omero-py==\ |version_py|
     Successfully installed Pillow-6.2.1 future-0.18.2 omero-py-5.6.1 zeroc-ice-3.6.5
 
     $ python
