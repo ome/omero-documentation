@@ -82,7 +82,7 @@ OMERO.server
 The steps for an OMERO.server installation have not changed substantially.
 
 Download the OMERO.server.zip as you would usually do, and unpack it under your
-installation directory. We suggest: file:`/opt/omero/server/` and symlink the unpacked
+installation directory. We suggest :file:`/opt/omero/server/` and symlink the unpacked
 directory to `OMERO.server`
 
 We highly recommend a virtualenv-based installation for all of the Python
