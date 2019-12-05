@@ -8,6 +8,7 @@
 set -u
 set -e
 set -x
+set -o pipefail
 WORKSPACE=${WORKSPACE:-$(pwd)}
 USER=${USER:-$(whoami)}
 
@@ -19,36 +20,37 @@ cat $WORKSPACE/OMERO.server/history.rst >> newfile.rst
 mv newfile.rst omero/users/history.rst
 
 echo "Generating configuration properties page"
-$WORKSPACE/OMERO.server/bin/omero config parse --rst | sed "s|$WORKSPACE|/home/omero|" > omero/sysadmins/config.rst
+omero config parse --rst # Pre-run to see errors
+omero config parse --rst | sed "s|$WORKSPACE|/home/omero|" > omero/sysadmins/config.rst
 
 echo "Generating ldap setdn usage page"
 mkdir -p omero/downloads/ldap
-(cd $WORKSPACE/OMERO.server && bin/omero ldap setdn -h) > omero/downloads/ldap/setdn.out
+(cd $WORKSPACE/OMERO.server && omero ldap setdn -h) > omero/downloads/ldap/setdn.out
 
 echo "Generating advanced CLI help"
-(cd $WORKSPACE/OMERO.server && bin/omero import --advanced-help) 2> advanced-help.txt || echo "Dumped"
+(cd $WORKSPACE/OMERO.server && omero import --advanced-help) 2> advanced-help.txt || echo "Dumped"
 sed 1,5d advanced-help.txt > omero/downloads/inplace/advanced-help.txt
-(cd $WORKSPACE/OMERO.server && bin/omero import --javahelp) 2> java-help.txt || echo "Dumped"
+(cd $WORKSPACE/OMERO.server && omero import --javahelp) 2> java-help.txt || echo "Dumped"
 sed 1,5d java-help.txt > omero/downloads/cli/help.out
 
 echo "Generating DB script example"
-(cd $WORKSPACE && OMERO.server/bin/omero db script --password secretpassword 2>&1) | sed "s|$WORKSPACE|/home/omero|" > omero/downloads/cli/db-script-example.txt
+(cd $WORKSPACE && omero db script --password secretpassword 2>&1) | sed "s|$WORKSPACE|/home/omero|" > omero/downloads/cli/db-script-example.txt
 
 echo "Generating Web configuration templates"
 # Nginx / WSGI
-$WORKSPACE/OMERO.server/bin/omero web config nginx | sed "s|$WORKSPACE/OMERO.server|/home/omero/OMERO.py|g" > omero/sysadmins/unix/install-web/nginx-omero.conf
-$WORKSPACE/OMERO.server/bin/omero web config nginx-location | sed "s|$WORKSPACE/OMERO.server|/home/omero/OMERO.py|g" | grep -v '^#' > omero/sysadmins/unix/install-web/nginx-location.conf
-$WORKSPACE/OMERO.server/bin/omero web config nginx-location | sed "s|/opt/omero/web|/home/omero|g" | grep '^##' | cut -c3-
+omero config set omero.web.application_server wsgi-tcp
+omero web config nginx | sed "s|$WORKSPACE/OMERO.server|/home/omero/OMERO.py|g" > omero/sysadmins/unix/install-web/nginx-omero.conf
+omero web config nginx-location | sed "s|$WORKSPACE/OMERO.server|/home/omero/OMERO.py|g" | grep -v '^#' > omero/sysadmins/unix/install-web/nginx-location.conf
+omero web config nginx-location | sed "s|/opt/omero/web|/home/omero|g" | grep '^##' | cut -c3-
 > omero/sysadmins/unix/install-web/nginx-location-manual-wrapper.conf
 
 echo "Generating omeroweb install walkthrough"
 
 (cd $WORKSPACE/omeroweb-install && ansible-playbook ./.travis/../ansible/omeroweb-install-doc.yml -i ./.travis/../ansible/hosts/centos7-ice3.6 --extra-vars '{"os": "centos7", "ice_version": "3.6", "clean": True}')
 (cd $WORKSPACE/omeroweb-install && ansible-playbook ./.travis/../ansible/omeroweb-install-doc.yml -i ./.travis/../ansible/hosts/ubuntu-ice3.6 --extra-vars '{"os": "ubuntu", "ice_version": "3.6", "clean": True}')
-(cd $WORKSPACE/omeroweb-install && ansible-playbook ./.travis/../ansible/omeroweb-install-doc.yml -i ./.travis/../ansible/hosts/osx-ice3.6 --extra-vars '{"os": "osx", "ice_version": "3.6", "clean": True}')
 (cd $WORKSPACE/omeroweb-install && ansible-playbook ./.travis/../ansible/omeroweb-install-doc.yml -i ./.travis/../ansible/hosts/debian-ice3.6 --extra-vars '{"os": "debian", "ice_version": "3.6", "clean": True}')
 
-mv $WORKSPACE/omeroweb-install/ansible/doc/* $WORKSPACE/src/omero/sysadmins/unix/install-web/walkthrough
+mv $WORKSPACE/omeroweb-install/ansible/doc/* $WORKSPACE/ome-documentation/omero/sysadmins/unix/install-web/walkthrough
 
 echo "Copying omero-install Linux scripts"
 DIRECTORY=omero/sysadmins/unix/walkthrough/
@@ -64,11 +66,11 @@ rm walkthrough_*.sh
 
 for f in \
     README.md \
-    requirements* \
+    requirements\* \
     settings.env \
     settings-web.env \
-    setup_* \
-    omero-* \
+    setup_\* \
+    omero-\* \
     ; do
     cp $WORKSPACE/omero-install/linux/$f $DIRECTORY
 done

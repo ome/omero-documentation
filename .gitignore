@@ -1,3 +1,6 @@
 venv
 .DS_Store
 *.pyc
+OMERO.server*
+omero-install
+omeroweb-install
