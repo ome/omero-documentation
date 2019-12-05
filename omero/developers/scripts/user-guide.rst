@@ -299,7 +299,7 @@ Start by printing help for the script command:
 ::
 
     $ omero script -h
-    usage: /Users/name/venv/bin/omero script
+    usage: omero script
            [-h] <subcommand> ...
 
     Support for launching, uploading and otherwise managing OMERO.scripts
