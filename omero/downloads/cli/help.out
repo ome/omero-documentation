@@ -1,5 +1,3 @@
- Usage:  importer-cli [OPTION]... [path [path ...]]... 
-   or:   importer-cli [OPTION]... - 
 
 Import any number of files into an OMERO instance.
 If "-" is the only path, a list of files or directories 

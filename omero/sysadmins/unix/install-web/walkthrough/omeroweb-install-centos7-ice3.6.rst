@@ -12,11 +12,12 @@ This is an example walkthrough for installing OMERO.web in a **virtual environme
 
 **The following steps are run as root.**
 
-If required, first create a local system user omero and create the homedir too :file:`/home/omero`::
+If required, first create a local system user omero and create directory::
 
     useradd -m omero
 
-    chmod a+X /home/omero
+    mkdir -p /opt/omero/web/omero-web/etc/grid
+    chown -R omero /opt/omero/web/omero-web
 
 
 
@@ -44,23 +45,22 @@ Creating a virtual environment
 
 Create the virtual environment. This is the recommended way to install OMERO.web::
 
-    python3 -mvenv /opt/omero/web/venv
+    python3 -mvenv /opt/omero/web/venv3
 
 
 
 Install ZeroC IcePy 3.6::
 
-    /opt/omero/web/venv/bin/pip install --upgrade https://github.com/ome/zeroc-ice-py-centos7/releases/download/0.2.1/zeroc_ice-3.6.5-cp36-cp36m-linux_x86_64.whl
+    /opt/omero/web/venv3/bin/pip install --upgrade https://github.com/ome/zeroc-ice-py-centos7/releases/download/0.2.1/zeroc_ice-3.6.5-cp36-cp36m-linux_x86_64.whl
 
 
 Install OMERO.web::
 
-    /opt/omero/web/venv/bin/pip install "omero-web>=5.6.dev5"
+    /opt/omero/web/venv3/bin/pip install "omero-web>=5.6.dev5"
 
 Installing OMERO.web apps
 -------------------------
 
-**The following steps are run as root.**
 
 A number of apps are available to add functionality to OMERO.web, such as `OMERO.figure <https://www.openmicroscopy.org/omero/figure/>`_ and `OMERO.iviewer <https://www.openmicroscopy.org/omero/iviewer/>`_. See the main website for a `list of released apps <https://www.openmicroscopy.org/omero/apps/>`_. These apps are optional and can be installed, as the **root user**, via :program:`pip` to your OMERO.web virtual environment and configure as the **omero system user**, at any time.
 
@@ -73,24 +73,18 @@ Configuring OMERO.web
 
 For convenience the main OMERO.web configuration options have been defined as environment variables. You can either use your own values, or alternatively use the following ones::
 
-    # If you are installing OMERO.web and OMERO.server on the same machine.
-    # Point OMERODIR to the OMERO.server
-    # export OMERODIR=/path_to_omero_server/OMERO.server
-    export OMERODIR=/home/omero/omero
+    export OMERODIR=/opt/omero/web/omero-web
     export WEBPORT=80
     export WEBSERVER_NAME=localhost
 
 
 Configure OMERO.web and create the NGINX OMERO configuration file::
 
-    export PATH=/opt/omero/web/venv/bin:$PATH
-    # The command below is not necessary if OMERODIR points to where the OMERO.server is installed
-    # i.e. OMERO.server and OMERO.web are installed on the same machine.
-    mkdir -p $OMERODIR/etc/grid
+    export PATH=/opt/omero/web/venv3/bin:$PATH
 
 
     omero config set omero.web.application_server wsgi-tcp
-    omero web config nginx --http "${WEBPORT}" --servername "${WEBSERVER_NAME}" > /home/omero/nginx.conf.tmp
+    omero web config nginx --http "${WEBPORT}" --servername "${WEBSERVER_NAME}" > /opt/omero/web/omero-web/nginx.conf.tmp
 
 For more customization, please read :ref:`customizing_your_omero_web_installation`.
 
@@ -127,7 +121,7 @@ Copy the generated configuration file into the NGINX configuration directory, di
     if [ -f /etc/nginx/conf.d/default.conf ]; then
         mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.disabled
     fi
-    cp /home/omero/nginx.conf.tmp /etc/nginx/conf.d/omeroweb.conf
+    cp /opt/omero/web/omero-web/nginx.conf.tmp /etc/nginx/conf.d/omeroweb.conf
 
     systemctl enable nginx
 
@@ -142,7 +136,7 @@ Running OMERO.web
 Install `WhiteNoise <http://whitenoise.evans.io/>`_::
 
 
-    /opt/omero/web/venv/bin/pip install --upgrade 'whitenoise<4'
+    /opt/omero/web/venv3/bin/pip install --upgrade 'whitenoise<4'
 
 **The following steps are run as the omero system user.**
 
@@ -174,12 +168,12 @@ Should you wish to run OMERO.web automatically, a `systemd.service` file could b
     [Service]
     User=omero
     Type=forking
-    PIDFile=/home/omero/omero/var/django.pid
+    PIDFile=/opt/omero/web/omero-web/var/django.pid
     Restart=no
     RestartSec=10
-    Environment="OMERODIR=/home/omero/omero"
-    ExecStart=/opt/omero/web/venv/bin/omero web start
-    ExecStop=/opt/omero/web/venv/bin/omero web stop
+    Environment="OMERODIR=/opt/omero/web/omero-web"
+    ExecStart=/opt/omero/web/venv3/bin/omero web start
+    ExecStop=/opt/omero/web/venv3/bin/omero web stop
 
     [Install]
     WantedBy=multi-user.target

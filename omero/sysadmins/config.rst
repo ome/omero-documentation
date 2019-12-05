@@ -2183,6 +2183,14 @@ Warning: Only system administrators should use this feature. List of Django midd
 
 Default: `[{"index": 1, "class": "django.middleware.common.BrokenLinkEmailsMiddleware"},{"index": 2, "class": "django.middleware.common.CommonMiddleware"},{"index": 3, "class": "django.contrib.sessions.middleware.SessionMiddleware"},{"index": 4, "class": "django.middleware.csrf.CsrfViewMiddleware"},{"index": 5, "class": "django.contrib.messages.middleware.MessageMiddleware"},{"index": 6, "class": "django.middleware.clickjacking.XFrameOptionsMiddleware"}]`
 
+.. property:: omero.web.nginx_server_extra_config
+
+omero.web.nginx_server_extra_config
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Extra configuration lines to add to the Nginx server block. Lines will be joined with \n. Remember to terminate lines with; when necessary.
+
+Default: `[]`
+
 .. property:: omero.web.open_with
 
 omero.web.open_with
@@ -2413,7 +2421,7 @@ omero.web.static_root
 ^^^^^^^^^^^^^^^^^^^^^
 The absolute path to the directory where collectstatic will collect static files for deployment. If the staticfiles contrib app is enabled (default) the collectstatic management command will collect static files into this directory.
 
-Default: `/home/omero/OMERO.server/lib/python/omeroweb/static`
+Default: `/home/omero/OMERO.server/var/static`
 
 .. property:: omero.web.static_url
 
