@@ -78,9 +78,11 @@ views.
     OMERO.web image viewer
 
 OMERO.web features almost all of the functionality of OMERO.insight barring
-import and Measurement Tool. Work is ongoing to introduce new functionality,
-including a new image viewer OMERO.iviewer, which will feature improved ROI
-support, allowing you to draw and edit ROIs from the web.
+import.
+A number of apps are available to add functionality to OMERO.web, such as
+`OMERO.figure <https://www.openmicroscopy.org/omero/figure/>`_ and
+`OMERO.iviewer <https://www.openmicroscopy.org/omero/iviewer/>`_.
+See the main website for a `list of released apps <https://www.openmicroscopy.org/omero/apps/>`_.
 
 For more information and guides to using OMERO.web, see our
 :help:`help website <>`.
