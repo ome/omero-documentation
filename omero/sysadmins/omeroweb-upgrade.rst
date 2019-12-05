@@ -66,7 +66,7 @@ up to date to ensure that security updates are applied:
 .. parsed-literal::
 
 
-      $ pip install --upgrade 'omero-web>=\ |omero_web|'
+      $ pip install --upgrade 'omero-web>=\ |version_web|'
 
 
 Plugin updates
