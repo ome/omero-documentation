@@ -30,6 +30,7 @@ $WORKSPACE/venv/bin/pip install -r $WORKSPACE/OMERO.server/share/web/requirement
 $WORKSPACE/venv/bin/pip install future 'ansible<2.7'
 $WORKSPACE/venv/bin/pip install -U PyYAML==5.1
 $WORKSPACE/venv/bin/pip install scc
+$WORKSPACE/venv/bin/pip install Pillow
 set +u # PS1 issue
 . $WORKSPACE/venv/bin/activate
 set -u
