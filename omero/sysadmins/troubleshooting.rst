@@ -317,60 +317,13 @@ wrong. See :ref:`search-failures` for more details.
 OMERO.web issues
 ----------------
 
-OMERO.web and Apache (dropped)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Do not enable mod_python and mod_wsgi in the same apache process.
-mod_wsgi will deadlock if run in daemon mode while mod_python is enabled
-
-.. _troubleshooting-omeroweb-migrate-to-nginx:
-
-OMERO.web migrating from Apache to NGINX
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Support for Apache and mod_wsgi deployment was deprecated
-in OMERO 5.2.6 and dropped in 5.3.0. It is recommended to use a WSGI-capable
-server such as
-:doc:`NGINX and Gunicorn </sysadmins/unix/install-web/web-deployment>`.
-
-::
-
-    Cannot configure omero web to use nginx:
-    Error running bin/omero  web config nginx - I get the error
-    Configuration mismatch omero.web.application_server=wsgi cannot be used with omero web config nginx.
-
-Make sure :property:`omero.web.application_server` is set to the following:
-
-::
-
-    $ bin/omero config set omero.web.application_server "wsgi-tcp"
-
-
-OMERO.web did not start
-^^^^^^^^^^^^^^^^^^^^^^^
-
--  **(Dropped)** If the Apache error logs contain lines of type
-   ``Permission denied: access to xxx denied``, you need to check the
-   permissions of the folder and make sure it is readable and executable by
-   the Apache user.
-
-   .. seealso::
-     :forum:`What are your LDAP requirements? <viewtopic.php?f=5&t=14>`
-
-     :ome-users:`upgrade 5.0.5 to 5.1.1 omero.web forbidden <2015-April/005316.html>`
-
 OMERO.web running but status says not started
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you upgraded OMERO but forgot to stop OMERO.web, processes will still be
-running. In order to kill stale processes by hand, if OMERO.web is deployed
-**separately** from the OMERO.server run::
+running. In order to kill stale processes by hand, run::
 
-    $ ps aux | grep /home/omero/OMERO.py/var/django.pid
-
-otherwise run::
-
-    $ ps aux | grep /home/omero/OMERO.server/var/django.pid
+    $ ps aux | grep django.pid
 
 .. note::
     As Gunicorn is based on the pre-fork worker model it is enough to kill
