@@ -37,6 +37,7 @@ set +u # PS1 issue
 set -u
 export PATH=$WORKSPACE/OMERO.server/bin:$PATH:$HOME/.local/bin
 export PYTHONPATH=$WORKSPACE/OMERO.server/lib/python
+export OMERODIR=$WORKSPACE/OMERO.server
 
 cd $WORKSPACE/ome-documentation/
 omero/autogen_docs
