@@ -53,17 +53,6 @@ more specific walkthrough listed below.
         Instructions for installing **separately** OMERO.web from
         scratch on Debian 9 with Ice 3.6.
 
-**Development:**
-
-.. seealso::
-
-
-    :doc:`walkthrough/omeroweb-install-osx-ice3.6`
-        Instructions for installing OMERO.web from scratch on
-        on Mac OS X with Homebrew. It is aimed at **developers**
-        since typically MacOS X is not suited for serious deployment.
-
-
 .. toctree::
     :maxdepth: 1
     :titlesonly:
@@ -73,7 +62,6 @@ more specific walkthrough listed below.
     walkthrough/omeroweb-install-ubuntu1604-ice3.6
     walkthrough/omeroweb-install-ubuntu1804-ice3.6
     walkthrough/omeroweb-install-debian9-ice3.6
-    walkthrough/omeroweb-install-osx-ice3.6
 
 .. note:: Support for Apache deployment has been dropped in 5.3.0.
     
