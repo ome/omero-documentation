@@ -124,9 +124,8 @@ We assume the following::
 
 We recommend you use a virtual environment::
 
-    $ python3 -m venv py3_venv
-    $ source py3_venv/bin/activate
-    $ pip install omero-web
+    $ python3 -m venv ${omero_user_web_dir}/venv3
+    $ ${omero_user_web_dir}/venv3/pip install omero-web
 
 .. _gunicorn_default_configuration:
 
