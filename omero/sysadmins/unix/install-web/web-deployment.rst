@@ -89,8 +89,6 @@ Prerequisites
 
 -  Python 3
 
-   -  `NumPy <https://www.numpy.org>`_ >=1.9
-
 -  A `WSGI <https://wsgi.readthedocs.org>`_-capable webserver such as
    `NGINX <https://nginx.org/>`_ and `Gunicorn <https://docs.gunicorn.org/>`_
 
@@ -121,8 +119,8 @@ can be installed via :command:`pip`.
 
 We assume the following::
 
-    $ omero_user_home_dir=/home/omero
-    $ export OMERODIR=${omero_user_home_dir}/omero
+    $ omero_user_web_dir=/opt/omero/web
+    $ export OMERODIR=${omero_user_web_dir}/omero-web
 
 We recommend you use a virtual environment::
 
