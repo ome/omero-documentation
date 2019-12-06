@@ -6,11 +6,7 @@ web-based UI and JSON API.
 This section provides guidance on how to install and set up OMERO.web on
 any of the supported UNIX and UNIX-like platforms. Specific walkthroughs are
 provided for several systems, with detailed step-by-step instructions.
-OMERO.web can be either installed **separately** from 
-the OMERO.server or installed with the OMERO.server.
-Deploying separately is **recommended** as they
-perform best under different circumstances and require a different set of
-dependencies.
+OMERO.web is installed **separately** from the OMERO.server.
 
 OMERO.web can be deployed with:
 
@@ -56,6 +52,11 @@ more specific walkthrough listed below.
     :doc:`walkthrough/omeroweb-install-debian9-ice3.6`
         Instructions for installing **separately** OMERO.web from
         scratch on Debian 9 with Ice 3.6.
+
+**Development:**
+
+.. seealso::
+
 
     :doc:`walkthrough/omeroweb-install-osx-ice3.6`
         Instructions for installing OMERO.web from scratch on
@@ -115,7 +116,7 @@ Installation
 ------------
 
 From **OMERO 5.6.0** release, the ``omero-web`` library supports Python 3 and
-can be installed via :command:`pip`.
+can be installed via ``pip``.
 
 We assume the following::
 
@@ -203,10 +204,10 @@ Start the Gunicorn worker processes listening by default on 127.0.0.1:4080:
 ::
 
     $ omero web start
-    ... static files copied to '/home/omero/omero/lib/python/omeroweb/static'.
+    ... static files copied to '/opt/omero/web/omero-web/lib/python/omeroweb/static'.
     Starting OMERO.web... [OK]
 
-The Gunicorn workers are managed **separately** from other OMERO.server
+The Gunicorn workers are managed **separately** from other OMERO
 processes. You can check their status or stop them using the
 following commands:
 
@@ -325,7 +326,7 @@ using :property:`omero.web.wsgi_args`:
 
 ::
 
-    $ omero config set omero.web.wsgi_args -- "--log-level=DEBUG --error-logfile=/home/omero/omero/var/log/error.log".
+    $ omero config set omero.web.wsgi_args -- "--log-level=DEBUG --error-logfile=/opt/omero/web/omero-web/var/log/error.log".
 
 
 .. _gunicorn_advance_configuration:
