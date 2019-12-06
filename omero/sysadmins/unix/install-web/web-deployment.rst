@@ -79,7 +79,7 @@ more specific walkthrough listed below.
     If your organization's policies only allow Apache to be used as the external-facing web-server you should configure Apache to proxy connections to an NGINX instance running on your OMERO server i.e. use Apache as a reverse proxy. For more details see
     `Apache mod_proxy documentation <https://httpd.apache.org/docs/current/mod/mod_proxy.html>`_.
 
-This guide uses the example of deploying OMERO.web **separately** from OMERO.server with
+This guide uses the example of deploying OMERO.web with
 `NGINX <https://nginx.org/>`_ and `Gunicorn <https://docs.gunicorn.org/>`_.
 
 .. _omero_web_deployment:
