@@ -162,5 +162,3 @@ the OMERO data directory:
 .. literalinclude:: walkthrough/walkthrough_debian9.sh
     :start-after: #start-step07
     :end-before: #end-step07
-
-| :download:`omero-web-cron <walkthrough/omero-web-cron>`

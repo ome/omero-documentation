@@ -155,5 +155,3 @@ the OMERO data directory:
 .. literalinclude:: walkthrough/walkthrough_ubuntu1804.sh
     :start-after: #start-step07
     :end-before: #end-step07
-
-| :download:`omero-web-cron <walkthrough/omero-web-cron>`
