@@ -40,7 +40,7 @@ To install Java |javaversion| and other dependencies:
 
 .. literalinclude:: walkthrough/walkthrough_debian9.sh
     :start-after: #start-step01
-    :end-before: #start-web-dependencies
+    :end-before: #end-step01
 
 To install Ice |iceversion|:
 
