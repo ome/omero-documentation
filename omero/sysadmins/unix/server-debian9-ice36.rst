@@ -54,10 +54,11 @@ To make Ice available to all users, set the environment using :download:`omero-i
    
 As part of the installation of Ice, two new daemons are installed and automatically started.
 In order for the OMERO.server to start correctly,
-they both should be disabled by running the following command::
+they both should be disabled by running the following command:
 
-  systemctl --now disable glacier2router icegridregistry
-
+.. literalinclude:: walkthrough/walkthrough_debian9.sh
+    :start-after: #start-disable-daemons
+    :end-before: #end-disable-daemons
 
 To install PostgreSQL |postgresversion|:
 
