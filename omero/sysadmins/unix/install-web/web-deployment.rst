@@ -6,11 +6,7 @@ web-based UI and JSON API.
 This section provides guidance on how to install and set up OMERO.web on
 any of the supported UNIX and UNIX-like platforms. Specific walkthroughs are
 provided for several systems, with detailed step-by-step instructions.
-OMERO.web can be either installed **separately** from 
-the OMERO.server or installed with the OMERO.server.
-Deploying separately is **recommended** as they
-perform best under different circumstances and require a different set of
-dependencies.
+OMERO.web is installed **separately** from the OMERO.server.
 
 OMERO.web can be deployed with:
 
@@ -34,34 +30,20 @@ more specific walkthrough listed below.
 
 **Recommended:**
 
-.. seealso::
 
-    :doc:`walkthrough/omeroweb-install-centos7-ice3.6`
-        Instructions for installing **separately** OMERO.web from
-        scratch on CentOS 7 with Ice 3.6.
+:doc:`walkthrough/omeroweb-install-centos7-ice3.6`
+  Instructions for installing OMERO.web from scratch on CentOS 7 with Ice 3.6.
 
-    :doc:`walkthrough/omeroweb-install-ubuntu1804-ice3.6`
-        Instructions for installing **separately** OMERO.web from
-        scratch on Ubuntu 18.04 with Ice 3.6.
+:doc:`walkthrough/omeroweb-install-ubuntu1804-ice3.6`
+  Instructions for installing OMERO.web from scratch on Ubuntu 18.04 with Ice 3.6.
 
 **Upcoming:**
 
-.. seealso::
+:doc:`walkthrough/omeroweb-install-ubuntu1604-ice3.6`
+  Instructions for installing OMERO.web from scratch on Ubuntu 16.04 with Ice 3.6.
 
-
-    :doc:`walkthrough/omeroweb-install-ubuntu1604-ice3.6`
-        Instructions for installing **separately** OMERO.web from
-        scratch on Ubuntu 16.04 with Ice 3.6.
-
-    :doc:`walkthrough/omeroweb-install-debian9-ice3.6`
-        Instructions for installing **separately** OMERO.web from
-        scratch on Debian 9 with Ice 3.6.
-
-    :doc:`walkthrough/omeroweb-install-osx-ice3.6`
-        Instructions for installing OMERO.web from scratch on
-        on Mac OS X with Homebrew. It is aimed at **developers**
-        since typically MacOS X is not suited for serious deployment.
-
+:doc:`walkthrough/omeroweb-install-debian9-ice3.6`
+  Instructions for installing OMERO.web from scratch on Debian 9 with Ice 3.6.
 
 .. toctree::
     :maxdepth: 1
@@ -72,14 +54,13 @@ more specific walkthrough listed below.
     walkthrough/omeroweb-install-ubuntu1604-ice3.6
     walkthrough/omeroweb-install-ubuntu1804-ice3.6
     walkthrough/omeroweb-install-debian9-ice3.6
-    walkthrough/omeroweb-install-osx-ice3.6
 
 .. note:: Support for Apache deployment has been dropped in 5.3.0.
     
     If your organization's policies only allow Apache to be used as the external-facing web-server you should configure Apache to proxy connections to an NGINX instance running on your OMERO server i.e. use Apache as a reverse proxy. For more details see
     `Apache mod_proxy documentation <https://httpd.apache.org/docs/current/mod/mod_proxy.html>`_.
 
-This guide uses the example of deploying OMERO.web **separately** from OMERO.server with
+This guide uses the example of deploying OMERO.web with
 `NGINX <https://nginx.org/>`_ and `Gunicorn <https://docs.gunicorn.org/>`_.
 
 .. _omero_web_deployment:
@@ -88,8 +69,6 @@ Prerequisites
 -------------
 
 -  Python 3
-
-   -  `NumPy <https://www.numpy.org>`_ >=1.9
 
 -  A `WSGI <https://wsgi.readthedocs.org>`_-capable webserver such as
    `NGINX <https://nginx.org/>`_ and `Gunicorn <https://docs.gunicorn.org/>`_
@@ -117,18 +96,17 @@ Installation
 ------------
 
 From **OMERO 5.6.0** release, the ``omero-web`` library supports Python 3 and
-can be installed via :command:`pip`.
+can be installed via ``pip``.
 
 We assume the following::
 
-    $ omero_user_home_dir=/home/omero
-    $ export OMERODIR=${omero_user_home_dir}/omero
+    $ omero_user_web_dir=/opt/omero/web
+    $ export OMERODIR=${omero_user_web_dir}/omero-web
 
 We recommend you use a virtual environment::
 
-    $ python3 -m venv py3_venv
-    $ source py3_venv/bin/activate
-    $ pip install omero-web
+    $ python3 -m venv ${omero_user_web_dir}/venv3
+    $ ${omero_user_web_dir}/venv3/pip install omero-web
 
 .. _gunicorn_default_configuration:
 
@@ -206,10 +184,10 @@ Start the Gunicorn worker processes listening by default on 127.0.0.1:4080:
 ::
 
     $ omero web start
-    ... static files copied to '/home/omero/omero/lib/python/omeroweb/static'.
+    ... static files copied to '/opt/omero/web/omero-web/lib/python/omeroweb/static'.
     Starting OMERO.web... [OK]
 
-The Gunicorn workers are managed **separately** from other OMERO.server
+The Gunicorn workers are managed **separately** from other OMERO
 processes. You can check their status or stop them using the
 following commands:
 
@@ -328,7 +306,7 @@ using :property:`omero.web.wsgi_args`:
 
 ::
 
-    $ omero config set omero.web.wsgi_args -- "--log-level=DEBUG --error-logfile=/home/omero/omero/var/log/error.log".
+    $ omero config set omero.web.wsgi_args -- "--log-level=DEBUG --error-logfile=/opt/omero/web/omero-web/var/log/error.log".
 
 
 .. _gunicorn_advance_configuration:

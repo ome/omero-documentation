@@ -142,9 +142,12 @@ with additional configuration of OMERO.web. See the
 `django-cors-headers <https://github.com/ottoyiu/django-cors-headers>`_ page
 for more details on the settings.
 
-In the virtual environment where OMERO.web is installed, install the app and add it to the list of installed apps::
+In the virtual environment where OMERO.web is installed, install the app as **root**::
 
   $ pip install django-cors-headers
+
+And add it to the list of installed apps as the **omero-web** system user::
+
   $ omero config append omero.web.apps '"corsheaders"'
 
 Add the cors-headers middleware. Configuration of OMERO.web middleware

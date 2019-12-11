@@ -40,8 +40,8 @@ rm OMERO*sql
 echo "Generating Web configuration templates"
 # Nginx / WSGI
 omero config set omero.web.application_server wsgi-tcp
-omero web config nginx | sed "s|$WORKSPACE/OMERO.server|/home/omero/OMERO.web|g" > omero/sysadmins/unix/install-web/nginx-omero.conf
-omero web config nginx-location | sed "s|$WORKSPACE/OMERO.server|/home/omero/OMERO.web|g" | grep -v '^#' > omero/sysadmins/unix/install-web/nginx-location.conf
+omero web config nginx | sed "s|$WORKSPACE/OMERO.server|/opt/omero/web/omero-web|g" > omero/sysadmins/unix/install-web/nginx-omero.conf
+omero web config nginx-location | sed "s|$WORKSPACE/OMERO.server|/opt/omero/web/omero-web|g" | grep -v '^#' > omero/sysadmins/unix/install-web/nginx-location.conf
 omero web config nginx-location | sed "s|/opt/omero/web|/home/omero|g" | grep '^##' | cut -c3-
 > omero/sysadmins/unix/install-web/nginx-location-manual-wrapper.conf
 
