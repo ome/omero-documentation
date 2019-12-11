@@ -116,7 +116,7 @@ Linux (CentOS and RHEL)
 
 General overview for `RHEL
 <https://access.redhat.com/articles/3078>`__ and `CentOS
-<https://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
+<https://wiki.centos.org/About/Product>`__
 
 .. list-table::
     :header-rows: 1
@@ -136,7 +136,7 @@ General overview for `RHEL
       - |Dropped|
       - |Dropped|
       - |Dropped|
-      - `Reference <https://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
+      - `Reference <https://wiki.centos.org/About/Product>`__
     * - 7
       - June 2014
       - June 2024
@@ -144,7 +144,7 @@ General overview for `RHEL
       - |Recommended|
       - |Recommended|
       - |Deprecated|
-      - `Reference <https://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d>`__
+      - `Reference <https://wiki.centos.org/About/Product>`__
     * - 8
       - May 2019
       - May 2029
