@@ -70,7 +70,6 @@ for f in \
     README.md \
     requirements\* \
     settings.env \
-    settings-web.env \
     setup_\* \
     omero-\* \
     ; do

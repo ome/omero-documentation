@@ -40,7 +40,7 @@ To install Java |javaversion| and other dependencies:
 
 .. literalinclude:: walkthrough/walkthrough_ubuntu1804.sh
     :start-after: #start-step01
-    :end-before: #start-web-dependencies
+    :end-before: #end-step01
 
 To install Ice |iceversion|:
 
@@ -155,5 +155,3 @@ the OMERO data directory:
 .. literalinclude:: walkthrough/walkthrough_ubuntu1804.sh
     :start-after: #start-step07
     :end-before: #end-step07
-
-| :download:`omero-web-cron <walkthrough/omero-web-cron>`
