@@ -16,19 +16,25 @@ This should be read in conjunction with :doc:`../version-requirements`.
   Instructions for installing OMERO.server from scratch on
   CentOS 7 with Ice 3.6 and Python 3.6.
 
+:doc:`server-debian10-ice36`
+  Instructions for installing OMERO.server from scratch on
+  Debian 9 with Ice 3.6 and Python 3.7.
+
 :doc:`server-ubuntu1804-ice36`
   Instructions for installing OMERO.server from scratch on
   Ubuntu 18.04 with Ice 3.6 and Python 3.6.
 
 **Upcoming:**
 
+:doc:`server-debian9-ice36`
+  Instructions for installing OMERO.server from scratch on
+  Debian 9 with Ice 3.6 and Python 3.5.
+
 :doc:`server-ubuntu1604-ice36`
   Instructions for installing OMERO.server from scratch on
   Ubuntu 16.04 with Ice 3.6 and Python 3.5.
 
-:doc:`server-debian9-ice36`
-  Instructions for installing OMERO.server from scratch on
-  Debian 9 with Ice 3.6 and Python 3.5
+
 
 **Development:**
 
@@ -46,6 +52,7 @@ This should be read in conjunction with :doc:`../version-requirements`.
     server-ubuntu1604-ice36
     server-ubuntu1804-ice36
     server-debian9-ice36
+    server-debian10-ice36
     server-install-homebrew
 
 Prerequisites
