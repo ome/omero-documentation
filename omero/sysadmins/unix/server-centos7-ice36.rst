@@ -10,7 +10,7 @@ a dedicated local system user, and should be read in conjunction with
 for setting up your own test server. For production use you should also read
 the pages listed under :ref:`index-optimizing-server`.
 This guide will install Python 3.6.
-Since 5.6, a new ``OMERODIR`` variable is used, you should first unset ``OMERO_HOME``
+Since 5.6, a new :envvar:`OMERODIR` variable is used, you should first unset :envvar:`OMERO_HOME`
 (if set) before beginning the installation process.
 
 This guide describes how to install using the **recommended** versions for
