@@ -203,7 +203,7 @@ linkcheck_ignore += [
     'https://www.cloudflare.com/',
     'https://www.zenoss.com/',
     r'https://logback\.qos\.ch/.*',
-    r'https://www\.slf4j\.org/.*',
+    r'https://www\.slf4j\.org/?.*',
     r'https://www\.strandls\.com/.*',
 ]
 
