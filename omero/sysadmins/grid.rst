@@ -434,20 +434,20 @@ Symbolic linking
 Shortcuts allow the :file:`bin/omero` script to function as an init.d script
 when named :file:`omero-admin`, and need only be copied to
 :file:`/etc/init.d/` to function properly. It will resolve its installation
-directory, and execute from there unless :envvar:`OMERO_HOME` is set.
+directory, and execute from there.
 
 For example,
 
 ::
 
-    ln -s $OMERODIR/bin/omero /usr/local/bin/omero
+    ln -s $VENV_SERVER/bin/omero /usr/local/bin/omero
     omero-admin start
 
 The same works for putting :file:`bin/omero` on your path:
 
 ::
 
-    PATH=$OMERODIR/bin:$PATH
+    PATH=$VENV_SERVER/bin:$PATH
 
 This means that OMERO.grid can be unpacked
 anywhere, and as long as the user invoking the commands has the proper
