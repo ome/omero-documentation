@@ -303,11 +303,11 @@ CLI output
 The output of the following CLI commands will be used as configuration files
 in the documentation:
 
-- ``bin/omero config parse``
-- ``bin/omero ldap setdn -h``
-- ``bin/omero db script``
-- ``bin/omero web config nginx``
-- ``bin/omero web config nginx-location``
+- ``omero config parse``
+- ``omero ldap setdn -h``
+- ``omero db script``
+- ``omero web config nginx``
+- ``omero web config nginx-location``
 
 See `autogen_docs <https://github.com/openmicroscopy/ome-documentation/blob/develop/omero/autogen_docs>`_
 to check the name of the output files. Changes to the output should be

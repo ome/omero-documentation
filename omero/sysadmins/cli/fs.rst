@@ -8,7 +8,7 @@ contain them. At an administrator-only level it is also possible to move
 filesets. This functionality is provided by the :program:`omero fs` command.
 See ::
 
-    $ bin/omero fs -h
+    $ omero fs -h
 
 Listing repositories
 ^^^^^^^^^^^^^^^^^^^^
@@ -16,7 +16,7 @@ Listing repositories
 The :program:`omero fs repos` subcommand lists the repositories used by OMERO. 
 For example ::
 
-    bin/omero fs repos
+    omero fs repos
 
      # | Id | UUID                                 | Type    | Path
     ---+----+--------------------------------------+---------+--------------------------
@@ -46,7 +46,7 @@ The options available to this subcommand are:
 For example
 ::
 
-    bin/omero fs repos --managed --style=csv
+    omero fs repos --managed --style=csv
 
     #,Id,UUID,Type,Path
     0,1,83bf5c68-8236-47ff-ae3e-728674eb0103,Managed,/OMERO/ManagedRepository
@@ -59,7 +59,7 @@ Filesets are bundles of original data imported into OMERO 5 and above, which
 represent one or more images. For example
 ::
 
-    bin/omero fs sets
+    omero fs sets
 
      #  | Id    | Prefix                            | Images | Files | Transfer
     ----+-------+-----------------------------------+--------+-------+----------
@@ -126,7 +126,7 @@ The options available to this subcommand are:
 For example
 ::
 
-    bin/omero fs sets --order oldest --limit 3 --offset 5 --check
+    omero fs sets --order oldest --limit 3 --offset 5 --check
 
      # | Id | Prefix                            | Images | Files | Transfer | Check
     ---+----+-----------------------------------+--------+-------+----------+-------
@@ -143,7 +143,7 @@ This subcommand is useful for showing pre-FS (i.e. OMERO 4.4 and before) images
 which have their original data archived with them. For example
 ::
 
-    bin/omero fs images
+    omero fs images
 
      #  | Image  | Name                              | FS    | # Files | Size
     ----+--------+-----------------------------------+-------+---------+----------
@@ -195,7 +195,7 @@ The options available to this subcommand are:
 For example
 ::
 
-    bin/omero fs images --archived --offset 16 --limit 3
+    omero fs images --archived --offset 16 --limit 3
 
      # | Image | Name                      | FS | # Files | Size
     ---+-------+---------------------------+----+---------+---------
@@ -217,7 +217,7 @@ example, after adding the group name and group ID to template and changing the
 date format
 ::
 
-    $ bin/omero fs rename 9
+    $ omero fs rename 9
 
     Renaming Fileset:9 to pg-0_3/user-0_2/2014-07-23/16-48-20.786/
     Moving user-0_2/2014-07/23/16-31-51.070/ to pg-0_3/user-0_2/2014-07-23/16-48-20.786/
@@ -243,7 +243,7 @@ The options available to this subcommand are:
 For example
 ::
 
-    $ bin/omero fs rename Fileset:8 --no-move
+    $ omero fs rename Fileset:8 --no-move
 
     Renaming Fileset:8 to pg-0_3/user-0_2/2014-07-23/16-49-23.543/
     Done. You will now need to move these files manually:
@@ -266,7 +266,7 @@ of object types with ids and returns the total disk usage of the specified objec
 For example
 ::
 
-    bin/omero fs usage Image:30001,30051 Plate:1051 --report
+    omero fs usage Image:30001,30051 Plate:1051 --report
 
     Total disk usage: 1064320138 bytes in 436 files
      component    | size (bytes) | files
@@ -284,7 +284,7 @@ all of that user's groups is returned.
 For example
 ::
 
-    bin/omero fs usage --report
+    omero fs usage --report
 
     Total disk usage: 4526436430274 bytes in 26078 files
      component    | size (bytes)  | files
@@ -343,12 +343,12 @@ The options available to this subcommand are:
 For example
 ::
 
-    bin/omero fs usage --groups --size_only -C -u user-1
+    omero fs usage --groups --size_only -C -u user-1
 
     4576108188820
 
 
-    bin/omero fs usage Project:1,2 Dataset:5 --units M --report
+    omero fs usage Project:1,2 Dataset:5 --units M --report
 
     Total disk usage: 1432 MiB in 121 files
      component  | size (bytes) | files
