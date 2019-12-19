@@ -68,7 +68,7 @@ display a maintenance page.
       $ omero web clearsessions
 
   It is recommended to call this command on a regular basis, for example 
-  as a daily cron job, see
+  as a :download:`daily cron job <omero-web-cron>`, see
   :djangodoc:`Django clearing the session store documentation <topics/http/sessions/#clearing-the-session-store>` for more information.
 
 
