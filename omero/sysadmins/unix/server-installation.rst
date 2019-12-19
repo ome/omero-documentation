@@ -12,36 +12,30 @@ This should be read in conjunction with :doc:`../version-requirements`.
 
 **Recommended:**
 
-.. seealso::
+:doc:`server-centos7-ice36`
+  Instructions for installing OMERO.server from scratch on
+  CentOS 7 with Ice 3.6 and Python 3.6.
 
-    :doc:`server-centos7-ice36`
-        Instructions for installing OMERO.server from scratch on
-        CentOS 7 with Ice 3.6 and Python 3.6.
-
-    :doc:`server-ubuntu1804-ice36`
-        Instructions for installing OMERO.server from scratch on
-        Ubuntu 18.04 with Ice 3.6 and Python 3.6.
+:doc:`server-ubuntu1804-ice36`
+  Instructions for installing OMERO.server from scratch on
+  Ubuntu 18.04 with Ice 3.6 and Python 3.6.
 
 **Upcoming:**
 
-.. seealso::
+:doc:`server-ubuntu1604-ice36`
+  Instructions for installing OMERO.server from scratch on
+  Ubuntu 16.04 with Ice 3.6 and Python 3.5.
 
-    :doc:`server-ubuntu1604-ice36`
-        Instructions for installing OMERO.server from scratch on
-        Ubuntu 16.04 with Ice 3.6 and Python 3.5.
-
-    :doc:`server-debian9-ice36`
-        Instructions for installing OMERO.server from scratch on
-        Debian 9 with Ice 3.6 and Python 3.5
+:doc:`server-debian9-ice36`
+  Instructions for installing OMERO.server from scratch on
+  Debian 9 with Ice 3.6 and Python 3.5
 
 **Development:**
 
-.. seealso::
-
-    :doc:`server-install-homebrew`
-        Instructions for installing and building OMERO.server on Mac
-        OS X with dependencies installed using Homebrew. It is aimed at **developers**
-        since typically MacOS X is not suited for serious server deployment.
+:doc:`server-install-homebrew`
+  Instructions for installing and building OMERO.server on Mac
+  OS X with dependencies installed using Homebrew. It is aimed at **developers**
+  since typically MacOS X is not suited for serious server deployment.
 
 .. toctree::
     :maxdepth: 1
