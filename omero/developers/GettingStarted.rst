@@ -68,18 +68,16 @@ Environment variables
 In addition to the install instructions, you might find it useful to set
 the following variables:
 
--  Add the /bin/ directory to your PATH - allows you to call the 'omero'
+-  For Python developers, create a virtual environment and install omero-py.
+
+-  Add to your PATH the /bin/ directory of the virtual environment where omero-py is installed - allows you to call the 'omero'
    command from anywhere
 
    ::
 
-       export PATH=$PATH:$OMERO_PREFIX/bin/
+       export PATH=$PATH:$OMERO_VENV/bin/
 
--  For Python developers, set your PYTHONPATH as follows
 
-   ::
-
-       export PYTHONPATH=$PYTHONPATH:$OMERO_PREFIX/lib/python/
 
 Now checkout the |CLI|.
 
