@@ -9,6 +9,7 @@ page first as it explains the entire process rather than just being a series
 of commands. The walk-throughs describs how to install the **recommended** versions,
 not all the supported versions.
 This should be read in conjunction with :doc:`../version-requirements`.
+
 Since 5.6, a new :envvar:`OMERODIR` variable is used, you should first unset :envvar:`OMERO_HOME`
 (if set) before beginning the installation process.
 
