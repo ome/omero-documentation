@@ -68,18 +68,6 @@ Environment variables
 In addition to the install instructions, you might find it useful to set
 the following variables:
 
--  OMERO\_HOME: should be set to the directory containing the OMERO
-   distribution or build (**note that we do not recommend setting this
-   variable for production servers, it is for development usage only** - see
-   :doc:`/sysadmins/omero-home-prefix`)
-
-   ::
-
-       # E.g. If you built the server yourself
-       export OMERO_PREFIX=~/Desktop/OMERO/dist
-       # Or you downloaded a release package
-       export OMERO_PREFIX=~/Desktop/OMERO.server-5.0.x
-
 -  Add the /bin/ directory to your PATH - allows you to call the 'omero'
    command from anywhere
 
