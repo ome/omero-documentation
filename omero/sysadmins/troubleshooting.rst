@@ -1,8 +1,6 @@
 Troubleshooting OMERO
 =====================
 
-.. seealso:: :doc:`omero-home-prefix`
-
 .. _troubleshooting-password:
 
 Which user account and password do I use where?
@@ -473,7 +471,3 @@ PyTables on Debian 9 should be installed directly from PyPI_ instead of using ``
 
   pip install tables
 
-.. toctree::
-    :hidden:
-    
-    omero-home-prefix

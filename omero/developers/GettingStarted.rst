@@ -68,30 +68,16 @@ Environment variables
 In addition to the install instructions, you might find it useful to set
 the following variables:
 
--  OMERO\_HOME: should be set to the directory containing the OMERO
-   distribution or build (**note that we do not recommend setting this
-   variable for production servers, it is for development usage only** - see
-   :doc:`/sysadmins/omero-home-prefix`)
+-  For Python developers, create a virtual environment and install omero-py.
 
-   ::
-
-       # E.g. If you built the server yourself
-       export OMERO_PREFIX=~/Desktop/OMERO/dist
-       # Or you downloaded a release package
-       export OMERO_PREFIX=~/Desktop/OMERO.server-5.0.x
-
--  Add the /bin/ directory to your PATH - allows you to call the 'omero'
+-  Add to your PATH the /bin/ directory of the virtual environment e.g. ``OMERO_VENV=/opt/omero/server/venv3`` where omero-py is installed - allows you to call the 'omero'
    command from anywhere
 
    ::
 
-       export PATH=$PATH:$OMERO_PREFIX/bin/
+       export PATH=$PATH:$OMERO_VENV/bin/
 
--  For Python developers, set your PYTHONPATH as follows
 
-   ::
-
-       export PYTHONPATH=$PYTHONPATH:$OMERO_PREFIX/lib/python/
 
 Now checkout the |CLI|.
 

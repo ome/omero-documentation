@@ -216,6 +216,7 @@ def copy_legacy_redirects(app, exception):
     redirect_files = [
         'sysadmins/server-overview.html',
         'sysadmins/server-tables.html',
+        'sysadmins/omero-home-prefix.html',
     ]
     if app.builder.name == 'html':
         for html_src_path in redirect_files:

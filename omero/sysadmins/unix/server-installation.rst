@@ -10,6 +10,10 @@ of commands. The walk-throughs describs how to install the **recommended** versi
 not all the supported versions.
 This should be read in conjunction with :doc:`../version-requirements`.
 
+Since 5.6, a new :envvar:`OMERODIR` variable is used, you should first unset :envvar:`OMERO_HOME`
+(if set) before beginning the installation process.
+
+
 **Recommended:**
 
 :doc:`server-centos7-ice36`
