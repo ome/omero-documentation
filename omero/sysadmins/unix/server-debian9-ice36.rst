@@ -49,10 +49,15 @@ To install Ice |iceversion|:
     :start-after: #start-recommended-ice
     :end-before: #end-recommended-ice
 
-To make Ice available to all users, set the environment using :download:`omero-ice36.env <walkthrough/omero-ice36.env>`::
+To make Ice available to all users and activate the virtual environment, set the following in ``/etc/profile``:
 
-    cat omero-ice36.env >> /etc/profile
-   
+.. literalinclude:: walkthrough/omero-ice36.env
+
+and add the virtual environment to ``PATH``:
+
+.. literalinclude:: walkthrough/settings.env
+    :start-after: # Location of the virtual environment
+
 As part of the installation of Ice, two new daemons are installed and automatically started.
 In order for the OMERO.server to start correctly,
 they both should be disabled by running the following command:
@@ -109,7 +114,7 @@ Change the ownership of the OMERO.server directory and create a symlink:
     :start-after: #end-release-ice36
     :end-before: #end-step04-pre
 
-**The following steps are run as the omero-server system user.**
+**The following steps are run as the omero-server system user.** (``su - omero-server``)
 
 The variable ``OMERODIR`` set in :download:`settings.env <walkthrough/settings.env>` above **must** point to the location where OMERO.server is installed.
 e.g. ``OMERODIR=/path_to_omero_server/OMERO.server``.
@@ -142,7 +147,7 @@ added in two files in order to allow connection.
 Running OMERO.server
 --------------------
 
-**The following steps are run as the omero-server system user.**
+**The following steps are run as the omero-server system user.** (``su - omero-server``)
 
 OMERO should now be set up. To start the server run::
 
