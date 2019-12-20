@@ -48,9 +48,14 @@ To install Ice |iceversion|:
     :start-after: #start-recommended-ice
     :end-before: #end-recommended-ice
 
-To make Ice available to all users, set the environment using :download:`omero-ice36.env <walkthrough/omero-ice36.env>`::
+To make Ice available to all users and activate the virtual environment, set the following in ``/etc/profile``:
 
-    cat omero-ice36.env >> /etc/profile
+.. literalinclude:: walkthrough/omero-ice36.env
+
+and add the virtual environment to ``PATH``:
+
+.. literalinclude:: walkthrough/settings.env
+    :start-after: # Location of the virtual environment
 
 To install PostgreSQL |postgresversion|:
 
