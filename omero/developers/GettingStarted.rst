@@ -70,7 +70,7 @@ the following variables:
 
 -  For Python developers, create a virtual environment and install omero-py.
 
--  Add to your PATH the /bin/ directory of the virtual environment where omero-py is installed - allows you to call the 'omero'
+-  Add to your PATH the /bin/ directory of the virtual environment e.g. ``OMERO_VENV=/opt/omero/server/venv3`` where omero-py is installed - allows you to call the 'omero'
    command from anywhere
 
    ::
