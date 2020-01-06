@@ -7,16 +7,17 @@ OMERO.web installation on Ubuntu 16.04 and IcePy 3.6
 Please first read :doc:`../../server-ubuntu1604-ice36`.
 
 
-This is an example walkthrough for installing OMERO.web in a **virtual environment** using a dedicated system user. Installing OMERO.web in a virtual environment is the preferred way. For convenience in this walkthrough, we will use the **omero system user** and define the main OMERO.web configuration options as environment variables.
+This is an example walkthrough for installing OMERO.web in a **virtual environment** using a dedicated system user. Installing OMERO.web in a virtual environment is the preferred way. For convenience in this walkthrough, we will use the **omero-web system user** and define the main OMERO.web configuration options as environment variables. Since 5.6, a new :envvar:`OMERODIR` variable is used, you should first unset :envvar:`OMERO_HOME` (if set) before beginning the installation process.
 
 
 **The following steps are run as root.**
 
-If required, first create a local system user omero and create the homedir too :file:`/home/omero`::
+If required, first create a local system user omero-web and create directory::
 
-    useradd -m omero
+    useradd -m omero-web
 
-    chmod a+X /home/omero
+    mkdir -p /opt/omero/web/omero-web/etc/grid
+    chown -R omero-web /opt/omero/web/omero-web
 
 
 
@@ -38,6 +39,13 @@ Install dependencies::
     apt-get -y install nginx
 
 
+*Optional*: if you wish to use the Redis cache, install Redis::
+
+    apt-get -y install redis-server
+
+    service redis-server start
+
+
 Creating a virtual environment
 ------------------------------
 
@@ -45,53 +53,47 @@ Creating a virtual environment
 
 Create the virtual environment. This is the recommended way to install OMERO.web::
 
-    python3 -mvenv /opt/omero/web/
+    python3 -mvenv /opt/omero/web/venv3
 
 
 
 Install ZeroC IcePy 3.6::
 
-    /opt/omero/web//bin/pip install --upgrade https://github.com/ome/zeroc-ice-py-ubuntu1604/releases/download/0.2.0/zeroc_ice-3.6.5-cp35-cp35m-linux_x86_64.whl
+    /opt/omero/web/venv3/bin/pip install --upgrade https://github.com/ome/zeroc-ice-py-ubuntu1604/releases/download/0.2.0/zeroc_ice-3.6.5-cp35-cp35m-linux_x86_64.whl
 
 
 Install OMERO.web::
 
-    /opt/omero/web//bin/pip install "omero-web>=5.6.dev5"
+    /opt/omero/web/venv3/bin/pip install "omero-web>=5.6.dev5"
 
 Installing OMERO.web apps
 -------------------------
 
-**The following steps are run as root.**
 
-A number of apps are available to add functionality to OMERO.web, such as `OMERO.figure <https://www.openmicroscopy.org/omero/figure/>`_ and `OMERO.iviewer <https://www.openmicroscopy.org/omero/iviewer/>`_. See the main website for a `list of released apps <https://www.openmicroscopy.org/omero/apps/>`_. These apps are optional and can be installed, as the **root user**, via :program:`pip` to your OMERO.web virtual environment and configure as the **omero system user**, at any time.
+A number of apps are available to add functionality to OMERO.web, such as `OMERO.figure <https://www.openmicroscopy.org/omero/figure/>`_ and `OMERO.iviewer <https://www.openmicroscopy.org/omero/iviewer/>`_. See the main website for a `list of released apps <https://www.openmicroscopy.org/omero/apps/>`_. These apps are optional and can be installed, as the **root user**, via :program:`pip` to your OMERO.web virtual environment and configure as the **omero-web system user**, at any time.
 
 
 
 Configuring OMERO.web
 ---------------------
 
-**The following steps are run as the omero system user.**
+**The following steps are run as the omero-web system user.**
 
 For convenience the main OMERO.web configuration options have been defined as environment variables. You can either use your own values, or alternatively use the following ones::
 
-    # If you are installing OMERO.web and OMERO.server on the same machine.
-    # Point OMERODIR to the OMERO.server
-    # export OMERODIR=/path_to_omero_server/OMERO.server
-    export OMERODIR=/home/omero/omero
+    export WEBSESSION=True
+    export OMERODIR=/opt/omero/web/omero-web
     export WEBPORT=80
     export WEBSERVER_NAME=localhost
 
 
 Configure OMERO.web and create the NGINX OMERO configuration file::
 
-    export PATH=/opt/omero/web//bin:$PATH
-    # The command below is not necessary if OMERODIR points to where the OMERO.server is installed
-    # i.e. OMERO.server and OMERO.web are installed on the same machine.
-    mkdir -p $OMERODIR/etc/grid
+    export PATH=/opt/omero/web/venv3/bin:$PATH
 
 
     omero config set omero.web.application_server wsgi-tcp
-    omero web config nginx --http "${WEBPORT}" --servername "${WEBSERVER_NAME}" > /home/omero/nginx.conf.tmp
+    omero web config nginx --http "${WEBPORT}" --servername "${WEBSERVER_NAME}" > /opt/omero/web/omero-web/nginx.conf.tmp
 
 For more customization, please read :ref:`customizing_your_omero_web_installation`.
 
@@ -99,7 +101,7 @@ For more customization, please read :ref:`customizing_your_omero_web_installatio
 Configuring Gunicorn
 --------------------
 
-**The following steps are run as the omero system user.**
+**The following steps are run as the omero-web system user.**
 
 Additional settings can be configured by changing the following properties:
 
@@ -126,7 +128,7 @@ Copy the generated configuration file into the NGINX configuration directory, di
 
     sed -i.bak -re 's/( default_server.*)/; #\1/' /etc/nginx/nginx.conf
     rm /etc/nginx/sites-enabled/default
-    cp /home/omero/nginx.conf.tmp /etc/nginx/conf.d/omeroweb.conf
+    cp /opt/omero/web/omero-web/nginx.conf.tmp /etc/nginx/conf.d/omeroweb.conf
 
     service nginx start
 
@@ -138,10 +140,18 @@ Running OMERO.web
 
 Install `WhiteNoise <http://whitenoise.evans.io/>`_::
 
+    /opt/omero/web/venv3/bin/pip install --upgrade 'whitenoise<4'
 
-    /opt/omero/web//bin/pip install --upgrade 'whitenoise<4'
+*Optional*: Install `Django Redis <https://github.com/niwinz/django-redis/>`_::
 
-**The following steps are run as the omero system user.**
+    /opt/omero/web/venv3/bin/pip install 'django-redis<4.9'
+
+**The following steps are run as the omero-web system user.**
+
+*Optional*: Configure the cache::
+
+    omero config set omero.web.caches '{"default": {"BACKEND": "django_redis.cache.RedisCache","LOCATION": "redis://127.0.0.1:6379/0"}}'
+    omero config set omero.web.session_engine 'django.contrib.sessions.backends.cache'
 
 Configure WhiteNoise and start OMERO.web manually to test the installation::
 
@@ -187,10 +197,10 @@ Should you wish to run OMERO.web automatically, a `init.d` file could be created
     # Read configuration variable file if it is present
     [ -r /etc/default/$prog ] && . /etc/default/$prog
 
-    OMERO_USER=${OMERO_USER:-omero}
-    OMERO=/opt/omero/web//bin/omero
-    OMERODIR=/home/omero/omero
-    VENVDIR=${VENVDIR:-/opt/omero/web/}
+    OMERO_USER=${OMERO_USER:-omero-web}
+    OMERO=/opt/omero/web/venv3/bin/omero
+    OMERODIR=/opt/omero/web/omero-web
+    VENVDIR=${VENVDIR:-/opt/omero/web/venv3}
 
     start() {
         echo -n $"Starting $prog:"
@@ -247,6 +257,7 @@ Copy the `init.d` file, then configure the service::
 
 Start up services::
 
+    service redis-server start
 
     cron
     service nginx start
@@ -256,7 +267,7 @@ Start up services::
 Maintenance
 -----------
 
-**The following steps are run as the omero system user.**
+**The following steps are run as the omero-web system user.**
 
 Please read :ref:`omero_web_maintenance`.
 

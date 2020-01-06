@@ -26,6 +26,8 @@
   Background imports:
   -------------------
 
+    --keep-alive=SECS       	Frequency in seconds for pinging the server.
+
     --auto-close            	Close completed imports immediately.
 
     --minutes-wait=ARG      	Choose how long the importer will wait on server-side processing.

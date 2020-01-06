@@ -25,7 +25,7 @@ omero config parse --rst | sed "s|$WORKSPACE|/home/omero|" > omero/sysadmins/con
 
 echo "Generating ldap setdn usage page"
 mkdir -p omero/downloads/ldap
-omero ldap setdn -h | sed "s|/opt/omero|omero|" > omero/downloads/ldap/setdn.out
+omero ldap setdn -h | sed "s|usage:.*omero|usage: omero|" > omero/downloads/ldap/setdn.out
 
 echo "Generating advanced CLI help"
 omero import --advanced-help 2> advanced-help.txt || echo "Dumped"

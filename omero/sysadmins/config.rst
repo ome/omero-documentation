@@ -773,6 +773,28 @@ Enable or disable LDAP (`true` or `false`).
 
 Default: `false`
 
+.. property:: omero.ldap.connect_timeout
+
+omero.ldap.connect_timeout
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+Sets ``com.sun.jndi.ldap.connect.timeout`` on the Spring LDAP
+default security context source environment.  The context source
+is responsible for interacting with JNDI/LDAP.
+
+This timeout is specified in milliseconds and controls the amount of
+time JNDI/LDAP will wait for a connection to be established.
+
+A timeout less than or equal to zero means that no timeout will be
+observed and that the OMERO server will wait indefinitely for LDAP
+connections to be established.  Such a timeout should be used with
+extreme caution as connectivity issues may then cause your server to
+no longer be able to create new sessions.
+
+For more information on what this JNDI/LDAP property does, see
+https://docs.oracle.com/javase/jndi/tutorial/ldap/connect/create.html
+
+Default: `5000`
+
 .. property:: omero.ldap.group_filter
 
 omero.ldap.group_filter
@@ -860,6 +882,31 @@ omero.ldap.password
 LDAP server bind password (if required; can be empty)
 
 Default: `[empty]`
+
+.. property:: omero.ldap.read_timeout
+
+omero.ldap.read_timeout
+^^^^^^^^^^^^^^^^^^^^^^^
+Sets ``com.sun.jndi.ldap.read.timeout`` on the Spring LDAP
+default security context source environment.  The context source
+is responsible for interacting with JNDI/LDAP.
+
+This timeout is specified in milliseconds and controls the amount of
+time JNDI/LDAP will wait for a response from the LDAP server.  When
+connecting to a server using SSL this timeout also applies to the
+SSL handshake process.
+
+A timeout less than or equal to zero means that no timeout will be
+observed and that the OMERO server will wait indefinitely for LDAP
+replies.  Such a timeout should be used with extreme caution,
+especially when using SSL and/or without a connection pool, as
+connectivity issues may then cause your server to no longer be
+able to create new sessions.
+
+For more information on what this JNDI/LDAP property does, see
+https://docs.oracle.com/javase/tutorial/jndi/newstuff/readtimeout.html
+
+Default: `5000`
 
 .. property:: omero.ldap.referral
 
@@ -1959,7 +2006,7 @@ omero.version
 ^^^^^^^^^^^^^
 Value dynamically set during the build
 
-Default: `5.5.4`
+Default: `5.5.5`
 
 
 .. _web_configuration:

@@ -7,17 +7,17 @@ OMERO.web installation on CentOS 7 and IcePy 3.6
 Please first read :doc:`../../server-centos7-ice36`.
 
 
-This is an example walkthrough for installing OMERO.web in a **virtual environment** using a dedicated system user. Installing OMERO.web in a virtual environment is the preferred way. For convenience in this walkthrough, we will use the **omero system user** and define the main OMERO.web configuration options as environment variables.
+This is an example walkthrough for installing OMERO.web in a **virtual environment** using a dedicated system user. Installing OMERO.web in a virtual environment is the preferred way. For convenience in this walkthrough, we will use the **omero-web system user** and define the main OMERO.web configuration options as environment variables. Since 5.6, a new :envvar:`OMERODIR` variable is used, you should first unset :envvar:`OMERO_HOME` (if set) before beginning the installation process.
 
 
 **The following steps are run as root.**
 
-If required, first create a local system user omero and create directory::
+If required, first create a local system user omero-web and create directory::
 
-    useradd -m omero
+    useradd -m omero-web
 
     mkdir -p /opt/omero/web/omero-web/etc/grid
-    chown -R omero /opt/omero/web/omero-web
+    chown -R omero-web /opt/omero/web/omero-web
 
 
 
@@ -36,6 +36,15 @@ Install dependencies::
     yum -y install python3
 
     yum -y install nginx
+
+
+*Optional*: if you wish to use the Redis cache, install Redis::
+
+    yum -y install redis python-redis
+
+    systemctl enable redis.service
+
+    systemctl start redis.service
 
 
 Creating a virtual environment
@@ -62,17 +71,18 @@ Installing OMERO.web apps
 -------------------------
 
 
-A number of apps are available to add functionality to OMERO.web, such as `OMERO.figure <https://www.openmicroscopy.org/omero/figure/>`_ and `OMERO.iviewer <https://www.openmicroscopy.org/omero/iviewer/>`_. See the main website for a `list of released apps <https://www.openmicroscopy.org/omero/apps/>`_. These apps are optional and can be installed, as the **root user**, via :program:`pip` to your OMERO.web virtual environment and configure as the **omero system user**, at any time.
+A number of apps are available to add functionality to OMERO.web, such as `OMERO.figure <https://www.openmicroscopy.org/omero/figure/>`_ and `OMERO.iviewer <https://www.openmicroscopy.org/omero/iviewer/>`_. See the main website for a `list of released apps <https://www.openmicroscopy.org/omero/apps/>`_. These apps are optional and can be installed, as the **root user**, via :program:`pip` to your OMERO.web virtual environment and configure as the **omero-web system user**, at any time.
 
 
 
 Configuring OMERO.web
 ---------------------
 
-**The following steps are run as the omero system user.**
+**The following steps are run as the omero-web system user.**
 
 For convenience the main OMERO.web configuration options have been defined as environment variables. You can either use your own values, or alternatively use the following ones::
 
+    export WEBSESSION=True
     export OMERODIR=/opt/omero/web/omero-web
     export WEBPORT=80
     export WEBSERVER_NAME=localhost
@@ -92,7 +102,7 @@ For more customization, please read :ref:`customizing_your_omero_web_installatio
 Configuring Gunicorn
 --------------------
 
-**The following steps are run as the omero system user.**
+**The following steps are run as the omero-web system user.**
 
 Additional settings can be configured by changing the following properties:
 
@@ -135,10 +145,18 @@ Running OMERO.web
 
 Install `WhiteNoise <http://whitenoise.evans.io/>`_::
 
-
     /opt/omero/web/venv3/bin/pip install --upgrade 'whitenoise<4'
 
-**The following steps are run as the omero system user.**
+*Optional*: Install `Django Redis <https://github.com/niwinz/django-redis/>`_::
+
+    /opt/omero/web/venv3/bin/pip install 'django-redis<4.9'
+
+**The following steps are run as the omero-web system user.**
+
+*Optional*: Configure the cache::
+
+    omero config set omero.web.caches '{"default": {"BACKEND": "django_redis.cache.RedisCache","LOCATION": "redis://127.0.0.1:6379/0"}}'
+    omero config set omero.web.session_engine 'django.contrib.sessions.backends.cache'
 
 Configure WhiteNoise and start OMERO.web manually to test the installation::
 
@@ -166,7 +184,7 @@ Should you wish to run OMERO.web automatically, a `systemd.service` file could b
     After=network.service
 
     [Service]
-    User=omero
+    User=omero-web
     Type=forking
     PIDFile=/opt/omero/web/omero-web/var/django.pid
     Restart=no
@@ -195,7 +213,7 @@ Copy the `systemd.service` file, then enable and start the service::
 Maintenance
 -----------
 
-**The following steps are run as the omero system user.**
+**The following steps are run as the omero-web system user.**
 
 Please read :ref:`omero_web_maintenance`.
 
