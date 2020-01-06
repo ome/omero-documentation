@@ -20,7 +20,7 @@ Viewing the movie
 
 The make movie script allows you to save the movie in two different
 formats, a DivX encoded AVI and Quicktime movie. To view the AVI you may
-need to install a divX codec from ` DivX <https://www.divx.com/>`_. It
+need to install a divX codec from `DivX <https://www.divx.com/>`_. It
 should be noted that the DivX avi is normally 1/3 to 1/10 the size of
 the Quicktime movie.
 
