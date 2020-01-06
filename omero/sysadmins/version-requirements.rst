@@ -21,6 +21,7 @@ plan ahead and ensure that prerequisites are in place for future upgrades.
 
 .. list-table::
     :header-rows: 1
+    :align: left
 
     * - Level
       - Meaning
@@ -71,6 +72,7 @@ NGINX
 
 .. list-table::
     :header-rows: 1
+    :align: left
 
     * - nginx
       - OMERO 5.4
@@ -238,6 +240,7 @@ Package lists
 
 .. list-table::
     :header-rows: 1
+    :align: left
 
     * - Operating system
       - Details
@@ -327,6 +330,7 @@ If no version is provided, a suitable repository is indicated.
 
 .. list-table::
     :header-rows: 1
+    :align: left
 
     * - Version
       - CentOS/RHEL
@@ -462,6 +466,7 @@ Version provided by distribution
 
 .. list-table::
     :header-rows: 1
+    :align: left
 
     * - Version
       - CentOS/RHEL
@@ -576,6 +581,7 @@ If no version is provided, a suitable repository is indicated.
 
 .. list-table::
     :header-rows: 1
+    :align: left
 
     * - Version
       - CentOS/RHEL
@@ -668,6 +674,7 @@ Version provided by distribution
 
 .. list-table::
     :header-rows: 1
+    :align: left
 
     * - Version
       - CentOS/RHEL
@@ -700,7 +707,7 @@ by Oracle. `Oracle Java
 <https://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html>`__
 may be used if downloaded separately.
 
-Nginx
+NGINX
 -----
 
 `General overview <https://nginx.org/en/download.html>`__ and `roadmap
@@ -768,6 +775,7 @@ If no version is provided, a suitable repository is indicated.
 
 .. list-table::
     :header-rows: 1
+    :align: left
 
     * - Version
       - CentOS/RHEL
