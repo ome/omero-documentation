@@ -7,10 +7,10 @@ https://docs.openmicroscopy.org/latest/omero/sysadmins/unix/server-installation.
 
 Copy the files from this directory, then run one of the install scripts,
 
-	bash install_centos7_nginx.sh
-	bash install_ubuntu1604_nginx.sh
-	bash install_ubuntu1804_nginx.sh
-	bash install_debian9_nginx.sh
+	bash install_centos7.sh
+	bash install_ubuntu1604.sh
+	bash install_ubuntu1804.sh
+	bash install_debian9.sh
 
 
 corresponding to the required OS and web platform.

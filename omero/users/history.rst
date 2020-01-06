@@ -30,6 +30,12 @@ omero clients:
 OMERO version history
 =====================
 
+5.6.0-m5 (December 2019)
+------------------------
+
+- omero-blitz 5.5.5
+- omero-gateway-java 5.6.2
+
 5.6.0-m4 (December 2019)
 ------------------------
 
