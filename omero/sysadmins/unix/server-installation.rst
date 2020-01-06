@@ -467,13 +467,13 @@ Configuration
 
 -   You can view a parsed version of the configuration properties
     under :doc:`/sysadmins/config` or parse it
-    yourself with :program:`omero config parse`.
+    yourself with ``omero config parse``.
 
--   Change any settings that are necessary using :program:`omero config`,
+-   Change any settings that are necessary using ``omero config``,
     including the name and/or password for the 'db\_user' database
     user you chose above or the database name if it is not
     "omero\_database". (Quotes are only necessary if the value could
-    be misinterpreted by the shell. See :forum:`link
+    be misinterpreted by the shell. See :forum:`Forum post
     <viewtopic.php?f=5&t=360#p922>`)
 
     ::
@@ -575,8 +575,8 @@ made to have usable settings out of the box, but if you can afford to
 provide OMERO with more memory, it will certainly improve your overall
 performance. See :ref:`jvm_memory_settings` on how to tune the JVM.
 
-Enabling movie creation from OMERO.
------------------------------------
+Enabling movie creation from OMERO
+----------------------------------
 
 OMERO has a facility to create AVI/MPEG Movies from images. The page
 :doc:`/sysadmins/omeromovie` details how to enable it.
