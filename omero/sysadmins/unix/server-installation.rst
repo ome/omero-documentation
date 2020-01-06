@@ -635,12 +635,12 @@ output of the diagnostics command:
     OMERO Diagnostics |release|
     ================================================================================
 
-    Commands:   java -version                  1.8.0     (/usr/bin/java)
-    Commands:   python -V                      3.6.3     (/home/omero/omeroenv/bin/pythons)
+    Commands:   java -version                  11.0.5    (/usr/bin/java)
+    Commands:   python -V                      3.6.9     (/opt/omero/server/venv3/bin/python)
     Commands:   icegridnode --version          3.6.5     (/usr/bin/icegridnode)
     Commands:   icegridadmin --version         3.6.5     (/usr/bin/icegridadmin)
-    Commands:   psql --version                 9.6.15    (/usr/bin/psql)
-    Commands:   openssl version                1.0.2     (/usr/bin/openssl)
+    Commands:   psql --version                 11.6      (/usr/bin/psql)
+    Commands:   openssl version                1.1.111   (/usr/bin/openssl)
 
     Server:     icegridnode                    running
     Server:     Blitz-0                        active (pid = 30324, enabled)
@@ -658,7 +658,7 @@ output of the diagnostics command:
     OMERO:      SSL port                       4064
     OMERO:      TCP port                       4063
 
-    Log dir:    /home/omero/OMERO.server/var/log exists
+    Log dir:    /opt/omero/server/OMERO.server/var/log exists
 
     Log files:  Blitz-0.log                    22.8 KB        errors=0    warnings=9
     Log files:  DropBox.log                    1.3 KB        errors=0    warnings=1
@@ -673,12 +673,12 @@ output of the diagnostics command:
     Log files:  master.out                     empty
     Log files:  Total size                     0.06 MB
 
-    Environment:OMERODIR=/home/omero/OMERO.server
+    Environment:OMERODIR=/opt/omero/server/OMERO.server 
     Environment:OMERO_HOME=(unset)
     Environment:OMERO_NODE=(unset)
     Environment:OMERO_MASTER=(unset)
     Environment:OMERO_TEMPDIR=(unset)
-    Environment:PATH=/home/omero/workspace/omero-virtualenv/bin:/usr/local/bin:/usr/bin:/bin
+    Environment:PATH=/opt/omero/server/venv3/bi:/usr/local/bin:/usr/bin:/bin
     Environment:ICE_HOME=(unset)
     Environment:LD_LIBRARY_PATH=(unset)
     Environment:DYLD_LIBRARY_PATH=(unset)
@@ -686,7 +686,7 @@ output of the diagnostics command:
     OMERO SSL port:4064                           
     OMERO TCP port:4063  
     OMERO data dir: '/OMERO'        Exists? True    Is writable? True
-    OMERO temp dir: '/home/omero/tmp'        Exists? True    Is writable? True   (Size: 0)
+    OMERO temp dir: '/home/omero-server/tmp'        Exists? True    Is writable? True   (Size: 0)
 
     JVM settings: Blitz-${index}                -Xmx621m -XX:MaxPermSize=512m -XX:+IgnoreUnrecognizedVMOptions
     JVM settings: Indexer-${index}              -Xmx414m -XX:MaxPermSize=512m -XX:+IgnoreUnrecognizedVMOptions
