@@ -106,14 +106,15 @@ Java SE Runtime Environment (JRE)
 
 If possible, install one of the following packages:
 
+
 +-----------+---------------------------+
 | System    | Package                   |
 +===========+===========================+
-| Debian    | openjdk-8-jre             |
+| Debian    | openjdk-11-jre            |
 +-----------+---------------------------+
 | Homebrew  | N/A (install Oracle Java) |
 +-----------+---------------------------+
-| RedHat    | java-1.8.0-openjdk        |
+| RedHat    | java-11-openjdk           |
 +-----------+---------------------------+
 
 OMERO works with the OpenJDK JRE provided by most systems, or with
@@ -140,9 +141,9 @@ To check which version of Java is currently available::
     $ which java
     /usr/bin/java
     $ java -version
-    java version "1.8.0_51"
-    Java(TM) SE Runtime Environment (build 1.8.0_51-b16)
-    Java HotSpot(TM) 64-Bit Server VM (build 25.51-b03, mixed mode)
+    openjdk version "11.0.5" 2019-10-15
+    OpenJDK Runtime Environment (build 11.0.5+10-post-Ubuntu-0ubuntu1.118.04)
+    OpenJDK 64-Bit Server VM (build 11.0.5+10-post-Ubuntu-0ubuntu1.118.04, mixed mode, sharing)
 
 Python 3
 ^^^^^^^^
