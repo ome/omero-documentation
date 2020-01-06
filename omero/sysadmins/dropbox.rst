@@ -30,7 +30,7 @@ the following more specific requirements:
     -   Mac OS systems that use a macports install of Python will need to
         have FSEvents available in the PYTHONPATH. This will require a
         path of the form
-        ``/System/Library/Frameworks/Python.framework/Versions/2.X/Extras/lib/python/PyObjC/``
+        ``/System/Library/Frameworks/Python.framework/Versions/3.X/Extras/lib/python/PyObjC/``
         to be added, according to the version of Python used.
 
 -   The filesystem which OMERO.dropbox watches must be local to the given
