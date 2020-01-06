@@ -106,16 +106,21 @@ Java SE Runtime Environment (JRE)
 
 If possible, install one of the following packages:
 
+.. list-table::
+    :header-rows: 1
+    :widths: 1,8
 
-+-----------+---------------------------+
-| System    | Package                   |
-+===========+===========================+
-| Debian    | openjdk-11-jre            |
-+-----------+---------------------------+
-| Homebrew  | N/A (install Oracle Java) |
-+-----------+---------------------------+
-| RedHat    | java-11-openjdk           |
-+-----------+---------------------------+
+    * - System
+      - Package
+
+    * - Debian
+      - openjdk-11-jre
+
+    * - Homebrew
+      - N/A (install Oracle Java)
+
+    * - RedHat
+      - java-11-openjdk
 
 OMERO works with the OpenJDK JRE provided by most systems, or with
 Oracle Java. Version |javaversion| or later is required.
@@ -207,15 +212,21 @@ OMERO.scripts
 
 If you wish to run the "Movie Maker" script, please install :program:`mencoder`.
 
-+-----------+---------------------+
-| System    | Packages            |
-+===========+=====================+
-| Debian    | mencoder            |
-+-----------+---------------------+
-| Homebrew  | mplayer             |
-+-----------+---------------------+
-| RedHat    | mencoder            |
-+-----------+---------------------+
+.. list-table::
+    :header-rows: 1
+    :widths: 1,8
+
+    * - System
+      - Package
+
+    * - Debian
+      - mencoder
+
+    * - Homebrew
+      - mplayer
+
+    * - RedHat
+      - mencoder
 
 Installation
 ------------
@@ -260,15 +271,21 @@ of Ice installed, unpack it:
 If your system does not provide an :program:`unzip` command by
 default, install one of the following:
 
-+-----------+-----------------+
-| System    | Package         |
-+===========+=================+
-| Debian    | unzip           |
-+-----------+-----------------+
-| Homebrew  | unzip           |
-+-----------+-----------------+
-| RedHat    | unzip           |
-+-----------+-----------------+
+.. list-table::
+    :header-rows: 1
+    :widths: 1,8
+
+    * - System
+      - Package
+
+    * - Debian
+      - unzip
+
+    * - Homebrew
+      - unzip
+
+    * - RedHat
+      - unzip
 
 
 Optionally, give your OMERO software install a short name to save some
