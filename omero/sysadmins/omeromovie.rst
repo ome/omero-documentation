@@ -35,7 +35,7 @@ We have :snapshot:`Mac OSX installs for mencoder <mencoder/mac/>`
 which were originally provided
 `here <https://stefpause.com/apple/mac/mplayer-os-x-10rc1-and-mencoder-binaries/>`__.
 Unzip and put the mencoder in the PATH available to the server, e.g.
-/usr/local/bin/ . You may need to restart the server for this to take
+``/usr/local/bin/``. You may need to restart the server for this to take
 effect.
 
 There are also macports, rpms and debs for mencoder.
