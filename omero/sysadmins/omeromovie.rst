@@ -22,7 +22,7 @@ The make movie script allows you to save the movie in two different
 formats, a DivX encoded AVI and Quicktime movie. To view the AVI you may
 need to install a divX codec from `DivX <https://www.divx.com/>`_. It
 should be noted that the DivX avi is normally 1/3 to 1/10 the size of
-the Quicktime movie.
+the QuickTime movie.
 
 Installing the make movie script
 --------------------------------
@@ -62,4 +62,3 @@ A detailed list of the commands accepted by the script are:
 -  format: The format of the movie to be created currently supports 'video/mpeg', 'video/quicktime'
 -  overlayColour: The colour of the overlays, scalebar, time, as int(RGB)
 -  fileAnnotation: The fileAnnotation id of the uploaded movie. (return value from script)
-
