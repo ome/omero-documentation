@@ -678,7 +678,7 @@ output of the diagnostics command:
     Environment:OMERO_NODE=(unset)
     Environment:OMERO_MASTER=(unset)
     Environment:OMERO_TEMPDIR=(unset)
-    Environment:PATH=/opt/omero/server/venv3/bi:/usr/local/bin:/usr/bin:/bin
+    Environment:PATH=/opt/omero/server/venv3/bin:/usr/local/bin:/usr/bin:/bin
     Environment:ICE_HOME=(unset)
     Environment:LD_LIBRARY_PATH=(unset)
     Environment:DYLD_LIBRARY_PATH=(unset)
