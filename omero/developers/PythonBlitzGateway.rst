@@ -115,9 +115,7 @@ the console if they include non-ASCII characters as
 
 When using the BlitzGateway in the OMERO.web framework,
 Django will convert strings into unicode strings so it is safe to
-use either. See Django
-`Unicode data <https://docs.djangoproject.com/en/1.8/ref/unicode/#general-string-handling>`_.
-
+use either. See Django :djangodoc:`Unicode data <ref/unicode/#general-string-handling>`.
 
 Wrapper coverage
 """"""""""""""""

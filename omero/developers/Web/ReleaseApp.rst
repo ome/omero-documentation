@@ -24,7 +24,8 @@ Configuring your app name and label
 -----------------------------------
 
 We support the option of configuring your OMERO.web app with a name and label.
-See Django `Configuring Applications <https://docs.djangoproject.com/en/1.8/ref/applications/#configuring-applications>`_.
+:djangodoc:`Configuring Applications <ref/applications/#configuring-applications>`.
+
 This allows the URL to an app to be different from its name.
 For example, OMERO.figure app is named ``omero_figure`` but the url is simply ``/figure/``
 as configured by `__init__.py <https://github.com/ome/omero-figure/blob/master/omero_figure/__init__.py>`_
