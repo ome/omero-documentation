@@ -28,7 +28,7 @@ the following more specific requirements:
     available:
 
     -   Mac OS systems that use a macports install of Python will need to
-        have FSEvents available in the PYTHONPATH. This will require a
+        have FSEvents available in the :envvar:`PYTHONPATH`. This will require a
         path of the form
         ``/System/Library/Frameworks/Python.framework/Versions/3.X/Extras/lib/python/PyObjC/``
         to be added, according to the version of Python used.
