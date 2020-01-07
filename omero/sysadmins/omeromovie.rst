@@ -19,10 +19,10 @@ Viewing the movie
 -----------------
 
 The make movie script allows you to save the movie in two different
-formats, a DivX encoded AVI and Quicktime movie. To view the AVI you may
-need to install a divX codec from ` DivX <https://www.divx.com/>`_. It
-should be noted that the DivX avi is normally 1/3 to 1/10 the size of
-the Quicktime movie.
+formats, a DivX-encoded AVI and QuickTime movie. To view the AVI you may
+need to install a DivX codec from `DivX <https://www.divx.com/>`_. It
+should be noted that the DivX AVI is normally 1/3 to 1/10 the size of
+the QuickTime movie.
 
 Installing the make movie script
 --------------------------------
@@ -35,7 +35,7 @@ We have :snapshot:`Mac OSX installs for mencoder <mencoder/mac/>`
 which were originally provided
 `here <https://stefpause.com/apple/mac/mplayer-os-x-10rc1-and-mencoder-binaries/>`__.
 Unzip and put the mencoder in the PATH available to the server, e.g.
-/usr/local/bin/ . You may need to restart the server for this to take
+:file:`/usr/local/bin/`. You may need to restart the server for this to take
 effect.
 
 There are also macports, rpms and debs for mencoder.
@@ -62,4 +62,3 @@ A detailed list of the commands accepted by the script are:
 -  format: The format of the movie to be created currently supports 'video/mpeg', 'video/quicktime'
 -  overlayColour: The colour of the overlays, scalebar, time, as int(RGB)
 -  fileAnnotation: The fileAnnotation id of the uploaded movie. (return value from script)
-

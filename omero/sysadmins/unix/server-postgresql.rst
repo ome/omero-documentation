@@ -28,12 +28,12 @@ the following commands:
 If your existing PostgreSQL installation is an earlier version, it
 is recommended that you upgrade to a more up-to-date version.  Before
 upgrading, stop the OMERO server and then perform a full dump of the
-database using :program:`pg_dump`.  See the :ref:`server_backup`
+database using :program:`pg_dump`. See the :ref:`server_backup`
 section for further details.
 
 If using a Linux distribution-provided PostgreSQL server, upgrading to
-a newer version of the the distribution will usually make a newer
-version of PostgreSQL available.  If the database was not migrated to
+a newer version of the distribution will usually make a newer
+version of PostgreSQL available. If the database was not migrated to
 the new version automatically, restore your backup after installing,
 configuring and starting the new version of the database server.
 If a PostgreSQL server was not provided by your system, `EnterpriseDB

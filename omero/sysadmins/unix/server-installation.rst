@@ -106,15 +106,21 @@ Java SE Runtime Environment (JRE)
 
 If possible, install one of the following packages:
 
-+-----------+---------------------------+
-| System    | Package                   |
-+===========+===========================+
-| Debian    | openjdk-8-jre             |
-+-----------+---------------------------+
-| Homebrew  | N/A (install Oracle Java) |
-+-----------+---------------------------+
-| RedHat    | java-1.8.0-openjdk        |
-+-----------+---------------------------+
+.. list-table::
+    :header-rows: 1
+    :widths: 1,8
+
+    * - System
+      - Package
+
+    * - Debian
+      - openjdk-11-jre
+
+    * - Homebrew
+      - N/A (install Oracle Java)
+
+    * - RedHat
+      - java-11-openjdk
 
 OMERO works with the OpenJDK JRE provided by most systems, or with
 Oracle Java. Version |javaversion| or later is required.
@@ -140,9 +146,9 @@ To check which version of Java is currently available::
     $ which java
     /usr/bin/java
     $ java -version
-    java version "1.8.0_51"
-    Java(TM) SE Runtime Environment (build 1.8.0_51-b16)
-    Java HotSpot(TM) 64-Bit Server VM (build 25.51-b03, mixed mode)
+    openjdk version "11.0.5" 2019-10-15
+    OpenJDK Runtime Environment (build 11.0.5+10-post-Ubuntu-0ubuntu1.118.04)
+    OpenJDK 64-Bit Server VM (build 11.0.5+10-post-Ubuntu-0ubuntu1.118.04, mixed mode, sharing)
 
 Python 3
 ^^^^^^^^
@@ -206,15 +212,21 @@ OMERO.scripts
 
 If you wish to run the "Movie Maker" script, please install :program:`mencoder`.
 
-+-----------+---------------------+
-| System    | Packages            |
-+===========+=====================+
-| Debian    | mencoder            |
-+-----------+---------------------+
-| Homebrew  | mplayer             |
-+-----------+---------------------+
-| RedHat    | mencoder            |
-+-----------+---------------------+
+.. list-table::
+    :header-rows: 1
+    :widths: 1,8
+
+    * - System
+      - Package
+
+    * - Debian
+      - mencoder
+
+    * - Homebrew
+      - mplayer
+
+    * - RedHat
+      - mencoder
 
 Installation
 ------------
@@ -259,15 +271,21 @@ of Ice installed, unpack it:
 If your system does not provide an :program:`unzip` command by
 default, install one of the following:
 
-+-----------+-----------------+
-| System    | Package         |
-+===========+=================+
-| Debian    | unzip           |
-+-----------+-----------------+
-| Homebrew  | unzip           |
-+-----------+-----------------+
-| RedHat    | unzip           |
-+-----------+-----------------+
+.. list-table::
+    :header-rows: 1
+    :widths: 1,8
+
+    * - System
+      - Package
+
+    * - Debian
+      - unzip
+
+    * - Homebrew
+      - unzip
+
+    * - RedHat
+      - unzip
 
 
 Optionally, give your OMERO software install a short name to save some
@@ -449,13 +467,13 @@ Configuration
 
 -   You can view a parsed version of the configuration properties
     under :doc:`/sysadmins/config` or parse it
-    yourself with :program:`omero config parse`.
+    yourself with ``omero config parse``.
 
--   Change any settings that are necessary using :program:`omero config`,
+-   Change any settings that are necessary using ``omero config``,
     including the name and/or password for the 'db\_user' database
     user you chose above or the database name if it is not
     "omero\_database". (Quotes are only necessary if the value could
-    be misinterpreted by the shell. See :forum:`link
+    be misinterpreted by the shell. See :forum:`Forum post
     <viewtopic.php?f=5&t=360#p922>`)
 
     ::
@@ -557,8 +575,8 @@ made to have usable settings out of the box, but if you can afford to
 provide OMERO with more memory, it will certainly improve your overall
 performance. See :ref:`jvm_memory_settings` on how to tune the JVM.
 
-Enabling movie creation from OMERO.
------------------------------------
+Enabling movie creation from OMERO
+----------------------------------
 
 OMERO has a facility to create AVI/MPEG Movies from images. The page
 :doc:`/sysadmins/omeromovie` details how to enable it.
@@ -617,12 +635,12 @@ output of the diagnostics command:
     OMERO Diagnostics |release|
     ================================================================================
 
-    Commands:   java -version                  1.8.0     (/usr/bin/java)
-    Commands:   python -V                      3.6.3     (/home/omero/omeroenv/bin/pythons)
+    Commands:   java -version                  11.0.5    (/usr/bin/java)
+    Commands:   python -V                      3.6.9     (/opt/omero/server/venv3/bin/python)
     Commands:   icegridnode --version          3.6.5     (/usr/bin/icegridnode)
     Commands:   icegridadmin --version         3.6.5     (/usr/bin/icegridadmin)
-    Commands:   psql --version                 9.6.15    (/usr/bin/psql)
-    Commands:   openssl version                1.0.2     (/usr/bin/openssl)
+    Commands:   psql --version                 11.6      (/usr/bin/psql)
+    Commands:   openssl version                1.1.111   (/usr/bin/openssl)
 
     Server:     icegridnode                    running
     Server:     Blitz-0                        active (pid = 30324, enabled)
@@ -640,7 +658,7 @@ output of the diagnostics command:
     OMERO:      SSL port                       4064
     OMERO:      TCP port                       4063
 
-    Log dir:    /home/omero/OMERO.server/var/log exists
+    Log dir:    /opt/omero/server/OMERO.server/var/log exists
 
     Log files:  Blitz-0.log                    22.8 KB        errors=0    warnings=9
     Log files:  DropBox.log                    1.3 KB        errors=0    warnings=1
@@ -655,12 +673,12 @@ output of the diagnostics command:
     Log files:  master.out                     empty
     Log files:  Total size                     0.06 MB
 
-    Environment:OMERODIR=/home/omero/OMERO.server
+    Environment:OMERODIR=/opt/omero/server/OMERO.server 
     Environment:OMERO_HOME=(unset)
     Environment:OMERO_NODE=(unset)
     Environment:OMERO_MASTER=(unset)
     Environment:OMERO_TEMPDIR=(unset)
-    Environment:PATH=/home/omero/workspace/omero-virtualenv/bin:/usr/local/bin:/usr/bin:/bin
+    Environment:PATH=/opt/omero/server/venv3/bin:/usr/local/bin:/usr/bin:/bin
     Environment:ICE_HOME=(unset)
     Environment:LD_LIBRARY_PATH=(unset)
     Environment:DYLD_LIBRARY_PATH=(unset)
@@ -668,7 +686,7 @@ output of the diagnostics command:
     OMERO SSL port:4064                           
     OMERO TCP port:4063  
     OMERO data dir: '/OMERO'        Exists? True    Is writable? True
-    OMERO temp dir: '/home/omero/tmp'        Exists? True    Is writable? True   (Size: 0)
+    OMERO temp dir: '/home/omero-server/tmp'        Exists? True    Is writable? True   (Size: 0)
 
     JVM settings: Blitz-${index}                -Xmx621m -XX:MaxPermSize=512m -XX:+IgnoreUnrecognizedVMOptions
     JVM settings: Indexer-${index}              -Xmx414m -XX:MaxPermSize=512m -XX:+IgnoreUnrecognizedVMOptions
