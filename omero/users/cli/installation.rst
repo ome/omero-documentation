@@ -15,7 +15,7 @@ Since OMERO 5.6, only Python 3 is supported::
     omero login
 
 The |CLI| installed in this way provides all functionalities except import.
-Import requires Java and jars in the OMERO.server package to be available under
+Import requires jars in the OMERO.server package to be available under
 the ``$OMERODIR`` directory.
 
 You need to download the OMERO.server zip from under artifacts at
@@ -26,3 +26,5 @@ to the unzipped directory::
 
     # now you can import
     omero import /path/to/image.tiff
+
+For more details, see :doc:`/sysadmins/unix/server-installation`.
