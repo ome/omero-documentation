@@ -186,7 +186,7 @@ to expose further properties.
 
 With :ref:`further configuration <jmx_configuration>`, |JMX| properties
 can also be accessed remotely which can be very useful for monitoring
-your server with `Check_MK`_, `Nagios`_, `Zenoss`_, or similar. However,
+your server with `Checkmk`_, `Nagios`_, `Zenoss`_, or similar. However,
 care must be taken to protect the exposed ports.
 
 .. note::
@@ -255,7 +255,7 @@ Useful metrics include:
     ome.io.nio.PixelsService.tileTimes
       Time taken to generate tiled-pyramids for a big image. (PixelData-only)
 
-.. _Check_MK: https://checkmk.com/
+.. _Checkmk: https://checkmk.com/
 .. _Metrics: https://metrics.dropwizard.io/
 .. _JConsole: https://openjdk.java.net/tools/svc/jconsole/
 .. _JVisualVM: https://visualvm.github.io/
