@@ -115,7 +115,7 @@ Exploring the app
 -----------------
 
 The `minimal_webapp code <https://github.com/ome/omero-web-apps-examples/tree/master/minimal-webapp>`_
-is well documented to explain how the app is working.
+is well-documented to explain how the app is working.
 Briefly, the app supports a single URL defined in
 ``minimal_webapp/urls.py`` which maps to the ``index`` function
 within ``minimal_webapp/views.py``. This uses the connection to
