@@ -21,7 +21,7 @@ Clone the examples repository
 -----------------------------
 
 To get started quickly, we are going to use the
-`omero-web-apps-examples <https://github.com/ome/omero-web-apps-examples>`_
+`omero web apps examples <https://github.com/ome/omero-web-apps-examples>`_
 repository which contains two sample OMERO.web apps.
 Clone the repo to a location of your choice:
 
