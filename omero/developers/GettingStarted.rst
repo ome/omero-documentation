@@ -210,7 +210,7 @@ write a query like this:
                 outer join fetch links.child as dataset where p.id=:pid"
     project = queryService.findByQuery(query, params)
     for dataset in project.linkedDatasetList:
-        print dataset.getName().getValue()
+        print(dataset.getName().getValue())
 
 Or use the Container Service like this:
 
@@ -219,7 +219,7 @@ Or use the Container Service like this:
     containerService = session.getContainerService()
     project = containerService.loadContainerHierarchy("Project", [projectId], True)
     for dataset in project.linkedDatasetList:
-        print dataset.getName().getValue()
+        print(dataset.getName().getValue())
 
 For a list of the available services, see the |OmeroApi| page.
 
