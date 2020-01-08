@@ -5,7 +5,9 @@ To access the OMERO.server Python API, you need to install the Python client
 libraries.
 
 From OMERO 5.6.0 release, the client library ``omero-py`` supports Python 3 and
-can be installed via ``pip``. We recommend you use a virtual environment:
+is available on PyPI_ and Conda_. We recommend you use a virtual environment to install the client library:
+
+Install from PyPI_:
 
 .. parsed-literal::
 
@@ -13,6 +15,19 @@ can be installed via ``pip``. We recommend you use a virtual environment:
     $ source py3_venv/bin/activate
     $ pip install omero-py==\ |version_py|
     Successfully installed Pillow-6.2.1 future-0.18.2 omero-py-5.6.1 zeroc-ice-3.6.5
+
+Install from Conda_:
+
+.. parsed-literal::
+
+    conda create -n myenv python=3.6
+    conda activate myenv
+    conda install -c ome zeroc-ice36-python 
+    conda install -c ome omero-py 
+
+You can then start using the library:
+
+.. parsed-literal::
 
     $ python
     >>> from omero.gateway import BlitzGateway
