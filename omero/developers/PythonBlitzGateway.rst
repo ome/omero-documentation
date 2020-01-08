@@ -85,40 +85,6 @@ loading).
     >>> conn.close()
 
 
-Unicode
-"""""""
-
-When unwrapping ``omero.rtypes.rstring`` attributes from
-``omero.model.object`` instances as shown above,
-the ``BlitzObjectWrapper`` subclasses will decode the utf8-encoded
-string and return the resulting unicode string.
-
-However, some methods added to ``BlitzObjectWrappers``
-will return regular strings as follows::
-
-    BlitzObjectWrapper.getName()            except ExperimenterWrapper.getName() and LogicalChannelWrapper.getName()
-    BlitzObjectWrapper.getDescription()
-    AnnotationWrapper.getNs()
-    FileAnnotationWrapper.getFileName()
-    TagAnnotationWrapper.getValue()
-    CommentAnnotationWrapper.getValue()
-    MapAnnotationWrapper.getValue()  - list of strings
-    PlateWrapper.getColumnLabels() / getRowLabels()   - list of strings or integers
-    WellWrapper.getWellPos()
-    ColorHolder.getHtml() / getCss()
-    ChannelWrapper.getLut()
-    ImageWrapper.getChannelLabels()  - list of strings
-
-When using unicode strings, care must be taken when printing to
-the console if they include non-ASCII characters as
-`described here <https://pythonhosted.org/kitchen/unicode-frustrations.html>`_.
-
-When using the BlitzGateway in the OMERO.web framework,
-Django will convert strings into unicode strings so it is safe to
-use either. See Django
-`Unicode data <https://docs.djangoproject.com/en/1.8/ref/unicode/#general-string-handling>`_.
-
-
 Wrapper coverage
 """"""""""""""""
 

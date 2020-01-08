@@ -188,7 +188,7 @@ extlinks = {
     'zeroc': ('https://zeroc.com/%s', ''),
     'zerocforum': ('https://forums.zeroc.com/discussion/%s', ''),
     'zerocdoc': ('https://doc.zeroc.com/%s', ''),
-    'djangodoc': ('https://docs.djangoproject.com/en/1.8/%s', ''),
+    'djangodoc': ('https://docs.djangoproject.com/en/1.11/%s', ''),
     'doi': ('https://dx.doi.org/%s', ''),
     'pypi': ('https://pypi.org/project/%s', ''),
     }

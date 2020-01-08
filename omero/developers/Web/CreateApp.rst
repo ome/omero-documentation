@@ -20,9 +20,10 @@ If you want to make changes to the OMERO.web code itself, go to
 Clone the examples repository
 -----------------------------
 
-To get started quickly, we are going to use a repository
-that contains several example OMERO.web apps.
-Clone the app to a location of your choice:
+To get started quickly, we are going to use the
+`omero web apps examples <https://github.com/ome/omero-web-apps-examples>`_
+repository which contains two sample OMERO.web apps.
+Clone the repo to a location of your choice:
 
 ::
 
@@ -113,8 +114,8 @@ page which will display your Name and list your Projects.
 Exploring the app
 -----------------
 
-The ``minimal_webapp`` code is well documented to explain
-how the app is working.
+The `minimal_webapp code <https://github.com/ome/omero-web-apps-examples/tree/master/minimal-webapp>`_
+is well-documented to explain how the app is working.
 Briefly, the app supports a single URL defined in
 ``minimal_webapp/urls.py`` which maps to the ``index`` function
 within ``minimal_webapp/views.py``. This uses the connection to
