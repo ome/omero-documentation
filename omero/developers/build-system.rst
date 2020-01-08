@@ -212,9 +212,6 @@ it is put, and what role it plays in the distribution.
     * - components/tools/OmeroCpp/lib*
       - :file:`lib/`
       - Native shared libraries
-    * - components/tools/OmeroPy/build/lib
-      - :file:`lib/python`
-      - Python libraries
     * - lib/repository/<some>
       - :file:`lib/client` & :file:`lib/server`
       - Libraries needed for the build
