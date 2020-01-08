@@ -1,13 +1,6 @@
 Migration to Python 3
 =====================
 
-.. warning::
-
-  This is still a pre-release of OMERO 5.6. The instructions below
-  are intended to help plan a migration path from your current OMERO
-  installation. Do **not** perform the migration on your
-  production systems until the 5.6.0 release is ready.
-
 Basic steps
 -----------
 
@@ -116,20 +109,9 @@ should be necessary.
 Plugins
 ^^^^^^^
 
-Core OMERO.web plugins have been updated for Python 3 and pre-released to
-PyPI. This means that their versions end in ".devX" and will only be installed
-by `pip install` if you add a version specifier:
+Core OMERO.web plugins have been updated for Python 3 and released to
+PyPI.
 
 ::
 
-    pip install 'omero-iviewer>=0.9.0.dev1'
-
-You can also get pre-releases by adding `--pre`, but this may introduce
-unintended pre-release versions of upstream requirements.
-
-::
-
-    # Beaware of the implications of this usage!
-    pip install --pre omero-iviewer
-
-We will be releasing full versions of each of the plugins over the next month.
+    pip install 'omero-iviewer>=0.9.0'
