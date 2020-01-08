@@ -16,7 +16,7 @@ Since OMERO 5.6, only Python 3 is supported::
 
 The |CLI| installed in this way provides all functionalities except import.
 Import requires JARs in the OMERO.server package to be available under
-the ``$OMERODIR`` directory.
+the :envvar:`OMERODIR` directory.
 
 You need to download the OMERO.server zip from under artifacts at
 :downloads:`downloads page <>`. Unzip the zip file and set ``$OMERODIR``
