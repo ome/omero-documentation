@@ -47,10 +47,10 @@ Retrieving a user's event context and group membership
     admin_service = session.getAdminService()
     
     ec = admin_service.getEventContext()
-    print ec
+    print(ec)
     groups = [admin_service.getGroup(v) for v in ec.memberOfGroups]
     for group in groups:
-        print 'Group name: %s' % group.name.val
+        print('Group name: %s' % group.name.val)
 
 
 Example output:
@@ -140,8 +140,8 @@ on those ``Projects``.
 
     private_project_id = private_project.id.val
     read_only_project_id = read_only_project.id.val
-    print 'Created Project:%d in group private-1' % (private_project_id)
-    print 'Created Project:%d in group read-only-1' % (read_only_project_id)
+    print('Created Project:%d in group private-1' % (private_project_id))
+    print('Created Project:%d in group read-only-1' % (read_only_project_id))
     
     # Query for the private project we created using private-1
     # 
@@ -155,8 +155,8 @@ on those ``Projects``.
             'select p from Project as p ' \
             'where p.id = :id', params, ctx)
     
-    print 'Found %d Project(s) with ID %d in group private-1' % \
-            (len(projects), private_project_id)
+    print('Found %d Project(s) with ID %d in group private-1' %
+            (len(projects), private_project_id))
     
     # Query for the private project we created using read-only-1
     #
@@ -170,8 +170,8 @@ on those ``Projects``.
             'select p from Project as p ' \
             'where p.id = :id', params, ctx)
     
-    print 'Found %d Project(s) with ID %d in group read-only-1' % \
-            (len(projects), private_project_id)
+    print('Found %d Project(s) with ID %d in group read-only-1' %
+            (len(projects), private_project_id))
     
     # Use the OMERO 4.3.x introduced delete service to clean up the Projects
     # we have just created.
@@ -251,8 +251,8 @@ Querying data across groups
     
     private_project_id = private_project.id.val
     read_only_project_id = read_only_project.id.val
-    print 'Created Project:%d in group private-1' % (private_project_id)
-    print 'Created Project:%d in group read-only-1' % (read_only_project_id)
+    print('Created Project:%d in group private-1' % (private_project_id))
+    print('Created Project:%d in group read-only-1' % (read_only_project_id))
     
     # Query for the private project we created using private-1
     # 
@@ -265,7 +265,7 @@ Querying data across groups
             'select p from Project as p ' \
             'where p.id in (:ids)', params, ctx)
     
-    print 'Found %d Project(s)' % (len(projects))
+    print('Found %d Project(s)' % (len(projects)))
     
     # Use the OMERO 4.3.x introduced delete service to clean up the Projects
     # we have just created. The delete service uses '-1' by default for all its
@@ -325,15 +325,15 @@ that both ``user-2`` and ``user-3`` have a single project each in the
     user_3 = admin_service.lookupExperimenter('user-3')
     
     # Print the members of 'read-only-1'
-    print 'Members of "read-only-1" (experimenter_id, username): %r' % \
-        [(v.id.val, v.omeName.val) for v in read_only_group.linkedExperimenterList()]
+    print('Members of "read-only-1" (experimenter_id, username): %r' %
+        [(v.id.val, v.omeName.val) for v in read_only_group.linkedExperimenterList()])
     
     # Query for all projects
     ctx = {'omero.group': str(read_only_group.id.val)}
     projects = query_service.findAllByQuery(
             'select p from Project as p', None, ctx)
-    print 'All projects in "read-only-1" (project_id, owner_id): %r' % \
-        [(v.id.val, v.details.owner.id.val) for v in projects]
+    print('All projects in "read-only-1" (project_id, owner_id): %r' %
+        [(v.id.val, v.details.owner.id.val) for v in projects])
     
     # Query for projects owned by 'user-2'
     ctx = {'omero.group': str(read_only_group.id.val)}
@@ -342,8 +342,8 @@ that both ``user-2`` and ``user-3`` have a single project each in the
     projects = query_service.findAllByQuery(
             'select p from Project as p ' \
             'where p.details.owner.id = :id', params, ctx)
-    print 'Projects owned by "user-2" in "read-only-1" (project_id, owner_id): %r' % \
-        [(v.id.val, v.details.owner.id.val) for v in projects]
+    print('Projects owned by "user-2" in "read-only-1" (project_id, owner_id): %r' %
+        [(v.id.val, v.details.owner.id.val) for v in projects])
     
     # Query for projects owned by 'user-3'
     ctx = {'omero.group': str(read_only_group.id.val)}
@@ -352,8 +352,8 @@ that both ``user-2`` and ``user-3`` have a single project each in the
     projects = query_service.findAllByQuery(
             'select p from Project as p ' \
             'where p.details.owner.id = :id', params, ctx)
-    print 'Projects owned by "user-3" in "read-only-1" (project_id, owner_id): %r' % \
-        [(v.id.val, v.details.owner.id.val) for v in projects]
+    print('Projects owned by "user-3" in "read-only-1" (project_id, owner_id): %r' %
+        [(v.id.val, v.details.owner.id.val) for v in projects])
 
 
 Example output:

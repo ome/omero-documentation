@@ -46,16 +46,16 @@ the use of rtypes.
     from omero.rtypes import rstring
     p = ProjectI()
     p.setName(rstring("Omero Model Project"))   # attributes are all rtypes
-    print p.getName().getValue()                # getValue() to unwrap the rtype
-    print p.name.val                            # short-hand
+    print(p.getName().getValue())               # getValue() to unwrap the rtype
+    print(p.name.val)                           # short-hand
 
     from omero.gateway import ProjectWrapper
     project = ProjectWrapper(obj=p)             # wrap the model.object
     project.setName("Project Wrapper")          # Don't need to use rtypes
-    print project.getName()
-    print project.name
+    print(project.getName())
+    print(project.name)
 
-    print project._obj                  # access the wrapped object with ._obj
+    print(project._obj)                  # access the wrapped object with ._obj
 
 These wrappers also have a reference to the BlitzGateway connection wrapper,
 so they can make calls to the server and load more data when needed (lazy
@@ -69,9 +69,9 @@ loading).
     >>> conn.connect()
 
     >>> for p in conn.listProjects():         # Initially we just load Projects
-    ...     print p.getName()
+    ...     print(p.getName())
     ...     for dataset in p.listChildren():      # lazy-loading of Datasets here
-    ...             print "  ", dataset.getName()
+    ...             print("  ", dataset.getName())
     ... 
     TestProject
        Aurora-B
@@ -168,9 +168,9 @@ call to server (no lazy loading)
     cs = conn.getContainerService()
     projects = cs.loadContainerHierarchy("Project", None, None)
     for p in projects:                # omero.model.ProjectI
-        print p.getName().getValue()     # need to 'unwrap' rstring
+        print(p.getName().getValue())     # need to 'unwrap' rstring
         for d in p.linkedDatasetList():
-            print d.getName().getValue()
+            print(d.getName().getValue())
 
 Stateful services, reconnection, error handling etc.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
