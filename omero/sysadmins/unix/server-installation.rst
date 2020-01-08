@@ -108,7 +108,7 @@ If possible, install one of the following packages:
 
 .. list-table::
     :header-rows: 1
-    :widths: 1,8
+    :align: left
 
     * - System
       - Package
@@ -164,7 +164,7 @@ If possible, install the following packages:
 
 .. list-table::
     :header-rows: 1
-    :widths: 1,8
+    :align: left
 
     * - System
       - Package
@@ -214,7 +214,7 @@ If you wish to run the "Movie Maker" script, please install :program:`mencoder`.
 
 .. list-table::
     :header-rows: 1
-    :widths: 1,8
+    :align: left
 
     * - System
       - Package
@@ -273,7 +273,7 @@ default, install one of the following:
 
 .. list-table::
     :header-rows: 1
-    :widths: 1,8
+    :align: left
 
     * - System
       - Package
