@@ -4,7 +4,7 @@ Migration to Python 3
 Basic steps
 -----------
 
-1. Choose a platform and a python version. If your current installation platform
+1. Choose a platform and a Python version. If your current installation platform
    does not match one of the :doc:`recommended platforms <version-requirements>`,
    you may want to choose a new platform as your migration target. See
    `Choosing a platform`_ below.
@@ -32,8 +32,8 @@ from the community would be very welcome! Obvious next candidates are CentOS 8
 and Ubuntu 20.04.
 
 Debian 9 is still on Python 3.5 and Debian 10 has moved to Ice 3.7 so neither is
-supported at the moment. We are working on a suitable set of installation
-guides.
+supported at the moment. We have nonetheless an installation guide for Debian 9
+but not yet for Debian 10.
 
 Other prerequisites
 -------------------
@@ -110,7 +110,7 @@ Plugins
 ^^^^^^^
 
 Core OMERO.web plugins have been updated for Python 3 and released to
-PyPI.
+PyPI_ e.g.
 
 ::
 
