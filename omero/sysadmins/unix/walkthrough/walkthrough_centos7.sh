@@ -37,7 +37,7 @@ systemctl enable postgresql-11.service
 #start-step02: As root, create a local omero-server system user and directory for the OMERO repository
 useradd -mr omero-server
 # Give a password to the omero user
-# e.g. passwd omero
+# e.g. passwd omero-server
 chmod a+X ~omero-server
 
 mkdir -p "$OMERO_DATA_DIR"

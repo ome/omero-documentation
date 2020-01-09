@@ -57,7 +57,7 @@ service postgresql start
 #start-step02: As root, create a local omero-server system user and directory for the OMERO repository
 useradd -mr omero-server
 # Give a password to the omero user
-# e.g. passwd omero
+# e.g. passwd omero-server
 chmod a+X ~omero-server
 
 mkdir -p "$OMERO_DATA_DIR"
@@ -111,6 +111,11 @@ omero config set omero.glacier2.IceSSL.Ciphers HIGH:ADH:@SECLEVEL=0
 
 
 #start-step06: As root, run the scripts to start OMERO automatically
+cp omero-server-init.d /etc/init.d/omero-server
+chmod a+x /etc/init.d/omero-server
+
+update-rc.d -f omero-server remove
+update-rc.d -f omero-server defaults 98 02
 #end-step06
 
 #start-step07: As root, secure OMERO
