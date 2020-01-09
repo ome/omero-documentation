@@ -16,3 +16,6 @@ For details on migrating your own code to Python 3, see
 Other changes which you need to be aware of:
 
 - The `path` module is now named `omero_ext.path`.
+
+For a full list of api changes, bug fixes and other improvements,
+see the :doc:`/users/history`.
