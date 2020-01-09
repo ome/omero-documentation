@@ -20,7 +20,7 @@ Install from Conda_:
 
 .. parsed-literal::
 
-    conda create -n myenv python=3.6
+    conda create -n myenv -c ome python=3.6 omero-py
     conda activate myenv
     conda install -c ome zeroc-ice36-python 
     conda install -c ome omero-py 
