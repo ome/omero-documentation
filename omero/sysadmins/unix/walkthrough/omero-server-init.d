@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# /etc/init.d/omero
+# /etc/init.d/omero-server
 # Subsystem file for "omero" server
 #
 ### BEGIN INIT INFO
