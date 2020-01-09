@@ -69,9 +69,8 @@ Additional resources
     countries, :doc:`connecting to the community <community-resources>` can
     provide you with a wealth of experience to draw on for help and advice.
 
--   Our popular OMERO.web app, OMERO.figure, has its own mini website at
-    `figure.openmicroscopy.org <https://figure.openmicroscopy.org>`_ where you
-    can find demo movies and a full release history.
+-   Additional `OMERO apps <https://www.openmicroscopy.org/omero/apps/>`_ add functionality
+    to the OMERO.web or Command-Line clients.
 
 .. toctree::
     :maxdepth: 1
