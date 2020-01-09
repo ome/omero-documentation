@@ -25,7 +25,7 @@ locale (this is normally the default).
 
 For convenience in this walkthrough we will use the **omero-server system user** and the main OMERO configuration options have
 been defined as environment variables. When following this walkthrough you can
-either use your own values, or alternatively source :download:`settings.env <walkthrough/settings.env>`:
+either use your own values, or alternatively create :file:`settings.env` for example under ``/tmp`` e.g. ``/tmp/settings.env`` containing the variables below and source it when required:
 
 .. literalinclude:: walkthrough/settings.env
    :start-after: Substitute
@@ -64,6 +64,8 @@ Create a local omero-server system user, and a directory for the OMERO repositor
 .. literalinclude:: walkthrough/walkthrough_debian10.sh
     :start-after: #start-step02
     :end-before: #end-step02
+
+Make the :file:`settings.env` available to the omero-server system user by copying in to the user home directory. The file will need to be sourced each time you switch user. You could add ``. ~/settings.env`` to the omero-server system user ``bash`` profile.
 
 Create a database user and initialize a new database for OMERO:
 
@@ -125,7 +127,7 @@ This means that it is not possible to connect to an OMERO.server
 using any OMERO clients e.g. the Java Desktop client,
 the OMERO.web client or the CLI.
 The parameter ``@SECLEVEL=0``, enabling the weaker ciphers, needs to be
-added in two files in order to allow connection.
+set in order to allow connection.
 
 .. literalinclude:: walkthrough/walkthrough_debian10.sh
     :start-after: #start-seclevel
@@ -140,9 +142,19 @@ OMERO should now be set up. To start the server run::
 
     omero admin start
 
-In addition :download:`omero-init.d <walkthrough/omero-init.d>`
-is available should you wish to start OMERO automatically.
+Should you wish to start OMERO automatically, a `init.d` file could be created.
+An example :download:`omero-server.init.d <walkthrough/omero-server-init.d>`
+is available.
 
+Copy the ``init.d`` file and configure the service:
+
+.. literalinclude:: walkthrough/walkthrough_debian10.sh
+    :start-after: #start-step06
+    :end-before: #end-step06
+
+You can then start up the service by running::
+
+   service omero-server start
 
 Securing OMERO
 --------------
