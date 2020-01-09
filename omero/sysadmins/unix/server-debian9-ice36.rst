@@ -161,7 +161,7 @@ is available.
 
 Copy the ``init.d`` file and configure the service:
 
-.. literalinclude:: walkthrough/walkthrough_ubuntu1804.sh
+.. literalinclude:: walkthrough/walkthrough_debian9.sh
     :start-after: #start-step06
     :end-before: #end-step06
 
