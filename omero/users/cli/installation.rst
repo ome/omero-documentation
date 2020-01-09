@@ -40,12 +40,12 @@ To install Java and Ice, go to :doc:`/sysadmins/unix/server-installation` and se
 
 To make the JARs available, you need to:
 
-* download the OMERO.server zip from under artifacts at :downloads:`downloads page <>`
-* unzip the zip file 
-* set ``$OMERODIR`` to the unzipped directory::
+#. download the OMERO.server zip from under artifacts at :downloads:`downloads page <>`
+#. unzip the zip file 
+#. set ``$OMERODIR`` to the unzipped directory::
 
     export OMERODIR=/path/to/OMERO.server-x.x.x-ice36-bxx
 
-* the ``import`` functionality is now available::
+The ``import`` functionality is now available::
 
     omero import /path/to/image.tiff
