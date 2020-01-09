@@ -41,7 +41,7 @@ and select the walkthrough corresponding to your OS.
 
 To make the JARs available, you need to:
 
-#. download the OMERO.server zip from under artifacts at :downloads:`downloads page <>`
+#. download the OMERO.server zip from the `Downloads page <https://www.openmicroscopy.org/omero/downloads/>`_
 #. unzip the zip file 
 #. set ``$OMERODIR`` to the unzipped directory::
 
