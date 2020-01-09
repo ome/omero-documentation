@@ -18,7 +18,7 @@ This should be read in conjunction with :doc:`../version-requirements`.
 
 This guide does not describe how to install OMERO.web.
 To deploy OMERO.web, please read
-:doc:`install-web/walkthrough/omeroweb-install-debian9-ice3.6`.
+:doc:`install-web/walkthrough/omeroweb-install-debian10-ice3.6`.
 
 These instructions assume your Linux distribution is configured with a UTF-8
 locale (this is normally the default).
