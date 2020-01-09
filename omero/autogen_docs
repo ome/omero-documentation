@@ -68,7 +68,6 @@ rm walkthrough_*.sh
 
 for f in \
     README.md \
-    requirements\* \
     settings.env \
     setup_\* \
     omero-\* \
