@@ -36,7 +36,8 @@ The ``import`` functionality requires to have a supported version of Java e.g. J
 and also requires JARs in the OMERO.server package to be available under
 the :envvar:`OMERODIR` directory.
 
-To install Java and Ice, go to :doc:`/sysadmins/unix/server-installation` and select the walk-through corresponding to your OS.
+To install Java and Ice, go to :doc:`/sysadmins/unix/server-installation`
+and select the walkthrough corresponding to your OS.
 
 To make the JARs available, you need to:
 
