@@ -32,7 +32,7 @@ The ``omero`` command is now available::
 
 The |CLI| installed in this way provides all functionalities except the ``import`` functionality.
 
-The ``import`` functionality requires to have a supported version of Java e.g. Java, 11 Ice |iceversion| installed
+The ``import`` functionality requires to have a supported version of Java e.g. Java 11, Ice |iceversion| installed
 and also requires JARs in the OMERO.server package to be available under
 the :envvar:`OMERODIR` directory.
 
