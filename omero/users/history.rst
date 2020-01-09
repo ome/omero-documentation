@@ -22,6 +22,8 @@ omero clients:
 --------------
 - omero-matlab :matlab_source:`CHANGELOG.md<CHANGELOG.md>`
 - omero-insight :insight_source:`CHANGELOG.md<CHANGELOG.md>`
+- omero-py :py_source:`CHANGELOG.md<CHANGELOG.md>`
+- omero-web :web_source:`CHANGELOG.md<CHANGELOG.md>`
 
 .. Content for this page should be opened as a PR against
 .. https://github.com/openmicroscopy/openmicroscopy/blob/develop/history.rst
