@@ -316,8 +316,8 @@ Read data
 ::
 
     for ann in project.listAnnotations():
-        print ann.getId(), ann.OMERO_TYPE,
-        print " added by ", ann.link.getDetails().getOwner().getOmeName()
+        print(ann.getId(), ann.OMERO_TYPE)
+        print(" added by ", ann.link.getDetails().getOwner().getOmeName())
         if ann.OMERO_TYPE == omero.model.TagAnnotationI:
             print "Tag value:", ann.getTextValue()
 
@@ -330,15 +330,15 @@ Read data
     annotation_ids = [1, 2, 3]
     tag_id = 4
     for link in conn.getAnnotationLinks('Image', ann_ids=annotation_ids):
-        print "Image ID:", link.getParent().id
-        print "Annotation ID:", link.getChild().id
+        print("Image ID:", link.getParent().id)
+        print("Annotation ID:", link.getChild().id)
         # Update the child of the underlying omero.model.ImageAnnotationLinkI
         link._obj.child = omero.model.TagAnnotationI(tag_id, False)
         link.save()
 
     # Find Annotations linked to Object(s), filter by namespace (optional)
     for link in conn.getAnnotationLinks('Image', parent_ids=image_ids, ns=namespace):
-        print "Annotation ID:", link.getChild().id
+        print("Annotation ID:", link.getChild().id)
 
 
 Groups and permissions

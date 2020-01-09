@@ -146,4 +146,4 @@ More tips
            if client.getInput(key):
                scriptParams[key] = unwrap(client.getInput(key))
 
-       print scriptParams    # stdout will be returned - useful for bug fixing etc. 
+       print(scriptParams)    # stdout will be returned - useful for bug fixing etc. 
