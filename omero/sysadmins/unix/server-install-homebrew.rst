@@ -33,19 +33,20 @@ Install Homebrew using the following command in terminal::
 Java
 ^^^^
 
-Oracle Java may be downloaded from the `Oracle website
-<https://www.oracle.com/technetwork/java/javase/downloads/index.html>`_.
+Java may be installed using OpenJDK from
+`AdoptOpenJDK <https://adoptopenjdk.net/>`_.
+See :doc:`version-requirements` for supported versions.
 
-After installing JDK 8, check your installation works by
+After installing JDK, check your installation works by
 running::
 
-    $ java -version
-    java version "1.8.0_51"
-    Java(TM) SE Runtime Environment (build 1.8.0_51-b16)
-    Java HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)
+    $ java --version
+    openjdk 11.0.5 2019-10-15
+    OpenJDK Runtime Environment AdoptOpenJDK (build 11.0.5+10)
+    OpenJDK 64-Bit Server VM AdoptOpenJDK (build 11.0.5+10, mixed mode)
     
     $ javac -version
-    javac 1.8.0_51
+    javac 11.0.5
 
 
 OS X Basics
@@ -86,7 +87,12 @@ Requirements
     export LANG=en_US.UTF-8
     export LANGUAGE=en_US:en
 
-3. OMERO depends on Ice 3.6 and unfortunately does not run with 
+3. Install NGINX::
+
+    $ brew install nginx
+
+
+4. OMERO depends on Ice 3.6 and unfortunately does not run with 
    the latest version of Ice at this time (Ice 3.7.3). To obtain 
    Ice 3.6, we need to add a *tap* to Homebrew::
 
@@ -98,71 +104,90 @@ Requirements
    you can instruct Homebrew to *unlink* it using ```$ brew unlink ice```. 
    You can then instruct Homebrew to link to Ice 3.6 using ```$ brew link ice@36```
 
-4. Install Python provided by Homebrew::
+
+Python
+------
+
+For developing with OMERO, or Python in general, we recommend the use of Virtualenv.
+Virtualenv allows development of Python applications without having to
+worry about clashing third-party packages for different Python projects.
+
+We will create 2 virtual environments below, ome for ``omero-py`` and another for
+``omero-web`` (which also includes ``omero-py``). This allows more flexibility,
+but you can use just the ``omero-web`` virtual environment for everything if you wish.
+
+You can create virtual environments using either ``conda`` (preferred) OR ``venv``.
+
+Using conda (preferred)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Install Conda.
+   See `miniconda <https://docs.conda.io/en/latest/miniconda.html>`_ for more details.
+
+2. Create virtual environments named ``omeropy`` and ``omeroweb``::
+
+    $ conda create -n omeropy -c ome python=3.6 zeroc-ice36-python omero-py
+    $ conda create -n omeroweb -c ome python=3.6 zeroc-ice36-python omero-web
+
+3. Activate the virtual environments::
+
+    $ conda activate omeropy
+
+    # In a different Terminal:
+    $ conda activate omeroweb
+
+4. You can now use the ``omero`` command. You will also need to ensure you are in 
+   the appropriate environment when you install additional modules::
+
+    $ omero -h
+
+    # Additional modules. For example:
+    $ pip install omero-metadata
+
+   Now go to OMERO Installation below.
+
+OR using venv
+^^^^^^^^^^^^^
+
+1. install Python provided by Homebrew::
 
     $ brew install python
 
-   Homebrew installs Python in the following location::
-
-    '/usr/local/opt/python/libexec/bin'
-
    Follow the instructions from the brew Python install and set your system to use the Homebrew version of Python 
-   rather than the Python shipped with OS X. Add the following line to your :file:`.bash_profile`::
+   rather than the Python shipped with OS X. Typically::
 
-    export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+    $ brew link python
 
-5. Check that Python is working and is version 3.7.x::
+2. Check that Python is working and is version 3.7.x::
 
-    $ which python
-    /usr/local/opt/python/libexec/bin/python
+    $ which python3
+    /usr/local/bin/python3
 
-    $ python --version
+    $ python3 --version
     Python 3.7.4
 
-6. For developing with OMERO, or Python in general, we recommend the use of Virtualenv.
-   Virtualenv allows development of Python applications without having to
-   worry about clashing third-party packages for different Python projects.
+3. Create a virtual environments for omero-py and/or omero-web using Python 3::
 
-   Create a virtual environment for omero-py using Python 3::
+    $ python3 -mvenv ~/Virtual/omeropy
+    $ python3 -mvenv ~/Virtual/omeroweb
 
-    $ python3 -mvenv ~/Virtual/omero-server
+4. Activate the Virtualenv environment(s) and install modules::
 
-   This will create a folder to hold Python libraries in the directory :file:`~/Virtual/omero-server/lib`
+    $ source ~/Virtual/omeropy/bin/activate
+    $ pip install "omero-py>=5.6.0"
 
-   Create a virtual environment for omero-web using Python 3::
+    # In a different Terminal:
+    $ source ~/Virtual/omeroweb/bin/activate
+    $ pip install "omero-web>=5.6.0"
 
-    $ python3 -mvenv ~/Virtual/omero-web
+4. You can now use the ``omero`` command in either virtual environment.
+   You will also need to ensure you are in 
+   the appropriate environment when you install additional modules::
 
-   This will create a folder to hold Python libraries in the directory :file:`~/Virtual/omero-web/lib`
+    $ omero -h
 
-  .. note:: 
-   You can activate the Virtualenv environment that we created using::
-
-    $ source ~/Virtual/omero-server/bin/activate
-
-   This will switch to using Pip and Python in the Virtualenv directory
-   :file:`~/Virtual/omero-server/bin` and any Pip libraries you install, whilst the Virtualenv is activated, 
-   will be installed to :file:`source ~/Virtual/omero-server/lib`.
-
-  .. note::
-   **(Optional)** To make starting a Virtualenv environment easier,
-   you can add an `alias` to your :file:`.bash_profile`::
-
-    alias startVmOmeroServer="source ~/Virtual/omero-server/bin/activate"
-    alias startVmOmeroWeb="source ~/Virtual/omero-web/bin/activate"
-
-   Using the command-line terminal, reload your :file:`.bash_profile`::
-
-    $ source ~/.bash_profile
-
-   Now you can activate the Virtualenv environment using::
-
-    $ startVmOmeroServer
-    $ startVmOmeroWeb
-
-7. Install NGINX::
-
-    $ brew install nginx
+    # Additional modules. For example:
+    $ pip install omero-metadata
 
 
 OMERO installation
@@ -223,29 +248,6 @@ OMERO configuration
 
     $ source ~/.bash_profile
 
-Install OMERO.py
-----------------
-
-1. Activate the Virtualenv environment that we created earlier in the "Requirements"
-   section::
-
-    $ source ~/Virtual/omero-server/bin/activate
-
-2. Install using pip::
-
-    $ pip install "omero-py>=5.6.dev7"
-
-Install OMERO.web
------------------
-
-1. Activate the Virtualenv environment that we created earlier in the "Requirements"
-   section::
-
-    $ source ~/Virtual/omero-web/bin/activate
-
-2. Install using pip::
-
-    $ pip install "omero-web>=5.6.dev5"
 
 Database
 ^^^^^^^^
@@ -298,7 +300,9 @@ OMERO.web
 
 1. Activate the omero-web virtualenv::
 
-    $ source ~/Virtual/omero-web/bin/activate
+    $ conda activate omeroweb
+    # OR
+    $ source ~/Virtual/omeroweb/bin/activate
 
 2. Basic setup for OMERO using NGINX::
 
@@ -321,14 +325,19 @@ If necessary start PostgreSQL database server::
 
     $ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w start
 
-Activate the omero-server virtualenv and start OMERO::
+Activate the ``omeropy`` virtualenv and start OMERO::
 
-    $ source ~/Virtual/omero-server/bin/activate
+    $ conda activate omeropy
+    # OR
+    $ source ~/Virtual/omeropy/bin/activate
+
     $ omero admin start
 
-Activate the omero-web virtualenv and start OMERO.web::
+Activate the ``omeroweb`` virtualenv and start OMERO.web::
 
-    $ source ~/Virtual/omero-web/bin/activate
+    $ conda activate omeropy
+    # OR
+    $ source ~/Virtual/omeroweb/bin/activate
     $ omero web start
 
 Now connect to your OMERO.server using OMERO.insight or OMERO.web with the following credentials:
@@ -338,14 +347,12 @@ Now connect to your OMERO.server using OMERO.insight or OMERO.web with the follo
     U: root
     P: omero
 
-Activate the omero-web virtualenv and stop OMERO.web::
+Activate the omeroweb virtualenv as above, and stop OMERO.web::
 
-    $ source ~/Virtual/omero-web/bin/activate
     $ omero web stop
 
-Activate the omero-server virtualenv and stop OMERO::
+Activate the omeropy virtualenv as above and stop OMERO::
 
-    $ source ~/Virtual/omero-server/bin/activate
     $ omero admin stop
 
 
@@ -356,32 +363,6 @@ For more configuration options and maintenance advice for OMERO.web see :doc:`in
 
 Common issues
 -------------
-
-Example .bash_profile
-^^^^^^^^^^^^^^^^^^^^^^
-
-Open your :file:`.bash_profile` in a text editor, such as the built-in TextEdit app::
-
-    $ open -a TextEdit.app ~/.bash_profile
-
-If you have followed this guide your :file:`.bash_profile` should look similar to the following::
-
-    # UTF-8 and US language settings for Postgres
-    export LANG=en_US.UTF-8
-    export LANGUAGE=en_US:en
-
-    # OMERO Server distribution directory
-    export OMERODIR=/path/to/OMERO.server-x.x.x-ice36-bxx
-
-    # Homebrew Python path
-    export BREW_PYTHON=/usr/local/opt/python3/libexec/bin
-
-    # Full path
-    export PATH=$OMERODIR/bin:BREW_PYTHON:$PATH
-
-    # Start a virtual environment for developing Python
-    alias startVmOmeroServer='source ~/Virtual/omero-server/bin/activate'
-    alias startVmOmeroWeb='source ~/Virtual/omero-web/bin/activate'
 
 General considerations
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -420,14 +401,6 @@ This command should give similar output to the following::
                     |         |          |             |             | ome=CTc/ome
     (4 rows)
 
-Macports/Fink
-^^^^^^^^^^^^^
-
-::
-
-    Warning: It appears you have MacPorts or Fink installed.
-
-Follow uninstall instructions from the `Macports guide <https://guide.macports.org/chunked/installing.macports.uninstalling.html>`_.
 
 PostgreSQL
 ^^^^^^^^^^
