@@ -37,6 +37,29 @@ the following more specific requirements:
     operating system. Watching a network-attached share (NAS) is strictly
     ***not*** supported.
 
+Installing DropBox
+------------------
+
+From OMERO 5.6.0 release, the library ``omero-dropbox`` supports Python 3 and
+is now available on PyPI_. We recommend you use a Python virtual environment to install it.
+
+To install ``omero-dropbox`` using venv:
+
+.. parsed-literal::
+
+    $ python3 -m venv myenv
+    $ . myenv/bin/activate
+    $ pip install omero-dropbox==\ |version_py|
+    Successfully installed Pillow-6.2.1 future-0.18.2 omero-py-5.6.1 zeroc-ice-3.6.5
+
+To install ``omero-dropbox`` using conda (preferred):
+
+.. parsed-literal::
+
+    conda create -n myenv -c ome python=3.6 zeroc-ice36-python
+    conda activate myenv
+    pip install omero-dropbox==\ |version_dropbox|
+
 Using DropBox
 -------------
 

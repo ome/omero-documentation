@@ -74,6 +74,7 @@ rst_epilog += """
 .. |iceversion| replace:: 3.6.5
 .. |postgresversion| replace:: 11
 .. |javaversion| replace:: 11
+.. |version_dropbox|  replace:: %s
 
 .. |Broken| image:: /images/broken.png
              :alt: Broken
@@ -92,7 +93,8 @@ rst_epilog += """
 """ % (previousversion, conf_autogen.current_dbver,
        conf_autogen.previous_dbver,
        conf_autogen.version_py,
-       conf_autogen.version_web)
+       conf_autogen.version_web,
+       conf_autogen.version_dropbox)
 
 omero_subs_github_root = github_root + 'ome/{}/{}/{}/%s'
 
