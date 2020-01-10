@@ -105,7 +105,7 @@ Change the ownership of the OMERO.server directory and create a symlink:
 
 **The following steps are run as the omero-server system user.**
 
-The variable ``OMERODIR`` set in :download:`settings.env <walkthrough/settings.env>` above **must** point to the location where OMERO.server is installed.
+The variable :envvar:`OMERODIR` set in :download:`settings.env <walkthrough/settings.env>` above **must** point to the location where OMERO.server is installed.
 e.g. ``OMERODIR=/path_to_omero_server/OMERO.server``.
 
 Note that this script requires the same environment variables that were set
