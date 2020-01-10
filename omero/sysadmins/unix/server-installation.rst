@@ -22,7 +22,7 @@ Since 5.6, a new :envvar:`OMERODIR` variable is used, you should first unset :en
 
 :doc:`server-debian10-ice36`
   Instructions for installing OMERO.server from scratch on
-  Debian 9 with Ice 3.6 and Python 3.7.
+  Debian 10 with Ice 3.6 and Python 3.7.
 
 :doc:`server-ubuntu1804-ice36`
   Instructions for installing OMERO.server from scratch on
