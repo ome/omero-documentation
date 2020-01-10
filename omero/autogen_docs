@@ -51,6 +51,7 @@ echo "Generating omeroweb install walkthrough"
 (cd $WORKSPACE/omeroweb-install && ansible-playbook ./.travis/../ansible/omeroweb-install-doc.yml -i ./.travis/../ansible/hosts/ubuntu1604-ice3.6 --extra-vars '{"ice_version": "3.6", "clean": True, "web_session": True}')
 (cd $WORKSPACE/omeroweb-install && ansible-playbook ./.travis/../ansible/omeroweb-install-doc.yml -i ./.travis/../ansible/hosts/debian9-ice3.6 --extra-vars '{"clean": True, "web_session": True}')
 (cd $WORKSPACE/omeroweb-install && ansible-playbook ./.travis/../ansible/omeroweb-install-doc.yml -i ./.travis/../ansible/hosts/ubuntu1804-ice3.6 --extra-vars '{"clean": True, "web_session": True}')
+(cd $WORKSPACE/omeroweb-install && ansible-playbook ./.travis/../ansible/omeroweb-install-doc.yml -i ./.travis/../ansible/hosts/debian10-ice3.6 --extra-vars '{"clean": True, "web_session": True}')
 
 mv $WORKSPACE/omeroweb-install/ansible/doc/* $WORKSPACE/ome-documentation/omero/sysadmins/unix/install-web/walkthrough
 
