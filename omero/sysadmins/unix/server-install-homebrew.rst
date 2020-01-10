@@ -35,7 +35,7 @@ Java
 
 Java may be installed using OpenJDK from
 `AdoptOpenJDK <https://adoptopenjdk.net/>`_.
-See :doc:`version-requirements` for supported versions.
+See :doc:`../version-requirements` for supported versions.
 
 After installing JDK, check your installation works by
 running::
