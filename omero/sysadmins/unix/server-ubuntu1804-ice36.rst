@@ -132,7 +132,7 @@ This means that it is not possible to connect to an OMERO.server
 using any OMERO clients e.g. the Java Desktop client,
 the OMERO.web client or the CLI.
 The parameter ``@SECLEVEL=0``, enabling the weaker ciphers, needs to be
-added in two files in order to allow connection.
+set in order to allow connection.
 
 .. literalinclude:: walkthrough/walkthrough_ubuntu1804.sh
     :start-after: #start-seclevel
