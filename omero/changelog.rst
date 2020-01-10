@@ -5,7 +5,7 @@ CHANGELOGS
 Links to decoupled repositories
 ===============================
 
-Since OMERO 5.5, the following repositories have been decoupled.
+Starting from OMERO 5.5, the following repositories have been decoupled.
 
 omero-build:
 ------------
