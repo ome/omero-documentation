@@ -281,12 +281,12 @@ Database
 
   **(Optional)** To make life easier, you can add an ```alias``` to your :file:`.bash_profile` to start and stop the Postgres service::
 
-  alias startPg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w start'
-  alias stopPg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w stop'
+      alias startPg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w start'
+      alias stopPg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w stop'
 
-  Reload :file:`.bash_profile` in OS X::
+      Reload :file:`.bash_profile` in OS X::
 
-  $ source ~/.bash_profile
+      $ source ~/.bash_profile
 
 Binary Repository
 ^^^^^^^^^^^^^^^^^
