@@ -5,7 +5,7 @@ The OME team is committed to providing frequent, project-wide upgrades both
 with bug fixes and new functionality. We try to make the schedule for these
 releases as public as possible. You may want to take a look at the `Trello
 boards <https://trello.com/b/4EXb35xQ/getting-started>`_ for exactly what will
-go into a release.
+go into a release. See also :doc:`omeroweb-upgrade`.
 
 See the full details of OMERO |release| features in the :doc:`/users/history`.
 
