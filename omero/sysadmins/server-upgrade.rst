@@ -168,13 +168,12 @@ directory, you are safe to follow the following upgrade procedure:
 
     $ cd ..
     $ mv OMERO.server OMERO.server-old
-    $ unzip OMERO.server-|release|-ice3x-byy.zip
-    $ ln -s OMERO.server-|release|-ice3x-byy OMERO.server
+    $ unzip OMERO.server-|release|-ice36-byy.zip
+    $ ln -s OMERO.server-|release|-ice36-byy OMERO.server
     $ cp OMERO.server-old/etc/grid/config.xml OMERO.server/etc/grid
 
 .. note::
-    ``ice3x`` and ``byy`` **need to be replaced** by the appropriate Ice
-    version and build number of OMERO.server.
+    ``byy`` **needs to be replaced** by the appropriate build number of OMERO.server.
 
 .. _upgradedb:
 
