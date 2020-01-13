@@ -3,6 +3,15 @@
 Installing OMERO from source
 ============================
 
+.. warning::
+  
+  Starting from OMERO 5.5, many components have been moved to their own
+  repositories e.g. `OMERO.py <https://github.com/ome/omero-py>`_, to modernize
+  the application and allow more flexibility.
+
+  This page is currently under **review**.
+
+
 Using the source code
 ---------------------
 
