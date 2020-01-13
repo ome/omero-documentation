@@ -133,7 +133,7 @@ Using conda (preferred)
 
     $ conda activate omeropy
 
-    # In a different Terminal:
+    # In a different terminal:
     $ conda activate omeroweb
 
 4. You can now use the ``omero`` command. You will also need to ensure you are in 
@@ -176,7 +176,7 @@ OR using venv
     $ source ~/Virtual/omeropy/bin/activate
     $ pip install "omero-py>=5.6.0"
 
-    # In a different Terminal:
+    # In a different terminal:
     $ source ~/Virtual/omeroweb/bin/activate
     $ pip install "omero-web>=5.6.0"
 
