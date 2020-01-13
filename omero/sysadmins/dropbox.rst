@@ -37,6 +37,23 @@ the following more specific requirements:
     operating system. Watching a network-attached share (NAS) is strictly
     ***not*** supported.
 
+Installing DropBox
+------------------
+
+From the OMERO 5.6.0 release, the library ``omero-dropbox`` supports Python 3 and
+is now available on PyPI_. We recommend you use a Python virtual environment to install it. It should be installed in the same virtual environment where ``omero-py`` is installed. See :doc:`unix/server-installation`.
+
+Activate the environment ``/opt/omero/server/venv3`` where ``omero-py`` is installed and install ``omero-dropbox``
+as **root**::
+
+    $ . /opt/omero/server/venv3/bin/activate
+    $ pip install omero-dropbox==\ |version_dropbox|
+
+Enable DropBox as the **omero-server system user** (``su - omero-server``)::
+
+    $ omero admin ice server enable MonitorServer
+    $ omero admin ice server enable DropBox
+
 Using DropBox
 -------------
 
@@ -89,6 +106,8 @@ Changing the permissions of a directory within DropBox may result in duplicate
 imports as a newly readable directory appears identical to a new directory. If
 directories need to be modified it is recommended that the DropBox system is
 stopped and then restarted around any changes, as below.
+
+As the **omero-server system user**, run
 ::
 
     $ omero admin ice server disable DropBox
