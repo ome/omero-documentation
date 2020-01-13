@@ -40,7 +40,7 @@ the following more specific requirements:
 Installing DropBox
 ------------------
 
-From OMERO 5.6.0 release, the library ``omero-dropbox`` supports Python 3 and
+From the OMERO 5.6.0 release, the library ``omero-dropbox`` supports Python 3 and
 is now available on PyPI_. We recommend you use a Python virtual environment to install it.
 
 To install ``omero-dropbox`` using venv:
