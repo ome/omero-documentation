@@ -274,9 +274,11 @@ Database
     $ createuser -w -D -R -S db_user
     $ createdb -E UTF8 -O db_user omero_database
 
-#. Activate the omero-server virtualenv::
+#. Activate the ``omeropy`` env::
 
-    $ source ~/Virtual/omero-server/bin/activate
+    $ conda activate omeropy
+    # OR
+    $ source ~/Virtual/omeropy/bin/activate
 
 #. Now set the OMERO configuration::
 
@@ -299,7 +301,7 @@ Binary Repository
 OMERO.web
 ^^^^^^^^^
 
-#. Activate the omero-web virtualenv::
+#. Activate the ``omeroweb`` env::
 
     $ conda activate omeroweb
     # OR
@@ -326,7 +328,7 @@ If necessary start PostgreSQL database server::
 
     $ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w start
 
-Activate the ``omeropy`` virtualenv and start OMERO::
+Activate the ``omeropy`` env and start OMERO::
 
     $ conda activate omeropy
     # OR
@@ -334,9 +336,9 @@ Activate the ``omeropy`` virtualenv and start OMERO::
 
     $ omero admin start
 
-Activate the ``omeroweb`` virtualenv and start OMERO.web::
+Activate the ``omeroweb`` env and start OMERO.web::
 
-    $ conda activate omeropy
+    $ conda activate omeroweb
     # OR
     $ source ~/Virtual/omeroweb/bin/activate
     $ omero web start
@@ -348,11 +350,11 @@ Now connect to your OMERO.server using OMERO.insight or OMERO.web with the follo
     U: root
     P: omero
 
-Activate the omeroweb virtualenv as above, and stop OMERO.web::
+Activate the ``omeroweb`` env as above, and stop OMERO.web::
 
     $ omero web stop
 
-Activate the omeropy virtualenv as above and stop OMERO::
+Activate the ``omeropy`` env as above and stop OMERO::
 
     $ omero admin stop
 
