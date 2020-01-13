@@ -93,7 +93,7 @@ Requirements
 
 
 4. OMERO depends on Ice 3.6 and unfortunately does not run with 
-   the latest version of Ice at this time (Ice 3.7.3). To obtain 
+   the Ice version 3.7 or higher. To obtain 
    Ice 3.6, we need to add a *tap* to Homebrew::
 
     $ brew tap zeroc-ice/tap
