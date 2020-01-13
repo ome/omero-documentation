@@ -144,7 +144,7 @@ Using conda (preferred)
     # Additional modules. For example:
     $ pip install omero-metadata
 
-   Now go to OMERO Installation below.
+   Now go to the :ref:`ref-omero-installtion` section below.
 
 OR using venv
 ^^^^^^^^^^^^^
@@ -166,7 +166,7 @@ OR using venv
     $ python3 --version
     Python 3.7.4
 
-3. Create a virtual environments for omero-py and/or omero-web using Python 3::
+3. Create a virtual environments for ``omero-py`` and/or ``omero-web`` using Python 3::
 
     $ python3 -mvenv ~/Virtual/omeropy
     $ python3 -mvenv ~/Virtual/omeroweb
@@ -189,6 +189,7 @@ OR using venv
     # Additional modules. For example:
     $ pip install omero-metadata
 
+.. _ref-omero-installtion:
 
 OMERO installation
 ------------------
