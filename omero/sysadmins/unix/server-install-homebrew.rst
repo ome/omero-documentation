@@ -121,22 +121,22 @@ You can create virtual environments using either ``conda`` (preferred) OR ``venv
 Using conda (preferred)
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Install Conda.
+#. Install Conda.
    See `miniconda <https://docs.conda.io/en/latest/miniconda.html>`_ for more details.
 
-2. Create virtual environments named ``omeropy`` and ``omeroweb``::
+#. Create virtual environments named ``omeropy`` and ``omeroweb``::
 
     $ conda create -n omeropy -c ome python=3.6 zeroc-ice36-python omero-py
     $ conda create -n omeroweb -c ome python=3.6 zeroc-ice36-python omero-web
 
-3. Activate the virtual environments::
+#. Activate the virtual environments::
 
     $ conda activate omeropy
 
     # In a different terminal:
     $ conda activate omeroweb
 
-4. You can now use the ``omero`` command. You will also need to ensure you are in 
+#. You can now use the ``omero`` command. You will also need to ensure you are in 
    the appropriate environment when you install additional modules::
 
     $ omero -h
@@ -149,7 +149,7 @@ Using conda (preferred)
 OR using venv
 ^^^^^^^^^^^^^
 
-1. install Python provided by Homebrew::
+#. install Python provided by Homebrew::
 
     $ brew install python
 
@@ -158,7 +158,7 @@ OR using venv
 
     $ brew link python
 
-2. Check that Python is working and is version 3.7.x::
+#. Check that Python is working and is version 3.7.x::
 
     $ which python3
     /usr/local/bin/python3
@@ -166,12 +166,12 @@ OR using venv
     $ python3 --version
     Python 3.7.4
 
-3. Create a virtual environments for ``omero-py`` and/or ``omero-web`` using Python 3::
+#. Create a virtual environments for ``omero-py`` and/or ``omero-web`` using Python 3::
 
     $ python3 -mvenv ~/Virtual/omeropy
     $ python3 -mvenv ~/Virtual/omeroweb
 
-4. Activate the Virtualenv environment(s) and install modules::
+#. Activate the Virtualenv environment(s) and install modules::
 
     $ source ~/Virtual/omeropy/bin/activate
     $ pip install "omero-py>=5.6.0"
@@ -180,7 +180,7 @@ OR using venv
     $ source ~/Virtual/omeroweb/bin/activate
     $ pip install "omero-web>=5.6.0"
 
-4. You can now use the ``omero`` command in either virtual environment.
+#. You can now use the ``omero`` command in either virtual environment.
    You will also need to ensure you are in 
    the appropriate environment when you install additional modules::
 
@@ -197,55 +197,52 @@ OMERO installation
 Pre-built server
 ^^^^^^^^^^^^^^^^
 
-1. Using the command-line terminal, prepare a place for your OMERO server to 
+#. Using the command-line terminal, prepare a place for your OMERO server to 
    be downloaded to.
-
-   Find the current OMERO.server zip from the
+#. Find the current OMERO.server zip from the
    `downloads page <https://downloads.openmicroscopy.org/latest/omero/artifacts/>`_.
-   Download and extract the OMERO.server-x.x.x-ice36-bxx.zip.
+#. Download and extract the OMERO.server-x.x.x-ice36-bxx.zip.
 
 Locally built server
 ^^^^^^^^^^^^^^^^^^^^
 
-1. Clone the source code from the project's GitHub account to build locally::
+#. Clone the source code from the project's GitHub account to build locally::
 
     $ git clone --recursive git://github.com/openmicroscopy/openmicroscopy
 
-2. Navigate terminal into the :file:`openmicroscopy` that was just created by performing
+#. Navigate terminal into the :file:`openmicroscopy` that was just created by performing
    the previous step::
 
     $ cd openmicroscopy
 
-3. Execute the build script *(this will take a few minutes, depending on how fast your Mac is)* :: 
+#. Execute the build script *(this will take a few minutes, depending on how fast your Mac is)* :: 
 
     $ ./build.py
 
-  .. seealso::
+#. Once the build completes, the OMERO server build output will be located in :file:`openmicroscopy/dist`.
+
+.. seealso::
    :doc:`/developers/installation`
         Developer documentation page on how to check out to source code
    :doc:`/developers/build-system`
         Developer documentation page on how to build the OMERO.server
 
-4. Once the build completes, the OMERO server build output will be located in :file:`openmicroscopy/dist`.
-
-
 OMERO configuration
 -------------------
 
-1. Open your :file:`.bash_profile` in a text editor, 
+#. Open your :file:`.bash_profile` in a text editor, 
    such as the built-in TextEdit app::
 
     $ open -a TextEdit.app ~/.bash_profile
 
-   Add an environment variable :envvar:`OMERODIR` to the :file:`.bash_profile` which points
-   to the location of the OMERO executable::
+#. Add an environment variable :envvar:`OMERODIR` to the :file:`.bash_profile` which points to the location of the OMERO executable::
 
     # Pre-built server...
     export OMERODIR=/path/to/OMERO.server-x.x.x-ice36-bxx
     # ...OR locally built server
     export OMERODIR=/path/to/openmicroscopy/dist
 
-   Using the command-line terminal, reload your :file:`.bash_profile` using::
+#. Using the command-line terminal, reload your :file:`.bash_profile` using::
 
     $ source ~/.bash_profile
 
@@ -253,45 +250,48 @@ OMERO configuration
 Database
 ^^^^^^^^
 
-1. From a fresh command-line terminal, start the database server::
+#. From a fresh command-line terminal, start the database server:
 
-    $ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w start
+    .. code-block::
 
-  .. note::
-   **(Optional)** To make life easier, you can add an ```alias``` to your :file:`.bash_profile`
-   to start and stop the Postgres service::
+       $ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w start
 
-    alias startPg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w start'
-    alias stopPg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w stop'
+    .. note::
 
-   Reload :file:`.bash_profile` in OS X::
+     **(Optional)** To make life easier, you can add an ```alias``` to your :file:`.bash_profile`
+     to start and stop the Postgres service::
 
-    $ source ~/.bash_profile
+      alias startPg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w start'
+      alias stopPg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w stop'
 
-2. To use OMERO, we need to first set up PostgreSQL. Open a command-line terminal and run the
+      Reload :file:`.bash_profile` in OS X::
+
+      $ source ~/.bash_profile
+
+#. To use OMERO, we need to first set up PostgreSQL. Open a command-line terminal and run the
    following commands to create a user called *db_user* and a database called *omero_database*::
 
     $ createuser -w -D -R -S db_user
     $ createdb -E UTF8 -O db_user omero_database
 
-3. Activate the omero-server virtualenv::
+#. Activate the omero-server virtualenv::
 
     $ source ~/Virtual/omero-server/bin/activate
 
-4. Now set the OMERO configuration::
+#. Now set the OMERO configuration::
 
     $ omero config set omero.db.name omero_database
     $ omero config set omero.db.user db_user
     $ omero config set omero.db.pass db_password
 
-5. Create and run script to initialize the OMERO database::
+#. Create and run script to initialize the OMERO database::
 
     $ omero db script --password omero -f - | psql -h localhost -U db_user omero_database
 
 Binary Repository
 ^^^^^^^^^^^^^^^^^
 
-1. Create directory for OMERO to store its data::
+#. Create directory for OMERO to store its data::
 
     $ mkdir /OMERO
     $ omero config set omero.data.dir /OMERO
@@ -299,13 +299,13 @@ Binary Repository
 OMERO.web
 ^^^^^^^^^
 
-1. Activate the omero-web virtualenv::
+#. Activate the omero-web virtualenv::
 
     $ conda activate omeroweb
     # OR
     $ source ~/Virtual/omeroweb/bin/activate
 
-2. Basic setup for OMERO using NGINX::
+#. Basic setup for OMERO using NGINX::
 
     $ mv /usr/local/etc/nginx/nginx.conf /usr/local/etc/nginx/nginx.conf.orig
     $ omero web config nginx-development > /usr/local/etc/nginx/nginx.conf
