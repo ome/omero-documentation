@@ -298,9 +298,8 @@ Environment variables
 
 If you changed the directory name where the |release| server code
 resides, make sure to update any system environment variables. Before
-restarting the server, make sure your :envvar:`PATH` and
-:envvar:`PYTHONPATH` system environment variables are pointing to the
-new locations.
+restarting the server, make sure your :envvar:`PATH` system environment
+variable is pointing to the new location.
 
 JVM memory settings
 """""""""""""""""""
@@ -316,7 +315,7 @@ Restart your server
 
    .. parsed-literal::
 
-       $ cd OMERO.server
+       $ # activate virtualenv where omero-py is installed
        $ omero admin start
 
 -  If anything goes wrong, please send the output of
