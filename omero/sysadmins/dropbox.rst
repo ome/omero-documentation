@@ -41,24 +41,18 @@ Installing DropBox
 ------------------
 
 From the OMERO 5.6.0 release, the library ``omero-dropbox`` supports Python 3 and
-is now available on PyPI_. We recommend you use a Python virtual environment to install it.
+is now available on PyPI_. We recommend you use a Python virtual environment to install it. It should be installed in the same virtual environment where ``omero-py`` is installed. See :doc:`unix/server-installation`.
 
-To install ``omero-dropbox`` using venv:
+Activate the environment ``/opt/omero/server/venv3`` where ``omero-py`` is installed and install ``omero-dropbox``
+as **root**::
 
-.. parsed-literal::
+    $ . /opt/omero/server/venv3/bin/activate
+    $ pip install omero-dropbox==\ |version_dropbox|
 
-    $ python3 -m venv myenv
-    $ . myenv/bin/activate
-    $ pip install omero-dropbox==\ |version_py|
-    Successfully installed Pillow-6.2.1 future-0.18.2 omero-py-5.6.1 zeroc-ice-3.6.5
+Enable DropBox as the **omero-server system user** (``su - omero-server``)::
 
-To install ``omero-dropbox`` using conda (preferred):
-
-.. parsed-literal::
-
-    conda create -n myenv -c ome python=3.6 zeroc-ice36-python
-    conda activate myenv
-    pip install omero-dropbox==\ |version_dropbox|
+    $ omero admin ice server enable MonitorServer
+    $ omero admin ice server enable DropBox
 
 Using DropBox
 -------------
@@ -112,6 +106,8 @@ Changing the permissions of a directory within DropBox may result in duplicate
 imports as a newly readable directory appears identical to a new directory. If
 directories need to be modified it is recommended that the DropBox system is
 stopped and then restarted around any changes, as below.
+
+As the **omero-server system user**, run
 ::
 
     $ omero admin ice server disable DropBox
