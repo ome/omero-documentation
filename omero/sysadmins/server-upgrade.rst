@@ -284,9 +284,7 @@ If any new official scripts have been added under ``lib/scripts`` or if
 you have modified any of the existing ones, then you will need to backup
 your modifications. Doing this, however, is not as simple as copying the
 directory over since the core developers will have also improved these
-scripts. In order to facilitate saving your work, we have turned the
-scripts into a Git submodule which can be found at
-`<https://github.com/ome/scripts>`_.
+scripts.
 
 For further information on managing your scripts, refer to
 :doc:`installing-scripts`. If you require help, please contact the OME
