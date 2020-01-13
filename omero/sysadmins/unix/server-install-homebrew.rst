@@ -250,23 +250,9 @@ OMERO configuration
 Database
 ^^^^^^^^
 
-#. From a fresh command-line terminal, start the database server:
+#. From a fresh command-line terminal, start the database server::
 
-    .. code-block::
-
-       $ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w start
-
-    .. note::
-
-     **(Optional)** To make life easier, you can add an ```alias``` to your :file:`.bash_profile`
-     to start and stop the Postgres service::
-
-      alias startPg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w start'
-      alias stopPg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w stop'
-
-      Reload :file:`.bash_profile` in OS X::
-
-      $ source ~/.bash_profile
+    $ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w start
 
 #. To use OMERO, we need to first set up PostgreSQL. Open a command-line terminal and run the
    following commands to create a user called *db_user* and a database called *omero_database*::
@@ -289,6 +275,18 @@ Database
 #. Create and run script to initialize the OMERO database::
 
     $ omero db script --password omero -f - | psql -h localhost -U db_user omero_database
+
+
+.. note::
+
+  **(Optional)** To make life easier, you can add an ```alias``` to your :file:`.bash_profile` to start and stop the Postgres service::
+
+  alias startPg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w start'
+  alias stopPg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w stop'
+
+  Reload :file:`.bash_profile` in OS X::
+
+  $ source ~/.bash_profile
 
 Binary Repository
 ^^^^^^^^^^^^^^^^^
