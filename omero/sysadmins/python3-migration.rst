@@ -31,9 +31,9 @@ Similarly, other operating systems are slated for having support added, but help
 from the community would be very welcome! Obvious next candidates are CentOS 8
 and Ubuntu 20.04.
 
-Debian 9 is still on Python 3.5 and Debian 10 has moved to Ice 3.7 so neither is
-supported at the moment. We have nonetheless an installation guide for Debian 9
-but not yet for Debian 10.
+Debian 9 is still on Python 3.5 and Debian 10 has moved to Ice 3.7.
+We have nonetheless an installation guide for Debian 9 with Python 3.5 and Ice 3.6
+but an installation guide for Debian 10 with Python 3.6 and Ice 3.6.
 
 Other prerequisites
 -------------------
