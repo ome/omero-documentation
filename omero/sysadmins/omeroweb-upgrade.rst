@@ -83,11 +83,9 @@ versions using pip.
 Restart OMERO.web
 ^^^^^^^^^^^^^^^^^
 
-Finally, restart OMERO.web with the following command:
+Finally, restart OMERO.web with the following command::
 
-   ::
-
-       $ omero web restart
+   $ omero web restart
 
 Troubleshooting
 ^^^^^^^^^^^^^^^
