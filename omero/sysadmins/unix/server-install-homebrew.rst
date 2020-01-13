@@ -73,11 +73,11 @@ To open your :file:`.bash_profile` in a text editor, such as the built-in TextEd
 Requirements
 ------------
 
-1. Open a command-line terminal and install git if not already present::
+#. Open a command-line terminal and install git if not already present::
 
     $ brew install git
 
-2. Install PostgreSQL database server::
+#. Install PostgreSQL database server::
 
     $ brew install postgresql
 
@@ -87,12 +87,12 @@ Requirements
     export LANG=en_US.UTF-8
     export LANGUAGE=en_US:en
 
-3. Install NGINX::
+#. Install NGINX::
 
     $ brew install nginx
 
 
-4. OMERO depends on Ice 3.6 and unfortunately does not run with 
+#. OMERO depends on Ice 3.6 and unfortunately does not run with 
    the Ice version 3.7 or higher. To obtain 
    Ice 3.6, we need to add a *tap* to Homebrew::
 
