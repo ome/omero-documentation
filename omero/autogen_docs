@@ -17,7 +17,7 @@ echo "Copying history"
 # inject link to change log
 touch newfile.rst
 cat omero/changelog.rst > newfile.rst
-echo "" >> newfile.rst
+echo >> newfile.rst
 cat $WORKSPACE/OMERO.server/history.rst >> newfile.rst
 mv newfile.rst omero/users/history.rst
 
