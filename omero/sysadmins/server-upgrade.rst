@@ -180,12 +180,10 @@ directory, you are safe to follow the following upgrade procedure:
 Upgrade your database
 ^^^^^^^^^^^^^^^^^^^^^
 
-.. only:: point_release
-
-    .. warning::
-        This section only concerns users upgrading from a 5.3 or
-        earlier server. If upgrading from a 5.4 or 5.5 server, you do not need
-        to upgrade the database.
+.. warning::
+    This section only concerns users upgrading from a 5.3 or
+    earlier server. If upgrading from a 5.4 or 5.5 server, you do not need
+    to upgrade the database.
 
 Ensure Unicode character encoding
 """""""""""""""""""""""""""""""""
