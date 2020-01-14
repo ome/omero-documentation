@@ -4,16 +4,16 @@ Migration to Python 3
 Basic steps
 -----------
 
-1. Choose a platform and a Python version. If your current installation platform
+#. Choose a platform and a Python version. If your current installation platform
    does not match one of the :doc:`recommended platforms <version-requirements>`,
    you may want to choose a new platform as your migration target. See
    `Choosing a platform`_ below.
-2. Install OMERO.server and OMERO.web *separately*. Though not necessary, all
+#. Install OMERO.server and OMERO.web *separately*. Though not necessary, all
    instructions like `OMERO.server`_ and `OMERO.web`_ below as well as the main
    :doc:`server <unix/server-installation>` and 
    :doc:`web <unix/install-web/web-deployment>` installation pages now assume
    that the two are in separate installations.
-3. Once both have been installed, perform a
+#. Once both have been installed, perform a
    :doc:`backup and restore <server-backup-and-restore>` procedure
    and test your installation against the copy of your data.
 
@@ -33,7 +33,7 @@ and Ubuntu 20.04.
 
 Debian 9 is still on Python 3.5 and Debian 10 has moved to Ice 3.7.
 We have nonetheless an installation guide for Debian 9 with Python 3.5 and Ice 3.6
-but an installation guide for Debian 10 with Python 3.6 and Ice 3.6.
+but an installation guide for Debian 10 with Python 3.7 and Ice 3.6.
 
 Other prerequisites
 -------------------
@@ -79,9 +79,8 @@ installation directory. We suggest :file:`/opt/omero/server/` and symlink the un
 directory to `OMERO.server`
 
 We highly recommend a virtualenv-based installation for all of the Python
-dependencies. Follow the :doc:`standard installation instructions <unix/server-installation>`
-for your platform.
-All instructions ...
+dependencies. Follow the :doc:`standard installation instructions <unix/server-installation>` for your platform.
+All instructions use a virtual environment.
 
 Once you have your installation in place, you will need to follow the
 :doc:`standard upgrade instructions <server-upgrade>`, working from

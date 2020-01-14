@@ -5,7 +5,7 @@ The OME team is committed to providing frequent, project-wide upgrades both
 with bug fixes and new functionality. We try to make the schedule for these
 releases as public as possible. You may want to take a look at the `Trello
 boards <https://trello.com/b/4EXb35xQ/getting-started>`_ for exactly what will
-go into a release.
+go into a release. See also :doc:`omeroweb-upgrade`.
 
 See the full details of OMERO |release| features in the :doc:`/users/history`.
 
@@ -168,13 +168,12 @@ directory, you are safe to follow the following upgrade procedure:
 
     $ cd ..
     $ mv OMERO.server OMERO.server-old
-    $ unzip OMERO.server-|release|-ice3x-byy.zip
-    $ ln -s OMERO.server-|release|-ice3x-byy OMERO.server
+    $ unzip OMERO.server-|release|-ice36-byy.zip
+    $ ln -s OMERO.server-|release|-ice36-byy OMERO.server
     $ cp OMERO.server-old/etc/grid/config.xml OMERO.server/etc/grid
 
 .. note::
-    ``ice3x`` and ``byy`` **need to be replaced** by the appropriate Ice
-    version and build number of OMERO.server.
+    ``byy`` **needs to be replaced** by the appropriate build number of OMERO.server.
 
 .. _upgradedb:
 
@@ -285,9 +284,7 @@ If any new official scripts have been added under ``lib/scripts`` or if
 you have modified any of the existing ones, then you will need to backup
 your modifications. Doing this, however, is not as simple as copying the
 directory over since the core developers will have also improved these
-scripts. In order to facilitate saving your work, we have turned the
-scripts into a Git submodule which can be found at
-`<https://github.com/ome/scripts>`_.
+scripts.
 
 For further information on managing your scripts, refer to
 :doc:`installing-scripts`. If you require help, please contact the OME
@@ -301,9 +298,8 @@ Environment variables
 
 If you changed the directory name where the |release| server code
 resides, make sure to update any system environment variables. Before
-restarting the server, make sure your :envvar:`PATH` and
-:envvar:`PYTHONPATH` system environment variables are pointing to the
-new locations.
+restarting the server, make sure your :envvar:`PATH` system environment
+variable is pointing to the new location.
 
 JVM memory settings
 """""""""""""""""""
@@ -319,7 +315,7 @@ Restart your server
 
    .. parsed-literal::
 
-       $ cd OMERO.server
+       $ # activate virtualenv where omero-py is installed
        $ omero admin start
 
 -  If anything goes wrong, please send the output of
