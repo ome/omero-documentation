@@ -63,13 +63,13 @@ Install ZeroC IcePy 3.6::
 
 Install OMERO.web::
 
-    /opt/omero/web/venv3/bin/pip install "omero-web>=5.6.dev5"
+    /opt/omero/web/venv3/bin/pip install "omero-web>=5.6.1"
 
 Installing OMERO.web apps
 -------------------------
 
 
-A number of apps are available to add functionality to OMERO.web, such as `OMERO.figure <https://www.openmicroscopy.org/omero/figure/>`_ and `OMERO.iviewer <https://www.openmicroscopy.org/omero/iviewer/>`_. See the main website for a `list of released apps <https://www.openmicroscopy.org/omero/apps/>`_. These apps are optional and can be installed, as the **root user**, via :program:`pip` to your OMERO.web virtual environment and configure as the **omero-web system user**, at any time.
+A number of apps are available to add functionality to OMERO.web, such as `OMERO.figure <https://www.openmicroscopy.org/omero/figure/>`_ and `OMERO.iviewer <https://www.openmicroscopy.org/omero/iviewer/>`_. See the main website for a `list of released apps <https://www.openmicroscopy.org/omero/apps/>`_. These apps are optional and can be installed, as the **root user**, via :program:`pip` to your OMERO.web virtual environment and configured as the **omero-web system user**, at any time.
 
 
 
