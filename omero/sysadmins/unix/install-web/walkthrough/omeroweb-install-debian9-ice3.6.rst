@@ -70,7 +70,7 @@ Installing OMERO.web apps
 -------------------------
 
 
-A number of apps are available to add functionality to OMERO.web, such as `OMERO.figure <https://www.openmicroscopy.org/omero/figure/>`_ and `OMERO.iviewer <https://www.openmicroscopy.org/omero/iviewer/>`_. See the main website for a `list of released apps <https://www.openmicroscopy.org/omero/apps/>`_. These apps are optional and can be installed, as the **root user**, via :program:`pip` to your OMERO.web virtual environment and configure as the **omero-web system user**, at any time.
+A number of apps are available to add functionality to OMERO.web, such as `OMERO.figure <https://www.openmicroscopy.org/omero/figure/>`_ and `OMERO.iviewer <https://www.openmicroscopy.org/omero/iviewer/>`_. See the main website for a `list of released apps <https://www.openmicroscopy.org/omero/apps/>`_. These apps are optional and can be installed, as the **root user**, via :program:`pip` to your OMERO.web virtual environment and configured as the **omero-web system user**, at any time.
 
 
 
@@ -189,7 +189,6 @@ Should you wish to run OMERO.web automatically, a `init.d` file could be created
     # Short-Description:    OMERO.web
     ### END INIT INFO
     #
-    ### Redhat
     # chkconfig: - 98 02
     # description: init file for OMERO.web
     ###
@@ -263,7 +262,6 @@ Start up services::
     service redis-server start
 
 
-    cron
     service nginx start
     service omero-web restart
 

@@ -77,7 +77,7 @@ $VENV_SERVER/bin/pip install https://github.com/ome/zeroc-ice-debian10/releases/
 
 #start-step04-pre: As root, install omero-py and download the OMERO.server
 # Install omero-py
-$VENV_SERVER/bin/pip install "omero-py>=5.6.dev9"
+$VENV_SERVER/bin/pip install "omero-py>=5.6.0"
 #start-release-ice36
 cd /opt/omero/server
 SERVER=https://downloads.openmicroscopy.org/omero/5.6/server-ice36.zip

@@ -39,6 +39,13 @@ Install dependencies::
     apt-get -y install nginx
 
 
+*Optional*: if you wish to use the Redis cache, install Redis::
+
+    apt-get -y install redis-server
+
+    service redis-server start
+
+
 Creating a virtual environment
 ------------------------------
 
@@ -74,6 +81,7 @@ Configuring OMERO.web
 
 For convenience the main OMERO.web configuration options have been defined as environment variables. You can either use your own values, or alternatively use the following ones::
 
+    export WEBSESSION=True
     export OMERODIR=/opt/omero/web/omero-web
     export WEBPORT=80
     export WEBSERVER_NAME=localhost
@@ -134,9 +142,16 @@ Install `WhiteNoise <http://whitenoise.evans.io/>`_::
 
     /opt/omero/web/venv3/bin/pip install --upgrade 'whitenoise<4'
 
+*Optional*: Install `Django Redis <https://github.com/niwinz/django-redis/>`_::
+
+    /opt/omero/web/venv3/bin/pip install 'django-redis<4.9'
 
 **The following steps are run as the omero-web system user.**
 
+*Optional*: Configure the cache::
+
+    omero config set omero.web.caches '{"default": {"BACKEND": "django_redis.cache.RedisCache","LOCATION": "redis://127.0.0.1:6379/0"}}'
+    omero config set omero.web.session_engine 'django.contrib.sessions.backends.cache'
 
 Configure WhiteNoise and start OMERO.web manually to test the installation::
 
@@ -171,7 +186,6 @@ Should you wish to run OMERO.web automatically, a `init.d` file could be created
     # Short-Description:    OMERO.web
     ### END INIT INFO
     #
-    ### Redhat
     # chkconfig: - 98 02
     # description: init file for OMERO.web
     ###
@@ -242,9 +256,9 @@ Copy the `init.d` file, then configure the service::
 
 Start up services::
 
+    service redis-server start
 
 
-    cron
     service nginx start
     service omero-web restart
 
@@ -255,4 +269,5 @@ Maintenance
 **The following steps are run as the omero-web system user.**
 
 Please read :ref:`omero_web_maintenance`.
+
 
