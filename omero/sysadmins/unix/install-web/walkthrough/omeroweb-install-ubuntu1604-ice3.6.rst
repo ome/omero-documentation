@@ -64,7 +64,7 @@ Install ZeroC IcePy 3.6::
 
 Install OMERO.web::
 
-    /opt/omero/web/venv3/bin/pip install "omero-web>=5.6.dev5"
+    /opt/omero/web/venv3/bin/pip install "omero-web>=5.6.1"
 
 Installing OMERO.web apps
 -------------------------
