@@ -42,17 +42,6 @@ export OMERODIR=$WORKSPACE/OMERO.server
 cd $WORKSPACE/ome-documentation/
 omero/autogen_docs
 
-if [[ -z $(git status -s) ]]; then
-  echo "No local changes"
-else
-  git add .
-  if [ "$OPEN_PR" = "true" ]; then
-     scc $PUSH_COMMAND -m "$MESSAGE"
-  else
-     scc $PUSH_COMMAND --no-pr -m "$MESSAGE"
-  fi
-fi
-
 # OSX compatibility for testing
 MD5SUM=md5sum
 type $MD5SUM || MD5SUM=md5
