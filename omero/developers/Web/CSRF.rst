@@ -4,7 +4,7 @@ Cross Site Request Forgery protection
 
 CSRF is an attack which forces an end user to execute unwanted actions on a web
 application in which they are currently authenticated. For more details see
-`Cross-Site Request Forgery <https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)>`_.
+`Cross-Site Request Forgery <https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html>`_.
 
 OMERO.web provides easy-to-use protection against Cross Site Request
 Forgeries, for more information see
