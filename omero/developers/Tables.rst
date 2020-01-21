@@ -9,7 +9,7 @@ Large and small volumes of tabular data can be stored via named columns, and
 retrieved in bulk or via paging. A limited query language provides basic
 filtering and selecting.
 
-Since 5.6, `PyTables <https://pytables.org>`__ are installed when installing
+Since 5.6, `PyTables`_ are installed when installing
 ``omero-py``.
 
 
@@ -319,7 +319,7 @@ Query language
 --------------
 
 The query language mentioned above is *currently* the PyTables
-`condition syntax <https://www.pytables.org/usersguide/condition_syntax.html>`_.
+`Condition syntax`_.
 Columns are referenced by name. The following operators are supported:
 
 -  Logical operators: ``&, |, ~``
