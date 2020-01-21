@@ -186,6 +186,20 @@ Add one or both of these function calls to a script, for example ``openwith.js``
         return url;
     });
 
+Note that instead of returning a static URL, you can also return a function,
+which will be called when the menu option is selected:
+
+::
+
+    // Here we configure a url provider that returns a function instead of
+    // a static URL.  As an example, this shows an alert instead of opening
+    // a new web page.
+    OME.setOpenWithUrlProvider("xyz_viewer", function(selected, url) {
+        return function () {
+            window.alert("The first selected ID is " + selected[0].id);
+        };
+    });
+
 Save the script to a static location, either within an OMERO.web app's static directory
 or make it available at another url.
 Then specify this location using the ``script_url`` option.
