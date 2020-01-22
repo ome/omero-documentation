@@ -280,20 +280,20 @@ tests from :sourcedir:`components/tools/OmeroPy` using
 Since Python is interpreted, tests can be written and then run without having
 to rebuild or restart the server. A few basic options are shown below.
 
+First install dependencies::
+
+    $ pip install pytest, mox3, pyyaml
+
+    # for Omeroweb tests
+    $ pip install pytest-django
+
+Run tests directly with pytest, setting the ICE_CONFIG as described above:
+
+    export ICE_CONFIG=/path/to/openmicroscopy/etc/ice.config
+
+    pytest test/integration/test_admin.py
+
 .. program:: setup.py test
-
-.. option:: -t <test_path>, --test-path <test_path>
-
-    This option specifies the test suite to run. For instance to run a single
-    test file::
-
-        cd components/tools/OmeroPy
-        ./setup.py test -t test/integration/test_admin.py
-
-    Or to run all tests under a given folder::
-
-        cd components/tools/OmeroPy
-        ./setup.py test -t test/integration/clitest
 
 .. option:: -k <string>
 
@@ -301,11 +301,11 @@ to rebuild or restart the server. A few basic options are shown below.
     their names. For example, to run all the tests under
     :file:`test/integration` with `permissions` in their names::
 
-        ./setup.py test -t test/integration -k permissions
+        pytest test/integration -k permissions
 
     This option can also be used to run a named test within a test module::
 
-        ./setup.py test -t test/integration/test_admin.py -k testGetGroup
+        pytest test/integration/test_admin.py -k testGetGroup
 
 .. option:: -m <marker>
 
@@ -315,49 +315,27 @@ to rebuild or restart the server. A few basic options are shown below.
     For example, to run all integration tests excluding those decorated with
     the marker `broken`::
 
-        ./setup.py test -t test/integration -m "not broken"
+        pytest test/integration -m "not broken"
 
 .. option:: --markers
 
     This option lists available markers for decorating tests::
 
-        ./setup.py test --markers
+        pytest --markers
 
 .. option:: -s
 
     This option allows the standard output to be shown on the console::
 
-        ./setup.py test -t test/integration/test_admin.py -s
+        pytest -t test/integration/test_admin.py -s
 
 .. option:: -h, --help
 
     This option displays the full list of available options::
 
-        ./setup.py test -h
+        pytest -h
 
-To make use of the more advanced options available in `pytest` that are not
-accessible using :program:`setup.py test`, the :program:`py.test` script can
-be used directly. To use this :envvar:`PYTHONPATH` must contain the path to
-the OMERO Python libraries, see |BlitzGateway| as well as the  path to the
-:py_sourcedir:`OMERO Python test library <src/omero/testlib>`.
-Alternatively, the `pytest` plugin :pypi:`pytest-pythonpath` can be used to
-add paths to :envvar:`PYTHONPATH` specifically for `pytest`.
-
-.. program:: py.test
-
-.. option:: --repeat <number>
-
-    This option allows to repeat tests for *number* occurences::
-
-        py.test --repeat 20 test/unit/fstest
-
-.. option:: -h, --help
-
-    This option displays the full list of options::
-
-        py.test --help
-
-and `<https://pytest.org/en/latest/usage.html>`_ for more help in
+See `<https://pytest.org/en/latest/usage.html>`_ for more help in
 running tests.
 
 Failing tests
