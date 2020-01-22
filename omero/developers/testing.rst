@@ -282,7 +282,7 @@ to rebuild or restart the server. A few basic options are shown below.
 
 First install dependencies::
 
-    $ pip install pytest, mox3, pyyaml
+    $ pip install pytest mox3 pyyaml
 
     # for Omeroweb tests
     $ pip install pytest-django
