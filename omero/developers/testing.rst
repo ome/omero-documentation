@@ -276,11 +276,13 @@ Running tests directly
 
 When writing tests it can be more convenient, flexible and powerful to run the
 tests from :sourcedir:`components/tools/OmeroPy` using
-:program:`setup.py test`.
+:program:`pytest`.
 Since Python is interpreted, tests can be written and then run without having
 to rebuild or restart the server. A few basic options are shown below.
 
-First install dependencies::
+First create a python virtual environment including ``omero-py``
+as described on the :doc:`OMERO Python </developers/Python>` page
+and install dependencies::
 
     $ pip install pytest mox3 pyyaml
 
@@ -291,9 +293,14 @@ Run tests directly with pytest, setting the :envvar:`ICE_CONFIG` as described ab
 
     export ICE_CONFIG=/path/to/openmicroscopy/etc/ice.config
 
+    cd components/tools/OmeroPy
+
+    # OR for OmeroWeb tests:
+    cd components/tools/OmeroPy
+
     pytest test/integration/test_admin.py
 
-.. program:: setup.py test
+.. program:: pytest
 
 .. option:: -k <string>
 
@@ -311,7 +318,7 @@ Run tests directly with pytest, setting the :envvar:`ICE_CONFIG` as described ab
 
     This option will run integration tests depending on the markers they are
     decorated with. Available markers can be listed using the
-    :option:`setup.py test --markers` option.
+    :option:`pytest --markers` option.
     For example, to run all integration tests excluding those decorated with
     the marker `broken`::
 
@@ -466,8 +473,8 @@ markers can be simply defined as they are used. However, to centralize the use
 of custom markers they should be defined in
 :sourcedir:`components/tools/pytest.ini`.
 
-To view all available markers the :option:`setup.py test --markers` option can
-be used with :program:`setup.py test` or :program:`py.test` as detailed in
+To view all available markers the :option:`pytest --markers` option can
+be used with :program:`pytest` or :program:`py.test` as detailed in
 :ref:`running-python-tests-directly`.
 
 There is one custom marker defined:
