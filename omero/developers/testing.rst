@@ -287,7 +287,7 @@ First install dependencies::
     # for Omeroweb tests
     $ pip install pytest-django
 
-Run tests directly with pytest, setting the ICE_CONFIG as described above:
+Run tests directly with pytest, setting the :envvar:`ICE_CONFIG` as described above:
 
     export ICE_CONFIG=/path/to/openmicroscopy/etc/ice.config
 
