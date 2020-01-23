@@ -275,8 +275,8 @@ Running tests directly
 """"""""""""""""""""""
 
 When writing tests it can be more convenient, flexible and powerful to run the
-tests from :sourcedir:`components/tools/OmeroPy` using
-:program:`pytest`.
+tests from :sourcedir:`components/tools/OmeroPy` or
+:sourcedir:`components/tools/OmeroWeb` using :program:`pytest`.
 Since Python is interpreted, tests can be written and then run without having
 to rebuild or restart the server. A few basic options are shown below.
 
@@ -289,7 +289,7 @@ and install dependencies::
     # for Omeroweb tests
     $ pip install pytest-django
 
-Run tests directly with pytest, setting the :envvar:`ICE_CONFIG` as described above:
+Run tests directly with pytest, setting the :envvar:`ICE_CONFIG` as described above::
 
     export ICE_CONFIG=/path/to/openmicroscopy/etc/ice.config
 
