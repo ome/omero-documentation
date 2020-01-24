@@ -9,8 +9,11 @@ Large and small volumes of tabular data can be stored via named columns, and
 retrieved in bulk or via paging. A limited query language provides basic
 filtering and selecting.
 
-Since 5.6, `PyTables`_ are installed when installing
-``omero-py``.
+Since 5.6, the client library ``omero-py`` is available on PyPI_ and Conda_.
+We recommend to install the library in a Python virtual environment.
+In the same environment, you should now install `PyTables`_ by running
+``pip install tables``. 
+Note that if you are installing on Ubuntu 16.04 or Debian 9, you will have to cap the version to ``3.4.4``.
 
 
 The interface
