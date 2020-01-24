@@ -296,7 +296,7 @@ Run tests directly with pytest, setting the :envvar:`ICE_CONFIG` as described ab
     cd components/tools/OmeroPy
 
     # OR for OmeroWeb tests:
-    cd components/tools/OmeroPy
+    cd components/tools/OmeroWeb
 
     pytest test/integration/test_admin.py
 
