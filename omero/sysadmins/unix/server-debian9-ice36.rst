@@ -92,7 +92,7 @@ Installing OMERO.server
 
 **The following step is run as root.**
 
-We recommend to create a virtual environment and install the Ice Python binding using ``pip``:
+We recommend to create a virtual environment and install the Ice Python binding and PyTables_ using ``pip``:
 
 .. literalinclude:: walkthrough/walkthrough_debian9.sh
     :start-after: #start-step03bis
