@@ -211,6 +211,7 @@ rst_epilog = """
 .. _Django: https://www.djangoproject.com/
 .. _PyPI: https://pypi.org
 .. _Conda: https://docs.conda.io/en/latest/
+.. _PyTables: http://pytables.org
 
 .. |SSH| replace:: :abbr:`SSH (Secure Shell)`
 .. |VM| replace:: :abbr:`VM (Virtual Machine)`

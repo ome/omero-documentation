@@ -11,7 +11,7 @@ filtering and selecting.
 
 Since 5.6, the client library ``omero-py`` is available on PyPI_ and Conda_.
 We recommend to install the library in a Python virtual environment.
-In the same environment, you should now install `PyTables`_ by running
+In the same environment, you should now install PyTables_ by running
 ``pip install tables``. 
 Note that if you are installing on Ubuntu 16.04 or Debian 9, you will have to cap the version to ``3.4.4``.
 
@@ -405,10 +405,10 @@ store. Any suggestions or ideas would be
 
 .. seealso::
 
-    `PyTables <http://pytables.org>`_
+    PyTables_
         Software on which OMERO.tables is built.
 
-    `Condition Syntax <http://pytables.github.com/usersguide/condition_syntax.html>`_
+    `Condition Syntax <http://pytables.org/usersguide/condition_syntax.html>`_
         The PyTables condition syntax.
 
     :blitz_source:`slice definition file <src/main/slice/omero/Tables.ice>`
