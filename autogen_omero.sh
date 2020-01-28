@@ -11,6 +11,8 @@ export WORKSPACE=${WORKSPACE:-$(pwd)}
 export WORKSPACE=${WORKSPACE%/}  # Remove trailing slashes
 export USER=${USER:-$(whoami)}
 export OMERODIR=${WORKSPACE}/OMERO.server
+export VIRTUAL_ENV=${VIRTUAL_ENV:-$WORKSPACE/.venv3}
+export PYTHON=${PYTHON:-python}
 
 # VARIABLES #1
 MESSAGE="Update auto-generated documentation"
@@ -23,21 +25,20 @@ test -e $WORKSPACE/OMERO.server
 test -e $WORKSPACE/omero-install
 test -e $WORKSPACE/omeroweb-install
 
-if [ -e $WORKSPACE/venv ]; then
-    rm -rf $WORKSPACE/venv
+if [ ! -e $VIRTUAL_ENV ]; then
+    $PYTHON -m venv $VIRTUAL_ENV
+    echo You may need to manually install zeroc-ice
 fi
-python3 -m venv --system-site-packages $WORKSPACE/venv || virtualenv --system-site-packages $WORKSPACE/venv
-$WORKSPACE/venv/bin/pip install "omero-web>=5.6.dev7"
-$WORKSPACE/venv/bin/pip install future 'ansible<2.7'
-$WORKSPACE/venv/bin/pip install "django-redis>=4.4,<4.9"
-$WORKSPACE/venv/bin/pip install -U PyYAML==5.1
-$WORKSPACE/venv/bin/pip install scc
+
 set +u # PS1 issue
-. $WORKSPACE/venv/bin/activate
+. $VIRTUAL_ENV/bin/activate
 set -u
-export PATH=$WORKSPACE/OMERO.server/bin:$PATH:$HOME/.local/bin
-export PYTHONPATH=$WORKSPACE/OMERO.server/lib/python
-export OMERODIR=$WORKSPACE/OMERO.server
+
+python -m pip install "omero-web>=5.6.0"
+python -m pip install future 'ansible<2.7'
+python -m pip install "django-redis>=4.4,<4.9"
+python -m pip install -U PyYAML==5.1
+python -m pip install scc
 
 cd $WORKSPACE/ome-documentation/
 omero/autogen_docs
