@@ -11,7 +11,7 @@ export WORKSPACE=${WORKSPACE:-$(pwd)}
 export WORKSPACE=${WORKSPACE%/}  # Remove trailing slashes
 export USER=${USER:-$(whoami)}
 export OMERODIR=${WORKSPACE}/OMERO.server
-export VIRTUAL_ENV=${VIRTUAL_ENV:-$WORKSPACE/.venv3}
+export DOCVENV=${DOCVENV:-$WORKSPACE/.venv3}
 export PYTHON=${PYTHON:-python}
 
 # VARIABLES #1
@@ -25,13 +25,13 @@ test -e $WORKSPACE/OMERO.server
 test -e $WORKSPACE/omero-install
 test -e $WORKSPACE/omeroweb-install
 
-if [ ! -e $VIRTUAL_ENV ]; then
-    $PYTHON -m venv $VIRTUAL_ENV
+if [ ! -e $DOCVENV ]; then
+    $PYTHON -m venv $DOCVENV
     echo You may need to manually install zeroc-ice
 fi
 
 set +u # PS1 issue
-. $VIRTUAL_ENV/bin/activate
+. $DOCVENV/bin/activate
 set -u
 
 python -m pip install "omero-web>=5.6.0"
