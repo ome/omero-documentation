@@ -280,11 +280,13 @@ tests from :sourcedir:`components/tools/OmeroPy` or
 Since Python is interpreted, tests can be written and then run without having
 to rebuild or restart the server. A few basic options are shown below.
 
-First create a python virtual environment including ``omero-py``
-as described on the :doc:`OMERO Python </developers/Python>` page
-and install dependencies::
+First create a python virtual environment
+as described on the :doc:`OMERO Python </developers/Python>` page,
+including ``omero-py`` and ``omero-web`` if you want to run OmeroWeb tests.
+Some tests also require install of PyTables.
+Then install some additional test dependencies::
 
-    $ pip install pytest mox3 pyyaml
+    $ pip install pytest mox3 pyyaml tables
 
     # for Omeroweb tests
     $ pip install pytest-django
