@@ -334,7 +334,7 @@ Run tests directly with pytest, setting the :envvar:`ICE_CONFIG` as described ab
 
     This option allows the standard output to be shown on the console::
 
-        pytest -t test/integration/test_admin.py -s
+        pytest test/integration/test_admin.py -s
 
 .. option:: -h, --help
 
