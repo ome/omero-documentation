@@ -284,6 +284,7 @@ First create a python virtual environment
 as described on the :doc:`OMERO Python </developers/Python>` page,
 including ``omero-py`` and ``omero-web`` if you want to run OmeroWeb tests.
 Some tests also require install of PyTables.
+
 Then install some additional test dependencies::
 
     $ pip install pytest mox3 pyyaml tables
@@ -291,9 +292,11 @@ Then install some additional test dependencies::
     # for Omeroweb tests
     $ pip install pytest-django
 
-Run tests directly with pytest, setting the :envvar:`ICE_CONFIG` as described above::
+Run tests directly with pytest, setting the :envvar:`ICE_CONFIG` as described above.
+Also set :envvar:`OMERODIR` to point to the OMERO.server::
 
     export ICE_CONFIG=/path/to/openmicroscopy/etc/ice.config
+    export OMERODIR=/path/to/OMERO.server-x.x.x-ice36-bxx
 
     cd components/tools/OmeroPy
 
