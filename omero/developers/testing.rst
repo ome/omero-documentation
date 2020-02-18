@@ -283,7 +283,7 @@ to rebuild or restart the server. A few basic options are shown below.
 First create a python virtual environment
 as described on the :doc:`OMERO Python </developers/Python>` page,
 including ``omero-py`` and ``omero-web`` if you want to run OmeroWeb tests.
-Some tests also require install of PyTables.
+Some tests also require the installation of PyTables.
 
 Then install some additional test dependencies::
 
