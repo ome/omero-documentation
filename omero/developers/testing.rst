@@ -275,25 +275,37 @@ Running tests directly
 """"""""""""""""""""""
 
 When writing tests it can be more convenient, flexible and powerful to run the
-tests from :sourcedir:`components/tools/OmeroPy` using
-:program:`setup.py test`.
+tests from :sourcedir:`components/tools/OmeroPy` or
+:sourcedir:`components/tools/OmeroWeb` using :program:`pytest`.
 Since Python is interpreted, tests can be written and then run without having
 to rebuild or restart the server. A few basic options are shown below.
 
-.. program:: setup.py test
+First create a python virtual environment
+as described on the :doc:`OMERO Python </developers/Python>` page,
+including ``omero-py`` and ``omero-web`` if you want to run OmeroWeb tests.
+Some tests also require the installation of PyTables.
 
-.. option:: -t <test_path>, --test-path <test_path>
+Then install some additional test dependencies::
 
-    This option specifies the test suite to run. For instance to run a single
-    test file::
+    $ pip install pytest mox3 pyyaml tables
 
-        cd components/tools/OmeroPy
-        ./setup.py test -t test/integration/test_admin.py
+    # for Omeroweb tests
+    $ pip install pytest-django
 
-    Or to run all tests under a given folder::
+Run tests directly with pytest, setting the :envvar:`ICE_CONFIG` as described above.
+Also set :envvar:`OMERODIR` to point to the OMERO.server::
 
-        cd components/tools/OmeroPy
-        ./setup.py test -t test/integration/clitest
+    export ICE_CONFIG=/path/to/openmicroscopy/etc/ice.config
+    export OMERODIR=/path/to/OMERO.server-x.x.x-ice36-bxx
+
+    cd components/tools/OmeroPy
+
+    # OR for OmeroWeb tests:
+    cd components/tools/OmeroWeb
+
+    pytest test/integration/test_admin.py
+
+.. program:: pytest
 
 .. option:: -k <string>
 
@@ -301,63 +313,41 @@ to rebuild or restart the server. A few basic options are shown below.
     their names. For example, to run all the tests under
     :file:`test/integration` with `permissions` in their names::
 
-        ./setup.py test -t test/integration -k permissions
+        pytest test/integration -k permissions
 
     This option can also be used to run a named test within a test module::
 
-        ./setup.py test -t test/integration/test_admin.py -k testGetGroup
+        pytest test/integration/test_admin.py -k testGetGroup
 
 .. option:: -m <marker>
 
     This option will run integration tests depending on the markers they are
     decorated with. Available markers can be listed using the
-    :option:`setup.py test --markers` option.
+    :option:`pytest --markers` option.
     For example, to run all integration tests excluding those decorated with
     the marker `broken`::
 
-        ./setup.py test -t test/integration -m "not broken"
+        pytest test/integration -m "not broken"
 
 .. option:: --markers
 
     This option lists available markers for decorating tests::
 
-        ./setup.py test --markers
+        pytest --markers
 
 .. option:: -s
 
     This option allows the standard output to be shown on the console::
 
-        ./setup.py test -t test/integration/test_admin.py -s
+        pytest test/integration/test_admin.py -s
 
 .. option:: -h, --help
 
     This option displays the full list of available options::
 
-        ./setup.py test -h
+        pytest -h
 
-To make use of the more advanced options available in `pytest` that are not
-accessible using :program:`setup.py test`, the :program:`py.test` script can
-be used directly. To use this :envvar:`PYTHONPATH` must contain the path to
-the OMERO Python libraries, see |BlitzGateway| as well as the  path to the
-:py_sourcedir:`OMERO Python test library <src/omero/testlib>`.
-Alternatively, the `pytest` plugin :pypi:`pytest-pythonpath` can be used to
-add paths to :envvar:`PYTHONPATH` specifically for `pytest`.
-
-.. program:: py.test
-
-.. option:: --repeat <number>
-
-    This option allows to repeat tests for *number* occurences::
-
-        py.test --repeat 20 test/unit/fstest
-
-.. option:: -h, --help
-
-    This option displays the full list of options::
-
-        py.test --help
-
-and `<https://pytest.org/en/latest/usage.html>`_ for more help in
+See `<https://pytest.org/en/latest/usage.html>`_ for more help in
 running tests.
 
 Failing tests
@@ -488,8 +478,8 @@ markers can be simply defined as they are used. However, to centralize the use
 of custom markers they should be defined in
 :sourcedir:`components/tools/pytest.ini`.
 
-To view all available markers the :option:`setup.py test --markers` option can
-be used with :program:`setup.py test` or :program:`py.test` as detailed in
+To view all available markers the :option:`pytest --markers` option can
+be used with :program:`pytest` or :program:`py.test` as detailed in
 :ref:`running-python-tests-directly`.
 
 There is one custom marker defined:
