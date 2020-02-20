@@ -99,16 +99,9 @@ explicitly via:
 
 Results are placed in ``components/<component>/target/reports``.
 
+
 Individual tests
 """"""""""""""""
-
-Alternatively, you can run individual tests which you may currently be
-working on. This can be done using the ``test`` target. For example:
-
-::
-
-    ./build.py -f components/tools/OmeroJava/build.xml test -DTEST=integration/chown/PermissionsTest
-    ./build.py -f components/tools/OmeroPy/build.xml test -DTEST=test/integration/test_admin.py
 
 .. warning::
     Some integration tests leak file descriptors. If many tests are run
@@ -120,29 +113,41 @@ working on. This can be done using the ``test`` target. For example:
 Running Java tests
 ^^^^^^^^^^^^^^^^^^
 
+Individual tests
+""""""""""""""""
+
+Alternatively, you can run individual tests which you may currently be
+working on using the ``--tests`` parameter. The test class must be provided
+in the fully qualified name form.
+
+::
+
+    cd components/tools/OmeroJava
+    gradle test --tests "integration.gateway.AdminFacilityTest"
+
+
 Individual test class methods
 """""""""""""""""""""""""""""
 
 
-Individual OmeroJava test class methods (or a comma-separated list of
-methods) can be run using the ``-DMETHODS`` parameter together with
-the ``test`` target. The test method must be provided in the fully
-qualified name form (``-Dpackage.class.method``).
+Individual OmeroJava test class methods can be run using the 
+``--tests`` parameter. The test method must be provided in the fully
+qualified name form.
 
 ::
 
-    ./build.py -f components/tools/OmeroJava/build.xml test -DMETHODS=integration.chgrp.AnnotationMoveTest.testMoveTaggedImage
+    cd components/tools/OmeroJava
+    gradle test --tests "integration.chgrp.AnnotationMoveTest.testMoveTaggedImage"
 
 Individual test groups
 """"""""""""""""""""""
 
-To run individual OmeroJava test groups (or comma-separated sets of groups)
-of tests, the ``-DGROUPS`` parameter can be used together with the
-``test`` target
+To run individual OmeroJava test groups the ``--tests`` parameter.
 
 ::
 
-    ./build.py -f components/tools/OmeroJava/build.xml test -DGROUPS=integration
+    cd components/tools/OmeroJava
+    gradle test --tests "integration.*"
 
 
 Using Eclipse to run tests
