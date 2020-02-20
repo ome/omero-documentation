@@ -25,38 +25,24 @@ the Java tests.
 Running tests
 -------------
 
-
 Running unit tests
 ^^^^^^^^^^^^^^^^^^
 
-The unit testing framework is fairly simple. Only methods which contain
-logic written within OMERO are tested. This means that framework
-functionality like remoting or the Hibernate layer is not tested. This is a
-part of integration testing (see below).
+Starting from version 5.5, components have been migrated to their own repository.
 
-You can run the unit tests for any component from its directory by
-entering:
+The following repositories use `Gradle <https://gradle.org/>`_ to run the unit tests:
+  - :omero_subs_github_repo_root:`omero-model`
+  - :omero_subs_github_repo_root:`omero-common`
+  - :omero_subs_github_repo_root:`omero-romio`
+  - :omero_subs_github_repo_root:`omero-renderer`
+  - :omero_subs_github_repo_root:`omero-server`
+  - :omero_subs_github_repo_root:`omero-blitz`
+  - :omero_subs_github_repo_root:`omero-gateway-java`
 
-::
+The following repositories use `pytest <https://docs.pytest.org/en/latest/>`_ to run the unit tests:
+  - :omero_subs_github_repo_root:`omero-py`
+  - :omero_subs_github_repo_root:`omero-web`
 
-    ./build.py -f components/<component>/build.xml test
-
-The same can be done for all components using:
-
-::
-
-    ./build.py test-unit
-
-Note that for tests written in Python the package `pytest` must be installed,
-see :ref:`writing-python-tests`. Also note that some Python tests are excluded
-by default, see :ref:`using-markers-in-python-tests` for more details.
-
-.. note::
-      Since 5.5, several components have been migrated to their own repository. The unit tests are now run using `Gradle <https://gradle.org/>`_. See the README.md file in the following repositories:
-      :omero_subs_github_repo_root:`omero-model`, :omero_subs_github_repo_root:`omero-common`,
-      :omero_subs_github_repo_root:`omero-romio`, :omero_subs_github_repo_root:`omero-renderer`,
-      :omero_subs_github_repo_root:`omero-server`, :omero_subs_github_repo_root:`omero-blitz`,
-      :omero_subs_github_repo_root:`omero-gateway-java`. 
 
 Running integration tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^
