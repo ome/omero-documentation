@@ -290,11 +290,12 @@ Also set :envvar:`OMERODIR` to point to the OMERO.server::
     export OMERODIR=/path/to/OMERO.server-x.x.x-ice36-bxx
 
     cd components/tools/OmeroPy
+    pytest test/integration/test_admin.py
 
     # OR for OmeroWeb tests:
     cd components/tools/OmeroWeb
 
-    pytest test/integration/test_admin.py
+    pytest test/integration/test_annotate.py
 
 .. program:: pytest
 
