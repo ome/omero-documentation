@@ -25,38 +25,24 @@ the Java tests.
 Running tests
 -------------
 
-
 Running unit tests
 ^^^^^^^^^^^^^^^^^^
 
-The unit testing framework is fairly simple. Only methods which contain
-logic written within OMERO are tested. This means that framework
-functionality like remoting or the Hibernate layer is not tested. This is a
-part of integration testing (see below).
+Starting from version 5.5, components have been migrated to their own repository.
 
-You can run the unit tests for any component from its directory by
-entering:
+The following repositories use `Gradle <https://gradle.org/>`_ to run the unit tests:
+  - :omero_subs_github_repo_root:`omero-model`
+  - :omero_subs_github_repo_root:`omero-common`
+  - :omero_subs_github_repo_root:`omero-romio`
+  - :omero_subs_github_repo_root:`omero-renderer`
+  - :omero_subs_github_repo_root:`omero-server`
+  - :omero_subs_github_repo_root:`omero-blitz`
+  - :omero_subs_github_repo_root:`omero-gateway-java`
 
-::
+The following repositories use `pytest <https://docs.pytest.org/en/latest/>`_ to run the unit tests:
+  - :omero_subs_github_repo_root:`omero-py`
+  - :omero_subs_github_repo_root:`omero-web`
 
-    ./build.py -f components/<component>/build.xml test
-
-The same can be done for all components using:
-
-::
-
-    ./build.py test-unit
-
-Note that for tests written in Python the package `pytest` must be installed,
-see :ref:`writing-python-tests`. Also note that some Python tests are excluded
-by default, see :ref:`using-markers-in-python-tests` for more details.
-
-.. note::
-      Since 5.5, several components have been migrated to their own repository. The unit tests are now run using `Gradle <https://gradle.org/>`_. See the README.md file in the following repositories:
-      :omero_subs_github_repo_root:`omero-model`, :omero_subs_github_repo_root:`omero-common`,
-      :omero_subs_github_repo_root:`omero-romio`, :omero_subs_github_repo_root:`omero-renderer`,
-      :omero_subs_github_repo_root:`omero-server`, :omero_subs_github_repo_root:`omero-blitz`,
-      :omero_subs_github_repo_root:`omero-gateway-java`. 
 
 Running integration tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -113,16 +99,9 @@ explicitly via:
 
 Results are placed in ``components/<component>/target/reports``.
 
+
 Individual tests
 """"""""""""""""
-
-Alternatively, you can run individual tests which you may currently be
-working on. This can be done using the ``test`` target. For example:
-
-::
-
-    ./build.py -f components/tools/OmeroJava/build.xml test -DTEST=integration/chown/PermissionsTest
-    ./build.py -f components/tools/OmeroPy/build.xml test -DTEST=test/integration/test_admin.py
 
 .. warning::
     Some integration tests leak file descriptors. If many tests are run
@@ -134,29 +113,41 @@ working on. This can be done using the ``test`` target. For example:
 Running Java tests
 ^^^^^^^^^^^^^^^^^^
 
+Individual tests
+""""""""""""""""
+
+Alternatively, you can run individual tests which you may currently be
+working on using the ``--tests`` parameter. The test class must be provided
+in the fully qualified name form.
+
+::
+
+    cd components/tools/OmeroJava
+    gradle test --tests "integration.gateway.AdminFacilityTest"
+
+
 Individual test class methods
 """""""""""""""""""""""""""""
 
 
-Individual OmeroJava test class methods (or a comma-separated list of
-methods) can be run using the ``-DMETHODS`` parameter together with
-the ``test`` target. The test method must be provided in the fully
-qualified name form (``-Dpackage.class.method``).
+Individual OmeroJava test class methods can be run using the 
+``--tests`` parameter. The test method must be provided in the fully
+qualified name form.
 
 ::
 
-    ./build.py -f components/tools/OmeroJava/build.xml test -DMETHODS=integration.chgrp.AnnotationMoveTest.testMoveTaggedImage
+    cd components/tools/OmeroJava
+    gradle test --tests "integration.chgrp.AnnotationMoveTest.testMoveTaggedImage"
 
 Individual test groups
 """"""""""""""""""""""
 
-To run individual OmeroJava test groups (or comma-separated sets of groups)
-of tests, the ``-DGROUPS`` parameter can be used together with the
-``test`` target
+To run individual OmeroJava test groups the ``--tests`` parameter.
 
 ::
 
-    ./build.py -f components/tools/OmeroJava/build.xml test -DGROUPS=integration
+    cd components/tools/OmeroJava
+    gradle test --tests "integration.*"
 
 
 Using Eclipse to run tests
@@ -299,11 +290,12 @@ Also set :envvar:`OMERODIR` to point to the OMERO.server::
     export OMERODIR=/path/to/OMERO.server-x.x.x-ice36-bxx
 
     cd components/tools/OmeroPy
+    pytest test/integration/test_admin.py
 
     # OR for OmeroWeb tests:
     cd components/tools/OmeroWeb
 
-    pytest test/integration/test_admin.py
+    pytest test/integration/test_annotate.py
 
 .. program:: pytest
 
