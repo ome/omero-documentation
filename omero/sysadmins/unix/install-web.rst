@@ -85,7 +85,7 @@ Gunicorn is restarted using ``omero web restart``.
 
   -  OMERO.web offers alternative session backends to automatically delete stale data using the cache session store backend, see :djangodoc:`Django cached session documentation <topics/http/sessions/#using-cached-sessions>` for more details.
 
-  - `Redis <https://redis.io/>`_ requires `django-redis <https://niwinz.github.io/django-redis/latest/>`_ in order to be used with OMERO.web. We assume that Redis has already been installed. Follow the step-by-step deployment guides from :doc:`install-web/web-deployment`. To configure the cache, run::
+  - `Redis <https://redis.io/>`_ requires `django-redis <https://github.com/jazzband/django-redis/>`_ in order to be used with OMERO.web. We assume that Redis has already been installed. Follow the step-by-step deployment guides from :doc:`install-web/web-deployment`. To configure the cache, run::
 
       $ omero config set omero.web.caches '{"default": {"BACKEND": "django_redis.cache.
       RedisCache", "LOCATION": "redis://127.0.0.1:6379/0"}}'
