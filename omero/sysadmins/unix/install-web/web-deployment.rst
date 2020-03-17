@@ -119,8 +119,6 @@ Gunicorn configuration
 
 Additional settings can be configured by changing the following properties:
 
-- :property:`omero.web.application_server.max_requests` to 500
-
 - :property:`omero.web.wsgi_workers` to (2 x NUM_CORES) + 1
 
   .. note::
