@@ -65,7 +65,7 @@ Install ZeroC IcePy 3.6::
 
 Install OMERO.web::
 
-    /opt/omero/web/venv3/bin/pip install "omero-web>=5.6.1"
+    /opt/omero/web/venv3/bin/pip install "omero-web>=5.6.3"
 
 Installing OMERO.web apps
 -------------------------
@@ -104,9 +104,7 @@ Configuring Gunicorn
 
 **The following steps are run as the omero-web system user.**
 
-Additional settings can be configured by changing the following properties:
-
-    - :property:`omero.web.application_server.max_requests` to 500
+ Additional settings can be configured by changing the properties below. Before changing the properties, run ``export PATH=/opt/omero/web/venv3/bin:$PATH``:
 
     - :property:`omero.web.wsgi_workers` to (2 x NUM_CORES) + 1
 
@@ -189,6 +187,7 @@ Should you wish to run OMERO.web automatically, a `systemd.service` file could b
     PIDFile=/opt/omero/web/omero-web/var/django.pid
     Restart=no
     RestartSec=10
+    Environment="PATH=/opt/omero/web/venv3/bin:/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin""
     Environment="OMERODIR=/opt/omero/web/omero-web"
     ExecStart=/opt/omero/web/venv3/bin/omero web start
     ExecStop=/opt/omero/web/venv3/bin/omero web stop

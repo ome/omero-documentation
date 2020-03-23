@@ -472,6 +472,17 @@ Example: :source:`examples/OmeroClients/details.py`
 
 Example: :source:`examples/OmeroClients/details.java`
 
+.. warning::
+
+  Do *not* use :ref:`IQuery`'s :slicedoc_blitz:`projection
+  <omero/api/IQuery.html#projection>` operation to read a data object
+  *obj*'s ``obj.details.permissions`` field because it can give a
+  misleading result. Instead :ref:`OMERO.web <web_index>` instantiates a
+  Map in reading ``obj_details_permissions``. This pattern is shown in
+  the first section of OME's :presentations:`Hibernate 3.5 Training
+  <2017/Team-Training/Hibernate/>` where it covers the querying of
+  permissions.
+
 ObjectFactory and casting
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1798,6 +1809,8 @@ and may be under layers of application code. But when designing where
 active ``omero.client`` objects are kept, be sure that your clean-up
 code takes care of them.
 
+
+.. _IQuery:
 
 IQuery
 ------
