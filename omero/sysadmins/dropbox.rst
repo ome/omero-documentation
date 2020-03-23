@@ -44,7 +44,9 @@ From the OMERO 5.6.0 release, the library ``omero-dropbox`` supports Python 3 an
 is now available on PyPI_. We recommend you use a Python virtual environment to install it. It should be installed in the same virtual environment where ``omero-py`` is installed. See :doc:`unix/server-installation`.
 
 Activate the environment ``/opt/omero/server/venv3`` where ``omero-py`` is installed and install ``omero-dropbox``
-as **root**::
+as **root**:
+
+.. parsed-literal::
 
     $ . /opt/omero/server/venv3/bin/activate
     $ pip install omero-dropbox==\ |version_dropbox|
