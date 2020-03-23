@@ -1,9 +1,9 @@
 OMERO.web upgrade
 ====================
 
-The OME team is committed to providing frequent, project-wide upgrades both
-with bug fixes and new functionality. We try to make the schedule for these
-releases as public as possible. You may want to take a look at the `Trello
+The OME team is committed to providing frequent, project-wide upgrades with
+security fixes, bug fixes and new functionality. We try to make the schedule for
+these releases as public as possible. You may want to take a look at the `Trello
 boards <https://trello.com/b/4EXb35xQ/getting-started>`_ for exactly what will
 go into a release. See also :doc:`server-upgrade`.
 
@@ -25,6 +25,26 @@ Check prerequisites
 Before starting the upgrade, please ensure that you have reviewed and
 satisfied all the :doc:`system requirements <system-requirements>` with
 :doc:`correct versions <version-requirements>` for installation.
+
+Upgrade
+^^^^^^^
+
+Make sure you have activated the correct virtual environment then
+upgrade OMERO.web via pip:
+
+.. parsed-literal::
+
+      $ pip install --upgrade 'omero-web>=\ |version_web|'
+
+If the ```omero-web``` upgrade *requires* an upgrade to ```omero-py``` (e.g.
+for new features), this will happen automatically above.
+However, even when an ```omero-py``` upgrade is not required, there may be some
+benefits to upgrading:
+
+.. parsed-literal::
+
+      $ pip install --upgrade 'omero-py>=\ |version_py|'
+
 
 Configuration
 ^^^^^^^^^^^^^
@@ -54,19 +74,6 @@ require it.
     omero web config nginx > new.confg
 
 More examples can be found under :ref:`omero_web_configuration`.
-
-Dependencies
-^^^^^^^^^^^^
-
-While upgrading the server you should keep OMERO.web dependencies
-up to date to ensure that security updates are applied:
-
-
-.. parsed-literal::
-
-
-      $ pip install --upgrade 'omero-web>=\ |version_web|'
-
 
 Plugin updates
 ^^^^^^^^^^^^^^

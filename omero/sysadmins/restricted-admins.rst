@@ -17,6 +17,15 @@ facility managers, image analysts, or anybody who needs to organize
 users and data of others in OMERO. Even a restricted administrator is
 still a powerful user so each must be a highly trusted individual.
 
+.. warning::
+
+  Restrictions on privileges can communicate an administrator's intended
+  role and prevent many accidents whose consequences would be severe.
+  However, even a little privilege can go a long way so never grant
+  administrative powers lightly. These restrictions do *not* protect
+  against a cunning, malicious user: never elevate a user even as far as
+  group ownership unless they are truly trusted.
+
 Full administrators in OMERO can create new administrators with
 restricted privileges using the OMERO.web interface, see the
 :help:`facility managers guide <facility-manager.html#lightadmin>` in our Help
@@ -24,6 +33,9 @@ documentation. OMERO.cli does not yet support easy management of
 restrictions nor does it offer the helpful :doc:`permissions mapping
 <mapping-restricted-admins>` but advanced users may :doc:`use OMERO.cli
 to adjust the restrictions <cli/light-admins>` on an administrator.
+
+Four suggested workflows
+------------------------
 
 We suggest here four setups that should cover the four mainstream
 workflows. Nevertheless, you can combine the privileges
@@ -35,9 +47,6 @@ give the new administrator with restricted
 privileges the power to transfer ownership of other users' data.
 For exact server-side definitions of the privileges displayed
 in OMERO.web interface see :doc:`/sysadmins/mapping-restricted-admins`.
-
-Four suggested workflows
-------------------------
 
 =============================== ======================= ======================= ===================== ================================
 Required Privileges             :term:`Data Viewer`     :term:`Importer`        :term:`Analyst`       :term:`Group and Data Organizer`

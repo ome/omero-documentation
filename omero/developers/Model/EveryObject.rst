@@ -662,14 +662,14 @@ Properties:
   | annotationLinks: :ref:`ExperimenterAnnotationLink <OMERO model class ExperimenterAnnotationLink>` (multiple)
   | config: list (multiple)
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | email: ``string`` (optional)
-  | firstName: ``string``
+  | email: ``securestring`` (optional)
+  | firstName: ``securestring``
   | groupExperimenterMap: :ref:`GroupExperimenterMap <OMERO model class GroupExperimenterMap>` (multiple)
-  | institution: ``string`` (optional)
-  | lastName: ``string``
+  | institution: ``securestring`` (optional)
+  | lastName: ``securestring``
   | ldap: ``boolean``
-  | middleName: ``string`` (optional)
-  | omeName: ``string``
+  | middleName: ``securestring`` (optional)
+  | omeName: ``securestring``
   | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class ExperimenterAnnotationLink:
@@ -1925,13 +1925,13 @@ Used by: :ref:`NodeAnnotationLink.parent <OMERO model class NodeAnnotationLink>`
 
 Properties:
   | annotationLinks: :ref:`NodeAnnotationLink <OMERO model class NodeAnnotationLink>` (multiple)
-  | conn: ``text``
+  | conn: ``securestring``
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | down: ``timestamp`` (optional)
   | scale: ``integer`` (optional)
   | sessions: :ref:`Session <OMERO model class Session>` (multiple)
   | up: ``timestamp``
-  | uuid: ``string``
+  | uuid: ``securestring``
   | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class NodeAnnotationLink:
@@ -2916,9 +2916,11 @@ Properties:
   | timeToIdle: ``long``
   | timeToLive: ``long``
   | userAgent: ``string`` (optional)
-  | userIP: ``string`` (optional)
-  | uuid: ``string``
+  | userIP: ``string`` (optional) (deprecated)
+  | uuid: ``securestring``
   | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
+
+.. warning:: This model object has a deprecated property.
 
 .. _OMERO model class SessionAnnotationLink:
 
@@ -3013,9 +3015,11 @@ Properties:
   | timeToIdle: ``long`` from :ref:`Session <OMERO model class Session>`
   | timeToLive: ``long`` from :ref:`Session <OMERO model class Session>`
   | userAgent: ``string`` (optional) from :ref:`Session <OMERO model class Session>`
-  | userIP: ``string`` (optional) from :ref:`Session <OMERO model class Session>`
-  | uuid: ``string`` from :ref:`Session <OMERO model class Session>`
+  | userIP: ``string`` (optional) (deprecated) from :ref:`Session <OMERO model class Session>`
+  | uuid: ``securestring`` from :ref:`Session <OMERO model class Session>`
   | version: ``integer`` (optional) from :ref:`Session <OMERO model class Session>`
+
+.. warning:: This model object has a deprecated property.
 
 .. _OMERO model class ShareMember:
 

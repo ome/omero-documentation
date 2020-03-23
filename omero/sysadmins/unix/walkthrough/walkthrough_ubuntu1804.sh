@@ -76,6 +76,9 @@ python3 -mvenv $VENV_SERVER
 
 # Install the Ice Python binding
 $VENV_SERVER/bin/pip install https://github.com/ome/zeroc-ice-ubuntu1804/releases/download/0.3.0/zeroc_ice-3.6.5-cp36-cp36m-linux_x86_64.whl
+
+# Install pytables
+$VENV_SERVER/bin/pip install tables
 #end-step03bis
 
 #start-step04-pre: As root, install omero-py and download the OMERO.server

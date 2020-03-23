@@ -174,11 +174,11 @@ OR using venv
 #. Activate the Virtualenv environment(s) and install modules::
 
     $ source ~/Virtual/omeropy/bin/activate
-    $ pip install "omero-py>=5.6.0"
+    $ pip install "omero-py>=\ |version_py|"
 
     # In a different terminal:
     $ source ~/Virtual/omeroweb/bin/activate
-    $ pip install "omero-web>=5.6.0"
+    $ pip install "omero-web>=\ |version_web|"
 
 #. You can now use the ``omero`` command in either virtual environment.
    You will also need to ensure you are in 
