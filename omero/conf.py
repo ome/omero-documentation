@@ -203,7 +203,8 @@ linkcheck_ignore += [
     'https://testng.org/',
     # Those below may start working with Sphinx 2.1, see sphinx-doc #6381.
     'https://www.cloudflare.com/',
-    'https://www.zenoss.com/']
+    'https://www.zenoss.com/',
+    github_root + 'ome/']
 
 exclude_patterns = ['sysadmins/unix/walkthrough/requirements*',
                     'downloads/inplace', 'downloads/cli',
