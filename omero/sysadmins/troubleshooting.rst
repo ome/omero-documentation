@@ -461,6 +461,16 @@ The parameter ``@SECLEVEL=0`` must be added to the server SSL configuration:
 
 Restart the OMERO.server as normal for the changes to take effect.
 
+IceSSL connection failure
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Further to the above SSL issue, on Ubuntu 18.04 we have received reports
+of client connection failures such as, "IceSSL: unable to set ciphers"
+causing "Failed to connect". An effective workaround appears to be to
+employ the `omero-certificates
+<https://pypi.org/project/omero-certificates/>`_ plugin available from
+PyPI_.
+
 PyTables version
 ^^^^^^^^^^^^^^^^
 
