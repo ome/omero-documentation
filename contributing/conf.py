@@ -137,4 +137,5 @@ linkcheck_ignore += [
     r'https://docs.google.com/.*',
     r'https://trac.openmicroscopy.org/ome/admin/.*',
     r'https://oss.sonatype.org/.*',  # Requires login
+    github_root + 'ome/'
 ]
