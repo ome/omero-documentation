@@ -4,7 +4,7 @@ Webclient Plugins
 The webclient UI can be configured to include content from other web apps.
 This allows you to extend the webclient UI with your own functionality.
 This is used by the `webtagging app <https://github.com/MicronOxford/webtagging>`_
-and there are also some examples in the `omero-webtest <https://github.com/openmicroscopy/omero-webtest/>`_ repository.
+and there are also some examples in the `omero-webtest <https://github.com/ome/omero-webtest/>`_ repository.
 
 
 Currently you can add content in the following locations:

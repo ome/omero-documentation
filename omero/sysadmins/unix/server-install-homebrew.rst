@@ -208,7 +208,7 @@ Locally built server
 
 #. Clone the source code from the project's GitHub account to build locally::
 
-    $ git clone --recursive git://github.com/openmicroscopy/openmicroscopy
+    $ git clone --recursive git://github.com/ome/openmicroscopy
 
 #. Navigate terminal into the :file:`openmicroscopy` that was just created by performing
    the previous step::

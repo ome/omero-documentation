@@ -32,14 +32,14 @@ See the :devs_doc:`Using Git <using-git.html>` section of the Contributing
 documentation for more information on how to install and configure Git.
 
 The main repository for OMERO is available from
-https://github.com/openmicroscopy/openmicroscopy.
+https://github.com/ome/openmicroscopy.
 Most OME development is currently happening on GitHub, therefore it is highly
 suggested that you become familiar with how it works, if not create an account
 for yourself.
 
 Start by cloning the official repository::
 
-  git clone https://github.com/openmicroscopy/openmicroscopy.git
+  git clone https://github.com/ome/openmicroscopy.git
 
 Since the openmicroscopy repository now makes use of submodules, you first
 need to initialize all the submodules::
@@ -50,7 +50,7 @@ need to initialize all the submodules::
 Alternatively, with version 1.6.5 of git and later, you can pass the
 ``--recursive`` option to git clone and initialize all submodules::
 
-  git clone --recursive https://github.com/openmicroscopy/openmicroscopy.git
+  git clone --recursive https://github.com/ome/openmicroscopy.git
 
 .. seealso::
   :devs_doc:`Using Git <using-git.html>`

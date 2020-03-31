@@ -58,7 +58,7 @@ It also includes utilities for creating and retrieving connections to OMERO
 -  **omero-figure:** The `OMERO.figure <https://github.com/ome/omero-figure/>`_ app
    allows you to create scientific figures.
 
--  **omero-webtest:** `webtest <https://github.com/openmicroscopy/omero-webtest/>`_
+-  **omero-webtest:** `webtest <https://github.com/ome/omero-webtest/>`_
    is an example app that contains several code samples mentioned in
    the following pages.
 
@@ -103,7 +103,7 @@ Quick example - OMERO.webtest
 
 This tiny example gives you a feel for how the OMERO.web framework gets data
 from OMERO and displays it on a web page. You can find this and other examples
-in the `OMERO.webtest <https://github.com/openmicroscopy/omero-webtest/>`_
+in the `OMERO.webtest <https://github.com/ome/omero-webtest/>`_
 repository.
 
 There are 3 parts to each page: url, view and template. For example, this code
