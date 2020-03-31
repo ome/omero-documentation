@@ -14,7 +14,7 @@ Source code
 
 The source code of an Ansible role should be maintained under version control
 using Git_ and hosted on GitHub_ under the
-`openmicroscopy <http://github.com/openmicroscopy/>`__ organization.
+`ome <http://github.com/ome/>`__ organization.
 The Git repositories should be named as `ansible-role-<ROLENAME>`.
 
 Each directory layout should minimally follow the standard
@@ -86,7 +86,7 @@ words, note that the Galaxy import process will convert hyphens to underscores.
 
 Ansible playbooks can consume these roles using a :file:`requirements.yml`
 file - see
-https://github.com/openmicroscopy/prod-playbooks/blob/master/requirements.yml 
+https://github.com/ome/prod-playbooks/blob/master/requirements.yml 
 and https://github.com/IDR/deployment/blob/master/ansible/requirements.yml
 for examples of such files.
 

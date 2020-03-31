@@ -16,7 +16,7 @@ OMERO
 
 The main repository, known as ome.git, is available from:
 
--  https://github.com/openmicroscopy/openmicroscopy
+-  https://github.com/ome/openmicroscopy
 -  git://openmicroscopy.org/ome.git
 
 Bio-Formats
@@ -24,19 +24,19 @@ Bio-Formats
 
 The Bio-Formats repository is available from:
 
--  https://github.com/openmicroscopy/bioformats
+-  https://github.com/ome/bioformats
 -  git://openmicroscopy.org/bioformats.git
 
 Other repositories
 ^^^^^^^^^^^^^^^^^^
 
 Each member of the `GitHub openmicroscopy organization
-<https://github.com/openmicroscopy>`_,
+<https://github.com/ome>`_,
 as well as anyone else who has clicked the “Fork” button, will have their
 own repository. These are listed here:
 
--  https://github.com/openmicroscopy/openmicroscopy/network/members
--  https://github.com/openmicroscopy/bioformats/network/members
+-  https://github.com/ome/openmicroscopy/network/members
+-  https://github.com/ome/bioformats/network/members
 
 Cloning the source code
 -----------------------
@@ -53,7 +53,7 @@ for yourself.
 Start by cloning the official repository for the project you want to work with
 e.g.::
 
-        git clone https://github.com/openmicroscopy/openmicroscopy.git
+        git clone https://github.com/ome/openmicroscopy.git
 
 Since the openmicroscopy (OMERO) repository now makes use of submodules, you
 first need to initialize all the submodules::
@@ -64,16 +64,16 @@ first need to initialize all the submodules::
 Alternatively, with version 1.6.5 of Git and later, you can pass the
 ``--recursive`` option to git clone and initialize all submodules::
 
-        git clone --recursive https://github.com/openmicroscopy/openmicroscopy.git
+        git clone --recursive https://github.com/ome/openmicroscopy.git
 
 .. Note:: The use of submodules does not apply to Bio-Formats, which has all
     code and documentation within a single repository at
-    https://github.com/openmicroscopy/bioformats.git
+    https://github.com/ome/bioformats.git
 
 The natural workflow when using GitHub is not just to download someone else’s
 repository, but also to create a personal working copy. Go to the repository
-page at `<https://github.com/openmicroscopy/openmicroscopy>`_ or
-`<https://github.com/openmicroscopy/bioformats>`_ and click on
+page at `<https://github.com/ome/openmicroscopy>`_ or
+`<https://github.com/ome/bioformats>`_ and click on
 “Fork”. This will create a copy of the repository in your own personal space
 e.g.::
 

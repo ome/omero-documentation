@@ -55,7 +55,7 @@ need is to have Git installed and then::
 
     git config --global user.name "Full name"
     git config --global user.email YOUR_EMAIL
-    git clone --recursive https://github.com/openmicroscopy/REPOSITORY_NAME
+    git clone --recursive https://github.com/ome/REPOSITORY_NAME
     cd REPOSITORY_NAME
 
 You will not be able to push back to this repository, but you will at least
@@ -112,7 +112,7 @@ the repo. The following example uses the documentation repo:
 
 ::
 
-    git clone https://github.com/openmicroscopy/ome-documentation
+    git clone https://github.com/ome/ome-documentation
     cd ome-documentation
     git remote add gh git@github.com:YOUR_USERNAME/ome-documentation.git
 
@@ -194,7 +194,7 @@ inbox or via RSS feeds. See `Be social <https://help.github.com/articles/be-soci
 
 Even if you do not feel able to watch the everyone's repository, you will
 likely want to periodically check in on the current `Pull Requests
-(PRs) <https://github.com/openmicroscopy/openmicroscopy/pulls>`_. These
+(PRs) <https://github.com/ome/openmicroscopy/pulls>`_. These
 will contain screenshots and other updates about what the team is
 working on. When the PRs have been sufficiently reviewed, they will be
 merged into the develop branch so that others' work will start to be

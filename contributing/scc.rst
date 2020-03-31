@@ -4,10 +4,10 @@ Code management: scc
 scc is a Python library with a set of utility commands used for code
 management and used in the OME :doc:`continuous-integration`.
 More information can be found in the :pypi:`Python package page <scc>` or  in
-the `source code page <https://github.com/openmicroscopy/snoopycrimecop>`_.
+the `source code page <https://github.com/ome/snoopycrimecop>`_.
 
 If you find a bug or if you want an additional feature to be implemented,
-please `open an issue <https://github.com/openmicroscopy/snoopycrimecop/issues>`_.
+please `open an issue <https://github.com/ome/snoopycrimecop/issues>`_.
 
 Installation
 ------------

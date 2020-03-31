@@ -72,7 +72,7 @@ Jobs
 
         - https://github.com/ome/omero-gradle-plugins
         - https://github.com/ome/omero-build
-        - https://github.com/openmicroscopy/openmicroscopy
+        - https://github.com/ome/openmicroscopy
         - https://github.com/ome/omero-insight
         - https://github.com/ome/omero-matlab
 

@@ -104,7 +104,7 @@ variables are used:
 - for the Bio-Formats and OMERO sets of documentation, the name of the
   Jenkins job is set by :envvar:`JENKINS_JOB`.
 
-Note that the https://github.com/openmicroscopy/sphinx_theme repository is no
+Note that the https://github.com/ome/sphinx_theme repository is no
 longer used, this hosted the theme to match the old plone website.
 
 OMERO 5.x series
@@ -209,7 +209,7 @@ The following set of jobs is used to review or publish the content of the
 	:jenkinsjob:`WWW-merge`
 
 		This job is used to review the PRs opened against the master branch of
-		https://github.com/openmicroscopy/www.openmicroscopy.org
+		https://github.com/ome/www.openmicroscopy.org
 
 		#. |merge| and pushes the branch to https://github.com/snoopycrimecop/www.openmicroscopy.org/tree/gh-pages
 		#. The GitHub Pages service deploys the staging website content under https://snoopycrimecop.github.io/www.openmicroscopy.org/
@@ -217,7 +217,7 @@ The following set of jobs is used to review or publish the content of the
 	:jenkinsjob:`OME-help-staging`
 
 		This job is used to review the PRs opened against the master branch
-		of https://github.com/openmicroscopy/ome-help
+		of https://github.com/ome/ome-help
 
 		#. |merge| (and also incorporates :omehelp_scc_branch:`cname_staging`
 		   to allow	 deployment to a non-GitHub URL) then pushes the resulting
@@ -230,8 +230,8 @@ The following set of jobs is used to review or publish the content of the
 		This job is used to deploy the OME help documentation
 
 		#. Opens a Pull Request from
-		   https://github.com/openmicroscopy/ome-help/tree/master
-		   to https://github.com/openmicroscopy/ome-help/tree/gh-pages. If
+		   https://github.com/ome/ome-help/tree/master
+		   to https://github.com/ome/ome-help/tree/gh-pages. If
 		   this PR is merged, the GitHub Pages service updates the content of
 		   https://help.openmicroscopy.org
 		#. If the build is promoted,
