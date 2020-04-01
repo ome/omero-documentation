@@ -110,5 +110,5 @@ the rationale, please see:
 	https://en.wikipedia.org/wiki/Technical_debt
 		Wikipedia article on Technical debt
 
-.. _header templates: https://github.com/openmicroscopy/openmicroscopy/blob/develop/docs/headers.txt
+.. _header templates: https://github.com/ome/openmicroscopy/blob/develop/docs/headers.txt
 .. _git submodules: https://git-scm.com/book/en/Git-Tools-Submodules

@@ -40,7 +40,7 @@ Bio-Formats
         This job builds the Java downloads artifacts of Bio-Formats
 
         #. Checks out the v:envvar:`RELEASE` tag of
-           https://github.com/openmicroscopy/bioformats
+           https://github.com/ome/bioformats
         #. |buildBF|
         #. Downloads the documentation artifacts from OME artifactory
         #. |copyreleaseartifacts|
@@ -91,7 +91,7 @@ OMERO
         This job builds the OMERO downloads page
 
         #. Checks out the `develop` branch of
-           https://github.com/openmicroscopy/ome-release.git
+           https://github.com/ome/ome-release.git
         #. Runs `make clean omero`
 
     :jenkinsjob:`OMERO-DEV-release-artifacts`

@@ -35,7 +35,7 @@ C++ libraries.
         * `ome-cmake-superbuild`
 
     -   * OME Files Performance
-        * https://github.com/openmicroscopy/ome-files-performance
+        * https://github.com/ome/ome-files-performance
         * `ome-files-performance`
 
     -   * OME Files Python bindings†

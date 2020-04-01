@@ -27,11 +27,11 @@ Infrastructure is provided to simplify deployment using
 
 The Infrastructure repository is available from:
 
--  https://github.com/openmicroscopy/infrastructure
+-  https://github.com/ome/infrastructure
 
 Roles repositories are available in:
 
--  https://github.com/openmicroscopy?q=ansible-role
+-  https://github.com/ome?q=ansible-role
 
 
 OMERO-install
@@ -65,12 +65,12 @@ initializes a Jenkins CI master with a predefined set of jobs.
 
 The :doc:`Devspace <devspace>` repository is available from:
 
--  https://github.com/openmicroscopy/devspace
+-  https://github.com/ome/devspace
 
 Devspace Dockerfiles uses common devslave image. The Devslave repository
 is available from:
 
--  https://github.com/openmicroscopy/devslave-c7-docker
+-  https://github.com/ome/devslave-c7-docker
 
 
 CI-master - Continuous Delivery (Production)
@@ -91,7 +91,7 @@ packages developers must consider:
 - infrastructure repository:
 
   - adding new Ansible role in its own repo or update existing one
-    https://github.com/openmicroscopy?q=ansible-role
+    https://github.com/ome?q=ansible-role
   - adding complete Ansible playbook to Infrastructure
 
 - adding new scripts installing appropriate package and its dependencies
@@ -131,16 +131,16 @@ This example shows how to test and upgrade OMERO dependencies.
 1. Open a PR against omero-install (e.g. install Pillow from RPM
    https://github.com/ome/omero-install/pull/129).
 2. Upgrade base docker image using
-   (e.g. https://github.com/openmicroscopy/devslave-c7-docker/blob/master/Dockerfile#L19)
-   and open a PR against `devslave-c7-docker <https://github.com/openmicroscopy/devslave-c7-docker>`_.
+   (e.g. https://github.com/ome/devslave-c7-docker/blob/master/Dockerfile#L19)
+   and open a PR against `devslave-c7-docker <https://github.com/ome/devslave-c7-docker>`_.
    
    Run :jenkinsjob:`DOCKER-merge`.
    Latest merge image will be released to `Docker Hub <https://hub.docker.com/r/snoopycrimecop/devslave-c7-docker/builds/>`_.
    For more details about configuring automated builds on Docker Hub, see
    https://docs.docker.com/docker-hub/builds/.
 3. Update devspace to use newly released container (e.g.
-   https://github.com/openmicroscopy/devspace/pull/63/files#diff-296e14ae0dc392c7edd9369908467953).
-4. Commit and push your changes to github (e.g. https://github.com/openmicroscopy/devspace/pull/63),
+   https://github.com/ome/devspace/pull/63/files#diff-296e14ae0dc392c7edd9369908467953).
+4. Commit and push your changes to github (e.g. https://github.com/ome/devspace/pull/63),
    set your branch in devspace ansible config and deploy.
 
 

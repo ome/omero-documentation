@@ -1,5 +1,5 @@
 Documentation files to be linked under the ``docs/sphinx`` directory of
-https://github.com/openmicroscopy/openmicroscopy.
+https://github.com/ome/openmicroscopy.
 
 .. image:: https://travis-ci.org/ome/ome-documentation.png
    :target: https://travis-ci.org/ome/ome-documentation
@@ -492,7 +492,7 @@ Links to the OMERO source code hosted on Github can be created using the
 the ``sourcedir`` alias for directories, e.g. ``:sourcedir: `etc```.
 
 By default, these links will point at the code under the ``develop`` branch or
-https://github.com/openmicroscopy/openmicroscopy. To specify a specific fork
+https://github.com/ome/openmicroscopy. To specify a specific fork
 and/or  branch, set the SOURCE_USER and SOURCE_BRANCH environment variables,
 e.g.::
 
