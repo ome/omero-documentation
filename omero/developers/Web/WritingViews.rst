@@ -36,7 +36,7 @@ connection to OMERO.
 
         @login_required()     NOT  @login_required    # this will give you strange error messages
 
-A simple example of @login\_required() usage (in `omero_webtest/views.py <https://github.com/openmicroscopy/omero-webtest/blob/master/omero_webtest/views.py>`_). Note
+A simple example of @login\_required() usage (in `omero_webtest/views.py <https://github.com/ome/omero-webtest/blob/master/omero_webtest/views.py>`_). Note
 the Blitz Gateway connection "conn" retrieved by @login\_required() is
 passed to the function via the optional parameter ``conn=None``.
 
