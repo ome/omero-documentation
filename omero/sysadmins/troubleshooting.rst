@@ -445,31 +445,22 @@ Data corruption
 If you are dealing with a data corruption issue, you may find the information
 on :ref:`pixelresolutionorder` useful.
 
-OpenSSL version
-^^^^^^^^^^^^^^^
+SSL connection issues
+^^^^^^^^^^^^^^^^^^^^^
 
-Weaker ciphers like ADH are disabled by default in OpenSSL 1.1.0,
-the version installed on some recent operating systems including Debian 9 and Ubuntu 18.04.
-This means that it is not possible to connect to an OMERO.server
-using any OMERO clients e.g. the Java Desktop client,
-the OMERO.web client or the CLI.
-The parameter ``@SECLEVEL=0`` must be added to the server SSL configuration:
+Deployment platforms show a trend of making the transport layer security
+policy tighter by default. The recommended way to overcome SSL
+connection issues for OMERO clients connecting to the server is to
+employ the `omero-certificates
+<https://pypi.org/project/omero-certificates/>`_ plugin available from
+PyPI_. An alternative approach is to add the parameter ``@SECLEVEL=0``
+to the server SSL configuration:
 
 .. literalinclude:: unix/walkthrough/walkthrough_debian9.sh
     :start-after: #start-seclevel
     :end-before: #end-seclevel
 
 Restart the OMERO.server as normal for the changes to take effect.
-
-IceSSL connection failure
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Further to the above SSL issue, on Ubuntu 18.04 we have received reports
-of client connection failures such as, "IceSSL: unable to set ciphers"
-causing "Failed to connect". An effective workaround appears to be to
-employ the `omero-certificates
-<https://pypi.org/project/omero-certificates/>`_ plugin available from
-PyPI_.
 
 PyTables version
 ^^^^^^^^^^^^^^^^
