@@ -32,11 +32,11 @@ Bio-Formats jobs
     :mergecijob:`BIOFORMATS-build`
     :mergecijob:`BIOFORMATS-image`
 
-        This job builds all the Bio-Formats artifacts using Ant
+        This job builds all the Bio-Formats artifacts using Maven and Ant
 
-    :mergecijob:`BIOFORMATS-build-docs`
+    :mergecijob:`BIOFORMATS-linkcheck`
 
-        This job builds the Bio-Formats documentation and runs the linkchecker
+        This job runs the linkchecker on the Bio-Formats documentation
 
     :mergecijob:`BIOFORMATS-test-repo`
 
