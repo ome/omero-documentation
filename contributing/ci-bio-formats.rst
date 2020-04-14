@@ -15,7 +15,7 @@ Bio-Formats jobs
           | :term:`BIOFORMATS-image`
 
     -   * Build the Bio-Formats documentation
-        * :term:`BIOFORMATS-build-docs`
+        * :term:`BIOFORMATS-linkcheck`
 
     -   * Run the Bio-Formats non-regression tests
         * :term:`BIOFORMATS-test-repo`
