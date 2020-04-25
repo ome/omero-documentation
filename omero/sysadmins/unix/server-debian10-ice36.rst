@@ -49,9 +49,9 @@ To install Ice |iceversion|:
     :start-after: #start-recommended-ice
     :end-before: #end-recommended-ice
 
-To make Ice available to all users, set the environment using :download:`omero-ice36-debian10.env <walkthrough/omero-ice36-debian10.env>`::
+To make Ice available to all users, set the environment using :download:`omero-ice36.env <walkthrough/omero-ice36.env>`::
 
-    cat omero-ice36-debian10.env >> /etc/profile
+    cat omero-ice36.env >> /etc/profile
 
 To install PostgreSQL |postgresversion|:
 
