@@ -40,7 +40,7 @@ Four suggested workflows
 ------------------------
 
 =============================== ======================= ======================= ===================== ================================
-Required Privileges             :term:`Data viewer`     :term:`Importer`        :term:`Analyst`       :term:`Group and Data Organizer`
+Required Privileges             :term:`Data Viewer`     :term:`Importer`        :term:`Analyst`       :term:`Group and Data Organizer`
 ------------------------------- ----------------------- ----------------------- --------------------- --------------------------------
 :term:`Sudo`                                      N                     Y                      N                       N
 :term:`Write Data`                                N                     N                      Y                       Y
@@ -103,7 +103,7 @@ O
 
 .. _Workflow 1:
 
-Workflow 1: Data viewer
+Workflow 1: Data Viewer
 -----------------------
 If you do not give any explicit privileges to the administrator with
 restricted privileges, this administrator still has some useful
@@ -118,7 +118,7 @@ and groups. They are not able to annotate, edit or delete any of the
 data or change any user or group information though. Note that any
 administrator with restricted privileges described below or otherwise
 created combining the privileges at will would be able to perform the
-Data viewer workflow as well.
+Data Viewer workflow as well.
 
 Client Details:
 
@@ -206,7 +206,7 @@ Workflow 3: Analyst
 -------------------
 Typically, the Analyst role in OMERO is to
 
-- read the data (always possible, see :ref:`Workflow 1`: Data viewer)
+- read the data (always possible, see :ref:`Workflow 1`: Data Viewer)
 - change and save the rendering settings of the images (enabled by
   :term:`Write Data` privilege, exception is
   Private groups, where they cannot save rendering settings)
