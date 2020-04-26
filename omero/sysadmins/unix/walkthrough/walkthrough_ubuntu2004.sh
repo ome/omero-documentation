@@ -105,6 +105,11 @@ omero config set omero.db.pass "$OMERO_DB_PASS"
 omero db script -f $OMERODIR/db.sql --password "$OMERO_ROOT_PASS"
 psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < $OMERODIR/db.sql
 #end-step04
+#start-patch-openssl
+#start-seclevel
+omero config set omero.glacier2.IceSSL.Ciphers HIGH:ADH:@SECLEVEL=0
+#end-seclevel
+#end-patch-openssl
 
 
 #start-step06: As root, run the scripts to start OMERO automatically
