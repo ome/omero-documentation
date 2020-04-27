@@ -123,7 +123,7 @@ else:
 if "SOURCE_USER" in os.environ and len(os.environ.get('SOURCE_USER')) > 0:
     user = os.environ.get('SOURCE_USER')
 else:
-    user = 'openmicroscopy'
+    user = 'ome'
 
 github_root = 'https://github.com/'
 omero_github_root = github_root + user + '/openmicroscopy/'
