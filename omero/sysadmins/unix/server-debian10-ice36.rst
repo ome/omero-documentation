@@ -79,7 +79,7 @@ Installing OMERO.server
 
 **The following step is run as root.**
 
-We recommend to create a virtual environment and install the Ice Python binding and PyTables_ using ``pip``:
+We recommend to create a virtual environment and install the Ice Python binding, PyTables_ and ``omero-certificates`` using ``pip``:
 
 .. literalinclude:: walkthrough/walkthrough_debian10.sh
     :start-after: #start-step03bis
@@ -125,9 +125,7 @@ Weaker ciphers like ADH are disabled by default in OpenSSL 1.1.0,
 the version installed on Debian 10.
 This means that it is not possible to connect to an OMERO.server
 using any OMERO clients e.g. the Java Desktop client,
-the OMERO.web client or the CLI.
-The parameter ``@SECLEVEL=0``, enabling the weaker ciphers, needs to be
-set in order to allow connection.
+the OMERO.web client or the CLI. Run:
 
 .. literalinclude:: walkthrough/walkthrough_debian10.sh
     :start-after: #start-seclevel
