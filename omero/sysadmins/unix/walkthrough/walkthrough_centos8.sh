@@ -15,15 +15,26 @@ yum -y install python3
 #end-step01
 # install Ice
 #start-recommended-ice
-curl -sL https://zeroc.com/download/Ice/3.6/el7/zeroc-ice3.6.repo > \
-/etc/yum.repos.d/zeroc-ice3.6.repo
+yum install -y -q \
+bzip2-devel \
+expat-devel \
+gcc \
+gcc-c++ \
+libmcpp
 
-yum -y install ice-all-runtime
+cd /tmp
+wget -q https://github.com/ome/zeroc-ice-centos8/releases/download/0.0.1/ice-3.6.5-0.0.1-centos8-amd64.tar.gz
+tar xf ice-3.6.5-0.0.1-centos8-amd64.tar.gz
+mv ice-3.6.5-0.0.1 ice-3.6.5
+mv ice-3.6.5 /opt
+echo /opt/ice-3.6.5/lib64 > /etc/ld.so.conf.d/ice-x86_64.conf
+ldconfig
 #end-recommended-ice
 
 
 # install Postgres
-yum -y install https://yum.postgresql.org/11/redhat/rhel-7-x86_64/pgdg-redhat11-11-2.noarch.rpm
+dnf module disable -y postgresql
+yum -y install https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm
 yum -y install postgresql11-server postgresql11
 
 PGSETUP_INITDB_OPTIONS=--encoding=UTF8 /usr/pgsql-11/bin/postgresql-11-setup initdb
@@ -55,7 +66,10 @@ psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 python3 -mvenv $VENV_SERVER
 
 # Install the Ice Python binding
-$VENV_SERVER/bin/pip install https://github.com/ome/zeroc-ice-py-centos7/releases/download/0.2.1/zeroc_ice-3.6.5-cp36-cp36m-linux_x86_64.whl
+$VENV_SERVER/bin/pip install https://github.com/ome/zeroc-ice-centos8/releases/download/0.0.1/zeroc_ice-3.6.5-cp36-cp36m-linux_x86_64.whl
+
+# Install pytables
+$VENV_SERVER/bin/pip install tables
 #end-step03bis
 
 #start-step04-pre: As root, install omero-py and download the OMERO.server
@@ -83,14 +97,19 @@ omero config set omero.db.pass "$OMERO_DB_PASS"
 omero db script -f $OMERODIR/db.sql --password "$OMERO_ROOT_PASS"
 psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < $OMERODIR/db.sql
 #end-step04
+#start-patch-openssl
+#start-seclevel
+omero config set omero.glacier2.IceSSL.Ciphers HIGH:ADH:@SECLEVEL=0
+#end-seclevel
+#end-patch-openssl
 
 
 #start-step06: As root, run the scripts to start OMERO automatically
-cp omero-server-systemd.service /etc/systemd/system/omero-server.service
+cp omero-server-init.d /etc/init.d/omero-server
+chmod a+x /etc/init.d/omero-server
 
-systemctl daemon-reload
-
-systemctl enable omero-server.service
+update-rc.d -f omero-server remove
+update-rc.d -f omero-server defaults 98 02
 #end-step06
 
 #start-step07: As root, secure OMERO
