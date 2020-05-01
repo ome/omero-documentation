@@ -1,10 +1,10 @@
 .. walkthroughs are generated using a bash script, see
 .. https://github.com/ome/omero-install
 
-OMERO.server installation on CentOS 7
+OMERO.server installation on CentOS 8
 =====================================
 
-This is an example walkthrough for installing OMERO on CentOS 7, using
+This is an example walkthrough for installing OMERO on CentOS 8, using
 a dedicated local system user, and should be read in conjunction with
 :doc:`install-web`. You can use this as a guide
 for setting up your own test server. For production use you should also read
@@ -117,7 +117,21 @@ Configure the server:
     :start-after: #end-copy-omeroscript
     :end-before: #end-step04
 
+Patching OMERO.server
+---------------------
 
+Weaker ciphers like ADH are disabled by default in OpenSSL 1.1.0,
+the version installed on Debian 10.
+This means that it is not possible to connect to an OMERO.server
+using any OMERO clients e.g. the Java Desktop client,
+the OMERO.web client or the CLI.
+The parameter ``@SECLEVEL=0``, enabling the weaker ciphers, needs to be
+set in order to allow connection.
+
+.. literalinclude:: walkthrough/walkthrough_centos8.sh
+    :start-after: #start-seclevel
+    :end-before: #end-seclevel
+    
 Running OMERO.server
 --------------------
 
