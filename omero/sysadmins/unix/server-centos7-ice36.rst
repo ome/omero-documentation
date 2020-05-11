@@ -78,7 +78,7 @@ Installing OMERO.server
 
 **The following step is run as root.**
 
-We recommend to create a virtual environment and install the Ice Python binding and PyTables_ using ``pip``:
+We recommend to create a virtual environment and install the Ice Python binding and the dependencies required by the server using ``pip``:
 
 .. literalinclude:: walkthrough/walkthrough_centos7.sh
     :start-after: #start-step03bis
@@ -102,6 +102,9 @@ Change the ownership of the OMERO.server directory and create a symlink:
     :start-after: #end-release-ice36
     :end-before: #end-step04-pre
 
+Configuring OMERO.server
+------------------------
+
 **The following steps are run as the omero-server system user.** (``su - omero-server``)
 
 The variable ``OMERODIR`` set in :download:`settings.env <walkthrough/settings.env>` above **must** point to the location where OMERO.server is installed.
@@ -111,7 +114,7 @@ Note that this script requires the same environment variables that were set
 earlier in `settings.env`, so you may need to copy and/or source this file as
 the omero user.
 
-Configure the server:
+Configure the database and the location of the data directory:
 
 .. literalinclude:: walkthrough/walkthrough_centos7.sh
     :start-after: #end-copy-omeroscript
