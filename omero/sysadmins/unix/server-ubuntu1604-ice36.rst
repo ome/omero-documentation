@@ -9,7 +9,7 @@ a dedicated local system user, and should be read in conjunction with
 :doc:`install-web`. You can use this as a guide
 for setting up your own test server. For production use you should also read
 the pages listed under :ref:`index-optimizing-server`.
-This guide will install Python 3.5.
+This guide will install Python 3.5 or Python 3.6.
 Since 5.6, a new :envvar:`OMERODIR` variable is used, you should first unset :envvar:`OMERO_HOME` (if set) before beginning the installation process.
 
 This guide describes how to install using the **recommended** versions for
@@ -41,7 +41,20 @@ To install Java |javaversion| and other dependencies:
 
 .. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
     :start-after: #start-step01
+    :end-before: # install dependencies
+
+
+To install Python 3.5 and other dependencies:
+
+.. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
+    :start-after: # install dependencies
     :end-before: #end-step01
+
+If you wish to install Python 3.6, run the following commands instead:
+
+.. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
+    :start-after: #start-step01-py36
+    :end-before: #end-step01-py36
 
 To install Ice |iceversion|:
 
@@ -83,6 +96,18 @@ We recommend to create a virtual environment and install the Ice Python binding 
 .. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
     :start-after: #start-step03bis
     :end-before: #end-step03bis
+
+If you have installed Python 3.6, run the following commands instead:
+
+.. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
+    :start-after: #start-py36-venv
+    :end-before: #end-py36-venv
+
+Install dependencies required to start the server:
+
+.. literalinclude:: walkthrough/walkthrough_ubuntu1604.sh
+    :start-after: #start-deps-venv
+    :end-before: #end-deps-venv
 
 Install ``omero-py``:
 
