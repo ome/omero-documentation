@@ -19,10 +19,17 @@ apt-get install -y openjdk-11-jre
 apt-get update
 apt-get -y install \
 	unzip \
-	wget \
-	python3 \
-	python3-venv
+	wget
+apt-get -y install python3 python3-venv
 #end-step01
+#start-step01-py36
+add-apt-repository ppa:deadsnakes/ppa
+apt-get update
+apt-get install -y python3.6 python3.6-venv python3.6-dev
+# dependencies required to install Ice Python binding
+apt-get install -y build-essential libssl-dev libffi-dev \
+libbz2-dev libxml2-dev libxslt1-dev zlib1g-dev
+#end-step01-py36
 # install Ice
 #start-recommended-ice
 apt-get -y install software-properties-common
@@ -66,6 +73,15 @@ python3 -mvenv $VENV_SERVER
 # Install the Ice Python binding
 $VENV_SERVER/bin/pip install https://github.com/ome/zeroc-ice-py-ubuntu1604/releases/download/0.2.0/zeroc_ice-3.6.5-cp35-cp35m-linux_x86_64.whl
 #end-step03bis
+#start-py36-venv
+# Create a virtual env and activate it
+python3.6 -mvenv $VENV_SERVER
+$VENV_SERVER/bin/pip install zeroc-ice==3.6.5
+#end-py36-venv
+#start-deps-venv
+# Install server dependencies
+$VENV_SERVER/bin/pip install omero-server[ubuntu1604]
+#end-deps-venv
 
 #start-step04-pre: As root, install omero-py and download the OMERO.server
 # Install omero-py
