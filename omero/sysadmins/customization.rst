@@ -131,6 +131,11 @@ Download restrictions
 binary files from disk. Binary access includes all attempts to download
 a file from the UI::
 
-    $ omero config set omero.policy.binary_access "+read,+write,+image"
+    $ omero config set omero.policy.binary_access +read,+write,+image
+
+or on a specific group with ID 15::
+
+    $ omero group info 15
+    $ omero obj map-set ExperimenterGroup:15 config omero.policy.binary_access +read,+write,+image
 
 .. figure:: /images/downloadRestriction.png
