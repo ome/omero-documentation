@@ -144,7 +144,7 @@ for more details on the settings.
 
 In the virtual environment where OMERO.web is installed, install the app as **root**::
 
-  $ pip install django-cors-headers
+  $ pip install 'django-cors-headers<3.3'
 
 And add it to the list of installed apps as the **omero-web** system user::
 
