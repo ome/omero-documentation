@@ -134,34 +134,4 @@ The most popular configuration options include:
 Setting up CORS
 ---------------
 
-Cross Origin Resourse Sharing allows web applications hosted at other origins
-to access resources from your OMERO.web installation.
-This can be achieved using the
-`django-cors-headers <https://github.com/ottoyiu/django-cors-headers>`_ app
-with additional configuration of OMERO.web. See the
-`django-cors-headers <https://github.com/ottoyiu/django-cors-headers>`_ page
-for more details on the settings.
-
-In the virtual environment where OMERO.web is installed, install the app as **root**::
-
-  $ pip install 'django-cors-headers<3.3'
-
-And add it to the list of installed apps as the **omero-web** system user::
-
-  $ omero config append omero.web.apps '"corsheaders"'
-
-Add the cors-headers middleware. Configuration of OMERO.web middleware
-was added in OMERO 5.3.2 and uses an 'index' to specify the ordering of middleware classes.
-It is important to add the ``CorsMiddleware`` as the first class and
-``CorsPostCsrfMiddleware`` as the last, for example::
-
-  $ omero config append omero.web.middleware '{"index": 0.5, "class": "corsheaders.middleware.CorsMiddleware"}'
-  $ omero config append omero.web.middleware '{"index": 10, "class": "corsheaders.middleware.CorsPostCsrfMiddleware"}'
-
-Specify which origins are allowed access::
-
-  $ omero config set omero.web.cors_origin_whitelist '["hostname.example.com"]'
-
-Or allow access from all origins::
-
-  $ omero config set omero.web.cors_origin_allow_all True
+See the web installation walkthroughs for more details.
