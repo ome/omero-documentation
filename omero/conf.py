@@ -201,6 +201,7 @@ linkcheck_ignore += [
     r'https://spreadsheets.google.com/.*',
     r'https://msdn.microsoft.com/en-us/library/aa362244\(v=vs.85\).aspx',
     'https://testng.org/',
+    'https://packages.ubuntu.com/search',
     # Those below may start working with Sphinx 2.1, see sphinx-doc #6381.
     'https://www.cloudflare.com/',
     'https://www.zenoss.com/',
