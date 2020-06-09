@@ -72,7 +72,7 @@ Using WSGI
 
 For convenience you may wish to run a web server under your local user account
 instead of using a system server for testing. Install NGINX and Gunicorn
-(See :doc:`/sysadmins/unix/install-web`) but generate a configuration file
+(See :doc:`/sysadmins/unix/install-web/web-deployment`) but generate a configuration file
 using the following commands:
 
 ::
