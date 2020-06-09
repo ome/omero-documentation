@@ -103,7 +103,7 @@ If you have not already done so, there are a number of additional
 steps that can be performed on your OMERO.web installation to improve
 its functioning. For example, you may need to set up a regular task
 to clear out any stale OMERO.web session files. More information can
-be found under :ref:`omero_web_maintenance`.
+be found in the various walkthroughs available from :doc:`unix/install-web/web-deployment`.
 
 Additionally, it is recommended to use a WSGI-capable server such as NGINX.
 Information can be found under :doc:`unix/install-web/web-deployment`.

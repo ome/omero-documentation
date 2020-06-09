@@ -21,9 +21,7 @@ If you need help configuring your firewall rules, see
 
 If you have installed NGINX, OMERO can automatically generate a
 configuration file for your webserver. The location of the file will depend
-on your system, please refer to your webserver's manual. See
-:ref:`customizing_your_omero_web_installation` for additional
-customization options.
+on your system, please refer to your webserver's manual. See in the `customization your installation` section in the various walkthroughs for more options.
 
 Depending upon which platform you are using, you may find a
 more specific walkthrough listed below.
@@ -145,8 +143,7 @@ NGINX configuration
 OMERO can automatically generate a
 configuration file for your web server. The location of the file
 will depend on your system, please refer to your webserver's manual.
-See :ref:`customizing_your_omero_web_installation`
-for additional customization options.
+See in the `customization your installation` section in the various walkthroughs for more options.
 
 To create a site configuration file for inclusion in a system-wide NGINX
 configuration redirect the output of the following command into a file:

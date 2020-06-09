@@ -5,8 +5,7 @@ OMERO.server installation on CentOS 8
 =====================================
 
 This is an example walkthrough for installing OMERO on CentOS 8, using
-a dedicated local system user, and should be read in conjunction with
-:doc:`install-web`. You can use this as a guide
+a dedicated local system user. You can use this as a guide
 for setting up your own test server. For production use you should also read
 the pages listed under :ref:`index-optimizing-server`.
 This guide will install Python 3.6.
