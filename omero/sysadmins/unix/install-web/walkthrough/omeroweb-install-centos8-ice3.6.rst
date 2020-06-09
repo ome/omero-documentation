@@ -87,8 +87,6 @@ Configure OMERO.web and create the NGINX OMERO configuration file::
     omero config set omero.web.application_server wsgi-tcp
     omero web config nginx --http "${WEBPORT}" --servername "${WEBSERVER_NAME}" > /opt/omero/web/omero-web/nginx.conf.tmp
 
-For more customization, please read :ref:`customizing_your_omero_web_installation`.
-
 
 Configuring Gunicorn
 --------------------
@@ -174,10 +172,6 @@ Copy the `systemd.service` file, then enable and start the service::
 
 Maintenance
 -----------
-
-**The following steps are run as the omero-web system user.**
-
-Please read :ref:`omero_web_maintenance`.
 
 
 SELinux
