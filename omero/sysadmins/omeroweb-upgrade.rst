@@ -53,7 +53,7 @@ require it.
 
     omero web config nginx > new.confg
 
-More examples can be found under :ref:`omero_web_nginx_configuration`.
+More examples can be found under :ref:`omero_web_configuration`.
 
 Dependencies
 ^^^^^^^^^^^^
