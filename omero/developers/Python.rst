@@ -774,6 +774,7 @@ ROIs
 ::
 
     updateService = conn.getUpdateService()
+    from omero.rtypes import rdouble, rint, rstring
 
 -  **Create ROI**
 
