@@ -22,7 +22,7 @@ more specific walkthrough listed below. The guides use the example of deploying 
 `NGINX <https://nginx.org/>`_ and `Gunicorn <https://docs.gunicorn.org/>`_.
 OMERO can automatically generate a
 configuration file for your webserver. The location of the file will depend
-on your system, please refer to your webserver's manual. See in the `customization your installation` section in the various walkthroughs for more options.
+on your system, please refer to your webserver's manual. See in the section `Customizing your OMERO.web installation` in the various walkthroughs for more options.
 
 .. _omero_web_configuration:
 
