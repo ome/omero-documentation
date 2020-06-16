@@ -264,8 +264,8 @@ Copy the `systemd.service` file, then enable and start the service::
 
 
 
-Maintening OMERO.web
---------------------
+Maintaining OMERO.web
+---------------------
 
 **The following steps are run as the omero-web system user.**
 
@@ -377,4 +377,3 @@ If you are running a system with `SELinux enabled <https://wiki.centos.org/HowTo
         semanage port -a -t http_port_t -p tcp 4080
 
     fi
-
