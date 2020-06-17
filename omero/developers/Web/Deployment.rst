@@ -45,7 +45,7 @@ Using the lightweight development server
 All that is required to use the Django lightweight development server
 is to set the :property:`omero.web.application_server` configuration option,
 and turn :property:`omero.web.debug` on.
-If you want to connect to a remote server, add that as shown.
+If you want to connect to a remote OMERO server, add that as shown.
 Then start up the development server to run in the foreground:
 
 ::
