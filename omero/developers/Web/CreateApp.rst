@@ -101,8 +101,8 @@ that OMERO.web is starting and the static files from your app are being included
 ::
 
     ...
-    Copying '/opt/omero/web/venv/lib/python2.7/site-packages/minimal_webapp/static/minimal_webapp/app.css'
-    Copying '/opt/omero/web/venv/lib/python2.7/site-packages/minimal_webapp/static/minimal_webapp/app.js'
+    Copying '/opt/omero/web/venv3/lib/python3.6/site-packages/minimal_webapp/static/minimal_webapp/app.css'
+    Copying '/opt/omero/web/venv3/lib/python3.6/site-packages/minimal_webapp/static/minimal_webapp/app.js'
     ...
     Starting OMERO.web...
 
