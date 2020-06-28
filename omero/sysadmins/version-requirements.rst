@@ -187,7 +187,7 @@ Linux (Ubuntu)
       - Apr 2021
       - |Recommended|
       - |Recommended|
-      - |Supported|
+      - |Dropped|
       - |Dropped|
     * - 18.04 LTS
       - Apr 2018
