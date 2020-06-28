@@ -42,11 +42,6 @@ Since 5.6, a new :envvar:`OMERODIR` variable is used, you should first unset :en
   Instructions for installing OMERO.server from scratch on
   Debian 9 with Ice 3.6 and Python 3.5.
 
-:doc:`server-ubuntu1604-ice36`
-  Instructions for installing OMERO.server from scratch on
-  Ubuntu 16.04 with Ice 3.6 and Python 3.5.
-
-
 
 **Development:**
 
@@ -62,7 +57,6 @@ Since 5.6, a new :envvar:`OMERODIR` variable is used, you should first unset :en
 
     server-centos7-ice36
     server-centos8-ice36
-    server-ubuntu1604-ice36
     server-ubuntu1804-ice36
     server-ubuntu2004-ice36
     server-debian9-ice36

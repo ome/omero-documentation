@@ -60,9 +60,6 @@ Walkthroughs
 
 **Upcoming:**
 
-:doc:`walkthrough/omeroweb-install-ubuntu1604-ice3.6`
-  Instructions for installing OMERO.web from scratch on Ubuntu 16.04 with Ice 3.6.
-
 :doc:`walkthrough/omeroweb-install-debian9-ice3.6`
   Instructions for installing OMERO.web from scratch on Debian 9 with Ice 3.6.
 
@@ -73,7 +70,6 @@ Walkthroughs
 
     walkthrough/omeroweb-install-centos7-ice3.6
     walkthrough/omeroweb-install-centos8-ice3.6
-    walkthrough/omeroweb-install-ubuntu1604-ice3.6
     walkthrough/omeroweb-install-ubuntu1804-ice3.6
     walkthrough/omeroweb-install-ubuntu2004-ice3.6
     walkthrough/omeroweb-install-debian9-ice3.6
