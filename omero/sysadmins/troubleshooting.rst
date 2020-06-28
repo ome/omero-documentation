@@ -350,14 +350,14 @@ OMERO.web deployed with Gunicorn relies on the operating system to provide
 all of the load balancing while handling requests. Adjust the timeout using
 :property:`omero.web.wsgi_timeout` and scale the number of
 :property:`omero.web.wsgi_workers` starting with (2 x NUM_CORES) + 1 workers.
-For more details refer to :ref:`gunicorn_default_configuration`.
+For more details refer to :ref:`omero_web_configuration`.
 
 Issues with downloading data from OMERO.web
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-An :ref:`gunicorn_advance_configuration` is available for testing with nginx
+An :ref:`omero_web_configuration` is available for testing with nginx
 if you are encountering problems with downloads failing. You can also
-configure OMERO.web to limit downloads - refer to the :doc:`unix/install-web`
+configure OMERO.web to limit downloads - refer to the :doc:`unix/install-web/web-deployment`
 documentation and :ref:`download_restrictions` for further details.
 
 OMERO.web piecharts
@@ -376,7 +376,7 @@ more details. There are a few known possibilities:
    (packages should be available for your distribution). Also double 
    check
    if all of the prerequisites were installed from
-   :doc:`OMERO.web deployment <unix/install-web>`.
+   :doc:`OMERO.web deployment <unix/install-web/web-deployment>`.
 
 .. _client_performance:
 

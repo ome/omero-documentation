@@ -360,7 +360,7 @@ Activate the ``omeropy`` env as above and stop OMERO::
 Web configuration and maintenance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For more configuration options and maintenance advice for OMERO.web see :doc:`install-web`.
+For more configuration options and maintenance advice for OMERO.web see :doc:`install-web/web-deployment`.
 
 Common issues
 -------------
