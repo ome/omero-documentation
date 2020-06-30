@@ -134,4 +134,5 @@ linkcheck_ignore += [r'http://localhost:\d+/?', 'http://localhost/',
     r'https?://seabass.openmicroscopy.org/.*',
     r'http://web-dev-.*.openmicroscopy.org/.*',
     r'https://oss.sonatype.org/.*',  # Requires login
+    r'https://imagej.net/.*',  # Temporary due to security exploit
 ]
