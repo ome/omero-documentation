@@ -21,7 +21,6 @@ fetched from).
     ci-introduction
     ci-omero
     ci-bio-formats
-    ci-ome-files
     ci-docs
     ci-consortium
     ci-release

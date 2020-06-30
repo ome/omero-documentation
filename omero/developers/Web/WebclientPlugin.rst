@@ -4,7 +4,7 @@ Webclient Plugins
 The webclient UI can be configured to include content from other web apps.
 This allows you to extend the webclient UI with your own functionality.
 This is used by the `webtagging app <https://github.com/MicronOxford/webtagging>`_
-and there are also some examples in the `omero-webtest <https://github.com/openmicroscopy/omero-webtest/>`_ repository.
+and there are also some examples in the `omero-webtest <https://github.com/ome/omero-webtest/>`_ repository.
 
 
 Currently you can add content in the following locations:
@@ -169,7 +169,7 @@ list.
 
 ::
 
-    $ bin/omero config append omero.web.ui.center_plugins
+    $ omero config append omero.web.ui.center_plugins
         '["Auto Tag", "webtagging/auto_tag_init.js.html", "auto_tag_panel"]'
 
 The right_plugins list includes the `Acquisition` tab and `Preview` tab by
@@ -178,7 +178,7 @@ to the list, you can simply do:
 
 ::
 
-    $ bin/omero config append omero.web.ui.right_plugins
+    $ omero config append omero.web.ui.right_plugins
         '["ROIs", "omero_webtest/webclient_plugins/right_plugin.rois.js.html", "image_roi_tab"]'
 
 If you want to replace existing plugins and display only your own single
@@ -186,7 +186,7 @@ plugin, you can simply do:
 
 ::
 
-    $ bin/omero config set omero.web.ui.right_plugins
+    $ omero config set omero.web.ui.right_plugins
         '[["ROIs", "omero_webtest/webclient_plugins/right_plugin.rois.js.html", "image_roi_tab"]]'
 
 

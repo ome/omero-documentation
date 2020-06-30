@@ -14,11 +14,18 @@ tag	Contents from a ``TagAnnotation``.
 annotation	Contents from annotations, including ``TagAnnotation`` and any ``TextAnnotation`` on another ``TextAnnotation`` (a.k.a. a `description`). Non-string annotations like ``FileAnnotation`` are not covered by this definition and are handled separately. See below.
 annotation.ns	Namespace (if present) for any annotations on an object
 annotation.type	Short type name, e.g. ``TextAnnotation`` or ``FileAnnotation`` for any annotations on an object
+channel.name	Name of the ``Channel`` object
+channel.fluor	Fluor value of the ``Channel`` object (e.g. "Alex Fluor 488" or "DAPI")
+channel.mode	Mode of the ``Channel`` object (e.g. "BrightField" or "SPIM")
+channel.photometricInterpretation	Name of the ``Channel`` object (e.g. "RGB" or "Monochrome")
 file.name	For ``FileAnnotation`` and objects they are attached to, the name of the ``OriginalFile``
 file.format	For ``FileAnnotation`` and objects they are attached to, the format of the ``OriginalFile``
 file.path	For ``FileAnnotation`` and objects they are attached to, the path of the ``OriginalFile``
 file.sha1	For ``FileAnnotation`` and objects they are attached to, the sha1 of the ``OriginalFile``
 file.contents	For ``FileAnnotation`` and objects they are attached to as well as the ``OriginalFile`` itself, the file contents themselves if their Format is configured with the File parsers.
+fileset.entry.name	Name of an imported file.
+fileset.entry.clientPath	Original, client-side path of an imported file.
+fileset.templatePrefix	Location of the import in the managed repository.
 ${NAME}	For ``MapAnnotation`` and objects they are attached to, dynamic fields are generated for each of the NamedValue entries in the annotation. For example, if ``NamedValue('temperature', '37')`` is one such value, a field named ``temperature`` will exist.
 has_key	As ``${NAME}``, but a single field of name ``has_key`` is generated for each ``NamedValue`` entry with a value of the key such that a search for ``has_key:temperature`` in the example above is possible.
 **Internal**	

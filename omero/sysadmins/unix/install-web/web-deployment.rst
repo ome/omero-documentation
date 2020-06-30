@@ -1,68 +1,70 @@
-OMERO.web installation
-======================
+OMERO.web installation and maintenance
+======================================
 
-OMERO.web is a Python client of the OMERO platform that provides a
+OMERO.web is a Python 3 client of the OMERO platform that provides a
 web-based UI and JSON API.
-This section provides guidance on how to install and set up OMERO.web on
-any of the supported UNIX and UNIX-like platforms. Specific walkthroughs are
-provided for several systems, with detailed step-by-step instructions.
-OMERO.web can be either installed **separately** from 
-the OMERO.server or installed with the OMERO.server.
-Deploying separately is **recommended** as they
-perform best under different circumstances and require a different set of
-dependencies.
+This section provides links to detailed step-by-step walkthroughs describing how to install, customize, maintain and run OMERO.web for several systems.
+OMERO.web is installed **separately** from the OMERO.server.
 
 OMERO.web can be deployed with:
 
 -  `WSGI <https://wsgi.readthedocs.org>`_ using a WSGI capable web server
    such as
    `NGINX <https://nginx.org/>`_ and `Gunicorn <https://docs.gunicorn.org/>`_
--  the built-in Django lightweight development server (for **testing**
-   only; see the :doc:`/developers/Web/Deployment` page)
+-  the built-in Django lightweight development server. This type of deployment should only be used for **testing** purpose
+   only; see the :doc:`/developers/Web/Deployment` page.
 
 If you need help configuring your firewall rules, see
 :doc:`/sysadmins/server-security` for more details.
 
-If you have installed NGINX, OMERO can automatically generate a
-configuration file for your webserver. The location of the file will depend
-on your system, please refer to your webserver's manual. See
-:ref:`customizing_your_omero_web_installation` for additional
-customization options.
-
 Depending upon which platform you are using, you may find a
-more specific walkthrough listed below.
+more specific walkthrough listed below. The guides use the example of deploying OMERO.web with
+`NGINX <https://nginx.org/>`_ and `Gunicorn <https://docs.gunicorn.org/>`_.
+OMERO can automatically generate a
+configuration file for your webserver. The location of the file will depend
+on your system, please refer to your webserver's manual. See in the section `Customizing your OMERO.web installation` in the various walkthroughs for more options.
 
-.. seealso::
+.. _omero_web_configuration:
 
-    :doc:`walkthrough/omeroweb-install-centos7-ice3.6`
-        Instructions for installing **separately** OMERO.web from
-        scratch on CentOS 7 with Ice 3.6.
+Configuration
+-------------
+You will find in the various guides how to create the NGINX OMERO configuration file
+and the configuration steps for the NGINX and Gunicorn.
+Advanced Gunicorn setups are also described to enable the download of binary data
+and to handle multiple clients on a single worker
+thread switching context as necessary while streaming binary data from
+OMERO.server. Depending on the traffic and scale of the repository you should
+configure connections and speed limits on your server to avoid blocking
+resources.
 
-    :doc:`walkthrough/omeroweb-install-ubuntu1604-ice3.6`
-        Instructions for installing **separately** OMERO.web from
-        scratch on Ubuntu 16.04 with Ice 3.6.
+Walkthroughs
+------------
 
-    :doc:`walkthrough/omeroweb-install-debian9-ice3.6`
-        Instructions for installing **separately** OMERO.web from
-        scratch on Debian 9 with Ice 3.6.
+**Recommended:**
 
-    :doc:`walkthrough/omeroweb-install-with-server-centos7-ice3.6`
-        Instructions for installing OMERO.web with OMERO.server 
-        on CentOS 7 with Ice 3.6.
 
-    :doc:`walkthrough/omeroweb-install-with-server-ubuntu1604-ice3.6`
-        Instructions for installing OMERO.web with
-        OMERO.server on Ubuntu 16.04 with Ice 3.6.
+:doc:`walkthrough/omeroweb-install-centos7-ice3.6`
+  Instructions for installing OMERO.web from scratch on CentOS 7 with Ice 3.6.
 
-    :doc:`walkthrough/omeroweb-install-with-server-debian9-ice3.6`
-        Instructions for installing OMERO.web with
-        OMERO.server on Debian 9 with Ice 3.6.
+:doc:`walkthrough/omeroweb-install-centos8-ice3.6`
+  Instructions for installing OMERO.web from scratch on CentOS 8 with Ice 3.6.
 
-    :doc:`walkthrough/omeroweb-install-osx-ice3.6`
-        Instructions for installing OMERO.web from scratch on
-        on Mac OS X with Homebrew. It is aimed at **developers**
-        since typically MacOS X is not suited for serious deployment.
+:doc:`walkthrough/omeroweb-install-debian10-ice3.6`
+  Instructions for installing OMERO.web from scratch on Debian 10 with Ice 3.6.
 
+:doc:`walkthrough/omeroweb-install-ubuntu1804-ice3.6`
+  Instructions for installing OMERO.web from scratch on Ubuntu 18.04 with Ice 3.6.
+
+:doc:`walkthrough/omeroweb-install-ubuntu2004-ice3.6`
+  Instructions for installing OMERO.web from scratch on Ubuntu 20.04 with Ice 3.6.
+
+**Upcoming:**
+
+:doc:`walkthrough/omeroweb-install-ubuntu1604-ice3.6`
+  Instructions for installing OMERO.web from scratch on Ubuntu 16.04 with Ice 3.6.
+
+:doc:`walkthrough/omeroweb-install-debian9-ice3.6`
+  Instructions for installing OMERO.web from scratch on Debian 9 with Ice 3.6.
 
 .. toctree::
     :maxdepth: 1
@@ -70,326 +72,14 @@ more specific walkthrough listed below.
     :hidden:
 
     walkthrough/omeroweb-install-centos7-ice3.6
+    walkthrough/omeroweb-install-centos8-ice3.6
     walkthrough/omeroweb-install-ubuntu1604-ice3.6
+    walkthrough/omeroweb-install-ubuntu1804-ice3.6
+    walkthrough/omeroweb-install-ubuntu2004-ice3.6
     walkthrough/omeroweb-install-debian9-ice3.6
-    walkthrough/omeroweb-install-with-server-centos7-ice3.6
-    walkthrough/omeroweb-install-with-server-ubuntu1604-ice3.6
-    walkthrough/omeroweb-install-with-server-debian9-ice3.6
-    walkthrough/omeroweb-install-osx-ice3.6
+    walkthrough/omeroweb-install-debian10-ice3.6
 
 .. note:: Support for Apache deployment has been dropped in 5.3.0.
     
     If your organization's policies only allow Apache to be used as the external-facing web-server you should configure Apache to proxy connections to an NGINX instance running on your OMERO server i.e. use Apache as a reverse proxy. For more details see
     `Apache mod_proxy documentation <https://httpd.apache.org/docs/current/mod/mod_proxy.html>`_.
-
-This guide uses the example of deploying OMERO.web **separately** from OMERO.server with
-`NGINX <https://nginx.org/>`_ and `Gunicorn <https://docs.gunicorn.org/>`_.
-If you opt to install OMERO.web with the OMERO.server, change ``OMERO.py``
-to ``OMERO.server`` in the commands below.
-
-.. _omero_web_deployment:
-
-Prerequisites
--------------
-
--  Python 2.7
-
-   -  :pypi:`virtualenv` (optional) tool to create isolated Python environments
-
-   -  PyPI_ a package management system used to install and manage
-      software packages written in Python. PyPI is already installed if
-      you are using Python 2 >=2.7.9
-
-   -  ZeroC_ IcePy 3.6
-
-   -  Django_ (1.8) [1]_
-
-   -  Pillow_ [2]_
-
-   -  `NumPy <https://www.numpy.org>`_ >=1.9 
-
-   -  Matplotlib_
-
--  A `WSGI <https://wsgi.readthedocs.org>`_-capable webserver such as
-   `NGINX <https://nginx.org/>`_ and `Gunicorn <https://docs.gunicorn.org/>`_
-
-.. [1] The currently supported version of the django module used by
-       OMERO.web (1.8) requires Python 2.7. The older version (1.6)
-       will work with Python 2.6 but lacks security support, and is
-       consequently *not recommended for production use*. Python 2.7
-       and `Django 1.8`_ are required for security support.
-
-.. [2] Make sure to have `libjpeg <http://libjpeg.sourceforge.net/>`_ 
-       installed when building Pillow_. We currently do not 
-       support version 3.4 or higher.
-
-If possible, install the following packages:
-
-.. list-table::
-    :header-rows: 1
-    :widths: 1,8
-
-    * - System
-      - Package
-
-    * - BSD Ports
-      - lang/python27 graphics/py-pillow math/py-matplotlib math/py-numpy www/nginx
-
-    * - Debian
-      - python2.7 python-pil python-matplotlib python-numpy nginx
-
-    * - Homebrew
-      - python pillow numpy matplotlib nginx
-
-    * - RedHat
-      - python nginx
-
-.. _gunicorn_default_configuration:
-
-Gunicorn configuration
-----------------------
-
-Additional settings can be configured by changing the following properties:
-
-- :property:`omero.web.application_server.max_requests` to 500
-
-- :property:`omero.web.wsgi_workers` to (2 x NUM_CORES) + 1
-
-  .. note::
-      **Do not** scale the number of workers to the number of clients
-      you expect to have. OMERO.web should only need 4-12 worker
-      processes to handle many requests per second.
-
-- :property:`omero.web.wsgi_args` Additional arguments. For more details
-  check `Gunicorn Documentation <https://docs.gunicorn.org/en/stable/settings.html>`_.
-
-NGINX configuration
--------------------
-
-OMERO can automatically generate a
-configuration file for your web server. The location of the file
-will depend on your system, please refer to your webserver's manual.
-See :ref:`customizing_your_omero_web_installation`
-for additional customization options.
-
-To create a site configuration file for inclusion in a system-wide NGINX
-configuration redirect the output of the following command into a file:
-
-::
-
-    $ OMERO.py/bin/omero web config nginx
-
-.. literalinclude:: nginx-omero.conf
-
-
-For production servers you may need to add additional directives to the
-configuration file, for example to enable
-`HTTPS <https://nginx.org/en/docs/http/configuring_https_servers.html>`_.
-As an alternative to manually modifying the generated file you can generate
-a minimal configuration:
-
-::
-
-    $ OMERO.py/bin/omero web config nginx-location > /home/omero/omero-web-location.include
-
-.. literalinclude:: omero-web-location.include
-
-
-and include this in your own manually created NGINX file, such as
-:file:`/etc/nginx/conf.d/omero-web.conf`.
-
-
-This requires more initial work but in the future you can automatically
-regenerate your OMERO.web configuration and your additional configuration
-settings will still apply.
-
-
-.. note::
-    If you need help configuring your firewall rules, see the
-    :doc:`/sysadmins/server-security` page.
-
-
-
-Running OMERO.web
------------------
-
-Start the Gunicorn worker processes listening by default on 127.0.0.1:4080:
-
-::
-
-    $ OMERO.py/bin/omero web start
-    ... static files copied to '/home/omero/OMERO.py/lib/python/omeroweb/static'.
-    Starting OMERO.web... [OK]
-
-The Gunicorn workers are managed **separately** from other OMERO.server
-processes. You can check their status or stop them using the
-following commands:
-
-::
-
-    $ OMERO.py/bin/omero web status
-    OMERO.web status... [RUNNING] (PID 59217)
-    $ OMERO.py/bin/omero web stop
-    Stopping OMERO.web... [OK]
-    Django WSGI workers (PID 59217) killed.
-
-.. _trial_download_limitation:
-
-Download limitations
-^^^^^^^^^^^^^^^^^^^^
-
-In order to offer users the ability to download data from OMERO.web you have
-to deploy using :ref:`async_workers`.
-OMERO.web is able to handle multiple clients on a single worker
-thread switching context as necessary while streaming binary data from
-OMERO.server. Depending on the traffic and scale of the repository you should
-configure connections and speed limits on your server to avoid blocking
-resources. We recommend you run benchmark and performance tests.
-It is also possible to apply :ref:`download_restrictions` and
-offer alternative access to binary data.
-
-.. note::
-    Handling streaming request/responses requires proxy buffering
-    to be turned off. For more details refer to
-    `Gunicorn deployment <https://docs.gunicorn.org/en/stable/deploy.html>`_
-    and
-    `NGINX configuration <https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffering>`_.
-
-.. note::
-    :property:`omero.web.application_server.max_requests` should be set to 0
-
-
-Benchmark
----------
-
-We run example benchmarks on rendering thumbnails and 512x512 pixels planes
-for 100 concurrent users making 5000 requests in total::
-
-    $ ab -n 5000 -c 100 https://server.openmicroscopy.org/omero/webclient/render_thumbnail/1234/
-    This is ApacheBench, Version 2.3 <$Revision: 1706008 $>
-    Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-    Licensed to The Apache Software Foundation, http://www.apache.org/
-
-    Benchmarking server.openmicroscopy.org (be patient)
-    Completed 100 requests
-    Completed 200 requests
-    Completed 300 requests
-    Completed 400 requests
-    Completed 500 requests
-    Finished 500 requests
-
-
-    Server Software:        nginx/1.11.10
-    Server Hostname:        server.openmicroscopy.org
-    Server Port:            80
-
-    Document Path:          /omero/webclient/render_thumbnail/1234/
-    Document Length:        4405 bytes
-
-    Concurrency Level:      20
-    Time taken for tests:   17.904 seconds
-    Complete requests:      500
-    Failed requests:        0
-    Total transferred:      2271500 bytes
-    HTML transferred:       2202500 bytes
-    Requests per second:    27.93 [#/sec] (mean)
-    Time per request:       716.144 [ms] (mean)
-    Time per request:       35.807 [ms] (mean, across all concurrent requests)
-    Transfer rate:          123.90 [Kbytes/sec] received
-
-    Connection Times (ms)
-                  min  mean[+/-sd] median   max
-    Connect:       45   49   4.3     48      83
-    Processing:   245  650 113.4    620    1167
-    Waiting:      244  649 113.4    620    1167
-    Total:        294  699 113.0    670    1214
-
-    Percentage of the requests served within a certain time (ms)
-      50%    670
-      66%    698
-      75%    737
-      80%    754
-      90%    814
-      95%    951
-      98%   1070
-      99%   1080
-     100%   1214 (longest request)
-
-
-Troubleshooting
----------------
-
-In order to identify why OMERO.web is not available run:
-
-::
-
-    $ OMERO.py/bin/omero web status
-
-Then consult NGINX :file:`error.log` and :file:`OMERO.py/var/log/OMEROweb.log`
-
-Check :ref:`troubleshooting-omeroweb` for more details.
-
-
-Debugging
-^^^^^^^^^
-
-To run the WSGI server in debug mode, enable
-`Gunicorn logging <https://docs.gunicorn.org/en/stable/settings.html#logging>`_
-using :property:`omero.web.wsgi_args`:
-
-::
-
-    $ OMERO.py/bin/omero config set omero.web.wsgi_args -- "--log-level=DEBUG --error-logfile=/home/omero/OMERO.py/var/log/error.log".
-
-
-.. _gunicorn_advance_configuration:
-
-EXPERIMENTAL: Gunicorn advanced configuration
----------------------------------------------
-
-.. note:: The following configuration options marked as **EXPERIMENTAL** have yet to be extensively tested in a
-    production environment, use at your own risk.
-
-
-OMERO.web deployment can be configured with sync and async workers.
-Sync workers are faster and recommended for a data repository with
-:ref:`download_restrictions`. If you wish to offer users the ability
-to download data then you have to use async workers; read more about
-:ref:`trial_download_limitation` above.
-
-See
-`Gunicorn design <https://docs.gunicorn.org/en/stable/design.html>`_ for more details.
-
-
-EXPERIMENTAL: Sync workers
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-- Install :pypi:`futures` ::
-
-      $ pip install futures
-
-Additional settings can be configured by changing the following properties:
-
-- The number of worker threads for handling requests, see
-  `Gunicorn threads <https://docs.gunicorn.org/en/stable/settings.html#threads>`_ ::
-
-      $ OMERO.py/bin/omero config set omero.web.wsgi_worker_class
-      $ OMERO.py/bin/omero config set omero.web.wsgi_threads $(2-4 x NUM_CORES)
-
-.. _async_workers:
-
-EXPERIMENTAL: Async workers
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-- Install `Gevent >= 0.13 <http://www.gevent.org/>`_ ::
-
-      $ pip install "gevent>=0.13"
-
-Additional settings can be configured by changing the following properties:
-
-- The maximum number of simultaneous clients, see
-  `Gunicorn worker-connections <https://docs.gunicorn.org/en/stable/settings.html#worker-connections>`_ ::
-
-      $ OMERO.py/bin/omero config set omero.web.wsgi_worker_class gevent
-      $ OMERO.py/bin/omero config set omero.web.wsgi_worker_connections 1000
-      $ OMERO.py/bin/omero config set omero.web.application_server.max_requests 0

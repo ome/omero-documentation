@@ -34,7 +34,7 @@ that do not require an OMERO login (e.g. public home page) etc.
 
 If you want your pages to extend the webclient application, you can use
 templates from 
-:sourcedir:`omeroweb/webclient/templates/webclient/base <components/tools/OmeroWeb/omeroweb/webclient/templates/webclient/base>`.
+`omeroweb/webclient/templates/webclient/base <https://github.com/ome/omero-web/tree/master/omeroweb/webclient/templates/webclient/base>`_.
 
 These templates are described in more detail below.
 
@@ -153,7 +153,7 @@ Webtest examples
 ^^^^^^^^^^^^^^^^
 
 You can find examples of how to extend the base templates in the 
-`OMERO.webtest <https://github.com/openmicroscopy/omero-webtest/>`_
+`OMERO.webtest <https://github.com/ome/omero-webtest/>`_
 repository within the ``omero_webtest/templates/webtest/webgateway``
 directory. If you install the OMERO.webtest app, you can view the template
 examples live at <your-server-name>/webtest/webgateway_templates/base_header/>
@@ -178,7 +178,7 @@ These blocks can be used to add content to specific points in the page.
     links required by the parent template.
 
 
-See :source:`base_header.html <components/tools/OmeroWeb/omeroweb/webgateway/templates/webgateway/base/base_header.html>` 
+See `base_header.html <https://github.com/ome/omero-web/blob/master/omeroweb/webgateway/templates/webgateway/base/base_header.html>`_
 for full template details.
 
 
@@ -210,5 +210,5 @@ extent it (see above). In addition, they also add the following blocks:
 -  right: The right column
 
 See 
-:source:`container3.html <components/tools/OmeroWeb/omeroweb/webgateway/templates/webgateway/base/container3.html>` 
+`container3.html <https://github.com/ome/omero-web/blob/master/omeroweb/webgateway/templates/webgateway/base/container3.html>`_
 for full template details.

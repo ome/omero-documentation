@@ -1,5 +1,3 @@
-ADVANCED OPTIONS:
-
   These options are not intended for general use. Make sure you have read the
   documentation regarding them. They may change in future releases.
 
@@ -21,12 +19,14 @@ ADVANCED OPTIONS:
           cp_rm           	# Caution! Copy followed by source deletion.
 
 
-  e.g. $ bin/omero import --transfer=ln_s foo.tiff
+  e.g. $ omero import --transfer=ln_s foo.tiff
        $ ./importer-cli --transfer=ln bar.tiff
        $ CLASSPATH=mycode.jar ./importer-cli --transfer=com.example.MyTransfer baz.tiff
 
   Background imports:
   -------------------
+
+    --keep-alive=SECS       	Frequency in seconds for pinging the server.
 
     --auto-close            	Close completed imports immediately.
 
@@ -40,7 +40,7 @@ ADVANCED OPTIONS:
     --wait-completed        	Wait for all background imports to complete.
 
 
-  e.g. $ bin/omero import -- --minutes-wait=0 file1.tiff file2.tiff file3.tiff
+  e.g. $ omero import -- --minutes-wait=0 file1.tiff file2.tiff file3.tiff
        $ ./importer-cli --minutes-wait=0 some_directory/
        $ ./importer-cli --wait-completed # Waits on all 3 imports.
 
@@ -52,8 +52,8 @@ ADVANCED OPTIONS:
     --exclude=clientpath    	Exclude files based on the original path.
 
 
-  e.g. $ bin/omero import --exclude=filename foo.tiff # First-time imports
-       $ bin/omero import --exclude=filename foo.tiff # Second-time skips
+  e.g. $ omero import --exclude=filename foo.tiff # First-time imports
+       $ omero import --exclude=filename foo.tiff # Second-time skips
 
   Import speed:
   -------------
@@ -63,21 +63,21 @@ ADVANCED OPTIONS:
                             	     MD5-128, Murmur3-32, Murmur3-128,
                             	     SHA1-160 (slow, default)
 
-  e.g. $ bin/omero import --checksum-algorithm=CRC-32 foo.tiff
+  e.g. $ omero import --checksum-algorithm=CRC-32 foo.tiff
        $ ./importer-cli --checksum-algorithm=Murmur3-128 bar.tiff
 
     --no-stats-info		Disable calculation of minima and maxima when as part of the Bio-Formats reader metadata
 
-  e.g. $ bin/omero import -- --no-stats-info foo.tiff
+  e.g. $ omero import -- --no-stats-info foo.tiff
        $ ./importer-cli --no-stats-info bar.tiff
 
   --no-thumbnails		Do not perform thumbnailing after import
 
-  e.g. $ bin/omero import -- --no-thumbnails foo.tiff
+  e.g. $ omero import -- --no-thumbnails foo.tiff
        $ ./importer-cli --no-thumbnails bar.tiff
 
     --no-upgrade-check		Disable upgrade check for each import
-  e.g. $ bin/omero import -- --no-upgrade-check foo.tiff
+  e.g. $ omero import -- --no-upgrade-check foo.tiff
        $ ./importer-cli --no-upgrade-check bar.tiff
 
 
@@ -85,7 +85,7 @@ ADVANCED OPTIONS:
   ---------
 
     --qa-baseurl=ARG	Specify the base URL for reporting feedback
-  e.g. $ bin/omero import broken_image.tif -- --email EMAIL --report --upload --logs --qa-baseurl=http://qa.example.com
+  e.g. $ omero import broken_image.tif -- --email EMAIL --report --upload --logs --qa-baseurl=http://qa.example.com
        $ ./importer-cli broken_image.tif --email EMAIL --report --upload --logs --qa-baseurl=http://qa.openmicroscopy.org.uk/qa
 
 Report bugs to <ome-users@lists.openmicroscopy.org.uk>

@@ -20,7 +20,7 @@ Assuming that :file:`my-files.txt` is a list of files such as ::
 
 this is equivalent to: ::
 
-    $ bin/omero import -k --transfer=ln_s fileA fileB directoryC
+    $ omero import -k --transfer=ln_s fileA fileB directoryC
 
 where the files :file:`fileA` and :file:`fileB` and all the files of
 :file:`directoryC` will be imported.
@@ -60,8 +60,8 @@ along with a :file:`files.tsv` of the form: ::
 
 would match the two calls: ::
 
-    $ bin/omero import --name import-1 fileA
-    $ bin/omero import --name import-2 fileB
+    $ omero import --name import-1 fileA
+    $ omero import --name import-2 fileB
 
 but in a single call. The same could be achieved with this CSV file: ::
 

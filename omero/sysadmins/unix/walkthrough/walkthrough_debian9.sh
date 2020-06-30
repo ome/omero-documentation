@@ -1,132 +1,110 @@
 #!/bin/bash
 set -e -u -x
-source settings.env
-source settings-web.env
 
 #start-step01: As root, install dependencies
-
 apt-get update
 
-# installed for convenience
 apt-get -y install unzip wget bc
 
-# to be installed if recommended/suggested is false
+# to be installed if daily cron tasks are configured
 apt-get -y install cron
 
 # install Java
-apt-get -y install openjdk-8-jre-headless
+echo "deb http://ftp.debian.org/debian stretch-backports main" | tee /etc/apt/sources.list.d/linuxuprising-java.list
+apt-get update -q
+apt-get -t stretch-backports -y install openjdk-11-jre-headless
 
 # install dependencies
 
-apt-get -y install python-{pip,virtualenv,yaml,jinja2}
-
-# to be installed if recommended/suggested is false
-apt-get -y install python-setuptools python-wheel virtualenv
-
-
-# python-tables will install tables version 3.3
-# but it does not work. install pytables from pypi.
-pip install tables==3.4.4
-
-#start-web-dependencies
-apt-get -y install zlib1g-dev libjpeg-dev
-apt-get -y install python-{pillow,numpy}
-#end-web-dependencies
+apt-get -y install\
+    python3 \
+    python3-venv
+#end-step01
 # install Ice
 #start-recommended-ice
 apt-get -y install zeroc-ice-all-runtime
-pip install https://github.com/ome/zeroc-ice-py-debian9/releases/download/0.1.0/zeroc_ice-3.6.4-cp27-cp27mu-linux_x86_64.whl
 #end-recommended-ice
 
+#start-disable-daemons
+systemctl --now disable glacier2router icegridregistry
+#end-disable-daemons
 
 # install Postgres
-apt-get -y install postgresql
-
+apt-get install -y gnupg
+echo "deb [arch=amd64] http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" > /etc/apt/sources.list.d/pgdg.list
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
+apt-get update
+apt-get install -y postgresql-11
+service postgresql start
 #end-step01
 
-#start-step02: As root, create an omero system user and directory for the OMERO repository
-useradd -m omero
+#start-step02: As root, create a local omero-server system user and directory for the OMERO repository
+useradd -mr omero-server
 # Give a password to the omero user
-# e.g. passwd omero
-chmod a+X ~omero
+# e.g. passwd omero-server
+chmod a+X ~omero-server
 
 mkdir -p "$OMERO_DATA_DIR"
-chown omero "$OMERO_DATA_DIR"
+chown omero-server "$OMERO_DATA_DIR"
 #end-step02
-
 #start-step03: As root, create a database user and a database
-
 echo "CREATE USER $OMERO_DB_USER PASSWORD '$OMERO_DB_PASS'" | su - postgres -c psql
 su - postgres -c "createdb -E UTF8 -O '$OMERO_DB_USER' '$OMERO_DB_NAME'"
 
 psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 #end-step03
 
-#start-step04: As the omero system user, install the OMERO.server
-#start-copy-omeroscript
-cp settings.env settings-web.env step04_all_omero.sh setup_omero_db.sh ~omero 
-#end-copy-omeroscript
+#start-step03bis: As root, create a virtual env and install dependencies
+# Create a virtual env and activate it
+python3 -mvenv $VENV_SERVER
+
+# Install the Ice Python binding
+$VENV_SERVER/bin/pip install https://github.com/ome/zeroc-ice-py-debian9/releases/download/0.2.0/zeroc_ice-3.6.5-cp35-cp35m-linux_x86_64.whl
+#end-step03bis
+
+#start-step04-pre: As root, install omero-py and download the OMERO.server
+# Install omero-py
+$VENV_SERVER/bin/pip install "omero-py>=5.6.0"
 #start-release-ice36
-cd ~omero
-SERVER=https://downloads.openmicroscopy.org/latest/omero5/server-ice36.zip
-wget $SERVER -O OMERO.server-ice36.zip
+cd /opt/omero/server
+SERVER=https://downloads.openmicroscopy.org/omero/5.6/server-ice36.zip
+wget -q $SERVER -O OMERO.server-ice36.zip
 unzip -q OMERO.server*
 #end-release-ice36
+# change ownership of the folder
+chown -R omero-server OMERO.server-*
 ln -s OMERO.server-*/ OMERO.server
-OMERO.server/bin/omero config set omero.data.dir "$OMERO_DATA_DIR"
-OMERO.server/bin/omero config set omero.db.name "$OMERO_DB_NAME"
-OMERO.server/bin/omero config set omero.db.user "$OMERO_DB_USER"
-OMERO.server/bin/omero config set omero.db.pass "$OMERO_DB_PASS"
-OMERO.server/bin/omero db script -f OMERO.server/db.sql --password "$OMERO_ROOT_PASS"
-psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < OMERO.server/db.sql
+#end-step04-pre
+
+#start-step04: As the omero-server system user, configure it
+#start-copy-omeroscript
+cp settings.env step04_all_omero.sh setup_omero_db.sh ~omero 
+#end-copy-omeroscript
+omero config set omero.data.dir "$OMERO_DATA_DIR"
+omero config set omero.db.name "$OMERO_DB_NAME"
+omero config set omero.db.user "$OMERO_DB_USER"
+omero config set omero.db.pass "$OMERO_DB_PASS"
+omero db script -f $OMERODIR/db.sql --password "$OMERO_ROOT_PASS"
+psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < $OMERODIR/db.sql
 #end-step04
 #start-patch-openssl
 #start-seclevel
-sed -i 's/\("IceSSL.Ciphers".*ADH\)/\1:@SECLEVEL=0/' OMERO.server/lib/python/omero/clients.py OMERO.server/etc/templates/grid/templates.xml
+omero config set omero.glacier2.IceSSL.Ciphers HIGH:ADH:@SECLEVEL=0
 #end-seclevel
 #end-patch-openssl
 
-#start-step05: As omero, install OMERO.web dependencies
-#web-requirements-recommended-start
-pip install -r OMERO.server/share/web/requirements-py27.txt
-#web-requirements-recommended-end
-#start-configure-nginx: As the omero system user, configure OMERO.web
-OMERO.server/bin/omero config set omero.web.application_server wsgi-tcp
-OMERO.server/bin/omero web config nginx --http "$WEBPORT" > OMERO.server/nginx.conf.tmp
-#end-configure-nginx
-# As root, install nginx
-#start-nginx-install
-apt-get -y install nginx gunicorn
-#end-nginx-install
-#start-nginx-admin
-mv /etc/nginx/sites-available/default /etc/nginx/sites-available/default.disabled
-cp OMERO.server/nginx.conf.tmp /etc/nginx/conf.d/omero-web.conf
 
-service nginx start
-#end-nginx-admin
+#start-step06: As root, run the scripts to start OMERO automatically
+cp omero-server-init.d /etc/init.d/omero-server
+chmod a+x /etc/init.d/omero-server
 
-#end-step05
-
-#start-step06: As root, run the scripts to start OMERO and OMERO.web automatically
+update-rc.d -f omero-server remove
+update-rc.d -f omero-server defaults 98 02
 #end-step06
 
 #start-step07: As root, secure OMERO
-chmod go-rwx OMERO.server/etc OMERO.server/var
+chmod go-rwx $OMERODIR/etc $OMERODIR/var
 
 # Optionally restrict access to the OMERO data directory
 # chmod go-rwx "$OMERO_DATA_DIR"
 #end-step07
-
-#start-step08: As root, perform regular tasks
-#start-omeroweb-cron
-OMERO_USER=omero
-OMERO_SERVER=/home/omero/OMERO.server
-su - ${OMERO_USER} -c "${OMERO_SERVER}/bin/omero web clearsessions"
-#end-omeroweb-cron
-#Copy omero-web-cron into the appropriate location
-#start-copy-omeroweb-cron
-
-cp omero-web-cron /etc/cron.daily/omero-web
-chmod a+x /etc/cron.daily/omero-web
-#end-copy-omeroweb-cron
-#end-step08

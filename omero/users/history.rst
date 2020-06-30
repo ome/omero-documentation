@@ -5,12 +5,12 @@ CHANGELOGS
 Links to decoupled repositories
 ===============================
 
-Since OMERO 5.5, the following repositories have been decoupled.
+Starting from OMERO 5.5, the following repositories have been decoupled.
 
 omero-build:
 ------------
 
-- omero-java-gateway :java_gateway_source:`CHANGELOG.md<CHANGELOG.md>`
+- omero-gateway-java :java_gateway_source:`CHANGELOG.md<CHANGELOG.md>`
 - omero-blitz :blitz_source:`CHANGELOG.md<CHANGELOG.md>`
 - omero-server :server_source:`CHANGELOG.md<CHANGELOG.md>`
 - omero-renderer :renderer_source:`CHANGELOG.md<CHANGELOG.md>`
@@ -22,101 +22,125 @@ omero clients:
 --------------
 - omero-matlab :matlab_source:`CHANGELOG.md<CHANGELOG.md>`
 - omero-insight :insight_source:`CHANGELOG.md<CHANGELOG.md>`
+- omero-py :py_source:`CHANGELOG.md<CHANGELOG.md>`
+- omero-web :web_source:`CHANGELOG.md<CHANGELOG.md>`
 
 .. Content for this page should be opened as a PR against
-.. https://github.com/openmicroscopy/openmicroscopy/blob/develop/history.rst
+.. https://github.com/ome/openmicroscopy/blob/develop/history.rst
 .. initially and transferred to this page via the autogen job
 
 OMERO version history
 =====================
 
-5.5.0-m7 (May 2019)
--------------------
+5.6.0 (January 2020)
+--------------------
 
-- build: remove unused client jar
-- build: use Bio-Formats 6.1.0-m1 
+First release of OMERO with support for Python 3. All Python
+code has been removed from the distributed ZIP file and will
+need to be installed from PyPI. This version has been tested
+with:
 
-5.5.0-m6 (April 2019)
----------------------
+- omero-blitz 5.5.5
+- omero-gateway-java 5.6.2
+- omero-py 5.6.0
+- omero-web 5.6.1
+- omero-dropbox 5.6.1
 
-- build: use omero-java-gateway instead of omero-blitz
-- build: move omero.properties to omero-* repositories
-- web: fix date display
-- web: remove / from 3rdparty in ome.viewportImage.js
-- cli: disable foreground indexing
+5.5.1 (July 2019)
+-----------------
 
-5.5.0-m5 (April 2019)
----------------------
+Bug fix release focusing on installation issues that were seen with 5.5.0 as
+well as an upgrade of Bio-Formats to 6.1.1.
 
-- test: fix and update tests following the migrations
-- web: remove usage of deprecated calls
-- web: remove apache config
-- doc: fix broken links following migration
+- web:
+   - Allow the customization of the web logo
+   - Allow overriding server configuration
+   - Dynamically look up client download links
+   - Fix description in new Project, Dataset etc.
+   - Fix layout of the user account form
 
-5.5.0-m4 (March 2019)
----------------------
+- Java gateway:
+   - New methods added to allow change group of objects
+   - New methods added to load objects (datasets, etc.) by name
+   - New methods added to get original and repository paths of images
+   - Minor fixes in createDataset and getPixelSize methods
 
-New plugins like omero-artifact-plugin allow reducing the boilerplate
-code in the build scripts of the decoupled repositories. This will be
-the last version where all of the dependencies are released together
-with the same tag. Following releases will focuses on the decoupled
-client repositories like omero-insight and omero-matlab.
+- import:
+   - Add import target support for creating Projects
 
-5.5.0-m3 (February 2019)
-------------------------
+- scripts:
+   - Enable annotating Projects and Datasets with the Populate Metadata script
 
-This release focuses on decoupling the Java components to new,
-separate repositories:
+- server:
+   - Fix SSL cipher issue to allow Insight to be used from Fedora 30
+   - Fix issue with loading Hibernate’s DTD when offline
+   - Properly close OMERO.tables which kept sessions alive
 
-- https://github.com/ome/omero-dsl
+Note: Due to the stricter closing of OMERO.tables, it may be necessary to
+update plugins like omero-metadata which previously were leaking files.
+
+
+5.5.0 (June 2019)
+-----------------
+
+This version **does not** require a database upgrade.
+
+For more information about the aim of the 5.5 series and future plan, please read our `blog post <https://blog.openmicroscopy.org/>`_.
+
+This release focuses on dropping support for Java 7, Python 2.6 and Ice 3.5,
+adding support for Java 11 and PostgreSQL 10, and on decoupling the Java components to new,
+separate repositories, each with a new `Gradle <https://gradle.org>`_ build system:
+
+- https://github.com/ome/omero-dsl-plugin
 - https://github.com/ome/omero-model
 - https://github.com/ome/omero-common
 - https://github.com/ome/omero-romio
 - https://github.com/ome/omero-renderer
 - https://github.com/ome/omero-server
 - https://github.com/ome/omero-blitz
+- https://github.com/ome/omero-gateway-java
+- https://github.com/ome/omero-blitz-plugin
 - https://github.com/ome/omero-insight
 - https://github.com/ome/omero-matlab
+- https://github.com/ome/omero-javapackager-plugin
+- https://github.com/ome/omero-api-plugin
 
 This has the goal of enabling more fine-grained releases.
 
 A new restriction is that the names of server configuration properties
 may include only letters, numbers and the symbols ".", "_", "-".
 
-5.5.0-m2 (December 2018)
-------------------------
+New plugins like omero-artifact-plugin allow reducing the boilerplate
+code in the build scripts of the decoupled repositories.
+Though initially disruptive, we hope this modernization and modularization will ease participation in the development of OMERO.
 
-This release focuses on dropping support for Java 7 and Ice 3.5
-
-
-Further improvements include:
-
-- web: Do not break display of Tag dialog when large font size is configured in browser
-- web: Disable refresh button while existing refresh in progress
-- server: move clients' graph requests onto background threads
-
-5.5.0-m1 (November 2018)
-------------------------
-
-This release focuses on improving the Desktop client to ease integration with third-party applications e.g. ImageJ/Fiji. The Desktop client can now do offline imports using `ome-smuggler <https://github.com/openmicroscopy/omero-ms-queue/>`_.
 Additionally, this release improves the Web interface when OMERO is opened to the public
 and contains some useful CLI improvements.
 
-Further improvements include:
+- build:
+   - Remove the generation of Ivy dependencies.html files
 
-- insight: allow to import data using ome-smuggler
-- insight: indicate in login screen that it is possible to use session ID to connect
-- ImageJ plugin insight-ij: improve saving of ROIs and Measurements
-- web: improve public user support
-- server: do not set the trustStore properties if empty
-- cli: improve logging of error when importing data via cli command
-- cli: clearly indicate empty log files when running a diagnostic
-- cli: fix bug when running `config load` passing a directory instead of a file
-- cli: add option to delete keys from map annotations
+- web:
+   - Introduce Advanced Search to allow and/or search options
+   - Fix description in new Project, Dataset etc.
+   - Allow user to create new Map Annotations for multiple selected objects at once
+   - Fix date display
+   - Remove / from 3rdparty in ome.viewportImage.js
+   - Remove usage of deprecated calls
+   - Remove apache config
+   - Do not break display of Tag dialog when large font size is configured in browser
+   - Disable refresh button while existing refresh in progress
+   - Improve public user support
+   - Add ability to customize incorrect login text
 
-Developer improvements include:
-
-- JavaGateway: add helper method to manipulate ROI masks 
+- cli:
+   - Disable foreground indexing
+   - Improve logging of error when importing data via cli command
+   - Clearly indicate empty log files when running a diagnostic
+   - Fix bug when running `config load` passing a directory instead of a file
+   - Add option to delete keys from map annotations
+   - Add error code discovery
+   - Deprecate the CLI upload module and plugin
 
 5.4.10 (January 2019)
 ---------------------
@@ -404,7 +428,7 @@ Developer updates include:
 -  added instructions to :doc:`/developers/cli/extending` on how to
    create CLI plugins that are ``pip`` installable
 -  substantial effort to make third-party repositories easily testable;
-   see `omero-test-infra <https://github.com/openmicroscopy/omero-test-infra>`_
+   see `omero-test-infra <https://github.com/ome/omero-test-infra>`_
    for more information
 
 This release also upgrades the version of Bio-Formats that OMERO uses to

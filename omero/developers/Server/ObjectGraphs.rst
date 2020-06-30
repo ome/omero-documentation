@@ -72,8 +72,8 @@ themselves have several links, not least to their parent and child
 objects.
 
 When traversal begins, the target objects are to be *included* (e.g.,
-for :javadoc:`Chgrp2 <slice2html/omero/cmd/Chgrp2.html>`) or *deleted*
-(e.g., for :javadoc:`Delete2 <slice2html/omero/cmd/Delete2.html>`) and
+for :slicedoc_blitz:`Chgrp2 <omero/cmd/Chgrp2.html>`) or *deleted*
+(e.g., for :slicedoc_blitz:`Delete2 <omero/cmd/Delete2.html>`) and
 other objects are *irrelevant*.
 
 A list of transition rules is associated with the requested operation.
@@ -349,10 +349,10 @@ Options
 
 Every one of the request object classes introduced in the new
 implementation of graph traversal is a derived class of
-:javadoc:`GraphModify2 <slice2html/omero/cmd/GraphModify2.html>` and
+:slicedoc_blitz:`GraphModify2 <omero/cmd/GraphModify2.html>` and
 inherits data members that configure its operation. Each request may
 define additional data members for options specific to it, for instance
-:javadoc:`Chgrp2 <slice2html/omero/cmd/Chgrp2.html>` requires the ID of
+:slicedoc_blitz:`Chgrp2 <omero/cmd/Chgrp2.html>` requires the ID of
 the target group to be specified. The data members offered by all of the
 new requests are,
 
@@ -373,7 +373,7 @@ new requests are,
 SkipHead
 --------
 
-The :javadoc:`SkipHead <slice2html/omero/cmd/SkipHead.html>` request
+The :slicedoc_blitz:`SkipHead <omero/cmd/SkipHead.html>` request
 allows specification of the target objects with reference to a common
 parent. It wraps an inner ``request`` data member that starts acting
 only after graph traversal reaches types listed in ``startFrom``. For

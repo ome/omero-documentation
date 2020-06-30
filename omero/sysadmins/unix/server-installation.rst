@@ -6,26 +6,54 @@ UNIX-like platforms. This includes all BSD, Linux and Mac OS X
 systems. Depending upon which platform you are using, you may find a
 more specific walk-through listed below but we recommend you read through this
 page first as it explains the entire process rather than just being a series
-of commands.
+of commands. The walk-throughs describs how to install the **recommended** versions,
+not all the supported versions.
+This should be read in conjunction with :doc:`../version-requirements`.
 
-.. seealso::
+Since 5.6, a new :envvar:`OMERODIR` variable is used, you should first unset :envvar:`OMERO_HOME`
+(if set) before beginning the installation process.
 
-    :doc:`server-centos7-ice36`
-        Instructions for installing OMERO.server from scratch on
-        CentOS 7 with Ice 3.6.
 
-    :doc:`server-ubuntu1604-ice36`
-        Instructions for installing OMERO.server from scratch on
-        Ubuntu 14.04 and Ubuntu 16.04 with Ice 3.6.
+**Recommended:**
 
-    :doc:`server-debian9-ice36`
-        Instructions for installing OMERO.server from scratch on
-        Debian 9 with Ice 3.6.
+:doc:`server-centos7-ice36`
+  Instructions for installing OMERO.server from scratch on
+  CentOS 7 with Ice 3.6 and Python 3.6.
 
-    :doc:`server-install-homebrew`
-        Instructions for installing and building OMERO.server on Mac
-        OS X with dependencies installed using Homebrew. It is aimed at **developers**
-        since typically MacOS X is not suited for serious server deployment.
+:doc:`server-centos8-ice36`
+  Instructions for installing OMERO.server from scratch on
+  CentOS 8 with Ice 3.6 and Python 3.6.
+
+:doc:`server-debian10-ice36`
+  Instructions for installing OMERO.server from scratch on
+  Debian 10 with Ice 3.6 and Python 3.7.
+
+:doc:`server-ubuntu1804-ice36`
+  Instructions for installing OMERO.server from scratch on
+  Ubuntu 18.04 with Ice 3.6 and Python 3.6.
+
+:doc:`server-ubuntu2004-ice36`
+  Instructions for installing OMERO.server from scratch on
+  Ubuntu 20.04 with Ice 3.6 and Python 3.8.
+
+**Upcoming:**
+
+:doc:`server-debian9-ice36`
+  Instructions for installing OMERO.server from scratch on
+  Debian 9 with Ice 3.6 and Python 3.5.
+
+:doc:`server-ubuntu1604-ice36`
+  Instructions for installing OMERO.server from scratch on
+  Ubuntu 16.04 with Ice 3.6 and Python 3.5.
+
+
+
+**Development:**
+
+:doc:`server-install-homebrew`
+  Instructions for installing and building OMERO.server on Mac
+  OS X with dependencies installed using Homebrew. It is aimed at **developers**
+  since typically MacOS X is not suited for serious server deployment.
 
 .. toctree::
     :maxdepth: 1
@@ -33,8 +61,12 @@ of commands.
     :hidden:
 
     server-centos7-ice36
+    server-centos8-ice36
     server-ubuntu1604-ice36
+    server-ubuntu1804-ice36
+    server-ubuntu2004-ice36
     server-debian9-ice36
+    server-debian10-ice36
     server-install-homebrew
 
 Prerequisites
@@ -53,9 +85,8 @@ Installation will require:
 
 The installation and configuration of the prerequisite applications
 are mostly outside the scope of this document. For Linux
-distributions, use of the default package manager is recommended. For
-BSD systems, the ports system provides all the prerequisites. For
-MacOS X, Homebrew is recommended. This guide provides the package
+distributions, use of the default package manager is recommended.
+For MacOS X, Homebrew is recommended. This guide provides the package
 names to install for a number of contemporary systems. However, the
 names and versions provided vary between releases. Please do check for
 similar packages if the one documented here is not available for your
@@ -92,17 +123,21 @@ Java SE Runtime Environment (JRE)
 
 If possible, install one of the following packages:
 
-+-----------+---------------------------+
-| System    | Package                   |
-+===========+===========================+
-| BSD Ports | java/openjdk8             |
-+-----------+---------------------------+
-| Debian    | openjdk-8-jre             |
-+-----------+---------------------------+
-| Homebrew  | N/A (install Oracle Java) |
-+-----------+---------------------------+
-| RedHat    | java-1.8.0-openjdk        |
-+-----------+---------------------------+
+.. list-table::
+    :header-rows: 1
+    :align: left
+
+    * - System
+      - Package
+
+    * - Debian
+      - openjdk-11-jre
+
+    * - Homebrew
+      - N/A (install Oracle Java)
+
+    * - RedHat
+      - java-11-openjdk
 
 OMERO works with the OpenJDK JRE provided by most systems, or with
 Oracle Java. Version |javaversion| or later is required.
@@ -128,85 +163,47 @@ To check which version of Java is currently available::
     $ which java
     /usr/bin/java
     $ java -version
-    java version "1.8.0_51"
-    Java(TM) SE Runtime Environment (build 1.8.0_51-b16)
-    Java HotSpot(TM) 64-Bit Server VM (build 25.51-b03, mixed mode)
+    openjdk version "11.0.5" 2019-10-15
+    OpenJDK Runtime Environment (build 11.0.5+10-post-Ubuntu-0ubuntu1.118.04)
+    OpenJDK 64-Bit Server VM (build 11.0.5+10-post-Ubuntu-0ubuntu1.118.04, mixed mode, sharing)
 
-Python 2
+Python 3
 ^^^^^^^^
 
 Check you have Python (and check its version) by running:
 
 ::
 
-    $ python --version
-    Python 2.7.10
-
-.. note:: OMERO does not currently support Python 3; you must use 2.7.
-
-The following Python packages are required:
-
-.. list-table::
-    :header-rows: 1
-
-    * - Package
-      - Functionality
-      - Downloads
-
-    * - NumPy (1.2.0 or higher)
-      - Scripting
-      - `Numpy/Scipy page <https://www.scipy.org/Download>`_
-
-    * - PyTables (2.1.0 or higher) [1]_
-      - :doc:`OMERO.tables </sysadmins/server-tables>`
-      - `PyTables page <https://pytables.github.io/downloads.html>`_
-
-
-.. [1] From OMERO 5.5 PyTables 3.1 or higher will be required.
-
-.. note::
-    Some of these can be ignored if you wish to forego some
-    functionality but we recommend you just install everything. For
-    example, scripting is enabled by default so should not be assumed
-    optional even if you never expect your users to run scripts from
-    the clients.
+    $ python3 --version
+    Python 3.6.4
 
 If possible, install the following packages:
 
 .. list-table::
     :header-rows: 1
-    :widths: 1,8
+    :align: left
 
     * - System
       - Package
 
-    * - BSD Ports
-      - lang/python27 math/py-numpy devel/py-tables
-
     * - Debian
-      - python2.7 python-numpy python-tables
+      - python3
 
     * - Homebrew
-      - python2 numpy
+      - python3
 
     * - RedHat
-      - python
+      - python3
 
 Ice
 ^^^
-
-.. note::
-
-    OMERO |version| supports 3.6 on UNIX and UNIX-like platforms. You
-    must install the correct version of OMERO.server (see
-    :downloads:`Downloads <>`).
 
 The Ice version may vary, depending upon the distribution version you
 are using. The Ice versions in currently supported versions of Debian
 and `Ubuntu <https://wiki.ubuntu.com/Releases>`_ are shown in the
 :ref:`ice-requirements` of the :doc:`/sysadmins/version-requirements` page.
 
-Using the latest version of Ice is recommended, where possible. If
+Using version 3.6 of Ice is required. If
 your package manager provides Ice packages, using these is recommended
 where possible. Distribution-provided packages often have additional
 bugfixes which are not present in the upstream releases.
@@ -232,17 +229,21 @@ OMERO.scripts
 
 If you wish to run the "Movie Maker" script, please install :program:`mencoder`.
 
-+-----------+---------------------+
-| System    | Packages            |
-+===========+=====================+
-| BSD Ports | multimedia/mencoder |
-+-----------+---------------------+
-| Debian    | mencoder            |
-+-----------+---------------------+
-| Homebrew  | mplayer             |
-+-----------+---------------------+
-| RedHat    | mencoder            |
-+-----------+---------------------+
+.. list-table::
+    :header-rows: 1
+    :align: left
+
+    * - System
+      - Package
+
+    * - Debian
+      - mencoder
+
+    * - Homebrew
+      - mplayer
+
+    * - RedHat
+      - mencoder
 
 Installation
 ------------
@@ -287,17 +288,21 @@ of Ice installed, unpack it:
 If your system does not provide an :program:`unzip` command by
 default, install one of the following:
 
-+-----------+-----------------+
-| System    | Package         |
-+===========+=================+
-| BSD Ports | archivers/unzip |
-+-----------+-----------------+
-| Debian    | unzip           |
-+-----------+-----------------+
-| Homebrew  | unzip           |
-+-----------+-----------------+
-| RedHat    | unzip           |
-+-----------+-----------------+
+.. list-table::
+    :header-rows: 1
+    :align: left
+
+    * - System
+      - Package
+
+    * - Debian
+      - unzip
+
+    * - Homebrew
+      - unzip
+
+    * - RedHat
+      - unzip
 
 
 Optionally, give your OMERO software install a short name to save some
@@ -378,14 +383,8 @@ The following environment variables may be configured:
   already be the case. If using the ZeroC ice package, add the
   :file:`python` directory to the python path. For Ice 3.6, this
   should never be required.
-
-.. warning::
-    The :envvar:`OMERO_HOME` environment variable is used internally
-    by OMERO. Unless you really know what you are doing, it is
-    strongly recommended that you do not set this variable (see
-    :doc:`/sysadmins/omero-home-prefix` for details). You can use a
-    different name of your choice instead, indicated by
-    :envvar:`OMERO_PREFIX` in this documentation.
+:envvar:`OMERODIR`
+  The path to the OMERO.server.
 
 After making any needed changes, either source the corresponding file
 or log back in for them to take effect. Run ``env`` to check them.
@@ -483,32 +482,26 @@ Location for the your OMERO binary repository
 Configuration
 -------------
 
--   Optionally, review
-    :file:`~/omero/OMERO.server/etc/omero.properties`, which contains
-    all default settings. Do not edit this file---it is for reference
-    only. Any configuration settings you would like to change can be
-    changed in the next step. Alternatively, you can view a parsed
-    version of the file under :doc:`/sysadmins/config` or parse it
-    yourself with :program:`omero config parse`.
+-   You can view a parsed version of the configuration properties
+    under :doc:`/sysadmins/config` or parse it
+    yourself with ``omero config parse``.
 
--   Change any settings that are necessary using :program:`omero config`,
+-   Change any settings that are necessary using ``omero config``,
     including the name and/or password for the 'db\_user' database
     user you chose above or the database name if it is not
     "omero\_database". (Quotes are only necessary if the value could
-    be misinterpreted by the shell. See :forum:`link
+    be misinterpreted by the shell. See :forum:`Forum post
     <viewtopic.php?f=5&t=360#p922>`)
 
     ::
 
-        $ cd ~/omero/OMERO.server
-        $ bin/omero config set omero.db.name 'omero_database'
-        $ bin/omero config set omero.db.user 'db_user'
-        $ bin/omero config set omero.db.pass 'db_password'
+        $ omero config set omero.db.name 'omero_database'
+        $ omero config set omero.db.user 'db_user'
+        $ omero config set omero.db.pass 'db_password'
 
     You can also check the values that have been set using::
 
-        $ cd ~/omero/OMERO.server
-        $ bin/omero config get
+        $ omero config get
 
 -   If you have chosen a non-standard :doc:`OMERO binary repository
     <server-binary-repository>` location above, be sure to configure
@@ -526,8 +519,7 @@ Configuration
 
     .. parsed-literal::
 
-        $ cd ~/omero/OMERO.server
-        $ bin/omero db script --password omero_root_password
+        $ omero db script --password omero_root_password
 
     .. literalinclude:: /downloads/cli/db-script-example.txt
 
@@ -554,11 +546,11 @@ Configuration
 
     ::
 
-        $ bin/omero admin diagnostics
+        $ omero admin diagnostics
 
 -   You can now start the server using::
 
-         $ bin/omero admin start
+         $ omero admin start
          Creating var/master
          Initializing var/log
          Creating var/registry
@@ -578,13 +570,13 @@ Configuration
 -   Test that you can log in as "root", either with the OMERO.insight
     client or on the command-line::
 
-         $ bin/omero login
+         $ omero login
          Server: [localhost]
          Username: [root]
          Password:         # omero_root_password
 
     You will be prompted for an OMERO username and password. Use the
-    username and password set when running ``bin/omero db script``.
+    username and password set when running :command:`omero db script`.
 
 -   If your users are going to be importing many files in one go, for example
     multiple plates, you should make sure you set the maximum number of open
@@ -600,8 +592,8 @@ made to have usable settings out of the box, but if you can afford to
 provide OMERO with more memory, it will certainly improve your overall
 performance. See :ref:`jvm_memory_settings` on how to tune the JVM.
 
-Enabling movie creation from OMERO.
------------------------------------
+Enabling movie creation from OMERO
+----------------------------------
 
 OMERO has a facility to create AVI/MPEG Movies from images. The page
 :doc:`/sysadmins/omeromovie` details how to enable it.
@@ -654,17 +646,18 @@ output of the diagnostics command:
 
 .. parsed-literal::
 
-    $ bin/omero admin diagnostics
+    $ omero admin diagnostics
 
     ================================================================================
     OMERO Diagnostics |release|
     ================================================================================
 
-    Commands:   java -version                  1.8.0     (/usr/bin/java)
-    Commands:   python -V                      2.7.9     (/usr/bin/python)
-    Commands:   icegridnode --version          3.6.3     (/usr/bin/icegridnode)
-    Commands:   icegridadmin --version         3.6.3     (/usr/bin/icegridadmin)
-    Commands:   psql --version                 9.4.5    (/usr/bin/psql)
+    Commands:   java -version                  11.0.5    (/usr/bin/java)
+    Commands:   python -V                      3.6.9     (/opt/omero/server/venv3/bin/python)
+    Commands:   icegridnode --version          3.6.5     (/usr/bin/icegridnode)
+    Commands:   icegridadmin --version         3.6.5     (/usr/bin/icegridadmin)
+    Commands:   psql --version                 11.6      (/usr/bin/psql)
+    Commands:   openssl version                1.1.111   (/usr/bin/openssl)
 
     Server:     icegridnode                    running
     Server:     Blitz-0                        active (pid = 30324, enabled)
@@ -682,28 +675,27 @@ output of the diagnostics command:
     OMERO:      SSL port                       4064
     OMERO:      TCP port                       4063
 
-    Log dir:    /home/omero/OMERO.server-5.0.1-ice35-b21/var/log exists
+    Log dir:    /opt/omero/server/OMERO.server/var/log exists
 
-    Log files:  Blitz-0.log                    3.0 MB        errors=0    warnings=9
-    Log files:  DropBox.log                    4.0 KB        errors=0    warnings=1
-    Log files:  FileServer.log                 0.0 KB
-    Log files:  Indexer-0.log                  10.0 KB       errors=0    warnings=5
-    Log files:  MonitorServer.log              2.0 KB
-    Log files:  OMEROweb.log                   642.0 KB      errors=0    warnings=1
-    Log files:  OMEROweb_request.log           0.0 KB
-    Log files:  PixelData-0.log                7.0 KB        errors=0    warnings=4
-    Log files:  Processor-0.log                2.0 KB        errors=0    warnings=1
-    Log files:  Tables-0.log                   n/a
+    Log files:  Blitz-0.log                    22.8 KB        errors=0    warnings=9
+    Log files:  DropBox.log                    1.3 KB        errors=0    warnings=1
+    Log files:  FileServer.log                 114 B
+    Log files:  Indexer-0.log                  1.3 KB       errors=0    warnings=5
+    Log files:  MonitorServer.log              882 B
+    Log files:  PixelData-0.log                1.8 KB        errors=0    warnings=4
+    Log files:  Processor-0.log                592 B        errors=0    warnings=1
+    Log files:  Tables-0.log                   841 B
     Log files:  TestDropBox.log                n/a
-    Log files:  master.err                     0.0 KB        errors=2    warnings=0
-    Log files:  master.out                     0.0 KB
-    Log files:  Total size                     3.83 MB
+    Log files:  master.err                     34.4 KB        errors=2    warnings=0
+    Log files:  master.out                     empty
+    Log files:  Total size                     0.06 MB
 
+    Environment:OMERODIR=/opt/omero/server/OMERO.server 
     Environment:OMERO_HOME=(unset)
     Environment:OMERO_NODE=(unset)
     Environment:OMERO_MASTER=(unset)
     Environment:OMERO_TEMPDIR=(unset)
-    Environment:PATH=/usr/local/bin:/usr/bin:/bin
+    Environment:PATH=/opt/omero/server/venv3/bin:/usr/local/bin:/usr/bin:/bin
     Environment:ICE_HOME=(unset)
     Environment:LD_LIBRARY_PATH=(unset)
     Environment:DYLD_LIBRARY_PATH=(unset)
@@ -711,15 +703,12 @@ output of the diagnostics command:
     OMERO SSL port:4064                           
     OMERO TCP port:4063  
     OMERO data dir: '/OMERO'        Exists? True    Is writable? True
-    OMERO temp dir: '/home/omero/tmp'        Exists? True    Is writable? True   (Size: 0)
+    OMERO temp dir: '/home/omero-server/tmp'        Exists? True    Is writable? True   (Size: 0)
 
     JVM settings: Blitz-${index}                -Xmx621m -XX:MaxPermSize=512m -XX:+IgnoreUnrecognizedVMOptions
     JVM settings: Indexer-${index}              -Xmx414m -XX:MaxPermSize=512m -XX:+IgnoreUnrecognizedVMOptions
     JVM settings: PixelData-${index}            -Xmx621m -XX:MaxPermSize=512m -XX:+IgnoreUnrecognizedVMOptions
     JVM settings: Repository-${index}           -Xmx414m -XX:MaxPermSize=512m -XX:+IgnoreUnrecognizedVMOptions
-
-    OMERO.web status... [RUNNING] (PID 16952)
-    Django version: 1.8.7
 
 
 Update notification
@@ -729,4 +718,3 @@ Your OMERO.server installation will check for updates each time it is
 started from the *Open Microscopy Environment* update server. If you
 wish to disable this functionality you should do so now as outlined on
 the :doc:`/sysadmins/UpgradeCheck` page.
-

@@ -1,4 +1,4 @@
-Jekyll hosted websites
+Jekyll-hosted websites
 ======================
 
 A number of OME websites are produced using `Jekyll <https://jekyllrb.com/>`_,
@@ -54,7 +54,7 @@ Main OME Website
 ^^^^^^^^^^^^^^^^
 
 The source for the `OME Website <https://www.openmicroscopy.org>`_ is
-on GitHub at https://github.com/openmicroscopy/www.openmicroscopy.org.
+on GitHub at https://github.com/ome/www.openmicroscopy.org.
 The website uses the ‘master’ branch, PRs should be opened directly against
 it. Most of the files are written in html but the announcements posts are in
 markdown and further content may migrate to markdown in future.
@@ -78,9 +78,9 @@ static website and then deploying it on the web server:
   date
 - after pushing the tag, an artifact of the static website will be built by
   [Travis CI](https://travis-ci.org/openmicroscopy/www.openmicroscopy.org) and 
-  deployed as an asset of the associated `GitHub release <https://github.com/openmicroscopy/www.openmicroscopy.org/releases>`_
+  deployed as an asset of the associated `GitHub release <https://github.com/ome/www.openmicroscopy.org/releases>`_
 - a PR can then be opened against the
-  `Website deployment playbook <https://github.com/openmicroscopy/prod-playbooks/blob/master/www/www-jekyll.yml>`_ to consume the new release asset
+  `Website deployment playbook <https://github.com/ome/prod-playbooks/blob/master/www/www-static.yml>`_ to consume the new release asset
 - the sysadmin team will then run the playbook to update the live website
 
 OME Blog
@@ -103,7 +103,7 @@ burying them in technical details from the start. Increasingly these are
 supplemented with video content and moving forward movies and training
 presentations may become the default format for new workflows.
 
-The source is at `<https://github.com/openmicroscopy/ome-help/>`_.
+The source is at `<https://github.com/ome/ome-help/>`_.
 The website uses the ‘gh-pages’ branch for the live deployment but PRs should
 be opened against 'master' for review. All the files are currently written in
 html.

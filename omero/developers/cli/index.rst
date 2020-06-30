@@ -15,9 +15,7 @@ argument. See :ref:`cli_help` for more information.
 General notes
 -------------
 
--  :file:`bin/omero` will find its installation. Therefore, to install OMERO
-   it is only necessary to unpack the bundle, and put :file:`bin/omero`
-   somewhere on your path.
+-  For installation notes see :doc:`/users/cli/installation`.
 -  Any command can be produced by symlinking :file:`bin/omero` to a file of
    the form "omero-command-arg1-arg2". This is useful under :file:`/etc/rc.d`
    to have a startup script.

@@ -18,7 +18,7 @@ Minimum configuration
 
 ::
 
-    $ bin/omero config set omero.mail.config true
+    $ omero config set omero.mail.config true
 
 By default, this will use "localhost" as the mail server on port 25 and send
 as the user "omero". Likely you will need to configure OMERO to use your
@@ -26,12 +26,12 @@ actual mail server.
 
 For example::
 
-    $ bin/omero config set omero.mail.host smtp.university.example
+    $ omero config set omero.mail.host smtp.university.example
 
 If authentication is required, then also configure::
 
-    $ bin/omero config set omero.mail.username USER
-    $ bin/omero config set omero.mail.password PASS
+    $ omero config set omero.mail.username USER
+    $ omero config set omero.mail.password PASS
 
 Setting email addresses
 -----------------------
@@ -40,7 +40,7 @@ For any user to receive email, a valid email address must be configured.
 By default, the `root` OMERO user will *not* have an email address configured.
 This can be done from one of the UIs or via the :program:`omero obj` command::
 
-    $ bin/omero obj update Experimenter:0 email=root@university.example
+    $ omero obj update Experimenter:0 email=root@university.example
 
 .. note:: Using a mailing list or an alias for the `root` user can simplify
     configuration.
@@ -99,4 +99,4 @@ Finally, if the above mail configuration properties do not cover your needs,
 you can add your own implementation as described under |ExtendingOmero|. The
 related property is :property:`omero.mail.bean`::
 
-    $ bin/omero config set omero.mail.bean myMailImplementation
+    $ omero config set omero.mail.bean myMailImplementation

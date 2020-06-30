@@ -28,14 +28,33 @@ the following more specific requirements:
     available:
 
     -   Mac OS systems that use a macports install of Python will need to
-        have FSEvents available in the PYTHONPATH. This will require a
+        have FSEvents available in the :envvar:`PYTHONPATH`. This will require a
         path of the form
-        ``/System/Library/Frameworks/Python.framework/Versions/2.X/Extras/lib/python/PyObjC/``
+        ``/System/Library/Frameworks/Python.framework/Versions/3.X/Extras/lib/python/PyObjC/``
         to be added, according to the version of Python used.
 
 -   The filesystem which OMERO.dropbox watches must be local to the given
     operating system. Watching a network-attached share (NAS) is strictly
     ***not*** supported.
+
+Installing DropBox
+------------------
+
+From the OMERO 5.6.0 release, the library ``omero-dropbox`` supports Python 3 and
+is now available on PyPI_. We recommend you use a Python virtual environment to install it. It should be installed in the same virtual environment where ``omero-py`` is installed. See :doc:`unix/server-installation`.
+
+Activate the environment ``/opt/omero/server/venv3`` where ``omero-py`` is installed and install ``omero-dropbox``
+as **root**:
+
+.. parsed-literal::
+
+    $ . /opt/omero/server/venv3/bin/activate
+    $ pip install omero-dropbox==\ |version_dropbox|
+
+Enable DropBox as the **omero-server system user** (``su - omero-server``)::
+
+    $ omero admin ice server enable MonitorServer
+    $ omero admin ice server enable DropBox
 
 Using DropBox
 -------------
@@ -60,8 +79,8 @@ convenience. Copying or moving a file of an importable file type into a
 named directory or nested subdirectory will initiate an automatic import
 of that file for that user. Multi-file formats will be imported after
 the last required file of a set is copied into the directory. Images and
-plates will be imported into the group the user was last logged into, with
-images placed into ``Orphaned images``.
+plates will be imported into the default group of the user, with
+images placed into ``Orphaned images`` unless the ``target`` option was configured (see below and :doc:`/users/cli/import-target`).
 
 Acquisition systems can then be configured to drop a user's images into
 a given DropBox.
@@ -89,17 +108,19 @@ Changing the permissions of a directory within DropBox may result in duplicate
 imports as a newly readable directory appears identical to a new directory. If
 directories need to be modified it is recommended that the DropBox system is
 stopped and then restarted around any changes, as below.
+
+As the **omero-server system user**, run
 ::
 
-    $ bin/omero admin ice server disable DropBox
-    $ bin/omero admin ice server stop DropBox
-    $ bin/omero admin ice server disable MonitorServer
-    $ bin/omero admin ice server stop MonitorServer
+    $ omero admin ice server disable DropBox
+    $ omero admin ice server stop DropBox
+    $ omero admin ice server disable MonitorServer
+    $ omero admin ice server stop MonitorServer
 
     # make any directory changes
 
-    $ bin/omero admin ice server enable MonitorServer
-    $ bin/omero admin ice server enable DropBox
+    $ omero admin ice server enable MonitorServer
+    $ omero admin ice server enable DropBox
 
 .. note::
 
@@ -152,7 +173,13 @@ different type of file, etc. Any value missing from the configuration
 (e.g. ``value="1;;2"``) will be replaced by the default value.
 
 One example alternative configuration would be to watch specific
-directories for specific users. In the example below two directories are
+directories for specific users.
+
+.. note::
+
+    Temporarily, the "importUsers" parameter is disabled, because of a bug. You can still configure the DropBox in a way which gives all the users the same Advanced configs. To achieve this, do not specify the "importUsers" parameter and always just use the "amy" or just the "zak" part of the other parameters or concatenate the "zak" parameters with "amy" parameters in the examples below.
+
+In the example below two directories are
 monitored, one for user ``amy`` and one for ``zak``:
 
 ::
@@ -183,7 +210,7 @@ Each property takes the form of a single item or a semi-colon separated
 list of items. Where the item is a list, values within that list should
 be comma separated.
 
--   importUsers
+-   importUsers (temporarily disabled)
 
     The importUsers is either ``default`` or a list of OMERO user names. In the
     case of the value being ``default``, the same configuration is applied to
@@ -338,7 +365,7 @@ be comma separated.
 Example
 ^^^^^^^
 
-Here's a full example of a configuration for two users:
+Here is a full example of a configuration for two users:
 
 ::
 
@@ -356,7 +383,7 @@ Here's a full example of a configuration for two users:
     <property name="omero.fs.fileBatch"       value="10;10"/>
     <property name="omero.fs.throttleImport"  value="10;10"/>
     <property name="omero.fs.readers"         value="/home/amy/my_readers.txt;"/>
-    <property name="omero.fs.importArgs"      value="--report;--report --email zak@example.com"/>
+    <property name="omero.fs.importArgs"      value="-T \"regex:^.*/(?<Container1>.*?)\";--report --email zak@example.com"/>
 
 .. seealso:: 
 

@@ -37,8 +37,8 @@ then quickly enabling clustering is as simple as executing:
 
 ::
 
-     bin/omero config set omero.cluster.redirector configRedirector
-     bin/omero node backup start
+     omero config set omero.cluster.redirector configRedirector
+     omero node backup start
 
 This starts a second node, named "backup", which contains a second
 :doc:`/developers/server-blitz` server, "Blitz-1". By default, this
@@ -70,8 +70,8 @@ access by default or with a ``false`` setting. Set a property to
 read-only. Additionally, without a ``true`` setting the server may log a
 warning and regard a resource as being in read-only mode if it discovers
 that it does not have write access. The currently effective values are
-provided by the :javadoc:`configuration service
-<slice2html/omero/api/IConfig.html>` as
+provided by the :slicedoc_blitz:`configuration service
+<omero/api/IConfig.html>` as
 :property:`omero.cluster.read_only.runtime.db` and
 :property:`omero.cluster.read_only.runtime.repo`.
 
@@ -83,9 +83,9 @@ for existing memo files that it can copy to this local directory.
 
 ::
 
-       $ bin/omero config set omero.cluster.read_only.db true
-       $ bin/omero config set omero.cluster.read_only.repo true
-       $ bin/omero config set omero.pixeldata.memoizer.dir.local /tmp/BioFormatsCache
+       $ omero config set omero.cluster.read_only.db true
+       $ omero config set omero.cluster.read_only.repo true
+       $ omero config set omero.pixeldata.memoizer.dir.local /tmp/BioFormatsCache
 
 .. note::
 

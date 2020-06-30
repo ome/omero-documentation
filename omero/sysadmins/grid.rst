@@ -44,17 +44,17 @@ If you would like to explore your IceGrid configuration, use
 
 ::
 
-    bin/omero admin ice
+    omero admin ice
 
 It provides full access to the :command:`icegridadmin` console described in
 the ZeroC manual. Specific commands can also be executed:
 
 ::
 
-    bin/omero admin ice help
-    bin/omero admin ice application list
-    bin/omero admin ice application describe OMERO
-    bin/omero admin ice server list
+    omero admin ice help
+    omero admin ice application list
+    omero admin ice application describe OMERO
+    omero admin ice server list
 
 Further, by running :command:`java -jar ice-gridgui.jar`
 the GUI provided by ZeroC can be used to administer OMERO.grid. This
@@ -107,14 +107,14 @@ descriptor:
 
 ::
 
-    bin/omero admin start
+    omero admin start
 
 The deploy command looks for any changes to the defined descriptor
 and restarts only those servers which have modifications:
 
 ::
 
-    bin/omero admin deploy
+    omero admin deploy
 
 Both :program:`omero admin start` and :program:`omero admin deploy` can
 optionally take a path to an application descriptor which must be passed on
@@ -122,7 +122,7 @@ every invocation:
 
 ::
 
-    bin/omero admin deploy etc/grid/my-site.xml
+    omero admin deploy etc/grid/my-site.xml
 
 Two other nodes, then, each provide a single processor, ``Processor1`` and
 ``Processor2``. These are started via:
@@ -131,7 +131,7 @@ To start a node identified by ``NAME``, the following command can be used
 
 ::
 
-    bin/omero node start NAME
+    omero node start NAME
 
 At this point the node will try and connect to the registry to announce its
 presence. If a node with the same name is already started, then registration
@@ -189,13 +189,13 @@ need to specify it on the command line:
 
 ::
 
-    bin/omero node node1 start
+    omero node node1 start
 
 or with the environment variable ``OMERO_NODE``:
 
 ::
 
-    OMERO_NODE=node1 bin/omero node start
+    OMERO_NODE=node1 omero node start
 
 After starting up both nodes, you can verify that you now have three
 processors running by looking at the output of :program:`omero admin diagnostics`.
@@ -382,7 +382,7 @@ Multiple targets can be enabled at the same time:
 
 ::
 
-    bin/omero admin deploy etc/grid/default.xml debug secure someothertarget
+    omero admin deploy etc/grid/default.xml debug secure someothertarget
 
 Ice.MessageSizeMax
 ^^^^^^^^^^^^^^^^^^
@@ -411,22 +411,22 @@ their own log files.
 Shortcuts
 ^^^^^^^^^
 
-If the :file:`bin/omero` script is copied or symlinked to another name, then
-the script will separate the name on hyphens and execute :file:`bin/omero`
+If the :file:`omero` script is copied or symlinked to another name, then
+the script will separate the name on hyphens and execute :file:`omero`
 with the second and later parts **prepended** to the argument list.
 
 For example,
 
 ::
 
-    ln -s bin/omero bin/omero-admin
-    bin/omero-admin start
+    ln -s omero omero-admin
+    omero-admin start
 
 works identically to:
 
 ::
 
-    bin/omero admin start
+    omero admin start
 
 Symbolic linking
 ^^^^^^^^^^^^^^^^
@@ -434,20 +434,20 @@ Symbolic linking
 Shortcuts allow the :file:`bin/omero` script to function as an init.d script
 when named :file:`omero-admin`, and need only be copied to
 :file:`/etc/init.d/` to function properly. It will resolve its installation
-directory, and execute from there unless :envvar:`OMERO_HOME` is set.
+directory, and execute from there.
 
 For example,
 
 ::
 
-    ln -s $OMERO_PREFIX/bin/omero /usr/local/bin/omero
+    ln -s $VENV_SERVER/bin/omero /usr/local/bin/omero
     omero-admin start
 
 The same works for putting :file:`bin/omero` on your path:
 
 ::
 
-    PATH=$OMERO_PREFIX/bin:$PATH
+    PATH=$VENV_SERVER/bin:$PATH
 
 This means that OMERO.grid can be unpacked
 anywhere, and as long as the user invoking the commands has the proper

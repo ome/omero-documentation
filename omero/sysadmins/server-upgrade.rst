@@ -5,7 +5,7 @@ The OME team is committed to providing frequent, project-wide upgrades both
 with bug fixes and new functionality. We try to make the schedule for these
 releases as public as possible. You may want to take a look at the `Trello
 boards <https://trello.com/b/4EXb35xQ/getting-started>`_ for exactly what will
-go into a release.
+go into a release. See also :doc:`omeroweb-upgrade`.
 
 See the full details of OMERO |release| features in the :doc:`/users/history`.
 
@@ -20,13 +20,10 @@ the level of detail; upgrading should be a straightforward process.
     important steps that these instructions assume to already have been
     done by OMERO |previousversion| users. Before proceeding with these
     instructions you may first need to read the `instructions
-    <https://docs.openmicroscopy.org/latest/omero5.3/sysadmins/server-upgrade.html>`_
+    <https://docs.openmicroscopy.org/latest/omero5.5/sysadmins/server-upgrade.html>`_
     for upgrading *to* OMERO |previousversion| because some extra steps
     may be required beyond simply running the SQL upgrade scripts
     described below.
-    
-    If you are upgrading from 5.2 on **Windows** and need to migrate to Linux,
-    there is a guide in the `OMERO 5.3 documentation <https://docs.openmicroscopy.org/latest/omero5.3/sysadmins/windows-migration.html>`_.
 
 Upgrade checklist
 -----------------
@@ -35,8 +32,8 @@ Upgrade checklist
     :local:
     :depth: 1
 
-Check prerequisities
-^^^^^^^^^^^^^^^^^^^^
+Check prerequisites
+^^^^^^^^^^^^^^^^^^^
 
 Before starting the upgrade, please ensure that you have reviewed and
 satisfied all the :doc:`system requirements <system-requirements>` with
@@ -45,29 +42,6 @@ particular, ensure that you are running a suitable version of PostgreSQL
 to enable successful upgrading of the database, otherwise the upgrade
 script aborts with a message saying that your database server version is
 less than the OMERO prerequisite.
-
-Corrupted pyramids
-^^^^^^^^^^^^^^^^^^
-
-A bug introduced in OMERO 5.2.0 meant that corrupted pyramids were generated
-for large TIFF files with little endian encoding. This bug was fixed in
-OMERO 5.4.4 and corrupted pyramids need to be deleted to allow new ones to be
-generated::
-
-   bin/omero admin removepyramids --endian=little
-
-We recommend you run the command with ``--dry-run`` first to list the pyramids
-that will be deleted. If there are a large number of pyramids, you may need to
-run the command more than once since you cannot remove more than 500 pyramids in one call.
-For large installations, to avoid any timeout issue it is recommended to run the
-command with ``--wait=xxx`` where ``xxx`` is for example ``5000`` seconds.
-You can also specify a cut-off date (e.g. the
-date you upgraded to 5.2) so the command has fewer files to process; use
-``-h`` for details of the additional arguments possible.
-
-Attempting to remove pyramids imported before OMERO 5.0 (pre-FS) will result in messages
-like ``Failed to remove for image 20: pyramid-requires-fileset`` being printed out.
-You can safely ignore those messages. The pyramids are not corrupted.
 
 File limits
 ^^^^^^^^^^^
@@ -145,7 +119,7 @@ precautionary checks also done by the actual upgrade script.
                                                                         +
                                                                         +
                                                                         +
-    YOUR DATABASE IS READY FOR UPGRADE TO VERSION |current_dbver|           +
+    YOUR DATABASE IS READY FOR UPGRADE TO VERSION |current_dbver|       +
                                                                         +
                                                                         +
 
@@ -183,8 +157,7 @@ Copy new binaries
 Before copying the new binaries, stop the existing server::
 
     $ cd OMERO.server
-    $ bin/omero web stop
-    $ bin/omero admin stop
+    $ omero admin stop
 
 Your OMERO configuration is stored using :file:`config.xml` in the
 :file:`etc/grid` directory under your OMERO.server directory. Assuming you
@@ -195,25 +168,22 @@ directory, you are safe to follow the following upgrade procedure:
 
     $ cd ..
     $ mv OMERO.server OMERO.server-old
-    $ unzip OMERO.server-|release|-ice3x-byy.zip
-    $ ln -s OMERO.server-|release|-ice3x-byy OMERO.server
+    $ unzip OMERO.server-|release|-ice36-byy.zip
+    $ ln -s OMERO.server-|release|-ice36-byy OMERO.server
     $ cp OMERO.server-old/etc/grid/config.xml OMERO.server/etc/grid
 
 .. note::
-    ``ice3x`` and ``byy`` **need to be replaced** by the appropriate Ice
-    version and build number of OMERO.server.
+    ``byy`` **needs to be replaced** by the appropriate build number of OMERO.server.
 
 .. _upgradedb:
 
 Upgrade your database
 ^^^^^^^^^^^^^^^^^^^^^
 
-.. only:: point_release
-
-    .. warning::
-        This section only concerns users upgrading from a |previousversion| or
-        earlier server. If upgrading from a |version| server, you do not need
-        to upgrade the database.
+.. warning::
+    This section only concerns users upgrading from a 5.3 or
+    earlier server. If upgrading from a 5.4 or 5.5 server, you do not need
+    to upgrade the database.
 
 Ensure Unicode character encoding
 """""""""""""""""""""""""""""""""
@@ -272,7 +242,7 @@ to run.
     (1 row)
 
 
-If you are upgrading from a server earlier than |previousversion| then
+If you are upgrading from a server earlier than 5.3, then
 you must run the earlier upgrade scripts in sequence before the one
 above. There is no need to download and run the server from an
 intermediate major release but you must still study the upgrade
@@ -295,26 +265,6 @@ run only on the specific version before the next upgrade script.
    using the above command with
    :file:`sql/psql/OMERO5.4__0/OMERO5.3__0.sql`.
 
-Remove the guest user password (optional)
-"""""""""""""""""""""""""""""""""""""""""
-
-If a password was set on the `guest` user to work around
-:secvuln:`2017-SV4-guest-user` then you will need to remove it to restore the
-forgotten password reset functionality in OMERO.web:
-
-.. parsed-literal::
-
-    $ psql -h localhost -U **db_user** **omero_database** < sql/psql/|current_dbver|/allow-guest-user-without-password.sql
-
-This can be done at any time during the OMERO 5.4 series and is optional if
-you do not deploy OMERO.web.
-
-.. note::
-
-    The above script assumes that the `guest` user has an ID of 1 as is
-    typical. Otherwise the script will do nothing until it is adjusted.
-    Please feel free to contact us for assistance with that if required.
-
 Optimize an upgraded database (optional)
 """"""""""""""""""""""""""""""""""""""""
 
@@ -332,9 +282,7 @@ If any new official scripts have been added under ``lib/scripts`` or if
 you have modified any of the existing ones, then you will need to backup
 your modifications. Doing this, however, is not as simple as copying the
 directory over since the core developers will have also improved these
-scripts. In order to facilitate saving your work, we have turned the
-scripts into a Git submodule which can be found at
-`<https://github.com/ome/scripts>`_.
+scripts.
 
 For further information on managing your scripts, refer to
 :doc:`installing-scripts`. If you require help, please contact the OME
@@ -348,9 +296,8 @@ Environment variables
 
 If you changed the directory name where the |release| server code
 resides, make sure to update any system environment variables. Before
-restarting the server, make sure your :envvar:`PATH` and
-:envvar:`PYTHONPATH` system environment variables are pointing to the
-new locations.
+restarting the server, make sure your :envvar:`PATH` system environment
+variable is pointing to the new location.
 
 JVM memory settings
 """""""""""""""""""
@@ -366,8 +313,8 @@ Restart your server
 
    .. parsed-literal::
 
-       $ cd OMERO.server
-       $ bin/omero admin start
+       $ # activate virtualenv where omero-py is installed
+       $ omero admin start
 
 -  If anything goes wrong, please send the output of
    :program:`omero admin diagnostics` to
@@ -396,5 +343,5 @@ and configure your server to use it.
 
 ::
 
-    $ bin/omero config set omero.db.name omero_from_backup
+    $ omero config set omero.db.name omero_from_backup
 

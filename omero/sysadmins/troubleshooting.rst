@@ -1,8 +1,6 @@
 Troubleshooting OMERO
 =====================
 
-.. seealso:: :doc:`omero-home-prefix`
-
 .. _troubleshooting-password:
 
 Which user account and password do I use where?
@@ -60,8 +58,8 @@ your database. Therefore, you must configure the
 
 ::
 
-   $ bin/omero config set omero.db.user db_user
-   $ bin/omero config set omero.db.pass db_password
+   $ omero config set omero.db.user db_user
+   $ omero config set omero.db.pass db_password
 
 .. Note:: Do **not** use db_user or db_password here; substitute your own 
     username and password.
@@ -186,30 +184,6 @@ can be problematic on 32-bit platforms due to certain bugs within the
 Java Virtual Machine including `Bug ID: 4724038 <https://bugs.java.com/bugdatabase/view_bug.do?bug_id=4724038>`_. A 64-bit
 platform for your OMERO.server is **HIGHLY** recommended.
 
-Import errors
--------------
-
-Import error when running bin/omero
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-::
-
-        Traceback (most recent call last):
-        File "bin/omero", line 67, in ?
-            import omero.cli
-        ImportError: No module named omero.cli
-
-If you get any import related errors while running :file:`bin/omero`, the
-most likely cause is that your PYTHONPATH is not properly set.
-
--  If you installed Ice globally via your package manager, make sure you
-   included ice-python.
-
--  If you installed Ice manually, e.g. under ``/opt/Ice-3.6.4`` you need
-   to add ``/opt/Ice-3.6.4/python`` (or similar) to your PYTHONPATH
-   environment variable. See the Ice installation instructions for more
-   information.
-
 
 .. _ulimit:
 
@@ -301,7 +275,7 @@ For example to set a maximum heap space of 3GB:
 ::
 
             $ export JAVA_OPTS=-Xmx3G
-            $ bin/omero import ...
+            $ omero import ...
 
 
 DropBox fails to start: failed to get session
@@ -341,60 +315,13 @@ wrong. See :ref:`search-failures` for more details.
 OMERO.web issues
 ----------------
 
-OMERO.web and Apache (dropped)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Do not enable mod_python and mod_wsgi in the same apache process.
-mod_wsgi will deadlock if run in daemon mode while mod_python is enabled
-
-.. _troubleshooting-omeroweb-migrate-to-nginx:
-
-OMERO.web migrating from Apache to NGINX
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Support for Apache and mod_wsgi deployment was deprecated
-in OMERO 5.2.6 and dropped in 5.3.0. It is recommended to use a WSGI-capable
-server such as
-:doc:`NGINX and Gunicorn </sysadmins/unix/install-web/web-deployment>`.
-
-::
-
-    Cannot configure omero web to use nginx:
-    Error running bin/omero  web config nginx - I get the error
-    Configuration mismatch omero.web.application_server=wsgi cannot be used with omero web config nginx.
-
-Make sure :property:`omero.web.application_server` is set to the following:
-
-::
-
-    $ bin/omero config set omero.web.application_server "wsgi-tcp"
-
-
-OMERO.web did not start
-^^^^^^^^^^^^^^^^^^^^^^^
-
--  **(Dropped)** If the Apache error logs contain lines of type
-   ``Permission denied: access to xxx denied``, you need to check the
-   permissions of the folder and make sure it is readable and executable by
-   the Apache user.
-
-   .. seealso::
-     :forum:`What are your LDAP requirements? <viewtopic.php?f=5&t=14>`
-
-     :ome-users:`upgrade 5.0.5 to 5.1.1 omero.web forbidden <2015-April/005316.html>`
-
 OMERO.web running but status says not started
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you upgraded OMERO but forgot to stop OMERO.web, processes will still be
-running. In order to kill stale processes by hand, if OMERO.web is deployed
-**separately** from the OMERO.server run::
+running. In order to kill stale processes by hand, run::
 
-    $ ps aux | grep /home/omero/OMERO.py/var/django.pid
-
-otherwise run::
-
-    $ ps aux | grep /home/omero/OMERO.server/var/django.pid
+    $ ps aux | grep django.pid
 
 .. note::
     As Gunicorn is based on the pre-fork worker model it is enough to kill
@@ -423,14 +350,14 @@ OMERO.web deployed with Gunicorn relies on the operating system to provide
 all of the load balancing while handling requests. Adjust the timeout using
 :property:`omero.web.wsgi_timeout` and scale the number of
 :property:`omero.web.wsgi_workers` starting with (2 x NUM_CORES) + 1 workers.
-For more details refer to :ref:`gunicorn_default_configuration`.
+For more details refer to :ref:`omero_web_configuration`.
 
 Issues with downloading data from OMERO.web
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-An :ref:`gunicorn_advance_configuration` is available for testing with nginx
+An :ref:`omero_web_configuration` is available for testing with nginx
 if you are encountering problems with downloads failing. You can also
-configure OMERO.web to limit downloads - refer to the :doc:`unix/install-web`
+configure OMERO.web to limit downloads - refer to the :doc:`unix/install-web/web-deployment`
 documentation and :ref:`download_restrictions` for further details.
 
 OMERO.web piecharts
@@ -449,7 +376,7 @@ more details. There are a few known possibilities:
    (packages should be available for your distribution). Also double 
    check
    if all of the prerequisites were installed from
-   :doc:`OMERO.web deployment <unix/install-web>`.
+   :doc:`OMERO.web deployment <unix/install-web/web-deployment>`.
 
 .. _client_performance:
 
@@ -518,22 +445,20 @@ Data corruption
 If you are dealing with a data corruption issue, you may find the information
 on :ref:`pixelresolutionorder` useful.
 
-OpenSSL version
-^^^^^^^^^^^^^^^
+SSL connection issues
+^^^^^^^^^^^^^^^^^^^^^
 
-Weaker ciphers like ADH are disabled by default in OpenSSL 1.1.0,
-the version installed on Debian 9.
-This means that it is not possible to connect to an OMERO.server
-using any OMERO clients e.g. the Java Desktop client,
-the OMERO.web client or the CLI.
-The parameter ``@SECLEVEL=0``, enabling the weaker ciphers, needs to be
-added in two files in order to allow connection.
+Deployment platforms show a trend of making the transport layer security
+policy tighter by default. The recommended way to overcome SSL
+connection issues for OMERO clients connecting to the server is to
+employ the `omero-certificates
+<https://pypi.org/project/omero-certificates/>`_ plugin available from
+PyPI_. An alternative approach is to add the parameter ``@SECLEVEL=0``
+to the server SSL configuration:
 
 .. literalinclude:: unix/walkthrough/walkthrough_debian9.sh
     :start-after: #start-seclevel
     :end-before: #end-seclevel
-
-Run ``python -m py_compile OMERO.server/lib/python/omero/clients.py`` to recompile the file.
 
 Restart the OMERO.server as normal for the changes to take effect.
 
@@ -547,7 +472,3 @@ PyTables on Debian 9 should be installed directly from PyPI_ instead of using ``
 
   pip install tables
 
-.. toctree::
-    :hidden:
-    
-    omero-home-prefix

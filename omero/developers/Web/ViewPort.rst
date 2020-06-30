@@ -66,7 +66,7 @@ in any HTML page, allowing use of resources directly from an OMERO server.
 
 ::
 
-    $ bin/omero config set omero.web.public.url_filter '^/webgateway'
+    $ omero config set omero.web.public.url_filter '^/webgateway'
 
 Provided the image corresponding to ``IMAGE_ID`` is in the PUBLIC group, it
 can be accessed via the link:
@@ -119,5 +119,5 @@ Then in ``<BODY>`` insert the following:
 The viewport can be made more interactive by adding buttons or links to allow
 display of scalebars, ROIs, zooming and selection of channels. Full examples
 of how to embed microscopy or Whole Slide Image are available in the
-`OMERO.webtest GitHub repository <https://github.com/openmicroscopy/omero-webtest/tree/master/omero_webtest/templates/webtest/examples>`_.
+`OMERO.webtest GitHub repository <https://github.com/ome/omero-webtest/tree/master/omero_webtest/templates/webtest/examples>`_.
 

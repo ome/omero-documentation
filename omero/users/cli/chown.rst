@@ -28,7 +28,7 @@ The :program:`omero chown` command transfers objects to the ownership of a
 different user. Further help is available using the ``-h``
 option::
 
-    $ bin/omero chown -h
+    $ omero chown -h
 
 The :program:`omero chown` command can transfer entire graphs of objects based on
 the IDs of the topmost objects. The command can be modified to include
@@ -61,10 +61,10 @@ Basic transfer of ownership
 
 ::
 
-    $ bin/omero chown 5 OriginalFile:101
-    $ bin/omero chown User:5 Project:51
-    $ bin/omero chown Experimenter:5 Project:51
-    $ bin/omero chown jane Project:51
+    $ omero chown 5 OriginalFile:101
+    $ omero chown User:5 Project:51
+    $ omero chown Experimenter:5 Project:51
+    $ omero chown jane Project:51
 
 In the first line, the ownership of original file with ID 101 will be
 transferred to the user with ID 5. In the second and third, the ownership
@@ -85,17 +85,17 @@ significant, thus all three calls below are identical in transferring
 ownership of project 51 and datasets 53 and 54 to user 5.
 ::
 
-    $ bin/omero chown 5 Project:51 Dataset:53,54
-    $ bin/omero chown 5 Dataset:54,53 Project:51
-    $ bin/omero chown 5 Dataset:53 Project:51 Dataset:54
+    $ omero chown 5 Project:51 Dataset:53,54
+    $ omero chown 5 Dataset:54,53 Project:51
+    $ omero chown 5 Dataset:53 Project:51 Dataset:54
 
 To transfer a number of objects with sequentially numbered IDs a hyphen can
 be used to specify an ID range. This form can also be mixed with
 comma-separated IDs.
 ::
 
-    $ bin/omero chown 5 Project:51 Dataset:53-56
-    $ bin/omero chown 5 Dataset:53-56,65,101-105,201,202
+    $ omero chown 5 Project:51 Dataset:53-56
+    $ omero chown 5 Dataset:53-56,65,101-105,201,202
 
 .. note::
     When transferring multiple objects in a single command,
@@ -111,12 +111,12 @@ To transfer objects below a specified top-level object the following form
 of the object specifier is used.
 ::
 
-    $ bin/omero chown 5 Project/Dataset/Image:51
+    $ omero chown 5 Project/Dataset/Image:51
 
 Here the all of images under the project 51 would be transferred. It is not
 necessary to specify intermediate objects in the hierarchy and so::
 
-    $ bin/omero chown 5 Project/Image:51
+    $ omero chown 5 Project/Image:51
 
 would have the same effect as the call above.
 
@@ -128,7 +128,7 @@ To transfer ownership of all objects belonging to a user or group of users
 the following form of the user specifier is used.
 ::
 
-    $ bin/omero chown 10 Experimenter:1,3,7
+    $ omero chown 10 Experimenter:1,3,7
 
 Here ownership of all the objects belonging to users 1, 3 and 7
 would be transferred to user 10.
@@ -143,7 +143,7 @@ Including and excluding objects
     Linked objects that would not ordinarily be transferred can be included
     in the transfer using the `--include` option::
 
-        $ bin/omero chown 5 Image:51 --include Annotation
+        $ omero chown 5 Image:51 --include Annotation
 
     This call would move any annotation objects linked to the image.
 
@@ -152,13 +152,13 @@ Including and excluding objects
     Linked objects that would ordinarily be transferred can be excluded
     from the transfer using the `--exclude` option::
 
-        $ bin/omero chown 5 Project:51 --exclude Dataset
+        $ omero chown 5 Project:51 --exclude Dataset
 
     This will transfer project 51 but not any datasets contained in that project.
 
 The two options can be used together::
 
-     $ bin/omero chown 5 Project/Dataset:53 --exclude Image --include FileAnnotation
+     $ omero chown 5 Project/Dataset:53 --exclude Image --include FileAnnotation
 
 This will transfer any datasets under project 53, that are not otherwise
 contained elsewhere, excluding any images in those datasets but including
@@ -178,19 +178,19 @@ Further options
     command. However, each object can be transferred separately
     and in the order given. Thus::
 
-        $ bin/omero chown 5 Dataset:53 Project:51 Dataset:54 --ordered
+        $ omero chown 5 Dataset:53 Project:51 Dataset:54 --ordered
 
     would be equivalent to making three separate calls::
 
-        $ bin/omero chown 5 Dataset:53
-        $ bin/omero chown 5 Project:51
-        $ bin/omero chown 5 Dataset:54
+        $ omero chown 5 Dataset:53
+        $ omero chown 5 Project:51
+        $ omero chown 5 Dataset:54
 
 .. option:: --report
 
     Provide a detailed report of what is transferred::
 
-        $ bin/omero chown 5 Project:502 --report
+        $ omero chown 5 Project:502 --report
 
 .. option:: --dry-run
 

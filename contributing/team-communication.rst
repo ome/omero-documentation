@@ -101,11 +101,9 @@ on doing that is available in the :doc:`source-code` and :doc:`using-git`.
 Forums and mailing list
 -----------------------
 
-Feedback from the OME community happens primarily on 2 public mailing
-lists that are further described under :mailinglist:`ome-users` and
-:mailinglist:`ome-devel`, as well as on the :forum:`PhpBB forums <>`,
-an  alternative to the mailing lists since some users prefer the forum
-interface to the mailing list one, and vice versa.
+Feedback from the OME community happens primarily on the
+:imagesc:`image.sc forum <>` as well as two public mailing lists that are
+further described under :mailinglist:`ome-users` and :mailinglist:`ome-devel`.
 
 You should add yourself to all three and be aware of and scan all
 threads on a fairly regular basis. The general rule is that requests

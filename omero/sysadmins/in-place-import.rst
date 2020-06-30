@@ -3,9 +3,9 @@
 In-place import
 ===============
 
-In-place import allows files which are already present on the server machine
-to be imported into OMERO without the need to copy them. This requires
-users to have shell (|SSH|, etc.) access to the server machine,
+In-place import allows files which are accessible from the OMERO.server's filesystem
+to be imported into OMERO without the need to upload them over an OMERO login session.
+This requires users to have shell (|SSH|, etc.) access to the server machine,
 and so there are a number of :ref:`limitations <limitations>`
 to this implementation. Development of this feature is on-going, with
 improvements planned to enable a more user-friendly experience. This
@@ -13,8 +13,8 @@ improvements planned to enable a more user-friendly experience. This
 users, in-place import is essential for their use of OMERO.
 
 This feature is designed to allow imaging facilities to import large datasets
-into OMERO while keeping them safely stored in a secure repository which is
-read-only for users. Leaving the data in a user's file system **is very
+into OMERO while keeping them safely stored on the file system in a secure location that is
+*read-only* for users. Leaving the data in a user's file system **is very
 dangerous** as they may forget they need to keep it or move to a different
 institution. **Under no circumstances should in-place import be used with
 temporary storage.**
@@ -68,6 +68,10 @@ into, and then use their own OMERO accounts to import data. Alternatively,
 each OMERO user can be given an OS account with access rights to the data
 storage as well as the managed repository.
 
+Also, there is still some data duplication when
+:model_doc:`pyramids <omero-pyramid/>` are generated. We are
+hoping to find a workaround for this in the future.
+
 For soft linking with :literal:`--transfer=ln_s` it has been noticed
 that some plate imports run rather more slowly than usual. Other
 operations may also be affected. In determining if or how to use
@@ -75,9 +79,11 @@ in-place import at your high-content screening facility, we thus
 recommend time profiling with representative data, and alerting us to
 any significant disappointments.
 
-Also, there is still some data duplication when
-:model_doc:`pyramids <omero-pyramid/>` are generated. We are
-hoping to find a work-around for this in the future.
+.. warning::
+
+    Do not use soft links when pointing to data inside the
+    ManagedRepository. If the originals are deleted, the data will be
+    lost.
 
 .. _safety_tips:
 
@@ -189,7 +195,7 @@ test servers in Dundee which runs with the default setting for
     [omero_system_user@ome-server ManagedRepository]$
 
 
-If you are controlling OMERO.server with systemd you should add ``UMask=0002`` to the ``Service`` section of your :download:`systemd service file <unix/walkthrough/omero-systemd.service>`.
+If you are controlling OMERO.server with systemd you should add ``UMask=0002`` to the ``Service`` section of your :download:`systemd service file <unix/walkthrough/omero-server-systemd.service>`.
 
 
 Getting started
@@ -200,7 +206,7 @@ explains the available options:
 
 ::
 
-    $ bin/omero import --advanced-help
+    $ omero import --advanced-help
 
 .. literalinclude:: /downloads/inplace/advanced-help.txt
 
@@ -210,7 +216,7 @@ a choice of which mechanism is used to get a file into OMERO.
 
 ::
 
-    $ bin/omero import --transfer=ln_s my_file.dv
+    $ omero import --transfer=ln_s my_file.dv
 
 .. literalinclude:: /downloads/inplace/soft-link-example.txt
 
@@ -348,7 +354,7 @@ placed in the `lib/clients` directory, you can invoke it using:
 
 ::
 
-    $ bin/omero import --transfer=example.package.ClassName ...
+    $ omero import --transfer=example.package.ClassName ...
 
 Related advanced options
 ------------------------
@@ -378,14 +384,14 @@ property to modify is `omero.fs.importArgs`:
 
 ::
 
-    $ bin/omero config set -- omero.fs.importArgs "--transfer=upload_rm"
+    $ omero config set -- omero.fs.importArgs "--transfer=upload_rm"
 
 This will **move** files into OMERO rather than leaving a copy in the
 DropBox directory.
 
 ::
 
-    $ bin/omero config set -- omero.fs.importArgs "--transfer=ln_rm"
+    $ omero config set -- omero.fs.importArgs "--transfer=ln_rm"
 
 This will also **move** files into OMERO rather than leaving a copy in the
 DropBox directory. For this to work, the two directories will need to

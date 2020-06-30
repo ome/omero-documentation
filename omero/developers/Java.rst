@@ -43,21 +43,21 @@ files (e.g. :insight_source:`build.gradle`).
 Java Gateway
 ------------
 
-The Java :javadoc:`Gateway <omero/gateway/Gateway.html>` is a
+The Java :javadoc_gateway_java:`Gateway <omero/gateway/Gateway.html>` is a
 wrapper around the :zerocdoc:`Ice Java language mapping
 <display/Ice/Hello+World+Application>` and the :doc:`Modules/Api` which makes
 it easier to interact with an OMERO server in Java.
 
-The :javadoc:`Gateway <omero/gateway/Gateway.html>` is the central object
+The :javadoc_gateway_java:`Gateway <omero/gateway/Gateway.html>` is the central object
 for maintaining the connection to the server, see :ref:`gatewayconnect`
 
 Functionality for interacting with the server is encapsulated into different
-:javadoc:`facilities </omero/gateway/facility/package-summary.html>`.
-For an example using the :javadoc:`BrowseFacility <omero/gateway/facility/BrowseFacility.html>`
+:javadoc_gateway_java:`facilities </omero/gateway/facility/package-summary.html>`.
+For an example using the :javadoc_gateway_java:`BrowseFacility <omero/gateway/facility/BrowseFacility.html>`
 to access Projects, Datasets, etc. see :ref:`gatewaybrowse`.
 
 As the plain Ice objects can be a bit 'bulky' to handle, they are usually wrapped
-into Java  :javadoc:`DataObjects <omero/gateway/model/DataObject.html>`.
+into Java  :javadoc_gateway_java:`DataObjects <omero/gateway/model/DataObject.html>`.
 
 All the code examples below can be found at
 :sourcedir:`examples/Training/java/src/training`.
@@ -605,13 +605,15 @@ First load the annotations, cf. above.
     int index = 0;
     
     OriginalFile of;
+    IQueryPrx svc = gateway.getQueryService(ctx);
+
     try (FileOutputStream stream = new FileOutputStream(file)) {
         while (j.hasNext()) {
             annotation = j.next();
             if (annotation instanceof FileAnnotation && index == 0) {
                 fa = new FileAnnotationData((FileAnnotation) annotation);
-                //The id of the original file
-                of = getOriginalFile(fa.getFileID());
+                //Load the original file
+                of = (OriginalFile) svc.get("OriginalFile", fa.getFileID());
                 store.setFileId(fa.getFileID());
                 int offset = 0;
                 long size = of.getSize().getValue();
@@ -632,6 +634,7 @@ First load the annotations, cf. above.
         store.close();
     }
     file.delete();
+
 
 .. _java_omero_tables_code_samples:
 

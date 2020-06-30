@@ -9,7 +9,11 @@ Large and small volumes of tabular data can be stored via named columns, and
 retrieved in bulk or via paging. A limited query language provides basic
 filtering and selecting.
 
-For installation instructions, see :doc:`/sysadmins/server-tables`
+Since 5.6, the client library ``omero-py`` is available on PyPI_ and Conda_.
+We recommend to install the library in a Python virtual environment.
+In the same environment, you should now install PyTables_ by running
+``pip install tables``. 
+Note that if you are installing on Ubuntu 16.04 or Debian 9, you will have to cap the version to ``3.4.4``.
 
 
 The interface
@@ -282,8 +286,8 @@ Main methods
 You many find the :ref:`Python <python_omero_tables_code_samples>` and
 :ref:`Java <java_omero_tables_code_samples>` annotated code samples helpful,
 in addition to the :ref:`examples <tables-examples>` and
-:javadoc:`documentation on the API
-<slice2html/omero/grid/Table.html>`.
+:slicedoc_blitz:`documentation on the API
+<omero/grid/Table.html>`.
 These are only an introduction to using OMERO.tables and do not show its full
 potential, see :ref:`tables-going-forward` for some inspiration.
 
@@ -318,7 +322,7 @@ Query language
 --------------
 
 The query language mentioned above is *currently* the PyTables
-`condition syntax <http://pytables.github.com/usersguide/condition_syntax.html>`_.
+`Condition syntax`_.
 Columns are referenced by name. The following operators are supported:
 
 -  Logical operators: ``&, |, ~``
@@ -372,7 +376,7 @@ The Tables API itself provides little more than a remotely accessible
 store, think of it as a server for Excel-like spreadsheets. We are
 currently looking into the facilities that can be built on top of it,
 and are **very** open to suggestions. For example, the
-:javadoc:`IRoi interface <slice2html/omero/api/IRoi.html>`
+:slicedoc_blitz:`IRoi interface <omero/api/IRoi.html>`
 has been extended to filter ROIs by a given
 measurement. This allows seeing only those results from a particular
 analysis run. The following example shows how to set up such a
@@ -381,7 +385,7 @@ measurement and retrieve its results:
 :source:`iroi.py <examples/OmeroTables/iroi.py>`
 
 For an example of production code that parses out such measurements,
-see :source:`populate_roi.py <components/tools/OmeroPy/src/omero/util/populate_roi.py>`.
+see :py_source:`populate_roi.py <src/omero/util/populate_roi.py>`.
 
 The `IRoi` interface has been integrated into OMERO.insight, allowing for
 the visualization and export of OMERO.tables:
@@ -401,10 +405,10 @@ store. Any suggestions or ideas would be
 
 .. seealso::
 
-    `PyTables <http://pytables.org>`_
+    PyTables_
         Software on which OMERO.tables is built.
 
-    `Condition Syntax <http://pytables.github.com/usersguide/condition_syntax.html>`_
+    `Condition Syntax <http://pytables.org/usersguide/condition_syntax.html>`_
         The PyTables condition syntax.
 
     :blitz_source:`slice definition file <src/main/slice/omero/Tables.ice>`
@@ -412,6 +416,3 @@ store. Any suggestions or ideas would be
 
     :sourcedir:`The Tables test suite <components/tools/OmeroPy/test/integration/tablestest/>`
         The testsuite for OMERO.tables
-
-    :doc:`/sysadmins/server-tables`
-        Installation requirements for install OMERO.tables

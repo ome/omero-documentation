@@ -18,6 +18,8 @@ view.
         * :jenkinsjob:`OMERO-DEV-release`
     -   * Generate the OMERO downloads page
         * :jenkinsjob:`OMERO-DEV-release-downloads`
+    -   * Deploy the documentation for the decoupled repositories
+        * :jenkinsjob:`OMERO-DEV-release-artifacts`
 
 .. list-table::
     :header-rows: 1
@@ -38,7 +40,7 @@ Bio-Formats
         This job builds the Java downloads artifacts of Bio-Formats
 
         #. Checks out the v:envvar:`RELEASE` tag of
-           https://github.com/openmicroscopy/bioformats
+           https://github.com/ome/bioformats
         #. |buildBF|
         #. Downloads the documentation artifacts from OME artifactory
         #. |copyreleaseartifacts|
@@ -74,7 +76,7 @@ OMERO
 
     :jenkinsjob:`OMERO-DEV-release`
 
-        This matrix job builds the OMERO components with Ice 3.5
+        This matrix job builds the OMERO components with Ice 3.6
 
         #. Checks out the :envvar:`RELEASE` tag of the
            snoopycrimecop fork of openmicroscopy.git_
@@ -89,8 +91,15 @@ OMERO
         This job builds the OMERO downloads page
 
         #. Checks out the `develop` branch of
-           https://github.com/openmicroscopy/ome-release.git
+           https://github.com/ome/ome-release.git
         #. Runs `make clean omero`
+
+    :jenkinsjob:`OMERO-DEV-release-artifacts`
+        This job deploys the Javadoc and the slice2html documentation
+
+        #. Loops through omero-{model,common,romio,renderer,server,blitz,gateway-java}
+        #. Checks the latest version available on https://artifacts.openmicroscopy.org
+        #. Deploys the documentation in the respective directory
 
 
 Documentation release jobs are documented on :doc:`ci-docs`.

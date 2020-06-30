@@ -2,21 +2,17 @@ Editing OMERO.web
 =================
 
 If you need to make changes to OMERO.web itself, then you
-will want to check out the OMERO source code and build the server
-as described in :doc:`/developers/installation`.
+can perform a developer install of ``omero-web``.
+You need to be within a virtual environment with ``omero-py``
+installed as described at :doc:`/developers/Python`.
+Then::
 
-You will then have 2 copies of the OMERO.web code -
-source code under ``components/tools/OmeroWeb/omeroweb`` and the server
-build under ``dist/lib/python/omeroweb``.
+    $ git clone https://github.com/ome/omero-web.git
+    $ cd omero-web
+    $ pip install -e .
 
-In order to avoid a build step during development, you can delete
-the omeroweb code under ``dist`` and replace it with a sym-link
-to the source code::
+This will allow you to edit and run the source code without a build step.
 
-    $ rm -rf dist/lib/python/omeroweb
-    $ ln -s /path/to/openmicroscopy/components/tools/OmeroWeb/omeroweb/ /path/to/openmicroscopy/dist/lib/python
-
-
-You can then run OMERO.web using either of the methods described at :doc:`/developers/Web/Deployment`,
-refreshing the browser after saving your code.
-
+You can then run OMERO.web as described at :doc:`/developers/Web/Deployment`.
+You may need to restart the web server after saving changes, particularly for
+python files, before refreshing the browser.

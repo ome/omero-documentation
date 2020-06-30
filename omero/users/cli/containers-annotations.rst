@@ -15,51 +15,49 @@ Creating containers
 
 Create a dataset with a name::
 
-   $ bin/omero obj new Dataset name=NewDVSet
-   Dataset:51
+    $ omero obj new Dataset name=NewDVSet
+    Dataset:51
 
 And then update that dataset to add a description::
 
-   $ bin/omero obj update Dataset:51 description='A dataset for new DV images'
-   Dataset:51
+    $ omero obj update Dataset:51 description='A dataset for new DV images'
+    Dataset:51
 
 Create a screen with a name and description::
 
-	$ bin/omero obj new Screen name=Screen001 description='A short description'
+    $ omero obj new Screen name=Screen001 description='A short description'
 
 To create a project/dataset hierarchy a link must be created between the two
 containers::
 
-   $ bin/omero obj new Project name=NewImages
-   Project:101
-   $ bin/omero obj new ProjectDatasetLink parent=Project:101 child=Dataset:51
-   ProjectDatasetLink:221
+    $ omero obj new Project name=NewImages
+    Project:101
+    $ omero obj new ProjectDatasetLink parent=Project:101 child=Dataset:51
+    ProjectDatasetLink:221
 
 If you are comfortable using the command line then you can capture the command
 outputs to feed in to other commands, for example::
 
-	$ dataset=$(bin/omero obj new Dataset name=dataset-1)
-	$ project=$(bin/omero obj new Project name=project-1)
-	$ bin/omero obj new ProjectDatasetLink parent=$project child=$dataset
-	ProjectDatasetLink:222
+    $ dataset=$(omero obj new Dataset name=dataset-1)
+    $ project=$(omero obj new Project name=project-1)
+    $ omero obj new ProjectDatasetLink parent=$project child=$dataset
+    ProjectDatasetLink:222
 
 Creating and attaching annotations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Create a comment annotation and attach it to a dataset::
 
-	$ bin/omero obj new CommentAnnotation textValue='Hello World!'
-	CommentAnnotation:2
-	$ bin/omero obj new DatasetAnnotationLink parent=Dataset:51 child=CommentAnnotation:2
-	DatasetAnnotationLink:2
+    $ omero obj new CommentAnnotation textValue='Hello World!'
+    CommentAnnotation:2
+    $ omero obj new DatasetAnnotationLink parent=Dataset:51 child=CommentAnnotation:2
+    DatasetAnnotationLink:2
 
 Upload a file and then use it as file annotation on an image::
 
-	$ bin/omero upload analysis.csv
-	OriginalFile:275
-	$ bin/omero obj new FileAnnotation file=OriginalFile:275
-  	FileAnnotation:5
-  	$ bin/omero obj new ImageAnnotationLink parent=Image:51 child=FileAnnotation:5
-  	ImageAnnotationLink:2
-
-
+    $ omero upload analysis.csv
+    OriginalFile:275
+    $ omero obj new FileAnnotation file=OriginalFile:275
+    FileAnnotation:5
+    $ omero obj new ImageAnnotationLink parent=Image:51 child=FileAnnotation:5
+    ImageAnnotationLink:2

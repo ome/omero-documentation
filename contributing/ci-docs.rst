@@ -20,7 +20,7 @@ More detail on how and where to edit OME documentation is available on the
 		* :term:`OMERO-DEV-latest-docs`
 
 	-	* Builds the OMERO documentation for review
-		* :term:`OMERO-DEV-merge-docs`
+		* :term:`OMERO-docs`
 
 	-	* Builds the auto-generated OMERO documentation
 		* :term:`OMERO-DEV-latest-docs-autogen`
@@ -28,17 +28,8 @@ More detail on how and where to edit OME documentation is available on the
 	-	* Builds the auto-generated OMERO documentation for review
 		* :term:`OMERO-DEV-merge-docs-autogen`
 
-.. list-table::
-	:header-rows: 1
-
-	-	* Job task
-		* Bio-Formats 5.x series
-
-	-	* Builds the latest Bio-Formats documentation for publishing
-		* :term:`BIOFORMATS-DEV-latest-docs`
-
-	-	* Builds the Bio-Formats documentation for review
-		* :term:`BIOFORMATS-DEV-merge-docs`
+The Bio-Formats documentation jobs are described in the :doc:`ci-bio-formats`
+section.
 
 The OME Model, OME help and OME Contributing documentation sets are
 independent of the current OMERO/Bio-Formats version.
@@ -95,22 +86,6 @@ the help builds.
 	-	* Review PRs opened against the Presentations website
 		* :term:`PRESENTATIONS-merge`
 
-OME Files comprises OME Model, OME Files C++ and OME CMake Super-Build Sphinx
-manuals, which are taken from separate repositories but built and hosted as a
-bundle.
-
-.. list-table::
-	:header-rows: 1
-
-	-	* Job task
-		*
-
-	-	* Publish OME Files documentation
-		* :term:`OME-FILES-CPP-DEV-release-bundle-docs`
-
-	-	* Review OME Files documentation PRs
-		* :term:`OME-FILES-CPP-DEV-merge-docs`
-
 
 Configuration
 ^^^^^^^^^^^^^
@@ -129,7 +104,7 @@ variables are used:
 - for the Bio-Formats and OMERO sets of documentation, the name of the
   Jenkins job is set by :envvar:`JENKINS_JOB`.
 
-Note that the https://github.com/openmicroscopy/sphinx_theme repository is no
+Note that the https://github.com/ome/sphinx_theme repository is no
 longer used, this hosted the theme to match the old plone website.
 
 OMERO 5.x series
@@ -148,13 +123,13 @@ The branch for the 5.x series of the OMERO documentation is develop.
 		#. |sphinxbuild|
 		#. |linkcheck|
 
-	:jenkinsjob:`OMERO-DEV-merge-docs`
+	:mergecijob:`OMERO-docs`
 
 		This job is used to review the PRs opened against the develop branch
 		of the OMERO 5.x documentation
 
 		#. |merge|
-		#. Pushes the branch to :omedoc_scc_branch:`develop/merge/daily`
+		#. Pushes the branch to :omedoc_scc_branch:`merge_ci`
 		#. |sphinxbuild|
 		#. |linkcheck|
 
@@ -164,8 +139,7 @@ The branch for the 5.x series of the OMERO documentation is develop.
 		develop branch of the OMERO documentation
 
 		#. Checks out the develop branch of ome-documentation.git_
-		#. Downloads the OMERO.server and OMERO.clients from
-		   :term:`OMERO-DEV-latest`
+		#. Downloads the latest OMERO.server and OMERO.clients
 		#. Runs the :file:`omero/autogen_docs` autogeneration script
 		#. Pushes the auto-generated changes to
 		   :omedoc_scc_branch:`develop/latest/autogen`
@@ -175,36 +149,11 @@ The branch for the 5.x series of the OMERO documentation is develop.
 		This job is used to review the component auto-generation for the
 		develop branch of the OMERO documentation
 
-		#. Checks out :omedoc_scc_branch:`develop/merge/daily`
-		#. Downloads the OMERO.server and OMERO.clients from
-		   :term:`OMERO-DEV-merge-build`
+		#. Checks out :omedoc_scc_branch:`merge_ci`
+		#. Downloads the merge OMERO.server and OMERO.clients
 		#. Runs the :file:`omero/autogen_docs` autogeneration script
 		#. Pushes the auto-generated changes to
 		   :omedoc_scc_branch:`develop/merge/autogen`
-
-Bio-Formats 5.x series
-^^^^^^^^^^^^^^^^^^^^^^
-
-The branch for the 5.x series of the Bio-Formats documentation is master.
-
-.. glossary::
-
-	:jenkinsjob:`BIOFORMATS-DEV-latest-docs`
-
-		This job is used to build the master branch of the Bio-Formats
-		documentation.
-
-		#. |sphinxbuild|
-		#. |linkcheck|
-
-	:jenkinsjob:`BIOFORMATS-DEV-merge-docs`
-
-		This job is used to review the PRs opened against the master branch
-		of the Bio-Formats documentation
-
-		#. |merge|
-		#. |sphinxbuild|
-		#. |linkcheck|
 
 OME Model and OME Contributing
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -260,7 +209,7 @@ The following set of jobs is used to review or publish the content of the
 	:jenkinsjob:`WWW-merge`
 
 		This job is used to review the PRs opened against the master branch of
-		https://github.com/openmicroscopy/www.openmicroscopy.org
+		https://github.com/ome/www.openmicroscopy.org
 
 		#. |merge| and pushes the branch to https://github.com/snoopycrimecop/www.openmicroscopy.org/tree/gh-pages
 		#. The GitHub Pages service deploys the staging website content under https://snoopycrimecop.github.io/www.openmicroscopy.org/
@@ -268,7 +217,7 @@ The following set of jobs is used to review or publish the content of the
 	:jenkinsjob:`OME-help-staging`
 
 		This job is used to review the PRs opened against the master branch
-		of https://github.com/openmicroscopy/ome-help
+		of https://github.com/ome/ome-help
 
 		#. |merge| (and also incorporates :omehelp_scc_branch:`cname_staging`
 		   to allow	 deployment to a non-GitHub URL) then pushes the resulting
@@ -281,8 +230,8 @@ The following set of jobs is used to review or publish the content of the
 		This job is used to deploy the OME help documentation
 
 		#. Opens a Pull Request from
-		   https://github.com/openmicroscopy/ome-help/tree/master
-		   to https://github.com/openmicroscopy/ome-help/tree/gh-pages. If
+		   https://github.com/ome/ome-help/tree/master
+		   to https://github.com/ome/ome-help/tree/gh-pages. If
 		   this PR is merged, the GitHub Pages service updates the content of
 		   https://help.openmicroscopy.org
 		#. If the build is promoted,
@@ -318,25 +267,3 @@ The following set of jobs is used to review or publish the content of the
 		#. |merge| and pushes the branch to https://github.com/snoopycrimecop/presentations
 		#. The GitHub Pages service deploys the staging website content under https://snoopycrimecop.github.io/presentations/
 
-OME Files
-^^^^^^^^^
-
-This bundle of Sphinx documentation has three components: OME Model
-documentation is located in the ome-model repository; OME Files C++
-documentation is located in the ome-files-cpp repository; OME CMake
-Super-Build documentation is located in the ome-cmake-superbuild repository.
-All are currently built from the master branches despite the build names.
-
-.. glossary::
-
-     :jenkinsjob:`OME-FILES-CPP-DEV-release-bundle-docs`
-
-	    This job is used to publish the master branches of the OME Model, OME
-	    Files C++ and OME CMake Super-Build Sphinx documentation as a single
-	    bundle
-
-	    #. |buildFilesSB|
-	    #. |deploy-doc| https://docs.openmicroscopy.org/ome-files-cpp/
-
-The merge and latest builds for this documentation set are detailed on the
-:doc:`ci-ome-files` page.

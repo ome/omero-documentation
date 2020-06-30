@@ -24,7 +24,7 @@ using the :program:`omero config set` command:
 
 ::
 
-    $ bin/omero config set <parameter> <value>
+    $ omero config set <parameter> <value>
 
 When supplying a value with spaces or multiple elements, use **single
 quotes**. The quotes will not be saved as part of the value (see below).
@@ -34,7 +34,7 @@ mentioned), simply omit the value:
 
 ::
 
-    $ bin/omero config set <parameter>
+    $ omero config set <parameter>
 
 These options will be stored in a file: ``etc/grid/config.xml`` which
 you can read for reference. **DO NOT** edit this file directly.
@@ -43,7 +43,7 @@ You can also review all your settings by using:
 
 ::
 
-    $ bin/omero config get
+    $ omero config get
 
 which should return values without quotation marks.
 
@@ -51,7 +51,7 @@ A final useful option of :program:`omero config edit` is:
 
 ::
 
-    $ bin/omero config edit
+    $ omero config edit
 
 which will allow for editing the configuration in a system-default text
 editor.
@@ -544,10 +544,10 @@ Glacier2
 
 omero.glacier2.IceSSL
 ^^^^^^^^^^^^^^^^^^^^^
-Glacier2Template IceSSL defaults and overrides
-see https://doc.zeroc.com/ice/3.6/property-reference/icessl
+Glacier2Template IceSSL defaults and overrides,
+see https://doc.zeroc.com/ice/3.6/property-reference/icessl.
 Any property beginning ``omero.glacier2.IceSSL.`` will be used to
-update the corresponding IceSSL. property
+update the corresponding IceSSL. property.
 
 Default: `[empty]`
 
@@ -773,6 +773,28 @@ Enable or disable LDAP (`true` or `false`).
 
 Default: `false`
 
+.. property:: omero.ldap.connect_timeout
+
+omero.ldap.connect_timeout
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+Sets ``com.sun.jndi.ldap.connect.timeout`` on the Spring LDAP
+default security context source environment.  The context source
+is responsible for interacting with JNDI/LDAP.
+
+This timeout is specified in milliseconds and controls the amount of
+time JNDI/LDAP will wait for a connection to be established.
+
+A timeout less than or equal to zero means that no timeout will be
+observed and that the OMERO server will wait indefinitely for LDAP
+connections to be established.  Such a timeout should be used with
+extreme caution as connectivity issues may then cause your server to
+no longer be able to create new sessions.
+
+For more information on what this JNDI/LDAP property does, see
+https://docs.oracle.com/javase/jndi/tutorial/ldap/connect/create.html
+
+Default: `5000`
+
 .. property:: omero.ldap.group_filter
 
 omero.ldap.group_filter
@@ -860,6 +882,31 @@ omero.ldap.password
 LDAP server bind password (if required; can be empty)
 
 Default: `[empty]`
+
+.. property:: omero.ldap.read_timeout
+
+omero.ldap.read_timeout
+^^^^^^^^^^^^^^^^^^^^^^^
+Sets ``com.sun.jndi.ldap.read.timeout`` on the Spring LDAP
+default security context source environment.  The context source
+is responsible for interacting with JNDI/LDAP.
+
+This timeout is specified in milliseconds and controls the amount of
+time JNDI/LDAP will wait for a response from the LDAP server.  When
+connecting to a server using SSL this timeout also applies to the
+SSL handshake process.
+
+A timeout less than or equal to zero means that no timeout will be
+observed and that the OMERO server will wait indefinitely for LDAP
+replies.  Such a timeout should be used with extreme caution,
+especially when using SSL and/or without a connection pool, as
+connectivity issues may then cause your server to no longer be
+able to create new sessions.
+
+For more information on what this JNDI/LDAP property does, see
+https://docs.oracle.com/javase/tutorial/jndi/newstuff/readtimeout.html
+
+Default: `5000`
 
 .. property:: omero.ldap.referral
 
@@ -1289,7 +1336,7 @@ pixeldata processing.
   :file:`docs/api/org/quartz/CronExpression.html` within the distribution.
 
 .. _Quartz Job Scheduler:
-  http://www.quartz-scheduler.org/downloads/
+  https://www.quartz-scheduler.org/downloads/
 
 |cron|
 
@@ -1343,6 +1390,15 @@ data types where no pyramid will be generated.
 
 Default: `3192`
 
+.. property:: omero.pixeldata.memoizer.dir
+
+omero.pixeldata.memoizer.dir
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The directory in which Bio-Formats may create
+memo files for images from the managed repository.
+
+Default: `${omero.data.dir}/BioFormatsCache`
+
 .. property:: omero.pixeldata.memoizer.dir.local
 
 omero.pixeldata.memoizer.dir.local
@@ -1360,7 +1416,7 @@ omero.pixeldata.memoizer_wait
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Maximum time in milliseconds that file parsing
 can take without the parsed metadata being
-cached to BioFormatsCache.
+cached to omero.pixeldata.memoizer.dir.
 
 Default: `0`
 
@@ -1522,6 +1578,28 @@ The Glacier2 TCP port number to use (unencrypted)
 Default: `4063`
 
 
+.. _query_configuration:
+
+Query
+-----
+
+.. property:: omero.query.timeout
+
+omero.query.timeout
+^^^^^^^^^^^^^^^^^^^
+For the query service how many seconds before a query times out.
+
+Default: `1000`
+
+.. property:: omero.query.timeout.admin
+
+omero.query.timeout.admin
+^^^^^^^^^^^^^^^^^^^^^^^^^
+How many seconds before a query times out for administrative users.
+
+Default: `${omero.query.timeout}`
+
+
 .. _scripts_configuration:
 
 Scripts
@@ -1609,7 +1687,7 @@ many script JobParams will be kept in memory
 for how long.
 
 For more information, see
-http://google.github.io/guava/releases/17.0/api/docs/com/google/common/cache/CacheBuilderSpec.html
+https://google.github.io/guava/releases/27.1-jre/api/docs/com/google/common/cache/CacheBuilderSpec.html
 
 Default: `maximumSize=1000`
 
@@ -1780,14 +1858,6 @@ roughly 100 bytes of memory.
 
 Default: `1000000`
 
-.. property:: omero.search.maxclause
-
-omero.search.maxclause
-^^^^^^^^^^^^^^^^^^^^^^
-Maximum number of OR-clauses to which a single search can expand
-
-Default: `4096`
-
 .. property:: omero.search.merge_factor
 
 omero.search.merge_factor
@@ -1936,7 +2006,7 @@ omero.version
 ^^^^^^^^^^^^^
 Value dynamically set during the build
 
-Default: `5.5.0-m7`
+Default: `5.5.5`
 
 
 .. _web_configuration:
@@ -2108,9 +2178,9 @@ Default: `/home/omero/OMERO.server/var/log`
 
 omero.web.login.client_downloads_base
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Base URL for latest client downloads. Template parameters ``{major}`` ``{minor}`` ``{patch}`` will be substituted with the current OMERO.web version.
+GitHub repository containing the Desktop client downloads
 
-Default: `https://downloads.openmicroscopy.org/latest/omero{major}.{minor}`
+Default: `ome/omero-insight`
 
 .. property:: omero.web.login.show_client_downloads
 
@@ -2119,6 +2189,14 @@ omero.web.login.show_client_downloads
 Whether to link to official client downloads on the login page
 
 Default: `true`
+
+.. property:: omero.web.login_incorrect_credentials_text
+
+omero.web.login_incorrect_credentials_text
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The error message shown to users who enter an incorrect username or password.
+
+Default: `Connection not available, please check your user name and password.`
 
 .. property:: omero.web.login_logo
 
@@ -2132,7 +2210,7 @@ Default: `None`
 
 omero.web.login_redirect
 ^^^^^^^^^^^^^^^^^^^^^^^^
-Redirect to the given location after logging in. It only supports arguments for :djangodoc:`Django reverse function <ref/urlresolvers/#django.core.urlresolvers.reverse>`. For example: ``'{"redirect": ["webindex"], "viewname": "load_template", "args":["userdata"], "query_string": {"experimenter": -1}}'``
+Redirect to the given location after logging in. It only supports arguments for :djangodoc:`Django reverse function <ref/urlresolvers/#reverse>`. For example: ``'{"redirect": ["webindex"], "viewname": "load_template", "args":["userdata"], "query_string": {"experimenter": -1}}'``
 
 Default: `{}`
 
@@ -2148,9 +2226,17 @@ Default: `weblogin`
 
 omero.web.middleware
 ^^^^^^^^^^^^^^^^^^^^
-Warning: Only system administrators should use this feature. List of Django middleware classes in the form [{"class": "class.name", "index": FLOAT}]. See https://docs.djangoproject.com/en/1.8/topics/http/middleware/. Classes will be ordered by increasing index
+Warning: Only system administrators should use this feature. List of Django middleware classes in the form [{"class": "class.name", "index": FLOAT}]. See :djangodoc:`Django middleware <topics/http/middleware/>`. Classes will be ordered by increasing index
 
 Default: `[{"index": 1, "class": "django.middleware.common.BrokenLinkEmailsMiddleware"},{"index": 2, "class": "django.middleware.common.CommonMiddleware"},{"index": 3, "class": "django.contrib.sessions.middleware.SessionMiddleware"},{"index": 4, "class": "django.middleware.csrf.CsrfViewMiddleware"},{"index": 5, "class": "django.contrib.messages.middleware.MessageMiddleware"},{"index": 6, "class": "django.middleware.clickjacking.XFrameOptionsMiddleware"}]`
+
+.. property:: omero.web.nginx_server_extra_config
+
+omero.web.nginx_server_extra_config
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Extra configuration lines to add to the Nginx server block. Lines will be joined with \n. Remember to terminate lines with; when necessary.
+
+Default: `[]`
 
 .. property:: omero.web.open_with
 
@@ -2382,7 +2468,7 @@ omero.web.static_root
 ^^^^^^^^^^^^^^^^^^^^^
 The absolute path to the directory where collectstatic will collect static files for deployment. If the staticfiles contrib app is enabled (default) the collectstatic management command will collect static files into this directory.
 
-Default: `/home/omero/OMERO.server/lib/python/omeroweb/static`
+Default: `/home/omero/OMERO.server/var/static`
 
 .. property:: omero.web.static_url
 
@@ -2415,6 +2501,22 @@ omero.web.thumbnails_batch
 Number of thumbnails retrieved to prevent from loading them all at once. Make sure the size is not too big, otherwise you may exceed limit request line, see https://docs.gunicorn.org/en/latest/settings.html?highlight=limit_request_line
 
 Default: `50`
+
+.. property:: omero.web.top_logo
+
+omero.web.top_logo
+^^^^^^^^^^^^^^^^^^
+Customize the webclient top bar logo. The recommended image height is 23 pixels and it must be hosted outside of OMERO.web.
+
+Default: `[empty]`
+
+.. property:: omero.web.top_logo_link
+
+omero.web.top_logo_link
+^^^^^^^^^^^^^^^^^^^^^^^
+The target location of the webclient top logo, default unlinked.
+
+Default: `[empty]`
 
 .. property:: omero.web.ui.center_plugins
 

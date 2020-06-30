@@ -2,9 +2,10 @@ Cross Site Request Forgery protection
 =====================================
 
 
-CSRF is an attack which forces an end user to execute unwanted actions on a web
-application in which they are currently authenticated. For more details see
-`Cross-Site Request Forgery <https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)>`_.
+CSRF is an attack which forces an end user to execute unwanted actions
+on a web application in which they are currently authenticated. For more
+details see `Cross-Site Request Forgery
+<https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html>`_.
 
 OMERO.web provides easy-to-use protection against Cross Site Request
 Forgeries, for more information see
@@ -34,11 +35,8 @@ POST, PUT and DELETE. These requests can then be protected as follows:
     that would cause the CSRF token to be leaked, leading to a vulnerability.
 
 - On each XMLHttpRequest set a custom X-CSRFToken header to the value of the
-  CSRF token and pass the CSRF token in data with every AJAX POST request. If
-  your custom template already benefits from
-  :ref:`loading built-in jQuery <jquery_and_jquery_ui>` template you do not need to do
-  anything as it already loads ``webgateway/js/ome.csrf.js``. Otherwise simply
-  import the script as follows:
+  CSRF token and pass the CSRF token in data with every AJAX POST request.
+  You can import a jQuery-based script to do this as follows:
 
   ::
 

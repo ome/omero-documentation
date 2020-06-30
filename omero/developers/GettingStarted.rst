@@ -68,30 +68,16 @@ Environment variables
 In addition to the install instructions, you might find it useful to set
 the following variables:
 
--  OMERO\_HOME: should be set to the directory containing the OMERO
-   distribution or build (**note that we do not recommend setting this
-   variable for production servers, it is for development usage only** - see
-   :doc:`/sysadmins/omero-home-prefix`)
+-  For Python developers, create a virtual environment and install omero-py.
 
-   ::
-
-       # E.g. If you built the server yourself
-       export OMERO_PREFIX=~/Desktop/OMERO/dist
-       # Or you downloaded a release package
-       export OMERO_PREFIX=~/Desktop/OMERO.server-5.0.x
-
--  Add the /bin/ directory to your PATH - allows you to call the 'omero'
+-  Add to your PATH the /bin/ directory of the virtual environment e.g. ``OMERO_VENV=/opt/omero/server/venv3`` where omero-py is installed - allows you to call the 'omero'
    command from anywhere
 
    ::
 
-       export PATH=$PATH:$OMERO_PREFIX/bin/
+       export PATH=$PATH:$OMERO_VENV/bin/
 
--  For Python developers, set your PYTHONPATH as follows
 
-   ::
-
-       export PYTHONPATH=$PYTHONPATH:$OMERO_PREFIX/lib/python/
 
 Now checkout the |CLI|.
 
@@ -149,7 +135,7 @@ OMERO model
 
 You can browse the OMERO model in a number of ways, one of which is by
 looking at the database itself (see above). Another is via the
-:javadoc:`OMERO model API <slice2html/omero/model.html>` documentation.
+:slicedoc_blitz:`OMERO model API <omero/model.html>` documentation.
 
 However, due to the complexity of the OMERO model, it is helpful to have
 some starting points (follow links below to the docs themselves).
@@ -161,25 +147,25 @@ some starting points (follow links below to the docs themselves).
 Projects, datasets and images
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-:javadoc:`Projects <slice2html/omero/model/Project.html>`
+:slicedoc_blitz:`Projects <omero/model/Project.html>`
 and
-:javadoc:`Datasets <slice2html/omero/model/Dataset.html>`
+:slicedoc_blitz:`Datasets <omero/model/Dataset.html>`
 are many-to-many containers for
-:javadoc:`Images <slice2html/omero/model/Image.html>`
+:slicedoc_blitz:`Images <omero/model/Image.html>`
 (linked by
-:javadoc:`ProjectDatasetLinks <slice2html/omero/model/ProjectDatasetLink.html>`
+:slicedoc_blitz:`ProjectDatasetLinks <omero/model/ProjectDatasetLink.html>`
 and
-:javadoc:`DatasetImageLinks <slice2html/omero/model/DatasetImageLink.html>`
+:slicedoc_blitz:`DatasetImageLinks <omero/model/DatasetImageLink.html>`
 respectively).
 
 Projects, Datasets, Images and a number of other entities can be linked
-to Annotations :javadoc:`(abstract superclass) <slice2html/omero/model/Annotation.html>`
+to Annotations :slicedoc_blitz:`(abstract superclass) <omero/model/Annotation.html>`
 via specific links
-(:javadoc:`ProjectAnnotationLink <slice2html/omero/model/ProjectAnnotationLink.html>`,
-:javadoc:`DatasetAnnotationLink <slice2html/omero/model/DatasetAnnotationLink.html>`
+(:slicedoc_blitz:`ProjectAnnotationLink <omero/model/ProjectAnnotationLink.html>`,
+:slicedoc_blitz:`DatasetAnnotationLink <omero/model/DatasetAnnotationLink.html>`
 etc). Annotation subclasses such as
-:javadoc:`CommentAnnotation <slice2html/omero/model/CommentAnnotation.html>`,
-:javadoc:`FileAnnotation <slice2html/omero/model/FileAnnotation.html>`
+:slicedoc_blitz:`CommentAnnotation <omero/model/CommentAnnotation.html>`,
+:slicedoc_blitz:`FileAnnotation <omero/model/FileAnnotation.html>`
 etc. are stored in a single database table in OMERO (all Annotations have
 unique ID).
 
@@ -191,8 +177,8 @@ Images
    :alt:
 
 Images in OMERO are made up of many entities. These include core image
-components such as :javadoc:`Pixels <slice2html/omero/model/Pixels.html>` and
-:javadoc:`Channels <slice2html/omero/model/Channel.html>`, as well as a large
+components such as :slicedoc_blitz:`Pixels <omero/model/Pixels.html>` and
+:slicedoc_blitz:`Channels <omero/model/Channel.html>`, as well as a large
 number of additional metadata objects such as Instrument (microscope),
 Objective, Filters, Light Sources, and Detectors.
 
@@ -224,7 +210,7 @@ write a query like this:
                 outer join fetch links.child as dataset where p.id=:pid"
     project = queryService.findByQuery(query, params)
     for dataset in project.linkedDatasetList:
-        print dataset.getName().getValue()
+        print(dataset.getName().getValue())
 
 Or use the Container Service like this:
 
@@ -233,7 +219,7 @@ Or use the Container Service like this:
     containerService = session.getContainerService()
     project = containerService.loadContainerHierarchy("Project", [projectId], True)
     for dataset in project.linkedDatasetList:
-        print dataset.getName().getValue()
+        print(dataset.getName().getValue())
 
 For a list of the available services, see the |OmeroApi| page.
 
@@ -323,8 +309,8 @@ Below are a number of example psql database queries:
     # trouble-shooting postgres
     omero=# select * from pg_stat_activity ;
 
-bin/omero hql
-^^^^^^^^^^^^^
+omero hql
+^^^^^^^^^
 
 You can use the :program:`omero hql` command to query a remote OMERO
 database, entering your login details when requested.
@@ -336,7 +322,7 @@ database, entering your login details when requested.
 
 ::
 
-    bin/omero hql -q --limit=10 "select name from OriginalFile where id=4106"
-    bin/omero hql -q --limit=10 "select id, textValue, file from Annotation a order by a.id desc"
-    bin/omero hql -q --limit=10 "select id, textValue from TagAnnotation a order by a.id desc"
-    bin/omero hql -q --limit=100 "select id, owner.id, started, userAgent from Session where closed is null"
+    omero hql -q --limit=10 "select name from OriginalFile where id=4106"
+    omero hql -q --limit=10 "select id, textValue, file from Annotation a order by a.id desc"
+    omero hql -q --limit=10 "select id, textValue from TagAnnotation a order by a.id desc"
+    omero hql -q --limit=100 "select id, owner.id, started, userAgent from Session where closed is null"

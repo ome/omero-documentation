@@ -13,7 +13,7 @@ connection e.g. Python:
     session = client.createSession("username", "password")   # this is the service factory
     adminService = session.getAdminService()                 # now we can get/create services
 
--  The :javadoc:`Service factory API <slice2html/omero/api/ServiceFactory.html>`
+-  The :slicedoc_blitz:`Service factory API <omero/api/ServiceFactory.html>`
    has methods for creating Stateless and Stateful services, see below.
 
    -  Stateless services are obtained using "getXXX" methods e.g.
@@ -22,7 +22,7 @@ connection e.g. Python:
       ``createRenderingEngine()``
 
 -  Services will provide access to omero.model.objects. You will then
-   need the :javadoc:`API for these objects <slice2html/omero/model.html>`,
+   need the :slicedoc_blitz:`API for these objects <omero/model.html>`,
    e.g. Dataset, Image, Pixels, etc.
 
 -  Some services or their operations may be marked as being deprecated.
@@ -44,59 +44,59 @@ Service Level 1 (direct database and Hibernate connections)
 
 -  AdminService:
    :common_source:`src <src/main/java/ome/api/IAdmin.java>`,
-   :javadoc:`API <slice2html/omero/api/IAdmin.html>`
+   :slicedoc_blitz:`API <omero/api/IAdmin.html>`
    for working with Experimenters, Groups and the current Context
    (switching groups etc.).
 -  ConfigService:
    :common_source:`src <src/main/java/ome/api/IConfig.java>`,
-   :javadoc:`API <slice2html/omero/api/IConfig.html>`
+   :slicedoc_blitz:`API <omero/api/IConfig.html>`
    for getting and setting config parameters.
 -  ContainerService:
-   :javadoc:`API <slice2html/omero/api/IContainer.html>`
+   :slicedoc_blitz:`API <omero/api/IContainer.html>`
    for loading Project, Dataset, Image, Screen, Plate hierarchies.
 -  LdapService:
    :common_source:`src <src/main/java/ome/api/ILdap.java>`,
-   :javadoc:`API <slice2html/omero/api/ILdap.html>`
+   :slicedoc_blitz:`API <omero/api/ILdap.html>`
    for communicating with LDAP servers.
 -  MetadataService:
-   :javadoc:`API <slice2html/omero/api/IMetadata.html>`
+   :slicedoc_blitz:`API <omero/api/IMetadata.html>`
    for working with Annotation and retrieving acquisition metadata e.g. instrument.
 -  PixelsService:
-   :javadoc:`API <slice2html/omero/api/IPixels.html>`
+   :slicedoc_blitz:`API <omero/api/IPixels.html>`
    for pixels stats and creating Images with existing or new Pixels.
 -  ProjectionService
-   :javadoc:`API <slice2html/omero/api/IProjection.html>`
+   :slicedoc_blitz:`API <omero/api/IProjection.html>`
    for performing projections of Pixels sets.
 -  QueryService:
    :common_source:`src <src/main/java/ome/api/IQuery.java>`,
-   :javadoc:`API <ome/api/IQuery.html>`
+   :slicedoc_blitz:`API <omero/api/IQuery.html>`
    for custom SQL-like queries.
 -  RenderingSettingsService
-   :javadoc:`API <slice2html/omero/api/IRenderingSettings.html>`
+   :slicedoc_blitz:`API <omero/api/IRenderingSettings.html>`
    for copying, pasting & resetting rendering settings.
 -  RepositoryInfo
-   :javadoc:`API <slice2html/omero/api/IRepositoryInfo.html>`
+   :slicedoc_blitz:`API <omero/api/IRepositoryInfo.html>`
    disk space stats.
 -  RoiService
-   :javadoc:`API <slice2html/omero/api/IRoi.html>`
+   :slicedoc_blitz:`API <omero/api/IRoi.html>`
    working with ROIs (now deprecated).
 -  ScriptService
-   :javadoc:`API <slice2html/omero/api/IScript.html>`
+   :slicedoc_blitz:`API <omero/api/IScript.html>`
    for uploading and launching Python scripts.
 -  SessionService
-   :javadoc:`API <slice2html/omero/api/ISession.html>`
+   :slicedoc_blitz:`API <omero/api/ISession.html>`
    for creating and working with OMERO sessions.
 -  ShareService
-   :javadoc:`API <slice2html/omero/api/IShare.html>` (now deprecated).
+   :slicedoc_blitz:`API <omero/api/IShare.html>` (now deprecated).
 -  TimelineService
-   :javadoc:`API <slice2html/omero/api/ITimeline.html>`
+   :slicedoc_blitz:`API <omero/api/ITimeline.html>`
    for queries based on time.
 -  TypesService
-   :javadoc:`API <slice2html/omero/api/ITypes.html>`
+   :slicedoc_blitz:`API <omero/api/ITypes.html>`
    for Enumerations.
 -  UpdateService:
    :common_source:`src <src/main/java/ome/api/IUpdate.java>`,
-   :javadoc:`API <ome/api/IUpdate.html>`
+   :slicedoc_blitz:`API <omero/api/IUpdate.html>`
    for saving and editing omero.model objects.
 
 Service Level 2
@@ -110,21 +110,21 @@ Stateful/Binary Services
 
 -  RawFileStore:
    :common_source:`src <src/main/java/ome/api/RawFileStore.java>`,
-   :javadoc:`API <ome/api/RawFileStore.html>` for reading and writing files
+   :slicedoc_blitz:`API <omero/api/RawFileStore.html>` for reading and writing files
 -  RawPixelsStore:
    :common_source:`src <src/main/java/ome/api/RawPixelsStore.java>`,
-   :javadoc:`API <ome/api/RawPixelsStore.html>` for reading and writing pixels data
+   :slicedoc_blitz:`API <omero/api/RawPixelsStore.html>` for reading and writing pixels data
 -  RenderingEngine:
    :common_source:`src <src/main/java/omeis/providers/re/RenderingEngine.java>`,
-   :javadoc:`API <slice2html/omero/api/RenderingEngine.html>` for viewing images,
+   :slicedoc_blitz:`API <omero/api/RenderingEngine.html>` for viewing images,
    see :doc:`/developers/Server/RenderingEngine` for more details
 -  ThumbnailStore:
    :common_source:`src <src/main/java/ome/api/ThumbnailStore.java>`,
-   :javadoc:`API <ome/api/ThumbnailStore.html>` for retrieving thumbnails
+   :slicedoc_blitz:`API <omero/api/ThumbnailStore.html>` for retrieving thumbnails
 -  :common_source:`IScale <src/main/java/ome/api/IScale.java>` for scaling rendered images
 
 A complete list of service APIs can be found
-:javadoc:`here <slice2html/omero/api.html>` and some examples of API usage in
+:slicedoc_blitz:`here <omero/api.html>` and some examples of API usage in
 Python are provided. Java or C++ code can use the same API in a very similar
 manner.
 

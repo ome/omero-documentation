@@ -21,7 +21,7 @@ Used by: :ref:`LogicalChannel.mode <OMERO model class LogicalChannel>`
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class AdminPrivilege:
 
@@ -30,7 +30,7 @@ AdminPrivilege
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class AffineTransform:
 
@@ -51,7 +51,7 @@ Properties:
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class Annotation:
 
@@ -72,7 +72,7 @@ Properties:
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
   | name: ``text`` (optional)
   | ns: ``text`` (optional)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class AnnotationAnnotationLink:
 
@@ -82,14 +82,14 @@ AnnotationAnnotationLink
 Used by: :ref:`Annotation.annotationLinks <OMERO model class Annotation>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class Arc:
 
@@ -107,7 +107,7 @@ Properties:
   | lotNumber: ``string`` (optional) from :ref:`LightSource <OMERO model class LightSource>`
   | manufacturer: ``string`` (optional) from :ref:`LightSource <OMERO model class LightSource>`
   | model: ``string`` (optional) from :ref:`LightSource <OMERO model class LightSource>`
-  | power.unit: enumeration of :javadoc:`Power <ome/model/units/Power.html>` (optional) from :ref:`LightSource <OMERO model class LightSource>`
+  | power.unit: enumeration of :javadoc_model:`Power <ome/model/units/Power.html>` (optional) from :ref:`LightSource <OMERO model class LightSource>`
   | power.value: ``double`` (optional) from :ref:`LightSource <OMERO model class LightSource>`
   | serialNumber: ``string`` (optional) from :ref:`LightSource <OMERO model class LightSource>`
   | type: :ref:`ArcType <OMERO model class ArcType>`
@@ -122,7 +122,7 @@ Used by: :ref:`Arc.type <OMERO model class Arc>`
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class BasicAnnotation:
 
@@ -152,7 +152,7 @@ Used by: :ref:`DetectorSettings.binning <OMERO model class DetectorSettings>`
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class BooleanAnnotation:
 
@@ -194,7 +194,7 @@ Properties:
   | pixels: :ref:`Pixels <OMERO model class Pixels>`
   | red: ``integer`` (optional)
   | statsInfo: :ref:`StatsInfo <OMERO model class StatsInfo>` (optional)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class ChannelAnnotationLink:
 
@@ -204,14 +204,14 @@ ChannelAnnotationLink
 Used by: :ref:`Channel.annotationLinks <OMERO model class Channel>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Channel <OMERO model class Channel>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Channel <OMERO model class Channel>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class ChannelBinding:
 
@@ -239,7 +239,7 @@ Properties:
   | red: ``integer``
   | renderingDef: :ref:`RenderingDef <OMERO model class RenderingDef>`
   | spatialDomainEnhancement: :ref:`CodomainMapContext <OMERO model class CodomainMapContext>` (multiple)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class ChecksumAlgorithm:
 
@@ -250,7 +250,7 @@ Used by: :ref:`OriginalFile.hasher <OMERO model class OriginalFile>`
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class CodomainMapContext:
 
@@ -268,7 +268,7 @@ Properties:
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class CommentAnnotation:
 
@@ -297,7 +297,7 @@ Used by: :ref:`LogicalChannel.contrastMethod <OMERO model class LogicalChannel>`
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class ContrastStretchingContext:
 
@@ -326,7 +326,7 @@ Used by: :ref:`Objective.correction <OMERO model class Objective>`
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class DBPatch:
 
@@ -360,7 +360,7 @@ Properties:
   | imageLinks: :ref:`DatasetImageLink <OMERO model class DatasetImageLink>` (multiple)
   | name: ``text``
   | projectLinks: :ref:`ProjectDatasetLink <OMERO model class ProjectDatasetLink>` (multiple)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class DatasetAnnotationLink:
 
@@ -370,14 +370,14 @@ DatasetAnnotationLink
 Used by: :ref:`Dataset.annotationLinks <OMERO model class Dataset>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Dataset <OMERO model class Dataset>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Dataset <OMERO model class Dataset>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class DatasetImageLink:
 
@@ -387,14 +387,14 @@ DatasetImageLink
 Used by: :ref:`Dataset.imageLinks <OMERO model class Dataset>`, :ref:`Image.datasetLinks <OMERO model class Image>`
 
 Properties:
-  | child: :ref:`Image <OMERO model class Image>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Image <OMERO model class Image>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Dataset <OMERO model class Dataset>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Dataset <OMERO model class Dataset>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class Detector:
 
@@ -419,8 +419,8 @@ Properties:
   | offsetValue: ``double`` (optional)
   | serialNumber: ``string`` (optional)
   | type: :ref:`DetectorType <OMERO model class DetectorType>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
-  | voltage.unit: enumeration of :javadoc:`ElectricPotential <ome/model/units/ElectricPotential.html>` (optional)
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
+  | voltage.unit: enumeration of :javadoc_model:`ElectricPotential <ome/model/units/ElectricPotential.html>` (optional)
   | voltage.value: ``double`` (optional)
   | zoom: ``double`` (optional)
 
@@ -432,14 +432,14 @@ DetectorAnnotationLink
 Used by: :ref:`Detector.annotationLinks <OMERO model class Detector>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Detector <OMERO model class Detector>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Detector <OMERO model class Detector>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class DetectorSettings:
 
@@ -459,10 +459,10 @@ Properties:
   | gain: ``double`` (optional)
   | integration: ``integer`` (optional)
   | offsetValue: ``double`` (optional)
-  | readOutRate.unit: enumeration of :javadoc:`Frequency <ome/model/units/Frequency.html>` (optional)
+  | readOutRate.unit: enumeration of :javadoc_model:`Frequency <ome/model/units/Frequency.html>` (optional)
   | readOutRate.value: ``double`` (optional)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
-  | voltage.unit: enumeration of :javadoc:`ElectricPotential <ome/model/units/ElectricPotential.html>` (optional)
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
+  | voltage.unit: enumeration of :javadoc_model:`ElectricPotential <ome/model/units/ElectricPotential.html>` (optional)
   | voltage.value: ``double`` (optional)
   | zoom: ``double`` (optional)
 
@@ -475,7 +475,7 @@ Used by: :ref:`Detector.type <OMERO model class Detector>`
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class Dichroic:
 
@@ -496,7 +496,7 @@ Properties:
   | manufacturer: ``string`` (optional)
   | model: ``string`` (optional)
   | serialNumber: ``string`` (optional)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class DichroicAnnotationLink:
 
@@ -506,14 +506,14 @@ DichroicAnnotationLink
 Used by: :ref:`Dichroic.annotationLinks <OMERO model class Dichroic>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Dichroic <OMERO model class Dichroic>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Dichroic <OMERO model class Dichroic>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class DimensionOrder:
 
@@ -524,7 +524,7 @@ Used by: :ref:`Pixels.dimensionOrder <OMERO model class Pixels>`
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class DoubleAnnotation:
 
@@ -559,7 +559,7 @@ Properties:
   | fillColor: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fillRule: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontFamily: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontSize.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
+  | fontSize.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontSize.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontStyle: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | locked: ``boolean`` (optional) from :ref:`Shape <OMERO model class Shape>`
@@ -568,7 +568,7 @@ Properties:
   | roi: :ref:`Roi <OMERO model class Roi>` from :ref:`Shape <OMERO model class Shape>`
   | strokeColor: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeDashArray: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | strokeWidth.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
+  | strokeWidth.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeWidth.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | textValue: ``text`` (optional)
   | theC: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
@@ -620,7 +620,7 @@ Used by: :ref:`Event.type <OMERO model class Event>`
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class Experiment:
 
@@ -638,7 +638,7 @@ Properties:
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
   | microbeamManipulation: :ref:`MicrobeamManipulation <OMERO model class MicrobeamManipulation>` (multiple)
   | type: :ref:`ExperimentType <OMERO model class ExperimentType>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class ExperimentType:
 
@@ -649,7 +649,7 @@ Used by: :ref:`Experiment.type <OMERO model class Experiment>`
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class Experimenter:
 
@@ -670,7 +670,7 @@ Properties:
   | ldap: ``boolean``
   | middleName: ``string`` (optional)
   | omeName: ``string``
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class ExperimenterAnnotationLink:
 
@@ -680,14 +680,14 @@ ExperimenterAnnotationLink
 Used by: :ref:`Experimenter.annotationLinks <OMERO model class Experimenter>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class ExperimenterGroup:
 
@@ -704,7 +704,7 @@ Properties:
   | groupExperimenterMap: :ref:`GroupExperimenterMap <OMERO model class GroupExperimenterMap>` (multiple)
   | ldap: ``boolean``
   | name: ``string``
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class ExperimenterGroupAnnotationLink:
 
@@ -714,14 +714,14 @@ ExperimenterGroupAnnotationLink
 Used by: :ref:`ExperimenterGroup.annotationLinks <OMERO model class ExperimenterGroup>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class ExternalInfo:
 
@@ -749,7 +749,7 @@ Used by: :ref:`ChannelBinding.family <OMERO model class ChannelBinding>`
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class Filament:
 
@@ -767,7 +767,7 @@ Properties:
   | lotNumber: ``string`` (optional) from :ref:`LightSource <OMERO model class LightSource>`
   | manufacturer: ``string`` (optional) from :ref:`LightSource <OMERO model class LightSource>`
   | model: ``string`` (optional) from :ref:`LightSource <OMERO model class LightSource>`
-  | power.unit: enumeration of :javadoc:`Power <ome/model/units/Power.html>` (optional) from :ref:`LightSource <OMERO model class LightSource>`
+  | power.unit: enumeration of :javadoc_model:`Power <ome/model/units/Power.html>` (optional) from :ref:`LightSource <OMERO model class LightSource>`
   | power.value: ``double`` (optional) from :ref:`LightSource <OMERO model class LightSource>`
   | serialNumber: ``string`` (optional) from :ref:`LightSource <OMERO model class LightSource>`
   | type: :ref:`FilamentType <OMERO model class FilamentType>`
@@ -782,7 +782,7 @@ Used by: :ref:`Filament.type <OMERO model class Filament>`
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class FileAnnotation:
 
@@ -820,7 +820,7 @@ Properties:
   | jobLinks: :ref:`FilesetJobLink <OMERO model class FilesetJobLink>` (multiple)
   | templatePrefix: ``text``
   | usedFiles: :ref:`FilesetEntry <OMERO model class FilesetEntry>` (multiple)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class FilesetAnnotationLink:
 
@@ -830,14 +830,14 @@ FilesetAnnotationLink
 Used by: :ref:`Fileset.annotationLinks <OMERO model class Fileset>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Fileset <OMERO model class Fileset>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Fileset <OMERO model class Fileset>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class FilesetEntry:
 
@@ -855,7 +855,7 @@ Properties:
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
   | fileset: :ref:`Fileset <OMERO model class Fileset>`
   | originalFile: :ref:`OriginalFile <OMERO model class OriginalFile>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class FilesetJobLink:
 
@@ -865,14 +865,14 @@ FilesetJobLink
 Used by: :ref:`Fileset.jobLinks <OMERO model class Fileset>`
 
 Properties:
-  | child: :ref:`Job <OMERO model class Job>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Job <OMERO model class Job>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Fileset <OMERO model class Fileset>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Fileset <OMERO model class Fileset>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class Filter:
 
@@ -898,7 +898,7 @@ Properties:
   | serialNumber: ``string`` (optional)
   | transmittanceRange: :ref:`TransmittanceRange <OMERO model class TransmittanceRange>` (optional)
   | type: :ref:`FilterType <OMERO model class FilterType>` (optional)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class FilterAnnotationLink:
 
@@ -908,14 +908,14 @@ FilterAnnotationLink
 Used by: :ref:`Filter.annotationLinks <OMERO model class Filter>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Filter <OMERO model class Filter>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Filter <OMERO model class Filter>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class FilterSet:
 
@@ -938,7 +938,7 @@ Properties:
   | manufacturer: ``string`` (optional)
   | model: ``string`` (optional)
   | serialNumber: ``string`` (optional)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class FilterSetEmissionFilterLink:
 
@@ -948,14 +948,14 @@ FilterSetEmissionFilterLink
 Used by: :ref:`Filter.emissionFilterLink <OMERO model class Filter>`, :ref:`FilterSet.emissionFilterLink <OMERO model class FilterSet>`
 
 Properties:
-  | child: :ref:`Filter <OMERO model class Filter>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Filter <OMERO model class Filter>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`FilterSet <OMERO model class FilterSet>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`FilterSet <OMERO model class FilterSet>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class FilterSetExcitationFilterLink:
 
@@ -965,14 +965,14 @@ FilterSetExcitationFilterLink
 Used by: :ref:`Filter.excitationFilterLink <OMERO model class Filter>`, :ref:`FilterSet.excitationFilterLink <OMERO model class FilterSet>`
 
 Properties:
-  | child: :ref:`Filter <OMERO model class Filter>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Filter <OMERO model class Filter>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`FilterSet <OMERO model class FilterSet>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`FilterSet <OMERO model class FilterSet>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class FilterType:
 
@@ -983,7 +983,7 @@ Used by: :ref:`Filter.type <OMERO model class Filter>`
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class Folder:
 
@@ -1005,7 +1005,7 @@ Properties:
   | name: ``text``
   | parentFolder: :ref:`Folder <OMERO model class Folder>` (optional)
   | roiLinks: :ref:`FolderRoiLink <OMERO model class FolderRoiLink>` (multiple)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class FolderAnnotationLink:
 
@@ -1015,14 +1015,14 @@ FolderAnnotationLink
 Used by: :ref:`Folder.annotationLinks <OMERO model class Folder>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Folder <OMERO model class Folder>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Folder <OMERO model class Folder>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class FolderImageLink:
 
@@ -1032,14 +1032,14 @@ FolderImageLink
 Used by: :ref:`Folder.imageLinks <OMERO model class Folder>`, :ref:`Image.folderLinks <OMERO model class Image>`
 
 Properties:
-  | child: :ref:`Image <OMERO model class Image>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Image <OMERO model class Image>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Folder <OMERO model class Folder>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Folder <OMERO model class Folder>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class FolderRoiLink:
 
@@ -1049,14 +1049,14 @@ FolderRoiLink
 Used by: :ref:`Folder.roiLinks <OMERO model class Folder>`, :ref:`Roi.folderLinks <OMERO model class Roi>`
 
 Properties:
-  | child: :ref:`Roi <OMERO model class Roi>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Roi <OMERO model class Roi>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Folder <OMERO model class Folder>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Folder <OMERO model class Folder>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class Format:
 
@@ -1067,7 +1067,7 @@ Used by: :ref:`Image.format <OMERO model class Image>`
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class GenericExcitationSource:
 
@@ -1086,7 +1086,7 @@ Properties:
   | manufacturer: ``string`` (optional) from :ref:`LightSource <OMERO model class LightSource>`
   | map: list (multiple)
   | model: ``string`` (optional) from :ref:`LightSource <OMERO model class LightSource>`
-  | power.unit: enumeration of :javadoc:`Power <ome/model/units/Power.html>` (optional) from :ref:`LightSource <OMERO model class LightSource>`
+  | power.unit: enumeration of :javadoc_model:`Power <ome/model/units/Power.html>` (optional) from :ref:`LightSource <OMERO model class LightSource>`
   | power.value: ``double`` (optional) from :ref:`LightSource <OMERO model class LightSource>`
   | serialNumber: ``string`` (optional) from :ref:`LightSource <OMERO model class LightSource>`
   | version: ``integer`` (optional) from :ref:`LightSource <OMERO model class LightSource>`
@@ -1099,11 +1099,11 @@ GroupExperimenterMap
 Used by: :ref:`Experimenter.groupExperimenterMap <OMERO model class Experimenter>`, :ref:`ExperimenterGroup.groupExperimenterMap <OMERO model class ExperimenterGroup>`
 
 Properties:
-  | child: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | owner: ``boolean``
-  | parent: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class Illumination:
 
@@ -1114,7 +1114,7 @@ Used by: :ref:`LogicalChannel.illumination <OMERO model class LogicalChannel>`
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class Image:
 
@@ -1147,7 +1147,7 @@ Properties:
   | rois: :ref:`Roi <OMERO model class Roi>` (multiple)
   | series: ``integer`` (optional)
   | stageLabel: :ref:`StageLabel <OMERO model class StageLabel>` (optional)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
   | wellSamples: :ref:`WellSample <OMERO model class WellSample>` (multiple)
 
 .. _OMERO model class ImageAnnotationLink:
@@ -1158,14 +1158,14 @@ ImageAnnotationLink
 Used by: :ref:`Image.annotationLinks <OMERO model class Image>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Image <OMERO model class Image>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Image <OMERO model class Image>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class ImagingEnvironment:
 
@@ -1175,7 +1175,7 @@ ImagingEnvironment
 Used by: :ref:`Image.imagingEnvironment <OMERO model class Image>`
 
 Properties:
-  | airPressure.unit: enumeration of :javadoc:`Pressure <ome/model/units/Pressure.html>` (optional)
+  | airPressure.unit: enumeration of :javadoc_model:`Pressure <ome/model/units/Pressure.html>` (optional)
   | airPressure.value: ``double`` (optional)
   | co2percent: ``double`` (optional)
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
@@ -1185,9 +1185,9 @@ Properties:
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
   | humidity: ``double`` (optional)
   | map: list (multiple)
-  | temperature.unit: enumeration of :javadoc:`Temperature <ome/model/units/Temperature.html>` (optional)
+  | temperature.unit: enumeration of :javadoc_model:`Temperature <ome/model/units/Temperature.html>` (optional)
   | temperature.value: ``double`` (optional)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class Immersion:
 
@@ -1198,7 +1198,7 @@ Used by: :ref:`Objective.immersion <OMERO model class Objective>`
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class ImportJob:
 
@@ -1224,6 +1224,8 @@ Properties:
   | type: ``string`` from :ref:`Job <OMERO model class Job>`
   | username: ``string`` from :ref:`Job <OMERO model class Job>`
   | version: ``integer`` (optional) from :ref:`Job <OMERO model class Job>`
+
+.. warning:: This model object is deprecated.
 
 .. _OMERO model class IndexingJob:
 
@@ -1270,7 +1272,7 @@ Properties:
   | microscope: :ref:`Microscope <OMERO model class Microscope>` (optional)
   | objective: :ref:`Objective <OMERO model class Objective>` (multiple)
   | otf: :ref:`OTF <OMERO model class OTF>` (multiple)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class InstrumentAnnotationLink:
 
@@ -1280,14 +1282,14 @@ InstrumentAnnotationLink
 Used by: :ref:`Instrument.annotationLinks <OMERO model class Instrument>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Instrument <OMERO model class Instrument>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Instrument <OMERO model class Instrument>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class IntegrityCheckJob:
 
@@ -1337,7 +1339,7 @@ Properties:
   | submitted: ``timestamp``
   | type: ``string``
   | username: ``string``
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class JobOriginalFileLink:
 
@@ -1347,14 +1349,14 @@ JobOriginalFileLink
 Used by: :ref:`Job.originalFileLinks <OMERO model class Job>`
 
 Properties:
-  | child: :ref:`OriginalFile <OMERO model class OriginalFile>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`OriginalFile <OMERO model class OriginalFile>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Job <OMERO model class Job>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Job <OMERO model class Job>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class JobStatus:
 
@@ -1365,7 +1367,7 @@ Used by: :ref:`Job.status <OMERO model class Job>`
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class Label:
 
@@ -1382,14 +1384,14 @@ Properties:
   | fillColor: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fillRule: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontFamily: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontSize.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
+  | fontSize.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontSize.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontStyle: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | locked: ``boolean`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | roi: :ref:`Roi <OMERO model class Roi>` from :ref:`Shape <OMERO model class Shape>`
   | strokeColor: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeDashArray: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | strokeWidth.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
+  | strokeWidth.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeWidth.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | textValue: ``text`` (optional)
   | theC: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
@@ -1419,17 +1421,17 @@ Properties:
   | manufacturer: ``string`` (optional) from :ref:`LightSource <OMERO model class LightSource>`
   | model: ``string`` (optional) from :ref:`LightSource <OMERO model class LightSource>`
   | pockelCell: ``boolean`` (optional)
-  | power.unit: enumeration of :javadoc:`Power <ome/model/units/Power.html>` (optional) from :ref:`LightSource <OMERO model class LightSource>`
+  | power.unit: enumeration of :javadoc_model:`Power <ome/model/units/Power.html>` (optional) from :ref:`LightSource <OMERO model class LightSource>`
   | power.value: ``double`` (optional) from :ref:`LightSource <OMERO model class LightSource>`
   | pulse: :ref:`Pulse <OMERO model class Pulse>` (optional)
   | pump: :ref:`LightSource <OMERO model class LightSource>` (optional)
-  | repetitionRate.unit: enumeration of :javadoc:`Frequency <ome/model/units/Frequency.html>` (optional)
+  | repetitionRate.unit: enumeration of :javadoc_model:`Frequency <ome/model/units/Frequency.html>` (optional)
   | repetitionRate.value: ``double`` (optional)
   | serialNumber: ``string`` (optional) from :ref:`LightSource <OMERO model class LightSource>`
   | tuneable: ``boolean`` (optional)
   | type: :ref:`LaserType <OMERO model class LaserType>`
   | version: ``integer`` (optional) from :ref:`LightSource <OMERO model class LightSource>`
-  | wavelength.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
+  | wavelength.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional)
   | wavelength.value: ``double`` (optional)
 
 .. _OMERO model class LaserMedium:
@@ -1441,7 +1443,7 @@ Used by: :ref:`Laser.laserMedium <OMERO model class Laser>`
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class LaserType:
 
@@ -1452,7 +1454,7 @@ Used by: :ref:`Laser.type <OMERO model class Laser>`
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class LightEmittingDiode:
 
@@ -1470,7 +1472,7 @@ Properties:
   | lotNumber: ``string`` (optional) from :ref:`LightSource <OMERO model class LightSource>`
   | manufacturer: ``string`` (optional) from :ref:`LightSource <OMERO model class LightSource>`
   | model: ``string`` (optional) from :ref:`LightSource <OMERO model class LightSource>`
-  | power.unit: enumeration of :javadoc:`Power <ome/model/units/Power.html>` (optional) from :ref:`LightSource <OMERO model class LightSource>`
+  | power.unit: enumeration of :javadoc_model:`Power <ome/model/units/Power.html>` (optional) from :ref:`LightSource <OMERO model class LightSource>`
   | power.value: ``double`` (optional) from :ref:`LightSource <OMERO model class LightSource>`
   | serialNumber: ``string`` (optional) from :ref:`LightSource <OMERO model class LightSource>`
   | version: ``integer`` (optional) from :ref:`LightSource <OMERO model class LightSource>`
@@ -1492,7 +1494,7 @@ Properties:
   | dichroic: :ref:`Dichroic <OMERO model class Dichroic>` (optional)
   | emissionFilterLink: :ref:`LightPathEmissionFilterLink <OMERO model class LightPathEmissionFilterLink>` (multiple)
   | excitationFilterLink: :ref:`LightPathExcitationFilterLink <OMERO model class LightPathExcitationFilterLink>` (multiple)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class LightPathAnnotationLink:
 
@@ -1502,14 +1504,14 @@ LightPathAnnotationLink
 Used by: :ref:`LightPath.annotationLinks <OMERO model class LightPath>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`LightPath <OMERO model class LightPath>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`LightPath <OMERO model class LightPath>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class LightPathEmissionFilterLink:
 
@@ -1519,14 +1521,14 @@ LightPathEmissionFilterLink
 Used by: :ref:`LightPath.emissionFilterLink <OMERO model class LightPath>`
 
 Properties:
-  | child: :ref:`Filter <OMERO model class Filter>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Filter <OMERO model class Filter>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`LightPath <OMERO model class LightPath>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`LightPath <OMERO model class LightPath>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class LightPathExcitationFilterLink:
 
@@ -1536,14 +1538,14 @@ LightPathExcitationFilterLink
 Used by: :ref:`LightPath.excitationFilterLink <OMERO model class LightPath>`
 
 Properties:
-  | child: :ref:`Filter <OMERO model class Filter>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Filter <OMERO model class Filter>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`LightPath <OMERO model class LightPath>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`LightPath <OMERO model class LightPath>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class LightSettings:
 
@@ -1561,8 +1563,8 @@ Properties:
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
   | lightSource: :ref:`LightSource <OMERO model class LightSource>`
   | microbeamManipulation: :ref:`MicrobeamManipulation <OMERO model class MicrobeamManipulation>` (optional)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
-  | wavelength.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
+  | wavelength.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional)
   | wavelength.value: ``double`` (optional)
 
 .. _OMERO model class LightSource:
@@ -1585,10 +1587,10 @@ Properties:
   | lotNumber: ``string`` (optional)
   | manufacturer: ``string`` (optional)
   | model: ``string`` (optional)
-  | power.unit: enumeration of :javadoc:`Power <ome/model/units/Power.html>` (optional)
+  | power.unit: enumeration of :javadoc_model:`Power <ome/model/units/Power.html>` (optional)
   | power.value: ``double`` (optional)
   | serialNumber: ``string`` (optional)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class LightSourceAnnotationLink:
 
@@ -1598,14 +1600,14 @@ LightSourceAnnotationLink
 Used by: :ref:`LightSource.annotationLinks <OMERO model class LightSource>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`LightSource <OMERO model class LightSource>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`LightSource <OMERO model class LightSource>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class Line:
 
@@ -1622,7 +1624,7 @@ Properties:
   | fillColor: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fillRule: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontFamily: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontSize.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
+  | fontSize.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontSize.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontStyle: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | locked: ``boolean`` (optional) from :ref:`Shape <OMERO model class Shape>`
@@ -1631,7 +1633,7 @@ Properties:
   | roi: :ref:`Roi <OMERO model class Roi>` from :ref:`Shape <OMERO model class Shape>`
   | strokeColor: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeDashArray: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | strokeWidth.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
+  | strokeWidth.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeWidth.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | textValue: ``text`` (optional)
   | theC: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
@@ -1655,7 +1657,7 @@ Properties:
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class ListAnnotation:
 
@@ -1690,9 +1692,9 @@ Properties:
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
   | detectorSettings: :ref:`DetectorSettings <OMERO model class DetectorSettings>` (optional)
-  | emissionWave.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
+  | emissionWave.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional)
   | emissionWave.value: ``double`` (optional)
-  | excitationWave.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
+  | excitationWave.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional)
   | excitationWave.value: ``double`` (optional)
   | filterSet: :ref:`FilterSet <OMERO model class FilterSet>` (optional)
   | fluor: ``string`` (optional)
@@ -1704,11 +1706,11 @@ Properties:
   | ndFilter: ``double`` (optional)
   | otf: :ref:`OTF <OMERO model class OTF>` (optional)
   | photometricInterpretation: :ref:`PhotometricInterpretation <OMERO model class PhotometricInterpretation>` (optional)
-  | pinHoleSize.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
+  | pinHoleSize.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional)
   | pinHoleSize.value: ``double`` (optional)
   | pockelCellSetting: ``integer`` (optional)
   | samplesPerPixel: ``integer`` (optional)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class LongAnnotation:
 
@@ -1762,7 +1764,7 @@ Properties:
   | fillColor: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fillRule: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontFamily: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontSize.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
+  | fontSize.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontSize.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontStyle: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | height: ``double`` (optional)
@@ -1771,7 +1773,7 @@ Properties:
   | roi: :ref:`Roi <OMERO model class Roi>` from :ref:`Shape <OMERO model class Shape>`
   | strokeColor: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeDashArray: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | strokeWidth.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
+  | strokeWidth.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeWidth.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | textValue: ``text`` (optional)
   | theC: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
@@ -1792,7 +1794,7 @@ Used by: :ref:`ObjectiveSettings.medium <OMERO model class ObjectiveSettings>`
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class MetadataImportJob:
 
@@ -1835,7 +1837,7 @@ Properties:
   | experiment: :ref:`Experiment <OMERO model class Experiment>`
   | lightSourceSettings: :ref:`LightSettings <OMERO model class LightSettings>` (multiple)
   | type: :ref:`MicrobeamManipulationType <OMERO model class MicrobeamManipulationType>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class MicrobeamManipulationType:
 
@@ -1846,7 +1848,7 @@ Used by: :ref:`MicrobeamManipulation.type <OMERO model class MicrobeamManipulati
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class Microscope:
 
@@ -1866,7 +1868,7 @@ Properties:
   | model: ``string`` (optional)
   | serialNumber: ``string`` (optional)
   | type: :ref:`MicroscopeType <OMERO model class MicroscopeType>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class MicroscopeType:
 
@@ -1877,7 +1879,7 @@ Used by: :ref:`Microscope.type <OMERO model class Microscope>`
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class Namespace:
 
@@ -1895,7 +1897,7 @@ Properties:
   | keywords: list (optional)
   | multivalued: ``boolean`` (optional)
   | name: ``text``
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class NamespaceAnnotationLink:
 
@@ -1905,14 +1907,14 @@ NamespaceAnnotationLink
 Used by: :ref:`Namespace.annotationLinks <OMERO model class Namespace>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Namespace <OMERO model class Namespace>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Namespace <OMERO model class Namespace>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class Node:
 
@@ -1930,7 +1932,7 @@ Properties:
   | sessions: :ref:`Session <OMERO model class Session>` (multiple)
   | up: ``timestamp``
   | uuid: ``string``
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class NodeAnnotationLink:
 
@@ -1940,14 +1942,14 @@ NodeAnnotationLink
 Used by: :ref:`Node.annotationLinks <OMERO model class Node>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Node <OMERO model class Node>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Node <OMERO model class Node>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class NumericAnnotation:
 
@@ -1989,7 +1991,7 @@ Properties:
   | pixelsType: :ref:`PixelsType <OMERO model class PixelsType>`
   | sizeX: ``integer``
   | sizeY: ``integer``
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class Objective:
 
@@ -2016,8 +2018,8 @@ Properties:
   | model: ``string`` (optional)
   | nominalMagnification: ``double`` (optional)
   | serialNumber: ``string`` (optional)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
-  | workingDistance.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
+  | workingDistance.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional)
   | workingDistance.value: ``double`` (optional)
 
 .. _OMERO model class ObjectiveAnnotationLink:
@@ -2028,14 +2030,14 @@ ObjectiveAnnotationLink
 Used by: :ref:`Objective.annotationLinks <OMERO model class Objective>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Objective <OMERO model class Objective>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Objective <OMERO model class Objective>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class ObjectiveSettings:
 
@@ -2054,7 +2056,7 @@ Properties:
   | medium: :ref:`Medium <OMERO model class Medium>` (optional)
   | objective: :ref:`Objective <OMERO model class Objective>`
   | refractiveIndex: ``double`` (optional)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class OriginalFile:
 
@@ -2082,7 +2084,7 @@ Properties:
   | pixelsFileMaps: :ref:`PixelsOriginalFileMap <OMERO model class PixelsOriginalFileMap>` (multiple)
   | repo: ``string`` (optional)
   | size: ``long`` (optional)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class OriginalFileAnnotationLink:
 
@@ -2092,14 +2094,14 @@ OriginalFileAnnotationLink
 Used by: :ref:`OriginalFile.annotationLinks <OMERO model class OriginalFile>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`OriginalFile <OMERO model class OriginalFile>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`OriginalFile <OMERO model class OriginalFile>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class ParseJob:
 
@@ -2141,14 +2143,14 @@ Properties:
   | fillColor: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fillRule: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontFamily: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontSize.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
+  | fontSize.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontSize.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontStyle: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | locked: ``boolean`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | roi: :ref:`Roi <OMERO model class Roi>` from :ref:`Shape <OMERO model class Shape>`
   | strokeColor: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeDashArray: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | strokeWidth.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
+  | strokeWidth.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeWidth.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | textValue: ``text`` (optional)
   | theC: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
@@ -2156,6 +2158,8 @@ Properties:
   | theZ: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | transform: :ref:`AffineTransform <OMERO model class AffineTransform>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | version: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
+
+.. warning:: This model object is deprecated.
 
 .. _OMERO model class PhotometricInterpretation:
 
@@ -2166,7 +2170,7 @@ Used by: :ref:`LogicalChannel.photometricInterpretation <OMERO model class Logic
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class PixelDataJob:
 
@@ -2208,16 +2212,16 @@ Properties:
   | dimensionOrder: :ref:`DimensionOrder <OMERO model class DimensionOrder>`
   | image: :ref:`Image <OMERO model class Image>`
   | methodology: ``string`` (optional)
-  | physicalSizeX.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
+  | physicalSizeX.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional)
   | physicalSizeX.value: ``double`` (optional)
-  | physicalSizeY.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
+  | physicalSizeY.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional)
   | physicalSizeY.value: ``double`` (optional)
-  | physicalSizeZ.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
+  | physicalSizeZ.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional)
   | physicalSizeZ.value: ``double`` (optional)
   | pixelsFileMaps: :ref:`PixelsOriginalFileMap <OMERO model class PixelsOriginalFileMap>` (multiple)
   | pixelsType: :ref:`PixelsType <OMERO model class PixelsType>`
   | planeInfo: :ref:`PlaneInfo <OMERO model class PlaneInfo>` (multiple)
-  | relatedTo: :ref:`Pixels <OMERO model class Pixels>` (optional)
+  | relatedTo: :ref:`Pixels <OMERO model class Pixels>` (optional) (deprecated)
   | settings: :ref:`RenderingDef <OMERO model class RenderingDef>` (multiple)
   | sha1: ``string``
   | significantBits: ``integer`` (optional)
@@ -2227,11 +2231,13 @@ Properties:
   | sizeY: ``integer``
   | sizeZ: ``integer``
   | thumbnails: :ref:`Thumbnail <OMERO model class Thumbnail>` (multiple)
-  | timeIncrement.unit: enumeration of :javadoc:`Time <ome/model/units/Time.html>` (optional)
+  | timeIncrement.unit: enumeration of :javadoc_model:`Time <ome/model/units/Time.html>` (optional)
   | timeIncrement.value: ``double`` (optional)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
   | waveIncrement: ``integer`` (optional)
   | waveStart: ``integer`` (optional)
+
+.. warning:: This model object has a deprecated property.
 
 .. _OMERO model class PixelsOriginalFileMap:
 
@@ -2241,14 +2247,14 @@ PixelsOriginalFileMap
 Used by: :ref:`OriginalFile.pixelsFileMaps <OMERO model class OriginalFile>`, :ref:`Pixels.pixelsFileMaps <OMERO model class Pixels>`
 
 Properties:
-  | child: :ref:`Pixels <OMERO model class Pixels>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Pixels <OMERO model class Pixels>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`OriginalFile <OMERO model class OriginalFile>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`OriginalFile <OMERO model class OriginalFile>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class PixelsType:
 
@@ -2260,7 +2266,7 @@ Used by: :ref:`OTF.pixelsType <OMERO model class OTF>`, :ref:`Pixels.pixelsType 
 Properties:
   | bitSize: ``integer`` (optional)
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class PlaneInfo:
 
@@ -2271,26 +2277,26 @@ Used by: :ref:`Pixels.planeInfo <OMERO model class Pixels>`, :ref:`PlaneInfoAnno
 
 Properties:
   | annotationLinks: :ref:`PlaneInfoAnnotationLink <OMERO model class PlaneInfoAnnotationLink>` (multiple)
-  | deltaT.unit: enumeration of :javadoc:`Time <ome/model/units/Time.html>` (optional)
+  | deltaT.unit: enumeration of :javadoc_model:`Time <ome/model/units/Time.html>` (optional)
   | deltaT.value: ``double`` (optional)
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | exposureTime.unit: enumeration of :javadoc:`Time <ome/model/units/Time.html>` (optional)
+  | exposureTime.unit: enumeration of :javadoc_model:`Time <ome/model/units/Time.html>` (optional)
   | exposureTime.value: ``double`` (optional)
   | pixels: :ref:`Pixels <OMERO model class Pixels>`
-  | positionX.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
+  | positionX.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional)
   | positionX.value: ``double`` (optional)
-  | positionY.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
+  | positionY.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional)
   | positionY.value: ``double`` (optional)
-  | positionZ.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
+  | positionZ.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional)
   | positionZ.value: ``double`` (optional)
   | theC: ``integer``
   | theT: ``integer``
   | theZ: ``integer``
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class PlaneInfoAnnotationLink:
 
@@ -2300,14 +2306,14 @@ PlaneInfoAnnotationLink
 Used by: :ref:`PlaneInfo.annotationLinks <OMERO model class PlaneInfo>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`PlaneInfo <OMERO model class PlaneInfo>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`PlaneInfo <OMERO model class PlaneInfo>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class PlaneSlicingContext:
 
@@ -2353,10 +2359,10 @@ Properties:
   | rows: ``integer`` (optional)
   | screenLinks: :ref:`ScreenPlateLink <OMERO model class ScreenPlateLink>` (multiple)
   | status: ``text`` (optional)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
-  | wellOriginX.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
+  | wellOriginX.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional)
   | wellOriginX.value: ``double`` (optional)
-  | wellOriginY.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
+  | wellOriginY.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional)
   | wellOriginY.value: ``double`` (optional)
   | wells: :ref:`Well <OMERO model class Well>` (multiple)
 
@@ -2380,7 +2386,7 @@ Properties:
   | name: ``text`` (optional)
   | plate: :ref:`Plate <OMERO model class Plate>`
   | startTime: ``timestamp`` (optional)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
   | wellSample: :ref:`WellSample <OMERO model class WellSample>` (multiple)
 
 .. _OMERO model class PlateAcquisitionAnnotationLink:
@@ -2391,14 +2397,14 @@ PlateAcquisitionAnnotationLink
 Used by: :ref:`PlateAcquisition.annotationLinks <OMERO model class PlateAcquisition>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`PlateAcquisition <OMERO model class PlateAcquisition>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`PlateAcquisition <OMERO model class PlateAcquisition>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class PlateAnnotationLink:
 
@@ -2408,14 +2414,14 @@ PlateAnnotationLink
 Used by: :ref:`Plate.annotationLinks <OMERO model class Plate>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Plate <OMERO model class Plate>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Plate <OMERO model class Plate>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class Point:
 
@@ -2432,14 +2438,14 @@ Properties:
   | fillColor: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fillRule: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontFamily: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontSize.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
+  | fontSize.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontSize.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontStyle: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | locked: ``boolean`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | roi: :ref:`Roi <OMERO model class Roi>` from :ref:`Shape <OMERO model class Shape>`
   | strokeColor: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeDashArray: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | strokeWidth.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
+  | strokeWidth.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeWidth.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | textValue: ``text`` (optional)
   | theC: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
@@ -2465,7 +2471,7 @@ Properties:
   | fillColor: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fillRule: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontFamily: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontSize.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
+  | fontSize.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontSize.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontStyle: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | locked: ``boolean`` (optional) from :ref:`Shape <OMERO model class Shape>`
@@ -2473,7 +2479,7 @@ Properties:
   | roi: :ref:`Roi <OMERO model class Roi>` from :ref:`Shape <OMERO model class Shape>`
   | strokeColor: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeDashArray: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | strokeWidth.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
+  | strokeWidth.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeWidth.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | textValue: ``text`` (optional)
   | theC: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
@@ -2497,7 +2503,7 @@ Properties:
   | fillColor: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fillRule: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontFamily: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontSize.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
+  | fontSize.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontSize.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontStyle: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | locked: ``boolean`` (optional) from :ref:`Shape <OMERO model class Shape>`
@@ -2507,7 +2513,7 @@ Properties:
   | roi: :ref:`Roi <OMERO model class Roi>` from :ref:`Shape <OMERO model class Shape>`
   | strokeColor: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeDashArray: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | strokeWidth.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
+  | strokeWidth.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeWidth.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | textValue: ``text`` (optional)
   | theC: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
@@ -2533,7 +2539,7 @@ Properties:
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
   | name: ``text``
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class ProjectAnnotationLink:
 
@@ -2543,14 +2549,14 @@ ProjectAnnotationLink
 Used by: :ref:`Project.annotationLinks <OMERO model class Project>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Project <OMERO model class Project>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Project <OMERO model class Project>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class ProjectDatasetLink:
 
@@ -2560,14 +2566,14 @@ ProjectDatasetLink
 Used by: :ref:`Dataset.projectLinks <OMERO model class Dataset>`, :ref:`Project.datasetLinks <OMERO model class Project>`
 
 Properties:
-  | child: :ref:`Dataset <OMERO model class Dataset>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Dataset <OMERO model class Dataset>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Project <OMERO model class Project>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Project <OMERO model class Project>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class ProjectionAxis:
 
@@ -2578,7 +2584,7 @@ Used by: :ref:`ProjectionDef.axis <OMERO model class ProjectionDef>`
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class ProjectionDef:
 
@@ -2600,7 +2606,7 @@ Properties:
   | startPlane: ``integer`` (optional)
   | stepping: ``integer`` (optional)
   | type: :ref:`ProjectionType <OMERO model class ProjectionType>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class ProjectionType:
 
@@ -2611,7 +2617,7 @@ Used by: :ref:`ProjectionDef.type <OMERO model class ProjectionDef>`
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class Pulse:
 
@@ -2622,7 +2628,7 @@ Used by: :ref:`Laser.pulse <OMERO model class Laser>`
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class QuantumDef:
 
@@ -2640,7 +2646,7 @@ Properties:
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class Reagent:
 
@@ -2660,7 +2666,7 @@ Properties:
   | name: ``text`` (optional)
   | reagentIdentifier: ``string`` (optional)
   | screen: :ref:`Screen <OMERO model class Screen>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
   | wellLinks: :ref:`WellReagentLink <OMERO model class WellReagentLink>` (multiple)
 
 .. _OMERO model class ReagentAnnotationLink:
@@ -2671,14 +2677,14 @@ ReagentAnnotationLink
 Used by: :ref:`Reagent.annotationLinks <OMERO model class Reagent>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Reagent <OMERO model class Reagent>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Reagent <OMERO model class Reagent>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class Rectangle:
 
@@ -2695,7 +2701,7 @@ Properties:
   | fillColor: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fillRule: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontFamily: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | fontSize.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
+  | fontSize.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontSize.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | fontStyle: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | height: ``double`` (optional)
@@ -2703,7 +2709,7 @@ Properties:
   | roi: :ref:`Roi <OMERO model class Roi>` from :ref:`Shape <OMERO model class Shape>`
   | strokeColor: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeDashArray: ``string`` (optional) from :ref:`Shape <OMERO model class Shape>`
-  | strokeWidth.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
+  | strokeWidth.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional) from :ref:`Shape <OMERO model class Shape>`
   | strokeWidth.value: ``double`` (optional) from :ref:`Shape <OMERO model class Shape>`
   | textValue: ``text`` (optional)
   | theC: ``integer`` (optional) from :ref:`Shape <OMERO model class Shape>`
@@ -2736,7 +2742,7 @@ Properties:
   | pixels: :ref:`Pixels <OMERO model class Pixels>`
   | projections: :ref:`ProjectionDef <OMERO model class ProjectionDef>` (multiple)
   | quantization: :ref:`QuantumDef <OMERO model class QuantumDef>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
   | waveRendering: :ref:`ChannelBinding <OMERO model class ChannelBinding>` (multiple)
 
 .. _OMERO model class RenderingModel:
@@ -2748,7 +2754,7 @@ Used by: :ref:`RenderingDef.model <OMERO model class RenderingDef>`
 
 Properties:
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | value: ``string``, see :javadoc:`IEnum <ome/model/IEnum.html>`
+  | value: ``string``, see :javadoc_model:`IEnum <ome/model/IEnum.html>`
 
 .. _OMERO model class ReverseIntensityContext:
 
@@ -2785,7 +2791,7 @@ Properties:
   | name: ``text`` (optional)
   | shapes: :ref:`Shape <OMERO model class Shape>` (multiple)
   | source: :ref:`OriginalFile <OMERO model class OriginalFile>` (optional)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class RoiAnnotationLink:
 
@@ -2795,14 +2801,14 @@ RoiAnnotationLink
 Used by: :ref:`Roi.annotationLinks <OMERO model class Roi>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Roi <OMERO model class Roi>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Roi <OMERO model class Roi>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class Screen:
 
@@ -2827,7 +2833,7 @@ Properties:
   | reagentSetIdentifier: ``string`` (optional)
   | reagents: :ref:`Reagent <OMERO model class Reagent>` (multiple)
   | type: ``string`` (optional)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class ScreenAnnotationLink:
 
@@ -2837,14 +2843,14 @@ ScreenAnnotationLink
 Used by: :ref:`Screen.annotationLinks <OMERO model class Screen>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Screen <OMERO model class Screen>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Screen <OMERO model class Screen>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class ScreenPlateLink:
 
@@ -2854,14 +2860,14 @@ ScreenPlateLink
 Used by: :ref:`Plate.screenLinks <OMERO model class Plate>`, :ref:`Screen.plateLinks <OMERO model class Screen>`
 
 Properties:
-  | child: :ref:`Plate <OMERO model class Plate>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Plate <OMERO model class Plate>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Screen <OMERO model class Screen>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Screen <OMERO model class Screen>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class ScriptJob:
 
@@ -2912,7 +2918,7 @@ Properties:
   | userAgent: ``string`` (optional)
   | userIP: ``string`` (optional)
   | uuid: ``string``
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class SessionAnnotationLink:
 
@@ -2922,14 +2928,14 @@ SessionAnnotationLink
 Used by: :ref:`Session.annotationLinks <OMERO model class Session>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Session <OMERO model class Session>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Session <OMERO model class Session>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class Shape:
 
@@ -2950,20 +2956,20 @@ Properties:
   | fillColor: ``integer`` (optional)
   | fillRule: ``string`` (optional)
   | fontFamily: ``string`` (optional)
-  | fontSize.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
+  | fontSize.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional)
   | fontSize.value: ``double`` (optional)
   | fontStyle: ``string`` (optional)
   | locked: ``boolean`` (optional)
   | roi: :ref:`Roi <OMERO model class Roi>`
   | strokeColor: ``integer`` (optional)
   | strokeDashArray: ``string`` (optional)
-  | strokeWidth.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
+  | strokeWidth.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional)
   | strokeWidth.value: ``double`` (optional)
   | theC: ``integer`` (optional)
   | theT: ``integer`` (optional)
   | theZ: ``integer`` (optional)
   | transform: :ref:`AffineTransform <OMERO model class AffineTransform>` (optional)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class ShapeAnnotationLink:
 
@@ -2973,14 +2979,14 @@ ShapeAnnotationLink
 Used by: :ref:`Shape.annotationLinks <OMERO model class Shape>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Shape <OMERO model class Shape>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Shape <OMERO model class Shape>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class Share:
 
@@ -3017,10 +3023,10 @@ ShareMember
 """""""""""
 
 Properties:
-  | child: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Experimenter <OMERO model class Experimenter>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
-  | parent: :ref:`Share <OMERO model class Share>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Share <OMERO model class Share>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class StageLabel:
 
@@ -3036,13 +3042,13 @@ Properties:
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
   | name: ``text``
-  | positionX.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
+  | positionX.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional)
   | positionX.value: ``double`` (optional)
-  | positionY.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
+  | positionY.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional)
   | positionY.value: ``double`` (optional)
-  | positionZ.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
+  | positionZ.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional)
   | positionZ.value: ``double`` (optional)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class StatsInfo:
 
@@ -3059,7 +3065,7 @@ Properties:
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
   | globalMax: ``double``
   | globalMin: ``double``
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class TagAnnotation:
 
@@ -3135,7 +3141,7 @@ Properties:
   | ref: ``string`` (optional)
   | sizeX: ``integer``
   | sizeY: ``integer``
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class ThumbnailGenerationJob:
 
@@ -3186,13 +3192,13 @@ TransmittanceRange
 Used by: :ref:`Filter.transmittanceRange <OMERO model class Filter>`
 
 Properties:
-  | cutIn.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
+  | cutIn.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional)
   | cutIn.value: ``double`` (optional)
-  | cutInTolerance.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
+  | cutInTolerance.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional)
   | cutInTolerance.value: ``double`` (optional)
-  | cutOut.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
+  | cutOut.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional)
   | cutOut.value: ``double`` (optional)
-  | cutOutTolerance.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
+  | cutOutTolerance.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional)
   | cutOutTolerance.value: ``double`` (optional)
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
@@ -3200,7 +3206,7 @@ Properties:
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
   | transmittance: ``double`` (optional)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class TypeAnnotation:
 
@@ -3271,7 +3277,7 @@ Properties:
   | row: ``integer`` (optional)
   | status: ``string`` (optional)
   | type: ``string`` (optional)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
   | wellSamples: :ref:`WellSample <OMERO model class WellSample>` (multiple)
 
 .. _OMERO model class WellAnnotationLink:
@@ -3282,14 +3288,14 @@ WellAnnotationLink
 Used by: :ref:`Well.annotationLinks <OMERO model class Well>`
 
 Properties:
-  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Annotation <OMERO model class Annotation>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Well <OMERO model class Well>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Well <OMERO model class Well>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class WellReagentLink:
 
@@ -3299,14 +3305,14 @@ WellReagentLink
 Used by: :ref:`Reagent.wellLinks <OMERO model class Reagent>`, :ref:`Well.reagentLinks <OMERO model class Well>`
 
 Properties:
-  | child: :ref:`Reagent <OMERO model class Reagent>`, see :javadoc:`ILink <ome/model/ILink.html>`
+  | child: :ref:`Reagent <OMERO model class Reagent>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
   | details.creationEvent: :ref:`Event <OMERO model class Event>`
   | details.externalInfo: :ref:`ExternalInfo <OMERO model class ExternalInfo>` (optional)
   | details.group: :ref:`ExperimenterGroup <OMERO model class ExperimenterGroup>`
   | details.owner: :ref:`Experimenter <OMERO model class Experimenter>`
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
-  | parent: :ref:`Well <OMERO model class Well>`, see :javadoc:`ILink <ome/model/ILink.html>`
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | parent: :ref:`Well <OMERO model class Well>`, see :javadoc_model:`ILink <ome/model/ILink.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
 
 .. _OMERO model class WellSample:
 
@@ -3323,12 +3329,12 @@ Properties:
   | details.updateEvent: :ref:`Event <OMERO model class Event>`
   | image: :ref:`Image <OMERO model class Image>`
   | plateAcquisition: :ref:`PlateAcquisition <OMERO model class PlateAcquisition>` (optional)
-  | posX.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
+  | posX.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional)
   | posX.value: ``double`` (optional)
-  | posY.unit: enumeration of :javadoc:`Length <ome/model/units/Length.html>` (optional)
+  | posY.unit: enumeration of :javadoc_model:`Length <ome/model/units/Length.html>` (optional)
   | posY.value: ``double`` (optional)
   | timepoint: ``timestamp`` (optional)
-  | version: ``integer`` (optional), see :javadoc:`IMutable <ome/model/IMutable.html>`
+  | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
   | well: :ref:`Well <OMERO model class Well>`
 
 .. _OMERO model class XmlAnnotation:

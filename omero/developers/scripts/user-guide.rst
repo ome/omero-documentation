@@ -51,11 +51,11 @@ This script echoes the input parameters as outputs.
 
     import omero, omero.scripts as scripts
     client = scripts.client("ping.py", "simple ping script",
-             scripts.Long("a"), scripts.String("b"))
+                            scripts.Long("a"), scripts.String("b"))
 
     keys = client.getInputKeys()
-    print "Keys found:"
-    print keys
+    print("Keys found:")
+    print(keys)
     for key in keys:
           client.setOutput(key, client.getInput(key))
 
@@ -74,7 +74,7 @@ and the script returns them as outputs.
 
     # Define the script name & description, and a single 'required' parameter
     client = scripts.client("Get_Channels.py", "Get channel names for an image",
-        scripts.Long("imageId", optional=False))
+                            scripts.Long("imageId", optional=False))
 
     # get the Image Id from the parameters.
     imageId = client.getInput("imageId", unwrap=True)   # unwrap the rtype
@@ -84,11 +84,11 @@ and the script returns them as outputs.
 
     # get the Image, print its name
     image = conn.getObject("Image", imageId)
-    print image.getName()
+    print(image.getName())
 
     # Print each channel 'label' (Name or Excitation wavelength)
     for i, ch in enumerate(image.getChannels()):
-        print ch.getLabel()
+        print(ch.getLabel())
         # Return as output. Key is string, value is rtype
         client.setOutput("Channel%s" % i, wrap(str(ch.getLabel())))
 
@@ -116,10 +116,10 @@ Script writing as 'Admin'
 The basic steps in a script-writing workflow are:
 
 -  Write a script using your favorite text editor, save locally
--  Use command line (or OMERO.insight) to upload script to server
--  Use command line (or OMERO.insight or web clients) to run script on the
+-  Use command line (or OMERO.insight) to upload the script to server
+-  Use command line (or OMERO.insight or web clients) to run the script on the
    server (results will be displayed)
--  Edit script and replace copy on server and run again, etc.
+-  Edit the script and replace it on the server and run again, etc.
 
 Working with scripts is far more straightforward if you have admin access to
 your OMERO.server installation - this is the preferred workflow. It is
@@ -141,7 +141,7 @@ be found at
 :source:`Edit_Descriptions.py <examples/ScriptingService/Edit_Descriptions.py>`.
 You should organize your scripts on your local machine in a way that
 makes sense to users, since your local file paths will be mimicked on
-the server and used to organize script menus in OMERO.insight (see screen-shot
+the server and used to organize script menus in the clients (see screen-shot
 above).
 
 ::
@@ -152,7 +152,7 @@ above).
 The action of this script (editing Image descriptions) is trivial but it
 demonstrates a number of features that you may find useful, including
 conventions for inputs and outputs to improve interaction with
-OMERO.insight (as discussed on the :doc:`style-guide`).
+the clients(as discussed on the :doc:`style-guide`).
 
 The script is well-documented and should get you started. A few points
 to note:
@@ -165,7 +165,7 @@ wrapper like this:
     from omero.gateway import BlitzGateway
 
     conn = BlitzGateway(client_obj=client)
-    # now you can do E.g. conn.getObject("Image", imageId) etc.
+    # now you can do e.g. conn.getObject("Image", imageId) etc.
 
 Alternatively, if you are working directly with the OMERO services, you
 can get a service factory like this:
@@ -173,14 +173,14 @@ can get a service factory like this:
 ::
 
     session = client.getSession()
-    # now you can do E.g. session.getQueryService() etc.
+    # now you can do e.g. session.getQueryService() etc.
 
 More example scripts
 ^^^^^^^^^^^^^^^^^^^^
 
 Several official scripts are included in the release of OMERO and can be
 found under the lib/scripts/omero/ directory of the server package. Any
-script can also be download from the OMERO.insight client (bottom-left
+script can also be download from the clients (bottom-left
 of the run-script dialog).
 
 .. Warning::
@@ -196,14 +196,6 @@ Upload script
 You can use the command line, OMERO.insight or the server file system to
 upload scripts. The ``script`` command line tool is discussed in more
 detail below.
-
-You may find it useful to add the OMERO.server/bin/ folder to your PATH
-so you can call ``bin/omero`` commands when working in the scripts folder.
-E.g:
-
-.. parsed-literal::
-
-    export PATH=$PATH:/Users/will/Desktop/OMERO.server-|release|/bin/
 
 Upload the script we saved earlier, specifying it as 'official' (trusted
 to run on the server processor). You will need to log in the first time
@@ -227,7 +219,7 @@ detected by OMERO. Official scripts are uniquely identified on the OMERO
 server by their 'path' and 'name'.
 
 Any folders in the script path are created on the server under
-/lib/scripts/ E.g. the above example will be stored at
+/lib/scripts/ e.g. the above example will be stored at
 /lib/scripts/examples/Edit\_Descriptions.py
 
 The ID of the script is printed after upload and can also be determined
@@ -236,7 +228,7 @@ by listing scripts (see below).
 Run script
 ^^^^^^^^^^
 
-You can run the script from OMERO.insight by browsing the scripts (see
+You can run the script from OMERO.insight or OMERO.web by browsing the scripts (see
 screen-shot above). A UI will be generated from the chosen script and
 the currently selected images or datasets will be populated if the
 script supports this (see :doc:`style-guide`).
@@ -248,7 +240,7 @@ displayed as well as any outputs that the script has returned.
 
 ::
 
-    wjm:examples will$ omero script launch 301  # script ID
+    $ omero script launch 301  # script ID
     Using session 1202acc0-4424-4fa2-84fe-7c9e069d3563 (root@localhost:4064). Idle timeout: 10.0 min. Current group: system
     Enter value for "IDs": 1201
     Job 1464 ready
@@ -307,7 +299,7 @@ Start by printing help for the script command:
 ::
 
     $ omero script -h
-    usage: /Users/will/Documents/workspace/Omero/dist/bin/omero script
+    usage: omero script
            [-h] <subcommand> ...
 
     Support for launching, uploading and otherwise managing OMERO.scripts
@@ -318,7 +310,7 @@ Start by printing help for the script command:
       -h, --help          show this help message and exit
 
     Subcommands:
-      Use /Users/will/Documents/workspace/Omero/dist/bin/omero script <subcommand> -h for more information.
+      Use omero script <subcommand> -h for more information.
 
       <subcommand>
         demo              Runs a short demo of the scripting system
@@ -362,7 +354,7 @@ the inputs.
 
 ::
 
-    $ wjm:examples will$ omero script params 301
+    $ omero script params 301
     Using session 1202acc0-4424-4fa2-84fe-7c9e069d3563 (root@localhost:4064). Idle timeout: 10.0 min. Current group: system
 
     id:  301
@@ -402,7 +394,7 @@ Debugging scripts
 
 The stderr and stdout from running a script should always be returned to
 you, either when running scripts from the command line, via
-OMERO.insight or using the scripts API. This should allow you to debug
+the clients or using the scripts API. This should allow you to debug
 any problems you have.
 
 You can also look at the output from the script in the OriginalFile

@@ -30,7 +30,7 @@ Model object wrappers
 """""""""""""""""""""
 
 OMERO model objects, e.g. omero.model.Project, omero.model.Pixels etc.
-(see :javadoc:`full list <slice2html/omero/model.html>`)
+(see :slicedoc_blitz:`full list <omero/model.html>`)
 are code-generated and mapped to the OMERO database schema. They are
 language agnostic and their data is in the form of omero.rtypes as
 described in :ref:`about model objects <AdvancedClientDevelopment#Objects>`.
@@ -46,16 +46,16 @@ the use of rtypes.
     from omero.rtypes import rstring
     p = ProjectI()
     p.setName(rstring("Omero Model Project"))   # attributes are all rtypes
-    print p.getName().getValue()                # getValue() to unwrap the rtype
-    print p.name.val                            # short-hand
+    print(p.getName().getValue())               # getValue() to unwrap the rtype
+    print(p.name.val)                           # short-hand
 
     from omero.gateway import ProjectWrapper
     project = ProjectWrapper(obj=p)             # wrap the model.object
     project.setName("Project Wrapper")          # Don't need to use rtypes
-    print project.getName()
-    print project.name
+    print(project.getName())
+    print(project.name)
 
-    print project._obj                  # access the wrapped object with ._obj
+    print(project._obj)                  # access the wrapped object with ._obj
 
 These wrappers also have a reference to the BlitzGateway connection wrapper,
 so they can make calls to the server and load more data when needed (lazy
@@ -69,9 +69,9 @@ loading).
     >>> conn.connect()
 
     >>> for p in conn.listProjects():         # Initially we just load Projects
-    ...     print p.getName()
+    ...     print(p.getName())
     ...     for dataset in p.listChildren():      # lazy-loading of Datasets here
-    ...             print "  ", dataset.getName()
+    ...             print("  ", dataset.getName())
     ... 
     TestProject
        Aurora-B
@@ -83,40 +83,6 @@ loading).
        live-cell
        survivin
     >>> conn.close()
-
-
-Unicode
-"""""""
-
-When unwrapping ``omero.rtypes.rstring`` attributes from
-``omero.model.object`` instances as shown above,
-the ``BlitzObjectWrapper`` subclasses will decode the utf8-encoded
-string and return the resulting unicode string.
-
-However, some methods added to ``BlitzObjectWrappers``
-will return regular strings as follows::
-
-    BlitzObjectWrapper.getName()            except ExperimenterWrapper.getName() and LogicalChannelWrapper.getName()
-    BlitzObjectWrapper.getDescription()
-    AnnotationWrapper.getNs()
-    FileAnnotationWrapper.getFileName()
-    TagAnnotationWrapper.getValue()
-    CommentAnnotationWrapper.getValue()
-    MapAnnotationWrapper.getValue()  - list of strings
-    PlateWrapper.getColumnLabels() / getRowLabels()   - list of strings or integers
-    WellWrapper.getWellPos()
-    ColorHolder.getHtml() / getCss()
-    ChannelWrapper.getLut()
-    ImageWrapper.getChannelLabels()  - list of strings
-
-When using unicode strings, care must be taken when printing to
-the console if they include non-ASCII characters as
-`described here <https://pythonhosted.org/kitchen/unicode-frustrations.html>`_.
-
-When using the BlitzGateway in the OMERO.web framework,
-Django will convert strings into unicode strings so it is safe to
-use either. See Django
-`Unicode data <https://docs.djangoproject.com/en/1.8/ref/unicode/#general-string-handling>`_.
 
 
 Wrapper coverage
@@ -144,14 +110,14 @@ library, you can get hold of the |OmeroApi|.
 
 The gateway handles creation and reuse of the API services, so that new
 ones are not created unnecessarily. Services can be accessed using the
-methods of the underlying :javadoc:`Service
-Factory <slice2html/omero/api/ServiceFactory.html>`
+methods of the underlying :slicedoc_blitz:`Service
+Factory <omero/api/ServiceFactory.html>`
 with the Gateway handling reuse as needed. **Stateless** services (those
 retrieved with getXXX methods e.g.
-:javadoc:`getQueryService <slice2html/omero/api/ServiceFactory.html#getQueryService>`)
+:slicedoc_blitz:`getQueryService <omero/api/ServiceFactory.html#getQueryService>`)
 are always reused for each call, e.g. conn.getQueryService() whereas
 **stateful** services e.g.
-:javadoc:`createRenderingEngine <slice2html/omero/api/ServiceFactory.html#createRenderingEngine>`
+:slicedoc_blitz:`createRenderingEngine <omero/api/ServiceFactory.html#createRenderingEngine>`
 may be created each time.
 
 Not all methods of the service factory are currently supported in the
@@ -168,9 +134,9 @@ call to server (no lazy loading)
     cs = conn.getContainerService()
     projects = cs.loadContainerHierarchy("Project", None, None)
     for p in projects:                # omero.model.ProjectI
-        print p.getName().getValue()     # need to 'unwrap' rstring
+        print(p.getName().getValue())     # need to 'unwrap' rstring
         for d in p.linkedDatasetList():
-            print d.getName().getValue()
+            print(d.getName().getValue())
 
 Stateful services, reconnection, error handling etc.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

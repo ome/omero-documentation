@@ -1,16 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function
 import glob
 import os
 import re
 import sys
-from path import path
+try:
+    from omero_ext.path import path
+except ImportError:
+    # Python 2
+    from path import path
 from omero.cli import CLI
 from omero.install.config_parser import PropertyParser
 
+
 def get_mmp(sqlfile):
-    m = re.search('.*/?OMERO(\d+)\.(\d+)(\w*)__(\d+)', sqlfile)
+    m = re.search(r'.*/?OMERO(\d+)\.(\d+)(\w*)__(\d+)', sqlfile)
     mmp = (int(m.group(1)), int(m.group(2)), m.group(3), int(m.group(4)))
     return mmp
 
@@ -44,5 +50,23 @@ for previous_mmp in majorminorpatch:
             previous_mmp[1] < current_mmp[1]):
         break
 
-print 'current_dbver = "%s"' % current_dbver
-print 'previous_dbver = "OMERO%d.%d%s__%d"' % previous_mmp
+print('current_dbver = "%s"' % current_dbver)
+print('previous_dbver = "OMERO%d.%d%s__%d"' % previous_mmp)
+
+
+print('version_bioformats = "6.3.1"')
+print('version_blitz = "5.5.5"')
+print('version_server = "5.5.5"')
+print('version_romio = "5.5.3"')
+print('version_renderer = "5.5.3"')
+print('version_common = "5.5.3"')
+print('version_model = "5.5.3"')
+print('version_gateway = "5.6.2"')
+print('version_insight = "5.5.8"')
+print('version_matlab = "5.5.3"')
+print('version_dsl_plugin = "5.5.0"')
+print('version_blitz_plugin = "5.5.0"')
+print('version_ice_builder = "1.5.0"')
+print('version_py = "5.6.0"')
+print('version_web = "5.6.1"')
+print('version_dropbox = "5.6.1"')

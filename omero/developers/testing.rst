@@ -25,31 +25,24 @@ the Java tests.
 Running tests
 -------------
 
-
 Running unit tests
 ^^^^^^^^^^^^^^^^^^
 
-The unit testing framework is fairly simple. Only methods which contain
-logic written within OMERO are tested. This means that framework
-functionality like remoting or the Hibernate layer is not tested. This is a
-part of integration testing (see below).
+Starting from version 5.5, components have been migrated to their own repository.
 
-You can run the unit tests for any component from its directory by
-entering:
+The following repositories use `Gradle <https://gradle.org/>`_ to run the unit tests:
+  - :omero_subs_github_repo_root:`omero-model`
+  - :omero_subs_github_repo_root:`omero-common`
+  - :omero_subs_github_repo_root:`omero-romio`
+  - :omero_subs_github_repo_root:`omero-renderer`
+  - :omero_subs_github_repo_root:`omero-server`
+  - :omero_subs_github_repo_root:`omero-blitz`
+  - :omero_subs_github_repo_root:`omero-gateway-java`
 
-::
+The following repositories use `pytest <https://docs.pytest.org/en/latest/>`_ to run the unit tests:
+  - :omero_subs_github_repo_root:`omero-py`
+  - :omero_subs_github_repo_root:`omero-web`
 
-    ./build.py -f components/<component>/build.xml test
-
-The same can be done for all components using:
-
-::
-
-    ./build.py test-unit
-
-Note that for tests written in Python the package `pytest` must be installed,
-see :ref:`writing-python-tests`. Also note that some Python tests are excluded
-by default, see :ref:`using-markers-in-python-tests` for more details.
 
 Running integration tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -106,16 +99,9 @@ explicitly via:
 
 Results are placed in ``components/<component>/target/reports``.
 
+
 Individual tests
 """"""""""""""""
-
-Alternatively, you can run individual tests which you may currently be
-working on. This can be done using the ``test`` target. For example:
-
-::
-
-    ./build.py -f components/tools/OmeroJava/build.xml test -DTEST=integration/chown/PermissionsTest
-    ./build.py -f components/tools/OmeroPy/build.xml test -DTEST=test/integration/test_admin.py
 
 .. warning::
     Some integration tests leak file descriptors. If many tests are run
@@ -127,29 +113,41 @@ working on. This can be done using the ``test`` target. For example:
 Running Java tests
 ^^^^^^^^^^^^^^^^^^
 
+Individual tests
+""""""""""""""""
+
+Alternatively, you can run individual tests which you may currently be
+working on using the ``--tests`` parameter. The test class must be provided
+in the fully qualified name form.
+
+::
+
+    cd components/tools/OmeroJava
+    gradle test --tests "integration.gateway.AdminFacilityTest"
+
+
 Individual test class methods
 """""""""""""""""""""""""""""
 
 
-Individual OmeroJava test class methods (or a comma-separated list of
-methods) can be run using the ``-DMETHODS`` parameter together with
-the ``test`` target. The test method must be provided in the fully
-qualified name form (``-Dpackage.class.method``).
+Individual OmeroJava test class methods can be run using the 
+``--tests`` parameter. The test method must be provided in the fully
+qualified name form.
 
 ::
 
-    ./build.py -f components/tools/OmeroJava/build.xml test -DMETHODS=integration.chgrp.AnnotationMoveTest.testMoveTaggedImage
+    cd components/tools/OmeroJava
+    gradle test --tests "integration.chgrp.AnnotationMoveTest.testMoveTaggedImage"
 
 Individual test groups
 """"""""""""""""""""""
 
-To run individual OmeroJava test groups (or comma-separated sets of groups)
-of tests, the ``-DGROUPS`` parameter can be used together with the
-``test`` target
+To run individual OmeroJava test groups the ``--tests`` parameter.
 
 ::
 
-    ./build.py -f components/tools/OmeroJava/build.xml test -DGROUPS=integration
+    cd components/tools/OmeroJava
+    gradle test --tests "integration.*"
 
 
 Using Eclipse to run tests
@@ -157,7 +155,7 @@ Using Eclipse to run tests
 
 To facilitate importing OMERO components into Eclipse, there are
 :file:`.project` and :file:`.classpath-template` files stored in each
-component directory (e.g. :common_sourcedir:`common <>`'s
+component directory (e.g. :file:`tools/OmeroJava`'s
 :file:`.project` and :file:`.classpath-template`).
 
 There are also top-level :file:`.classpath` and :file:`.project` files which
@@ -212,8 +210,8 @@ OMERO listen on port 8787 for a debugging connection.
 
 ::
 
-    bin/omero admin stop
-    bin/omero admin start debug
+    omero admin stop
+    omero admin start debug
 
 Then in Eclipse, you can create a new "Debug" configuration by clicking
 on :guilabel:`Remote Java Application`, and setting the port to 8787. These
@@ -268,25 +266,38 @@ Running tests directly
 """"""""""""""""""""""
 
 When writing tests it can be more convenient, flexible and powerful to run the
-tests from :sourcedir:`components/tools/OmeroPy` using
-:program:`setup.py test`.
+tests from :sourcedir:`components/tools/OmeroPy` or
+:sourcedir:`components/tools/OmeroWeb` using :program:`pytest`.
 Since Python is interpreted, tests can be written and then run without having
 to rebuild or restart the server. A few basic options are shown below.
 
-.. program:: setup.py test
+First create a python virtual environment
+as described on the :doc:`OMERO Python </developers/Python>` page,
+including ``omero-py`` and ``omero-web`` if you want to run OmeroWeb tests.
+Some tests also require the installation of PyTables.
 
-.. option:: -t <test_path>, --test-path <test_path>
+Then install some additional test dependencies::
 
-    This option specifies the test suite to run. For instance to run a single
-    test file::
+    $ pip install pytest mox3 pyyaml tables
 
-        cd components/tools/OmeroPy
-        ./setup.py test -t test/integration/test_admin.py
+    # for Omeroweb tests
+    $ pip install pytest-django
 
-    Or to run all tests under a given folder::
+Run tests directly with pytest, setting the :envvar:`ICE_CONFIG` as described above.
+Also set :envvar:`OMERODIR` to point to the OMERO.server::
 
-        cd components/tools/OmeroPy
-        ./setup.py test -t test/integration/clitest
+    export ICE_CONFIG=/path/to/openmicroscopy/etc/ice.config
+    export OMERODIR=/path/to/OMERO.server-x.x.x-ice36-bxx
+
+    cd components/tools/OmeroPy
+    pytest test/integration/test_admin.py
+
+    # OR for OmeroWeb tests:
+    cd components/tools/OmeroWeb
+
+    pytest test/integration/test_annotate.py
+
+.. program:: pytest
 
 .. option:: -k <string>
 
@@ -294,63 +305,42 @@ to rebuild or restart the server. A few basic options are shown below.
     their names. For example, to run all the tests under
     :file:`test/integration` with `permissions` in their names::
 
-        ./setup.py test -t test/integration -k permissions
+        pytest test/integration -k permissions
 
     This option can also be used to run a named test within a test module::
 
-        ./setup.py test -t test/integration/test_admin.py -k testGetGroup
+        pytest test/integration/test_admin.py -k testGetGroup
 
 .. option:: -m <marker>
 
     This option will run integration tests depending on the markers they are
     decorated with. Available markers can be listed using the
-    :option:`setup.py test --markers` option.
+    :option:`pytest --markers` option.
     For example, to run all integration tests excluding those decorated with
     the marker `broken`::
 
-        ./setup.py test -t test/integration -m "not broken"
+        pytest test/integration -m "not broken"
 
 .. option:: --markers
 
     This option lists available markers for decorating tests::
 
-        ./setup.py test --markers
+        pytest --markers
 
 .. option:: -s
 
     This option allows the standard output to be shown on the console::
 
-        ./setup.py test -t test/integration/test_admin.py -s
+        pytest test/integration/test_admin.py -s
 
 .. option:: -h, --help
 
     This option displays the full list of available options::
 
-        ./setup.py test -h
+        pytest -h
 
-To make use of the more advanced options available in `pytest` that are not
-accessible using :program:`setup.py test`, the :program:`py.test` script can
-be used directly. To use this :envvar:`PYTHONPATH` must contain the path to
-the OMERO Python libraries, see |BlitzGateway| as well as the  path to the
-:sourcedir:`OMERO Python test library <components/tools/OmeroPy/src/omero/testlib/>`.
-Alternatively, the `pytest` plugin :pypi:`pytest-pythonpath` can be used to
-add paths to :envvar:`PYTHONPATH` specifically for `pytest`.
-
-.. program:: py.test
-
-.. option:: --repeat <number>
-
-    This option allows to repeat tests for *number* occurences::
-
-        py.test --repeat 20 test/unit/fstest
-
-.. option:: -h, --help
-
-    This option displays the full list of options::
-
-        py.test --help
-
-and `<https://pytest.org/latest/usage.html>`_ for more help in running tests.
+See `<https://pytest.org/en/latest/usage.html>`_ for more help in
+running tests.
 
 Failing tests
 ^^^^^^^^^^^^^
@@ -373,7 +363,7 @@ Writing tests
 Writing Java tests
 ^^^^^^^^^^^^^^^^^^
 
-For more information on writing tests in general see `<https://testng.org>`_.
+For more information on writing tests in general see `<https://testng.org/>`_.
 For a test to be an "integration" test, place it in the "integration"
 TestNG group. If a test is temporarily broken, add it to the "broken" group:
 
@@ -437,15 +427,20 @@ To write and run Python tests you first need to install `pytest`:
 
     pip install pytest
 
-For more information on writing tests in general see `<https://pytest.org>`_.
+For more information on writing tests in general see `<https://pytest.org/>`_.
 
-Similar to the OmeroJava tests, the tests under
+Unit tests can be found in various repositories such as
+:py_sourcedir:`omero-py <test/unit>`,
+:web_sourcedir:`omero-web <test/unit>`, and
+:dropbox_sourcedir:`omero-dropbox <test/unit>`.
+
+Integration tests which require OMERO.server to run are found in the
+``openmicroscopy`` repository. See:
 :sourcedir:`components/tools/OmeroPy/test`,
-:sourcedir:`components/tools/OmeroFS/test` and
-:sourcedir:`components/tools/OmeroWeb/test` will be the starting point
-for most Python-client developers coming to OMERO. Integration tests should
-be placed under the :file:`integration` subfolders. The file names must begin
-with `test_` for the tests to be found by `pytest`.
+:sourcedir:`components/tools/OmeroWeb/test` and
+:sourcedir:`components/tools/OmeroFS/test`.
+
+The file names must begin with `test_` for the tests to be found by `pytest`.
 
 ::
 
@@ -475,8 +470,8 @@ markers can be simply defined as they are used. However, to centralize the use
 of custom markers they should be defined in
 :sourcedir:`components/tools/pytest.ini`.
 
-To view all available markers the :option:`setup.py test --markers` option can
-be used with :program:`setup.py test` or :program:`py.test` as detailed in
+To view all available markers the :option:`pytest --markers` option can
+be used with :program:`pytest` or :program:`py.test` as detailed in
 :ref:`running-python-tests-directly`.
 
 There is one custom marker defined:
@@ -503,7 +498,7 @@ There is one custom marker defined:
 Using the Python test library
 """""""""""""""""""""""""""""
 
-The :source:`OMERO Python test library <components/tools/OmeroPy/src/omero/testlib/__init__.py>`
+The `OMERO Python test library <https://github.com/ome/omero-py/blob/master/src/omero/testlib/__init__.py>`_
 defines an abstract ``ITest`` class that implements the connection set up as
 well as many methods shared amongst all Python integration tests.
 
@@ -566,7 +561,7 @@ Images can be imported using the ``ITest.import_fake_file()`` method::
 Writing OMERO.web tests
 """""""""""""""""""""""
 
-For OMERO.web integration tests, the :source:`OMERO.web test library <components/tools/OmeroWeb/omeroweb/testlib/__init__.py>`
+For OMERO.web integration tests, the `OMERO.web test library <https://github.com/ome/omero-web/blob/master/omeroweb/testlib/__init__.py>`_
 defines an abstract ``IWebTest`` class that inherits from ``ITest`` and
 also implements Django clients at the class setup using the
 :djangodoc:`Django testing tools <topics/testing/tools>`.

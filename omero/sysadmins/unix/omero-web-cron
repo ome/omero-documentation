@@ -1,0 +1,7 @@
+#!/bin/bash
+
+OMERO_USER=omero-web
+OMERODIR=/opt/omero/web/omero-web
+VIRTUALENV=/opt/omero/web/venv3
+
+su - ${OMERO_USER} -c ". ${VIRTUALENV}/bin/activate;OMERODIR=${OMERODIR} omero web clearsessions"
