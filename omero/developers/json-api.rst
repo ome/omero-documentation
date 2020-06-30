@@ -1197,8 +1197,8 @@ ROIs and Shapes
 
 Support for listing ROIs was added in API version 0.1.
 ROIs are linked to Images and contain one or more Shapes. Types of
-shape are Rectangle, Ellipse, Point, Line, Polyline, Polygon and
-Label. The Mask type is not currently supported by omero-marshal.
+shape are Rectangle, Ellipse, Point, Line, Polyline, Polygon, Label
+and Mask.
 
 List ROIs
 ^^^^^^^^^
@@ -1276,6 +1276,169 @@ you can also show ROIs on an Image using this URL:
 ::
 
     GET     /api/v0/m/images/{image_id}/rois/
+
+
+Experimenters and ExperimenterGroups
+-------------------------------------
+
+Support for listing ROIs was added in API version 0.2.
+Experimenters are users of OMERO and can belong to one or more ExperimenterGroups.
+
+Listing Experimenters
+^^^^^^^^^^^^^^^^^^^^^
+
+OMERO will only allow you to access details of Experimenters who are members of
+a non-private group that you are also a member of.
+
+**Parameters**
+
+::
+
+    Name                  Type        Description
+    ------------------------------------------------------------------
+    experimentergroup     Number      Filter Experimenters by Group
+
+
+These query parameters are also supported (see above):
+
+::
+
+    offset, limit
+
+::
+
+    GET     /api/v0/m/experimenters/
+
+**Response**
+
+::
+
+    {
+      "data": [
+        {
+          "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#Experimenter",
+          "@id": 10,
+          "omero:details": {
+            "@type": "TBD#Details",
+            "permissions": {
+              "@type": "TBD#Permissions",
+              "perm": "------",
+              "canAnnotate": true,
+              "canDelete": false,
+              "canEdit": false,
+              "canLink": true,
+              "isWorldWrite": false,
+              "isWorldRead": false,
+              "isGroupWrite": false,
+              "isGroupRead": false,
+              "isGroupAnnotate": false,
+              "isUserWrite": false,
+              "isUserRead": false
+            }
+          },
+          "FirstName": "Ben",
+          "LastName": "Nevis",
+          "UserName": "ben",
+          "url:experimenter": "http://server.openmicroscopy.org/web/api/v0/m/experimenters/10/",
+          "url:experimentergroups": "http://server.openmicroscopy.org/web/api/v0/m/experimenters/10/experimentergroups/"
+        },
+      ]
+    }
+
+Get a single Experimenter
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Load an Experimenter with:
+
+::
+
+    GET   /api/v0/m/experimenters/{experimenter_id}/
+
+Experimenters in a Group
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Experimenters can be filtered by ExperimenterGroup using the ``?experimentergroup=id`` query string but
+you can also show Members of an ExperimenterGroup using this URL:
+
+::
+
+    GET     /api/v0/m/experimentergroups/{group_id}/experimenters/
+
+
+Listing ExperimenterGroups
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Parameters**
+
+::
+
+    Name             Type        Description
+    ------------------------------------------------------------------
+    experimenter     Number      Filter Groups by Experimenter
+
+
+These query parameters are also supported (see above):
+
+::
+
+    offset, limit
+
+::
+
+    GET     /api/v0/m/experimentergroups/
+
+**Response**
+
+::
+
+    {
+      "data": [
+        {
+          "@type": "http://www.openmicroscopy.org/Schemas/OME/2016-06#ExperimenterGroup",
+          "@id": 10,
+          "omero:details": {
+            "@type": "TBD#Details",
+            "permissions": {
+              "@type": "TBD#Permissions",
+              "perm": "------",
+              "canAnnotate": true,
+              "canDelete": false,
+              "canEdit": false,
+              "canLink": true,
+              "isWorldWrite": false,
+              "isWorldRead": false,
+              "isGroupWrite": false,
+              "isGroupRead": false,
+              "isGroupAnnotate": false,
+              "isUserWrite": false,
+              "isUserRead": false
+            }
+          },
+          "Name": "Swedlow Lab",
+          "url:experimentergroup": "http://server.openmicroscopy.org/web/api/v0/m/experimentergroups/10/",
+          "url:experimenters": "http://server.openmicroscopy.org/web/api/v0/m/experimentergroups/10/experimenters/"
+        },
+      ]
+    }
+
+Get a single ExperimenterGroup
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Load an ExperimenterGroup with:
+
+::
+
+    GET   /api/v0/m/experimentergroups/{group_id}/
+
+ExperimenterGroups for an Experimenter
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Groups can be filtered by Experimenter using the ``?experimenter=id`` query string but
+you can also show ExperimenterGroups that an Experimenter belongs to using this URL:
+
+::
+
+    GET     /api/v0/m/experimenters/{experimenter_id}/experimentergroups
 
 
 Creating and saving objects
