@@ -20,10 +20,6 @@ Since 5.6, a new :envvar:`OMERODIR` variable is used, you should first unset :en
   Instructions for installing OMERO.server from scratch on
   CentOS 7 with Ice 3.6 and Python 3.6.
 
-:doc:`server-centos8-ice36`
-  Instructions for installing OMERO.server from scratch on
-  CentOS 8 with Ice 3.6 and Python 3.6.
-
 :doc:`server-debian10-ice36`
   Instructions for installing OMERO.server from scratch on
   Debian 10 with Ice 3.6 and Python 3.7.
@@ -32,11 +28,16 @@ Since 5.6, a new :envvar:`OMERODIR` variable is used, you should first unset :en
   Instructions for installing OMERO.server from scratch on
   Ubuntu 18.04 with Ice 3.6 and Python 3.6.
 
+
+**Upcoming:**
+
+:doc:`server-centos8-ice36`
+  Instructions for installing OMERO.server from scratch on
+  CentOS 8 with Ice 3.6 and Python 3.6.
+
 :doc:`server-ubuntu2004-ice36`
   Instructions for installing OMERO.server from scratch on
   Ubuntu 20.04 with Ice 3.6 and Python 3.8.
-
-**Upcoming:**
 
 :doc:`server-debian9-ice36`
   Instructions for installing OMERO.server from scratch on
