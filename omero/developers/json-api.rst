@@ -46,7 +46,7 @@ version number can be found in the header:
 
 ::
 
-    X-OMERO-ApiVersion: 0.1
+    Current Version : 0.2
 
 
 JSON format
@@ -1197,8 +1197,8 @@ ROIs and Shapes
 
 Support for listing ROIs was added in API version 0.1.
 ROIs are linked to Images and contain one or more Shapes. Types of
-shape are Rectangle, Ellipse, Point, Line, Polyline, Polygon, Label
-and Mask.
+shape are Ellipse, Label, Line, Mask, Point, Polygon, Polyline
+and Rectangle.
 
 List ROIs
 ^^^^^^^^^
@@ -1278,17 +1278,18 @@ you can also show ROIs on an Image using this URL:
     GET     /api/v0/m/images/{image_id}/rois/
 
 
-Experimenters and ExperimenterGroups
+Experimenters and Groups
 -------------------------------------
 
-Support for listing ROIs was added in API version 0.2.
-Experimenters are users of OMERO and can belong to one or more ExperimenterGroups.
+Support for listing Experimenters and Groups was added in API version 0.2.
+Experimenters are users of OMERO and can belong to one or more Groups.
+Groups are defined as ExperimenterGroups in the OME model.
 
 Listing Experimenters
 ^^^^^^^^^^^^^^^^^^^^^
 
 OMERO will only allow you to access details of Experimenters who are members of
-a non-private group that you are also a member of.
+a **non-private** group that you are also a member of.
 
 **Parameters**
 
@@ -1357,16 +1358,16 @@ Load an Experimenter with:
 Experimenters in a Group
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Experimenters can be filtered by ExperimenterGroup using the ``?experimentergroup=id`` query string but
-you can also show Members of an ExperimenterGroup using this URL:
+Experimenters can be filtered by Group using the ``?experimentergroup=id`` query string but
+you can also show Members of a Group using this URL:
 
 ::
 
     GET     /api/v0/m/experimentergroups/{group_id}/experimenters/
 
 
-Listing ExperimenterGroups
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Listing Groups
+^^^^^^^^^^^^^^
 
 **Parameters**
 
@@ -1421,17 +1422,17 @@ These query parameters are also supported (see above):
       ]
     }
 
-Get a single ExperimenterGroup
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Get a single Group
+^^^^^^^^^^^^^^^^^^
 
-Load an ExperimenterGroup with:
+Load a Group with:
 
 ::
 
     GET   /api/v0/m/experimentergroups/{group_id}/
 
-ExperimenterGroups for an Experimenter
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Groups for an Experimenter
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Groups can be filtered by Experimenter using the ``?experimenter=id`` query string but
 you can also show ExperimenterGroups that an Experimenter belongs to using this URL:
