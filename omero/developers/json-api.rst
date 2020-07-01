@@ -1279,7 +1279,7 @@ you can also show ROIs on an Image using this URL:
 
 
 Experimenters and Groups
--------------------------------------
+------------------------
 
 Support for listing Experimenters and Groups was added in API version 0.2.
 Experimenters are users of OMERO and can belong to one or more Groups.
