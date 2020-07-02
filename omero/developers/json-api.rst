@@ -46,7 +46,7 @@ version number can be found in the header:
 
 ::
 
-    Current Version : 0.2
+    X-OMERO-ApiVersion : 0.2
 
 
 JSON format
