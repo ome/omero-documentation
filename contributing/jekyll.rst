@@ -111,7 +111,7 @@ html.
 Once a PR is open against the ‘master’ branch and has passed Travis, you can
 build the staging site for review by triggering the
 :jenkinsjob:`OME-help-staging` job. The
-site will be viewable at `<https://help.staging.openmicroscopy.org>`_.
+site will be viewable at `<https://snoopycrimecop.github.io/ome-help>`_.
 
 Once the PR is merged, running the :jenkinsjob:`OME-help-release` build will
 open a PR to transfer the content to the ‘gh-pages’ branch. Once that PR is

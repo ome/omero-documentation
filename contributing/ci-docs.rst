@@ -223,7 +223,7 @@ The following set of jobs is used to review or publish the content of the
 		   to allow	 deployment to a non-GitHub URL) then pushes the resulting
 		   branch to :omehelp_scc_branch:`gh-pages`
 		#. The GitHub Pages service updates the content of
-		   https://help.staging.openmicroscopy.org
+		   https://snoopycrimecop.github.io/ome-help
 
 	:jenkinsjob:`OME-help-release`
 
