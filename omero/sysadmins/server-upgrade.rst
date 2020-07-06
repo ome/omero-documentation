@@ -71,6 +71,10 @@ directory, e.g. :file:`/OMERO/BioFormatsCache`. You may see error messages in
 your log files when an old memoization file is found; to avoid these messages
 delete everything under this directory before starting the upgraded server.
 
+It is possible to regenerate the memoization files before the user loads an image 
+for the first time. For more information, read 
+`MemoFileRegenerationReadMe.md <https://github.com/glencoesoftware/omero-ms-image-region/blob/0.5.x/src/dist/MemoFileRegenerationReadMe.md>`_.  
+
 Troubleshooting
 ^^^^^^^^^^^^^^^
 
