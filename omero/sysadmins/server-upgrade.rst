@@ -73,7 +73,7 @@ delete everything under this directory before starting the upgraded server.
 
 It is possible to regenerate the memoization files before the user loads an image 
 for the first time. For more information, read 
-`MemoFileRegenerationReadMe.md <https://github.com/glencoesoftware/omero-ms-image-region/blob/0.5.x/src/dist/MemoFileRegenerationReadMe.md>`_.  
+`MemoFileRegenerationReadMe.md <https://github.com/glencoesoftware/omero-ms-image-region/tree/v0.5.1/src/dist/MemoFileRegenerationReadMe.md>`_.  
 
 Troubleshooting
 ^^^^^^^^^^^^^^^
