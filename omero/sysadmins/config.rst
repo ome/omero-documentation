@@ -1142,7 +1142,7 @@ Performance
 
 omero.sessions.max_user_time_to_idle
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Sets the maximum duration a user can request before a login
+Sets the maximum duration in milliseconds a user can request before a login
 is required due to inactivity.
 
 Default: `6000000`
@@ -1151,7 +1151,7 @@ Default: `6000000`
 
 omero.sessions.max_user_time_to_live
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Sets the maximum duration a user can request before a login
+Sets the maximum duration in milliseconds a user can request before a login
 is required (0 signifies never).
 
 Default: `0`
