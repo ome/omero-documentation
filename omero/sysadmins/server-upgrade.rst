@@ -310,6 +310,18 @@ Your memory settings should be copied along with :file:`etc/grid/config.xml`,
 but you can check the current settings by running :program:`omero admin jvmcfg`.
 See :ref:`jvm_memory_settings` for more information.
 
+Dependencies
+^^^^^^^^^^^^
+
+While upgrading the server you should keep OMERO.py dependencies
+up to date to ensure that security updates are applied:
+
+.. parsed-literal::
+
+      $ # first, activate virtualenv where omero-py is installed. Then upgrade:
+      $ pip install --upgrade 'omero-py>=\ |version_py|'
+
+
 Restart your server
 ^^^^^^^^^^^^^^^^^^^
 
@@ -317,7 +329,6 @@ Restart your server
 
    .. parsed-literal::
 
-       $ # activate virtualenv where omero-py is installed
        $ omero admin start
 
 -  If anything goes wrong, please send the output of

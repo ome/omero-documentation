@@ -1,8 +1,8 @@
-usage: omero ldap setdn [-h] [--user-id USER_ID] [--user-name USER_NAME]
-                             [--group-id GROUP_ID] [--group-name GROUP_NAME]
-                             [-C] [-s SERVER] [-p PORT] [-g GROUP] [-u USER]
-                             [-w PASSWORD] [-k KEY] [--sudo ADMINUSER] [-q]
-                             choice
+usage: omero ldap setdn
+       [-h] [--user-id USER_ID] [--user-name USER_NAME] [--group-id GROUP_ID]
+       [--group-name GROUP_NAME] [-C] [-s SERVER] [-p PORT] [-g GROUP]
+       [-u USER] [-w PASSWORD] [-k KEY] [--sudo ADMINUSER] [-q]
+       choice
 
 Enable or disable LDAP login for user (admins only)
 

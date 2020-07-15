@@ -1138,10 +1138,30 @@ Default: `60`
 Performance
 -----------
 
+.. property:: omero.sessions.max_user_time_to_idle
+
+omero.sessions.max_user_time_to_idle
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Sets the maximum duration in milliseconds a user can request before a login
+is required due to inactivity.
+
+Default: `6000000`
+
+.. property:: omero.sessions.max_user_time_to_live
+
+omero.sessions.max_user_time_to_live
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Sets the maximum duration in milliseconds a user can request before a login
+is required (0 signifies never).
+
+Default: `0`
+
 .. property:: omero.sessions.maximum
 
 omero.sessions.maximum
 ^^^^^^^^^^^^^^^^^^^^^^
+Sets the default duration before a login is required; 0
+signifies never.
 
 Default: `0`
 
@@ -1163,8 +1183,8 @@ Default: `120000`
 
 omero.sessions.timeout
 ^^^^^^^^^^^^^^^^^^^^^^
-Sets the duration of inactivity in milliseconds after which
-a login is required.
+Sets the default duration of inactivity in milliseconds after
+which a login is required.
 
 Default: `600000`
 
@@ -1390,6 +1410,16 @@ data types where no pyramid will be generated.
 
 Default: `3192`
 
+.. property:: omero.pixeldata.max_projection_bytes
+
+omero.pixeldata.max_projection_bytes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Specifies the maximum number of bytes the server will
+allow to be projected in real time with the rendering
+engine.
+
+Default: `268435456`
+
 .. property:: omero.pixeldata.memoizer.dir
 
 omero.pixeldata.memoizer.dir
@@ -1524,8 +1554,9 @@ is possible.
 
 Configuration properties of the same name can be applied
 to individual groups as well. E.g. adding,
-omero.policy.binary_access=-read to a group, you can
-prevent group-members from downloading original files.
+omero.policy.binary_access=-read to a group's ``config`` property,
+you can prevent group-members from downloading original files, as at
+https://docs.openmicroscopy.org/latest/omero/sysadmins/customization.html#download-restrictions
 
 Configuration is pessimistic: if there is a negative
 *either* on the group *or* at the server-level, the
@@ -2006,7 +2037,7 @@ omero.version
 ^^^^^^^^^^^^^
 Value dynamically set during the build
 
-Default: `5.5.5`
+Default: `5.6.2`
 
 
 .. _web_configuration:
@@ -2034,7 +2065,7 @@ Default: `wsgi-tcp`
 
 omero.web.application_server.host
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Upstream application host
+The front-end webserver e.g. NGINX can be set up to run on a different host from OMERO.web. The property ensures that OMERO.web is accessible on an external IP. It requires copying all the OMERO.web static files to the separate NGINX server.
 
 Default: `127.0.0.1`
 
@@ -2076,7 +2107,7 @@ omero.web.caches
 ^^^^^^^^^^^^^^^^
 OMERO.web offers alternative session backends to automatically delete stale data using the cache session store backend, see :djangodoc:`Django cached session documentation <topics/http/sessions/#using-cached-sessions>` for more details.
 
-Default: `{"default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache"}}`
+Default: `{\\"default\\": {\\"BACKEND\\": \\"django.core.cache.backends.dummy.DummyCache\\"}}`
 
 .. property:: omero.web.chunk_size
 
@@ -2228,7 +2259,7 @@ omero.web.middleware
 ^^^^^^^^^^^^^^^^^^^^
 Warning: Only system administrators should use this feature. List of Django middleware classes in the form [{"class": "class.name", "index": FLOAT}]. See :djangodoc:`Django middleware <topics/http/middleware/>`. Classes will be ordered by increasing index
 
-Default: `[{"index": 1, "class": "django.middleware.common.BrokenLinkEmailsMiddleware"},{"index": 2, "class": "django.middleware.common.CommonMiddleware"},{"index": 3, "class": "django.contrib.sessions.middleware.SessionMiddleware"},{"index": 4, "class": "django.middleware.csrf.CsrfViewMiddleware"},{"index": 5, "class": "django.contrib.messages.middleware.MessageMiddleware"},{"index": 6, "class": "django.middleware.clickjacking.XFrameOptionsMiddleware"}]`
+Default: `[{\\"index\\": 1, \\"class\\": \\"django.middleware.common.BrokenLinkEmailsMiddleware\\"},{\\"index\\": 2, \\"class\\": \\"django.middleware.common.CommonMiddleware\\"},{\\"index\\": 3, \\"class\\": \\"django.contrib.sessions.middleware.SessionMiddleware\\"},{\\"index\\": 4, \\"class\\": \\"django.middleware.csrf.CsrfViewMiddleware\\"},{\\"index\\": 5, \\"class\\": \\"django.contrib.messages.middleware.MessageMiddleware\\"},{\\"index\\": 6, \\"class\\": \\"django.middleware.clickjacking.XFrameOptionsMiddleware\\"}]`
 
 .. property:: omero.web.nginx_server_extra_config
 
@@ -2244,7 +2275,7 @@ omero.web.open_with
 ^^^^^^^^^^^^^^^^^^^
 A list of viewers that can be used to display selected Images or other objects. Each viewer is defined as ``["Name", "url", options]``. Url is reverse(url). Selected objects are added to the url as ?image=:1&image=2Objects supported must be specified in options with e.g. ``{"supported_objects":["images"]}`` to enable viewer for one or more images.
 
-Default: `[["Image viewer", "webgateway", {"supported_objects": ["image"],"script_url": "webclient/javascript/ome.openwith_viewer.js"}]]`
+Default: `[[\\"Image viewer\\", \\"webgateway\\", {\\"supported_objects\\": [\\"image\\"],\\"script_url\\": \\"webclient/javascript/ome.openwith_viewer.js\\"}]]`
 
 .. property:: omero.web.page_size
 
@@ -2366,6 +2397,14 @@ Username to use during authentication.
 
 Default: `None`
 
+.. property:: omero.web.root_application
+
+omero.web.root_application
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+Override the root application label that handles ``/``. **Warning** you must ensure the application's URLs do not conflict with other applications. omero-gallery is an example of an application that can be used for this (set to ``gallery``)
+
+Default: `[empty]`
+
 .. property:: omero.web.secret_key
 
 omero.web.secret_key
@@ -2396,7 +2435,7 @@ omero.web.server_list
 ^^^^^^^^^^^^^^^^^^^^^
 A list of servers the Web client can connect to.
 
-Default: `[["localhost", 4064, "omero"]]`
+Default: `[[\\"localhost\\", 4064, \\"omero\\"]]`
 
 .. property:: omero.web.session_cookie_age
 
@@ -2532,7 +2571,7 @@ omero.web.ui.metadata_panes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Manage Metadata pane accordion. This functionality is limited to the existing sections.
 
-Default: `[{"name": "tag", "label": "Tags", "index": 1},{"name": "map", "label": "Key-Value Pairs", "index": 2},{"name": "table", "label": "Tables", "index": 3},{"name": "file", "label": "Attachments", "index": 4},{"name": "comment", "label": "Comments", "index": 5},{"name": "rating", "label": "Ratings", "index": 6},{"name": "other", "label": "Others", "index": 7}]`
+Default: `[{\\"name\\": \\"tag\\", \\"label\\": \\"Tags\\", \\"index\\": 1},{\\"name\\": \\"map\\", \\"label\\": \\"Key-Value Pairs\\", \\"index\\": 2},{\\"name\\": \\"table\\", \\"label\\": \\"Tables\\", \\"index\\": 3},{\\"name\\": \\"file\\", \\"label\\": \\"Attachments\\", \\"index\\": 4},{\\"name\\": \\"comment\\", \\"label\\": \\"Comments\\", \\"index\\": 5},{\\"name\\": \\"rating\\", \\"label\\": \\"Ratings\\", \\"index\\": 6},{\\"name\\": \\"other\\", \\"label\\": \\"Others\\", \\"index\\": 7}]`
 
 .. property:: omero.web.ui.right_plugins
 
@@ -2540,7 +2579,7 @@ omero.web.ui.right_plugins
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 Add plugins to the right-hand panel. Plugins are ``['Label', 'include.js', 'div_id']``. The javascript loads data into ``$('#div_id')``.
 
-Default: `[["Acquisition", "webclient/data/includes/right_plugin.acquisition.js.html", "metadata_tab"],["Preview", "webclient/data/includes/right_plugin.preview.js.html", "preview_tab"]]`
+Default: `[[\\"Acquisition\\", \\"webclient/data/includes/right_plugin.acquisition.js.html\\", \\"metadata_tab\\"],[\\"Preview\\", \\"webclient/data/includes/right_plugin.preview.js.html\\", \\"preview_tab\\"]]`
 
 .. property:: omero.web.ui.top_links
 
@@ -2548,7 +2587,7 @@ omero.web.ui.top_links
 ^^^^^^^^^^^^^^^^^^^^^^
 Add links to the top header: links are ``['Link Text', 'link|lookup_view', options]``, where the url is reverse('link'), simply 'link' (for external urls) or lookup_view is a detailed dictionary {"viewname": "str", "args": [], "query_string": {"param": "value" }], E.g. ``'["Webtest", "webtest_index"] or ["Homepage", "http://...", {"title": "Homepage", "target": "new"} ] or ["Repository", {"viewname": "webindex", "query_string": {"experimenter": -1}}, {"title": "Repo"}]'``
 
-Default: `[["Data", "webindex", {"title": "Browse Data via Projects, Tags etc"}],["History", "history", {"title": "History"}],["Help", "https://help.openmicroscopy.org/",{"title":"Open OMERO user guide in a new tab", "target":"new"}]]`
+Default: `[[\\"Data\\", \\"webindex\\", {\\"title\\": \\"Browse Data via Projects, Tags etc\\"}],[\\"History\\", \\"history\\", {\\"title\\": \\"History\\"}],[\\"Help\\", \\"https://help.openmicroscopy.org/\\",{\\"title\\":\\"Open OMERO user guide in a new tab\\", \\"target\\":\\"new\\"}]]`
 
 .. property:: omero.web.use_x_forwarded_host
 
