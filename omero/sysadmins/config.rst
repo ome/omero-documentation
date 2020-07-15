@@ -1554,8 +1554,9 @@ is possible.
 
 Configuration properties of the same name can be applied
 to individual groups as well. E.g. adding,
-omero.policy.binary_access=-read to a group, you can
-prevent group-members from downloading original files.
+omero.policy.binary_access=-read to a group's ``config`` property,
+you can prevent group-members from downloading original files, as at
+https://docs.openmicroscopy.org/latest/omero/sysadmins/customization.html#download-restrictions
 
 Configuration is pessimistic: if there is a negative
 *either* on the group *or* at the server-level, the
@@ -2036,7 +2037,7 @@ omero.version
 ^^^^^^^^^^^^^
 Value dynamically set during the build
 
-Default: `5.5.6`
+Default: `5.6.2`
 
 
 .. _web_configuration:
@@ -2064,7 +2065,7 @@ Default: `wsgi-tcp`
 
 omero.web.application_server.host
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Upstream application host
+The front-end webserver e.g. NGINX can be set up to run on a different host from OMERO.web. The property ensures that OMERO.web is accessible on an external IP. It requires copying all the OMERO.web static files to the separate NGINX server.
 
 Default: `127.0.0.1`
 
@@ -2395,6 +2396,14 @@ omero.web.public.user
 Username to use during authentication.
 
 Default: `None`
+
+.. property:: omero.web.root_application
+
+omero.web.root_application
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+Override the root application label that handles ``/``. **Warning** you must ensure the application's URLs do not conflict with other applications. omero-gallery is an example of an application that can be used for this (set to ``gallery``)
+
+Default: `[empty]`
 
 .. property:: omero.web.secret_key
 

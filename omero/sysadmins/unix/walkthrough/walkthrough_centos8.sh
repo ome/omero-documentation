@@ -12,6 +12,7 @@ yum -y install java-11-openjdk
 # install dependencies
 
 yum -y install python3
+yum -y install openssl
 #end-step01
 # install Ice
 #start-recommended-ice
@@ -33,7 +34,7 @@ ldconfig
 
 
 # install Postgres
-dnf module disable -y postgresql
+yum module disable -y postgresql
 yum -y install https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm
 yum -y install postgresql11-server postgresql11
 
@@ -68,8 +69,8 @@ python3 -mvenv $VENV_SERVER
 # Install the Ice Python binding
 $VENV_SERVER/bin/pip install https://github.com/ome/zeroc-ice-centos8/releases/download/0.0.1/zeroc_ice-3.6.5-cp36-cp36m-linux_x86_64.whl
 
-# Install pytables
-$VENV_SERVER/bin/pip install tables
+# Install server dependencies
+$VENV_SERVER/bin/pip install omero-server[default]
 #end-step03bis
 
 #start-step04-pre: As root, install omero-py and download the OMERO.server
@@ -99,7 +100,7 @@ psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < $OMERODIR/db.sql
 #end-step04
 #start-patch-openssl
 #start-seclevel
-omero config set omero.glacier2.IceSSL.Ciphers HIGH:ADH:@SECLEVEL=0
+omero certificates
 #end-seclevel
 #end-patch-openssl
 

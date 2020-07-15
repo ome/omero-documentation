@@ -14,12 +14,15 @@ apt-get update -q
 apt-get install -y openjdk-11-jre
 
 # install dependencies
+
+# start-add-dependencies
 apt-get update
 apt-get -y install \
-	unzip \
-	wget \
-	python3 \
-	python3-venv
+    unzip \
+    wget \
+    python3 \
+    python3-venv
+# end-add-dependencies
 #end-step01
 # install Ice
 #start-recommended-ice
@@ -39,8 +42,9 @@ zlib1g-dev
 cd /tmp
 wget -q https://github.com/ome/zeroc-ice-ubuntu1804/releases/download/0.3.0/ice-3.6.5-0.3.0-ubuntu1804-amd64.tar.gz
 tar xf ice-3.6.5-0.3.0-ubuntu1804-amd64.tar.gz
-mv ice-3.6.5-0.3.0 /opt
-echo /opt/ice-3.6.5-0.3.0/lib/x86_64-linux-gnu > /etc/ld.so.conf.d/ice-x86_64.conf
+mv ice-3.6.5-0.3.0 ice-3.6.5
+mv ice-3.6.5 /opt
+echo /opt/ice-3.6.5/lib/x86_64-linux-gnu > /etc/ld.so.conf.d/ice-x86_64.conf
 ldconfig
 #end-recommended-ice
 
@@ -77,8 +81,8 @@ python3 -mvenv $VENV_SERVER
 # Install the Ice Python binding
 $VENV_SERVER/bin/pip install https://github.com/ome/zeroc-ice-ubuntu1804/releases/download/0.3.0/zeroc_ice-3.6.5-cp36-cp36m-linux_x86_64.whl
 
-# Install pytables
-$VENV_SERVER/bin/pip install tables
+# Install server dependencies
+$VENV_SERVER/bin/pip install omero-server[default]
 #end-step03bis
 
 #start-step04-pre: As root, install omero-py and download the OMERO.server
@@ -108,7 +112,7 @@ psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < $OMERODIR/db.sql
 #end-step04
 #start-patch-openssl
 #start-seclevel
-omero config set omero.glacier2.IceSSL.Ciphers HIGH:ADH:@SECLEVEL=0
+omero certificates
 #end-seclevel
 #end-patch-openssl
 

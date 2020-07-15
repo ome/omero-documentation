@@ -23,7 +23,7 @@ yum -y install ice-all-runtime
 
 
 # install Postgres
-yum -y install https://yum.postgresql.org/11/redhat/rhel-7-x86_64/pgdg-redhat11-11-2.noarch.rpm
+yum -y install https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
 yum -y install postgresql11-server postgresql11
 
 PGSETUP_INITDB_OPTIONS=--encoding=UTF8 /usr/pgsql-11/bin/postgresql-11-setup initdb
@@ -57,8 +57,8 @@ python3 -mvenv $VENV_SERVER
 # Install the Ice Python binding
 $VENV_SERVER/bin/pip install https://github.com/ome/zeroc-ice-py-centos7/releases/download/0.2.1/zeroc_ice-3.6.5-cp36-cp36m-linux_x86_64.whl
 
-# Install pytables
-$VENV_SERVER/bin/pip install tables
+# Install server dependencies
+$VENV_SERVER/bin/pip install omero-server[default]
 #end-step03bis
 
 #start-step04-pre: As root, install omero-py and download the OMERO.server
