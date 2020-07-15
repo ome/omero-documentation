@@ -26,7 +26,7 @@ omero clients:
 - omero-web :web_source:`CHANGELOG.md<CHANGELOG.md>`
 
 .. Content for this page should be opened as a PR against
-.. https://github.com/openmicroscopy/openmicroscopy/blob/develop/history.rst
+.. https://github.com/ome/openmicroscopy/blob/develop/history.rst
 .. initially and transferred to this page via the autogen job
 
 OMERO version history
@@ -462,7 +462,7 @@ Developer updates include:
 -  added instructions to :doc:`/developers/cli/extending` on how to
    create CLI plugins that are ``pip`` installable
 -  substantial effort to make third-party repositories easily testable;
-   see `omero-test-infra <https://github.com/openmicroscopy/omero-test-infra>`_
+   see `omero-test-infra <https://github.com/ome/omero-test-infra>`_
    for more information
 
 This release also upgrades the version of Bio-Formats that OMERO uses to
