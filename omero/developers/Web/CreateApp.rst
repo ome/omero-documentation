@@ -83,7 +83,7 @@ python can import our ``minimal_webapp`` module.
     $ appdir=$(pwd)/minimal-webapp/minimal_webapp
 
     # Location within Docker instance we want to link the app, so it can be imported.
-    $ docker_appdir=/opt/omero/web/venv/lib/python2.7/site-packages/minimal_webapp
+    $ docker_appdir=/opt/omero/web/venv3/lib/python3.6/site-packages/minimal_webapp
 
     # This example config file installs "minimal_webapp". See the file for more details.
     $ config=$(pwd)/config.omero
@@ -101,8 +101,8 @@ that OMERO.web is starting and the static files from your app are being included
 ::
 
     ...
-    Copying '/opt/omero/web/venv/lib/python2.7/site-packages/minimal_webapp/static/minimal_webapp/app.css'
-    Copying '/opt/omero/web/venv/lib/python2.7/site-packages/minimal_webapp/static/minimal_webapp/app.js'
+    Copying '/opt/omero/web/venv3/lib/python3.6/site-packages/minimal_webapp/static/minimal_webapp/app.css'
+    Copying '/opt/omero/web/venv3/lib/python3.6/site-packages/minimal_webapp/static/minimal_webapp/app.js'
     ...
     Starting OMERO.web...
 
