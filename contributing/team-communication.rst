@@ -77,10 +77,10 @@ Jenkins: Continuous integration
 -------------------------------
 
 Our Jenkins_ server is available :jenkins:`here <>` and also uses LDAP
-authentication. Jenkins provides a mechanism to run arbitrary tasks (“jobs”) on one or
-more platforms after particular events (time of day, git push, etc.) These
-jobs build all of the binaries released by the team, and also run automated
-testing.
+authentication. Jenkins provides a mechanism to run arbitrary tasks
+("jobs") on one or more platforms after particular events (time of day,
+git push, etc.) These jobs build all of the binaries released by the
+team, and also run automated testing.
 
 .. _jenkins_screenshot:
 .. figure:: /images/jenkins_screenshot.png
