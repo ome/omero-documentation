@@ -688,9 +688,10 @@ You will want to start making others aware of your work so you can get
 feedback, but at this point there may not even be a well-defined
 requirement / story for your work. There should, however, at least be
 tasks for what you are working on in the whiteboard, so others know
-what is happening. It may be necessary, regardless, to also email
-ome-nitpick, ome-devel, or some subset of OME developers, with the
-branch name you want them to take a look at. A Pull Request could also
+what is happening. It may be necessary, regardless, to tag ome on
+the :imagesc:`image.sc forum <>
+with the
+branch name you want us to take a look at. A Pull Request could also
 be used.
 
 After it is clear that there is some interest in your investigation

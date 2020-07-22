@@ -80,8 +80,7 @@ Troubleshooting
 
 If you encounter errors during an OMERO upgrade, database upgrade, etc., you
 should retain as much log information as possible and notify the OMERO.server
-team via the mailing lists available on the :community:`support <>`
-page.
+team via the :imagesc:`image.sc forum <>`.
 
 Upgrade check
 ^^^^^^^^^^^^^
@@ -333,7 +332,7 @@ Restart your server
 
 -  If anything goes wrong, please send the output of
    :program:`omero admin diagnostics` to
-   ome-users@lists.openmicroscopy.org.uk.
+   the :imagesc:`image.sc forum <>`.
 
 .. _restore-the-db:
 

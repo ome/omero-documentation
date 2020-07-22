@@ -27,7 +27,7 @@ Other IM tools
 Slack is the only IM tool used by the entire OME team. Some team members do
 also use IRC (#ome on irc.freenode.net) and **may** provide support via that
 channel but in general, all external requests for help are best
-submitted and dealt with via the forums or mailing lists (see below) so they
+submitted and dealt with via the forums so they
 are available for the whole community. In particular, the various Gitter
 channels associated with OME projects on GitHub are not routinely monitored
 and responded to.
@@ -102,23 +102,16 @@ Forums and mailing list
 -----------------------
 
 Feedback from the OME community happens primarily on the
-:imagesc:`image.sc forum <>` as well as two public mailing lists that are
-further described under :mailinglist:`ome-users` and :mailinglist:`ome-devel`.
+:imagesc:`image.sc forum <>` as well as GitHub.
 
-You should add yourself to all three and be aware of and scan all
+You should be aware of and scan all
 threads on a fairly regular basis. The general rule is that requests
 from the community will be responded to by the next working day, where
 to the best of our ability, we keep the ‘working days’ and time zones
-of the community in mind. If you miss any messages or want to review
-previous discussions see the archive lists available on the
-“mailing-lists” page:
-
-.. _lists_screenshot:
-.. figure:: /images/lists_screenshot.png
-   :align:  center
+of the community in mind.
 
 Where possible, the task of monitoring feedback is spread across the
-team. Mailing list and forum questions are listed at the morning stand-up
+team. Forum questions are listed at the morning stand-up
 meeting and can be checked off in the accompanying notes when dealt with to
 ensure nothing is ignored or forgotten.
 
@@ -132,21 +125,6 @@ our process, but we do not go out of our way to make them public. For
 example, internally the team often uses OmniGraffle documents to
 illustrate concepts, but these are kept privately to prevent any
 confusion.
-
-Internal mailing lists
-----------------------
-
-In addition to the two public mailing lists mentioned above, there are
-also:
-
-* **ome-nitpick@lists.openmicroscopy.org.uk**, used for team-wide,
-  developer communication that isn’t appropriate for the wider OME
-  community such as organizing mini-group meetings, scheduling
-  vacation, etc.
-
-* a number of mail-aliases reserved for automated messages from
-  various pieces of development machinery (do not send mail directly
-  to these, instead use ome-nitpick).
 
 Internal servers
 ----------------

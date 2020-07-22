@@ -88,4 +88,4 @@
   e.g. $ omero import broken_image.tif -- --email EMAIL --report --upload --logs --qa-baseurl=http://qa.example.com
        $ ./importer-cli broken_image.tif --email EMAIL --report --upload --logs --qa-baseurl=http://qa.openmicroscopy.org.uk/qa
 
-Report bugs to <ome-users@lists.openmicroscopy.org.uk>
+Report bugs to the :imagesc:`image.sc forum <>`.

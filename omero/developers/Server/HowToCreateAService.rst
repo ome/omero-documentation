@@ -7,7 +7,7 @@ How To create a service
     slightly out of date. They will eventually be revised, but if you are
     looking for general instructions on extending OMERO with a service, see
     |ExtendingOmero|. If you would indeed like to create a core service, 
-    please contact the :community:`ome-devel mailing list <>`.
+    please contact the :imagesc:`image.sc forum <>`.
 
 
 To fulfill :ticket:`306`, r905 provides all the classes and
