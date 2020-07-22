@@ -31,7 +31,7 @@ Micron, Oxford
 --------------
 
 The OMERO server at
-`Micron, Oxford <https://micronoxford.com>`_
+`Micron, Oxford <https://micronoxford.com/>`_
 houses two OMERO instances, the databases for both these instances, and a
 single OMERO.web instance which serves them both. The second OMERO instance
 (Raff OMERO) originated from another group's private OMERO server, which is
