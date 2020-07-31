@@ -684,13 +684,9 @@ Alternatively, they may create branches from your branch, and send you
 commits -- either via Pull Request or as patches -- for you to include
 in your work.
 
-You will want to start making others aware of your work so you can get
-feedback, but at this point there may not even be a well-defined
-requirement / story for your work. There should, however, at least be
-tasks for what you are working on in the whiteboard, so others know what
-is happening. It may be necessary, regardless, to tag ome on the
-`forum <https://www.openmicroscopy.org/forums>`_ with the branch name you want us to take a
-look at. A Pull Request could also be used.
+It is advisable to keep the OME team in the loop about your work as it
+progresses, e.g., by tagging ome on the `forum
+<https://www.openmicroscopy.org/forums>`_ or by opening a Pull Request.
 
 After it is clear that there is some interest in your investigation
 branch, then the related stories and possibly requirement should be
