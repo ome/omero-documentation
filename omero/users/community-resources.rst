@@ -20,7 +20,7 @@ The Open Microscopy Environment website is at
 Forums
 ------
 
-The primary support channel is the :imagesc:`image.sc forum <>`.
+The primary support channel is the `forum <https://www.openmicroscopy.org/forums>`_.
 The legacy :forum:`OME forum <>` and the list archives for
 :ome-devel:`ome-devel <>` and :ome-users:`ome-users <>` contain
 historical support topics and remain available as read-only.

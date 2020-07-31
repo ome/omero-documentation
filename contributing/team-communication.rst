@@ -102,7 +102,7 @@ Forums and mailing list
 -----------------------
 
 Feedback from the OME community happens primarily on the
-:imagesc:`image.sc forum <>` as well as GitHub.
+`forum <https://www.openmicroscopy.org/forums>`_ as well as GitHub.
 
 You should be aware of and scan all threads on a fairly regular basis.
 The general rule is that requests from the community will be responded

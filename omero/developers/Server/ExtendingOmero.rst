@@ -9,7 +9,7 @@ Extending OMERO.server
     by third-party developers to extend, improve, and adapt OMERO. We
     outline most of these options below as well as some of their
     trade-offs. We are also always interested to hear other possible
-    extension points. Please contact the the :imagesc:`image.sc forum <>`
+    extension points. Please contact the the `forum <https://www.openmicroscopy.org/forums>`_
     with any such suggestions.
 
 

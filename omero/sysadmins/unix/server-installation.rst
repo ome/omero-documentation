@@ -628,7 +628,7 @@ Troubleshooting
 
 My OMERO install doesn't work! What do I do now? Examine the
 :doc:`/sysadmins/troubleshooting` page and if all else fails post a
-message to the :imagesc:`image.sc forum <>` mentioned on the
+message to the `forum <https://www.openmicroscopy.org/forums>`_ mentioned on the
 :doc:`/users/community-resources` page. Especially the
 :ref:`server_fails_to_start` and :ref:`remote_clients_cannot_connect`
 sections are a good starting point.
