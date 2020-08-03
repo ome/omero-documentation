@@ -510,9 +510,8 @@ the ``jenkinsview`` alias for a given view, e.g. ``:jenkinsview: `4.4```.
 Mailing-list links
 ==================
 
-Links to the OME mailing lists can be created using the ``mailinglist`` alias,
-e.g. ``:mailinglist:`ome-users/```. To point at specific discussion threads,
-two aliases have been defined ``ome-users`` and ``ome-devel``, e.g.
+For the legacy OME mailing lists, to point at specific discussion threads,
+two aliases have been defined, ``ome-users`` and ``ome-devel``, e.g.
 ``:ome-users:`ome-users thread <2009-June/001839.html>```.
 
 Inclusion of content

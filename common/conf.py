@@ -166,7 +166,6 @@ extlinks = {
     'mergeci': (mergeci_root + '/%s', ''),
     'mergecijob': (mergeci_job_root + '/%s', ''),
     # Mailing list/forum links
-    'mailinglist': (lists_root + '/mailman/listinfo/%s', ''),
     'ome-users': (lists_root + '/pipermail/ome-users/%s', ''),
     'ome-devel': (lists_root + '/pipermail/ome-devel/%s', ''),
     'forum': (oo_root + '/community/%s', ''),
