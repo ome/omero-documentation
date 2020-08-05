@@ -808,6 +808,7 @@ ROIs
 ::
 
     # Another helper for generating the color integers for shapes
+    # see https://www.openmicroscopy.org/Schemas/Documentation/Generated/OME-2016-06/ome_xsd.html#Color for background
     def rgba_to_int(red, green, blue, alpha=255):
         """ Return the color as an Integer in RGBA encoding """
         return int.from_bytes([red, green, blue, alpha],
