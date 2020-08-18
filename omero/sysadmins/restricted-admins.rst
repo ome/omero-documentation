@@ -321,7 +321,7 @@ data and to link the data to those containers or to already
 existing containers owned by the new owner. Since OMERO 5.4.0,
 OMERO.web enables Organizers with :term:`Write Data` privilege
 to create new containers belonging to other users,
-see the :guide:`OMERO.web in Data structure <example_facility_manager.html>`
+see the :guide:`Data management guide <introduction/docs/data-management.html>`
 section.
 Except the links created during
 creation of new Datasets inside others' Projects in OMERO.web,
