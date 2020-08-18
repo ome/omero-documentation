@@ -136,7 +136,7 @@ Client Details:
   executed using OMERO.web or CLI.
 
 - OMERO.web: allows viewing and downloading the data,
-  see :guide:`Viewing Data <web_addons.html>`.
+  see :guide:`Viewing Data <web_addons.html>` and :guide:`Downloading Data <download/docs/download.html>`.
 
 - CLI: allows listing all images, groups and users and downloading the data::
 
