@@ -28,8 +28,8 @@ still a powerful user so each must be a highly trusted individual.
 
 Full administrators in OMERO can create new administrators with
 restricted privileges using the OMERO.web interface, see the
-:guide:`facility managers guide <example_facility_manager.html>` in our Help
-documentation. OMERO.cli does not yet support easy management of
+:guide:`facility managers guide <example_facility_manager.html>`.
+OMERO.cli does not yet support easy management of
 restrictions nor does it offer the helpful :doc:`permissions mapping
 <mapping-restricted-admins>` but advanced users may :doc:`use OMERO.cli
 to adjust the restrictions <cli/light-admins>` on an administrator.
@@ -250,7 +250,7 @@ Client details:
   attachments with results and annotate (for example tag, key-value pairs,
   rating, commenting). These actions are not permitted in Private groups
   with images belonging to others.
-  See Help guides for :guide:`rendering <iviewer/docs/index.html>`,
+  See the guides for :guide:`rendering <iviewer/docs/index.html>`,
   :guide:`annotating, attaching files or data <introduction/docs/index.html>`.
 
 - CLI: Upload of official scripts is allowed (in any group type,
@@ -322,7 +322,7 @@ existing containers owned by the new owner. Since OMERO 5.4.0,
 OMERO.web enables Organizers with :term:`Write Data` privilege
 to create new containers belonging to other users,
 see the :guide:`OMERO.web in Data structure <example_facility_manager.html>`
-section of our Help documentation.
+section.
 Except the links created during
 creation of new Datasets inside others' Projects in OMERO.web,
 any links created by the Organizer will belong to the Organizer,

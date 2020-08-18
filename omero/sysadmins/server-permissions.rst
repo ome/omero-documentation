@@ -48,8 +48,8 @@ administrator with the correct privileges. Users can then be added by the
 administrator (either a full admin or a restricted admin with the correct
 privileges) or by one of the group owners assigned by the administrator (group
 owners would typically include the PI of the lab). The group's owners or
-administrators can also choose the permission level for that group. See the
-:guide:`guide for managing groups
+administrators can also choose the permission level for that group. See
+:guide:`managing groups
 <example_facility_manager.html>` for more information about how to administrate them
 in OMERO.
 
@@ -141,7 +141,7 @@ The various permission levels are:
 
 .. seealso::
 
-    :guide:`Help guide for sharing data <introduction/docs/index.html>`
+    :guide:`Guide for sharing data <introduction/docs/index.html>`
      Workflow guide covering the groups and permissions system
 
 Changing group permissions
