@@ -300,7 +300,7 @@ where owner of the data is not in data group.
 For moving data between groups, usage of OMERO.web is highly recommended.
 The Organizer can create new containers (Projects, Datasets) on behalf of
 data owner in OMERO.web conveniently as part of the Move to Group command in
-OMERO.web (:guide:`Move to Group <introduction/docs/group-user-management.html>`). The containers and
+OMERO.web (:guide:`Move to Group <introduction/docs/data-management.html>`). The containers and
 links of data to containers will belong to data owner. For new container
 creation and linking, the :term:`Write Data` privilege is necessary.
 CLI can be used for the move action as well,
