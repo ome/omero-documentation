@@ -50,7 +50,7 @@ privileges) or by one of the group owners assigned by the administrator (group
 owners would typically include the PI of the lab). The group's owners or
 administrators can also choose the permission level for that group. See
 :guide:`managing groups
-<example_facility_manager.html>` for more information about how to administrate them
+<introduction/docs/group-user-management.html>` for more information about how to administrate them
 in OMERO.
 
 Group permission levels
