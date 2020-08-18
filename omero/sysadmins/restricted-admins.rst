@@ -192,7 +192,7 @@ Client details:
   you want to import to in OMERO.importer or OMERO.insight. Login as the
   administrator with restricted privileges and perform the import for
   others as described in the chapter of the Help documentation
-  :guide:`import for others <example_facility_manager.html>`.
+  :guide:`import for others <upload/docs/import.html>`.
 
 - CLI: documentation is available covering :doc:`/users/cli/import` and
   :doc:`/users/cli/import-target` (see also the videos on import on the
