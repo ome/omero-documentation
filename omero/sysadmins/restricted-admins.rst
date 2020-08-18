@@ -28,7 +28,7 @@ still a powerful user so each must be a highly trusted individual.
 
 Full administrators in OMERO can create new administrators with
 restricted privileges using the OMERO.web interface, see the
-:help:`facility managers guide <facility-manager.html#lightadmin>` in our Help
+:help:`facility managers guide <example_facility_manager.html>` in our Help
 documentation. OMERO.cli does not yet support easy management of
 restrictions nor does it offer the helpful :doc:`permissions mapping
 <mapping-restricted-admins>` but advanced users may :doc:`use OMERO.cli
@@ -136,7 +136,7 @@ Client Details:
   executed using OMERO.web or CLI.
 
 - OMERO.web: allows viewing and downloading the data,
-  see :help:`Viewing Data <viewing-data>`.
+  see :help:`Viewing Data <web_addons.html>`.
 
 - CLI: allows listing all images, groups and users and downloading the data::
 
@@ -192,7 +192,7 @@ Client details:
   you want to import to in OMERO.importer or OMERO.insight. Login as the
   administrator with restricted privileges and perform the import for
   others as described in the chapter of the Help documentation
-  :help:`import for others <facility-manager#import>`.
+  :help:`import for others <example_facility_manager.html>`.
 
 - CLI: documentation is available covering :doc:`/users/cli/import` and
   :doc:`/users/cli/import-target` (see also the videos on import on the
@@ -250,10 +250,8 @@ Client details:
   attachments with results and annotate (for example tag, key-value pairs,
   rating, commenting). These actions are not permitted in Private groups
   with images belonging to others.
-  See Help guides for :help:`rendering <managing-data#rendering>`,
-  :help:`annotating <managing-data#annotating>`,
-  :help:`attaching files <managing-data#attach>`,
-  :help:`attaching data <managing-data#attach>`.
+  See Help guides for :help:`rendering <iviewer/docs/index.html>`,
+  :help:`annotating, attaching files or data <introduction/docs/index.html>`.
 
 - CLI: Upload of official scripts is allowed (in any group type,
   see :doc:`/developers/scripts/user-guide` and below).
@@ -302,7 +300,7 @@ where owner of the data is not in data group.
 For moving data between groups, usage of OMERO.web is highly recommended.
 The Organizer can create new containers (Projects, Datasets) on behalf of
 data owner in OMERO.web conveniently as part of the Move to Group command in
-OMERO.web (:help:`Move to Group <group-owner#move>`). The containers and
+OMERO.web (:help:`Move to Group <introduction/docs/group-user-management.html>`). The containers and
 links of data to containers will belong to data owner. For new container
 creation and linking, the :term:`Write Data` privilege is necessary.
 CLI can be used for the move action as well,
@@ -323,7 +321,7 @@ data and to link the data to those containers or to already
 existing containers owned by the new owner. Since OMERO 5.4.0,
 OMERO.web enables Organizers with :term:`Write Data` privilege
 to create new containers belonging to other users,
-see the :help:`OMERO.web in Data structure <facility-manager#data>`
+see the :help:`OMERO.web in Data structure <example_facility_manager.html>`
 section of our Help documentation.
 Except the links created during
 creation of new Datasets inside others' Projects in OMERO.web,
@@ -362,7 +360,7 @@ Client Details:
   of ownership (possible only in CLI, will be addressed in the 5.4.x
   series). Creation of Projects, Datasets
   or Screens for other users in OMERO.web is possible since OMERO 5.4.0,
-  see :help:`Data structure (OMERO.web) <facility-manager#data>`.
+  see :help:`Data structure (OMERO.web) <example_facility_manager.html>`.
   All the Group and User Organizing actions are possible if all
   :term:`Create and Edit Groups`, :term:`Create and Edit Users` and
   :term:`Add Users to Groups` privileges are given. It is also reasonable
