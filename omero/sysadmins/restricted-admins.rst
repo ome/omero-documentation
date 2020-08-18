@@ -360,7 +360,7 @@ Client Details:
   of ownership (possible only in CLI, will be addressed in the 5.4.x
   series). Creation of Projects, Datasets
   or Screens for other users in OMERO.web is possible since OMERO 5.4.0,
-  see :guide:`Data structure (OMERO.web) <example_facility_manager.html>`.
+  see :guide:`Data management guide <introduction/docs/data-management.html>`.
   All the Group and User Organizing actions are possible if all
   :term:`Create and Edit Groups`, :term:`Create and Edit Users` and
   :term:`Add Users to Groups` privileges are given. It is also reasonable
