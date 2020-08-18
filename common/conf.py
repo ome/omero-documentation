@@ -147,7 +147,8 @@ oo_root = 'https://www.openmicroscopy.org'
 oo_site_root = oo_root + '/site'
 lists_root = 'http://lists.openmicroscopy.org.uk'
 downloads_root = 'https://downloads.openmicroscopy.org'
-help_root = 'https://help.openmicroscopy.org'
+help_root = 'https://omero-guides.readthedocs.io/en/latest/'
+help_root_legacy = 'https://downloads.openmicroscopy.org/help/pdfs'
 docs_root = 'https://docs.openmicroscopy.org'
 imagesc_root = 'https://forum.image.sc'
 
@@ -182,6 +183,7 @@ extlinks = {
     'schema': (oo_root + '/Schemas/%s', ''),
     # Help links
     'help': (help_root + '/%s', ''),
+    'help_legacy': (help_root_legacy + '/%s', ''),
     # Miscellaneous links
     'snapshot': (cvs_root + '/snapshots/%s', ''),
     'zeroc': ('https://zeroc.com/%s', ''),
