@@ -20,7 +20,7 @@ and require Java |javaversion| (or higher) to be installed on the user's
 computer (this can easily be installed from `<https://java.com/>`_ if it is not
 already included in your OS).
 
-Our user assistance :help:`help website<>` provides a series of
+Our user :guide:`guides<>` provide a series of
 workflow-based guides to performing common actions in the client applications,
 such as importing and viewing data, exporting images and using the measuring
 tool. 
@@ -85,7 +85,7 @@ A number of apps are available to add functionality to OMERO.web, such as
 See the main website for a `list of released apps <https://www.openmicroscopy.org/omero/apps/>`_.
 
 For more information and guides to using OMERO.web, see our
-:help:`help website <>`.
+:guide:`OME guides <>`.
 
 .. _omero-insight:
 
@@ -100,7 +100,7 @@ OMERO.insight
 OMERO.insight provides a number of tools for accessing and using data in an
 OMERO server. Figures :ref:`omero_insight_screenshot_5_2` and
 :ref:`omero_insight_5_2_viewer` present the user interface. To find out more,
-see the :help:`OMERO.insight user guides <>`.
+see the :help_legacy:`OMERO.insight user guides <>`.
 
 .. _omero_insight_screenshot_5_2:
 .. figure:: /images/insight.png
@@ -125,7 +125,7 @@ yet for OMERO.web are:
   intensity measurements of defined regions-of-interest (ROIs)
 - image import
 
-Our user assistance :help:`help website <>` features a number of
+Our user :guide:`guides <>` feature a number of
 workflow-based guides to importing, viewing, managing and exporting your data
 using OMERO.insight.
 

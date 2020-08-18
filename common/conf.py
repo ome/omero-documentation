@@ -182,7 +182,7 @@ extlinks = {
     'devs_doc': (docs_root + '/contributing/%s', ''),
     'schema': (oo_root + '/Schemas/%s', ''),
     # Help links
-    'help': (help_root + '/%s', ''),
+    'guide': (help_root + '/%s', ''),
     'help_legacy': (help_root_legacy + '/%s', ''),
     # Miscellaneous links
     'snapshot': (cvs_root + '/snapshots/%s', ''),

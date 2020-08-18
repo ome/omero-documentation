@@ -59,8 +59,7 @@ Additional resources
 -   You can try out OMERO without committing to installing your own server by
     applying for an account on our `demo server <https://www.openmicroscopy.org/explore/>`_.
 
--   Workflow-based user assistance guides are provided on our
-    :help:`help website <>`.
+-   Workflow-based user :guide:`guides <>` are available.
 
 -   The `OME YouTube channel <https://www.youtube.com/channel/UCyySB9ZzNi8aBGYqcxSrauQ>`_ features
     tutorials and presentations.

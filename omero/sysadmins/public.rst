@@ -204,7 +204,7 @@ considered "published".
    can always find the original data by using the 'info' tab. OMERO.figure supports a
    complete figure creation workflow, including exporting figures into image
    processing applications for final adjustments - see the
-   :help:`OMERO.figure Help guide <figure/docs/index.html>` for full details.
+   :guide:`OMERO.figure guide <figure/docs/index.html>` for full details.
 #. Having all the data belong to one user simplifies the UI experience for
    public users. If necessary, ownership of data can be transferred using the
    'Chown' privilege (see :doc:`restricted-admins` and
@@ -239,7 +239,7 @@ analysis which produced the published numerical data.
 Key-Value pairs can be used to add more detailed information about the
 study and publication. For example, go to `Schleicher_etal_figure1_a <https://omero.lifesci.dundee.ac.uk/webclient/?show=project-27936>`_
 and expand the 'Key-Value Pairs' section in the right-hand pane to display
-the content (see the :help:`Managing data guide <introduction/docs/index.html>` for information on using Key-Value pairs).
+the content (see the :guide:`Managing data guide <introduction/docs/index.html>` for information on using Key-Value pairs).
 
 Configuring URLs
 ^^^^^^^^^^^^^^^^
