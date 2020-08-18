@@ -7,7 +7,7 @@ of the server's underlying permissions restrictions is described in
 :doc:`developer documentation</developers/Server/LightAdmins>`.
 OMERO.web offers easy management of restrictions and is recommended for
 setting up restricted administrators as described in :guide:`Administrate Users OMERO Guide
-<example_facility_manager.html>`.
+<ntroduction/docs/group-user-management.html>`.
 
 OMERO.cli does not offer easy management of restrictions because support
 is yet to be added. In the meantime it can already manipulate
