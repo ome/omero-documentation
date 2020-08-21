@@ -31,7 +31,7 @@ More detail on how and where to edit OME documentation is available on the
 The Bio-Formats documentation jobs are described in the :doc:`ci-bio-formats`
 section.
 
-The OME Model, OME help and OME Contributing documentation sets are
+The OME Model and OME Contributing documentation sets are
 independent of the current OMERO/Bio-Formats version.
 
 .. list-table::
@@ -52,11 +52,6 @@ independent of the current OMERO/Bio-Formats version.
 	-	* Review OME Contributing documentation PRs
 		* :term:`CONTRIBUTING-merge-docs`
 
-	-	* Review OME help documentation PRs
-		* :term:`OME-help-staging`
-
-	-	* Publish OME help documentation
-		* :term:`OME-help-release`
 
 Since OMERO.figure came under the management of the wider OME team, there are
 also builds to manage its GitHub pages website, which operate the same way as
@@ -76,12 +71,6 @@ the help builds.
 
 	-	* Publish the OMERO.figure website
 		* :term:`FIGURE-help-staging`
-
-	-	* Review PRs opened against the OME help website
-		* :term:`OME-help-staging`
-
-	-	* Publish the OME help website
-		* :term:`OME-help-release`
 
 	-	* Review PRs opened against the Presentations website
 		* :term:`PRESENTATIONS-merge`
@@ -214,29 +203,6 @@ The following set of jobs is used to review or publish the content of the
 		#. |merge| and pushes the branch to https://github.com/snoopycrimecop/www.openmicroscopy.org/tree/gh-pages
 		#. The GitHub Pages service deploys the staging website content under https://snoopycrimecop.github.io/www.openmicroscopy.org/
 
-	:jenkinsjob:`OME-help-staging`
-
-		This job is used to review the PRs opened against the master branch
-		of https://github.com/ome/ome-help
-
-		#. |merge| (and also incorporates :omehelp_scc_branch:`cname_staging`
-		   to allow	 deployment to a non-GitHub URL) then pushes the resulting
-		   branch to :omehelp_scc_branch:`gh-pages`
-		#. The GitHub Pages service updates the content of
-		   https://snoopycrimecop.github.io/ome-help
-
-	:jenkinsjob:`OME-help-release`
-
-		This job is used to deploy the OME help documentation
-
-		#. Opens a Pull Request from
-		   https://github.com/ome/ome-help/tree/master
-		   to https://github.com/ome/ome-help/tree/gh-pages. If
-		   this PR is merged, the GitHub Pages service updates the content of
-		   https://help.openmicroscopy.org
-		#. If the build is promoted,
-			#. rysnc the content of :file:`/ome/data_repo/public/help-staging`
-			   to :file:`/ome/data_repo/public/help`
 
 	:jenkinsjob:`FIGURE-help-staging`
 
