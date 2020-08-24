@@ -96,45 +96,24 @@ automatically updates the live site.
 Help site
 ^^^^^^^^^
 
-`help.openmicroscopy.org <https://help.openmicroscopy.org>`_ covers OMERO user
-guides illustrated with screenshots and also an introduction for facility
-managers aimed at signposting them to parts of the sysadmin docs without
-burying them in technical details from the start. Increasingly these are
-supplemented with video content and moving forward movies and training
-presentations may become the default format for new workflows.
+`help.openmicroscopy.org <https://help.openmicroscopy.org>`_ has been redirected to 
+covers OMERO user `<https://omero-guides.readthedocs.io/en/latest/>`_ when possible.
+Original pages without a guide e.g. mtools, have been redirected 
+to `<https://downloads.openmicroscopy.org/help/pdfs/>`_.
 
 The source is at `<https://github.com/ome/ome-help/>`_.
-The website uses the ‘gh-pages’ branch for the live deployment but PRs should
-be opened against 'master' for review. All the files are currently written in
-html.
+The website uses the ‘master’ branch for the live deployment.
 
-Once a PR is open against the ‘master’ branch and has passed Travis, you can
-build the staging site for review by triggering the
-:jenkinsjob:`OME-help-staging` job. The
-site will be viewable at `<https://snoopycrimecop.github.io/ome-help>`_.
-
-Once the PR is merged, running the :jenkinsjob:`OME-help-release` build will
-open a PR to transfer the content to the ‘gh-pages’ branch. Once that PR is
-merged, the live site will be updated automatically.
 
 Figure website
 ^^^^^^^^^^^^^^
 
-`<https://figure.openmicroscopy.org/>`_ is now mostly a legacy site from before
-OMERO.figure was considered a core part of the project. It will likely be
-merged into the main website in the future but for now it hosts a live demo,
-installation instructions, release announcements and other OMERO.figure
-related blog posts.
+`<https://figure.openmicroscopy.org/>`_ is a legacy site from before
+OMERO.figure was considered a core part of the project.
+It has been redirected to https://www.openmicroscopy.org/omero/figure/
+Redirect could not be put in place for some specific blog entries.
+They can still be found at  `<https://github.com/ome/omero-figure/tree/master/docs/_posts>`_
 
 The source is at `<https://github.com/ome/omero-figure/>`_.
-The live website uses the ‘gh-pages’ branch but PRs should be opened against
-'gh-pages-staging' for review. Most of the content is written in markdown.
 
-Once a PR is open against the ‘gh-pages-staging’ branch, you can build the
-staging site for review by triggering the :jenkinsjob:`FIGURE-help-staging`
-job. The site will be viewable at
-`<https://figure.staging.openmicroscopy.org>`_.
-
-Once the PR is merged, running the :jenkinsjob:`FIGURE-help-release` build
-will open a PR to transfer the content to the ‘gh-pages’ branch. Once that PR
-is merged, the live site will be updated automatically.
+The website uses the ‘master/docs’ branch for the live deployment.
