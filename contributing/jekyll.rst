@@ -100,6 +100,8 @@ Help site
 covers OMERO user `<https://omero-guides.readthedocs.io/en/latest/>`_ when possible.
 Original pages without a guide e.g. mtools, have been redirected 
 to `<https://downloads.openmicroscopy.org/help/pdfs/>`_.
+When features e.g. roi folders are added to the `<https://omero-guides.readthedocs.io/en/latest/>`_,
+some redirects might need to be updated.
 
 The source is at `<https://github.com/ome/ome-help/>`_.
 The website uses the ‘master’ branch for the live deployment.
