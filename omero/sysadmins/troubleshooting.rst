@@ -160,14 +160,16 @@ policy tighter by default. The recommended way to overcome SSL
 connection issues for OMERO clients connecting to the server is to
 employ the `omero-certificates
 <https://pypi.org/project/omero-certificates/>`_ plugin available from
-PyPI_. An alternative approach is to add the parameter ``@SECLEVEL=0``
-to the server SSL configuration:
+PyPI_:
 
 .. literalinclude:: unix/walkthrough/walkthrough_debian9.sh
     :start-after: #start-seclevel
     :end-before: #end-seclevel
 
 Restart the OMERO.server as normal for the changes to take effect.
+
+An alternative approach is to add the parameter ``@SECLEVEL=0`` to the
+server SSL configuration.
 
 Server crashes with…
 --------------------
