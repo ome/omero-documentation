@@ -125,6 +125,9 @@ Server fails to start
 Remote clients cannot connect to OMERO installation
 ---------------------------------------------------
 
+OMERO.web connects but not OMERO.insight
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 The Admin section of OMERO.web appears to work properly and you may or may not
 have created some users, but no matter what you do remote clients will not
 speak to OMERO. OMERO.insight gives you an error message similar to the
@@ -148,6 +151,23 @@ the case. The output of the command should be:
     Escape character is '^]'
 
 Please see the :doc:`/sysadmins/server-security` page for more information.
+
+SSL connection issues
+^^^^^^^^^^^^^^^^^^^^^
+
+Deployment platforms show a trend of making the transport layer security
+policy tighter by default. The recommended way to overcome SSL
+connection issues for OMERO clients connecting to the server is to
+employ the `omero-certificates
+<https://pypi.org/project/omero-certificates/>`_ plugin available from
+PyPI_. An alternative approach is to add the parameter ``@SECLEVEL=0``
+to the server SSL configuration:
+
+.. literalinclude:: unix/walkthrough/walkthrough_debian9.sh
+    :start-after: #start-seclevel
+    :end-before: #end-seclevel
+
+Restart the OMERO.server as normal for the changes to take effect.
 
 Server crashes with…
 --------------------
@@ -445,23 +465,6 @@ Data corruption
 If you are dealing with a data corruption issue, you may find the information
 on :ref:`pixelresolutionorder` useful.
 
-SSL connection issues
-^^^^^^^^^^^^^^^^^^^^^
-
-Deployment platforms show a trend of making the transport layer security
-policy tighter by default. The recommended way to overcome SSL
-connection issues for OMERO clients connecting to the server is to
-employ the `omero-certificates
-<https://pypi.org/project/omero-certificates/>`_ plugin available from
-PyPI_. An alternative approach is to add the parameter ``@SECLEVEL=0``
-to the server SSL configuration:
-
-.. literalinclude:: unix/walkthrough/walkthrough_debian9.sh
-    :start-after: #start-seclevel
-    :end-before: #end-seclevel
-
-Restart the OMERO.server as normal for the changes to take effect.
-
 PyTables version
 ^^^^^^^^^^^^^^^^
 
@@ -471,4 +474,3 @@ see `issue #598 <https://github.com/PyTables/PyTables/issues/598#issuecomment-27
 PyTables on Debian 9 should be installed directly from PyPI_ instead of using ``python-tables``. To install, run::
 
   pip install tables
-
