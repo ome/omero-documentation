@@ -92,6 +92,32 @@ may be needed for your particular SMTP server:
 All properties can be found under the :ref:`mail_configuration` section of
 :doc:`config`.
 
+Example secure SMTP configurations
+----------------------------------
+
+Send email via GMail using TLS (port 587)::
+
+    omero.mail.config=true
+    omero.mail.from=omero@gmail.com
+    omero.mail.host=smtp.googlemail.com
+    omero.mail.port=587
+    omero.mail.smtp.auth=true
+    omero.mail.username=omero@gmail.com
+    omero.mail.password=mypassword
+    omero.mail.smtp.starttls.enable=true
+
+Send email via GMail using SSL (port 465)::
+
+    omero.mail.config=true
+    omero.mail.from=omero@gmail.com
+    omero.mail.host=smtp.googlemail.com
+    omero.mail.port=465
+    omero.mail.smtp.auth=true
+    omero.mail.username=omero@gmail.com
+    omero.mail.password=mypassword
+    omero.mail.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory
+
+
 Further configuration
 ---------------------
 
