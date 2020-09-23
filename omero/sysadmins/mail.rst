@@ -7,24 +7,66 @@ the :program:`omero admin email` command to contact those users.
 
 In order to activate the subsystem, minimally the
 :property:`omero.mail.config` property will need to be activated.
+It is likely you will need to change the defaults for the following connection properties:
+
+* :property:`omero.mail.host`
+* :property:`omero.mail.port`
+* :property:`omero.mail.smtp.auth`
+* :property:`omero.mail.smtp.starttls.enable`
+* :property:`omero.mail.from`
+
+All properties can be found under the :ref:`mail_configuration` section of
+:doc:`config`.
 
 .. note:: A current limitation of the system is that emails are not in a queue
     and therefore if you log out or otherwise lose your OMERO session
     before the server has finished sending, the action will abort without
     completing.
 
-Minimum configuration
----------------------
+
+Example secure SMTP configurations
+----------------------------------
+
+Replace ``omero@gmail.com`` and ``mypassword`` with your real credentials.
+
+Send email via GMail using TLS (port 587):
+
+.. code-block:: properties
+
+    omero.mail.config=true
+    omero.mail.from=omero@gmail.com
+    omero.mail.host=smtp.googlemail.com
+    omero.mail.port=587
+    omero.mail.smtp.auth=true
+    omero.mail.username=omero@gmail.com
+    omero.mail.password=mypassword
+    omero.mail.smtp.starttls.enable=true
+
+Send email via GMail using SSL (port 465):
+
+.. code-block:: properties
+
+    omero.mail.config=true
+    omero.mail.from=omero@gmail.com
+    omero.mail.host=smtp.googlemail.com
+    omero.mail.port=465
+    omero.mail.smtp.auth=true
+    omero.mail.username=omero@gmail.com
+    omero.mail.password=mypassword
+    omero.mail.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory
+
+
+Example Minimum configuration
+-----------------------------
 
 ::
 
     $ omero config set omero.mail.config true
 
-By default, this will use "localhost" as the mail server on port 25 and send
-as the user "omero". Likely you will need to configure OMERO to use your
-actual mail server.
+By default, this will use ``localhost`` as the mail server on port 25 and send
+as the user ``omero``.
 
-For example::
+To use your actual mail server::
 
     $ omero config set omero.mail.host smtp.university.example
 
@@ -73,49 +115,6 @@ the error.
 
 .. note:: Reporting errors requires property :property:`omero.web.debug` set
     to ``False`` and works together with :ref:`omeroweb_error_handling`.
-
-Other key properties
---------------------
-
-Along with :property:`omero.mail.host`, a few general connection properties
-may be needed for your particular SMTP server:
-
-* :property:`omero.mail.port`
-* :property:`omero.mail.smtp.auth`
-* :property:`omero.mail.smtp.starttls.enable`
-* :property:`omero.mail.from`
-
-.. note:: :property:`omero.mail.from` may not be necessary but some
-    servers may require it to match username. Regardless, it can be useful to
-    inform users more clearly of who is getting in touch with them.
-
-All properties can be found under the :ref:`mail_configuration` section of
-:doc:`config`.
-
-Example secure SMTP configurations
-----------------------------------
-
-Send email via GMail using TLS (port 587)::
-
-    omero.mail.config=true
-    omero.mail.from=omero@gmail.com
-    omero.mail.host=smtp.googlemail.com
-    omero.mail.port=587
-    omero.mail.smtp.auth=true
-    omero.mail.username=omero@gmail.com
-    omero.mail.password=mypassword
-    omero.mail.smtp.starttls.enable=true
-
-Send email via GMail using SSL (port 465)::
-
-    omero.mail.config=true
-    omero.mail.from=omero@gmail.com
-    omero.mail.host=smtp.googlemail.com
-    omero.mail.port=465
-    omero.mail.smtp.auth=true
-    omero.mail.username=omero@gmail.com
-    omero.mail.password=mypassword
-    omero.mail.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory
 
 
 Further configuration
