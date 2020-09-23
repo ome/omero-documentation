@@ -32,6 +32,7 @@ Replace ``omero@gmail.com`` and ``mypassword`` with your real credentials.
 Send email via GMail using TLS (port 587):
 
 .. code-block:: properties
+    :emphasize-lines: 2,6,7
 
     omero.mail.config=true
     omero.mail.from=omero@gmail.com
@@ -45,6 +46,7 @@ Send email via GMail using TLS (port 587):
 Send email via GMail using SSL (port 465):
 
 .. code-block:: properties
+    :emphasize-lines: 2,6,7
 
     omero.mail.config=true
     omero.mail.from=omero@gmail.com
