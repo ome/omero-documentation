@@ -56,7 +56,7 @@ Send email via GMail using SSL (port 465):
     omero.mail.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory
 
 
-Example Minimum configuration
+Example minimum configuration
 -----------------------------
 
 ::
