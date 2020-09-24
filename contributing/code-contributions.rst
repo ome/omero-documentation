@@ -21,6 +21,13 @@ Character encoding
 
 OME Python and Java source files are all encoded in UTF-8.
 
+Code style and linting
+----------------------
+
+Code styling can be a matter of intense debate.
+We are in the process of introducing auto-formatters to most of our repositories to reduce the time wasted on formatting code or discussing code styles.
+Where possible `pre-commit`_ is used to manage auto-formatters such as `black (Python)`_, as well as linters such as `flake8 (Python)`_.
+
 Copyrights
 ----------
 
@@ -110,5 +117,11 @@ the rationale, please see:
 	https://en.wikipedia.org/wiki/Technical_debt
 		Wikipedia article on Technical debt
 
+	https://prettier.io/docs/en/why-prettier.html
+		Benefits of using an auto-formatter to avoid debates on style
+
 .. _header templates: https://github.com/ome/openmicroscopy/blob/develop/docs/headers.txt
 .. _git submodules: https://git-scm.com/book/en/Git-Tools-Submodules
+.. _pre-commit: https://pre-commit.com/
+.. _black (Python): https://black.readthedocs.io/
+.. _flake8 (Python): https://flake8.pycqa.org/
