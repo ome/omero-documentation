@@ -28,15 +28,18 @@ The ``omero`` command is now available in the terminal where the environment has
 
     omero login
 
-The |CLI| installed in this way provides all functionalities except the ``import`` functionality.
+If you install ``omero-py>=5.8.0`` the |CLI| provides all functionalities except the ``import`` functionality.
 
-The ``import`` functionality requires to have a supported version of Java e.g. Java 11 and Ice |iceversion| installed. It also requires JARs in the OMERO.server
-package to be available under the :envvar:`OMERODIR` directory.
 
-To install Java and Ice, go to :doc:`/sysadmins/unix/server-installation`
+The ``import`` functionality requires a supported version of :ref:`version requirements java`, and some JARs which are automatically downloaded the first time you do an import.
+
+To install Java, go to :doc:`/sysadmins/unix/server-installation`
 and select the walkthrough corresponding to your OS.
 
-To make the JARs available, you need to:
+omero-py < 5.8.0
+^^^^^^^^^^^^^^^^
+
+If you are using an older version of ``omero-py`` you must download the JARs manually and place them under the :envvar:`OMERODIR` directory:
 
 #. download the OMERO.server zip from the `Downloads page <https://www.openmicroscopy.org/omero/downloads/>`_
 #. unzip the zip file 
