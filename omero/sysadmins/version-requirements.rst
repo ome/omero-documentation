@@ -609,6 +609,8 @@ If no version is provided, a suitable repository is indicated.
       -
       -
 
+.. _version requirements java:
+
 Java
 ----
 
