@@ -67,7 +67,7 @@ $VENV_SERVER/bin/pip install omero-server[debian9]
 
 #start-step04-pre: As root, install omero-py and download the OMERO.server
 # Install omero-py
-$VENV_SERVER/bin/pip install "omero-py>=5.6.0"
+$VENV_SERVER/bin/pip install "omero-py>=5.8.0"
 #start-release-ice36
 cd /opt/omero/server
 SERVER=https://downloads.openmicroscopy.org/omero/5.6/server-ice36.zip
