@@ -321,7 +321,7 @@ Read data
     for well in plate.listChildren():
         index = well.countWellSample()
         print("  Well: ", well.row, well.column, " Fields:", index)
-        for index in xrange(0, index):
+        for index in range(0, index):
             print("    Image: ", \
                 well.getImage(index).getName(),\
                 well.getImage(index).getId())
