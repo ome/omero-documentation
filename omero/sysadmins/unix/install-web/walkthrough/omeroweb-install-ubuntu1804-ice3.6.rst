@@ -174,7 +174,7 @@ Configure CORS. An ``index`` is used to specify the ordering of middleware class
 
     omero config append omero.web.middleware '{"index": 0.5, "class": "corsheaders.middleware.CorsMiddleware"}'
     omero config append omero.web.middleware '{"index": 10, "class": "corsheaders.middleware.CorsPostCsrfMiddleware"}'
-    omero config set omero.web.cors_origin_whitelist '["hostname.example.com"]'
+    omero config set omero.web.cors_origin_whitelist '["https://hostname.example.com"]'
     # or to allow all
     omero config set omero.web.cors_origin_allow_all True
 

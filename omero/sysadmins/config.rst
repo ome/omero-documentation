@@ -494,6 +494,15 @@ Set during the build
 
 Default: `psql`
 
+.. property:: omero.db.properties
+
+omero.db.properties
+^^^^^^^^^^^^^^^^^^^
+Properties to set on OMERO.server's JDBC connection to the database.
+See https://jdbc.postgresql.org/documentation/head/connect.html
+
+Default: `[empty]`
+
 .. property:: omero.db.sql_action_class
 
 omero.db.sql_action_class
@@ -513,6 +522,14 @@ Whether JMX statistics are collected
 for DB usage (by Hibernate, etc)
 
 Default: `true`
+
+.. property:: omero.db.url
+
+omero.db.url
+^^^^^^^^^^^^
+The URL specifying how the Java driver connects to the database system.
+
+Default: `jdbc:postgresql://${omero.db.host}:${omero.db.port}/${omero.db.name}?ApplicationName=OMERO.${omero.name}&${omero.db.properties}`
 
 .. property:: omero.db.user
 
@@ -1131,6 +1148,20 @@ Number of minutes to periodically print to slf4j
 0 or lower disables the printout.
 
 Default: `60`
+
+
+.. _name_configuration:
+
+Name
+----
+
+.. property:: omero.name
+
+omero.name
+^^^^^^^^^^
+Name of the OMERO component that is running in this process.
+
+Default: `Server`
 
 
 .. _performance_configuration:
@@ -2037,7 +2068,7 @@ omero.version
 ^^^^^^^^^^^^^
 Value dynamically set during the build
 
-Default: `5.6.2`
+Default: `5.6.3`
 
 
 .. _web_configuration:
@@ -2252,6 +2283,14 @@ omero.web.login_view
 The Django view name used for login. Use this to provide an alternative login workflow.
 
 Default: `weblogin`
+
+.. property:: omero.web.maximum_multifile_download_size
+
+omero.web.maximum_multifile_download_size
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Prevent multiple files with total aggregate size greater than this value in bytes from being downloaded as a zip archive.
+
+Default: `1073741824`
 
 .. property:: omero.web.middleware
 

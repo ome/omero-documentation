@@ -18,7 +18,13 @@ yum -y install python3
 curl -sL https://zeroc.com/download/Ice/3.6/el7/zeroc-ice3.6.repo > \
 /etc/yum.repos.d/zeroc-ice3.6.repo
 
-yum -y install ice-all-runtime
+yum -y install glacier2 \
+icebox \
+icegrid \
+icepatch2 \
+libfreeze3.6-c++ \
+libice3.6-c++ \
+libicestorm3.6
 #end-recommended-ice
 
 
@@ -63,7 +69,7 @@ $VENV_SERVER/bin/pip install omero-server[default]
 
 #start-step04-pre: As root, install omero-py and download the OMERO.server
 # Install omero-py
-$VENV_SERVER/bin/pip install "omero-py>=5.6.0"
+$VENV_SERVER/bin/pip install "omero-py>=5.8.0"
 #start-release-ice36
 cd /opt/omero/server
 SERVER=https://downloads.openmicroscopy.org/omero/5.6/server-ice36.zip
