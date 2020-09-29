@@ -60,7 +60,7 @@ independent of the current OMERO/Bio-Formats version.
 		*
 
 	-	* Review PRs opened against the OME Website
-		* :term:`WWW-merge`
+		* :term:`WEBSITE-push`
 
 	-	* Review PRs opened against the Presentations website
 		* :term:`PRESENTATIONS-merge`
@@ -185,12 +185,12 @@ The following set of jobs is used to review or publish the content of the
 
 .. glossary::
 
-	:jenkinsjob:`WWW-merge`
+	:mergecijob:`WEBSITE-push`
 
 		This job is used to review the PRs opened against the master branch of
 		https://github.com/ome/www.openmicroscopy.org
 
-		#. |merge| and pushes the branch to https://github.com/snoopycrimecop/www.openmicroscopy.org/tree/gh-pages
+		#. |merge| and pushes the branch to https://github.com/snoopycrimecop/www.openmicroscopy.org/tree/merge_ci
 		#. The GitHub Pages service deploys the staging website content under https://snoopycrimecop.github.io/www.openmicroscopy.org/
 
 
