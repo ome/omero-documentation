@@ -16,7 +16,7 @@ distribution ``lib/python/omero/util/cleanse.py``, which can be used so::
     $ omero admin cleanse /OMERO
 
 Note that only items not listed in the relational database (i.e. previously
-failed deletes) and now empty directories will be cleaned up by this script.
+failed deletes) and empty directories will be cleaned up by this script.
 
 .. note::
 
