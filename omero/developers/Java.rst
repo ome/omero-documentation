@@ -452,7 +452,7 @@ Using the Java API directly:
         library.addObserver(new LoggingImportMonitor());
 
         ImportCandidates candidates = new ImportCandidates(reader, paths, handler);
-        reader.setMetadataOptions(new DefaultMetadataOptions(MetadataLevel.ALL));
+        reader.setMetadataOptions(new DynamicMetadataOptions(MetadataLevel.ALL));
         library.importCandidates(config, candidates);
 
         store.logout();
