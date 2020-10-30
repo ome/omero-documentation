@@ -808,7 +808,7 @@ On the flip-side, a major advantage to having the above branching
 workflow is that is far easier to review the entire impact and style of
 a deliverable before it is integrated into the mainline. Any commit or
 even line which is being proposed for release can be commented as shown
-on `<https://github.com/features/#code-review>`_
+on `<https://github.com/features/code-review>`_
 
 If you would like to include other users beyond just the branch owner in
 the discussion, you can use a twitter-style name to invite them
