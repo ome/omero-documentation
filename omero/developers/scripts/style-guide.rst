@@ -131,6 +131,20 @@ Script outputs
 
            client.setOutput("File_Annotation",robject(fileAnnotation))
 
+-  Scripts that generate a URL link should return the omero.rtypes.rmap,
+   with the following keys: "type": "URL", "href": "URL address to open",
+   "title": "Help message". The client will give users the option
+   of opening the URL in a new browser window/tab. To use this feature 
+   the URL omero.types.rmap should use the key: 'URL' in the output map.
+
+   ::
+
+           url = omero.rtypes.rmap()
+           url.put("type", omero.rtypes.rstring("URL"))
+           url.put("href", omero.rtypes.rstring("https://www.openmicroscopy.org))
+           url.put("title", omero.rtypes.rstring("Open URL link to OME's website."))
+           client.setOutput("URL", url)
+
 More tips
 ---------
 
