@@ -141,7 +141,6 @@ Script outputs
 
            url = omero.rtypes.wrap({
                "type": "URL",
-               "id": "-1",
                "href": "https://www.openmicroscopy.org",
                "title": "Open URL link to OME's website.",
             })
