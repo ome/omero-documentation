@@ -139,10 +139,12 @@ Script outputs
 
    ::
 
-           url = omero.rtypes.rmap()
-           url.put("type", omero.rtypes.rstring("URL"))
-           url.put("href", omero.rtypes.rstring("https://www.openmicroscopy.org))
-           url.put("title", omero.rtypes.rstring("Open URL link to OME's website."))
+           url = omero.rtypes.wrap({
+               "type": "URL",
+               "id": "-1",
+               "href": "https://www.openmicroscopy.org",
+               "title": "Open URL link to OME's website.",
+            })
            client.setOutput("URL", url)
 
 More tips
