@@ -92,3 +92,21 @@ Additional code is in static scripts, with functions generally name-spaced
 under an ``OME`` module.
 
 
+Reusing OMERO sessions
+----------------------
+
+In some situations you may wish to automatically log in to OMERO.web using
+an existing session key that can be passed as a query parameters.
+For example a direct link to image will look as follows::
+
+    https://your_host/webgateway/img_detail/IMAGE_ID/?server=SERVER_ID&bsession=OMERO_SESSION_KEY
+
+.. note::
+
+    The `SERVER_ID` should match the index from the list set using
+    :property:`omero.web.server_list` from the server session
+    you created. If your list contains only one server, the index will be 1.
+
+For more details about how to create an OMERO session see
+:doc:`server-side session </developers/Server/Sessions>` or
+use the :doc:`command line interface </users/cli/sessions>` to create one.

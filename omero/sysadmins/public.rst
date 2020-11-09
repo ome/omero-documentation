@@ -120,25 +120,6 @@ users to be able to log in, the login page can always be accessed using a link
 of the form `\https://your_host/webclient/login/`.
 
 
-Reusing OMERO sessions
-----------------------
-
-As an alternative to granting permanent public access to the data, the
-OMERO.web framework supports password-less, OMERO session key-based
-authentication. For example a direct link to image will look as follows::
-
-    https://your_host/webgateway/img_detail/IMAGE_ID/?server=SERVER_ID&bsession=OMERO_SESSION_KEY
-
-.. note::
-
-    The `SERVER_ID` should match the index from the list set using
-    :property:`omero.web.server_list` from the server session
-    you created. If your list contains only one server, the index will be 1.
-
-For more details about how to create an OMERO session see
-:doc:`server-side session </developers/Server/Sessions>` or
-use the :doc:`command line interface </users/cli/sessions>` to create one.
-
 .. _hosting_data_example:
 
 Full example of hosting data for a publication
