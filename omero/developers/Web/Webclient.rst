@@ -95,11 +95,16 @@ under an ``OME`` module.
 Reusing OMERO sessions
 ----------------------
 
-In some situations you may wish to automatically log in to OMERO.web using
-an existing session key that can be passed as a query parameters.
+When integrating other applications with OMERO.web you may want to
+automatically log in to OMERO.web using an existing OMERO session key.
+The session can be passed as a query parameter.
 For example a direct link to image will look as follows::
 
     https://your_host/webgateway/img_detail/IMAGE_ID/?server=SERVER_ID&bsession=OMERO_SESSION_KEY
+
+This provides full access to OMERO.web, in the same way that logging in with a
+username and password would.
+It is therefore unsuited for giving others temporary access to data.
 
 .. note::
 
