@@ -154,7 +154,7 @@ General overview for `RHEL
       - |Upcoming|
       - |Upcoming|
       - |Recommended|
-      - `Reference <https://access.redhat.com/support/policy/updates/errata#Life_Cycle_Dates>`__
+      - `Reference <https://wiki.centos.org/About/Product>`__
 
 RHEL/CentOS 7 is supported at present. Given the long life
 of enterprise releases, we intend to support only the latest release
