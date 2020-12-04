@@ -245,7 +245,7 @@ Package lists
     * - Operating system
       - Details
     * - CentOS 6 / RHEL 6
-      - `Reference <http://mirror.centos.org/centos/6/os/x86_64/Packages/>`__
+      - EOL
     * - CentOS 7 / RHEL 7
       - `Reference <http://mirror.centos.org/centos/7/os/x86_64/Packages/>`__
     * - Ubuntu
