@@ -61,13 +61,13 @@ markdown and further content may migrate to markdown in future.
 
 Once a PR is open and has passed Travis, it will be integrated in the
 staging integration branch for the OME Website site via the daily
-:jenkinsjob:`WWW-merge` job. The staging Jekyll website will be deployed
+:mergecijob:`WEBSITE-push` job. The staging Jekyll website will be deployed
 by the `GitHub Pages`_ service at
 https://snoopycrimecop.github.io/www.openmicroscopy.org for review.
 
 Once the PR is merged, the HEAD of master will be deployed by the
 `GitHub pages`_ service at
-https://openmicroscopy.github.io/www.openmicroscopy.org.
+https://ome.github.io/www.openmicroscopy.org.
 
 Updating the live website requires two steps, first creating an archive of the
 static website and then deploying it on the web server:
@@ -77,11 +77,10 @@ static website and then deploying it on the web server:
   [Calendar Versioning](https://calver.org/#youtube-dl) scheme using the tag
   date
 - after pushing the tag, an artifact of the static website will be built by
-  [Travis CI](https://travis-ci.org/openmicroscopy/www.openmicroscopy.org) and 
+  [GitHub Actions](https://github.com/ome/www.openmicroscopy.org/actions) and 
   deployed as an asset of the associated `GitHub release <https://github.com/ome/www.openmicroscopy.org/releases>`_
-- a PR can then be opened against the
-  `Website deployment playbook <https://github.com/ome/prod-playbooks/blob/master/www/www-static.yml>`_ to consume the new release asset
-- the sysadmin team will then run the playbook to update the live website
+- to update the static website, the :command:`sudo deploy -f` command
+  should be executed from the OME website server
 
 OME Blog
 ^^^^^^^^
