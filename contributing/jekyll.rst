@@ -6,8 +6,6 @@ including:
 
 - `Main OME website <https://www.openmicroscopy.org/>`_
 - `OME blog <https://blog.openmicroscopy.org/>`_
-- `OME Help site <https://help.openmicroscopy.org/>`_
-- `OMERO.figure website <https://figure.openmicroscopy.org/>`_
 
 These sites can be built and tested by installing a local copy of Jekyll.
 The Help and Figure sites are also built by CI jobs, see :doc:`ci-docs`.
@@ -91,30 +89,3 @@ The website uses the 'gh-pages' branch and as there is no merge build or
 staging page, you should open a PR directly against this branch. The files are
 written in markdown. Branches must be built locally for review and merging PRs
 automatically updates the live site.
-
-Help site
-^^^^^^^^^
-
-`help.openmicroscopy.org <https://help.openmicroscopy.org>`_ has been redirected to 
-covers OMERO user `<https://omero-guides.readthedocs.io/en/latest/>`_ when possible.
-Original pages without a guide e.g. mtools, have been redirected 
-to `<https://downloads.openmicroscopy.org/help/pdfs/>`_.
-When features e.g. roi folders are added to the `<https://omero-guides.readthedocs.io/en/latest/>`_,
-some redirects might need to be updated.
-
-The source is at `<https://github.com/ome/ome-help/>`_.
-The website uses the ‘master’ branch for the live deployment.
-
-
-Figure website
-^^^^^^^^^^^^^^
-
-`<https://figure.openmicroscopy.org/>`_ is a legacy site from before
-OMERO.figure was considered a core part of the project.
-It has been redirected to https://www.openmicroscopy.org/omero/figure/
-Redirect could not be put in place for some specific blog entries.
-They can still be found at  `<https://github.com/ome/omero-figure/tree/master/docs/_posts>`_
-
-The source is at `<https://github.com/ome/omero-figure/>`_.
-
-The website uses the ‘master/docs’ branch for the live deployment.
