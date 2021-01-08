@@ -6,8 +6,6 @@ including:
 
 - `Main OME website <https://www.openmicroscopy.org/>`_
 - `OME blog <https://blog.openmicroscopy.org/>`_
-- `OME Help site <https://help.openmicroscopy.org/>`_
-- `OMERO.figure website <https://figure.openmicroscopy.org/>`_
 
 These sites can be built and tested by installing a local copy of Jekyll.
 The Help and Figure sites are also built by CI jobs, see :doc:`ci-docs`.
@@ -61,13 +59,13 @@ markdown and further content may migrate to markdown in future.
 
 Once a PR is open and has passed Travis, it will be integrated in the
 staging integration branch for the OME Website site via the daily
-:jenkinsjob:`WWW-merge` job. The staging Jekyll website will be deployed
+:mergecijob:`WEBSITE-push` job. The staging Jekyll website will be deployed
 by the `GitHub Pages`_ service at
 https://snoopycrimecop.github.io/www.openmicroscopy.org for review.
 
 Once the PR is merged, the HEAD of master will be deployed by the
 `GitHub pages`_ service at
-https://openmicroscopy.github.io/www.openmicroscopy.org.
+https://ome.github.io/www.openmicroscopy.org.
 
 Updating the live website requires two steps, first creating an archive of the
 static website and then deploying it on the web server:
@@ -77,11 +75,12 @@ static website and then deploying it on the web server:
   [Calendar Versioning](https://calver.org/#youtube-dl) scheme using the tag
   date
 - after pushing the tag, an artifact of the static website will be built by
-  [Travis CI](https://travis-ci.org/openmicroscopy/www.openmicroscopy.org) and 
+  [GitHub Actions](https://github.com/ome/www.openmicroscopy.org/actions) and 
   deployed as an asset of the associated `GitHub release <https://github.com/ome/www.openmicroscopy.org/releases>`_
-- a PR can then be opened against the
-  `Website deployment playbook <https://github.com/ome/prod-playbooks/blob/master/www/www-static.yml>`_ to consume the new release asset
-- the sysadmin team will then run the playbook to update the live website
+- to update the static website, either the :command:`sudo deploy -f` command
+  should be executed from the OME website server or the full
+  `www Ansible playbook <https://github.com/ome/prod-playbooks/blob/master/www/playbook.yml>`_
+  can be executed.
 
 OME Blog
 ^^^^^^^^
@@ -92,30 +91,3 @@ The website uses the 'gh-pages' branch and as there is no merge build or
 staging page, you should open a PR directly against this branch. The files are
 written in markdown. Branches must be built locally for review and merging PRs
 automatically updates the live site.
-
-Help site
-^^^^^^^^^
-
-`help.openmicroscopy.org <https://help.openmicroscopy.org>`_ has been redirected to 
-covers OMERO user `<https://omero-guides.readthedocs.io/en/latest/>`_ when possible.
-Original pages without a guide e.g. mtools, have been redirected 
-to `<https://downloads.openmicroscopy.org/help/pdfs/>`_.
-When features e.g. roi folders are added to the `<https://omero-guides.readthedocs.io/en/latest/>`_,
-some redirects might need to be updated.
-
-The source is at `<https://github.com/ome/ome-help/>`_.
-The website uses the ‘master’ branch for the live deployment.
-
-
-Figure website
-^^^^^^^^^^^^^^
-
-`<https://figure.openmicroscopy.org/>`_ is a legacy site from before
-OMERO.figure was considered a core part of the project.
-It has been redirected to https://www.openmicroscopy.org/omero/figure/
-Redirect could not be put in place for some specific blog entries.
-They can still be found at  `<https://github.com/ome/omero-figure/tree/master/docs/_posts>`_
-
-The source is at `<https://github.com/ome/omero-figure/>`_.
-
-The website uses the ‘master/docs’ branch for the live deployment.
