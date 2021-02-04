@@ -337,21 +337,16 @@ If no version is provided, a suitable repository is indicated.
       - Ubuntu
       - Homebrew
       - FreeBSD Ports
-    * - 9.4
-      - 6 (`postgresql <https://yum.postgresql.org/9.4/redhat/rhel-6-x86_64/>`__), 7 (`postgresql <https://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/>`__)
-      - 14.04, 16.04, 18.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
-      - Yes
-      - Yes
     * - 9.5
       - 6 (`postgresql <https://yum.postgresql.org/9.5/redhat/rhel-6-x86_64/>`__), 7 (`postgresql <https://yum.postgresql.org/9.5/redhat/rhel-7-x86_64/>`__)
-      - 14.04, 16.04, 18.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
+      - 16.04, 18.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
       - Yes
       - Yes
     * - 9.6
       - 6 (`postgresql <https://yum.postgresql.org/9.6/redhat/rhel-6-x86_64/>`__),
 	7 (`postgresql <https://yum.postgresql.org/9.6/redhat/rhel-7-x86_64/>`__),
 	8 (`postgresql <https://yum.postgresql.org/9.6/redhat/rhel-8-x86_64/>`__)
-      - 14.04, 16.04, 18.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
+      - 16.04, 18.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
       - Yes
       - Yes
     * - 10
@@ -359,6 +354,16 @@ If no version is provided, a suitable repository is indicated.
 	7 (`postgresql <https://yum.postgresql.org/10/redhat/rhel-7-x86_64/>`__),
 	8 (`postgresql <https://yum.postgresql.org/10/redhat/rhel-8-x86_64/>`__)
       - 14.04, 16.04, 18.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
+      - Yes
+      - Yes
+    * - 11
+      - 6 (`postgresql <https://yum.postgresql.org/11/redhat/rhel-6-x86_64/>`__), 7 (`postgresql <https://yum.postgresql.org/11/redhat/rhel-7-x86_64/>`__), 8 (`postgresql <https://yum.postgresql.org/11/redhat/rhel-8-x86_64/>`__)
+      - 16.04, 18.04, 20.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
+      - Yes
+      - Yes
+    * - 12
+      - 6 (`postgresql <https://yum.postgresql.org/12/redhat/rhel-6-x86_64/>`__), 7 (`postgresql <https://yum.postgresql.org/12/redhat/rhel-7-x86_64/>`__), 8 (`postgresql <https://yum.postgresql.org/12/redhat/rhel-8-x86_64/>`__)
+      - 16.04, 18.04, 20.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
       - Yes
       - Yes
     * - Details
