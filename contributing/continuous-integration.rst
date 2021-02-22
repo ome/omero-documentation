@@ -22,6 +22,5 @@ fetched from).
     ci-omero
     ci-bio-formats
     ci-docs
-    ci-consortium
     ci-release
 
