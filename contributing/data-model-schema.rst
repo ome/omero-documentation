@@ -301,26 +301,8 @@ Schema publication
 Schema release
 ^^^^^^^^^^^^^^
 
-Using your above work as input, a publication script generates pages
-intended for https://www.openmicroscopy.org/Schemas/::
-
-  cd components/specification
-  ./publish
-
-This script creates a new :file:`published` directory containing all the
-schemas and overview HTML pages which should not be committed. Explore its
-files with a browser and check that it all looks correct. If the
-documentation looks good, you may delete :file:`published` and open a
-Pull Request for your commits so far.
-
-The :jenkinsjob:`SCHEMA-release` job uses the :file:`publish` script to
-generate the published schemas pages from the HEAD of Bio-Formats develop
-branch. When the job is promoted, the generated content is deployed under
-:file:`/var/www/html/www.openmicroscopy.org/specification/Schemas` on
-`web-prod` under using the :devs_doc:`scc deploy<scc.html>` script.
-Because :bf_doc:`xmlvalid <users/comlinetools/xml-validation.html>` uses
-the published schema then files that use the new schema features will
-validate only after the job is promoted successfully.
+Once a specification change has been made it into an `ome-model` release, the 
+`publish` script in the https://github.com/ome/schemas repository automatically generates new schemas pages published at https://www.openmicroscopy.org/Schemas/.
 
 Generated documentation
 ^^^^^^^^^^^^^^^^^^^^^^^
