@@ -184,7 +184,7 @@ Building/reviewing PRs via the CI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Once a PR is open, you can build it for review using the
-:jenkinsjob:`MODEL-merge-docs` job on the Jenkins CI. Staging documentation is
+:mergecijob:`BIOFORMATS-build` job on the Jenkins CI. Staging documentation is
 no longer deployed at a URL but you can download it as a zip for review with
 the correct styling from the job page (see ‘Last Successful Artifacts’ at the
 top of the centre panel.
