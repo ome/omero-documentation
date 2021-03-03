@@ -301,7 +301,7 @@ Schema publication
 Schema release
 ^^^^^^^^^^^^^^
 
-Once a specification change has been made it into an `ome-model` release, the 
+Once a specification change has been made into an `ome-model` release, the 
 `publish` script in the https://github.com/ome/schemas repository automatically generates new schemas pages published at https://www.openmicroscopy.org/Schemas/.
 
 Generated documentation
