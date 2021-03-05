@@ -16,17 +16,9 @@ More detail on how and where to edit OME documentation is available on the
 	-	* Job task
 		* OMERO 5.x series
 
-	-	* Builds the latest OMERO documentation for publishing
-		* :term:`OMERO-DEV-latest-docs`
-
 	-	* Builds the OMERO documentation for review
 		* :term:`OMERO-docs`
 
-	-	* Builds the auto-generated OMERO documentation
-		* :term:`OMERO-DEV-latest-docs-autogen`
-
-	-	* Builds the auto-generated OMERO documentation for review
-		* :term:`OMERO-DEV-merge-docs-autogen`
 
 The Bio-Formats documentation jobs are described in the :doc:`ci-bio-formats`
 section.
@@ -40,14 +32,8 @@ independent of the current OMERO/Bio-Formats version.
 	-	* Job task
 		*
 
-	-	* Build the latest OME Model documentation
-		* :term:`MODEL-latest-docs`
-
 	-	* Publish OME Contributing documentation
 		* :term:`CONTRIBUTING-latest-docs`
-
-	-	* Review OME Model documentation PRs
-		* :term:`MODEL-merge-docs`
 
 	-	* Review OME Contributing documentation PRs
 		* :term:`CONTRIBUTING-merge-docs`
@@ -93,15 +79,6 @@ The branch for the 5.x series of the OMERO documentation is develop.
 
 .. glossary::
 
-	:jenkinsjob:`OMERO-DEV-latest-docs`
-
-		This job is used to review the PRs opened against the develop branch
-		of the OMERO 5.x documentation
-
-		#. |merge|
-		#. |sphinxbuild|
-		#. |linkcheck|
-
 	:mergecijob:`OMERO-docs`
 
 		This job is used to review the PRs opened against the develop branch
@@ -112,45 +89,14 @@ The branch for the 5.x series of the OMERO documentation is develop.
 		#. |sphinxbuild|
 		#. |linkcheck|
 
-	:jenkinsjob:`OMERO-DEV-latest-docs-autogen`
-
-		This job is used to build the latest auto-generated pages for the
-		develop branch of the OMERO documentation
-
-		#. Checks out the develop branch of ome-documentation.git_
-		#. Downloads the latest OMERO.server and OMERO.clients
-		#. Runs the :file:`omero/autogen_docs` autogeneration script
-		#. Pushes the auto-generated changes to
-		   :omedoc_scc_branch:`develop/latest/autogen`
-
-	:jenkinsjob:`OMERO-DEV-merge-docs-autogen`
-
-		This job is used to review the component auto-generation for the
-		develop branch of the OMERO documentation
-
-		#. Checks out :omedoc_scc_branch:`merge_ci`
-		#. Downloads the merge OMERO.server and OMERO.clients
-		#. Runs the :file:`omero/autogen_docs` autogeneration script
-		#. Pushes the auto-generated changes to
-		   :omedoc_scc_branch:`develop/merge/autogen`
-
-OME Model and OME Contributing
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OME Contributing
+^^^^^^^^^^^^^^^^
 
 The OME Contributing documentation is located in the ome-documentation
-repository and is built from the develop branch. The Model documentation is
-located in the ome-model repository and is built from the master branch.
+repository and is built from the develop branch.
 
 .. glossary::
 
-	:jenkinsjob:`MODEL-merge-docs`
-
-		This job is used to review the PRs opened against the master branch
-		of the OME Model documentation
-
-		#. |merge|
-		#. |sphinxbuild|
-		#. |linkcheck|
 
 	:jenkinsjob:`CONTRIBUTING-merge-docs`
 
@@ -158,14 +104,6 @@ located in the ome-model repository and is built from the master branch.
 		of the OME Contributing documentation
 
 		#. |merge|
-		#. |sphinxbuild|
-		#. |linkcheck|
-
-	:jenkinsjob:`MODEL-latest-docs`
-
-		This job is used to build the master branch of the OME Model
-		documentation and publish the official documentation
-
 		#. |sphinxbuild|
 		#. |linkcheck|
 

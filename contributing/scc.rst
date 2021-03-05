@@ -200,12 +200,9 @@ The first argument is the name of the base branch of origin, e.g.::
 
         $ scc merge develop --remote gh
 
-As a concrete example, the first step of the :term:`MODEL-merge-docs` job
-is calling the following merge command:
+As a concrete example, the first step of a merge job is calling the following merge command::
 
-::
-
-    $ scc merge develop --no-ask --reset --comment --push merge/develop/latest
+    $ scc merge master --no-ask --reset --comment --push merge_ci
 
 Use cases
 ^^^^^^^^^
