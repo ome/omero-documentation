@@ -339,7 +339,7 @@ Also set :envvar:`OMERODIR` to point to the OMERO.server::
 
         pytest -h
 
-See `<https://pytest.org/en/latest/usage.html>`_ for more help in
+See `<https://docs.pytest.org/en/latest/how-to/usage.html>`_ for more help in
 running tests.
 
 Failing tests
