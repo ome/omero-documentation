@@ -149,7 +149,7 @@ lists_root = 'http://lists.openmicroscopy.org.uk'
 downloads_root = 'https://downloads.openmicroscopy.org'
 help_root = 'https://help.openmicroscopy.org'
 docs_root = 'https://docs.openmicroscopy.org'
-rtd_docs_root = 'https://ome-contributing.readthedocs.io/en/latest/'
+contributing_docs_root = 'https://ome-contributing.readthedocs.io/en/latest/'
 imagesc_root = 'https://forum.image.sc'
 
 extlinks = {
@@ -179,7 +179,7 @@ extlinks = {
     'presentations': (downloads_root + '/presentations/%s', ''),
     # Doc links
     'model_doc': (docs_root + '/latest/ome-model/%s', ''),
-    'devs_doc': (rtd_docs_root + '/contributing/%s', ''),
+    'devs_doc': (contributing_docs_root + '/contributing/%s', ''),
     'schema': (oo_root + '/Schemas/%s', ''),
     # Help links
     'help': (help_root + '/%s', ''),
