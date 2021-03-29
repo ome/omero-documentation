@@ -42,8 +42,8 @@ Structure and organization
 The OME documentation is organized into multiple folders:
 
 * the OMERO documentation is under the ``omero`` folder,
-* the OME Contributing Developer documentation is under the ``contributing`` 
-  folder,
+* the OME Contributing Developer documentation has been migrated to 
+`ome-contributing <https://github.com/ome/ome-contributing>`_,
 * the shared configuration and themes are under the ``common`` folder.
 
 The structure of each documentation folder follows the Sphinx system
@@ -78,10 +78,6 @@ To build a set of documentation, first move to the documentation folder. To
 build the OMERO documentation::
 
     cd omero/
-
-or to build the Contributing Developer documentation::
-
-   cd contributing/
 
 To clean the build directory of any previous builds, use one of::
     
@@ -167,12 +163,6 @@ From omero directory::
 will generate the HTML documentation for OMERO and create an
 OMERO.doc-5.4.0.zip under omero/_build.
 
-From the contributing directory::
-
-    ant zip -Domero.release="5.4.0"
-
-will generate the HTML documentation for Contributing and create a
-CONTRIBUTING.doc-5.4.0.zip under contributing/_build.
 
 Auto-generated content
 ----------------------

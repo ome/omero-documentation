@@ -14,8 +14,7 @@ a PR.
 ## Suggesting a change
 
 * Fork the repository on Github.
-* Create a branch for your work. If you want to make changes in
-  `/contributing` or for a future major version of
+* Create a branch for your work. If you want to make changes for a future major version of
   OMERO, this should be based on the `develop` branch. For changes for the
   current version of OMERO, base your branch on the latest `dev_x` branch e.g.
   `dev_5_0`.
