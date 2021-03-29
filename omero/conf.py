@@ -225,6 +225,16 @@ def copy_legacy_redirects(app, exception):
         'sysadmins/server-tables.html',
         'sysadmins/omero-home-prefix.html',
         'sysadmins/install-web.html',
+        'omero/developers/Insight/Architecture.html',
+        'omero/developers/Insight/Configuration.html',
+        'omero/developers/Insight/DirectoryContents.html',
+        'omero/developers/Insight/EventBus.html',
+        'omero/developers/Insight/HowTo/BuildAgent.html',
+        'omero/developers/Insight/HowTo/BuildAgentView.html',
+        'omero/developers/Insight/HowTo/RetrieveData.html',
+        'omero/developers/Insight/ImplementationView.html',
+        'omero/developers/Insight/TaskBar.html',
+
     ]
     if app.builder.name == 'html':
         for html_src_path in redirect_files:
