@@ -13,7 +13,7 @@ Configuration
 The :property:`omero.client.icetransports` OMERO.server configuration property
 must be changed. See the linked documentation for details.
 
-You can override the default ``ws`` and ``wss`` ports with the properties
+You can override the default ``ws`` (4065) and ``wss`` (4066) ports with the properties
 ``omero.ports.ws`` ``omero.ports.wss``.
 
 If you want to proxy OMERO.server websockets via a webserver such as Nginx you
