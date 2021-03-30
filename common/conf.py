@@ -179,7 +179,7 @@ extlinks = {
     'presentations': (downloads_root + '/presentations/%s', ''),
     # Doc links
     'model_doc': (docs_root + '/latest/ome-model/%s', ''),
-    'devs_doc': (contributing_docs_root + '/contributing/%s', ''),
+    'devs_doc': (contributing_docs_root + '%s', ''),
     'schema': (oo_root + '/Schemas/%s', ''),
     # Help links
     'help': (help_root + '/%s', ''),
