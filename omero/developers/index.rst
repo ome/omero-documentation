@@ -132,20 +132,6 @@ Insight
     developing the web clients. As a result, coding against this client is no
     longer recommended.
 
-.. toctree::
-    :maxdepth: 1
-    :titlesonly:
-
-    Insight/Architecture
-    Insight/Configuration
-    Insight/DirectoryContents
-    Insight/EventBus
-    Insight/HowTo/BuildAgent
-    Insight/HowTo/BuildAgentView
-    Insight/HowTo/RetrieveData
-    Insight/ImplementationView
-    Insight/TaskBar
-
 
 *****************
 More on API Usage
