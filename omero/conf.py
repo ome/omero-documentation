@@ -129,8 +129,8 @@ omero_extlinks = {
     'java_gateway_sourcedir': (omero_subs_github_root.format('omero-gateway-java', 'tree', 'v' + conf_autogen.version_gateway), ''),
     'matlab_source': (omero_subs_github_root.format('omero-matlab', 'blob', 'v' + conf_autogen.version_matlab), ''),
     'matlab_sourcedir': (omero_subs_github_root.format('omero-matlab', 'tree', 'v' + conf_autogen.version_matlab), ''),
-    'insight_source': (omero_subs_github_root.format('omero-insight', 'blob', 'v' + conf_autogen.version_insight), ''),
-    'insight_sourcedir': (omero_subs_github_root.format('omero-insight', 'tree', 'v' + conf_autogen.version_insight), ''),
+    'insight_source': (omero_subs_github_root.format('omero-insight', 'blob', 'master'), ''),
+    'insight_sourcedir': (omero_subs_github_root.format('omero-insight', 'tree', 'master'), ''),
     'web_source': (omero_subs_github_root.format('omero-web', 'blob', 'v' + conf_autogen.version_web), ''),
     'web_sourcedir': (omero_subs_github_root.format('omero-web', 'tree', 'v' + conf_autogen.version_web), ''),
     'py_source': (omero_subs_github_root.format('omero-py', 'blob', 'v' + conf_autogen.version_py), ''),
@@ -225,6 +225,16 @@ def copy_legacy_redirects(app, exception):
         'sysadmins/server-tables.html',
         'sysadmins/omero-home-prefix.html',
         'sysadmins/install-web.html',
+        'developers/Insight/Architecture.html',
+        'developers/Insight/Configuration.html',
+        'developers/Insight/DirectoryContents.html',
+        'developers/Insight/EventBus.html',
+        'developers/Insight/HowTo/BuildAgent.html',
+        'developers/Insight/HowTo/BuildAgentView.html',
+        'developers/Insight/HowTo/RetrieveData.html',
+        'developers/Insight/ImplementationView.html',
+        'developers/Insight/TaskBar.html',
+
     ]
     if app.builder.name == 'html':
         for html_src_path in redirect_files:
