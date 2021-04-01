@@ -234,7 +234,14 @@ def copy_legacy_redirects(app, exception):
         'developers/Insight/HowTo/RetrieveData.html',
         'developers/Insight/ImplementationView.html',
         'developers/Insight/TaskBar.html',
-
+        'sysadmins/customization.html',
+        'sysadmins/public.html',
+        'sysadmins/unix/install-web/walkthrough/omeroweb-install-ubuntu2004-ice3.6.html',
+        'sysadmins/unix/install-web/walkthrough/omeroweb-install-ubuntu1804-ice3.6.html',
+        'sysadmins/unix/install-web/walkthrough/omeroweb-install-debian10-ice3.6.html',
+        'sysadmins/unix/install-web/walkthrough/omeroweb-install-debian9-ice3.6.html',
+        'sysadmins/unix/install-web/walkthrough/omeroweb-install-centos8-ice3.6.html',
+        'sysadmins/unix/install-web/walkthrough/omeroweb-install-centos7-ice3.6.html',
     ]
     if app.builder.name == 'html':
         for html_src_path in redirect_files:
