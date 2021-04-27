@@ -12,6 +12,7 @@ yum -y install java-11-openjdk
 # install dependencies
 
 yum -y install python3
+yum -y install openssl
 #end-step01
 # install Ice
 #start-recommended-ice
@@ -72,7 +73,7 @@ $VENV_SERVER/bin/pip install omero-server[default]
 $VENV_SERVER/bin/pip install "omero-py>=5.8.0"
 #start-release-ice36
 cd /opt/omero/server
-SERVER=https://downloads.openmicroscopy.org/omero/5.6/server-ice36.zip
+SERVER=https://github.com/ome/openmicroscopy/releases/download/v5.6.3/OMERO.server-5.6.3-ice36-b228.zip
 wget -q $SERVER -O OMERO.server-ice36.zip
 unzip -q OMERO.server*
 #end-release-ice36
@@ -92,6 +93,9 @@ omero config set omero.db.pass "$OMERO_DB_PASS"
 omero db script -f $OMERODIR/db.sql --password "$OMERO_ROOT_PASS"
 psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < $OMERODIR/db.sql
 #end-step04
+#start-seclevel
+omero certificates
+#end-seclevel
 
 
 #start-step06: As root, run the scripts to start OMERO automatically
