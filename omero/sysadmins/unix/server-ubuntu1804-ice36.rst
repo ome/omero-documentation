@@ -125,11 +125,11 @@ Configure the database and the location of the data directory:
     :start-after: #end-copy-omeroscript
     :end-before: #end-step04
 
-Weaker ciphers like ADH are disabled by default in OpenSSL 1.1+,
-the version installed on Ubuntu 18.04.
+Weaker ciphers like ADH are disabled by default in new version of OpenSSL
+and TLS versions 1.0 and 1.1 have been dropped from JDK packages.
 This means that it is not possible to connect to an OMERO.server
 using any OMERO clients e.g. the Java Desktop client,
-the OMERO.web client or the CLI. Run:
+the OMERO.web client or the CLI and import data. Run:
 
 .. literalinclude:: walkthrough/walkthrough_ubuntu1804.sh
     :start-after: #start-seclevel

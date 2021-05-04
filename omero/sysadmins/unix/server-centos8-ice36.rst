@@ -120,11 +120,12 @@ Configure the database and the location of the data directory:
     :end-before: #end-step04
 
 
-Weaker ciphers like ADH are disabled by default in OpenSSL 1.1+,
-the version installed on CentOS 8.
+Weaker ciphers like ADH are disabled by default in new version of OpenSSL
+and TLS versions 1.0 and 1.1 have been dropped from JDK packages.
 This means that it is not possible to connect to an OMERO.server
 using any OMERO clients e.g. the Java Desktop client,
-the OMERO.web client or the CLI.
+the OMERO.web client or the CLI and import data. Run:
+
 
 .. literalinclude:: walkthrough/walkthrough_centos8.sh
     :start-after: #start-seclevel
