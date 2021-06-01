@@ -62,13 +62,13 @@ Stats
 -  36 TiB of data storage space, of which 16.6 TiB is currently in use
 -  Performance statistics to come
 
-Biozentrum, University of Basel
--------------------------------
+IMCF, Biozentrum, University of Basel
+-------------------------------------
 
-The OMERO server at `Biozentrum <https://www.biozentrum.unibas.ch>`_ has around
-270 users and currently uses 52 TB of data storage space, with an average
-monthly increase of 1 TB. It is run on CentOS 7.1 with data hosted on an
-native-mounted GPFS file system (General Parallel File System, IBM).
+The OMERO server at the `IMCF / Biozentrum <https://www.biozentrum.unibas.ch/imcf>`_
+has around 650 users and uses more than 200 TB of data storage space, with an
+average monthly increase of 10 TB (as of mid-2021). It is run on CentOS 7 with
+data hosted on a native-mounted GPFS file system.
 
 Hardware
 ^^^^^^^^
@@ -84,15 +84,15 @@ Local storage consists of:
 
 Computational resources:
 
--  Lenovo System x3650 M5, dual-CPU Intel Xeon Processor E5-2643 v3 6C 3.4GHz
-   20MB Cache 2133MHz
--  256 GB of memory
+-  Lenovo System x3650 M5
+-  12 Cores (2 x Intel Xeon E5-2643v3 3.4GHz)
+-  256 GB RAM
 
 Network infrastructure
 ^^^^^^^^^^^^^^^^^^^^^^
 
--  10 Gbit/s Infiniband connection to GPFS storage, 10 Gbit/s Ethernet
-   connection to the client network, local, VPN support, dedicated
+-  40 Gbit/s Infiniband connection to GPFS storage
+-  10 Gbit/s Ethernet connection to the client network
 
 GReD Research Center, Clermont-Ferrand, France
 ----------------------------------------------
