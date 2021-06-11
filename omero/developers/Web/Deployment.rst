@@ -52,7 +52,7 @@ Then start up the development server to run in the foreground:
 
     $ omero config set omero.web.application_server development
     $ omero config set omero.web.debug True
-    $ omero config append omero.web.server_list `["server.address", 4064, "name"]
+    $ omero config append omero.web.server_list `["server.address", 4064, "name"]`
     $ omero web start
     INFO:__main__:Application Starting...
     INFO:root:Processing custom settings for module omeroweb.settings
