@@ -103,10 +103,10 @@ line to their :file:`bulk.yml` file: ::
 
     include: /etc/omero-imports.yml
 
-Dry-run
+Dry_run
 ^^^^^^^
 
-The ``dry-run`` key can either be set to ``true`` in which case
+The ``dry_run`` key can either be set to ``true`` in which case
 no import will occur, and only the potential actions will be
 shown, or additionally it can be set to a file path of the form
 ``my_import_%s.sh`` where ``%s`` will be replaced by an number
