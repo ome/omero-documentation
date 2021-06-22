@@ -131,10 +131,6 @@ others to see and share.
 scripts. You should use the :doc:`style-guide` to ensure your script interacts
 with the OMERO clients in a usable way.
 
-If you are a biologist with no previous programming experience, you may find
-the `Python for Biologists 
-<https://pythonforbiologists.com/introduction/>`_ free online course helpful.
-
 Contributing back to the community
 ----------------------------------
 
