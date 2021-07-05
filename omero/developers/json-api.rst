@@ -212,6 +212,9 @@ These steps are covered in more detail below.
 For an example how to use the API with Java,
 see :download:`JSONClient.java </examples/java/JSONClient.java>`.
 
+See the following link for a JSON client example
+`using JavaScript <https://github.com/ome/openmicroscopy/blob/develop/examples/Training/javascript/index.html>`_.
+
 
 List supported versions
 ^^^^^^^^^^^^^^^^^^^^^^^
