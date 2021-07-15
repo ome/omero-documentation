@@ -379,7 +379,8 @@ The following environment variables may be configured:
   :file:`python` directory to the python path. For Ice 3.6, this
   should never be required.
 :envvar:`OMERODIR`
-  The path to the OMERO.server.
+  The path to the OMERO.server. This is a requirement for all CLI plugins
+  using the Java server components (`admin`, `import`, `config`, `db`...).
 
 After making any needed changes, either source the corresponding file
 or log back in for them to take effect. Run ``env`` to check them.
