@@ -40,7 +40,7 @@ Some of the options available to the import command are:
 
         $ omero import -s SERVER -p PORT -u USER -g GROUP image.tif
 
-.. option:: -d DATASET_ID, -T TARGET, --target TARGET
+.. option:: -d DATASET_ID, -r SCREEN_ID, -T TARGET, --target TARGET
     
     To import images into a Dataset::
 
@@ -49,6 +49,29 @@ Some of the options available to the import command are:
         $ omero import image.tif -T Dataset:name:Sample01
 
     See :doc:`import-target` for more information on import targets.
+
+  --logprefix [LOGPREFIX]               Directory or file prefix for --file and --errs
+  --file [FILE]                         File for storing the standard output from the Java process
+  --errs [ERRS]                         File for storing the standard error from the Java process
+
+.. option:: --file FILE
+
+    File for storing the standard output from the Java process
+
+.. option:: --errs FILE
+
+    File for storing the standard error from the Java process
+
+.. option:: --logprefix DIR
+
+    Directory or file prefix for --file and --errs
+
+.. option:: --output TYPE
+
+    Set an alternative output style, for example::
+
+        $ omero import --output=yaml ...
+
 
 Scanning folders prior to Import
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
