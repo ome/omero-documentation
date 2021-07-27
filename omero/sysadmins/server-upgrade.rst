@@ -300,7 +300,10 @@ Environment variables
 If you changed the directory name where the |release| server code
 resides, make sure to update any system environment variables. Before
 restarting the server, make sure your :envvar:`PATH` system environment
-variable is pointing to the new location.
+variable is pointing to the new location. Also make sure the :envvar:`OMERODIR`
+environment variable is set to the location of the server.
+
+See :ref:`server_env` for more information.
 
 JVM memory settings
 """""""""""""""""""
