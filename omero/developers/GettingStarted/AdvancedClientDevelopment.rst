@@ -36,7 +36,7 @@ A Blitz client is any application which uses the
 |OmeroApi| to talk to the :doc:`/developers/server-blitz` server in any of the supported
 languages, like :doc:`Python </developers/Python>`,
 :doc:`C++ </developers/Cpp>`, :doc:`Java </developers/Java>`, or
-:doc:`Matlab </developers/Matlab>`. A general understanding of the
+:doc:`MATLAB </developers/Matlab>`. A general understanding of the
 :doc:`/developers/Server` may make what is happening
 behind the scenes more transparent, but is not necessary. The points
 below outline all that an application writer is expected to know with
@@ -1300,11 +1300,11 @@ Example: :source:`examples/OmeroClients/getsetattr.py`
 
     # No java example
 
-Method inspection and code completion (Matlab & Python)
+Method inspection and code completion (MATLAB & Python)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Ice generates a number of internal (private) methods which are not
-intended for general consumption. Unfortunately, Matlab's
+intended for general consumption. Unfortunately, MATLAB's
 code-completion as well as Python's ``dir`` method return these methods,
 which can lead to confusion. In general, the API user can ignore any
 method beginning with an underscore or with ``ice_``. For example,
