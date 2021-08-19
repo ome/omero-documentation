@@ -226,10 +226,10 @@ their owner or group using::
 
 If the projects contain datasets, the datasets will automatically be loaded::
 
-    for j = 1 : numel(projects) % Matlab list, index starts at 1
+    for j = 1 : numel(projects) % MATLAB list, index starts at 1
         % Get all the datasets in the Project
         datasetsList = projects(j).linkedDatasetList; % Java List
-        % convert it to a Matlab list for convenience
+        % convert it to a MATLAB list for convenience
         datasets = toMatlabList(datasetsList);
         % Iterate through datasets
         for i = 1 : numel(datasets) 
@@ -244,7 +244,7 @@ argument::
     % Load the specified Projects and the whole graph 
     loadedProjects = getProjects(session, ids, true)
     % Get the first project
-    project_1 = loadedProjects(1) % Matlab array, index starts at 1
+    project_1 = loadedProjects(1) % MATLAB array, index starts at 1
     % Get all the datasets in the Project
     datasets = project_1.linkedDatasetList;
     % Get the first dataset in the Java list, index starts at 0
@@ -253,7 +253,7 @@ argument::
     dataset_id = dataset_1.getId().getValue(); % dataset's id
     % Retrieve all the images in the datasets as a Java List (index will start at 0)
     imageList = dataset_1.linkedImageList;
-    % convert it to a Matlab list for convenience
+    % convert it to a MATLAB list for convenience
     images = toMatlabList(imageList);
     % Iterate through the images
     for i = 1 : numel(images)
@@ -313,7 +313,7 @@ load the whole graph (datasets, images), pass `true` as an optional argument::
 
     loadedDatasets = getDatasets(session, ids, true);
     % Get the first dataset
-    dataset_1 = loadedDatasets(1); % Matlab array, index starts at 1
+    dataset_1 = loadedDatasets(1); % MATLAB array, index starts at 1
     % Get the all the images in the dataset as the Java list, index starts at 0
     imageList = dataset_1.linkedImageList;
 
@@ -412,7 +412,7 @@ their owner or group using::
 
 Note that the wells are not loaded. The plate objects can be accessed using::
 
-    for j = 1 : numel(screens), % Matlab array, index start at 1
+    for j = 1 : numel(screens), % MATLAB array, index start at 1
         platesList = screens(j).linkedPlateList; % Java List, index start at 0
         for i = 0 : platesList.size()-1,
             plate = platesList.get(i);
@@ -524,7 +524,7 @@ That entity contains valuable information e.g. emission wavelength, name, etc.
 Given an Image, retrieve channels associated to an image on the OMERO server and the name of the channel::
 
     channels = loadChannels(session, image);
-    for j = 1 : numel(channels) % Matlab array
+    for j = 1 : numel(channels) % MATLAB array
         channel = channels(j);
         channelId = channel.getId().getValue();
         lc = channel.getLogicalChannel();
