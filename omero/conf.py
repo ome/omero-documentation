@@ -16,6 +16,7 @@ import datetime
 import sys
 import os
 import shutil
+import re
 
 # Append the top level directory of the docs, so we can import from the
 # config dir.
