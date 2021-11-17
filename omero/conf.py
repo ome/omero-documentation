@@ -33,6 +33,11 @@ extensions = ['omerodocs', 'sphinx.ext.extlinks']
 project = u'OMERO'
 title = project + u' Documentation'
 
+# General information about the project.
+author = u'The Open Microscopy Environment'
+copyright = u'2000-%d, ' % datetime.datetime.now().year + author
+
+
 def split_release(release):
     split_release = re.split(r"^([0-9]+)\.([0-9]+)\.([0-9]+)(.*?)$", release)
     return (int(split_release[1]), int(split_release[2]),
