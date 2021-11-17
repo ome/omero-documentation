@@ -113,6 +113,39 @@ imagesc_root = 'https://forum.image.sc'
 
 rst_prolog = """
 """
+rst_epilog = """
+.. _Hibernate: http://www.hibernate.org
+.. _ZeroC: https://zeroc.com
+.. _Ice: https://zeroc.com
+.. _Jenkins: https://jenkins.io
+.. _roadmap: https://trac.openmicroscopy.org/ome/roadmap
+.. _OME artifactory: https://artifacts.openmicroscopy.org
+.. _Open Microscopy Environment: https://www.openmicroscopy.org
+.. _Glencoe Software, Inc.: https://www.glencoesoftware.com/
+.. _Pillow: https://pillow.readthedocs.org
+.. _Matplotlib: https://matplotlib.org/
+.. _Django 1.8: https://docs.djangoproject.com/en/1.8/releases/1.8/
+.. _Django 1.6: https://docs.djangoproject.com/en/1.6/releases/1.6/
+.. _Python: https://www.python.org
+.. _Libjpeg: http://libjpeg.sourceforge.net/
+.. _Django: https://www.djangoproject.com/
+.. _PyPI: https://pypi.org
+.. _Conda: https://docs.conda.io/en/latest/
+.. _PyTables: http://pytables.org
+.. |SSH| replace:: :abbr:`SSH (Secure Shell)`
+.. |VM| replace:: :abbr:`VM (Virtual Machine)`
+.. |OS| replace:: :abbr:`OS (Operating System)`
+.. |SSL| replace:: :abbr:`SSL (Secure Socket Layer)`
+.. |JDK| replace:: :abbr:`JDK (Java Development Kit)`
+.. |JMX| replace:: :abbr:`JMX (Java Management Extensions)`
+.. |JRE| replace:: :abbr:`JRE (Java Runtime Environment)`
+.. |JVM| replace:: :abbr:`JVM (Java Virtual Machine)`
+.. |PID| replace:: :abbr:`PID (process ID)`
+.. |HDD| replace:: :abbr:`HDD (Hard Disk Drive)`
+.. |CLI| replace:: :abbr:`CLI (Command Line Interface)`
+.. |OME| replace:: `Open Microscopy Environment`_
+.. |Glencoe| replace:: `Glencoe Software, Inc.`_
+"""
 
 rst_epilog += """
 .. |OmeroPy| replace:: :doc:`/developers/Python`
@@ -162,6 +195,47 @@ rst_epilog += """
        conf_autogen.version_dropbox)
 
 omero_subs_github_root = github_root + 'ome/{}/{}/{}/%s'
+
+extlinks = {
+    # image.sc
+    'imagesc': (imagesc_root + '/%s', '#'),
+    # Trac links
+    'ticket': (trac_root + '/ticket/%s', '#'),
+    'milestone': (trac_root + '/milestone/%s', ''),
+    'report': (trac_root + '/report/%s', ''),
+    # Jenkins links (ci-master)
+    'jenkins': (jenkins_root + '/%s', ''),
+    'jenkinsjob': (jenkins_job_root + '/%s', ''),
+    'jenkinsview': (jenkins_view_root + '/%s', ''),
+    # Jenkins links (merge-ci)
+    'mergeci': (mergeci_root + '/%s', ''),
+    'mergecijob': (mergeci_job_root + '/%s', ''),
+    # Mailing list/forum links
+    'ome-users': (lists_root + '/pipermail/ome-users/%s', ''),
+    'ome-devel': (lists_root + '/pipermail/ome-devel/%s', ''),
+    'forum': (oo_root + '/community/%s', ''),
+    # Website links
+    'community': (oo_root + '/support/%s', ''),
+    'omero': (oo_root + '/omero/%s', ''),
+    'bf': (oo_root + '/bio-formats/%s', ''),
+    'secvuln': (oo_root + '/security/advisories/%s', ''),
+    'security': (oo_root + '/security/%s', ''),
+    'presentations': (downloads_root + '/presentations/%s', ''),
+    # Doc links
+    'model_doc': (docs_root + '/latest/ome-model/%s', ''),
+    'devs_doc': (docs_root + '/contributing/%s', ''),
+    'schema': (oo_root + '/Schemas/%s', ''),
+    # Help links
+    'help': (help_root + '/%s', ''),
+    # Miscellaneous links
+    'snapshot': (cvs_root + '/snapshots/%s', ''),
+    'zeroc': ('https://zeroc.com/%s', ''),
+    'zerocforum': ('https://forums.zeroc.com/discussion/%s', ''),
+    'zerocdoc': ('https://doc.zeroc.com/%s', ''),
+    'djangodoc': ('https://docs.djangoproject.com/en/1.11/%s', ''),
+    'doi': ('https://dx.doi.org/%s', ''),
+    'pypi': ('https://pypi.org/project/%s', ''),
+    }
 
 # OMERO-specific extlinks
 omero_extlinks = {
@@ -225,15 +299,15 @@ omero_extlinks = {
 extlinks.update(omero_extlinks)
 
 # Edit on GitHub prefix
-edit_on_github_prefix = 'omero'
+#edit_on_github_prefix = 'omero'
 
 # -- Options for HTML output --------------------------------------------------
 
 # Custom sidebar templates, maps document names to template names.
-html_sidebars['**'].insert(1, 'globalomerotoc.html')
+#html_sidebars['**'].insert(1, 'globalomerotoc.html')
 
 # Add any paths that contain custom themes here, relative to this directory.
-html_theme_path.extend(['themes'])
+#html_theme_path.extend(['themes'])
 
 # -- Options for LaTeX output -------------------------------------------------
 
