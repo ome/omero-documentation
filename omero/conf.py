@@ -12,20 +12,20 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
+import datetime
 import sys
 import os
 import shutil
 
 # Append the top level directory of the docs, so we can import from the
 # config dir.
-sys.path.insert(0, os.path.abspath('../common'))
-from conf import *
+#sys.path.insert(0, os.path.abspath('../common'))
 sys.path.insert(1, os.path.abspath('../omero'))
 import conf_autogen
 
 
 linkcheck_ignore = []
-extensions = ['omerodocs', 'sphinx.ext.extlinks']
+extensions = ['sphinx.ext.extlinks']
 
 # -- General configuration ----------------------------------------------------
 
@@ -400,3 +400,8 @@ def copy_legacy_redirects(app, exception):
 
 def setup(app):
     app.connect('build-finished', copy_legacy_redirects)
+    app.add_crossref_type(
+        directivename = "property",
+        rolename      = "property",
+        indextemplate = "%s",
+    )
