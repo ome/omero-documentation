@@ -24,11 +24,37 @@ sys.path.insert(1, os.path.abspath('../omero'))
 import conf_autogen
 
 
+linkcheck_ignore = []
+extensions = ['omerodocs', 'sphinx.ext.extlinks']
+
 # -- General configuration ----------------------------------------------------
 
 # General information about the project.
 project = u'OMERO'
 title = project + u' Documentation'
+
+def split_release(release):
+    split_release = re.split(r"^([0-9]+)\.([0-9]+)\.([0-9]+)(.*?)$", release)
+    return (int(split_release[1]), int(split_release[2]),
+            int(split_release[3]))
+
+
+def get_previous_version(majornumber, minornumber=0):
+    # Return the previous version number for the first minor versions of a
+    # major series i.e. x.0.y
+    # Implemented as an hard-coded list until we work out an automated way to
+    # upgrade the database without specifying version numbers e.g.
+    # bin/omero db upgrade
+    if minornumber == 0:
+        if majornumber == 5:
+            return "4.4"
+        elif majornumber == 4:
+            return "3.2"
+        else:
+            raise Exception("No previous version defined for %s.%s"
+                            % (majornumber, minornumber))
+    else:
+        return "%s.%s" % (majornumber, minornumber - 1)
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -47,6 +73,43 @@ else:
     version = 'UNKNOWN'
     previousversion = 'UNKNOWN'
     release = 'UNKNOWN'
+
+# Variables used to define Github extlinks
+if "SOURCE_BRANCH" in os.environ and len(os.environ.get('SOURCE_BRANCH')) > 0:
+    branch = os.environ.get('SOURCE_BRANCH')
+else:
+    branch = 'develop'
+
+if "SOURCE_USER" in os.environ and len(os.environ.get('SOURCE_USER')) > 0:
+    user = os.environ.get('SOURCE_USER')
+else:
+    user = 'ome'
+
+github_root = 'https://github.com/'
+omero_github_root = github_root + user + '/openmicroscopy/'
+bf_github_root = github_root + user + '/bioformats/'
+doc_github_root = github_root + user + '/ome-documentation/'
+
+# Variables used to define Jenkins extlinks (ci-master)
+jenkins_root = 'https://ci.openmicroscopy.org'
+jenkins_job_root = jenkins_root + '/job'
+jenkins_view_root = jenkins_root + '/view'
+
+# Variables used to define Jenkins extlinks (merge-ci)
+mergeci_root = 'https://merge-ci.openmicroscopy.org/jenkins'
+mergeci_job_root = mergeci_root + '/job'
+mergeci_view_root = mergeci_root + '/view'
+
+# Variables used to define other extlinks
+cvs_root = 'http://cvs.openmicroscopy.org.uk'
+trac_root = 'https://trac.openmicroscopy.org/ome'
+oo_root = 'https://www.openmicroscopy.org'
+oo_site_root = oo_root + '/site'
+lists_root = 'http://lists.openmicroscopy.org.uk'
+downloads_root = 'https://downloads.openmicroscopy.org'
+help_root = 'https://help.openmicroscopy.org'
+docs_root = 'https://docs.openmicroscopy.org'
+imagesc_root = 'https://forum.image.sc'
 
 rst_prolog = """
 """
