@@ -117,3 +117,10 @@ Network infrastructure
 The server is hosted inside the faculty of medicine where the network works at
 100 Mbit/s. There are are 4 Gbit/s ports on the server but only one is
 currently in use.
+
+.. seealso::
+
+    `IDR deployment page <https://idr.openmicroscopy.org/deployment>`_
+        Information about the deployment of the
+        `Image Data Resource <https://idr.openmicroscopy.org>`_ which hosts
+        over 10 million images - see https://idr.openmicroscopy.org/studies.
