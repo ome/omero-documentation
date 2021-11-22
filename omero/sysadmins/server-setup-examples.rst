@@ -123,4 +123,5 @@ currently in use.
     `IDR deployment page <https://idr.openmicroscopy.org/about/deployment>`_
         Information about the deployment of the
         `Image Data Resource <https://idr.openmicroscopy.org>`_ which hosts
-        over 10 million images - see https://idr.openmicroscopy.org/studies.
+        over 10 million images - see
+        https://idr.openmicroscopy.org/about/studies.
