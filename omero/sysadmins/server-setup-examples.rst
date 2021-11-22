@@ -120,7 +120,7 @@ currently in use.
 
 .. seealso::
 
-    `IDR deployment page <https://idr.openmicroscopy.org/deployment>`_
+    `IDR deployment page <https://idr.openmicroscopy.org/about/deployment>`_
         Information about the deployment of the
         `Image Data Resource <https://idr.openmicroscopy.org>`_ which hosts
         over 10 million images - see https://idr.openmicroscopy.org/studies.
