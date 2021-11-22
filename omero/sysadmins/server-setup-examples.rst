@@ -118,10 +118,14 @@ The server is hosted inside the faculty of medicine where the network works at
 100 Mbit/s. There are are 4 Gbit/s ports on the server but only one is
 currently in use.
 
-.. seealso::
 
-    `IDR deployment page <https://idr.openmicroscopy.org/about/deployment>`_
-        Information about the deployment of the
-        `Image Data Resource <https://idr.openmicroscopy.org>`_ which hosts
-        over 10 million images - see
-        https://idr.openmicroscopy.org/about/studies.
+Image Data Resource
+-------------------
+
+The `Image Data Resource <https://idr.openmicroscopy.org>`_ is an OMERO
+repository maintained by OME and deployed on the EMBL-EBI Embassy Cloud which
+publishes reference imaging datasets. See the
+`IDR deployment page <https://idr.openmicroscopy.org/about/deployment>`_ for
+more information about the architecture and the
+`IDR studies page <https://idr.openmicroscopy.org/about/studies>`_ for the
+most up-to-date metrics.
