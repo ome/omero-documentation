@@ -26,4 +26,4 @@ jobs:
           git clone git://github.com/ome/omero-install
       - name: Update installation documentation
         run: |
-          WORKSPACE=$space BUILD=false bash update.sh
+          WORKSPACE=$space BUILD=false bash autogen_omero.sh
