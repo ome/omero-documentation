@@ -73,7 +73,8 @@ rst_epilog += """
 .. |version_web|  replace:: %s
 .. |iceversion| replace:: 3.6.5
 .. |postgresversion| replace:: 11
-.. |javaversion| replace:: 11
+.. |javaversion_recommended| replace:: 11
+.. |javaversion_min| replace:: 8
 .. |version_dropbox|  replace:: %s
 
 .. |Broken| image:: /images/broken.png

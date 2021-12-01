@@ -135,7 +135,8 @@ If possible, install one of the following packages:
       - java-11-openjdk
 
 OMERO works with the OpenJDK JRE provided by most systems, or with
-Oracle Java. Version |javaversion| or later is required.
+Oracle Java. Version |javaversion_min| or later is required.
+Version |javaversion_recommended| is recommended.
 
 Your system may already provide a suitable JRE, in which case no extra steps
 are necessary. Linux distributions usually provide OpenJDK, and older MacOS X

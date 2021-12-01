@@ -16,7 +16,7 @@ installations worldwide, OMERO has been shown to be relatively easy to install
 and get running.
 
 OMERO.insight and OMERO.importer are desktop applications written in Java
-and require Java |javaversion| (or higher) to be installed on the user's
+and require Java |javaversion_min| (or higher) to be installed on the user's
 computer (this can easily be installed from `<https://java.com/>`_ if it is not
 already included in your OS).
 

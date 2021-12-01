@@ -34,9 +34,9 @@ Installing prerequisites
 
 **The following steps are run as root.**
 
-Install Java |javaversion|, Ice |iceversion| and PostgreSQL |postgresversion|:
+Install Java |javaversion_recommended|, Ice |iceversion| and PostgreSQL |postgresversion|:
 
-To install Java |javaversion| and other dependencies:
+To install Java |javaversion_recommended| and other dependencies:
 
 .. literalinclude:: walkthrough/walkthrough_debian9.sh
     :start-after: #start-step01
