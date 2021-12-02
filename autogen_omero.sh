@@ -10,7 +10,7 @@ echo no linkcheck
 export WORKSPACE=${WORKSPACE:-$(pwd)}
 export WORKSPACE=${WORKSPACE%/}  # Remove trailing slashes
 export USER=${USER:-$(whoami)}
-export OMERODIR=${WORKSPACE}/OMERO.server
+export OMERODIR=${WORKSPACE}/OMERO.server/dist
 export DOCVENV=${DOCVENV:-$WORKSPACE/.venv3}
 export PYTHON=${PYTHON:-python}
 export BUILD=${BUILD:-true}
@@ -34,7 +34,6 @@ fi
 set +u # PS1 issue
 . $DOCVENV/bin/activate
 set -u
-
 python -m pip install "omero-web>=5.6.0"
 python -m pip install future 'ansible<2.7'
 python -m pip install "django-redis>=4.4,<4.9"

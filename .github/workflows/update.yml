@@ -1,33 +1,54 @@
 name: Update
 
 on:
-  schedule:
-    - cron: '* 0 * * *'
+  push:
 jobs:
   build:
     runs-on: ubuntu-20.04
+    env:
+      ICE_HOME: /opt/ice-3.6.5 # location where Ice is installed
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
           python-version: 3.8
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - uses: actions/cache@v1
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+      - name: Install slice2java
+        run: |
+          sudo apt-get install -y libmcpp-dev
+          wget -q https://github.com/ome/zeroc-ice-ubuntu2004/releases/download/0.2.0/ice-3.6.5-0.2.0-ubuntu2004-amd64.tar.gz
+          tar xf ice-3.6.5-0.2.0-ubuntu2004-amd64.tar.gz
+          mv ice-3.6.5-0.2.0 ice-3.6.5
+          mv ice-3.6.5 /opt
+          rm ice-3.6.5-0.2.0-ubuntu2004-amd64.tar.gz
+          echo "${{ env.ICE_HOME }}/bin" >> $GITHUB_PATH
       - name: Set up configuration
         run: |
           git config --global user.email github-actions@github.com
           git config --global user.name github-actions
       - name: Checkout repositories
         run: |
-          DIR=$(pwd)
-          echo "dir="${DIR} >> $GITHUB_ENV
           cd ..
           WORKSPACE=$(pwd)
           echo "space="${WORKSPACE} >> $GITHUB_ENV
           git clone git://github.com/ome/openmicroscopy OMERO.server
           git clone git://github.com/ome/omeroweb-install
           git clone git://github.com/ome/omero-install
-      - name: Update installation documentation
+      - name: Build OMERO.server
         run: |
-          WORKSPACE=$space BUILD=false bash autogen_omero.sh
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
-
+          cd $space/OMERO.server
+          ./build.py
+      - name: Update documentation
+        run: |
+          python -m venv $space/.venv3
+          $space/.venv3/bin/pip install https://github.com/ome/zeroc-ice-ubuntu2004/releases/download/0.2.0/zeroc_ice-3.6.5-cp38-cp38-linux_x86_64.whl
+          WORKSPACE=$space BUILD=false SUFFIX=/dist bash autogen_omero.sh
