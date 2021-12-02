@@ -7,10 +7,11 @@ set -x
 echo no linkcheck
 
 # from the sub-script
+export SUFFIX=${SUFFIX:-}
 export WORKSPACE=${WORKSPACE:-$(pwd)}
 export WORKSPACE=${WORKSPACE%/}  # Remove trailing slashes
 export USER=${USER:-$(whoami)}
-export OMERODIR=${WORKSPACE}/OMERO.server/dist
+export OMERODIR=${WORKSPACE}/OMERO.server$SUFFIX
 export DOCVENV=${DOCVENV:-$WORKSPACE/.venv3}
 export PYTHON=${PYTHON:-python}
 export BUILD=${BUILD:-true}
