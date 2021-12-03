@@ -121,9 +121,9 @@ Configure the database and the location of the data directory:
 
 Weaker ciphers like ADH are disabled by default in new versions of OpenSSL
 and TLS versions 1.0 and 1.1 have been dropped from JDK packages.
-This means that it is not possible to connect to an OMERO.server
-using any OMERO clients e.g. the Java Desktop client,
-the OMERO.web client or the CLI and import data. Run:
+In order to connect to an OMERO.server using any OMERO clients
+e.g. the Java Desktop client, the OMERO.web client or the CLI and import data, 
+you need to generate self-signed certificates by running:
 
 .. literalinclude:: walkthrough/walkthrough_centos7.sh
     :start-after: #start-seclevel
