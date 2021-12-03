@@ -171,8 +171,8 @@ Restart the OMERO.server as normal for the changes to take effect.
 An alternative approach is to add the parameter ``@SECLEVEL=0`` to the
 server SSL configuration.
 
-Server crashes with…
---------------------
+Server crashes with...
+----------------------
 
 -  ``X11 connection rejected because of wrong authentication``
 -  ``X connection to localhost:10.0 broken (explicit kill or server shutdown).``
