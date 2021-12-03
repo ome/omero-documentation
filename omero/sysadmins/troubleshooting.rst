@@ -299,6 +299,14 @@ For example to set a maximum heap space of 3GB:
             $ export JAVA_OPTS=-Xmx3G
             $ omero import ...
 
+Another change required is to adjust the OMERO.server configuration.
+Run the following command:
+
+::
+
+  $ omero config set omero.jvmcfg.percent 22 # 15 is the default
+
+Then restart the OMERO.server.
 
 DropBox fails to start: failed to get session
 ---------------------------------------------
