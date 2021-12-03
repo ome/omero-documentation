@@ -130,7 +130,9 @@ you need to generate self-signed certificates by running:
 .. literalinclude:: walkthrough/walkthrough_centos8.sh
     :start-after: #start-seclevel
     :end-before: #end-seclevel
-    
+
+See also :doc:`../client-server-ssl`.
+
 Running OMERO.server
 --------------------
 

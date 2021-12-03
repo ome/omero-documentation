@@ -129,6 +129,8 @@ you need to generate self-signed certificates by running:
     :start-after: #start-seclevel
     :end-before: #end-seclevel
 
+See also :doc:`../client-server-ssl`.
+
 Running OMERO.server
 --------------------
 

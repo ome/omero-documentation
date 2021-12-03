@@ -107,6 +107,8 @@ Change the ownership of the OMERO.server directory and create a symlink:
     :start-after: #end-release-ice36
     :end-before: #end-step04-pre
 
+See also :doc:`../client-server-ssl`.
+
 Configuring OMERO.server
 ------------------------
 
