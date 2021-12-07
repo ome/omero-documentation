@@ -24,7 +24,7 @@ Alternatively install ``omero-py`` using venv::
     . myenv/bin/activate
     pip install omero-py
 
-.. Note:: On Ubuntu 20.09, you will need to install ``libssl-dev`` before running the above command.
+.. Note:: On Ubuntu 20.09, you may need to install ``libssl-dev`` before running the above command.
 
 
 The ``omero`` command is now available in the terminal where the environment has been activated::
