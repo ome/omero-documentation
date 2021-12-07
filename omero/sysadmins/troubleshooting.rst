@@ -299,7 +299,7 @@ For example to set a maximum heap space of 3GB:
             $ export JAVA_OPTS=-Xmx3G
             $ omero import ...
 
-Another change required is to adjust the OMERO.server configuration.
+Another change that may be required is to adjust the OMERO.server configuration.
 Run the following command:
 
 ::
