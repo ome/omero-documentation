@@ -473,6 +473,9 @@ PyTables version
 Version 3.3 of PyTables contains a bug preventing its usage,
 see `issue #598 <https://github.com/PyTables/PyTables/issues/598#issuecomment-274154131>`_
 .
-PyTables on Debian 9 should be installed directly from PyPI_ instead of using ``python-tables``. To install, run::
+PyTables on Debian 9 should be installed directly from PyPI_ instead of using ``python-tables``. To install, run:
 
-  pip install tables
+.. parsed-literal::
+
+    $ pip install 'tables<\ |version_tables_cap|'
+
