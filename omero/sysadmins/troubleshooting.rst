@@ -171,8 +171,8 @@ Restart the OMERO.server as normal for the changes to take effect.
 An alternative approach is to add the parameter ``@SECLEVEL=0`` to the
 server SSL configuration.
 
-Server crashes with…
---------------------
+Server crashes with...
+----------------------
 
 -  ``X11 connection rejected because of wrong authentication``
 -  ``X connection to localhost:10.0 broken (explicit kill or server shutdown).``
@@ -299,6 +299,14 @@ For example to set a maximum heap space of 3GB:
             $ export JAVA_OPTS=-Xmx3G
             $ omero import ...
 
+Another change that may be required is to adjust the OMERO.server configuration.
+Run the following command:
+
+::
+
+  $ omero config set omero.jvmcfg.percent 22 # 15 is the default
+
+Then restart the OMERO.server.
 
 DropBox fails to start: failed to get session
 ---------------------------------------------
