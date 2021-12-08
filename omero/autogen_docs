@@ -38,6 +38,7 @@ echo "Generating DB script example"
 omero db script --password secretpassword 2>&1 | sed "s|Saving to.*/|Saving to /home/omero/|" > omero/downloads/cli/db-script-example.txt
 rm OMERO*sql
 
+
 echo "Generating Web configuration templates"
 # Nginx / WSGI
 omero config set omero.web.application_server wsgi-tcp
@@ -60,7 +61,7 @@ mv $WORKSPACE/omeroweb-install/ansible/doc/* $WORKSPACE/ome-documentation/omero/
 echo "Copying omero-install Linux scripts"
 DIRECTORY=omero/sysadmins/unix/walkthrough/
 if [ -d "$DIRECTORY" ]; then
-	rm -rf $DIRECTORY
+    rm -rf $DIRECTORY
 fi
 
 mkdir -p $DIRECTORY/osx/

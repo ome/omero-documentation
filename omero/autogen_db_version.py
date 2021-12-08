@@ -17,6 +17,8 @@ from omero.install.config_parser import PropertyParser
 
 def get_mmp(sqlfile):
     m = re.search(r'.*/?OMERO(\d+)\.(\d+)(\w*)__(\d+)', sqlfile)
+    if m is None:
+        return None
     mmp = (int(m.group(1)), int(m.group(2)), m.group(3), int(m.group(4)))
     return mmp
 
@@ -32,7 +34,16 @@ for property in PropertyParser().parse_lines(property_lines):
 
 current_dbver = '%s__%s' % (
     required['omero.db.version'], required['omero.db.patch'])
+
+# Check dir
 current_mmp = get_mmp(current_dbver)
+if current_mmp is None:
+    directory = os.path.join(serverdir, 'sql', 'psql')
+    subfolders = [f.path for f in os.scandir(directory) if f.is_dir()]
+    subfolders.sort(key=lambda x: os.path.getmtime(x))
+    current_dbver = os.path.basename(os.path.normpath(subfolders[-1]))
+    current_mmp = get_mmp(current_dbver)
+
 sqlfiles = []
 majorminorpatch = []
 for f in glob.glob(os.path.join(
