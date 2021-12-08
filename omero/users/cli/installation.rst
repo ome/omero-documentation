@@ -13,6 +13,9 @@ You can create one using either ``venv`` or ``conda`` (preferred).
 If you opt for Conda_, you will need
 to install it first, see `miniconda <https://docs.conda.io/en/latest/miniconda.html>`_ for more details.
 
+.. Note:: On Ubuntu 20.09, you may need to install ``libssl-dev`` before installing the |CLI|.
+
+
 To install ``omero-py`` using conda (preferred)::
 
     conda create -n myenv -c ome python=3.6 zeroc-ice36-python omero-py
@@ -23,6 +26,8 @@ Alternatively install ``omero-py`` using venv::
     python3.6 -m venv myenv
     . myenv/bin/activate
     pip install omero-py
+
+
 
 The ``omero`` command is now available in the terminal where the environment has been activated::
 
