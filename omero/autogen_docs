@@ -9,6 +9,7 @@ set -u
 set -e
 set -x
 set -o pipefail
+SUFFIX=${SUFFIX:-}
 WORKSPACE=${WORKSPACE:-$(pwd)}
 WORKSPACE=${WORKSPACE%/}  # Remove trailing slashes
 USER=${USER:-$(whoami)}
@@ -22,7 +23,7 @@ cat $WORKSPACE/OMERO.server/history.rst >> newfile.rst
 mv newfile.rst omero/users/history.rst
 
 echo "Generating configuration properties page"
-omero config parse --rst | sed "s|$WORKSPACE|/home/omero|" > omero/sysadmins/config.rst
+omero config parse --rst | sed "s|$SUFFIX||" | sed "s|$WORKSPACE|/home/omero|" > omero/sysadmins/config.rst
 
 echo "Generating ldap setdn usage page"
 mkdir -p omero/downloads/ldap
@@ -42,8 +43,8 @@ rm OMERO*sql
 echo "Generating Web configuration templates"
 # Nginx / WSGI
 omero config set omero.web.application_server wsgi-tcp
-omero web config nginx | sed "s|$WORKSPACE/OMERO.server|/opt/omero/web/omero-web|g" > omero/sysadmins/unix/install-web/nginx-omero.conf
-omero web config nginx-location | sed "s|$WORKSPACE/OMERO.server|/opt/omero/web/omero-web|g" | grep -v '^#' > omero/sysadmins/unix/install-web/nginx-location.conf
+omero web config nginx | sed "s|$SUFFIX||" | sed "s|$WORKSPACE/OMERO.server|/opt/omero/web/omero-web|g" > omero/sysadmins/unix/install-web/nginx-omero.conf
+omero web config nginx-location | sed "s|$SUFFIX||" | sed "s|$WORKSPACE/OMERO.server|/opt/omero/web/omero-web|g" | grep -v '^#' > omero/sysadmins/unix/install-web/nginx-location.conf
 omero web config nginx-location | sed "s|/opt/omero/web|/home/omero|g" | grep '^##' | cut -c3-
 > omero/sysadmins/unix/install-web/nginx-location-manual-wrapper.conf
 
