@@ -42,7 +42,7 @@ python -m pip install -U PyYAML==5.1
 python -m pip install scc
 
 cd $WORKSPACE/ome-documentation/
-omero/autogen_docs
+WORKSPACE=$WORKSPACE omero/autogen_docs
 
 # OSX compatibility for testing
 if [ $BUILD == "true" ]; then
