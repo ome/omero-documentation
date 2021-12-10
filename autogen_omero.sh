@@ -41,7 +41,7 @@ python -m pip install "django-redis>=4.4,<4.9"
 python -m pip install -U PyYAML==5.1
 python -m pip install scc
 
-cd $WORKSPACE/ome-documentation/
+#cd $WORKSPACE
 WORKSPACE=$WORKSPACE SUFFIX=$SUFFIX omero/autogen_docs
 
 # OSX compatibility for testing
