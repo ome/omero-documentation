@@ -1639,6 +1639,22 @@ The Glacier2 TCP port number to use (unencrypted)
 
 Default: `4063`
 
+.. property:: omero.ports.ws
+
+omero.ports.ws
+^^^^^^^^^^^^^^
+The Glacier2 WS port number to use (unecrypted)
+
+Default: `4065`
+
+.. property:: omero.ports.wss
+
+omero.ports.wss
+^^^^^^^^^^^^^^^
+The Glacier2 WSS port number to use
+
+Default: `4066`
+
 
 .. _query_configuration:
 
@@ -2057,6 +2073,28 @@ Sets the password of the truststore
 Default: `[empty]`
 
 
+.. _server_configuration:
+
+Server
+------
+
+.. property:: omero.server.nodedescriptors
+
+omero.server.nodedescriptors
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Override the default set of OMERO services.
+For example, to run OMERO.server with Blitz and Tables only
+(i.e. disable Processor, DropBox, Indexer, PixelData)
+set this to ``master:Blitz-0,Tables-0``.
+Also use this to distribute OMERO services across multiple nodes,
+for example:
+``master:Blitz-0,Tables-0 worker1:Processor-0``.
+See
+https://docs.openmicroscopy.org/omero/latest/sysadmins/grid.html#deployment-examples
+
+Default: `[empty]`
+
+
 .. _version_configuration:
 
 Version
@@ -2068,7 +2106,7 @@ omero.version
 ^^^^^^^^^^^^^
 Value dynamically set during the build
 
-Default: `5.6.3`
+Default: `5.6.1-SNAPSHOT`
 
 
 .. _web_configuration:
@@ -2204,6 +2242,14 @@ Additional Django settings as list of key-value tuples. Use this to set or overr
 
 Default: `[]`
 
+.. property:: omero.web.favicon_url
+
+omero.web.favicon_url
+^^^^^^^^^^^^^^^^^^^^^
+Favicon URL, specifies the path relative to django's static file dirs.
+
+Default: `webgateway/img/ome.ico`
+
 .. property:: omero.web.feedback.comment.enabled
 
 omero.web.feedback.comment.enabled
@@ -2219,6 +2265,14 @@ omero.web.feedback.error.enabled
 Enable the feedback form for errors. These errors are sent to the URL in ``omero.qa.feedback`` (OME team by default).
 
 Default: `true`
+
+.. property:: omero.web.html_meta_referrer
+
+omero.web.html_meta_referrer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Default content for the HTML Meta referrer tag. See https://www.w3.org/TR/referrer-policy/#referrer-policies for allowed values and https://caniuse.com/#feat=referrer-policy for browser compatibility. Warning: Internet Explorer 11 does not support the default value of this setting, you may want to change this to "origin" after reviewing the linked documentation.
+
+Default: `origin-when-crossorigin`
 
 .. property:: omero.web.index_template
 
@@ -2283,6 +2337,14 @@ omero.web.login_view
 The Django view name used for login. Use this to provide an alternative login workflow.
 
 Default: `weblogin`
+
+.. property:: omero.web.max_table_download_rows
+
+omero.web.max_table_download_rows
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Prevent download of OMERO.tables exceeding this number of rows in a single request.
+
+Default: `10000`
 
 .. property:: omero.web.maximum_multifile_download_size
 
@@ -2355,6 +2417,14 @@ omero.web.pipeline_staticfile_storage
 The file storage engine to use when collecting static files with the collectstatic management command. See `the documentation <https://django-pipeline.readthedocs.org/en/latest/storages.html>`_ for more details.
 
 Default: `pipeline.storage.PipelineStorage`
+
+.. property:: omero.web.plate_layout
+
+omero.web.plate_layout
+^^^^^^^^^^^^^^^^^^^^^^
+If 'shrink', the plate will not display rows and columns before the first Well, or after the last Well. If 'trim', the plate will only show Wells from A1 to the last Well. If 'expand' (default), the plate will expand from A1 to a multiple of 12 columns x 8 rows after the last Well.
+
+Default: `expand`
 
 .. property:: omero.web.prefix
 
@@ -2436,6 +2506,14 @@ Username to use during authentication.
 
 Default: `None`
 
+.. property:: omero.web.redirect_allowed_hosts
+
+omero.web.redirect_allowed_hosts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+If you wish to allow redirects to an external site, the domains must be listed here. For example ["openmicroscopy.org"].
+
+Default: `[]`
+
 .. property:: omero.web.root_application
 
 omero.web.root_application
@@ -2443,6 +2521,22 @@ omero.web.root_application
 Override the root application label that handles ``/``. **Warning** you must ensure the application's URLs do not conflict with other applications. omero-gallery is an example of an application that can be used for this (set to ``gallery``)
 
 Default: `[empty]`
+
+.. property:: omero.web.search.default_group
+
+omero.web.search.default_group
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ID of group to pre-select in search form.
+
+Default: `0`
+
+.. property:: omero.web.search.default_user
+
+omero.web.search.default_user
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ID of user to pre-select in search form.
+
+Default: `0`
 
 .. property:: omero.web.secret_key
 
@@ -2500,6 +2594,14 @@ The name to use for session cookies
 
 Default: `None`
 
+.. property:: omero.web.session_cookie_path
+
+omero.web.session_cookie_path
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The path to use for session cookies
+
+Default: `None`
+
 .. property:: omero.web.session_cookie_secure
 
 omero.web.session_cookie_secure
@@ -2540,6 +2642,14 @@ Dictionary of `server-name: @twitter-site-username`, where server-name matches a
 
 Default: `{}`
 
+.. property:: omero.web.show_forgot_password
+
+omero.web.show_forgot_password
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Allows to hide 'Forgot password' from the login view - useful for LDAP/ActiveDir installations
+
+Default: `true`
+
 .. property:: omero.web.static_root
 
 omero.web.static_root
@@ -2579,6 +2689,14 @@ omero.web.thumbnails_batch
 Number of thumbnails retrieved to prevent from loading them all at once. Make sure the size is not too big, otherwise you may exceed limit request line, see https://docs.gunicorn.org/en/latest/settings.html?highlight=limit_request_line
 
 Default: `50`
+
+.. property:: omero.web.time_zone
+
+omero.web.time_zone
+^^^^^^^^^^^^^^^^^^^
+Time zone for this installation. Choices can be found in the ``TZ database name`` column of: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones Default ``"Europe/London"``
+
+Default: `Europe/London`
 
 .. property:: omero.web.top_logo
 

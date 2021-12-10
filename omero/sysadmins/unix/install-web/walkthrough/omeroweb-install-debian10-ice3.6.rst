@@ -60,12 +60,12 @@ Create the virtual environment. This is the recommended way to install OMERO.web
 
 Install ZeroC IcePy 3.6::
 
-    /opt/omero/web/venv3/bin/pip install --upgrade https://github.com/ome/zeroc-ice-debian10/releases/download/0.1.0/zeroc_ice-3.6.5-cp37-cp37m-linux_x86_64.whl
+    /opt/omero/web/venv3/bin/pip install https://github.com/ome/zeroc-ice-debian10/releases/download/0.1.0/zeroc_ice-3.6.5-cp37-cp37m-linux_x86_64.whl
 
 
-Install OMERO.web::
+Upgrade pip and install OMERO.web:
 
-    /opt/omero/web/venv3/bin/pip install "omero-web>=5.6.1"
+
 
 Installing OMERO.web apps
 -------------------------
@@ -215,9 +215,9 @@ Running OMERO.web
 
 Install `WhiteNoise <http://whitenoise.evans.io/>`_::
 
-    /opt/omero/web/venv3/bin/pip install --upgrade whitenoise
+    /opt/omero/web/venv3/bin/pip install whitenoise
 
-*Optional*: Install `Django Redis <https://github.com/niwinz/django-redis/>`_::
+*Optional*: Install `Django Redis <https://github.com/jazzband/django-redis>`_::
 
     /opt/omero/web/venv3/bin/pip install 'django-redis<4.9'
 
