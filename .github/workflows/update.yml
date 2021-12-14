@@ -55,4 +55,7 @@ jobs:
           WORKSPACE=$space BUILD=false SUFFIX=/dist bash autogen_omero.sh
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
+        with:
+          author: github-actions <github-actions@github.com>
+
 
