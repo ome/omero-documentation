@@ -14,6 +14,7 @@ except ImportError:
 from omero.cli import CLI
 from omero.install.config_parser import PropertyParser
 
+from packaging.version import parse
 
 def get_mmp(sqlfile):
     m = re.search(r'.*/?OMERO(\d+)\.(\d+)(\w*)__(\d+)', sqlfile)
@@ -38,11 +39,18 @@ current_dbver = '%s__%s' % (
 # Check dir
 current_mmp = get_mmp(current_dbver)
 if current_mmp is None:
+    current_version = None
     directory = os.path.join(serverdir, 'sql', 'psql')
     subfolders = [f.path for f in os.scandir(directory) if f.is_dir()]
-    subfolders.sort(key=lambda x: os.path.getctime(x))
-    subfolders = subfolders[::-1]
-    current_dbver = os.path.basename(os.path.normpath(subfolders[0]))
+    for f in subfolders:
+        ver = os.path.basename(os.path.normpath(f))
+        ver = ver.replace("OMERO", "")
+        if current_version is None:
+            current_version = ver
+        else:
+            if parse(current_version) < parse(ver):
+                current_version = ver
+    current_dbver = "OMERO%s" % current_version
     current_mmp = get_mmp(current_dbver)
 
 sqlfiles = []

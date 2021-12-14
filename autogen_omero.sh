@@ -40,6 +40,7 @@ python -m pip install future 'ansible<2.7'
 python -m pip install "django-redis>=4.4,<4.9"
 python -m pip install -U PyYAML==5.1
 python -m pip install scc
+python -m pip install packaging
 
 #cd $WORKSPACE
 WORKSPACE=$WORKSPACE SUFFIX=$SUFFIX omero/autogen_docs
