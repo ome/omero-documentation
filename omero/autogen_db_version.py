@@ -40,8 +40,9 @@ current_mmp = get_mmp(current_dbver)
 if current_mmp is None:
     directory = os.path.join(serverdir, 'sql', 'psql')
     subfolders = [f.path for f in os.scandir(directory) if f.is_dir()]
-    subfolders.sort(key=lambda x: os.path.getmtime(x))
-    current_dbver = os.path.basename(os.path.normpath(subfolders[-1]))
+    subfolders.sort(key=lambda x: os.path.getctime(x))
+    subfolders = subfolders[::-1]
+    current_dbver = os.path.basename(os.path.normpath(subfolders[0]))
     current_mmp = get_mmp(current_dbver)
 
 sqlfiles = []
