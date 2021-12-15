@@ -55,8 +55,11 @@ psql -P pager=off -h localhost -U "$OMERO_DB_USER" -l
 #end-step03
 
 #start-step03bis: As root, create a virtual env and install dependencies
-# Create a virtual env and activate it
+# Create a virtual env
 python3 -mvenv $VENV_SERVER
+
+# Upgrade pip
+$VENV_SERVER/bin/pip install --upgrade pip
 
 # Install the Ice Python binding
 $VENV_SERVER/bin/pip install https://github.com/ome/zeroc-ice-py-debian9/releases/download/0.2.0/zeroc_ice-3.6.5-cp35-cp35m-linux_x86_64.whl
@@ -65,12 +68,10 @@ $VENV_SERVER/bin/pip install https://github.com/ome/zeroc-ice-py-debian9/release
 $VENV_SERVER/bin/pip install omero-server[debian9]
 #end-step03bis
 
-#start-step04-pre: As root, install omero-py and download the OMERO.server
-# Install omero-py
-$VENV_SERVER/bin/pip install "omero-py>=5.8.0"
+#start-step04-pre: As root, download the OMERO.server
 #start-release-ice36
 cd /opt/omero/server
-SERVER=https://downloads.openmicroscopy.org/omero/5.6/server-ice36.zip
+SERVER=https://github.com/ome/openmicroscopy/releases/download/v5.6.3/OMERO.server-5.6.3-ice36-b228.zip
 wget -q $SERVER -O OMERO.server-ice36.zip
 unzip -q OMERO.server*
 #end-release-ice36
@@ -90,11 +91,9 @@ omero config set omero.db.pass "$OMERO_DB_PASS"
 omero db script -f $OMERODIR/db.sql --password "$OMERO_ROOT_PASS"
 psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < $OMERODIR/db.sql
 #end-step04
-#start-patch-openssl
 #start-seclevel
 omero certificates
 #end-seclevel
-#end-patch-openssl
 
 
 #start-step06: As root, run the scripts to start OMERO automatically
