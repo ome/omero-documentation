@@ -2257,7 +2257,7 @@ Default: `true`
 
 omero.web.html_meta_referrer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Default content for the HTML Meta referrer tag. See https://www.w3.org/TR/referrer-policy/#referrer-policies for allowed values and https://caniuse.com/#feat=referrer-policy for browser compatibility. Warning: Internet Explorer 11 does not support the default value of this setting, you may want to change this to "origin" after reviewing the linked documentation.
+Default content for the HTML Meta referrer tag. See https://www.w3.org/TR/referrer-policy/#referrer-policies for allowed values and https://caniuse.com/referrer-policy for browser compatibility. Warning: Internet Explorer 11 does not support the default value of this setting, you may want to change this to "origin" after reviewing the linked documentation.
 
 Default: `origin-when-crossorigin`
 
