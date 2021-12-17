@@ -57,5 +57,6 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           author: github-actions <github-actions@github.com>
+          labels: include
 
 
