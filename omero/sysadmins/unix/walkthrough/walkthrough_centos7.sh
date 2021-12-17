@@ -73,7 +73,7 @@ $VENV_SERVER/bin/pip install omero-server[default]
 $VENV_SERVER/bin/pip install "omero-py>=5.8.0"
 #start-release-ice36
 cd /opt/omero/server
-SERVER=https://github.com/ome/openmicroscopy/releases/download/v5.6.3/OMERO.server-5.6.3-ice36-b228.zip
+SERVER=https://downloads.openmicroscopy.org/omero/5.6/server-ice36.zip
 wget -q $SERVER -O OMERO.server-ice36.zip
 unzip -q OMERO.server*
 #end-release-ice36
