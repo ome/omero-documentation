@@ -107,6 +107,8 @@ Change the ownership of the OMERO.server directory and create a symlink:
     :start-after: #end-release-ice36
     :end-before: #end-step04-pre
 
+See also :doc:`../client-server-ssl`.
+
 Configuring OMERO.server
 ------------------------
 
@@ -125,11 +127,7 @@ Configure the database and the location of the data directory:
     :start-after: #end-copy-omeroscript
     :end-before: #end-step04
 
-Weaker ciphers like ADH are disabled by default in OpenSSL 1.1+,
-the version installed on Ubuntu 18.04.
-This means that it is not possible to connect to an OMERO.server
-using any OMERO clients e.g. the Java Desktop client,
-the OMERO.web client or the CLI. Run:
+.. include:: ciphers
 
 .. literalinclude:: walkthrough/walkthrough_ubuntu1804.sh
     :start-after: #start-seclevel

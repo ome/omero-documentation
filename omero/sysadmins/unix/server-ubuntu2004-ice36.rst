@@ -125,16 +125,13 @@ Configure the database and the location of the data directory:
     :start-after: #end-copy-omeroscript
     :end-before: #end-step04
 
-Weaker ciphers like ADH are disabled by default in OpenSSL 1.1+,
-the version installed on Ubuntu 20.04.
-This means that it is not possible to connect to an OMERO.server
-using any OMERO clients e.g. the Java Desktop client,
-the OMERO.web client or the CLI.
-Run:
+.. include:: ciphers
 
 .. literalinclude:: walkthrough/walkthrough_ubuntu2004.sh
     :start-after: #start-seclevel
     :end-before: #end-seclevel
+
+See also :doc:`../client-server-ssl`.
 
 Running OMERO.server
 --------------------

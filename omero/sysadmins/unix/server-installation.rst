@@ -312,6 +312,9 @@ typing later, to reflect what you set :envvar:`OMERO_PREFIX` to in the
 This will also ease installation of newer versions of the server at a
 later date, by simply updating the link.
 
+.. note::
+  .. include:: ciphers
+
 .. _server_env:
 
 Environment variables

@@ -119,6 +119,13 @@ Configure the database and the location of the data directory:
     :start-after: #end-copy-omeroscript
     :end-before: #end-step04
 
+.. include:: ciphers
+
+.. literalinclude:: walkthrough/walkthrough_centos7.sh
+    :start-after: #start-seclevel
+    :end-before: #end-seclevel
+
+See also :doc:`../client-server-ssl`.
 
 Running OMERO.server
 --------------------
