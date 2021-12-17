@@ -162,7 +162,7 @@ employ the `omero-certificates
 <https://pypi.org/project/omero-certificates/>`_ plugin available from
 PyPI_:
 
-.. literalinclude:: unix/walkthrough/walkthrough_debian9.sh
+.. literalinclude:: unix/walkthrough/walkthrough_debian10.sh
     :start-after: #start-seclevel
     :end-before: #end-seclevel
 
