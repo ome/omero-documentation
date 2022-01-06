@@ -223,6 +223,7 @@ def copy_legacy_redirects(app, exception):
     """
     print("Adding redirects:")
     redirect_files = [
+        'sysadmins/unix/server-debian9-ice36.html',
         'sysadmins/server-overview.html',
         'sysadmins/server-tables.html',
         'sysadmins/omero-home-prefix.html',
