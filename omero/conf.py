@@ -223,6 +223,7 @@ def copy_legacy_redirects(app, exception):
     """
     print("Adding redirects:")
     redirect_files = [
+        'sysadmins/unix/install-web/walkthrough/omeroweb-install-debian9-ice3.6.html',
         'sysadmins/unix/server-debian9-ice36.html',
         'sysadmins/server-overview.html',
         'sysadmins/server-tables.html',
