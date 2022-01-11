@@ -41,9 +41,9 @@ jobs:
           cd ..
           WORKSPACE=$(pwd)
           echo "space="${WORKSPACE} >> $GITHUB_ENV
-          git clone git://github.com/ome/openmicroscopy OMERO.server
-          git clone git://github.com/ome/omeroweb-install
-          git clone git://github.com/ome/omero-install
+          git clone https://github.com/ome/openmicroscopy OMERO.server
+          git clone https://github.com/ome/omeroweb-install
+          git clone https://github.com/ome/omero-install
       - name: Build OMERO.server
         run: |
           cd $space/OMERO.server
