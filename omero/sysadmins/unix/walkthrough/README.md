@@ -2,7 +2,7 @@ Example OMERO Linux install scripts
 ===================================
 
 This directory contains examples of installing OMERO on clean
-Ubuntu 18.04, Ubuntu 20.04, Debian 9, Debian 10
+Ubuntu 18.04, Ubuntu 20.04, Debian 10
 CentOS 7 and CentOS 8 64-bit systems, see
 https://docs.openmicroscopy.org/latest/omero/sysadmins/unix/server-installation.html
 
@@ -11,7 +11,6 @@ Copy the files from this directory, then run one of the install scripts,
 	bash install_centos7.sh
 	bash install_centos8.sh
 	bash install_ubuntu1804.sh
-	bash install_debian9.sh
     bash install_debian10.sh
     bash install_ubuntu2004.sh
 
