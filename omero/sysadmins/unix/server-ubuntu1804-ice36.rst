@@ -143,7 +143,7 @@ OMERO should now be set up. To start the server run::
     omero admin start
 
 Should you wish to start OMERO automatically, a `init.d` file could be created.
-An example :download:`omero-server.init.d <walkthrough/omero-server-init.d>`
+An example :download:`omero-server-init.d <walkthrough/omero-server-init.d>`
 is available.
 
 Copy the ``init.d`` file and configure the service:
