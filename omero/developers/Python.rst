@@ -39,6 +39,9 @@ In addition to the auto-generated Python libraries of the core |OmeroApi|,
 facilitates several aspects of working with the Python API, such as
 connection handling, object graph traversal and lazy loading.
 
+Building on the 'BlitzGateway', The Jackson Laboratory have created
+a module of convenience functions called `ezomero <https://github.com/TheJacksonLaboratory/ezomero>`_.
+
 This page gives you a large number of code samples to get you
 started. Then we describe a bit more about :doc:`PythonBlitzGateway`.
 
