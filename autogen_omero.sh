@@ -37,7 +37,7 @@ set +u # PS1 issue
 set -u
 python -m pip install "omero-web>=5.6.0"
 python -m pip install future 'ansible<2.7'
-python -m pip install "django-redis>=4.4,<4.9"
+python -m pip install "django-redis==5.0.0"
 python -m pip install -U PyYAML==5.1
 python -m pip install scc
 python -m pip install packaging
