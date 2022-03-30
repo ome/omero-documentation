@@ -39,7 +39,16 @@ Queries
 Search queries are very similar to Google searches. When search terms
 are entered without a prefix ("name:"), then the default field will be
 used which combines all available fields. Otherwise, a prefix can be
-added to restrict the search.
+added to restrict the search. The search terms will be by default parsed as if there was "OR" operator
+between them (see example in the "Indexing" paragraph). 
+Further, tokenizing happens on all non-alphanumerical signs, such as underscore, 
+hyphen etc. Again, when the term is tokenized, 
+the default parsing of the tokens is with "OR" operator between the tokens. 
+The search terms or the tokens created from them as above 
+must precisely match the indexed entries. 
+This means for example that a search term `tes` 
+is **not** matching the indexed entry `test` and the search 
+will accordingly give no result. 
 
 Indexing
 --------
@@ -57,10 +66,21 @@ FullTextAnalyzer <src/main/java/ome/services/fulltext/FullTextAnalyzer.java>`.
 
 Assuming these entries above for Image.name:
 
--  searching for **GFP-H2B** returns 1 and 2.
--  searching for **"GFP H2B"** also returns 1 and 2.
--  searching for **GFP H2B** returns 1, 2, and 3, since the two terms
+-  searching for **GFP-H2B** returns 1, 2, 3 and 4, because of the tokenizing on the hyphen and joining of the tokens by **OR**.
+This behavior is changed by adding wildcards or quotations, see below.
+-  searching for **"GFP H2B"** only returns 1 and 2, because the quotes enforces the exact sequence of the terms.
+-  searching for **GFP H2B** returns 1, 2, 3 and 4, since the two terms
    are joined by an **OR**.
+-  searching for **"GFP-H2B"** returns 1 and 2.
+
+With the same entries as above and adding a wildcard:
+
+-  searching for **"GF\*"** returns no results.
+-  searching for **GF\*** returns 1, 2, 3 and 4.
+-  searching for **"GFP-\*"** returns 1, 2, 3 and 4.
+-  searching for **GFP-\*** returns no results. 
+-  searching for **\*FP-H2B** returns no results.
+-  searching for **"\*FP-H2B"** returns no results.
 
 Information for developers
 --------------------------
