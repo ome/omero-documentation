@@ -66,9 +66,8 @@ FullTextAnalyzer <src/main/java/ome/services/fulltext/FullTextAnalyzer.java>`.
 
 Assuming these entries above for Image.name:
 
--  searching for **GFP-H2B** returns 1, 2, 3 and 4, because of the tokenizing on the hyphen and joining of the tokens by **OR**.
-This behavior is changed by adding wildcards or quotations, see below.
--  searching for **"GFP H2B"** only returns 1 and 2, because the quotes enforces the exact sequence of the terms.
+-  searching for **GFP-H2B** returns 1, 2, 3 and 4, because of the tokenizing on the hyphen and joining of the tokens by an **OR**. This behavior is changed by adding wildcards or quotations, see below.
+-  searching for **"GFP H2B"** only returns 1 and 2, since the quotes enforce the exact sequence of the terms.
 -  searching for **GFP H2B** returns 1, 2, 3 and 4, since the two terms
    are joined by an **OR**.
 -  searching for **"GFP-H2B"** returns 1 and 2.
