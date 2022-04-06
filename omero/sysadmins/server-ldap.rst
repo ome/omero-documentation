@@ -54,7 +54,7 @@ The LDAP plugin is configured via several configuration properties, all
 starting with ``omero.ldap`` (see :ref:`ldap_configuration`).
 
 Some of the property values are passed directly to the underlying LDAP library
-(`Spring LDAP <http://projects.spring.io/spring-ldap/>`_), which in turn makes
+(`Spring LDAP <https://spring.io/projects/spring-ldap/>`_), which in turn makes
 use of the Java API. OMERO does not modify the error messages thrown by the
 library or by Java, so please consult the appropriate documentation to
 diagnose any low-level problems.
