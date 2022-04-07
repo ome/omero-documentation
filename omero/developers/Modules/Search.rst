@@ -39,15 +39,15 @@ Queries
 Search queries are very similar to Google searches. When search terms
 are entered without a prefix ("name:"), then the default field will be
 used which combines all available fields. Otherwise, a prefix can be
-added to restrict the search. The search terms will be by default parsed as if there was "OR" operator
-between them (see example in the "Indexing" paragraph). 
-Further, tokenizing happens on all non-alphanumerical signs, such as underscore, 
+added to restrict the search. The search terms will be parsed as if there was an "OR" operator
+between them (see examples in the "Indexing" paragraph).
+The tokenizing happens on all non-alpha-numerical characters, such as underscore,
 hyphen etc. Again, when the term is tokenized, 
-the default parsing of the tokens is with "OR" operator between the tokens. 
+the query is built by combining the tokens with an "OR".
 The search terms or the tokens created from them as above 
 must precisely match the indexed entries. 
 This means for example that a search term `tes` 
-is **not** matching the indexed entry `test` and the search 
+will **not** match the indexed entry `test` and the search
 will accordingly give no result. 
 
 Indexing
@@ -66,20 +66,20 @@ FullTextAnalyzer <src/main/java/ome/services/fulltext/FullTextAnalyzer.java>`.
 
 Assuming these entries above for Image.name:
 
--  searching for **GFP-H2B** returns 1, 2, 3 and 4, because of the tokenizing on the hyphen and joining of the tokens by an **OR**. This behavior is changed by adding wildcards or quotations, see below.
--  searching for **"GFP H2B"** only returns 1 and 2, since the quotes enforce the exact sequence of the terms.
+-  searching for **GFP-H2B** returns 1, 2, 3 and 4, because of the tokenizing on the hyphen and joining of the tokens by an **OR**.
+-  searching for **"GFP H2B"** only returns 1 and 2, since the quotes enforce the exact sequence of the terms and the query is built with an **AND**.
 -  searching for **GFP H2B** returns 1, 2, 3 and 4, since the two terms
    are joined by an **OR**.
 -  searching for **"GFP-H2B"** returns 1 and 2.
 
 With the same entries as above and adding a wildcard:
 
--  searching for **"GF\*"** returns no results.
+-  searching for **\*FP** returns 1, 2, 3 and 4. As this example shows, **leading wildcards in the Graphical User Interface are allowed**, but disallowed when using the API directly, see below in the developers section.
 -  searching for **GF\*** returns 1, 2, 3 and 4.
--  searching for **"GFP-\*"** returns 1, 2, 3 and 4.
--  searching for **GFP-\*** returns no results. 
--  searching for **\*FP-H2B** returns no results.
--  searching for **"\*FP-H2B"** returns no results.
+-  searching for **GFP-\*** returns no results, but **GFP.\*** returns 1, 2, 3 and 4. Only hyphen and underscore do not return results in this situation, the other non-alpha-numerical characters do.
+-  searching for **"\*FP-H2B"** returns no results. This is not a wildcard query, but a term query, and is the same as searching for **"FP-H2B"**.
+-  searching for **"GF\*"** returns no results. Again, not a wildcard query, the same as searching for **"GF"**.
+-  searching for **"GFP-\*"** returns 1, 2, 3 and 4. Again, not a wildcard query, the same as searching for **"GFP-"**.
 
 Information for developers
 --------------------------
