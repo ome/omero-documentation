@@ -39,16 +39,11 @@ Queries
 Search queries are very similar to Google searches. When search terms
 are entered without a prefix ("name:"), then the default field will be
 used which combines all available fields. Otherwise, a prefix can be
-added to restrict the search. The search terms will be parsed as if there was an "OR" operator
-between them (see examples in the "Indexing" paragraph).
-The tokenizing happens on all non-alpha-numerical characters, such as underscore,
-hyphen etc. Again, when the term is tokenized, 
-the query is built by combining the tokens with an "OR".
-The search terms or the tokens created from them as above 
+added to restrict the search. The search term is first split into "tokens" and these are combined into a search query. The tokenizing happens on all non-alpha-numerical characters, such as space, underscore, hyphen etc. The query is built by combining the tokens with an "OR" operator (see examples in the "Indexing" paragraph). The search terms or the tokens created from them as above
 must precisely match the indexed entries. 
 This means for example that a search term `tes` 
 will **not** match the indexed entry `test` and the search
-will accordingly give no result. 
+will accordingly give no result.
 
 Indexing
 --------
@@ -67,8 +62,8 @@ FullTextAnalyzer <src/main/java/ome/services/fulltext/FullTextAnalyzer.java>`.
 Assuming these entries above for Image.name:
 
 -  searching for **GFP-H2B** returns 1, 2, 3 and 4, because of the tokenizing on the hyphen and joining of the tokens by an **OR**.
--  searching for **"GFP H2B"** only returns 1 and 2, since the quotes enforce the exact sequence of the terms and the query is built with an **AND**.
--  searching for **GFP H2B** returns 1, 2, 3 and 4, since the two terms
+-  searching for **"GFP H2B"** only returns 1 and 2, since the quotes enforce the exact sequence of the tokens and the query is built with an **AND**.
+-  searching for **GFP H2B** returns 1, 2, 3 and 4, since the two tokens
    are joined by an **OR**.
 -  searching for **"GFP-H2B"** returns 1 and 2.
 
