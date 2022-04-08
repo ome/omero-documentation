@@ -69,7 +69,7 @@ Assuming these entries above for Image.name:
 
 With the same entries as above and adding a wildcard:
 
--  searching for **\*FP** returns 1, 2, 3 and 4. As this example shows, **leading wildcards in the Graphical User Interface are allowed**, but disallowed when using the API directly, see below in the developers section.
+-  searching for **\*FP** returns 1, 2, 3 and 4. As this example shows, **leading wildcards in the Graphical User Interface are allowed**, but must be explicitly enabled when using the API directly, see below in the developers section.
 -  searching for **GF\*** returns 1, 2, 3 and 4.
 -  searching for **GFP-\*** returns no results, but **GFP.\*** returns 1, 2, 3 and 4. Only hyphen and underscore do not return results in this situation, the other non-alpha-numerical characters do.
 -  searching for **"\*FP-H2B"** returns no results. This is not a wildcard query, but a term query, and is the same as searching for **"FP-H2B"**.
