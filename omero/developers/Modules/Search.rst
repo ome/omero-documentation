@@ -39,7 +39,11 @@ Queries
 Search queries are very similar to Google searches. When search terms
 are entered without a prefix ("name:"), then the default field will be
 used which combines all available fields. Otherwise, a prefix can be
-added to restrict the search.
+added to restrict the search. The search term is first split into "tokens" and these are combined into a search query. The tokenizing happens on all non-alpha-numerical characters, such as space, underscore, hyphen etc. The query is built by combining the tokens with an "OR" operator (see examples in the "Indexing" paragraph). The search terms or the tokens created from them as above
+must precisely match the indexed entries. 
+This means for example that a search term `tes` 
+will **not** match the indexed entry `test` and the search
+will accordingly give no result.
 
 Indexing
 --------
@@ -57,10 +61,26 @@ FullTextAnalyzer <src/main/java/ome/services/fulltext/FullTextAnalyzer.java>`.
 
 Assuming these entries above for Image.name:
 
--  searching for **GFP-H2B** returns 1 and 2.
--  searching for **"GFP H2B"** also returns 1 and 2.
--  searching for **GFP H2B** returns 1, 2, and 3, since the two terms
+-  searching for **GFP-H2B** returns 1, 2, 3 and 4, because of the tokenizing on the hyphen and joining of the tokens by an **OR**.
+-  searching for **"GFP H2B"** or **"GFP-H2B"** only returns 1 and 2, since the quotes enforce the exact sequence of the tokens and the query is built with an **AND**.
+-  searching for **GFP H2B** returns 1, 2, 3 and 4, since the two tokens
    are joined by an **OR**.
+
+With the same entries as above and adding a wildcard:
+
+-  searching for **\*FP** returns 1, 2, 3 and 4. As this example shows, **leading wildcards in the Graphical User Interface are allowed**, but must be explicitly enabled when using the API directly, see below in the developers section.
+-  searching for **GF\*** returns 1, 2, 3 and 4.
+-  searching for **GFP-\*** returns no results, but **GFP.\*** returns 1, 2, 3 and 4. Only hyphen and underscore do not return results in this situation, the other non-alpha-numerical characters do.
+
+Wildcards and quotations:
+
+Wildcard inside quotations is not parsed as a wilcard,
+but as a non-alpha-numerical character on which the tokenizing happens.
+
+-  searching for **"\*FP-H2B"** returns no results, since it is the same as searching for **"FP-H2B"**.
+-  searching for **"GF\*"** returns no results, since it is the same as searching for **"GF"**.
+-  searching for **"GFP-\*"** returns 1, 2, 3 and 4, since it is the same as searching for **"GFP-"**.
+-  searching for **"GFP*H2B"** returns 1 and 2, since it is the same as searching for **"GFP H2B"**.
 
 Information for developers
 --------------------------
