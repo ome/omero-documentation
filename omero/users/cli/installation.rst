@@ -5,7 +5,7 @@ Installation
     but may be supported in the future.
 
 Since OMERO 5.6, only Python 3 is supported.
-We assume that you have already installed Python 3.6.
+We assume that you have already installed Python 3.6 or higher. You can ensure that your python executable is correct with the ``python --version`` command.
 
 We recommend installing client library ``omero-py`` and the |CLI| plugins
 in a Python virtual environment.
@@ -18,12 +18,12 @@ to install it first, see `miniconda <https://docs.conda.io/en/latest/miniconda.h
 
 To install ``omero-py`` using conda (preferred)::
 
-    conda create -n myenv -c ome python=3.6 zeroc-ice36-python omero-py
+    conda create -n myenv -c ome omero-py
     conda activate myenv
 
-Alternatively install ``omero-py`` using venv::
+Alternatively install ``omero-py`` using venv with python 3.6 or higher::
 
-    python3.6 -m venv myenv
+    python -m venv myenv
     . myenv/bin/activate
     pip install omero-py
 
