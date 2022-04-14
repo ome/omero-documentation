@@ -135,7 +135,7 @@ as a template.
 Go to the template repository
 `omero-web-apps-examples <https://github.com/will-moore/omero-web-apps-examples>`_.
 Click 'Use this template' as `described here
-<https://docs.github.com/en/articles/creating-a-repository-from-a-template>`_
+<https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template>`_
 and choose a name for your new repo, for example ``my_app``.
 
 Go to the directory where you want your app to live and clone it.
