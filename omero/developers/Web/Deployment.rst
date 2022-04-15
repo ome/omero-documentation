@@ -35,9 +35,6 @@ directory. We recommend you use a virtual environment:
 
     $ pip install 'omero-web>=\ |version_web|'
 
-    Successfully installed Django-1.11.26 Pillow-6.2.1 django-pipeline-1.6.14
-    future-0.18.2 gunicorn-20.0.0 omero-marshal-0.6.3 omero-py-5.6.dev5
-    omero-web-5.6.dev5 pytz-2019.3 zeroc-ice-3.6.5
 
 Using the lightweight development server
 ----------------------------------------
@@ -60,7 +57,7 @@ Then start up the development server to run in the foreground:
     Validating models...
 
     0 errors found
-    Django version 1.11, using settings 'omeroweb.settings'
+    Django version 3.2, using settings 'omeroweb.settings'
     Starting development server at http://127.0.0.1:4080/
     Quit the server with CONTROL-C.
 
