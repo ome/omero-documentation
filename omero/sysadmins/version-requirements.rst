@@ -337,13 +337,6 @@ If no version is provided, a suitable repository is indicated.
       - Ubuntu
       - Homebrew
       - FreeBSD Ports
-    * - 9.6
-      - 6 (`postgresql <https://yum.postgresql.org/9.6/redhat/rhel-6-x86_64/>`__),
-	7 (`postgresql <https://yum.postgresql.org/9.6/redhat/rhel-7-x86_64/>`__),
-	8 (`postgresql <https://yum.postgresql.org/9.6/redhat/rhel-8-x86_64/>`__)
-      - 16.04, 18.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
-      - Yes
-      - Yes
     * - 10
       - 6 (`postgresql <https://yum.postgresql.org/10/redhat/rhel-6-x86_64/>`__),
 	7 (`postgresql <https://yum.postgresql.org/10/redhat/rhel-7-x86_64/>`__),
