@@ -74,7 +74,7 @@ scripts will be lost.
 To keep your scripts up to date, we recommend you use a Github repository to
 manage your scripts. If you are not familiar with
 :devs_doc:`using git <using-git.html>`, you can use the
-`GitHub app for your OS <https://help.github.com/articles/set-up-git>`_
+`GitHub app for your OS <https://docs.github.com/en/get-started/quickstart/set-up-git>`_
 (available for Mac and Windows but not Linux). The basic workflow is:
 
 -  fork our
