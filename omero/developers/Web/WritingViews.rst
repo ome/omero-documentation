@@ -150,7 +150,7 @@ URLs.
 
    ::
 
-       >>> from django.core.urlresolvers import reverse
+       >>> from django.urls import reverse
        >>> reverse('url_name', kwargs={'object_id': 1})
 
 .. _omeroweb_error_handling:
