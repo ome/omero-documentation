@@ -210,7 +210,9 @@ linkcheck_ignore += [
     # Timeouts which may be fixed in a newer version
     'https://micronoxford.com/',
     github_root + 'ome/',
-    r'https://help.openmicroscopy.org/.*#.*']
+    r'https://help.openmicroscopy.org/.*#.*',
+    r'https://docs.github.com/.*',
+]
 
 exclude_patterns = ['sysadmins/unix/walkthrough/requirements*',
                     'downloads/inplace', 'downloads/cli',

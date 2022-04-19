@@ -54,7 +54,7 @@ file contents and propose your file changes to the OME team using
 `Pull Requests`_. Alternatively, click on "Edit on GitHub" in the
 menu.
 
-.. _Pull Requests: https://help.github.com/articles/about-pull-requests/
+.. _Pull Requests: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
 
 .. toctree::
     :maxdepth: 1
