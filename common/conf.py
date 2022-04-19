@@ -204,6 +204,7 @@ rst_epilog = """
 .. _Glencoe Software, Inc.: https://www.glencoesoftware.com/
 .. _Pillow: https://pillow.readthedocs.org
 .. _Matplotlib: https://matplotlib.org/
+.. _Django 3.2: https://docs.djangoproject.com/en/3.2/releases/3.2/
 .. _Django 1.8: https://docs.djangoproject.com/en/1.8/releases/1.8/
 .. _Django 1.6: https://docs.djangoproject.com/en/1.6/releases/1.6/
 .. _Python: https://www.python.org
