@@ -16,13 +16,12 @@ To install ``omero-py`` using venv:
     $ python3 -m venv myenv
     $ . myenv/bin/activate
     $ pip install omero-py==\ |version_py|
-    Successfully installed Pillow-6.2.1 future-0.18.2 omero-py-5.6.1 zeroc-ice-3.6.5
 
 To install ``omero-py`` using conda (preferred):
 
 .. parsed-literal::
 
-    conda create -n myenv -c ome python=3.6 zeroc-ice36-python omero-py
+    conda create -n myenv -c conda-forge python=3.8 omero-py
     conda activate myenv
 
 You can then start using the library in the terminal where the environment has been activated:
