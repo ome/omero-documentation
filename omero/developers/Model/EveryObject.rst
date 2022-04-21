@@ -2916,11 +2916,8 @@ Properties:
   | timeToIdle: ``long``
   | timeToLive: ``long``
   | userAgent: ``string`` (optional)
-  | userIP: ``string`` (optional) (deprecated)
   | uuid: ``securestring``
   | version: ``integer`` (optional), see :javadoc_model:`IMutable <ome/model/IMutable.html>`
-
-.. warning:: This model object has a deprecated property.
 
 .. _OMERO model class SessionAnnotationLink:
 
@@ -3015,11 +3012,8 @@ Properties:
   | timeToIdle: ``long`` from :ref:`Session <OMERO model class Session>`
   | timeToLive: ``long`` from :ref:`Session <OMERO model class Session>`
   | userAgent: ``string`` (optional) from :ref:`Session <OMERO model class Session>`
-  | userIP: ``string`` (optional) (deprecated) from :ref:`Session <OMERO model class Session>`
   | uuid: ``securestring`` from :ref:`Session <OMERO model class Session>`
   | version: ``integer`` (optional) from :ref:`Session <OMERO model class Session>`
-
-.. warning:: This model object has a deprecated property.
 
 .. _OMERO model class ShareMember:
 
