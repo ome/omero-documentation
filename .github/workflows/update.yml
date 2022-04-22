@@ -60,5 +60,6 @@ jobs:
         with:
           author: github-actions <github-actions@github.com>
           labels: include
+          token: ${{secrets.ACTION_API_TOKEN}}
 
 
