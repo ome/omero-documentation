@@ -1,7 +1,6 @@
 name: Synchronize with upstream repositories
 
 on:
-  push:
   schedule:
     - cron: '* 0 * * *'
 jobs:
