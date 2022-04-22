@@ -1,7 +1,6 @@
 name: Synchronize with upstream repositories
 
 on:
-  push:
   schedule:
     - cron: '* 0 * * *'
 jobs:
@@ -56,10 +55,7 @@ jobs:
           $space/.venv3/bin/pip install https://github.com/ome/zeroc-ice-ubuntu2004/releases/download/0.2.0/zeroc_ice-3.6.5-cp38-cp38-linux_x86_64.whl
           WORKSPACE=$space BUILD=false SUFFIX=/dist bash autogen_omero.sh
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v4
         with:
-          author: github-actions <github-actions@github.com>
           labels: include
           token: ${{secrets.ACTION_API_TOKEN}}
-
-
