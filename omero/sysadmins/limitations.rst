@@ -43,6 +43,21 @@ user, you cannot make the group into a private group.
 File format support
 -------------------
 
+Large images
+^^^^^^^^^^^^
+
+When you import an image over a certain size, OMERO will generate a Pyramid of lower resolution
+images if it doesn't already exist in the file. The threshold size is configurable using
+:property:`omero.pixeldata.max_plane_height` and
+:property:`omero.pixeldata.max_plane_width` but set to 3192x3192 pixels by
+default). However, this process can be very resource-intensive for larger images, for example see
+`PixelData threads and pyramid generation issues <https://forum.image.sc/t/pixeldata-threads-and-pyramid-generation-issues/49794>`_
+
+It is recommend that users avoid these issues by converting
+their data to `pyramidal OME-TIFF <https://www.openmicroscopy.org/2018/11/29/ometiffpyramid.html>`_
+files before importing into OMERO, as described at
+`Converting Whole Slide Images to OME-TIFF: A New Workflow <https://www.glencoesoftware.com/blog/2019/12/09/converting-whole-slide-images-to-OME-TIFF.html>`_
+
 Large images with floating-point pixel data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
