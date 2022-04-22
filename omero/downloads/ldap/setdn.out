@@ -1,4 +1,4 @@
-usage: omero ldap setdn [-h] [--user-id USER_ID]
+usage: omeroro ldap setdn [-h] [--user-id USER_ID]
                                           [--user-name USER_NAME]
                                           [--group-id GROUP_ID]
                                           [--group-name GROUP_NAME] [-C]

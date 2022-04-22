@@ -165,10 +165,10 @@ Setting up CORS
 
 **The following steps are run as root.**
 
-Cross Origin Resource Sharing allows web applications hosted at other origins to access resources from your OMERO.web installation. This can be achieved using the `django-cors-headers <https://github.com/adamchainz/django-cors-headers>`_ app with additional configuration of OMERO.web. See the `django-cors-headers <https://github.com/adamchainz/django-cors-headers>`_ page for more details on the settings::
+Cross Origin Resource Sharing allows web applications hosted at other origins to access resources from your OMERO.web installation. This can be achieved using the `django-cors-headers <https://github.com/adamchainz/django-cors-headers>`_ app with additional configuration of OMERO.web. See the `django-cors-headers <https://github.com/adamchainz/django-cors-headers>`_ page for more details on the settings.
+    Since OMERO.web 5.14.0, the package `django-cors-headers` is installed by default.
 
 
-    /opt/omero/web/venv3/bin/pip install 'django-cors-headers<3.3'
 
 **The following steps are run as the omero-web system user.**
 
@@ -220,7 +220,7 @@ Install `WhiteNoise <http://whitenoise.evans.io/>`_::
 
 *Optional*: Install `Django Redis <https://github.com/jazzband/django-redis>`_::
 
-    /opt/omero/web/venv3/bin/pip install 'django-redis<4.9'
+    /opt/omero/web/venv3/bin/pip install 'django-redis==5.0.0'
 
 **The following steps are run as the omero-web system user.**
 
