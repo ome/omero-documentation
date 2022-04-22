@@ -51,6 +51,7 @@ jobs:
       - name: Update documentation
         run: |
           python -m venv $space/.venv3
+          $space/.venv3/bin/pip install -U jinja2==3.0.1
           $space/.venv3/bin/pip install https://github.com/ome/zeroc-ice-ubuntu2004/releases/download/0.2.0/zeroc_ice-3.6.5-cp38-cp38-linux_x86_64.whl
           WORKSPACE=$space BUILD=false SUFFIX=/dist bash autogen_omero.sh
       - name: Create Pull Request
