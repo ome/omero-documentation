@@ -49,7 +49,6 @@ omero web config nginx-location | sed "s|$SUFFIX||" | sed "s|$WORKSPACE/OMERO.se
 echo "Generating omeroweb install walkthrough"
 
 (cd $WORKSPACE/omeroweb-install && ansible-playbook ./.travis/../ansible/omeroweb-install-doc.yml -i ./.travis/../ansible/hosts/centos7-ice3.6 --extra-vars '{"clean": True, "web_session": True}')
-(cd $WORKSPACE/omeroweb-install && ansible-playbook ./.travis/../ansible/omeroweb-install-doc.yml -i ./.travis/../ansible/hosts/centos8-ice3.6 --extra-vars '{"clean": True, "web_session": True}')
 (cd $WORKSPACE/omeroweb-install && ansible-playbook ./.travis/../ansible/omeroweb-install-doc.yml -i ./.travis/../ansible/hosts/ubuntu1804-ice3.6 --extra-vars '{"clean": True, "web_session": True}')
 (cd $WORKSPACE/omeroweb-install && ansible-playbook ./.travis/../ansible/omeroweb-install-doc.yml -i ./.travis/../ansible/hosts/ubuntu2004-ice3.6 --extra-vars '{"clean": True, "web_session": True}')
 (cd $WORKSPACE/omeroweb-install && ansible-playbook ./.travis/../ansible/omeroweb-install-doc.yml -i ./.travis/../ansible/hosts/debian10-ice3.6 --extra-vars '{"clean": True, "web_session": True}')
