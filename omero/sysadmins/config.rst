@@ -1383,9 +1383,8 @@ pixeldata processing.
 .. |cron| replace::
   Cron Format: seconds minutes hours day-of-month month day-of-week year
   (optional). For example, "0,30 * * * * ?" is equivalent to running every
-  30 seconds. For more information download the latest *1.x version* of
-  the `Quartz Job Scheduler`_ and review
-  :file:`docs/api/org/quartz/CronExpression.html` within the distribution.
+  30 seconds. See
+  https://www.quartz-scheduler.org/api/1.8.6/org/quartz/CronExpression.html
 
 .. _Quartz Job Scheduler:
   https://www.quartz-scheduler.org/downloads/
