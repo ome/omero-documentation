@@ -58,8 +58,8 @@ The OMERO pyramid generation process should be considered as deprecated and inst
 that users avoid these issues by converting
 their data to `pyramidal OME-TIFF <https://www.openmicroscopy.org/2018/11/29/ometiffpyramid.html>`_
 files before importing into OMERO. A number of suitable tools are available such as
-`bioformats2raw & raw2ometiff<https://www.glencoesoftware.com/blog/2019/12/09/converting-whole-slide-images-to-OME-TIFF.html>`_,
-`bfconvert`, `Kheops<https://github.com/BIOP/ijp-kheops>`_, `tifffile`, `aicsimageio`, `libvips` and `QuPath`.
+`bioformats2raw & raw2ometiff <https://www.glencoesoftware.com/blog/2019/12/09/converting-whole-slide-images-to-OME-TIFF.html>`_,
+`bfconvert`, `Kheops <https://github.com/BIOP/ijp-kheops>`_, `tifffile`, `aicsimageio`, `libvips` and `QuPath`.
 
 Large images with floating-point pixel data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -72,6 +72,9 @@ This primarily affects the following file formats:
 *  :bf_v_doc:`Gatan DM3 <formats/gatan-digital-micrograph.html>`
 *  :bf_v_doc:`MRC <formats/mrc.html>`
 *  :bf_v_doc:`TIFF <formats/tiff.html>`
+
+This issue can be avoided by pre-generating pyramidal OME-TIFF images as
+described above.
 
 .. _minmax_limitation:
 
