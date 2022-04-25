@@ -59,7 +59,10 @@ that users avoid these issues by converting
 their data to `pyramidal OME-TIFF <https://www.openmicroscopy.org/2018/11/29/ometiffpyramid.html>`_
 files before importing into OMERO. A number of suitable tools are available such as
 `bioformats2raw & raw2ometiff <https://www.glencoesoftware.com/blog/2019/12/09/converting-whole-slide-images-to-OME-TIFF.html>`_,
-`bfconvert`, `Kheops <https://github.com/BIOP/ijp-kheops>`_, `tifffile`, `aicsimageio`, `libvips` and `QuPath`.
+`bfconvert <https://docs.openmicroscopy.org/latest/bio-formats/users/comlinetools/conversion.html>`_,
+`Kheops <https://github.com/BIOP/ijp-kheops>`_, `tifffile <https://pypi.org/project/tifffile/>`_,
+`aicsimageio <https://github.com/AllenCellModeling/aicsimageio>`_,
+`libvips <https://github.com/libvips/libvips>`_ and `QuPath <https://qupath.github.io/>`_.
 
 Large images with floating-point pixel data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
