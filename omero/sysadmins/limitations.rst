@@ -43,19 +43,41 @@ user, you cannot make the group into a private group.
 File format support
 -------------------
 
+Large images
+^^^^^^^^^^^^
+
+When you import an image over a certain size, OMERO will generate a pyramid of lower resolution
+images if it doesn't already exist in the file. The threshold size is configurable using
+:property:`omero.pixeldata.max_plane_height` and
+:property:`omero.pixeldata.max_plane_width` but set to 3192x3192 pixels by
+default. However, this process can be very resource-intensive, depending on the size of the
+image as well as the image format and any data compression used, for example see
+`PixelData threads and pyramid generation issues <https://forum.image.sc/t/pixeldata-threads-and-pyramid-generation-issues/49794>`_.
+
+The OMERO pyramid generation process should be considered as deprecated and instead it is recommended
+that users avoid these issues by converting
+their data to `pyramidal OME-TIFF <https://www.openmicroscopy.org/2018/11/29/ometiffpyramid.html>`_
+files before importing into OMERO. A number of suitable tools are available such as
+`bioformats2raw & raw2ometiff <https://www.glencoesoftware.com/blog/2019/12/09/converting-whole-slide-images-to-OME-TIFF.html>`_,
+`bfconvert <https://docs.openmicroscopy.org/latest/bio-formats/users/comlinetools/conversion.html>`_,
+`Kheops <https://github.com/BIOP/ijp-kheops>`_, `tifffile <https://pypi.org/project/tifffile/>`_,
+`aicsimageio <https://github.com/AllenCellModeling/aicsimageio>`_,
+`libvips <https://github.com/libvips/libvips>`_ and `QuPath <https://qupath.github.io/>`_.
+
 Large images with floating-point pixel data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :model_doc:`Pyramids <omero-pyramid/>` of image tiles are currently not
 generated for images with floating-point pixel data, meaning the imported
-image will be scrambled if it is over a certain size (configurable using
-:property:`omero.pixeldata.max_plane_height` and
-:property:`omero.pixeldata.max_plane_width` but set to 3192x3192 pixels by
-default). This primarily affects the following file formats:
+image will be scrambled if it is over the size threshold mentioned above.
+This primarily affects the following file formats:
 
 *  :bf_v_doc:`Gatan DM3 <formats/gatan-digital-micrograph.html>`
 *  :bf_v_doc:`MRC <formats/mrc.html>`
 *  :bf_v_doc:`TIFF <formats/tiff.html>`
+
+This issue can be avoided by pre-generating pyramidal OME-TIFF images as
+described above.
 
 .. _minmax_limitation:
 
