@@ -37,6 +37,7 @@ title = project + u' Documentation'
 # General information about the project.
 author = u'The Open Microscopy Environment'
 copyright = u'2000-%d, ' % datetime.datetime.now().year + author
+release = "5.6.5-SNAPSHOT"
 
 
 def split_release(release):
@@ -65,8 +66,9 @@ def get_previous_version(majornumber, minornumber=0):
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
-if "OMERO_RELEASE" in os.environ and len(os.environ.get('OMERO_RELEASE')) > 0:
-    release = os.environ.get('OMERO_RELEASE')
+# if "OMERO_RELEASE" in os.environ and len(os.environ.get('OMERO_RELEASE')) > 0:
+if release is not None or "SNAPSHOT" not in release:
+    # release = os.environ.get('OMERO_RELEASE')
     [majornumber, minornumber, patchnumber] = split_release(release)
 
     # Define Sphinx version and release variables and development branch
