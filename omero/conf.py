@@ -37,7 +37,8 @@ title = project + u' Documentation'
 # General information about the project.
 author = u'The Open Microscopy Environment'
 copyright = u'2000-%d, ' % datetime.datetime.now().year + author
-release = "5.6.5-SNAPSHOT"
+version = "5.6.5-SNAPSHOT"
+release = version
 
 
 def split_release(release):
@@ -64,12 +65,12 @@ def get_previous_version(majornumber, minornumber=0):
         return "%s.%s" % (majornumber, minornumber - 1)
 
 # The version info for the project you're documenting, acts as replacement for
-# |version|, also used in various other places throughout the
+# |current_version|, also used in various other places throughout the
 # built documents.
 [majornumber, minornumber, patchnumber] = split_release(conf_autogen.version_omero_server)
 
 # Define Sphinx version and release variables and development branch
-version = ".".join(str(x) for x in (majornumber, minornumber))
+current_version = ".".join(str(x) for x in (majornumber, minornumber))
 
 if patchnumber > 0:
     tags.add('point_release')
@@ -165,6 +166,7 @@ rst_epilog += """
 .. |BlitzGateway| replace:: :doc:`/developers/Python`
 .. |DevelopingOmeroClients| replace:: :doc:`/developers/GettingStarted/AdvancedClientDevelopment`
 .. _Spring: https://spring.io
+.. |current_version|  replace:: %s
 .. |previousversion| replace:: %s
 .. |current_dbver|  replace:: %s
 .. |previous_dbver|  replace:: %s
@@ -192,7 +194,8 @@ rst_epilog += """
                   :alt: Unsupported
 .. |Upcoming| image:: /images/upcoming.png
                :alt: Upcoming
-""" % (previousversion, conf_autogen.current_dbver,
+""" % (current_version, previousversion,
+       conf_autogen.current_dbver,
        conf_autogen.previous_dbver,
        conf_autogen.version_py,
        conf_autogen.version_web,

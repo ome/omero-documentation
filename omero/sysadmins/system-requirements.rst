@@ -143,6 +143,6 @@ OMERO.py       Required for some functionality          Required Required
 OMERO.cpp      Required for some functionality                   Required
 ============== =============================== ======== ======== ======== ==========
 
-For full details on which versions of these are supported for OMERO |version|
+For full details on which versions of these are supported for OMERO |current_version|
 and how we intend to update these going forward, see the
 :doc:`version-requirements` section.

@@ -8,13 +8,13 @@ Summary of changes for OMERO 5.6 and provisional changes for 6.0
 We aim to support OMERO on the environments specified below, based
 on the availability of support by upstream developers and operating
 system distributions.
-This applies over the lifetime of the |version| release and includes
+This applies over the lifetime of the |current_version| release and includes
 security support.
 Support is limited to those environments on which OMERO is
 routinely tested.
 
 This page details the minimum version requirements for the current
-(|version|) release and also **possible** changes for the next release.
+(|current_version|) release and also **possible** changes for the next release.
 
 It is intended to provide a roadmap in order that sysadmins may
 plan ahead and ensure that prerequisites are in place for future upgrades.
