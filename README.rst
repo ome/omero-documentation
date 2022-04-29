@@ -68,8 +68,7 @@ found at `http://sphinx.pocoo.org <http://sphinx.pocoo.org/tutorial.html>`_.
 Building the documentation
 ==========================
 
-The documentation may be built with ``make`` or ``ant``.  Note that ``ant``
-requires ``ant-contrib`` to be on the classpath.
+The documentation may be built with ``make``.
 
 Basic build commands
 --------------------
@@ -82,17 +81,14 @@ build the OMERO documentation::
 To clean the build directory of any previous builds, use one of::
     
     make clean
-    ant clean
     
 To build the documentation locally in the form of HTML pages, use one of::
     
     make html
-    ant html
     
 To check the links (internal and external) of the documentation, use one of::
     
     make linkcheck
-    ant linkcheck
     
 By default, ``make`` will build the documentation locally in the form of HTML pages.
 
@@ -106,12 +102,10 @@ OMERO and Contributing sets of documentation at once.
 To clean the build directories of any previous builds, use one of::
 
     make clean
-    ant clean
 
 To build the sets of documentation locally in the form of HTML pages, use one of::
 
     make html
-    ant html
 
 By default, running ``make`` will build the documentation locally in the form of HTML pages.
 
@@ -122,46 +116,23 @@ Additional options for sphinx-build can be passed using the ``SPHINXOPTS``
 variable. The ``-W`` option turns all warnings into errors::
 
     SPHINXOPTS=-W make clean html
-    SPHINXOPTS=-W ant clean html
 
-Release number
---------------
+Release process
+---------------
 
-The release number of the OMERO documentation is `UNKNOWN` by default.
-To modify this value set the environment variable ``OMERO_RELEASE`` e.g.::
+This repository uses `bump2version <https://pypi.org/project/bump2version/>`_ to manage version numbers.
+To tag a release run::
 
-    cd omero && OMERO_RELEASE=5.4.0 make clean html
-    cd omero && OMERO_RELEASE=5.4.0 ant clean html
+    $ bumpversion release
 
-This variable needs to be set to build all the version-dependent content
-used in the system administrator documentation correctly.
+This will remove the ``.dev0`` suffix from the current version, commit, and tag the release.
 
-The Contributing Developer documentation has the release version removed as
-the intention is to update these files as and when necessary, so that they
-always reflect our current practices.
+To switch back to a development version run::
 
-Zip bundles
------------
+    $ bumpversion --no-tag [major|minor|patch]
 
-To build the documentation as a zipped bundle, use::
+Specifying ``major``, ``minor`` or ``patch`` depending on whether the development branch will be a `major, minor or patch release <https://semver.org/>`_. This will also add the ``SNAPSHOT`` suffix.
 
-    ant zip
-
-By default, running ``ant`` will build as a zipped bundle.
-
-From the top level directory::
-
-    OMERO_RELEASE=5.4.0 ant zip -Domero.release="5.4.0"
-
-will generate the HTML documentation for OMERO and Contributing and bundle
-just the OMERO documentation into an OMERO.doc-5.4.0.zip under omero/_build.
-
-From omero directory::
-
-    OMERO_RELEASE=5.4.0 ant zip -Domero.release="5.4.0"
-
-will generate the HTML documentation for OMERO and create an
-OMERO.doc-5.4.0.zip under omero/_build.
 
 
 Auto-generated content
