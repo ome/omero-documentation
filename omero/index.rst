@@ -1,8 +1,8 @@
-#############################
-OMERO |release| Documentation
-#############################
+#####################################
+OMERO Documentation version |release| 
+#####################################
 
-The OMERO |release| documentation is divided into three parts:
+The documentation for OMERO ||version_omero_server| is divided into three parts:
 
 :doc:`users/index` introduces the user-facing client applications and how to
 get started, details the CLI client, and indicates where users can access
