@@ -73,7 +73,7 @@ for previous_mmp in majorminorpatch:
 print('current_dbver = "%s"' % current_dbver)
 print('previous_dbver = "OMERO%d.%d%s__%d"' % previous_mmp)
 
-
+print('version_omero_server = "5.6.4"')
 print('version_bioformats = "6.9.1"')
 print('version_blitz = "5.5.10"')
 print('version_server = "5.6.3"')
