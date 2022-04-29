@@ -181,6 +181,7 @@ rst_epilog += """
 .. |javaversion_min| replace:: 8
 .. |version_dropbox|  replace:: %s
 .. |version_tables_cap|  replace:: 3.6
+.. |version_omero_server|  replace:: %s
 
 .. |Broken| image:: /images/broken.png
              :alt: Broken
@@ -200,7 +201,8 @@ rst_epilog += """
        conf_autogen.previous_dbver,
        conf_autogen.version_py,
        conf_autogen.version_web,
-       conf_autogen.version_dropbox)
+       conf_autogen.version_dropbox,
+       conf_autogen.version_omero_server)
 
 omero_subs_github_root = github_root + 'ome/{}/{}/{}/%s'
 

@@ -7,7 +7,7 @@ releases as public as possible. You may want to take a look at the `Trello
 boards <https://trello.com/b/4EXb35xQ/getting-started>`_ for exactly what will
 go into a release. See also :doc:`omeroweb-upgrade`.
 
-See the full details of OMERO |release| features in the :doc:`/users/history`.
+See the full details of OMERO |version_omero_server| features in the :doc:`/users/history`.
 
 This guide aims to be as definitive as possible so please do not be put off by
 the level of detail; upgrading should be a straightforward process.
@@ -171,8 +171,8 @@ directory, you are safe to follow the following upgrade procedure:
 
     $ cd ..
     $ mv OMERO.server OMERO.server-old
-    $ unzip OMERO.server-|release|-ice36-byy.zip
-    $ ln -s OMERO.server-|release|-ice36-byy OMERO.server
+    $ unzip OMERO.server-|version_omero_server|-ice36-byy.zip
+    $ ln -s OMERO.server-||version_omero_server|-ice36-byy OMERO.server
     $ cp OMERO.server-old/etc/grid/config.xml OMERO.server/etc/grid
 
 .. note::
@@ -297,7 +297,7 @@ Update your environment variables and memory settings
 Environment variables
 """""""""""""""""""""
 
-If you changed the directory name where the |release| server code
+If you changed the directory name where the |version_omero_server| server code
 resides, make sure to update any system environment variables. Before
 restarting the server, make sure your :envvar:`PATH` system environment
 variable is pointing to the new location. Also make sure the :envvar:`OMERODIR`

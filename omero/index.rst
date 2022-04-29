@@ -36,12 +36,12 @@ Additional online resources can be found at:
   :pythondoc:`OmeroPy API <>`,
   :slicedoc_blitz:`OmeroBlitz / Slice API <>`
 
-OMERO |release| uses the :schema:`June 2016 schema
+OMERO |version_omero_server| uses the :schema:`June 2016 schema
 <Documentation/Generated/OME-2016-06/ome.html>` of the :model_doc:`OME Data
 Model <>`. The :doc:`users/history` page details the development of OMERO
 functionality over time.
 
-A summary of breaking changes and new features for |release| can be found on
+A summary of breaking changes and new features for |version_omero_server| can be found on
 the pages below:
 
 - :doc:`What's new for OMERO users<users/whatsnew>`
