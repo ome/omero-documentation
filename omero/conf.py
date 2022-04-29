@@ -64,23 +64,17 @@ def get_previous_version(majornumber, minornumber=0):
         return "%s.%s" % (majornumber, minornumber - 1)
 
 # The version info for the project you're documenting, acts as replacement for
-# |version| and |release|, also used in various other places throughout the
+# |version|, also used in various other places throughout the
 # built documents.
-# if "OMERO_RELEASE" in os.environ and len(os.environ.get('OMERO_RELEASE')) > 0:
-if release is not None or "SNAPSHOT" not in release:
-    # release = os.environ.get('OMERO_RELEASE')
-    [majornumber, minornumber, patchnumber] = split_release(release)
+[majornumber, minornumber, patchnumber] = split_release(conf_autogen.version_omero_server)
 
-    # Define Sphinx version and release variables and development branch
-    version = ".".join(str(x) for x in (majornumber, minornumber))
+# Define Sphinx version and release variables and development branch
+version = ".".join(str(x) for x in (majornumber, minornumber))
 
-    if patchnumber > 0:
-        tags.add('point_release')
-    previousversion = get_previous_version(majornumber, minornumber)
-else:
-    version = 'UNKNOWN'
-    previousversion = 'UNKNOWN'
-    release = 'UNKNOWN'
+if patchnumber > 0:
+    tags.add('point_release')
+previousversion = get_previous_version(majornumber, minornumber)
+
 
 # Variables used to define Github extlinks
 if "SOURCE_BRANCH" in os.environ and len(os.environ.get('SOURCE_BRANCH')) > 0:
@@ -118,6 +112,7 @@ downloads_root = 'https://downloads.openmicroscopy.org'
 help_root = 'https://help.openmicroscopy.org'
 docs_root = 'https://docs.openmicroscopy.org'
 imagesc_root = 'https://forum.image.sc'
+
 
 rst_prolog = """
 """
@@ -203,6 +198,7 @@ rst_epilog += """
        conf_autogen.version_web,
        conf_autogen.version_dropbox,
        conf_autogen.version_omero_server)
+
 
 omero_subs_github_root = github_root + 'ome/{}/{}/{}/%s'
 
