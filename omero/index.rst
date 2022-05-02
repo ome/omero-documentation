@@ -1,6 +1,6 @@
-#####################################
-OMERO Documentation version |release| 
-#####################################
+#############################################
+OMERO Documentation version |current_version| 
+#############################################
 
 The documentation for OMERO |version_omero_server| is divided into three parts:
 
