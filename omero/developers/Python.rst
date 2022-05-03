@@ -143,7 +143,7 @@ If nothing else is using the client object you could use ``with BlitzGateway(cli
     for o in owners:
         print("     ID: %s %s Name: %s" % (
             o.getId(), o.getOmeName(), o.getFullName()))
-        print("   Group members:")
+    print("   Group members:")
     for m in members:
         print("     ID: %s %s Name: %s" % (
             m.getId(), m.getOmeName(), m.getFullName()))
@@ -294,7 +294,7 @@ Read data
 ::
 
     size_x = image.getPixelSizeX()       # e.g. 0.132
-    print(" Pixel Size X:", sizeX)
+    print(" Pixel Size X:", size_x)
     # Units support, new in OMERO 5.1.0
     size_x_obj = image.getPixelSizeX(units=True)
     print(" Pixel Size X:", size_x_obj.getValue(), "(%s)" % size_x_obj.getSymbol())
@@ -336,7 +336,7 @@ Read data
         print(ann.getId(), ann.OMERO_TYPE)
         print(" added by ", ann.link.getDetails().getOwner().getOmeName())
         if ann.OMERO_TYPE == omero.model.TagAnnotationI:
-            print "Tag value:", ann.getTextValue()
+            print("Tag value:", ann.getTextValue())
 
 -  **Get Links between Objects and Annotations**
 
@@ -847,8 +847,8 @@ ROIs
 ::
 
     # create a rectangle shape (added to ROI below)
-    print(("Adding a rectangle at theZ: %s, theT: %s, X: %s, Y: %s, width: %s,")
-       " height: %s" % (z, t, x, y, width, height))
+    print(("Adding a rectangle at theZ: %s, theT: %s, X: %s, Y: %s, width: %s, " +
+        "height: %s") % (z, t, x, y, width, height))
     rect = omero.model.RectangleI()
     rect.x = rdouble(x)
     rect.y = rdouble(y)
@@ -937,6 +937,7 @@ ROIs
     mask_packed = create_mask(mask_array, 1)
 
     # Define mask's fill color
+    from omero.gateway import ColorHolder
     mask_color = ColorHolder()
     mask_color.setRed(255)
     mask_color.setBlue(0)
@@ -1131,12 +1132,13 @@ Render Images
 -  **Get thumbnail**
 
 ::
-
+    from PIL import Image
+    from io import BytesIO
     # Thumbnail is created using the current rendering settings on the image
     image = conn.getObject("Image", imageId)
     img_data = image.getThumbnail()
     rendered_thumb = Image.open(BytesIO(img_data))
-    # renderedThumb.show()           # shows a pop-up
+    # rendered_thumb.show()           # shows a pop-up
     rendered_thumb.save("thumbnail.jpg")
 
 -  **Get current settings**
