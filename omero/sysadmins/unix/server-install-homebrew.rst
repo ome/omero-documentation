@@ -126,7 +126,7 @@ Using conda (preferred)
 
 #. Create virtual environments named ``omeropy`` and ``omeroweb``::
 
-    $ conda create -n omeropy -c conda-forge python=3.6 zeroc-ice omero-py
+    $ conda create -n omeropy -c conda-forge python=3.8 zeroc-ice omero-py
 
 #. Activate the virtual environments::
 
