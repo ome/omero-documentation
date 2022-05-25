@@ -7,7 +7,7 @@ these releases as public as possible. You may want to take a look at the `Trello
 boards <https://trello.com/b/4EXb35xQ/getting-started>`_ for exactly what will
 go into a release. See also :doc:`server-upgrade`.
 
-See the full details of OMERO |release| features in the :doc:`/users/history`.
+See the full details of OMERO |version_omero_server| features in the :doc:`/users/history`.
 
 This guide aims to be as definitive as possible so please do not be put off by
 the level of detail; upgrading should be a straightforward process.

@@ -17,7 +17,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env: 
-      directory_path: .
+      directory_path: omero
       sphinx_commands: clean html # commands to run. Update accordingly
     steps:
       - uses: actions/checkout@v2

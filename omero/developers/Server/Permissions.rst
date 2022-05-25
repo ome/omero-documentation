@@ -1,13 +1,13 @@
 OMERO permissions querying, usage and history
 =============================================
 
-Working with the OMERO |release| permissions system
----------------------------------------------------
+Working with the OMERO |version_omero_server| permissions system
+----------------------------------------------------------------
 
 Example environment
 ^^^^^^^^^^^^^^^^^^^
 
-* OMERO |release| server
+* OMERO |version_omero_server| server
 * IPython shell initiated by running ``omero shell --login``
 
 Group membership
@@ -408,7 +408,7 @@ or Default Group' during these tasks can have drastic effects. Changing the
 'Active Group' is forbidden if there are any stateful services 
 (``omero.api.RenderingPrx`` for example) currently open.
 
-In short, in OMERO |release| you absolutely **should not** be switching the 
+In short, in OMERO |version_omero_server| you absolutely **should not** be switching the 
 'Primary or Default Group' of the user, or the 'Active Group' of a session, as 
 a means to achieve cross group querying.
 

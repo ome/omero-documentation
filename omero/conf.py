@@ -12,17 +12,21 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
+import datetime
 import sys
 import os
 import shutil
+import re
 
 # Append the top level directory of the docs, so we can import from the
 # config dir.
-sys.path.insert(0, os.path.abspath('../common'))
-from conf import *
+#sys.path.insert(0, os.path.abspath('../common'))
 sys.path.insert(1, os.path.abspath('../omero'))
 import conf_autogen
 
+
+linkcheck_ignore = []
+extensions = ['sphinx.ext.extlinks']
 
 # -- General configuration ----------------------------------------------------
 
@@ -30,25 +34,121 @@ import conf_autogen
 project = u'OMERO'
 title = project + u' Documentation'
 
+# General information about the project.
+author = u'The Open Microscopy Environment'
+copyright = u'2000-%d, ' % datetime.datetime.now().year + author
+version = "5.6.5-SNAPSHOT"
+release = version
+
+
+def split_release(release):
+    split_release = re.split(r"^([0-9]+)\.([0-9]+)\.([0-9]+)(.*?)$", release)
+    return (int(split_release[1]), int(split_release[2]),
+            int(split_release[3]))
+
+
+def get_previous_version(majornumber, minornumber=0):
+    # Return the previous version number for the first minor versions of a
+    # major series i.e. x.0.y
+    # Implemented as an hard-coded list until we work out an automated way to
+    # upgrade the database without specifying version numbers e.g.
+    # bin/omero db upgrade
+    if minornumber == 0:
+        if majornumber == 5:
+            return "4.4"
+        elif majornumber == 4:
+            return "3.2"
+        else:
+            raise Exception("No previous version defined for %s.%s"
+                            % (majornumber, minornumber))
+    else:
+        return "%s.%s" % (majornumber, minornumber - 1)
+
 # The version info for the project you're documenting, acts as replacement for
-# |version| and |release|, also used in various other places throughout the
+# |current_version|, also used in various other places throughout the
 # built documents.
-if "OMERO_RELEASE" in os.environ and len(os.environ.get('OMERO_RELEASE')) > 0:
-    release = os.environ.get('OMERO_RELEASE')
-    [majornumber, minornumber, patchnumber] = split_release(release)
+[majornumber, minornumber, patchnumber] = split_release(conf_autogen.version_omero_server)
 
-    # Define Sphinx version and release variables and development branch
-    version = ".".join(str(x) for x in (majornumber, minornumber))
+# Define Sphinx version and release variables and development branch
+current_version = ".".join(str(x) for x in (majornumber, minornumber))
 
-    if patchnumber > 0:
-        tags.add('point_release')
-    previousversion = get_previous_version(majornumber, minornumber)
+if patchnumber > 0:
+    tags.add('point_release')
+previousversion = get_previous_version(majornumber, minornumber)
+
+
+# Variables used to define Github extlinks
+if "SOURCE_BRANCH" in os.environ and len(os.environ.get('SOURCE_BRANCH')) > 0:
+    branch = os.environ.get('SOURCE_BRANCH')
 else:
-    version = 'UNKNOWN'
-    previousversion = 'UNKNOWN'
-    release = 'UNKNOWN'
+    branch = 'develop'
+
+if "SOURCE_USER" in os.environ and len(os.environ.get('SOURCE_USER')) > 0:
+    user = os.environ.get('SOURCE_USER')
+else:
+    user = 'ome'
+
+github_root = 'https://github.com/'
+omero_github_root = github_root + user + '/openmicroscopy/'
+bf_github_root = github_root + user + '/bioformats/'
+doc_github_root = github_root + user + '/ome-documentation/'
+
+# Variables used to define Jenkins extlinks (ci-master)
+jenkins_root = 'https://ci.openmicroscopy.org'
+jenkins_job_root = jenkins_root + '/job'
+jenkins_view_root = jenkins_root + '/view'
+
+# Variables used to define Jenkins extlinks (merge-ci)
+mergeci_root = 'https://merge-ci.openmicroscopy.org/jenkins'
+mergeci_job_root = mergeci_root + '/job'
+mergeci_view_root = mergeci_root + '/view'
+
+# Variables used to define other extlinks
+cvs_root = 'http://cvs.openmicroscopy.org.uk'
+trac_root = 'https://trac.openmicroscopy.org/ome'
+oo_root = 'https://www.openmicroscopy.org'
+oo_site_root = oo_root + '/site'
+lists_root = 'http://lists.openmicroscopy.org.uk'
+downloads_root = 'https://downloads.openmicroscopy.org'
+help_root = 'https://help.openmicroscopy.org'
+docs_root = 'https://docs.openmicroscopy.org'
+imagesc_root = 'https://forum.image.sc'
+
 
 rst_prolog = """
+"""
+rst_epilog = """
+.. _Hibernate: http://www.hibernate.org
+.. _ZeroC: https://zeroc.com
+.. _Ice: https://zeroc.com
+.. _Jenkins: https://jenkins.io
+.. _roadmap: https://trac.openmicroscopy.org/ome/roadmap
+.. _OME artifactory: https://artifacts.openmicroscopy.org
+.. _Open Microscopy Environment: https://www.openmicroscopy.org
+.. _Glencoe Software, Inc.: https://www.glencoesoftware.com/
+.. _Pillow: https://pillow.readthedocs.org
+.. _Matplotlib: https://matplotlib.org/
+.. _Django 1.8: https://docs.djangoproject.com/en/1.8/releases/1.8/
+.. _Django 1.6: https://docs.djangoproject.com/en/1.6/releases/1.6/
+.. _Python: https://www.python.org
+.. _Libjpeg: http://libjpeg.sourceforge.net/
+.. _Django: https://www.djangoproject.com/
+.. _PyPI: https://pypi.org
+.. _Conda: https://docs.conda.io/en/latest/
+.. _PyTables: http://pytables.org
+.. |SSH| replace:: :abbr:`SSH (Secure Shell)`
+.. |VM| replace:: :abbr:`VM (Virtual Machine)`
+.. |OS| replace:: :abbr:`OS (Operating System)`
+.. |SSL| replace:: :abbr:`SSL (Secure Socket Layer)`
+.. |JDK| replace:: :abbr:`JDK (Java Development Kit)`
+.. |JMX| replace:: :abbr:`JMX (Java Management Extensions)`
+.. |JRE| replace:: :abbr:`JRE (Java Runtime Environment)`
+.. |JVM| replace:: :abbr:`JVM (Java Virtual Machine)`
+.. |PID| replace:: :abbr:`PID (process ID)`
+.. |HDD| replace:: :abbr:`HDD (Hard Disk Drive)`
+.. |CLI| replace:: :abbr:`CLI (Command Line Interface)`
+.. |OME| replace:: `Open Microscopy Environment`_
+.. |Glencoe| replace:: `Glencoe Software, Inc.`_
 """
 
 rst_epilog += """
@@ -66,6 +166,7 @@ rst_epilog += """
 .. |BlitzGateway| replace:: :doc:`/developers/Python`
 .. |DevelopingOmeroClients| replace:: :doc:`/developers/GettingStarted/AdvancedClientDevelopment`
 .. _Spring: https://spring.io
+.. |current_version|  replace:: %s
 .. |previousversion| replace:: %s
 .. |current_dbver|  replace:: %s
 .. |previous_dbver|  replace:: %s
@@ -77,6 +178,7 @@ rst_epilog += """
 .. |javaversion_min| replace:: 8
 .. |version_dropbox|  replace:: %s
 .. |version_tables_cap|  replace:: 3.6
+.. |version_omero_server|  replace:: %s
 
 .. |Broken| image:: /images/broken.png
              :alt: Broken
@@ -92,13 +194,57 @@ rst_epilog += """
                   :alt: Unsupported
 .. |Upcoming| image:: /images/upcoming.png
                :alt: Upcoming
-""" % (previousversion, conf_autogen.current_dbver,
+""" % (current_version, previousversion,
+       conf_autogen.current_dbver,
        conf_autogen.previous_dbver,
        conf_autogen.version_py,
        conf_autogen.version_web,
-       conf_autogen.version_dropbox)
+       conf_autogen.version_dropbox,
+       conf_autogen.version_omero_server)
+
 
 omero_subs_github_root = github_root + 'ome/{}/{}/{}/%s'
+
+extlinks = {
+    # image.sc
+    'imagesc': (imagesc_root + '/%s', '#'),
+    # Trac links
+    'ticket': (trac_root + '/ticket/%s', '#'),
+    'milestone': (trac_root + '/milestone/%s', ''),
+    'report': (trac_root + '/report/%s', ''),
+    # Jenkins links (ci-master)
+    'jenkins': (jenkins_root + '/%s', ''),
+    'jenkinsjob': (jenkins_job_root + '/%s', ''),
+    'jenkinsview': (jenkins_view_root + '/%s', ''),
+    # Jenkins links (merge-ci)
+    'mergeci': (mergeci_root + '/%s', ''),
+    'mergecijob': (mergeci_job_root + '/%s', ''),
+    # Mailing list/forum links
+    'ome-users': (lists_root + '/pipermail/ome-users/%s', ''),
+    'ome-devel': (lists_root + '/pipermail/ome-devel/%s', ''),
+    'forum': (oo_root + '/community/%s', ''),
+    # Website links
+    'community': (oo_root + '/support/%s', ''),
+    'omero': (oo_root + '/omero/%s', ''),
+    'bf': (oo_root + '/bio-formats/%s', ''),
+    'secvuln': (oo_root + '/security/advisories/%s', ''),
+    'security': (oo_root + '/security/%s', ''),
+    'presentations': (downloads_root + '/presentations/%s', ''),
+    # Doc links
+    'model_doc': (docs_root + '/latest/ome-model/%s', ''),
+    'devs_doc': (docs_root + '/contributing/%s', ''),
+    'schema': (oo_root + '/Schemas/%s', ''),
+    # Help links
+    'help': (help_root + '/%s', ''),
+    # Miscellaneous links
+    'snapshot': (cvs_root + '/snapshots/%s', ''),
+    'zeroc': ('https://zeroc.com/%s', ''),
+    'zerocforum': ('https://forums.zeroc.com/discussion/%s', ''),
+    'zerocdoc': ('https://doc.zeroc.com/%s', ''),
+    'djangodoc': ('https://docs.djangoproject.com/en/1.11/%s', ''),
+    'doi': ('https://dx.doi.org/%s', ''),
+    'pypi': ('https://pypi.org/project/%s', ''),
+    }
 
 # OMERO-specific extlinks
 omero_extlinks = {
@@ -162,15 +308,15 @@ omero_extlinks = {
 extlinks.update(omero_extlinks)
 
 # Edit on GitHub prefix
-edit_on_github_prefix = 'omero'
+#edit_on_github_prefix = 'omero'
 
 # -- Options for HTML output --------------------------------------------------
 
 # Custom sidebar templates, maps document names to template names.
-html_sidebars['**'].insert(1, 'globalomerotoc.html')
+#html_sidebars['**'].insert(1, 'globalomerotoc.html')
 
 # Add any paths that contain custom themes here, relative to this directory.
-html_theme_path.extend(['themes'])
+#html_theme_path.extend(['themes'])
 
 # -- Options for LaTeX output -------------------------------------------------
 
@@ -258,3 +404,8 @@ def copy_legacy_redirects(app, exception):
 
 def setup(app):
     app.connect('build-finished', copy_legacy_redirects)
+    app.add_crossref_type(
+        directivename = "property",
+        rolename      = "property",
+        indextemplate = "%s",
+    )
