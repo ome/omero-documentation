@@ -324,6 +324,10 @@ OMERO.web
 Startup and shutdown
 --------------------
 
+Since 5.6, a new :envvar:`OMERODIR` variable is used, you should first unset :envvar:`OMERO_HOME` (if set) before beginning the installation process.
+The variable :envvar:`OMERODIR` **must** point to the location where OMERO.server is installed.
+e.g. ``OMERODIR=/path_to_omero_server/OMERO.server``.
+
 If necessary start PostgreSQL database server::
 
     $ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log -w start
