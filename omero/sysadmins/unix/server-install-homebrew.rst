@@ -124,16 +124,19 @@ Using conda (preferred)
 #. Install Conda.
    See `miniconda <https://docs.conda.io/en/latest/miniconda.html>`_ for more details.
 
-#. Create virtual environments named ``omeropy`` and ``omeroweb``::
+#. Create virtual environments named ``omeropy``::
 
     $ conda create -n omeropy -c conda-forge python=3.8 zeroc-ice omero-py
+
+#. Create virtual environments named ``omeroweb``, activate it and install dependencies::
+
+    $ conda create -n omeroweb -c conda-forge python=3.8 zeroc-ice omero-py
+    $ conda activate omeroweb
+    $ pip install "omero-web>=\ |version_web|"
 
 #. Activate the virtual environments::
 
     $ conda activate omeropy
-
-    # In a different terminal:
-    $ conda activate omeroweb
 
 #. You can now use the ``omero`` command. You will also need to ensure you are in 
    the appropriate environment when you install additional modules::
