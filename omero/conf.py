@@ -37,7 +37,7 @@ title = project + u' Documentation'
 # General information about the project.
 author = u'The Open Microscopy Environment'
 copyright = u'2000-%d, ' % datetime.datetime.now().year + author
-version = "5.6.5-SNAPSHOT"
+version = "5.6.4-1"
 release = version
 
 
