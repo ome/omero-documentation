@@ -10,28 +10,8 @@ jobs:
       ICE_HOME: /opt/ice-3.6.5 # location where Ice is installed
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: 3.8
-      - name: Set up JDK 11
-        uses: actions/setup-java@v1
-        with:
-          java-version: 11
-      - uses: actions/cache@v1
-        with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
-      - name: Install slice2java
-        run: |
-          sudo apt-get install -y libmcpp-dev
-          wget -q https://github.com/ome/zeroc-ice-ubuntu2004/releases/download/0.2.0/ice-3.6.5-0.2.0-ubuntu2004-amd64.tar.gz
-          tar xf ice-3.6.5-0.2.0-ubuntu2004-amd64.tar.gz
-          mv ice-3.6.5-0.2.0 ice-3.6.5
-          mv ice-3.6.5 /opt
-          rm ice-3.6.5-0.2.0-ubuntu2004-amd64.tar.gz
-          echo "${{ env.ICE_HOME }}/bin" >> $GITHUB_PATH
+      - name: Install Ice Java and Python binding
+        uses: ome/action-ice@v1
       - name: Set up configuration
         run: |
           git config --global user.email github-actions@github.com
@@ -52,7 +32,6 @@ jobs:
         run: |
           python -m venv $space/.venv3
           $space/.venv3/bin/pip install -U jinja2==3.0.1
-          $space/.venv3/bin/pip install https://github.com/ome/zeroc-ice-ubuntu2004/releases/download/0.2.0/zeroc_ice-3.6.5-cp38-cp38-linux_x86_64.whl
           WORKSPACE=$space BUILD=false SUFFIX=/dist bash autogen_omero.sh
       - name: Find modified files
         id: upstream_repo
