@@ -63,7 +63,7 @@ Install ZeroC IcePy 3.6::
     /opt/omero/web/venv3/bin/pip install https://github.com/ome/zeroc-ice-debian10/releases/download/0.1.0/zeroc_ice-3.6.5-cp37-cp37m-linux_x86_64.whl
 
 
-Upgrade pip and install OMERO.web:
+Upgrade pip and install OMERO.web::
 
 
     /opt/omero/web/venv3/bin/pip install --upgrade pip
