@@ -207,43 +207,43 @@ omero_subs_github_root = github_root + 'ome/{}/{}/{}/%s'
 
 extlinks = {
     # image.sc
-    'imagesc': (imagesc_root + '/%s', '#'),
+    'imagesc': (imagesc_root + '/%s', '#%s'),
     # Trac links
-    'ticket': (trac_root + '/ticket/%s', '#'),
-    'milestone': (trac_root + '/milestone/%s', ''),
-    'report': (trac_root + '/report/%s', ''),
+    'ticket': (trac_root + '/ticket/%s', '#%s'),
+    'milestone': (trac_root + '/milestone/%s', None),
+    'report': (trac_root + '/report/%s', None),
     # Jenkins links (ci-master)
-    'jenkins': (jenkins_root + '/%s', ''),
-    'jenkinsjob': (jenkins_job_root + '/%s', ''),
-    'jenkinsview': (jenkins_view_root + '/%s', ''),
+    'jenkins': (jenkins_root + '/%s', None),
+    'jenkinsjob': (jenkins_job_root + '/%s', None),
+    'jenkinsview': (jenkins_view_root + '/%s', None),
     # Jenkins links (merge-ci)
-    'mergeci': (mergeci_root + '/%s', ''),
-    'mergecijob': (mergeci_job_root + '/%s', ''),
+    'mergeci': (mergeci_root + '/%s', None),
+    'mergecijob': (mergeci_job_root + '/%s', None),
     # Mailing list/forum links
-    'ome-users': (lists_root + '/pipermail/ome-users/%s', ''),
-    'ome-devel': (lists_root + '/pipermail/ome-devel/%s', ''),
-    'forum': (oo_root + '/community/%s', ''),
+    'ome-users': (lists_root + '/pipermail/ome-users/%s', None),
+    'ome-devel': (lists_root + '/pipermail/ome-devel/%s', None),
+    'forum': (oo_root + '/community/%s', None),
     # Website links
-    'community': (oo_root + '/support/%s', ''),
-    'omero': (oo_root + '/omero/%s', ''),
-    'bf': (oo_root + '/bio-formats/%s', ''),
-    'secvuln': (oo_root + '/security/advisories/%s', ''),
-    'security': (oo_root + '/security/%s', ''),
-    'presentations': (downloads_root + '/presentations/%s', ''),
+    'community': (oo_root + '/support/%s', None),
+    'omero': (oo_root + '/omero/%s', None),
+    'bf': (oo_root + '/bio-formats/%s', None),
+    'secvuln': (oo_root + '/security/advisories/%s', None),
+    'security': (oo_root + '/security/%s', None),
+    'presentations': (downloads_root + '/presentations/%s', None),
     # Doc links
-    'model_doc': (docs_root + '/latest/ome-model/%s', ''),
-    'devs_doc': (docs_root + '/contributing/%s', ''),
-    'schema': (oo_root + '/Schemas/%s', ''),
+    'model_doc': (docs_root + '/latest/ome-model/%s', None),
+    'devs_doc': (docs_root + '/contributing/%s', None),
+    'schema': (oo_root + '/Schemas/%s', None),
     # Help links
-    'help': (help_root + '/%s', ''),
+    'help': (help_root + '/%s', None),
     # Miscellaneous links
-    'snapshot': (cvs_root + '/snapshots/%s', ''),
-    'zeroc': ('https://zeroc.com/%s', ''),
-    'zerocforum': ('https://forums.zeroc.com/discussion/%s', ''),
-    'zerocdoc': ('https://doc.zeroc.com/%s', ''),
-    'djangodoc': ('https://docs.djangoproject.com/en/1.11/%s', ''),
-    'doi': ('https://dx.doi.org/%s', ''),
-    'pypi': ('https://pypi.org/project/%s', ''),
+    'snapshot': (cvs_root + '/snapshots/%s', None),
+    'zeroc': ('https://zeroc.com/%s', None),
+    'zerocforum': ('https://forums.zeroc.com/discussion/%s', None),
+    'zerocdoc': ('https://doc.zeroc.com/%s', None),
+    'djangodoc': ('https://docs.djangoproject.com/en/1.11/%s', None),
+    'doi': ('https://dx.doi.org/%s', None),
+    'pypi': ('https://pypi.org/project/%s', None),
     }
 
 # OMERO-specific extlinks
@@ -259,7 +259,7 @@ omero_extlinks = {
     'dsl_plugin_sourcedir': (omero_subs_github_root.format('omero-dsl-plugin', 'tree', 'v' + conf_autogen.version_dsl_plugin), None),
     'blitz_plugin_source': (omero_subs_github_root.format('omero-blitz-plugin', 'blob', 'v' + conf_autogen.version_blitz_plugin), None),
     'blitz_plugin_sourcedir': (omero_subs_github_root.format('omero-blitz-plugin', 'tree', 'v' + conf_autogen.version_blitz_plugin), None),
-    'ice_builder_source': (omero_subs_github_root.format('ice-builder-gradle', 'blob', 'v' + conf_autogen.version_ice_builder), ''),
+    'ice_builder_source': (omero_subs_github_root.format('ice-builder-gradle', 'blob', 'v' + conf_autogen.version_ice_builder), None),
     'ice_builder_sourcedir': (omero_subs_github_root.format('ice-builder-gradle', 'tree', 'v' + conf_autogen.version_ice_builder), None),
     'model_source': (omero_subs_github_root.format('omero-model', 'blob', 'v' + conf_autogen.version_model), None),
     'model_sourcedir': (omero_subs_github_root.format('omero-model', 'tree', 'v' + conf_autogen.version_model), None),
@@ -286,7 +286,7 @@ omero_extlinks = {
     'dropbox_source': (omero_subs_github_root.format('omero-dropbox', 'blob', 'v' + conf_autogen.version_dropbox), None),
     'dropbox_sourcedir': (omero_subs_github_root.format('omero-dropbox', 'tree', 'v' + conf_autogen.version_dropbox), None),
     # API links
-    'javadoc': (downloads_root + '/latest/omero5.5/api/%s', ''),
+    'javadoc': (downloads_root + '/latest/omero5.5/api/%s', None),
     'javadoc_gateway_java': (docs_root + '/omero-gateway/' + conf_autogen.version_gateway + '/javadoc/%s', None),
     'javadoc_blitz': (docs_root + '/omero-blitz/' + conf_autogen.version_blitz + '/javadoc/%s', None),
     'javadoc_server': (docs_root + '/omero-server/' + conf_autogen.version_server + '/javadoc/%s', None),

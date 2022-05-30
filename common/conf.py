@@ -173,9 +173,9 @@ extlinks = {
     # Website links
     'community': (oo_root + '/support/%s', None),
     'omero': (oo_root + '/omero/%s', None),
-    'bf': (oo_root + '/bio-formats/%s', ''),
+    'bf': (oo_root + '/bio-formats/%s', None),
     'secvuln': (oo_root + '/security/advisories/%s', None),
-    'security': (oo_root + '/security/%s', ''),
+    'security': (oo_root + '/security/%s', None),
     'presentations': (downloads_root + '/presentations/%s', None),
     # Doc links
     'model_doc': (docs_root + '/latest/ome-model/%s', None),
@@ -185,9 +185,9 @@ extlinks = {
     'help': (help_root + '/%s', None),
     # Miscellaneous links
     'snapshot': (cvs_root + '/snapshots/%s', None),
-    'zeroc': ('https://zeroc.com/%s', ''),
+    'zeroc': ('https://zeroc.com/%s', None),
     'zerocforum': ('https://forums.zeroc.com/discussion/%s', None),
-    'zerocdoc': ('https://doc.zeroc.com/%s', ''),
+    'zerocdoc': ('https://doc.zeroc.com/%s', None),
     'djangodoc': ('https://docs.djangoproject.com/en/1.11/%s', None),
     'doi': ('https://dx.doi.org/%s', None),
     'pypi': ('https://pypi.org/project/%s', None),
