@@ -89,12 +89,6 @@ We recommend to create a virtual environment and install the Ice Python binding 
     :start-after: #start-step03bis
     :end-before: #end-step03bis
 
-Install ``omero-py``:
-
-.. literalinclude:: walkthrough/walkthrough_ubuntu1804.sh
-    :start-after: #start-step04-pre
-    :end-before: #start-release-ice36
-
 Download and unzip OMERO.server:
 
 .. literalinclude:: walkthrough/walkthrough_ubuntu1804.sh
