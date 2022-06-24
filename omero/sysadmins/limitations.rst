@@ -94,7 +94,7 @@ The default naming of the `OME-NGFF <https://ngff.openmicroscopy.org/latest/>`_ 
 Depth of scanning prior to import
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The import might fail if the hierarchy of folders is exceeding the depth of scanning (default: 4). For formats using deeper hierarchy of folders such as  `OME-NGFF <https://ngff.openmicroscopy.org/latest/>`_ use ``--depth 10`` to set the depth of scanning of 10 (or more if necessary) as described in the :doc:`command-line (CLI) importer </users/cli/import>`.
+The import might fail if the hierarchy of folders is exceeding the depth of scanning (default: 4). For formats using deeper hierarchy of folders such as  `OME-NGFF <https://ngff.openmicroscopy.org/latest/>`_ use :option:`omero import --depth` option to set the depth of scanning of 10 (or more if necessary).
 
 .. _minmax_limitation:
 
