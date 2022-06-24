@@ -79,6 +79,8 @@ This primarily affects the following file formats:
 This issue can be avoided by pre-generating pyramidal OME-TIFF images as
 described above.
 
+.. _ngff_limitations:
+
 Import of OME-NGFF
 ^^^^^^^^^^^^^^^^^^
 
