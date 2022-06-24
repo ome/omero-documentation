@@ -81,6 +81,21 @@ described above.
 
 .. _minmax_limitation:
 
+Import of OME-NGFF
+^^^^^^^^^^^^^^^^^^
+
+The import of `OME-NGFF <https://ngff.openmicroscopy.org/latest/>`_ is currently limited to :doc:`command-line (CLI) importer </users/cli/import>` only.
+
+Naming of OME-NGFF images in OMERO
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The default naming of the `OME-NGFF <https://ngff.openmicroscopy.org/latest/>`_ Plates/Images imported into OMERO is not intuitive at the moment. Use the ``-n NAME`` option of :doc:`command-line (CLI) importer </users/cli/import>` to achieve explicit naming.
+
+Depth of scanning prior to import
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The import might fail if the hierarchy of folders is exceeding the depth of scanning (default: 4). For formats using deeper hierarchy of folders such as  `OME-NGFF <https://ngff.openmicroscopy.org/latest/>`_ use ``--depth 10`` to set the depth of scanning of 10 (or more if necessary) as described in  :doc:`command-line (CLI) importer </users/cli/import>`.
+
 Calculation of minima and maxima pixel values
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
