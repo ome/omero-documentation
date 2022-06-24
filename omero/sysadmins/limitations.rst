@@ -84,7 +84,7 @@ described above.
 Import of OME-NGFF
 ^^^^^^^^^^^^^^^^^^
 
-The import of `OME-NGFF <https://ngff.openmicroscopy.org/latest/>`_ is currently limited to :doc:`command-line (CLI) importer </users/cli/import>` only.
+The import of `OME-NGFF <https://ngff.openmicroscopy.org/latest/>`_ is currently limited to the :doc:`command-line (CLI) importer </users/cli/import>` only.
 
 Naming of OME-NGFF images in OMERO
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
