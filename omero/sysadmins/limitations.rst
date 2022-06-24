@@ -89,7 +89,7 @@ The import of `OME-NGFF <https://ngff.openmicroscopy.org/latest/>`_ is currently
 Naming of OME-NGFF images in OMERO
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The default naming of the `OME-NGFF <https://ngff.openmicroscopy.org/latest/>`_ Plates/Images imported into OMERO is not intuitive at the moment. Use the ``-n NAME`` option of the :doc:`command-line (CLI) importer </users/cli/import>` to achieve explicit naming.
+The default naming of the `OME-NGFF <https://ngff.openmicroscopy.org/latest/>`_ Images imported into OMERO is not intuitive at the moment. Use the ``-n NAME`` option of the :doc:`command-line (CLI) importer </users/cli/import>` to achieve explicit naming.
 
 Depth of scanning prior to import
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
