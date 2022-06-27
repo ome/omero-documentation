@@ -52,7 +52,7 @@ images if it doesn't already exist in the file. The threshold size is configurab
 :property:`omero.pixeldata.max_plane_width` but set to 3192x3192 pixels by
 default. However, this process can be very resource-intensive, depending on the size of the
 image as well as the image format and any data compression used, for example see
-`PixelData threads and pyramid generation issues <https://forum.image.sc/t/pixeldata-threads-and-pyramid-generation-issues/49794>`_.
+:imagesc:`PixelData threads and pyramid generation issues <t/pixeldata-threads-and-pyramid-generation-issues/49794>`.
 
 The OMERO pyramid generation process should be considered as deprecated and instead it is recommended
 that users avoid these issues by converting
@@ -60,7 +60,7 @@ their data to `pyramidal OME-TIFF <https://www.openmicroscopy.org/2018/11/29/ome
 files before importing into OMERO. A number of suitable tools are available such as
 `bioformats2raw & raw2ometiff <https://www.glencoesoftware.com/blog/2019/12/09/converting-whole-slide-images-to-OME-TIFF.html>`_,
 `bfconvert <https://docs.openmicroscopy.org/latest/bio-formats/users/comlinetools/conversion.html>`_,
-`Kheops <https://github.com/BIOP/ijp-kheops>`_, `tifffile <https://pypi.org/project/tifffile/>`_,
+`Kheops <https://github.com/BIOP/ijp-kheops>`_, :pypi:`tifffile <tifffile/>`,
 `aicsimageio <https://github.com/AllenCellModeling/aicsimageio>`_,
 `libvips <https://github.com/libvips/libvips>`_ and `QuPath <https://qupath.github.io/>`_.
 
