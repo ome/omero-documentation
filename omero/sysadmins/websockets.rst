@@ -21,8 +21,8 @@ must also add a cipher supported by Nginx to
 :property:`omero.glacier2.IceSSL.Ciphers` since the anonymous ciphers that
 OMERO uses are not supported.
 
-For a full configuration example see
-https://github.com/ome/docker-example-omero-websockets
+For a full configuration example see :omero_subs_github_repo_root:
+`docker-example-omero-websockets <docker-example-omero-websockets>`.
 
 
 Client connection

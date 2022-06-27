@@ -152,7 +152,7 @@ fail. This can be remedied by the use of a :file:`sitecustomize.py` or
 For more details on using customization files in Python see:
 `site — Site-specific configuration hook <https://docs.python.org/2.7/library/site.html>`_.
 For more discussion on this issue within OMERO see the forum post:
-`Dropbox halts on certain unicode characters <https://www.openmicroscopy.org/community/viewtopic.php?f=4&t=7810#p15910>`_.
+:forum:`Dropbox halts on certain unicode characters <viewtopic.php?f=4&t=7810#p15910>`.
 
 .. note::
     If a customization file is used and the OMERO server is upgraded please

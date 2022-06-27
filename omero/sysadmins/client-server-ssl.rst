@@ -48,7 +48,7 @@ Set this additional server configuration property to point to the public CA cert
 
     omero config set omero.glacier2.IceSSL.CAs cacert.pem
 
-`Zeroc provide the Ice Certificate Utilities package <https://pypi.org/project/zeroc-icecertutils/>`_ to help create certificates, but if you know what you are doing you can use ``openssl`` directly.
+:pypi:`Zeroc provide the Ice Certificate Utilities package <zeroc-icecertutils/>` to help create certificates, but if you know what you are doing you can use ``openssl`` directly.
 
 
 Client host verification
@@ -66,7 +66,7 @@ If you are a developer the following Ice properties can be passed to the ``omero
 
 Some platforms or languages do not support the cipher specification ``HIGH``.
 Instead you can specify a cipher family such as ``AES256`` or ``AES_256``.
-See the `IceSSL.Ciphers documentation <https://doc.zeroc.com/ice/3.6/property-reference/icessl#id-.IceSSL.*v3.6-IceSSL.Ciphers>`_.
+See the :zerocdoc:`IceSSL.Ciphers documentation <ice/3.6/property-reference/icessl#id-.IceSSL.*v3.6-IceSSL.Ciphers>`.
 
 If you have your own certificate authority replace ``IceSSL.UsePlatformCAs`` with:
 
@@ -86,7 +86,7 @@ Multiple ``CN`` can be specified:
 Further information
 -------------------
 
-- https://doc.zeroc.com/technical-articles/glacier2-articles/teach-yourself-glacier2-in-10-minutes#TeachYourselfGlacier2in10Minutes-UsingSSLwithGlacier2
-- https://doc.zeroc.com/ice/3.6/ice-plugins/icessl/configuring-icessl
-- https://doc.zeroc.com/ice/3.6/ice-plugins/icessl/setting-up-a-certificate-authority
-- https://doc.zeroc.com/ice/3.6/property-reference/icessl
+- :zerocdoc:`teach-yourself-glacier2-in-10-minutes <technical-articles/glacier2-articles/teach-yourself-glacier2-in-10-minutes#TeachYourselfGlacier2in10Minutes-UsingSSLwithGlacier2>`
+- :zerocdoc:`configuring-icessl <ice/3.6/ice-plugins/icessl/configuring-icessl>`
+- :zerocdoc:`setting-up-a-certificate-authority <ice/3.6/ice-plugins/icessl/setting-up-a-certificate-authority>`
+- :zerocdoc:`icessl <ice/3.6/property-reference/icessl>`

@@ -58,7 +58,7 @@ object and accessing the same client instance as the script.
 
 You will need to have the OMERO.matlab toolbox installed on the server:
 
-  - download the toolbox from the `OMERO Downloads page <https://www.openmicroscopy.org/omero/downloads/>`_
+  - download the toolbox from the :omero:`OMERO Downloads page <downloads/>`
   - unzip
   - enter the full path to the toolbox in the OMERO script below.
 

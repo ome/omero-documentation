@@ -23,7 +23,7 @@ OMERO Python API
 
 The OMERO.web framework is all based on the OMERO Python API. Code-generated
 omero.model objects communicate remotely with their counterparts on the
-OMERO.server using `Ice from ZeroC <https://zeroc.com/products/ice>`_.
+OMERO.server using :zeroc:`Ice from ZeroC <products/ice>`.
 
 BlitzGateway
 ^^^^^^^^^^^^
@@ -55,25 +55,25 @@ It also includes utilities for creating and retrieving connections to OMERO
 
 **Additional apps**
 
--  **omero-figure:** The `OMERO.figure <https://github.com/ome/omero-figure/>`_ app
+-  **omero-figure:** The :omero_subs_github_repo_root:`OMERO.figure <omero-figure/>` app
    allows you to create scientific figures.
 
--  **omero-webtest:** `webtest <https://github.com/ome/omero-webtest/>`_
+-  **omero-webtest:** :omero_subs_github_repo_root:`webtest <omero-webtest/>`
    is an example app that contains several code samples mentioned in
    the following pages.
 
--  **omero-iviewer:** The `OMERO.iviewer <https://github.com/ome/omero-iviewer>`_
-   is a new (currently unreleased) image viewer that supports ROI creation and editing.
+-  **omero-iviewer:** The :omero_subs_github_repo_root:`OMERO.iviewer <omero-iviewer>`
+   is an image viewer that supports ROI creation and editing.
 
 -  **webtagging:** The `webtagging <https://github.com/MicronOxford/webtagging>`_ app
    was developed externally by Douglas Russell. It supports 'auto' tagging based on
    image name and Tag-based filtering of data.
 
--  **omero-mapr:** The `OMERO.mapr <https://github.com/ome/omero-mapr/>`_ app
-   is a new tool that allows browsing data through Map Annotations
+-  **omero-mapr:** The :omero_subs_github_repo_root:`OMERO.mapr <omero-mapr/>` app
+   is a that allows browsing data through Map Annotations
    linked to images.
 
--  **omero-gallery:** `OMERO.gallery <https://github.com/ome/omero-gallery/>`_
+-  **omero-gallery:** The :omero_subs_github_repo_root:`OMERO.gallery <omero-gallery/>` app
    provides a simple interface for browsing Projects, Datasets and Images.
 
 .. warning::
@@ -103,7 +103,7 @@ Quick example - OMERO.webtest
 
 This tiny example gives you a feel for how the OMERO.web framework gets data
 from OMERO and displays it on a web page. You can find this and other examples
-in the `OMERO.webtest <https://github.com/ome/omero-webtest/>`_
+in the :omero_subs_github_repo_root:`OMERO.webtest <omero-webtest/>`
 repository.
 
 There are 3 parts to each page: url, view and template. For example, this code

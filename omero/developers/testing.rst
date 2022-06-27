@@ -498,7 +498,7 @@ There is one custom marker defined:
 Using the Python test library
 """""""""""""""""""""""""""""
 
-The `OMERO Python test library <https://github.com/ome/omero-py/blob/master/src/omero/testlib/__init__.py>`_
+The :omero_subs_github_repo_root:`OMERO Python test library <omero-py/blob/master/src/omero/testlib/__init__.py>`
 defines an abstract ``ITest`` class that implements the connection set up as
 well as many methods shared amongst all Python integration tests.
 
@@ -561,7 +561,7 @@ Images can be imported using the ``ITest.import_fake_file()`` method::
 Writing OMERO.web tests
 """""""""""""""""""""""
 
-For OMERO.web integration tests, the `OMERO.web test library <https://github.com/ome/omero-web/blob/master/omeroweb/testlib/__init__.py>`_
+For OMERO.web integration tests, the :omero_subs_github_repo_root:`OMERO.web test library <omero-web/blob/master/omeroweb/testlib/__init__.py>`
 defines an abstract ``IWebTest`` class that inherits from ``ITest`` and
 also implements Django clients at the class setup using the
 :djangodoc:`Django testing tools <topics/testing/tools>`.

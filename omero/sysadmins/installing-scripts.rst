@@ -5,7 +5,7 @@ OMERO.scripts are the OME version of plugins, allowing you to extend the
 functionality of OMERO. Official core OMERO.scripts come bundled with every 
 OMERO.server release but you can also add new scripts you have written 
 yourself or found via the repositories forked from 
-`ome/omero-user-scripts <https://github.com/ome/omero-user-scripts/network/members>`_.
+:omero_subs_github_repo_root:`ome/omero-user-scripts <omero-user-scripts/network/members>`.
 
 Prerequisites
 -------------
@@ -29,7 +29,7 @@ the `GitHub app for your OS <https://docs.github.com/en/get-started/quickstart/s
 (available for Mac and Windows but not Linux). The basic workflow is:
 
 -  fork our 
-   `omero-user-script <https://github.com/ome/omero-user-scripts>`_ 
+   :omero_subs_github_repo_root:`omero-user-script <omero-user-scripts>`
    repository
 -  clone it in your lib/scripts directory
 

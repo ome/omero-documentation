@@ -28,5 +28,5 @@ See :djangodoc:`Configuring Applications <ref/applications/#configuring-applicat
 
 This allows the URL to an app to be different from its name.
 For example, OMERO.figure app is named ``omero_figure`` but the url is simply ``/figure/``
-as configured by `__init__.py <https://github.com/ome/omero-figure/blob/master/omero_figure/__init__.py>`_
-and `apps.py <https://github.com/ome/omero-figure/blob/master/omero_figure/apps.py>`_.
+as configured by :omero_subs_github_repo_root:`__init__.py <omero-figure/blob/master/omero_figure/__init__.py>`
+and :omero_subs_github_repo_root:`apps.py <omero-figure/blob/master/omero_figure/apps.py>`.

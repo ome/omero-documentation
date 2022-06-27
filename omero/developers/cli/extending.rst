@@ -11,7 +11,7 @@ plugin files or directories, too.
 Alternatively, plugins can be added to any directory ending with
 ``omero/plugins``. If this directory is part of the :envvar:`PYTHONPATH` the
 |CLI| will automatically include them. An example of such a plugin is
-`omero-cli-render <https://github.com/ome/omero-cli-render/>`_.
+:omero_subs_github_repo_root:`omero-cli-render <omero-cli-render/>`.
 
 Team-supported |CLI| plugins will be pip-installable. Search for
 "`omero cli <https://pypi.org/search/?q=omero+cli>`_"

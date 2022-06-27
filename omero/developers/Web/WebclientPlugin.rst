@@ -4,7 +4,7 @@ Webclient Plugins
 The webclient UI can be configured to include content from other web apps.
 This allows you to extend the webclient UI with your own functionality.
 This is used by the `webtagging app <https://github.com/MicronOxford/webtagging>`_
-and there are also some examples in the `omero-webtest <https://github.com/ome/omero-webtest/>`_ repository.
+and there are also some examples in the  :omero_subs_github_repo_root:`omero-webtest <omero-webtest/>` repository.
 
 
 Currently you can add content in the following locations:
@@ -80,7 +80,7 @@ This will contain the JavaScript snippet that is injected into the main
 webclient page `<head>` when the page is generated. This is added using
 Django's templates, so it should be placed within your app's
 `/templates/<organization_appname>/` directory and named `.html`, e.g.
-/templates/<organization_appname>/webclient_plugins/right_plugin_rois.html.
+`/templates/<organization_appname>/webclient_plugins/right_plugin_rois.html`.
 All the JavaScript should be within `<script>` and `</script>` tags.
 Your plugin initialization should happen after the page has loaded, so you use
 the jQuery on-ready function.

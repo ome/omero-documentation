@@ -38,15 +38,15 @@ download files or images.
 Finding scripts
 ---------------
 
-`Core scripts <https://github.com/ome/scripts>`_ are bundled with every
+:omero_subs_github_repo_root:`Core scripts <scripts>` are bundled with every
 OMERO.server release and automatically available to all users. You can find
 additional scripts on GitHub by looking for forks of
-`ome/omero-user-scripts <https://github.com/ome/omero-user-scripts/network/members>`_. Some examples
+:omero_subs_github_repo_root:`ome/omero-user-scripts <omero-user-scripts/network/members>`. Some examples
 include:
 
 - `OMERO scripts <https://github.com/glencoesoftware/omero-user-scripts>`_ -
   Glencoe Software
-- `Example scripts <https://github.com/openmicroscopy/omero-example-scripts>`_
+- :omero_subs_github_repo_root:`Example scripts <openmicroscopy/omero-example-scripts>`
   - OME Team
 - `Fixing scripts <https://github.com/ppouchin/omero-user-scripts>`_ - Pierre 
   Pouchin
@@ -78,8 +78,8 @@ manage your scripts. If you are not familiar with
 (available for Mac and Windows but not Linux). The basic workflow is:
 
 -  fork our
-   `omero-user-script <https://github.com/ome/omero-user-scripts>`_
-   repository or any other repository you trust (`<https://github.com/ome/omero-user-scripts/network/members>`_)
+   :omero_subs_github_repo_root:`omero-user-script <omero-user-scripts>`
+   repository or any other repository you trust (:omero_subs_github_repo_root:`omero-user-scripts/network/members <omero-user-scripts/network/members>`)
 -  clone it in your lib/scripts directory
 
    ::
@@ -93,7 +93,7 @@ manage your scripts. If you are not familiar with
 If all you want to do is add scripts from someone else's repository to your
 server, you can simply clone that repository in your lib/scripts directory and
 the scripts within it will be added to your script list as described in the 
-`OMERO-user-script repository readme <https://github.com/ome/omero-user-scripts>`_.
+:omero_subs_github_repo_root:`OMERO-user-script repository readme <omero-user-scripts>`.
 
 As your new scripts will then show up in the script menu in the clients,
 alongside the core 'omero' scripts which are shipped with each release, you
@@ -116,7 +116,7 @@ Developing your own scripts
 ---------------------------
 
 The easiest way to get started developing scripts for your own site is to fork
-the `github.com/ome/omero-user-scripts <https://github.com/ome/omero-user-scripts>`_
+the :omero_subs_github_repo_root:`github.com/ome/omero-user-scripts <omero-user-scripts>`
 repository and clone it somewhere under lib/scripts as described above. Then
 go into YOUR_SCRIPTS and rename the existing script to match your needs::
 

@@ -6,7 +6,7 @@ Installing OMERO from source
 .. warning::
   
   Starting from OMERO 5.5, many components have been moved to their own
-  repositories e.g. `OMERO.py <https://github.com/ome/omero-py>`_, to modernize
+  repositories e.g. :omero_subs_github_repo_root:`OMERO.py <omero-py>`, to modernize
   the application and allow more flexibility.
 
   This page is currently under **review**.
@@ -32,7 +32,7 @@ See the :devs_doc:`Using Git <using-git.html>` section of the Contributing
 documentation for more information on how to install and configure Git.
 
 The main repository for OMERO is available from
-https://github.com/ome/openmicroscopy.
+:omero_subs_github_repo_root:`openmicroscopy <openmicroscopy>`.
 Most OME development is currently happening on GitHub, therefore it is highly
 suggested that you become familiar with how it works, if not create an account
 for yourself.

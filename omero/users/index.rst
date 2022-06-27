@@ -69,7 +69,7 @@ Additional resources
     countries, :doc:`connecting to the community <community-resources>` can
     provide you with a wealth of experience to draw on for help and advice.
 
--   Additional `OMERO apps <https://www.openmicroscopy.org/omero/apps/>`_ add functionality
+-   Additional :omero:`OMERO apps <apps/>` add functionality
     to the OMERO.web or Command-Line clients.
 
 .. toctree::

@@ -119,5 +119,5 @@ Then in ``<BODY>`` insert the following:
 The viewport can be made more interactive by adding buttons or links to allow
 display of scalebars, ROIs, zooming and selection of channels. Full examples
 of how to embed microscopy or Whole Slide Image are available in the
-`OMERO.webtest GitHub repository <https://github.com/ome/omero-webtest/tree/master/omero_webtest/templates/webtest/examples>`_.
+:omero_subs_github_repo_root:`OMERO.webtest GitHub repository <omero-webtest/tree/master/omero_webtest/templates/webtest/examples>`.
 

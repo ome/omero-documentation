@@ -46,7 +46,7 @@ omero-py < 5.8.0
 
 If you are using an older version of ``omero-py`` you must download the JARs manually and place them under the :envvar:`OMERODIR` directory:
 
-#. download the OMERO.server zip from the `Downloads page <https://www.openmicroscopy.org/omero/downloads/>`_
+#. download the OMERO.server zip from the :omero:`Downloads page <downloads/>`
 #. unzip the zip file 
 #. set ``$OMERODIR`` to the unzipped directory::
 

@@ -95,7 +95,7 @@ To set this up on your OMERO.web installation:
        $ omero config set omero.web.public.url_filter '^/webgateway/(?!archived_files|download_as)'
 
   - You may need to allow access to additional URLs for some apps.
-    For example, the `OMERO.iviewer <https://www.openmicroscopy.org/omero/iviewer/>`_ also
+    For example, the :omero:`OMERO.iviewer <iviewer/>` also
     uses some ``webgateway`` and ``api`` URLs::
 
        $ omero config set omero.web.public.url_filter '^/iviewer|webgateway|api'
@@ -135,7 +135,7 @@ data hosted at
 
 Ansible playbooks can be found describing how the production server in Dundee
 ("nightshade") was configured in the
-`prod-playbooks <https://github.com/ome/prod-playbooks>`_
+:omero_subs_github_repo_root:`prod-playbooks <prod-playbooks>`
 repository on GitHub.
 
 Group setup
@@ -247,7 +247,7 @@ link to the correct group and Project in OMERO, just as the
 DOI above does. Redirects need to be set in the
 `NGINX <https://nginx.org/>`_ component of the OMERO.web installation
 dedicated to publication workflows. You can find our configuration for this
-example `here on GitHub <https://github.com/ome/prod-playbooks/blob/2018-01/nightshade-webclients.yml#L181>`_:
+example :omero_subs_github_repo_root:`here on GitHub <prod-playbooks/blob/2018-01/nightshade-webclients.yml#L181>`:
 
 .. code-block:: shell
 

@@ -12,7 +12,7 @@ The preferred option for developing OMERO.web apps is to install
 ``omero-web`` on your machine as described below.
 
 However, it is also possible to use
-`omero-web-docker <https://github.com/ome/omero-web-docker/>`_
+:omero_subs_github_repo_root:`omero-web-docker <omero-web-docker/>`
 to run OMERO.web in a Docker container.
 If you are using this option, you can go directly to the
 :doc:`/developers/Web/CreateApp` page which describes this process.

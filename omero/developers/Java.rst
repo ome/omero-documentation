@@ -23,8 +23,7 @@ The required :file:`.jar` files can be obtained in a number of ways:
   :downloads:`Java <>` section of the OMERO download page.
   The :file:`libs` directory can then be used on the Java classpath (or
   attached to a project in Eclipse).
-* following the example in
-  `minimal-omero-client <https://github.com/ome/minimal-omero-client>`_.
+* following the example in :omero_subs_github_repo_root:`minimal-omero-client <minimal-omero-client>`.
   Please make sure you are using the proper branch of the repository, as that
   influences the versions of dependencies defined in the Maven POM file.
 

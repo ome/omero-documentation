@@ -80,9 +80,8 @@ views.
 OMERO.web features almost all of the functionality of OMERO.insight barring
 import.
 A number of apps are available to add functionality to OMERO.web, such as
-`OMERO.figure <https://www.openmicroscopy.org/omero/figure/>`_ and
-`OMERO.iviewer <https://www.openmicroscopy.org/omero/iviewer/>`_.
-See the main website for a `list of released apps <https://www.openmicroscopy.org/omero/apps/>`_.
+:omero:`OMERO.figure <figure/>` and :omero:`OMERO.iviewer <iviewer/>`.
+See the main website for a :omero:`list of released apps <apps/>`.
 
 For more information and guides to using OMERO.web, see our
 :help:`help website <>`.

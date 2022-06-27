@@ -158,8 +158,7 @@ SSL connection issues
 Deployment platforms show a trend of making the transport layer security
 policy tighter by default. The recommended way to overcome SSL
 connection issues for OMERO clients connecting to the server is to
-employ the `omero-certificates
-<https://pypi.org/project/omero-certificates/>`_ plugin available from
+employ the :pypi:`omero-certificates<omero-certificates/>` plugin available from
 PyPI_:
 
 .. literalinclude:: unix/walkthrough/walkthrough_debian10.sh

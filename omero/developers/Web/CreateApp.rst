@@ -21,7 +21,7 @@ Clone the examples repository
 -----------------------------
 
 To get started quickly, we are going to use the
-`omero web apps examples <https://github.com/ome/omero-web-apps-examples>`_
+:omero_subs_github_repo_root:`omero web apps examples <omero-web-apps-examples>`
 repository which contains two sample OMERO.web apps.
 Clone the repo to a location of your choice:
 
@@ -66,7 +66,7 @@ page which will display your Name and list your Projects.
 Run your app with OMERO.web in a Docker container
 -------------------------------------------------
 
-The following walk-through uses `omero-web-docker <https://github.com/ome/omero-web-docker/>`_
+The following walk-through uses :omero_subs_github_repo_root:`omero-web-docker <omero-web-docker/>`
 to run the app. Here we add ``minimal_webapp`` to the installed apps and map the
 app directory to the ``site-packages`` directory in the Docker instance so that
 python can import our ``minimal_webapp`` module.
@@ -114,7 +114,7 @@ page which will display your Name and list your Projects.
 Exploring the app
 -----------------
 
-The `minimal_webapp code <https://github.com/ome/omero-web-apps-examples/tree/master/minimal-webapp>`_
+The :omero_subs_github_repo_root:`minimal_webapp code <omero-web-apps-examples/tree/master/minimal-webapp>`
 is well-documented to explain how the app is working.
 Briefly, the app supports a single URL defined in
 ``minimal_webapp/urls.py`` which maps to the ``index`` function
@@ -155,7 +155,7 @@ App settings
 
 You can add settings to your app that allow configuration via the command line
 in the same way as for the base OMERO.web. The list of ``CUSTOM_SETTINGS_MAPPINGS`` in
-`settings.py <https://github.com/ome/omero-web/blob/master/omeroweb/settings.py>`_
+:omero_subs_github_repo_root:`settings.py <omero-web/blob/master/omeroweb/settings.py>`
 is a good source for examples of the different data types and parsers you can use.
 
 For example, if you want to create a user-defined setting appname.foo,

@@ -85,8 +85,7 @@ as :file:`/OMERO/backup`.
 
 The :file:`lib/scripts` directory should also be backed up, but restoring it
 may pose issues if any of your users have added their own "official
-scripts". A github repository is available at
-`<https://github.com/ome/scripts>`_ which provides help for merging
+scripts". A :omero_subs_github_repo_root:`GitHub repository <scripts>` provides help for merging
 your scripts directories.
 
 .. _backup-and-restore_postgresql:

@@ -67,7 +67,7 @@ with the given mechanism:
 - `Docker images <https://hub.docker.com/u/openmicroscopy>`_ are also available. Both the `omero-server`
   and `omero-web` images are considered production quality.
 
-Please get in touch at https://forum.image.sc/c/data if you have any questions.
+Please get in touch at :imagesc:`image.sc <c/data>` if you have any questions.
 
 OMERO.server
 ------------
