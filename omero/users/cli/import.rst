@@ -40,16 +40,25 @@ Some of the options available to the import command are:
 
         $ omero import -s SERVER -p PORT -u USER -g GROUP image.tif
 
-.. option:: -d DATASET_ID, -r SCREEN_ID, -T TARGET, --target TARGET, -n NAME, --name NAME, -x DESCRIPTION, --description DESCRIPTION
+.. option:: -d DATASET_ID, -r SCREEN_ID, -T TARGET, --target TARGET
     
     To import images into a Dataset::
 
         $ omero import image.tif -d 2
         $ omero import image.tif -T Dataset:id:2
         $ omero import image.tif -T Dataset:name:Sample01
-        $ omero import image.tif --name "Control image1" --description "PBS Control" -T Dataset:name:Controls
 
     See :doc:`import-target` for more information on import targets.
+
+
+.. option:: -n NAME, --name NAME
+.. option:: -x DESCRIPTION, --description DESCRIPTION
+
+    To change name of image and add a description::
+
+        $ omero import image.tif -n "control image1" -x "PBS Control"
+        $ omero import image.tif --name image2.tif --description "negative control"
+
 
   --logprefix [LOGPREFIX]               Directory or file prefix for --file and --errs
   --file [FILE]                         File for storing the standard output from the Java process
