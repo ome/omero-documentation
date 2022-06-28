@@ -56,10 +56,6 @@ Some of the options available to the import command are:
         $ omero import image.tif -n "control image1" -x "PBS control"
         $ omero import image.tif --name image2 --description second_batch
 
-.. option:: --logprefix [LOGPREFIX]
-
-    Directory or file prefix for --file and --errs
-
 .. option:: --file FILE
 
     File for storing the standard output from the Java process
