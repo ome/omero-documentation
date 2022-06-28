@@ -51,7 +51,7 @@ Some of the options available to the import command are:
 .. option:: -n NAME, --name NAME
 .. option:: -x DESCRIPTION, --description DESCRIPTION
 
-    To change name of image and add a description::
+    To change the name of an image and add a description::
 
         $ omero import image.tif -n "control image1" -x "PBS control"
         $ omero import image.tif --name image2 --description second_batch
