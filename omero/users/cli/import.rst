@@ -32,8 +32,6 @@ Some of the options available to the import command are:
 
 .. option:: -h, --help
 
-    Examples of options available to the import command,
-
 .. option:: -s SERVER, -p PORT, -U USERNAME, -g GROUPNAME
 
     To avoid prompts for servername, port, username and group, use::
@@ -50,9 +48,13 @@ Some of the options available to the import command are:
 
     See :doc:`import-target` for more information on import targets.
 
-  --logprefix [LOGPREFIX]               Directory or file prefix for --file and --errs
-  --file [FILE]                         File for storing the standard output from the Java process
-  --errs [ERRS]                         File for storing the standard error from the Java process
+.. option:: -n NAME, --name NAME
+.. option:: -x DESCRIPTION, --description DESCRIPTION
+
+    To change the name of an image and add a description::
+
+        $ omero import image.tif -n "control image1" -x "PBS control"
+        $ omero import image.tif --name image2 --description second_batch
 
 .. option:: --file FILE
 
