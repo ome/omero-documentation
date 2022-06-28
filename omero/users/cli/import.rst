@@ -53,8 +53,8 @@ Some of the options available to the import command are:
 
     To change name of image and add a description::
 
-        $ omero import image.tif -n "control image1" -x "PBS Control"
-        $ omero import image.tif --name image2.tif --description "negative control"
+        $ omero import image.tif -n "control image1" -x "PBS control"
+        $ omero import image.tif --name image2 --description second_batch
 
 .. option:: --logprefix [LOGPREFIX]
 
