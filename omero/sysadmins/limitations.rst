@@ -80,8 +80,12 @@ This primarily affects the following file formats:
 This issue can be avoided by pre-generating pyramidal OME-TIFF images as
 described above.
 
-Requests sent from clients to OMERO.server  when displaying large images with floating-point pixel data type which have no pre-generated pyramids can cause limitation or even a complete loss of service, necessitating a server restart.
-These requests are generated any time when for example a user in OMERO.web changes rendering settings on such image. Set the property ``omero.pixeldata.max_plane_float_override`` to ``false`` on your server to prevent these problems.
+Requests sent from clients to OMERO.server  when displaying large images
+with floating-point pixel data type which have no pre-generated pyramids
+can cause limitation or even a complete loss of service, necessitating a server restart.
+These requests are generated any time when for example a user in OMERO.web
+changes rendering settings on such image. Set the property
+``omero.pixeldata.max_plane_float_override`` to ``false`` on your server to prevent these problems.
 
 
 .. _ngff_limitations:
