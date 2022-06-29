@@ -53,7 +53,7 @@ images if it doesn't already exist in the file. The threshold size is configurab
 default. However, this process can be very resource-intensive, depending on the size of the
 image as well as the image format and any data compression used, for example see
 `PixelData threads and pyramid generation issues <https://forum.image.sc/t/pixeldata-threads-and-pyramid-generation-issues/49794>`_.
-Furhter, OMERO never generates pyramids for floating or double pixel data types. Working with large floating-point pixel data type images without pre-generated pyramids in OMERO can cause problems (see below).
+Furhter, OMERO never generates pyramids for floating-point or double pixel data types. Working with large floating-point pixel data type images without pre-generated pyramids in OMERO can cause problems (see below).
 
 The OMERO pyramid generation process should be considered as deprecated and instead it is recommended
 that users avoid these issues by converting
