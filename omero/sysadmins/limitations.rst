@@ -85,7 +85,8 @@ This primarily affects the following file formats:
 This issue can be avoided by pre-generating pyramidal OME-TIFF images as
 described above.
 
-However, in some cases, these images can be viewed in OMERO clients at full resolution (if the images are not too large).
+However, in some cases, the floating-point images without :model_doc:`pyramids <omero-pyramid/>`
+can be viewed in OMERO clients at full resolution (if the images are not too large).
 
 This behaviour is configured by :property:`omero.pixeldata.max_plane_float_override`. By default this is ``True``;
 OMERO overrides the requirement for floating-point images above the :property:`omero.pixeldata.max_plane_height` and
