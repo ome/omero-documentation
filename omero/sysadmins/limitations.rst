@@ -88,7 +88,7 @@ described above.
 However, in some cases, the floating-point images without :model_doc:`pyramids <omero-pyramid/>`
 can be viewed in OMERO clients at full resolution (if the images are not too large).
 
-This behaviour is configured by :property:`omero.pixeldata.max_plane_float_override`. By default this is ``True``;
+This behaviour is configured by :property:`omero.pixeldata.max_plane_float_override`. By default (``True``),
 OMERO overrides the requirement for floating-point images above the :property:`omero.pixeldata.max_plane_height` and
 :property:`omero.pixeldata.max_plane_width` to have pyramids, which allows them to be treated as regular images and possibly viewed in the clients.
 
