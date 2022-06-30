@@ -9,7 +9,7 @@
 PREFIX="omero-"
 # GitHub packages
 new_version=false
-github_packages=("ome/ice-builder-gradle" "ome/openmicroscopy" "ome/omero-insight" "ome/omero-matlab")
+github_packages=("ome/openmicroscopy" "ome/omero-insight" "ome/omero-matlab")
 for p in "${github_packages[@]}"
 do
     :

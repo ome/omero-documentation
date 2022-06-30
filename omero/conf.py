@@ -259,8 +259,6 @@ omero_extlinks = {
     'dsl_plugin_sourcedir': (omero_subs_github_root.format('omero-dsl-plugin', 'tree', 'v' + conf_autogen.version_dsl_plugin), None),
     'blitz_plugin_source': (omero_subs_github_root.format('omero-blitz-plugin', 'blob', 'v' + conf_autogen.version_blitz_plugin), None),
     'blitz_plugin_sourcedir': (omero_subs_github_root.format('omero-blitz-plugin', 'tree', 'v' + conf_autogen.version_blitz_plugin), None),
-    'ice_builder_source': (omero_subs_github_root.format('ice-builder-gradle', 'blob', 'v' + conf_autogen.version_ice_builder_gradle), None),
-    'ice_builder_sourcedir': (omero_subs_github_root.format('ice-builder-gradle', 'tree', 'v' + conf_autogen.version_ice_builder_gradle), None),
     'model_source': (omero_subs_github_root.format('omero-model', 'blob', 'v' + conf_autogen.version_model), None),
     'model_sourcedir': (omero_subs_github_root.format('omero-model', 'tree', 'v' + conf_autogen.version_model), None),
     'common_source': (omero_subs_github_root.format('omero-common', 'blob', 'v' + conf_autogen.version_common), None),
