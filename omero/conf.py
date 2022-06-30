@@ -67,7 +67,7 @@ def get_previous_version(majornumber, minornumber=0):
 # The version info for the project you're documenting, acts as replacement for
 # |current_version|, also used in various other places throughout the
 # built documents.
-[majornumber, minornumber, patchnumber] = split_release(conf_autogen.version_omero_server)
+[majornumber, minornumber, patchnumber] = split_release(conf_autogen.version_openmicroscopy)
 
 # Define Sphinx version and release variables and development branch
 current_version = ".".join(str(x) for x in (majornumber, minornumber))
@@ -178,7 +178,7 @@ rst_epilog += """
 .. |javaversion_min| replace:: 8
 .. |version_dropbox|  replace:: %s
 .. |version_tables_cap|  replace:: 3.6
-.. |version_omero_server|  replace:: %s
+.. |version_openmicroscopy|  replace:: %s
 
 .. |Broken| image:: /images/broken.png
              :alt: Broken
@@ -200,7 +200,7 @@ rst_epilog += """
        conf_autogen.version_py,
        conf_autogen.version_web,
        conf_autogen.version_dropbox,
-       conf_autogen.version_omero_server)
+       conf_autogen.version_openmicroscopy)
 
 
 omero_subs_github_root = github_root + 'ome/{}/{}/{}/%s'
@@ -259,8 +259,8 @@ omero_extlinks = {
     'dsl_plugin_sourcedir': (omero_subs_github_root.format('omero-dsl-plugin', 'tree', 'v' + conf_autogen.version_dsl_plugin), None),
     'blitz_plugin_source': (omero_subs_github_root.format('omero-blitz-plugin', 'blob', 'v' + conf_autogen.version_blitz_plugin), None),
     'blitz_plugin_sourcedir': (omero_subs_github_root.format('omero-blitz-plugin', 'tree', 'v' + conf_autogen.version_blitz_plugin), None),
-    'ice_builder_source': (omero_subs_github_root.format('ice-builder-gradle', 'blob', 'v' + conf_autogen.version_ice_builder), None),
-    'ice_builder_sourcedir': (omero_subs_github_root.format('ice-builder-gradle', 'tree', 'v' + conf_autogen.version_ice_builder), None),
+    'ice_builder_source': (omero_subs_github_root.format('ice-builder-gradle', 'blob', 'v' + conf_autogen.version_ice_builder_gradle), None),
+    'ice_builder_sourcedir': (omero_subs_github_root.format('ice-builder-gradle', 'tree', 'v' + conf_autogen.version_ice_builder_gradle), None),
     'model_source': (omero_subs_github_root.format('omero-model', 'blob', 'v' + conf_autogen.version_model), None),
     'model_sourcedir': (omero_subs_github_root.format('omero-model', 'tree', 'v' + conf_autogen.version_model), None),
     'common_source': (omero_subs_github_root.format('omero-common', 'blob', 'v' + conf_autogen.version_common), None),
@@ -300,7 +300,7 @@ omero_extlinks = {
     # Downloads
     'downloads': (downloads_root + '/latest/omero5.5/%s', None),
     # Versioned Bio-Formats doc link
-    'bf_v_doc': (docs_root + '/bio-formats/' + conf_autogen.version_bioformats + '/' + '%s', None),
+    'bf_v_doc': (docs_root + '/bio-formats/' + conf_autogen.version_formats_gpl + '/' + '%s', None),
     # Miscellaneous links
     'springdoc': ('https://docs.spring.io/spring/docs/%s', None),
     'ivydoc': ('https://ant.apache.org/ivy/history/2.3.0/%s', None),
