@@ -56,7 +56,7 @@ image as well as the image format and any data compression used, for example see
 
 Further, OMERO never generates pyramids for large floating-point pixel type images.
 
-Also note that working with large floating-point images in OMERO can cause problems (see below).
+For large floating-point images, follow the recommended workflow to have the best experience (see below).
 
 The OMERO pyramid generation process should be considered as deprecated and instead it is recommended
 that users avoid these issues by converting
