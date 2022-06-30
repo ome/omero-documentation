@@ -86,6 +86,12 @@ done
 echo "Getting db properties"
 omero/autogen_db_version.py $WORKSPACE/OMERO.server > omero/conf_autogen.py
 
+echo "Update dependencies"
+bash dependencies.sh
+
+
 echo "Cleanup"
 rm java-help.txt
 rm advanced-help.txt
+rm conf_autogen.py-e
+
