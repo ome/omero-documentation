@@ -96,7 +96,7 @@ OMERO will not attempt to treat large floating-point images as if they are small
 so any large images without pre-generated pyramids will not be viewable.
 However, this will protect the server from expensive attempts to calculate min/max pixel values.
 
-It is recommended to pre-generate pyramidal OME-TIFF images as described above and to set `omero.pixeldata.max_plane_float_override` to `False`  server-side.
+It is recommended to pre-generate pyramidal OME-TIFF images as described above and to set :property:`omero.pixeldata.max_plane_float_override` to ``False`` on your server.
 
 .. _ngff_limitations:
 
