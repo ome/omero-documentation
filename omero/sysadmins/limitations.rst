@@ -82,9 +82,6 @@ This primarily affects the following file formats:
 *  :bf_v_doc:`MRC <formats/mrc.html>`
 *  :bf_v_doc:`TIFF <formats/tiff.html>`
 
-This issue can be avoided by pre-generating pyramidal OME-TIFF images as
-described above.
-
 However, in some cases, the floating-point images without :model_doc:`pyramids <omero-pyramid/>`
 can be viewed in OMERO clients at full resolution (if the images are not too large).
 
@@ -98,6 +95,8 @@ When the :property:`omero.pixeldata.max_plane_float_override` is set to ``False`
 OMERO will not attempt to treat large floating-point images as if they are smaller images,
 so any large images without pre-generated pyramids will not be viewable.
 However, this will protect the server from expensive attempts to calculate min/max pixel values.
+
+It is recommended to pre-generate pyramidal OME-TIFF images as described above and to set `omero.pixeldata.max_plane_float_override` to `False`  server-side.
 
 .. _ngff_limitations:
 
