@@ -68,7 +68,7 @@ files before importing into OMERO. A number of suitable tools are available such
 `aicsimageio <https://github.com/AllenCellModeling/aicsimageio>`_,
 `libvips <https://github.com/libvips/libvips>`_ and `QuPath <https://qupath.github.io/>`_.
 
-.. _float-limitation:
+.. _float-limitations:
 
 Large floating-point images
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
