@@ -74,8 +74,8 @@ Large floating-point images
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :model_doc:`Pyramids <omero-pyramid/>` of image tiles are currently not
-generated for large floating-point pixel type images, meaning the viewing of the imported
-images will not be smooth if the image is over the size threshold mentioned above.
+generated for large floating-point pixel type images.
+
 This primarily affects the following file formats:
 
 *  :bf_v_doc:`Gatan DM3 <formats/gatan-digital-micrograph.html>`
