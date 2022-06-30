@@ -54,7 +54,7 @@ default. However, this process can be very resource-intensive, depending on the 
 image as well as the image format and any data compression used, for example see
 `PixelData threads and pyramid generation issues <https://forum.image.sc/t/pixeldata-threads-and-pyramid-generation-issues/49794>`_.
 
-Furhter, OMERO never generates pyramids for large floating-point pixel type images.
+Further, OMERO never generates pyramids for large floating-point pixel type images.
 
 Also note that working with large floating-point images in OMERO can cause problems (see below).
 
