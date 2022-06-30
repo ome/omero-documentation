@@ -68,8 +68,10 @@ files before importing into OMERO. A number of suitable tools are available such
 `aicsimageio <https://github.com/AllenCellModeling/aicsimageio>`_,
 `libvips <https://github.com/libvips/libvips>`_ and `QuPath <https://qupath.github.io/>`_.
 
-Large images with floating-point pixel data types
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _float-limitation:
+
+Large floating-point images
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :model_doc:`Pyramids <omero-pyramid/>` of image tiles are currently not
 generated for large floating-point pixel type images, meaning the viewing of the imported
@@ -83,13 +85,6 @@ This primarily affects the following file formats:
 This issue can be avoided by pre-generating pyramidal OME-TIFF images as
 described above.
 
-
-.. _floatoverride-limitation:
-
-Protection from resource intensive minima/maxima calculations
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-:model_doc:`Pyramids <omero-pyramid/>` of sub-resolution image tiles are not generated for images with floating point pixels. 
 However, in some cases, these images can be viewed in OMERO clients at full resolution (if the images are not too large).
 
 This behaviour is configured by :property:`omero.pixeldata.max_plane_float_override`. By default this is ``True``;
