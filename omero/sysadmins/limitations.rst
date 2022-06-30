@@ -54,6 +54,10 @@ default. However, this process can be very resource-intensive, depending on the 
 image as well as the image format and any data compression used, for example see
 `PixelData threads and pyramid generation issues <https://forum.image.sc/t/pixeldata-threads-and-pyramid-generation-issues/49794>`_.
 
+Further, OMERO never generates pyramids for large floating-point pixel type images.
+
+For large floating-point images, follow the recommended workflow to have the best experience (see below).
+
 The OMERO pyramid generation process should be considered as deprecated and instead it is recommended
 that users avoid these issues by converting
 their data to `pyramidal OME-TIFF <https://www.openmicroscopy.org/2018/11/29/ometiffpyramid.html>`_
@@ -64,20 +68,35 @@ files before importing into OMERO. A number of suitable tools are available such
 `aicsimageio <https://github.com/AllenCellModeling/aicsimageio>`_,
 `libvips <https://github.com/libvips/libvips>`_ and `QuPath <https://qupath.github.io/>`_.
 
-Large images with floating-point pixel data
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _float-limitations:
+
+Large floating-point images
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :model_doc:`Pyramids <omero-pyramid/>` of image tiles are currently not
-generated for images with floating-point pixel data, meaning the imported
-image will be scrambled if it is over the size threshold mentioned above.
+generated for large floating-point pixel type images.
+
 This primarily affects the following file formats:
 
 *  :bf_v_doc:`Gatan DM3 <formats/gatan-digital-micrograph.html>`
 *  :bf_v_doc:`MRC <formats/mrc.html>`
 *  :bf_v_doc:`TIFF <formats/tiff.html>`
 
-This issue can be avoided by pre-generating pyramidal OME-TIFF images as
-described above.
+However, in some cases, the floating-point images without :model_doc:`pyramids <omero-pyramid/>`
+can be viewed in OMERO clients at full resolution (if the images are not too large).
+
+This behaviour is configured by :property:`omero.pixeldata.max_plane_float_override`. By default (``True``),
+OMERO overrides the requirement for floating-point images above the :property:`omero.pixeldata.max_plane_height` and
+:property:`omero.pixeldata.max_plane_width` to have pyramids, which allows them to be treated as regular images and possibly viewed in the clients.
+
+However, this also allows OMERO to attempt the calculation of minimal and maximal pixel intensity for these images (normally disabled for large images because it is resource intensive to read every pixel value).
+
+When the :property:`omero.pixeldata.max_plane_float_override` is set to ``False`` on your server,
+OMERO will not attempt to treat large floating-point images as if they are smaller images,
+so any large images without pre-generated pyramids will not be viewable.
+However, this will protect the server from expensive attempts to calculate min/max pixel values.
+
+It is recommended to pre-generate pyramidal OME-TIFF images as described above and to set :property:`omero.pixeldata.max_plane_float_override` to ``False`` on your server.
 
 .. _ngff_limitations:
 
