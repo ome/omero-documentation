@@ -27,7 +27,7 @@ for dir in "${dirs[@]}"
         repopath="https://artifacts.openmicroscopy.org/artifactory/ome.releases/${dir}"
         version=`curl -s ${repopath}/maven-metadata.xml | grep latest | sed "s/.*<latest>\([^<]*\)<\/latest>.*/\1/"`
         echo $version
-        sed -i -e "s/version_${v} = .*/version_${v} = \"${version}\"/" conf_autogen.py
+        sed -i -e "s/version_${v} = .*/version_${v} = \"${version}\"/" omero/conf_autogen.py
     done
 
 # GitHub packages
@@ -54,7 +54,7 @@ do
         done < conf_autogen.py
     fi
     
-    sed -i -e "s/version_${v} = .*/version_${v} = \"${version}\"/" conf_autogen.py
+    sed -i -e "s/version_${v} = .*/version_${v} = \"${version}\"/" omero/conf_autogen.py
 done
 
 echo $new_version
@@ -77,7 +77,7 @@ if [ ! -z $new_version ]; then
         version=`unzip -p $dir META-INF/MANIFEST.MF | grep "Implementation-Version:" | sed 's/^.*[^0-9]\([0-9]*\.[0-9]*\.[0-9]*\).*$/\1/'`
         echo $v
         echo $version
-        sed -i -e "s/version_${v} = .*/version_${v} = \"${version}\"/" conf_autogen.py
+        sed -i -e "s/version_${v} = .*/version_${v} = \"${version}\"/" omero/onf_autogen.py
     done
     # clean up 
     rm -rf OMERO.server*
@@ -93,10 +93,13 @@ do
     echo $v
     version=`curl -Ls https://pypi.org/pypi/$package/json | jq -r .info.version`
     echo $version
-    sed -i -e "s/version_${v} = .*/version_${v} = \"${version}\"/" conf_autogen.py
+    sed -i -e "s/version_${v} = .*/version_${v} = \"${version}\"/" omero/conf_autogen.py
 done
 
 
 
 # Clean up
-rm conf_autogen.py-e
+if [ -f omero/conf_autogen.py-e ]; then
+    rm omero/conf_autogen.py-e
+fi
+
