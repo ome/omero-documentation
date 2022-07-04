@@ -117,8 +117,20 @@ variable. The ``-W`` option turns all warnings into errors::
 
     SPHINXOPTS=-W make clean html
 
+
+Auto-generated content
+----------------------
+
+Some parts of the OMERO documentation are auto-generated from the OMERO
+deliverables (e.g. templates, command-line output...). This auto-generation is
+usually done via Continuous Integration builds. To generate these components
+manually, download the OMERO.server and run the auto-generation script as::
+
+      WORSKSPACE=/path/to/OMERO/deliverables ./omero/autogen_docs
+
+***************
 Release process
----------------
+***************
 
 This repository uses `bump2version <https://pypi.org/project/bump2version/>`_ to manage version numbers.
 To tag a release run::
@@ -133,17 +145,6 @@ To switch back to a development version run::
 
 Specifying ``major``, ``minor`` or ``patch`` depending on whether the development branch will be a `major, minor or patch release <https://semver.org/>`_. This will also add the ``SNAPSHOT`` suffix.
 
-
-
-Auto-generated content
-----------------------
-
-Some parts of the OMERO documentation are auto-generated from the OMERO
-deliverables (e.g. templates, command-line output...). This auto-generation is
-usually done via Continuous Integration builds. To generate these components
-manually, download the OMERO.server and run the auto-generation script as::
-
-      WORSKSPACE=/path/to/OMERO/deliverables ./omero/autogen_docs
 
 ****************
 Conventions Used
