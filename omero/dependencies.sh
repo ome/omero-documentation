@@ -65,9 +65,7 @@ if [ ! -z $new_version ]; then
     dirs=("OMERO.server/lib/server/omero-blitz.jar" "OMERO.server/lib/server/omero-server.jar" "OMERO.server/lib/server/omero-gateway.jar"
       "OMERO.server/lib/server/omero-romio.jar" "OMERO.server/lib/server/omero-renderer.jar" "OMERO.server/lib/server/omero-common.jar"
       "OMERO.server/lib/server/omero-model.jar" "OMERO.server/lib/server/formats-gpl.jar")
-    # to be modified
-    SERVER=https://downloads.openmicroscopy.org/omero/5.6/server-ice36.zip
-    wget -q $SERVER -O OMERO.server-ice36.zip
+    omero download --release 5
     unzip -q OMERO.server*
     ln -s OMERO.server-*/ OMERO.server
     for dir in "${dirs[@]}"
