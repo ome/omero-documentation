@@ -37,8 +37,6 @@ title = project + u' Documentation'
 # General information about the project.
 author = u'The Open Microscopy Environment'
 copyright = u'2000-%d, ' % datetime.datetime.now().year + author
-version = "5.6.5-SNAPSHOT-1"
-release = version
 
 
 def split_release(release):
