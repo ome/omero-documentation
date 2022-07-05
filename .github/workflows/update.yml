@@ -31,7 +31,7 @@ jobs:
       - name: Update documentation
         run: |
           python -m venv $space/.venv3
-          $space/.venv3/bin/pip install -U jinja2==3.0.1
+          $space/.venv3/bin/pip install -U jinja2==3.0.1 omego
           WORKSPACE=$space BUILD=false SUFFIX=/dist bash autogen_omero.sh
       - name: Find modified files
         id: upstream_repo

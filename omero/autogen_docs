@@ -14,6 +14,11 @@ WORKSPACE=${WORKSPACE:-$(pwd)}
 WORKSPACE=${WORKSPACE%/}  # Remove trailing slashes
 USER=${USER:-$(whoami)}
 
+echo "Retrieve model object"
+URL="https://latest-ci.openmicroscopy.org/jenkins/job/OMERO-server/lastSuccessfulBuild/artifact/EveryObject.rst"
+wget -q $URL
+mv EveryObject.rst omero/developers/Model/EveryObject.rst
+
 echo "Copying history"
 # inject link to change log
 touch newfile.rst
@@ -85,6 +90,10 @@ done
 
 echo "Getting db properties"
 omero/autogen_db_version.py $WORKSPACE/OMERO.server > omero/conf_autogen.py
+
+echo "Update dependencies"
+bash omero/dependencies.sh
+
 
 echo "Cleanup"
 rm java-help.txt
