@@ -44,7 +44,7 @@ omero/autogen_db_version.py $WORKSPACE/OMERO.server > omero/conf_autogen.py
 
 
 echo "Update dependencies"
-WORKSPACE=$WORKSPACE/OMERO.server/ bash omero/dependencies.sh
+WORKSPACE=$WORKSPACE/OMERO.server/ bash omero/autogen_dependencies.sh
 
 
 echo "Cleanup"
