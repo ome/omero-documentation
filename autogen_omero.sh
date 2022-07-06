@@ -32,16 +32,6 @@ if [ ! -e $DOCVENV ]; then
     echo You may need to manually install zeroc-ice
 fi
 
-set +u # PS1 issue
-. $DOCVENV/bin/activate
-set -u
-python -m pip install "omero-web[redis]"
-python -m pip install future 'ansible<2.7'
-python -m pip install -U PyYAML==5.1
-python -m pip install scc
-python -m pip install packaging
-
-#cd $WORKSPACE
 WORKSPACE=$WORKSPACE SUFFIX=$SUFFIX omero/autogen_docs
 
 # OSX compatibility for testing

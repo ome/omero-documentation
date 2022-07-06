@@ -11,6 +11,8 @@
 #    - check version of the dependencies
 
 PREFIX="omero-"
+WORKSPACE=${WORKSPACE:-$(pwd)}
+WORKSPACE=${WORKSPACE%/} 
 
 # General java packages
 # Java packages
@@ -62,22 +64,19 @@ echo $new_version
 # Java packages
 
 if [ ! -z $new_version ]; then
-    dirs=("OMERO.server/lib/server/omero-blitz.jar" "OMERO.server/lib/server/omero-server.jar" "OMERO.server/lib/server/omero-gateway.jar"
-      "OMERO.server/lib/server/omero-romio.jar" "OMERO.server/lib/server/omero-renderer.jar" "OMERO.server/lib/server/omero-common.jar"
-      "OMERO.server/lib/server/omero-model.jar" "OMERO.server/lib/server/formats-gpl.jar")
-    omero download --release 5
-    unzip -q OMERO.server*
-    ln -s OMERO.server-*/ OMERO.server
+    dirs=("lib/server/omero-blitz.jar" "lib/server/omero-server.jar" "lib/server/omero-gateway.jar"
+      "lib/server/omero-romio.jar" "lib/server/omero-renderer.jar" "lib/server/omero-common.jar"
+      "lib/server/omero-model.jar" "lib/server/formats-gpl.jar")
     for dir in "${dirs[@]}"
     do
         :
         values=(${dir//// })
         value=${values[${#values[@]}-1]}
         v=${value#"$PREFIX"}
-        version=`unzip -p $dir META-INF/MANIFEST.MF | grep "Implementation-Version:" | sed 's/^.*[^0-9]\([0-9]*\.[0-9]*\.[0-9]*\).*$/\1/'`
+        version=`unzip -p $WORKSPACE$dir META-INF/MANIFEST.MF | grep "Implementation-Version:" | sed 's/^.*[^0-9]\([0-9]*\.[0-9]*\.[0-9]*\).*$/\1/'`
         echo $v
         echo $version
-        sed -i -e "s/version_${v} = .*/version_${v} = \"${version}\"/" omero/onf_autogen.py
+        sed -i -e "s/version_${v} = .*/version_${v} = \"${version}\"/" omero/conf_autogen.py
     done
     # clean up 
     rm -rf OMERO.server*
