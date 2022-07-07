@@ -14,6 +14,7 @@ WORKSPACE=${WORKSPACE:-$(pwd)}
 WORKSPACE=${WORKSPACE%/}  # Remove trailing slashes
 USER=${USER:-$(whoami)}
 
+echo "Update the documentation using ome/openmicroscopy HEAD"
 echo "Retrieve model object"
 URL="https://latest-ci.openmicroscopy.org/jenkins/job/OMERO-server/lastSuccessfulBuild/artifact/EveryObject.rst"
 wget -q $URL
@@ -27,24 +28,26 @@ echo >> newfile.rst
 cat $WORKSPACE/OMERO.server/history.rst >> newfile.rst
 mv newfile.rst omero/users/history.rst
 
-echo "Generating openmicroscopy configuration"
+
+echo "Generating openmicroscopy configuration using ome/openmicroscopy HEAD"
 WORKSPACE=$WORKSPACE bash omero/autogen_openmicroscopy.sh
 
-echo "Generating omeroweb install walkthrough"
+echo "Generating omeroweb install walkthrough using ome/omeroweb-install HEAD"
 WORKSPACE=$WORKSPACE bash omero/autogen_omeroweb_install.sh
 
-echo "Copying omero-install Linux scripts"
+echo "Generating omero install walkthrough using ome/omero-install HEAD"
 WORKSPACE=$WORKSPACE bash omero/autogen_omero_install.sh
 
 echo "Getting db properties"
 set +u # PS1 issue
 . $DOCVENV/bin/activate
 set -u
+$DOCVENV/bin/pip install packaging
 omero/autogen_db_version.py $WORKSPACE/OMERO.server > omero/conf_autogen.py
 
 
-echo "Update dependencies"
-WORKSPACE=$WORKSPACE/OMERO.server/ bash omero/autogen_dependencies.sh
+echo "Update dependencies using the latest releases versions of the software e.g. omero-py, omero-web, openmicroscopy"
+bash omero/autogen_dependencies.sh
 
 
 echo "Cleanup"
