@@ -35,7 +35,6 @@ jobs:
         id: upstream_repo
         run: |
           files=$(git diff --name-only)
-          echo $files
           value="Changes from upstream repositories: "
           if [[ "openmicroscopy" =~ .*"$file".* ]]; then
               value="${value} openmicroscopy"

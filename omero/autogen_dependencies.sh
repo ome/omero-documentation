@@ -42,11 +42,9 @@ do
     value=${values[${#values[@]}-1]}
     v=${value#"$PREFIX"}
     v=${v//"-"/"_"}
-    echo $v
     version=`curl --silent "https://api.github.com/repos/$p/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'`
     # drop v or version
     version=${version//"v"/""}
-    echo $version
     if [ $v = "openmicroscopy" ]; then
         while IFS= read -r line; do
            values=(${line/=/ })
@@ -74,8 +72,6 @@ if [ ! -z $new_version ]; then
         value=${values[${#values[@]}-1]}
         v=${value#"$PREFIX"}
         version=`unzip -p $WORKSPACE$dir META-INF/MANIFEST.MF | grep "Implementation-Version:" | sed 's/^.*[^0-9]\([0-9]*\.[0-9]*\.[0-9]*\).*$/\1/'`
-        echo $v
-        echo $version
         sed -i -e "s/version_${v} = .*/version_${v} = \"${version}\"/" omero/conf_autogen.py
     done
     # clean up 
@@ -89,9 +85,7 @@ for package in "${dirs[@]}"
 do
     :
     v=${package#"$PREFIX"}
-    echo $v
     version=`curl -Ls https://pypi.org/pypi/$package/json | jq -r .info.version`
-    echo $version
     sed -i -e "s/version_${v} = .*/version_${v} = \"${version}\"/" omero/conf_autogen.py
 done
 
