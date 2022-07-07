@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # This script is used by a Continuous Integration job to auto-generate
-# the configuration files for running omero
+# the configuration files for running omero.
+# In the CI infrastructure, this script will use ome/openmicroscopy HEAD
 
 set -u
 set -e
