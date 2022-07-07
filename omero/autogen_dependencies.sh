@@ -11,8 +11,6 @@
 #    - check version of the dependencies
 
 PREFIX="omero-"
-WORKSPACE=${WORKSPACE:-$(pwd)}
-WORKSPACE=${WORKSPACE%/} 
 
 # General java packages
 # Java packages
@@ -51,7 +49,7 @@ do
            if [[ ${values[0]} = "version_openmicroscopy" && \"$version\" != ${values[1]} ]]; then
                new_version=$version
            fi
-        done < conf_autogen.py
+        done < omero/conf_autogen.py
     fi
     
     sed -i -e "s/version_${v} = .*/version_${v} = \"${version}\"/" omero/conf_autogen.py
@@ -62,17 +60,25 @@ echo $new_version
 # Java packages
 
 if [ ! -z $new_version ]; then
-    dirs=("lib/server/omero-blitz.jar" "lib/server/omero-server.jar" "lib/server/omero-gateway.jar"
-      "lib/server/omero-romio.jar" "lib/server/omero-renderer.jar" "lib/server/omero-common.jar"
-      "lib/server/omero-model.jar" "lib/server/formats-gpl.jar")
+    # Download the latest binary to make we have the correct one.
+    # To be replaced by the GitHub url without build number when ready
+    SERVER=https://downloads.openmicroscopy.org/omero/5.6/server-ice36.zip
+    wget -q $SERVER -O OMERO.server-ice36.zip
+    unzip -q OMERO.server*
+    ln -s OMERO.server-*/ OMERO.server
+    dirs=("OMERO.server/lib/server/omero-blitz.jar" "OMERO.server/lib/server/omero-server.jar" "OMERO.server/lib/server/omero-gateway.jar"
+      "OMERO.server/lib/server/omero-romio.jar" "OMERO.server/lib/server/omero-renderer.jar" "OMERO.server/lib/server/omero-common.jar"
+      "OMERO.server/lib/server/omero-model.jar" "OMERO.server/lib/server/formats-gpl.jar")
     for dir in "${dirs[@]}"
     do
         :
         values=(${dir//// })
         value=${values[${#values[@]}-1]}
         v=${value#"$PREFIX"}
-        version=`unzip -p $WORKSPACE$dir META-INF/MANIFEST.MF | grep "Implementation-Version:" | sed 's/^.*[^0-9]\([0-9]*\.[0-9]*\.[0-9]*\).*$/\1/'`
+        version=`unzip -p $dir META-INF/MANIFEST.MF | grep "Implementation-Version:" | sed 's/^.*[^0-9]\([0-9]*\.[0-9]*\.[0-9]*\).*$/\1/'`
         sed -i -e "s/version_${v} = .*/version_${v} = \"${version}\"/" omero/conf_autogen.py
+        echo $v
+        echo $version
     done
     # clean up 
     rm -rf OMERO.server*
