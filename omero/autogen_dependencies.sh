@@ -24,6 +24,7 @@ for dir in "${dirs[@]}"
         v=${v//"-"/"_"}
         echo $v
         # get the latest version of the package
+        # Determine the latest release version on artifactory and update omero/conf_autogen.py
         repopath="https://artifacts.openmicroscopy.org/artifactory/ome.releases/${dir}"
         version=`curl -s ${repopath}/maven-metadata.xml | grep latest | sed "s/.*<latest>\([^<]*\)<\/latest>.*/\1/"`
         echo $version
@@ -39,7 +40,8 @@ do
     values=(${p//// })
     value=${values[${#values[@]}-1]}
     v=${value#"$PREFIX"}
-    v=${v//"-"/"_"}
+    v=${v//"-"/"_"} 
+    # Determine the latest release version on GittHub and update omero/conf_autogen.py
     version=`curl --silent "https://api.github.com/repos/$p/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'`
     # drop v or version
     version=${version//"v"/""}
@@ -59,6 +61,11 @@ echo $new_version
 
 # Java packages
 
+# the version of GitHub does not match the version in omero/conf_autogen.py
+# Download the latest server release
+# Unzip
+# Determine the version of the dependencies
+# Update omero/conf_autogen.py
 if [ ! -z $new_version ]; then
     # Download the latest binary to make we have the correct one.
     # To be replaced by the GitHub url without build number when ready
@@ -91,6 +98,7 @@ for package in "${dirs[@]}"
 do
     :
     v=${package#"$PREFIX"}
+    # Determine the latest release version on pypi and update omero/conf_autogen.py
     version=`curl -Ls https://pypi.org/pypi/$package/json | jq -r .info.version`
     sed -i -e "s/version_${v} = .*/version_${v} = \"${version}\"/" omero/conf_autogen.py
 done
