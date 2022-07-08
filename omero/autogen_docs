@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 # This script is used by a Continuous Integration job to auto-generate
 # some components of the OMERO documentation from its deliverables (server,
-# clients). To run it locally:
-# - download the server and rename the folder as OMERO.server.
-# - Clone the ome/omero-install repository as omero-install.
+# clients).
+# What does the script do
+# - Retrieve from latest-ci model object file generated using the latest model objects.
+# - Copy the history from ome/openmicroscopy HEAD
+# - Generate configuration e.g. ldap, import using ome/openmicroscopy HEAD
+# - Generate the web installation walkthrough using ome/omeroweb-install HEAD
+# - Generate the server installation walkthrough using ome/omero-install HEAD
+# - Update the packages version using released packaged on pypi, artifactory and GitHub
 
 set -u
 set -e
