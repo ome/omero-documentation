@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 # This script is used by a Continuous Integration job to auto-generate
 # some components of the OMERO documentation from its deliverables (server,
-# clients). To run it locally:
-# - download the server and rename the folder as OMERO.server.
-# - Clone the ome/omero-install repository as omero-install.
+# clients).
+# What does the script do
+# - Retrieve from latest-ci model object file generated using the latest model objects.
+# - Copy the history from ome/openmicroscopy HEAD
+# - Generate configuration e.g. ldap, import using ome/openmicroscopy HEAD
+# - Generate the web installation walkthrough using ome/omeroweb-install HEAD
+# - Generate the server installation walkthrough using ome/omero-install HEAD
+# - Update the packages version using released packaged on pypi, artifactory and GitHub
 
 set -u
 set -e
@@ -14,6 +19,12 @@ WORKSPACE=${WORKSPACE:-$(pwd)}
 WORKSPACE=${WORKSPACE%/}  # Remove trailing slashes
 USER=${USER:-$(whoami)}
 
+echo "Update the documentation using ome/openmicroscopy HEAD"
+echo "Retrieve model object"
+URL="https://latest-ci.openmicroscopy.org/jenkins/job/OMERO-server/lastSuccessfulBuild/artifact/EveryObject.rst"
+wget -q $URL
+mv EveryObject.rst omero/developers/Model/EveryObject.rst
+
 echo "Copying history"
 # inject link to change log
 touch newfile.rst
@@ -22,69 +33,21 @@ echo >> newfile.rst
 cat $WORKSPACE/OMERO.server/history.rst >> newfile.rst
 mv newfile.rst omero/users/history.rst
 
-echo "Generating configuration properties page"
-omero config parse --rst | sed "s|$SUFFIX||" | sed "s|$WORKSPACE|/home/omero|" > omero/sysadmins/config.rst
 
-echo "Generating ldap setdn usage page"
-mkdir -p omero/downloads/ldap
-omero ldap setdn -h | sed "s|usage:.*/omero|usage: omero|" > omero/downloads/ldap/setdn.out
+echo "Generating openmicroscopy configuration using ome/openmicroscopy HEAD"
+WORKSPACE=$WORKSPACE bash omero/autogen_openmicroscopy.sh
 
-echo "Generating advanced CLI help"
-omero import --advanced-help 2> advanced-help.txt || echo "Dumped"
-sed 1,5d advanced-help.txt > omero/downloads/inplace/advanced-help.txt
-omero import --javahelp 2> java-help.txt || echo "Dumped"
-sed 1,5d java-help.txt > omero/downloads/cli/help.out
+echo "Generating omeroweb install walkthrough using ome/omeroweb-install HEAD"
+WORKSPACE=$WORKSPACE bash omero/autogen_omeroweb_install.sh
 
-echo "Generating DB script example"
-omero db script --password secretpassword 2>&1 | sed "s|Saving to.*/|Saving to /home/omero/|" > omero/downloads/cli/db-script-example.txt
-rm OMERO*sql
-
-
-echo "Generating Web configuration templates"
-# Nginx / WSGI
-omero config set omero.web.application_server wsgi-tcp
-omero web config nginx | sed "s|$SUFFIX||" | sed "s|$WORKSPACE/OMERO.server|/opt/omero/web/omero-web|g" > omero/sysadmins/unix/install-web/nginx-omero.conf
-omero web config nginx-location | sed "s|$SUFFIX||" | sed "s|$WORKSPACE/OMERO.server|/opt/omero/web/omero-web|g" | grep -v '^#' > omero/sysadmins/unix/install-web/nginx-location.conf
-
-echo "Generating omeroweb install walkthrough"
-
-(cd $WORKSPACE/omeroweb-install && ansible-playbook ./.travis/../ansible/omeroweb-install-doc.yml -i ./.travis/../ansible/hosts/centos7-ice3.6 --extra-vars '{"clean": True, "web_session": True}')
-(cd $WORKSPACE/omeroweb-install && ansible-playbook ./.travis/../ansible/omeroweb-install-doc.yml -i ./.travis/../ansible/hosts/ubuntu1804-ice3.6 --extra-vars '{"clean": True, "web_session": True}')
-(cd $WORKSPACE/omeroweb-install && ansible-playbook ./.travis/../ansible/omeroweb-install-doc.yml -i ./.travis/../ansible/hosts/ubuntu2004-ice3.6 --extra-vars '{"clean": True, "web_session": True}')
-(cd $WORKSPACE/omeroweb-install && ansible-playbook ./.travis/../ansible/omeroweb-install-doc.yml -i ./.travis/../ansible/hosts/debian10-ice3.6 --extra-vars '{"clean": True, "web_session": True}')
-
-mv $WORKSPACE/omeroweb-install/ansible/doc/* omero/sysadmins/unix/install-web/walkthrough/
-
-echo "Copying omero-install Linux scripts"
-DIRECTORY=omero/sysadmins/unix/walkthrough/
-if [ -d "$DIRECTORY" ]; then
-    rm -rf $DIRECTORY
-fi
-
-mkdir -p $DIRECTORY/osx/
-#generate walkthrough for all os
-ALL=true bash $WORKSPACE/omero-install/linux/autogenerate.sh
-cp walkthrough_*.sh $DIRECTORY
-rm walkthrough_*.sh
-
-for f in \
-    README.md \
-    settings.env \
-    setup_\* \
-    omero-\* \
-    ; do
-    cp $WORKSPACE/omero-install/linux/$f $DIRECTORY
-done
-
-for f in \
-    step* \
-    install_* \
-    ; do
-    cp $WORKSPACE/omero-install/osx/$f $DIRECTORY/osx/
-done
+echo "Generating omero install walkthrough using ome/omero-install HEAD"
+WORKSPACE=$WORKSPACE bash omero/autogen_omero_install.sh
 
 echo "Getting db properties"
 omero/autogen_db_version.py $WORKSPACE/OMERO.server > omero/conf_autogen.py
+
+echo "Update dependencies using the latest releases versions of the software e.g. omero-py, omero-web, openmicroscopy"
+bash omero/autogen_dependencies.sh
 
 echo "Cleanup"
 rm java-help.txt

@@ -6,15 +6,10 @@ import glob
 import os
 import re
 import sys
-try:
-    from omero_ext.path import path
-except ImportError:
-    # Python 2
-    from path import path
-from omero.cli import CLI
-from omero.install.config_parser import PropertyParser
 
-from packaging.version import parse
+from pathlib import Path
+from pkg_resources import parse_version
+
 
 def get_mmp(sqlfile):
     m = re.search(r'.*/?OMERO(\d+)\.(\d+)(\w*)__(\d+)', sqlfile)
@@ -24,34 +19,22 @@ def get_mmp(sqlfile):
     return mmp
 
 
-serverdir = path(sys.argv[1])
+serverdir = Path(sys.argv[1])
 
-required = {'omero.db.version': None, 'omero.db.patch': None}
-cli = CLI()
-property_lines = cli.get_config_property_lines(serverdir)
-for property in PropertyParser().parse_lines(property_lines):
-    if property.key in required:
-        required[property.key] = property.val
-
-current_dbver = '%s__%s' % (
-    required['omero.db.version'], required['omero.db.patch'])
-
-# Check dir
-current_mmp = get_mmp(current_dbver)
-if current_mmp is None:
-    current_version = None
-    directory = os.path.join(serverdir, 'sql', 'psql')
-    subfolders = [f.path for f in os.scandir(directory) if f.is_dir()]
-    for f in subfolders:
-        ver = os.path.basename(os.path.normpath(f))
-        ver = ver.replace("OMERO", "")
-        if current_version is None:
+current_mmp = None
+current_version = None
+directory = os.path.join(serverdir, 'sql', 'psql')
+subfolders = [f.path for f in os.scandir(directory) if f.is_dir()]
+for f in subfolders:
+    ver = os.path.basename(os.path.normpath(f))
+    ver = ver.replace("OMERO", "")
+    if current_version is None:
+        current_version = ver
+    else:
+        if parse_version(current_version) < parse_version(ver):
             current_version = ver
-        else:
-            if parse(current_version) < parse(ver):
-                current_version = ver
-    current_dbver = "OMERO%s" % current_version
-    current_mmp = get_mmp(current_dbver)
+current_dbver = "OMERO%s" % current_version
+current_mmp = get_mmp(current_dbver)
 
 sqlfiles = []
 majorminorpatch = []
@@ -72,21 +55,3 @@ for previous_mmp in majorminorpatch:
 
 print('current_dbver = "%s"' % current_dbver)
 print('previous_dbver = "OMERO%d.%d%s__%d"' % previous_mmp)
-
-print('version_omero_server = "5.6.5"')
-print('version_bioformats = "6.10.0"')
-print('version_blitz = "5.5.12"')
-print('version_server = "5.6.4"')
-print('version_romio = "5.7.0"')
-print('version_renderer = "5.5.10"')
-print('version_common = "5.5.10"')
-print('version_model = "5.6.7"')
-print('version_gateway = "5.6.10"')
-print('version_insight = "5.7.0"')
-print('version_matlab = "5.5.4"')
-print('version_dsl_plugin = "5.5.2"')
-print('version_blitz_plugin = "5.5.2"')
-print('version_ice_builder = "1.5.2"')
-print('version_py = "5.11.2"')
-print('version_web = "5.14.1"')
-print('version_dropbox = "5.6.2"')
