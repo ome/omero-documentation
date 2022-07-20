@@ -44,7 +44,7 @@ echo "Generating omero install walkthrough using ome/omero-install HEAD"
 WORKSPACE=$WORKSPACE bash omero/autogen_omero_install.sh
 
 echo "Getting db properties"
-omero/autogen_db_version.py $WORKSPACE/OMERO.server > omero/conf_autogen.py
+#omero/autogen_db_version.py $WORKSPACE/OMERO.server > omero/conf_autogen.py
 
 echo "Update dependencies using the latest releases versions of the software e.g. omero-py, omero-web, openmicroscopy"
 bash omero/autogen_dependencies.sh
