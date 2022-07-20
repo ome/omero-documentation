@@ -53,5 +53,19 @@ for previous_mmp in majorminorpatch:
             previous_mmp[1] < current_mmp[1]):
         break
 
-print('current_dbver = "%s"' % current_dbver)
-print('previous_dbver = "OMERO%d.%d%s__%d"' % previous_mmp)
+
+with open(sys.argv[2], "r") as sources:
+    lines = sources.readlines()
+with open(sys.argv[2], "w") as sources:
+    for line in lines:
+        if line.startswith("current_dbver"):
+            sources.write('current_dbver = "%s"' % current_dbver)
+            sources.write("\n")
+        elif line.startswith("previous_dbver"):
+            sources.write('previous_dbver = "OMERO%d.%d%s__%d"' % previous_mmp)
+            sources.write("\n")
+        else:
+            sources.write(line)
+
+#print('current_dbver = "%s"' % current_dbver)
+#print('previous_dbver = "OMERO%d.%d%s__%d"' % previous_mmp)
