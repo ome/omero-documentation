@@ -1,8 +1,7 @@
 Documentation files to be linked under the ``docs/sphinx`` directory of
 https://github.com/ome/openmicroscopy.
 
-.. image:: https://github.com/ome/ome-documentation/workflows/sphinx/badge.svg
-   :target: https://github.com/ome/ome-documentation/actions
+|docs|
 
 ***************************
 Getting Started With Sphinx
@@ -496,3 +495,10 @@ Writing Conventions
   link and stop the link-checker from reporting it as broken (e.g.
   ``\http://your_host/webclient/login/``), unless you use the literal mark-up.
 
+
+
+
+.. |docs| image:: https://readthedocs.org/projects/omero/badge/?version=stable
+    :alt: Documentation Status
+    :scale: 100%
+    :target: https://omero.readthedocs.io/en/stable/?badge=stable
