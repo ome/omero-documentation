@@ -13,7 +13,7 @@ Forgeries, for more information see
 
 The first defense against CSRF attacks is to ensure that GET requests
 (and other ‘safe’ methods, as defined by 9.1.1 Safe Methods, HTTP 1.1,
-`RFC 2616 <https://tools.ietf.org/html/rfc2616.html#section-9.1.1>`_) are only
+`RFC 2616 <https://www.rfc-editor.org/rfc/rfc2616.html#section-9.1.1>`_) are only
 reading data from the server.
 
 Requests that write data to the server should only use methods such as
