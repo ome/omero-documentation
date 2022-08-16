@@ -2,7 +2,7 @@
 OMERO Documentation version |current_version| 
 #############################################
 
-The documentation for OMERO |version_omero_server| is divided into three parts:
+The documentation for OMERO |version_openmicroscopy| is divided into three parts:
 
 :doc:`users/index` introduces the user-facing client applications and how to
 get started, details the CLI client, and indicates where users can access
@@ -36,12 +36,12 @@ Additional online resources can be found at:
   :pythondoc:`OmeroPy API <>`,
   :slicedoc_blitz:`OmeroBlitz / Slice API <>`
 
-OMERO |version_omero_server| uses the :schema:`June 2016 schema
+OMERO |version_openmicroscopy| uses the :schema:`June 2016 schema
 <Documentation/Generated/OME-2016-06/ome.html>` of the :model_doc:`OME Data
 Model <>`. The :doc:`users/history` page details the development of OMERO
 functionality over time.
 
-A summary of breaking changes and new features for |version_omero_server| can be found on
+A summary of breaking changes and new features for |version_openmicroscopy| can be found on
 the pages below:
 
 - :doc:`What's new for OMERO users<users/whatsnew>`
