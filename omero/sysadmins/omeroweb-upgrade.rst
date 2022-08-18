@@ -45,6 +45,11 @@ benefits to upgrading:
 
       $ pip install --upgrade 'omero-py>=\ |version_py|'
 
+Upgrade ``whitenoise`` to at least version ``5.3.0``.
+
+.. parsed-literal::
+
+      $ pip install --upgrade 'whitenoise>=5.3.0'
 
 Configuration
 ^^^^^^^^^^^^^
