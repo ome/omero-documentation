@@ -354,6 +354,7 @@ linkcheck_ignore += [
     github_root + 'ome/',
     r'https://help.openmicroscopy.org/.*#.*',
     r'https://docs.github.com/.*',
+    r'https://wiki.centos.org/.*',
 ]
 
 exclude_patterns = ['sysadmins/unix/walkthrough/requirements*',
