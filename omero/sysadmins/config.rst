@@ -500,7 +500,7 @@ Default: `psql`
 omero.db.properties
 ^^^^^^^^^^^^^^^^^^^
 Properties to set on OMERO.server's JDBC connection to the database.
-See https://jdbc.postgresql.org/documentation/head/connect.html
+See https://jdbc.postgresql.org/documentation/use/#connecting-to-the-database
 
 Default: `[empty]`
 
