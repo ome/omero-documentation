@@ -47,7 +47,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
-          labels: include
+          # labels: include
           token: ${{secrets.ACTION_API_TOKEN}}
           commit-message: ${{ steps.upstream_repo.outputs.value }}
           delete-branch: true
