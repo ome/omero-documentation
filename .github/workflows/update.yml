@@ -43,7 +43,7 @@ jobs:
           elif [[ "omeroweb-install" =~ .*"$file".* ]]; then
               value="${value} omeroweb-install"
           fi
-          echo "::set-output name=value::$value"
+          echo "value=$value" >> $GITHUB_OUTPUT
       # - name: Create Pull Request
       #  uses: peter-evans/create-pull-request@v4
       #  with:
