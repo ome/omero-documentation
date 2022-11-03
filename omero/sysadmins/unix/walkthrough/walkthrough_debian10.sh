@@ -75,7 +75,7 @@ $VENV_SERVER/bin/pip install --upgrade pip
 $VENV_SERVER/bin/pip install https://github.com/ome/zeroc-ice-debian10/releases/download/0.1.0/zeroc_ice-3.6.5-cp37-cp37m-linux_x86_64.whl
 
 # Install server dependencies
-$VENV_SERVER/bin/pip install omero-server[default]
+$VENV_SERVER/bin/pip install omero-server
 #end-step03bis
 
 #start-step04-pre: As root, download the OMERO.server
