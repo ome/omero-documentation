@@ -5,7 +5,8 @@ To access the OMERO.server Python API, you need to install the Python client
 libraries.
 
 From OMERO 5.6.0 release, the client library ``omero-py`` supports Python 3 and
-is now available on PyPI_ and Conda_. We recommend you use a Python virtual environment to install the client library. You can create one using either ``venv`` or ``conda`` (preferred).
+is now available on PyPI_ and Conda_. The ``omero-py`` API documentation is available at https://omero-py.readthedocs.io/.
+We recommend you use a Python virtual environment to install the client library. You can create one using either ``venv`` or ``conda`` (preferred).
 If you opt for Conda_, you will need
 to install it first, see `miniconda <https://docs.conda.io/en/latest/miniconda.html>`_ for more details.
 
