@@ -81,9 +81,12 @@ import of the image and linked to the Project ``Proj1``, except in case a
 Dataset ``New Dataset`` already exists. Then, the existing Dataset will be used
 for the import of the image and linked to Project ``Proj1``.
 
-Note that ``New Dataset`` could have been linked prior to your import to some
-other Project (for example ``ProjP``). In such a case, the ``New Dataset`` will
-be linked both to ``ProjP`` and ``Proj1`` after the import.
+.. warning::
+
+   If a Dataset named ``New Dataset`` already exists and has been linked prior to your
+   import to some other Project (for example ``ProjP``), this existing Dataset will
+   be used as the target Dataset container and will be linked  both to ``ProjP``
+   and ``Proj1`` after the import.
 
 Importing using regular expressions
 -----------------------------------
