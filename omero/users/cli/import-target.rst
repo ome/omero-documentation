@@ -83,7 +83,7 @@ for the import of the image and linked to Project ``Proj1``.
 
 .. warning::
 
-  If a Dataset named ``New Dataset`` already exists and has been linked prior to your
+   If a Dataset named ``New Dataset`` already exists and has been linked prior to your
    import to some other Project (for example ``ProjP``), this existing Dataset will
    be used as the target Dataset container and will be linked  both to ``ProjP``
    and ``Proj1`` after the import.
