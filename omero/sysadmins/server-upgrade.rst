@@ -324,6 +324,8 @@ up to date to ensure that security updates are applied:
       $ pip install --upgrade 'omero-py>=\ |version_py|'
 
 
+Since version ``5.13.0,`` the use of ``omero certificates`` is required to ensure that an OMERO server installation has, at minimum, a self-signed certificate.
+
 Restart your server
 ^^^^^^^^^^^^^^^^^^^
 
