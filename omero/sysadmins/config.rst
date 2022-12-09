@@ -1671,6 +1671,20 @@ The Glacier2 WSS port number to use
 Default: `4066`
 
 
+.. _qa_configuration:
+
+Qa
+--
+
+.. property:: omero.qa.feedback
+
+omero.qa.feedback
+^^^^^^^^^^^^^^^^^
+Base URL to use when sending feedback (errors, comments)
+
+Default: `http://qa.openmicroscopy.org.uk`
+
+
 .. _query_configuration:
 
 Query
