@@ -324,7 +324,10 @@ up to date to ensure that security updates are applied:
       $ pip install --upgrade 'omero-py>=\ |version_py|'
 
 
-Since version ``5.13.0,`` the use of ``omero certificates`` is required to ensure that an OMERO server installation has, at minimum, a self-signed certificate.
+SSL verification
+^^^^^^^^^^^^^^^^
+Since OMERO 5.6.2, ``omero certificates`` is the recommended way to ensure that all OMERO server installations have, at minimum, a self-signed certificate. This can also be done manually if preferred see :doc:`/sysadmins/client-server-ssl`.
+In OMERO.py version ``5.13.0``, Anonymous Diffie-Hellman default configuration has been removed.
 
 Restart your server
 ^^^^^^^^^^^^^^^^^^^
