@@ -15,7 +15,10 @@ to provide modular web tools, such as the webclient, webgateway and
 the JSON api app. This modular framework
 makes it possible to extend OMERO.web with your own apps.
 
-Since version ``5.14.0``, ``OMERO.web`` depends on Django to ``3.2.x``.  Plugin developers should read the `Guide <https://github.com/ome/omero-web/blob/master/MIGRATION_TO_DJANGO_32_GUIDE.md>`_ detailing how to migrate their plugin(s) to Django 3.2.x.
+Since version 5.14.0, OMERO.web depends on Django 3.2.x. 
+Plugin developers should read the
+`Guide <https://github.com/ome/omero-web/blob/master/MIGRATION_TO_DJANGO_32_GUIDE.md>`_
+detailing how to migrate their plugin(s) to Django 3.2.x.
 
 OMERO.web infrastructure
 ------------------------
