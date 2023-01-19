@@ -2541,7 +2541,7 @@ Default: `[empty]`
 
 omero.web.search.default_group
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-ID of group to pre-select in search form.
+ID of the group to pre-select in search form. A value of 0 or -1 pre-selects All groups.
 
 Default: `0`
 
@@ -2549,7 +2549,7 @@ Default: `0`
 
 omero.web.search.default_user
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-ID of user to pre-select in search form.
+ID of the user to pre-select in search form. A value of 0 pre-selects the logged-in user. A value of -1 pre-selects All Users if the search is across all groups or All Members if the search is within a specific group.
 
 Default: `0`
 
