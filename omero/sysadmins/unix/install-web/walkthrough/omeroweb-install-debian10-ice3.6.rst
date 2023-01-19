@@ -213,11 +213,9 @@ This requires more initial work but in the future you can automatically regenera
 Running OMERO.web
 -----------------
 
-**The following steps are run as root.**
 
-Install `WhiteNoise <http://whitenoise.evans.io/>`_::
+Since OMERO.web 5.16.0, the package `whitenoise` is installed by default.
 
-    /opt/omero/web/venv3/bin/pip install whitenoise
 
 *Optional*: Install `Django Redis <https://github.com/jazzband/django-redis>`_::
 
