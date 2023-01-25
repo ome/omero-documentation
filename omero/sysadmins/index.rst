@@ -78,12 +78,13 @@ provided for several systems, with detailed step-by-step instructions.
 Reading through the :doc:`unix/server-installation` and
 :doc:`unix/install-web/web-deployment` pages first
 is recommended as this explains the entire process rather than just being a
-series of commands.
+series of commands. Further, we recommend  :doc:`ansible-docker` which gives a quick and easy start-up with and gives a handy tooling for your intstall and maintenance routines.
 
 .. toctree::
     :maxdepth: 1
     :titlesonly:
 
+    ansible-docker
     unix/server-installation
     unix/install-web/web-deployment
     unix/server-binary-repository
