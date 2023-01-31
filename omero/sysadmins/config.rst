@@ -452,11 +452,11 @@ but your database installation will need to be configured
 to accept *at least* as many, preferably more, connections
 as this value.
 
-The related values omero.threads.max_threads and
+The related values omero.threads.min_threads and
 omero.threads.background_threads do *not* need to be
 increased by the same amount. A system will be more stable
-if background_threads is less than max_threads and
-max_threads is less than poolsize.
+if background_threads is less than min_threads and
+min_threads is less than poolsize.
 
 Default: `10`
 
@@ -1224,9 +1224,11 @@ Default: `600000`
 
 omero.threads.background_threads
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Number of threads from the max_threads pool that can
+Number of threads from the min_threads pool that can
 be used at any given time for background tasks like
-import.
+import. Note that if this value is less than min_threads,
+min_threads will limit the number of background
+tasks which can run simultaneously.
 
 Default: `10`
 
@@ -1251,6 +1253,9 @@ Default: `5000`
 
 omero.threads.idle_timeout
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+This setting does nothing.
+See https://github.com/ome/omero-server/issues/154
+And https://github.com/ome/omero-server/pull/155
 
 Default: `5000`
 
@@ -1258,9 +1263,9 @@ Default: `5000`
 
 omero.threads.max_threads
 ^^^^^^^^^^^^^^^^^^^^^^^^^
-Maximum number of threads that can simultaneously
-run at the "USER" priority level. Internal system
-threads may still run.
+This setting does nothing.
+See https://github.com/ome/omero-server/issues/154
+And https://github.com/ome/omero-server/pull/155
 
 Default: `50`
 
@@ -1268,8 +1273,11 @@ Default: `50`
 
 omero.threads.min_threads
 ^^^^^^^^^^^^^^^^^^^^^^^^^
-Number of threads that will be kept waiting
-at all times.
+Maximum - not minimum - number of threads that can
+simultaneously run at the "USER" and "BACKGROUND"
+priority level. Internal system threads may still run.
+Note when setting this that these threads do not
+time out.
 
 Default: `5`
 
