@@ -35,14 +35,14 @@ Install a server
 ----------------
 
 System requirements for an OMERO.server are specified in the `documentation <https://omero.readthedocs.io/en/stable/sysadmins/system-requirements.html>`_.
-The workflows below were tested on CentOS 7 only.
+The workflows below were tested on CentOS 7 (python 3.6) and Ubuntu 20.04 (python 3.8.10) only.
 
 Ansible
 -------
 
 For OMERO installation, we recommend to use the Ansible software suite which enables infrastructure as a code.
 
-Install ansible (at the time of writing, the ansible-core version was 2.11.12, python version was 3.6.8). Other versions might work too, but are not routinely tested.::
+Install ansible (at the time of writing, the ansible-core versions tested were 2.8.18 and 2.11.12). Other versions might work too, but are not routinely tested.::
 
     $ pip install ansible
 
