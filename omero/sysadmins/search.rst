@@ -152,33 +152,8 @@ following SQL command::
      At 2014-06-14 07:54:37+00, Percent indexed: 70.90%
     (1 row)
 
-This value is also logged periodically both when re-indexing in the background
-and the foreground and is available via JMX. See :ref:`jvm_metrics` for more information.
-
-The overall re-indexing performance depends significantly on the memory
-settings and the size of the repository to index. The following table provides
-estimates of the process duration based on re-indexing of existing production
-servers of various sizes:
-
-.. list-table::
-  :header-rows: 1
-
-  - * Re-indexing type
-    * Re-indexing duration
-    * Binary repository size
-    * Indexer memory settings
-
-  - * Background [1]_
-    * 8h
-    * 19TB
-    * ``-Xmx4800m``
-
-  - * Off-line
-    * 6h30
-    * 16TB
-    * ``--mem 2g``
-
-.. [1] :ome-users:`[ome-users] Re-indexing OMERO's search database  <2015-February/005038.html>`
+This value is also logged periodically when re-indexing in the background
+and is available via JMX. See :ref:`jvm_metrics` for more information.
 
 .. seealso::
   :doc:`/developers/Modules/Search`
