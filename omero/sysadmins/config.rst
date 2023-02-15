@@ -2641,6 +2641,14 @@ A boolean that determines whether to expire the session when the user closes the
 
 Default: `true`
 
+.. property:: omero.web.session_serializer
+
+omero.web.session_serializer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+You can use this setting to customize the session serialization format. See :djangodoc:`Django session serialization documentation <topics/http/sessions/#session-serialization>` for more details.
+
+Default: `django.contrib.sessions.serializers.PickleSerializer`
+
 .. property:: omero.web.sharing.opengraph
 
 omero.web.sharing.opengraph
