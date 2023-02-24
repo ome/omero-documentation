@@ -137,37 +137,6 @@ long this should take.
    Once you wipe your full-text directory, searches will return fewer or no
    results until re-indexing is complete.
 
-Off-line re-indexing
-^^^^^^^^^^^^^^^^^^^^
-
-It is also possible to re-index the database with the server off-line. First,
-shutdown the OMERO server as normal and make any adjustments to the
-configuration that need to be made. Clear the contents of the :file:`FullText`
-directory and reset the indexing's progress counter as above::
-
-  $ omero admin reindex --wipe
-  $ omero admin reindex --reset 0
-
-Then run the off-line re-indexing command::
-
-   $ omero admin reindex --foreground
-
-Re-indexing the database in off-line mode will use a 1 GB heap by default, but
-this can be specified on the command-line with the ``--mem`` argument::
-
-   $ omero admin reindex --foreground --mem=2g
-
-Other search configuration properties from :ref:`search_configuration` can be
-set for the processing by setting the :envvar:`JAVA_OPTS` environment
-variable::
-
-   $ JAVA_OPTS="-Domero.search.max_partition_size=100000" bin/omero admin reindex --foreground
-
-Once foreground indexing is complete, re-enable the background indexer as
-above::
-
-    $ omero admin reindex --finish
-
 .. _search-monitoring:
 
 Monitoring re-indexing
@@ -183,33 +152,8 @@ following SQL command::
      At 2014-06-14 07:54:37+00, Percent indexed: 70.90%
     (1 row)
 
-This value is also logged periodically both when re-indexing in the background
-and the foreground and is available via JMX. See :ref:`jvm_metrics` for more information.
-
-The overall re-indexing performance depends significantly on the memory
-settings and the size of the repository to index. The following table provides
-estimates of the process duration based on re-indexing of existing production
-servers of various sizes:
-
-.. list-table::
-  :header-rows: 1
-
-  - * Re-indexing type
-    * Re-indexing duration
-    * Binary repository size
-    * Indexer memory settings
-
-  - * Background [1]_
-    * 8h
-    * 19TB
-    * ``-Xmx4800m``
-
-  - * Off-line
-    * 6h30
-    * 16TB
-    * ``--mem 2g``
-
-.. [1] :ome-users:`[ome-users] Re-indexing OMERO's search database  <2015-February/005038.html>`
+This value is also logged periodically when re-indexing in the background
+and is available via JMX. See :ref:`jvm_metrics` for more information.
 
 .. seealso::
   :doc:`/developers/Modules/Search`
