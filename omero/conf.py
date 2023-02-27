@@ -401,6 +401,7 @@ def copy_legacy_redirects(app, exception):
 
 def setup(app):
     app.connect('build-finished', copy_legacy_redirects)
+    app.add_css_file('custom.css')
     app.add_crossref_type(
         directivename = "property",
         rolename      = "property",
