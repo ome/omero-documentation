@@ -1224,9 +1224,11 @@ Default: `600000`
 
 omero.threads.background_threads
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Number of threads from the max_threads pool that can
+Number of threads from the min_threads pool that can
 be used at any given time for background tasks like
-import.
+import. Note that if this value is less than min_threads,
+min_threads will limit the number of background
+tasks which can run simultaneously.
 
 Default: `10`
 
@@ -1251,6 +1253,9 @@ Default: `5000`
 
 omero.threads.idle_timeout
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+This setting does nothing.
+See https://github.com/ome/omero-server/issues/154
+And https://github.com/ome/omero-server/pull/155
 
 Default: `5000`
 
@@ -1258,9 +1263,9 @@ Default: `5000`
 
 omero.threads.max_threads
 ^^^^^^^^^^^^^^^^^^^^^^^^^
-Maximum number of threads that can simultaneously
-run at the "USER" priority level. Internal system
-threads may still run.
+This setting does nothing.
+See https://github.com/ome/omero-server/issues/154
+And https://github.com/ome/omero-server/pull/155
 
 Default: `50`
 
@@ -1268,8 +1273,11 @@ Default: `50`
 
 omero.threads.min_threads
 ^^^^^^^^^^^^^^^^^^^^^^^^^
-Number of threads that will be kept waiting
-at all times.
+Maximum and minimum number of threads that can
+simultaneously run at the "USER" and "BACKGROUND"
+priority level. Internal system threads may still run.
+Note when setting this that these threads do not
+time out.
 
 Default: `5`
 
@@ -1952,6 +1960,18 @@ This should not be set to more than half of the Indexer heap space.
   (see :ref:`out_of_memory_error`).
 
 Default: `131072000`
+
+.. property:: omero.search.max_fileset_size
+
+omero.search.max_fileset_size
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Maximum number of fileset entries which will be indexed
+Increasing this cut-off can lead to indexing performance degradation
+notably in the high-content screening domain where plates typically
+contain 1K-10K images associated with 10-100K fileset entries each
+If set to 0, no fileset entry will be indexed
+
+Default: `10`
 
 .. property:: omero.search.max_partition_size
 
