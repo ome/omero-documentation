@@ -78,7 +78,7 @@ Images
    **Partially deprecated:**
    The desired rendering settings for individual channels can be specified in
    the query string. It is recommended that either none or all of the channels
-   are specified explicitly.  Specifying partial channel lists is deprecated.
+   are specified explicitly. Specifying partial channel lists is deprecated.
 
 -  Makes a jpeg laying out each active channel in a separate panel
 
