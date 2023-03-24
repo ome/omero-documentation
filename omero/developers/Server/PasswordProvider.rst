@@ -17,19 +17,22 @@ Several implementations exist currently:
    an LDAP server and can create users and groups on the fly. See
    :doc:`/developers/Server/Ldap` for more information.
 
-The "chainedPasswordProvider"
-(:server_source:`ome.security.auth.PasswordProviders <src/main/java/ome/security/auth/PasswordProviders.java>`)
-is configured for use by default in :ref:`security_configuration`
-under :property:`omero.security.password_provider`. It first checks with the
-``LdapPasswordProvider`` and then falls back to the
+The :property:`omero.security.password_provider` property (see
+:ref:`security_configuration`) defines the implementation of `PasswordProvider`
+that will be used to authenticate users. Chains of password providers can be
+created using
+:server_source:`ome.security.auth.PasswordProviders <src/main/java/ome/security/auth/PasswordProviders.java>`.
+For instance, the default server authentication uses `chainedPasswordProvider`
+which first checks the ``LdapPasswordProvider`` and then falls back to the
 ``JdbcPasswordProvider``.
 
 To write your own provider, you can either subclass from
 :server_source:`ome.security.auth.ConfigurablePasswordProvider <src/main/java/ome/security/auth/ConfigurablePasswordProvider.java>`
 as the providers above do, or write your own implementation from
-scratch. You will need to define your object in a Spring XML file
-matching the pattern ``ome/services/db-*.xml``. See
-|ExtendingOmero| more for information.
+scratch. You will need to define your object and optionally your
+new chained password providers in a Spring XML file matching the pattern
+:file:`ome/services/db-*.xml`. See |ExtendingOmero| more for information.
+
 
 Things to keep in mind
 ----------------------
@@ -45,3 +48,7 @@ Things to keep in mind
    anything about this". This is only important if you configure your
    own chained password provider with your new implementation as one of
    the elements.
+
+-  Due to the service dependency order, new password providers defined in the
+   Spring XML file should be configured with lazy initialization
+   (`lazy-init="true"`) so that the beans are only created when needed.
