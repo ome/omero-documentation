@@ -70,7 +70,7 @@ if [ ! -z $new_version ]; then
     # Download the latest binary to make we have the correct one.
     # To be replaced by the GitHub url without build number when ready
     SERVER=https://downloads.openmicroscopy.org/omero/5.6/server-ice36.zip
-    wget -q $SERVER -O OMERO.server-ice36.zip
+    wget $SERVER -O OMERO.server-ice36.zip
     unzip -q OMERO.server*
     ln -s OMERO.server-*/ OMERO.server
     dirs=("OMERO.server/lib/server/omero-blitz.jar" "OMERO.server/lib/server/omero-server.jar" "OMERO.server/lib/server/omero-gateway.jar"
@@ -81,7 +81,9 @@ if [ ! -z $new_version ]; then
         :
         values=(${dir//// })
         value=${values[${#values[@]}-1]}
-        v=${value#"$PREFIX"}
+        y=${value#"$PREFIX"}
+        v=${y%%.jar}
+        v=${v//"-"/"_"}
         version=`unzip -p $dir META-INF/MANIFEST.MF | grep "Implementation-Version:" | sed 's/^.*[^0-9]\([0-9]*\.[0-9]*\.[0-9]*\).*$/\1/'`
         sed -i -e "s/version_${v} = .*/version_${v} = \"${version}\"/" omero/conf_autogen.py
         echo $v
