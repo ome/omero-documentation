@@ -606,18 +606,18 @@ If no version is provided, a suitable repository is indicated.
       - Homebrew
       - FreeBSD Ports
     * - 3.5
-      - 6, 7 (`zeroc <https://zeroc.com/distributions/ice/3.5/>`__)
+      - 6, 7 (`zeroc <https://zeroc.com/downloads/ice/3.5/>`__)
       - 14.04, 16.04
       - N/A
       - N/A
     * - 3.6
-      - 6, 7 (`zeroc <https://zeroc.com/distributions/ice/3.6/>`__)
-      - 14.04, 16.04 (`zeroc <https://zeroc.com/distributions/ice/3.6/>`__)
+      - 6, 7 (`zeroc <https://zeroc.com/downloads/ice/3.6/>`__)
+      - 14.04, 16.04 (`zeroc <https://zeroc.com/downloads/ice/3.6/>`__)
       - Yes
       - Yes
     * - 3.7
-      - 7 (`zeroc <https://zeroc.com/distributions/ice/3.7/>`__)
-      - 16.04, 18.04 (`zeroc <https://zeroc.com/distributions/ice/3.7/>`__)
+      - 7 (`zeroc <https://zeroc.com/downloads/ice/3.7/>`__)
+      - 16.04, 18.04 (`zeroc <https://zeroc.com/downloads/ice/3.7/>`__)
       - Yes
       - Yes
     * - Details
