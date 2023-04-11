@@ -14,10 +14,10 @@ by any recently bought hardware.
 An OMERO.server specification for between 25-50 users might be:
 
 -  Quad-core Intel or AMD CPU
--  8GB RAM
--  256GB solid-state drive space for OMERO.server distribution
+-  8 GB RAM
+-  256 GB solid-state drive space for OMERO.server distribution
 -  Hard drive space proportional to the image sizes expected (likely
-   between 10 and 100TB)
+   between 10 and 100 TB)
 
 A specification for a server future-proofed for 3-4 years might be:
 
@@ -39,15 +39,15 @@ RAM
 """
 
 RAM is not going to scale linearly, particularly with the way the JVM
-works. You are probably going to hit a hard ceiling between 4 and 6GB for
+works. You are probably going to hit a hard ceiling between 4 and 6 GB for
 JVM size (there is really not much point in having it larger anyway).
 With a large database and aggressive PostgreSQL caching your RAM usage
 could be larger. Still, even for a large deployment, it is not cost
 effective to use more than a few GBs of RAM for this purpose.
 :doc:`server-performance` provides information about fine-tuning the
 server processes' memory usage. In summary, depending on hardware layout 16,
-24 or 32GB of RAM would be ideal for your OMERO server. If you have a separate
-database server more than 16GB of RAM may not be of much benefit to you at
+24 or 32 GB of RAM would be ideal for your OMERO server. If you have a separate
+database server more than 16 GB of RAM may not be of much benefit to you at
 all.
 
 CPU
@@ -74,8 +74,8 @@ OMERO.insight and OMERO.importer
 The recommended client specification is:
 
 -  Intel or AMD CPU
--  8GB RAM
--  120GB solid-state drive (SSD)
+-  8 GB RAM
+-  120 GB solid-state drive (SSD)
 
 .. _client_directories:
 
@@ -113,7 +113,8 @@ each directory and the environment variables for overriding their locations:
 Note that setting :envvar:`OMERO_USERDIR` will also change the default location
 for the temporary files and the local sessions.
 
-If your home directory is stored on a network, possibly NFS mounted (or similar), then these temporary files are being written and read over the
+If your home directory is stored on a network, possibly NFS mounted 
+(or similar), then these temporary files are being written and read over the
 network. This can slow access down.
 
 .. seealso::
