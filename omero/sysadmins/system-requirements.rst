@@ -13,7 +13,7 @@ by any recently bought hardware.
 
 An OMERO.server specification for between 25-50 users might be:
 
--  Quad core Intel or AMD CPU
+-  Quad-core Intel or AMD CPU
 -  8GB RAM
 -  256GB solid-state drive space for OMERO.server distribution
 -  Hard drive space proportional to the image sizes expected (likely
