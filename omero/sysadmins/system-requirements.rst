@@ -75,11 +75,9 @@ OMERO.insight and OMERO.importer
 
 The recommended client specification is:
 
--  Single core 1.33GHz Intel or AMD CPU
--  2GB RAM
--  200MB hard drive space for OMERO.clients distribution
-
-Large imports may require 4GB RAM.
+-  Intel or AMD CPU
+-  8GB RAM
+-  120GB solid-state drive (SSD)
 
 .. _client_directories:
 
