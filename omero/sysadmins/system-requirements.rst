@@ -55,13 +55,13 @@ all.
 CPU
 """
 
-CPU is not something that an OMERO system is usually ever limited
-by. However, when it is limited, it is almost always limited by GHz and
-not by the CPU count. Depending on hardware layout 2 × 4, 2 × 6 system core
-count should be more than enough. You are not going to get a huge OMERO
-performance increase by, for example, throwing 24 cores at the problem; a
-specification with a focus on higher clock speed is going to give you better
-performance.
+CPU is not something that an OMERO system is usually ever limited by. However,
+when it is limited, it is almost always limited by `single thread performance 
+<https://www.cpubenchmark.net/singleThread.html#server-thread>`__ and not by 
+the CPU core count. A 12 system core count should be more than enough. You are
+not going to get a huge OMERO performance increase by, for example, throwing
+24 cores at the problem; a specification with a focus on higher single thread
+performance is going to give you better performance.
 
 Further examples
 """"""""""""""""
