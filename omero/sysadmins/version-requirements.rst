@@ -541,7 +541,7 @@ The Django version used by OMERO.web (1.11.26) is supported on Python 3.5, 3.6 a
 Ice
 ---
 
-:zeroc:`General overview <download.html>`
+:zeroc:`General overview <download/ice>`
 
 OMERO support policies
 ^^^^^^^^^^^^^^^^^^^^^^
