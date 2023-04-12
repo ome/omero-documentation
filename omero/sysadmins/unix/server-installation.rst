@@ -196,7 +196,7 @@ bugfixes which are not present in the upstream releases.
 
 If needed, source and binary packages are available from ZeroC_. The
 latest release is available from the :zeroc:`ZeroC website
-<download/ice>`.
+<downloads/ice>`.
 
 .. note::
     ZeroC_ Ice can always be built from source code for specific
