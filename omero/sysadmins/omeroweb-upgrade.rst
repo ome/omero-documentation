@@ -114,7 +114,7 @@ via :property:`omero.web.session_engine`:
   :property:`omero.web.session_cookie_name` if the property if set of by
   `sessionid` by default.
   For a default configuration, the the following command will
-  typically delete all file sessions:
+  typically delete all file sessions::
 
       $ rm /tmp/sessionid*
 
@@ -124,7 +124,7 @@ via :property:`omero.web.session_engine`:
   Redis cache backend, sessions are stored using keys prefixed with
   `django.contrib.sessions.cache` and can be cleared using :cmd:`redis-cli`.
   In a default configuration, the following command will delete all the
-  keys associated with OMERO.web sessions:
+  keys associated with OMERO.web sessions::
 
       $ redis-cli keys '*django.contrib.sessions.cache*'  | xargs redis-cli del
 
