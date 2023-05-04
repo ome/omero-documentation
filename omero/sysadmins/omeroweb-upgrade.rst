@@ -87,6 +87,47 @@ All official OMERO.web plugins can be installed from PyPI_.
 You should remove all previously installed plugins and install the latest
 versions using pip.
 
+.. _clearing_session_store:
+
+Clear the sessions store (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+During an upgrade, it might be necessary to clear the sessions store
+before restarting OMERO.web. This is the case when either OMERO.web or
+Django introduced backwards incompatible changes in the way sessions are
+stored or if the session serialization format has been modified via
+:property:`omero.web.session_serializer`.
+
+.. warning::
+
+   Clearing the sessions store will terminate all OMERO.web sessions and log
+   out all users.
+
+The process for clearing the store depends on the storage backend configured
+via :property:`omero.web.session_engine`:
+
+- if :property:`omero.web.session_engine` is either unset or set to
+  `omeroweb.filesessionstore` or `django.contrib.sessions.backends.file`,
+  OMERO.web will use file-based sessions. The session files are stored under a
+  temporary folder determined by the the output of `tempfile.gettempdir()`,
+  usually `/tmp` and prefixed either with with the value of
+  :property:`omero.web.session_cookie_name` if the property if set of by
+  `sessionid` by default.
+  For a default configuration, the the following command will
+  typically delete all file sessions:
+
+      $ rm /tmp/sessionid*
+
+- if :property:`omero.web.session_engine` is set to
+  `django.contrib.sessions.backends.cache`, OMERO.web uses cached sessions
+  with a cache backend configured via :property:`omero.web.caches`. For a
+  Redis cache backend, sessions are stored using keys prefixed with
+  `django.contrib.sessions.cache` and can be cleared using :cmd:`redis-cli`.
+  In a default configuration, the following command will delete all the
+  keys associated with OMERO.web sessions:
+
+      $ redis-cli keys '*django.contrib.sessions.cache*'  | xargs redis-cli del
+
 Restart OMERO.web
 ^^^^^^^^^^^^^^^^^
 
