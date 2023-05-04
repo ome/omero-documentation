@@ -110,10 +110,10 @@ via :property:`omero.web.session_engine`:
   `omeroweb.filesessionstore` or `django.contrib.sessions.backends.file`,
   OMERO.web will use file-based sessions. The session files are stored under a
   temporary folder determined by the the output of `tempfile.gettempdir()`,
-  usually `/tmp` and prefixed either with with the value of
+  usually `/tmp` and prefixed either by the value of
   :property:`omero.web.session_cookie_name` if the property if set of by
-  `sessionid` by default.
-  For a default configuration, the the following command will
+  `sessionid` if the property is unset.
+  For a default configuration, the following command will
   typically delete all file sessions::
 
       $ rm /tmp/sessionid*
