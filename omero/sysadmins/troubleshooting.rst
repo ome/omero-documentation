@@ -408,8 +408,8 @@ more details. There are a few known possibilities:
    if all of the prerequisites were installed from
    :doc:`OMERO.web deployment <unix/install-web/web-deployment>`.
 
-OMERO.web fails with start
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+OMERO.web fails to start
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 If OMERO.web fails to start either with an error or type
 ``binascii.Error: Incorrect padding`` or ``json.decoder.JSONDecodeError``,
