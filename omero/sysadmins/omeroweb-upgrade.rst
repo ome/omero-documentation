@@ -122,7 +122,7 @@ via :property:`omero.web.session_engine`:
   `django.contrib.sessions.backends.cache`, OMERO.web uses cached sessions
   with a cache backend configured via :property:`omero.web.caches`. For a
   Redis cache backend, sessions are stored using keys prefixed with
-  `django.contrib.sessions.cache` and can be cleared using :cmd:`redis-cli`.
+  `django.contrib.sessions.cache` and can be cleared using :program:`redis-cli`.
   In a default configuration, the following command will delete all the
   keys associated with OMERO.web sessions::
 
