@@ -2247,6 +2247,13 @@ Default: `false`
 
 .. property:: omero.web.csrf_cookie_secure
 
+omero.web.csrf_cookie_samesite
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The value of the SameSite flag on the CSRF cookie. This flag prevents the cookie from being sent in cross-site requests thus
+preventing CSRF attacks and making some methods of stealing the CSRF cookie impossible.
+
+Default: `Lax`
+
 omero.web.csrf_cookie_secure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Restrict CSRF cookies to HTTPS only, you are strongly recommended to set this to ``true`` in production.
@@ -2638,6 +2645,13 @@ The path to use for session cookies
 Default: `None`
 
 .. property:: omero.web.session_cookie_secure
+
+omero.web.session_cookie_samesite
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The value of the SameSite flag on the session cookie. This flag prevents the cookie from being sent in cross-site requests thus
+preventing CSRF attacks and making some methods of stealing the session cookie impossible.
+
+Default: `Lax`
 
 omero.web.session_cookie_secure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
