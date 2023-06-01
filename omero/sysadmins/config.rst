@@ -2245,6 +2245,14 @@ Prevent CSRF cookie from being accessed in JavaScript. Currently disabled as it 
 
 Default: `false`
 
+.. property:: omero.web.csrf_cookie_samesite
+
+omero.web.csrf_cookie_samesite
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The value of the SameSite flag on the CSRF cookie. This flag prevents the cookie from being sent in cross-site requests thus preventing CSRF attacks and making some methods of CSRF session cookie impossible.
+
+Default: `Lax`
+
 .. property:: omero.web.csrf_cookie_secure
 
 omero.web.csrf_cookie_secure
@@ -2636,6 +2644,14 @@ omero.web.session_cookie_path
 The path to use for session cookies
 
 Default: `None`
+
+.. property:: omero.web.session_cookie_samesite
+
+omero.web.session_cookie_samesite
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The value of the SameSite flag on the session cookie. This flag prevents the cookie from being sent in cross-site requests thus preventing CSRF attacks and making some methods of stealing session cookie impossible.
+
+Default: `Lax`
 
 .. property:: omero.web.session_cookie_secure
 
