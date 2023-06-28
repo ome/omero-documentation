@@ -2,8 +2,8 @@ Omero logging
 =============
 
 All OMERO components written in Java use the
-`SLF4J <http://www.slf4j.org>`_ logging facade, typically backed
-by `Logback <http://logback.qos.ch/>`_; all
+`SLF4J <https://www.slf4j.org>`_ logging facade, typically backed
+by `Logback <https://logback.qos.ch/>`_; all
 components written in python use the built-in ``logging`` module.
 
 .. Warning::  
@@ -34,7 +34,7 @@ Java server components are configured by passing
 :source:`logback.xml <etc/logback.xml>` includes the ``scan`` attribute so
 that changes to the logging configuration are `automatically reloaded at
 regular intervals
-<http://logback.qos.ch/manual/configuration.html#autoScan>`_.
+<https://logback.qos.ch/manual/configuration.html#autoScan>`_.
 
 By default, the output from logback is sent to:
 ``var/log/<servername>.log``. Once files reach a size of 500MB, they are
