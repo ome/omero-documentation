@@ -2,8 +2,8 @@
 Version requirements
 ********************
 
-Summary of changes for OMERO 5.6 and provisional changes for 6.0
-================================================================
+Summary of changes for OMERO 5.6
+================================
 
 We aim to support OMERO on the environments specified below, based
 on the availability of support by upstream developers and operating
