@@ -31,7 +31,7 @@ with commercial licenses and customization available from |Glencoe|. You can
 read about how OMERO has developed since the project started in the
 :doc:`/users/history`.
 
-.. _GNU General Public License (GPL): https://www.gnu.org/licenses/gpl-3.0.html
+.. _GNU General Public License (GPL): https://www.gnu.org/licenses/licenses.html#GPL
 
 For help with any aspect of OMERO, see details of our
 :community:`forums and mailing lists <>`.
