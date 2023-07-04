@@ -110,7 +110,7 @@ The process for clearing the session store depends on the storage backend:
   `omeroweb.filesessionstore` or  `django.contrib.sessions.backends.file`
   or if :property:`omero.web.session_engine` is unset.
 
-  Session data is stored under a temporary folder determined by the output of
+  Sessions are stored under a temporary folder determined by the output of
   `tempfile.gettempdir()`, usually `/tmp`. By default, each session is
   stored as a separate file prefixed with `sessionid` so the following command
   will delete all stored sessions::
@@ -128,7 +128,7 @@ The process for clearing the session store depends on the storage backend:
   `django.core.cache.backends.redis.RedisCache` and `LOCATION` to
   the URL of the Redis instance.
 
-  Session data is stored as key/value pairs in the Redis store with the name of
+  Sessions are stored as key/value pairs in the Redis store with the name of
   the key including `django.contrib.sessions.cache` and can be managed using
   the :program:`redis-cli` utility. Assuming a default local Redis store, the
   following command can be used to delete all the Redis keys associated with
