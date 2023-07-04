@@ -103,31 +103,41 @@ stored or if the session serialization format has been modified via
    Clearing the sessions store will terminate all OMERO.web sessions and log
    out all users.
 
-The process for clearing the store depends on the storage backend configured
-via :property:`omero.web.session_engine`:
+The process for clearing the session store depends on the storage backend:
 
-- if :property:`omero.web.session_engine` is either unset or set to
-  `omeroweb.filesessionstore` or `django.contrib.sessions.backends.file`,
-  OMERO.web will use file-based sessions. The session files are stored under a
-  temporary folder determined by the output of `tempfile.gettempdir()`,
-  usually `/tmp` and prefixed either by the value of
-  :property:`omero.web.session_cookie_name` if the property is set or by
-  `sessionid` if the property is unset.
-  For a default configuration, the following command will
-  typically delete all file sessions::
+- OMERO.web session data is stored on the filesystem if the
+  :property:`omero.web.session_engine` property is set to either
+  `omeroweb.filesessionstore` or  `django.contrib.sessions.backends.file`
+  or if :property:`omero.web.session_engine` is unset.
 
-      $ rm /tmp/sessionid*
+  Session data is stored under a temporary folder determined by the output of
+  `tempfile.gettempdir()`, usually `/tmp`. By default, each session is
+  stored as a separate file prefixed with `sessionid` so the following command
+  will delete all stored sessions::
 
-- if :property:`omero.web.session_engine` is set to
-  `django.contrib.sessions.backends.cache`, OMERO.web uses cached sessions
-  with a cache backend configured via :property:`omero.web.caches`. For a
-  `Redis <https://redis.io/>`_ cache backend, sessions are stored using keys
-  prefixed with `django.contrib.sessions.cache` and can be cleared using
-  :program:`redis-cli`.
-  In a default configuration, the following command will delete all the
-  keys associated with OMERO.web sessions::
+    $ rm /tmp/sessionid*
+
+  If :property:`omero.web.session_cookie_name` is set, its value will be
+  used as the prefix of the file sessions and the command above needs
+  to be modified accordingly.
+
+- OMERO.web session data is stored using the `Redis <https://redis.io/>`_ store
+  if the :property:`omero.web.session_engine` property is set to
+  `django.contrib.sessions.backends.cache` and Redis is configured via the
+  :property:`omero.web.caches` property by setting the `BACKEND` to
+  'django.core.cache.backends.redis.RedisCache' and `LOCATION` to
+  the URL of the Redis instance.
+
+  Session data is stored as key/value pairs in the Redis store with the name of
+  the key including `django.contrib.sessions.cache` and can be managed using
+  the :program:`redis-cli` utility. Assuming a default local Redis store, the
+  following command can be used to delete all the Redis keys associated with
+  OMERO.web sessions::
 
       $ redis-cli keys '*django.contrib.sessions.cache*'  | xargs redis-cli del
+
+  If Redis URL points to a different hostname, port or database number, the
+  command above needs to be adjusted accordingly.
 
 Restart OMERO.web
 ^^^^^^^^^^^^^^^^^
