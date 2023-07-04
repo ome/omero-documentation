@@ -105,7 +105,7 @@ stored or if the session serialization format has been modified via
 
 The process for clearing the session store depends on the storage backend:
 
-- OMERO.web session data is stored on the filesystem if the
+- OMERO.web sessions are stored on the filesystem if the
   :property:`omero.web.session_engine` property is set to either
   `omeroweb.filesessionstore` or  `django.contrib.sessions.backends.file`
   or if :property:`omero.web.session_engine` is unset.
@@ -121,7 +121,7 @@ The process for clearing the session store depends on the storage backend:
   used as the prefix of the file sessions and the command above needs
   to be modified accordingly.
 
-- OMERO.web session data is stored using the `Redis <https://redis.io/>`_ store
+- OMERO.web sessions are stored using the `Redis <https://redis.io/>`_ store
   if the :property:`omero.web.session_engine` property is set to
   `django.contrib.sessions.backends.cache` and Redis is configured via the
   :property:`omero.web.caches` property by setting the `BACKEND` to
