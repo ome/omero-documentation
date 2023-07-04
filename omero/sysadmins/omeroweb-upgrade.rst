@@ -125,7 +125,7 @@ The process for clearing the session store depends on the storage backend:
   if the :property:`omero.web.session_engine` property is set to
   `django.contrib.sessions.backends.cache` and Redis is configured via the
   :property:`omero.web.caches` property by setting the `BACKEND` to
-  'django.core.cache.backends.redis.RedisCache' and `LOCATION` to
+  `django.core.cache.backends.redis.RedisCache` and `LOCATION` to
   the URL of the Redis instance.
 
   Session data is stored as key/value pairs in the Redis store with the name of
