@@ -68,7 +68,7 @@ def get_previous_version(majornumber, minornumber=0):
 [majornumber, minornumber, patchnumber] = split_release(conf_autogen.version_openmicroscopy)
 
 # Define Sphinx version and release variables and development branch
-current_version = ".".join(str(x) for x in (majornumber, minornumber))
+version = ".".join(str(x) for x in (majornumber, minornumber))
 
 if patchnumber > 0:
     tags.add('point_release')
@@ -192,7 +192,7 @@ rst_epilog += """
                   :alt: Unsupported
 .. |Upcoming| image:: /images/upcoming.png
                :alt: Upcoming
-""" % (current_version, previousversion,
+""" % (version, previousversion,
        conf_autogen.current_dbver,
        conf_autogen.previous_dbver,
        conf_autogen.version_py,
