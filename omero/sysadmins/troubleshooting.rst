@@ -408,6 +408,15 @@ more details. There are a few known possibilities:
    if all of the prerequisites were installed from
    :doc:`OMERO.web deployment <unix/install-web/web-deployment>`.
 
+OMERO.web fails to start
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+If OMERO.web fails to start either with an error or type
+``binascii.Error: Incorrect padding`` or ``json.decoder.JSONDecodeError``,
+your existing sessions are likely incompatible and you will need to follow
+the steps indicated at :ref:`clearing_session_store` to clear the sessions
+store.
+
 .. _client_performance:
 
 Troubleshooting performance issues with the clients

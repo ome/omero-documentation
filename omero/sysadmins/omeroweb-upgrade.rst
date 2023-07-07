@@ -87,6 +87,58 @@ All official OMERO.web plugins can be installed from PyPI_.
 You should remove all previously installed plugins and install the latest
 versions using pip.
 
+.. _clearing_session_store:
+
+Clear the sessions store (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+During an upgrade, it might be necessary to clear the sessions store
+before restarting OMERO.web. This is the case when either OMERO.web or
+Django introduced backwards incompatible changes in the way sessions are
+stored or if the session serialization format has been modified via
+:property:`omero.web.session_serializer`.
+
+.. warning::
+
+   Clearing the sessions store will terminate all OMERO.web sessions and log
+   out all users.
+
+The process for clearing the session store depends on the storage backend:
+
+- OMERO.web sessions are stored on the filesystem if the
+  :property:`omero.web.session_engine` property is set to either
+  `omeroweb.filesessionstore` or  `django.contrib.sessions.backends.file`
+  or if :property:`omero.web.session_engine` is unset.
+
+  Sessions are stored under a temporary folder determined by the output of
+  `tempfile.gettempdir()`, usually `/tmp`. By default, each session is
+  stored as a separate file prefixed with `sessionid` so the following command
+  will delete all stored sessions::
+
+    $ rm /tmp/sessionid*
+
+  If :property:`omero.web.session_cookie_name` is set, its value will be
+  used as the prefix of the file sessions and the command above needs
+  to be modified accordingly.
+
+- OMERO.web sessions are stored using the `Redis <https://redis.io/>`_ store
+  if the :property:`omero.web.session_engine` property is set to
+  `django.contrib.sessions.backends.cache` and Redis is configured via the
+  :property:`omero.web.caches` property by setting the `BACKEND` to
+  `django.core.cache.backends.redis.RedisCache` and `LOCATION` to
+  the URL of the Redis instance.
+
+  Sessions are stored as key/value pairs in the Redis store with the name of
+  the key including `django.contrib.sessions.cache` and can be managed using
+  the :program:`redis-cli` utility. Assuming a default local Redis store, the
+  following command can be used to delete all the Redis keys associated with
+  OMERO.web sessions::
+
+      $ redis-cli keys '*django.contrib.sessions.cache*'  | xargs redis-cli del
+
+  If Redis URL points to a different hostname, port or database number, the
+  command above needs to be adjusted accordingly.
+
 Restart OMERO.web
 ^^^^^^^^^^^^^^^^^
 
