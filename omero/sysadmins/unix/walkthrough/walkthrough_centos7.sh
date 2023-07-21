@@ -98,6 +98,10 @@ psql -h localhost -U "$OMERO_DB_USER" "$OMERO_DB_NAME" < $OMERODIR/db.sql
 omero certificates
 #end-seclevel
 
+#start-diffie-hellman
+omero config set omero.glacier2.IceSSL.Ciphers=HIGH:!DH
+#end-diffie-hellman
+
 
 #start-step06: As root, run the scripts to start OMERO automatically
 cp omero-server-systemd.service /etc/systemd/system/omero-server.service
