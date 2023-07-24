@@ -102,6 +102,7 @@ omero certificates
 omero config set omero.glacier2.IceSSL.Ciphers=HIGH:!DH
 #end-diffie-hellman
 
+
 #start-step06: As root, run the scripts to start OMERO automatically
 cp omero-server-systemd.service /etc/systemd/system/omero-server.service
 
