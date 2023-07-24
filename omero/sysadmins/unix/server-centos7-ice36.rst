@@ -119,6 +119,15 @@ Configure the database and the location of the data directory:
     :start-after: #start-seclevel
     :end-before: #end-seclevel
 
+Additionally on CentOS7, it is necessary to prevent the OMERO.server from advertising Diffie-Hellmann key exchange to the clients. 
+While this key-exchange algorithm is disabled in the OMERO side, if it is advertised it can lead to client errors
+(e.g. omero-py>=5.13.0), which will fail to connect to OMERO because of a dh-key error. To prevent this, it might be necessary to remove 
+Diffie-Hellmann key exchange from the IceSSL configuration. On CentOS7, this can be done by running the following code:
+
+.. literalinclude:: walkthrough/walkthrough_centos7.sh
+    :start-after: #start-diffie-hellman
+    :end-before: #end-diffie-hellman
+
 See also :doc:`../client-server-ssl`.
 
 Running OMERO.server
