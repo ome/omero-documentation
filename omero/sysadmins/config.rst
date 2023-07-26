@@ -2261,6 +2261,14 @@ Restrict CSRF cookies to HTTPS only, you are strongly recommended to set this to
 
 Default: `false`
 
+.. property:: omero.web.csrf_trusted_origins
+
+omero.web.csrf_trusted_origins
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+A list of hosts which are trusted origins for unsafe requests. When starting with '.', all subdomains are included. Example ``'[".example.com", "another.example.net"]'``. For more details see :djangodoc:`CSRF trusted origins <ref/settings/#csrf-trusted-origins>`.
+
+Default: `[]`
+
 .. property:: omero.web.databases
 
 omero.web.databases
@@ -2665,9 +2673,9 @@ Default: `false`
 
 omero.web.session_engine
 ^^^^^^^^^^^^^^^^^^^^^^^^
-Controls where Django stores session data. See :djangodoc:`Configuring the session engine for more details <ref/settings/#session-engine>`.
+Controls where Django stores session data. See :djangodoc:`Configuring the session engine for more details <ref/settings/#session-engine>`.Allowed values are: ``omeroweb.filesessionstore`` (deprecated), ``django.contrib.sessions.backends.db``, ``django.contrib.sessions.backends.file``, ``django.contrib.sessions.backends.cache`` or ``django.contrib.sessions.backends.cached_db``.
 
-Default: `omeroweb.filesessionstore`
+Default: `django.contrib.sessions.backends.file`
 
 .. property:: omero.web.session_expire_at_browser_close
 
