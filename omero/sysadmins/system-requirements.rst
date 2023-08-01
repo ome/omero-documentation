@@ -13,19 +13,17 @@ by any recently bought hardware.
 
 An OMERO.server specification for between 25-50 users might be:
 
--  Quad core 1.33GHz Intel or AMD CPU
--  8GB RAM
--  500MB hard drive space for OMERO.server distribution
+-  Quad-core Intel or AMD CPU
+-  8 GB RAM
+-  256 GB solid-state drive space for OMERO.server distribution
 -  Hard drive space proportional to the image sizes expected (likely
-   between 10 and 100TB)
+   between 10 and 100 TB)
 
 A specification for a server future-proofed for 3-4 years might be:
 
--  dual Intel Xeon Processor E5-2637 v3 4C 3.5GHz 15MB 2133MHz 135W
--  256GB RAM
--  2 x 200GB SSD RAID1 for OS
--  2 x 400GB SSD RAID1 for PostgreSQL DB
--  2 x 1.2 TB SAS RAID1 for scratch, log files, etc.
+-  Intel Xeon Gold 6426 Processor
+-  8x 32 GB DDR5-4800
+-  2 x 2 TB SSD RAID1 for OS, PostgreSQL DB, scratch, log files, etc.
 -  10 GbE connectivity to a separate fileshare for the OMERO binary repository
 
 Storage
@@ -41,27 +39,27 @@ RAM
 """
 
 RAM is not going to scale linearly, particularly with the way the JVM
-works. You are probably going to hit a hard ceiling between 4 and 6GB for
+works. You are probably going to hit a hard ceiling between 4 and 6 GB for
 JVM size (there is really not much point in having it larger anyway).
 With a large database and aggressive PostgreSQL caching your RAM usage
 could be larger. Still, even for a large deployment, it is not cost
 effective to use more than a few GBs of RAM for this purpose.
 :doc:`server-performance` provides information about fine-tuning the
 server processes' memory usage. In summary, depending on hardware layout 16,
-24 or 32GB of RAM would be ideal for your OMERO server. If you have a separate
-database server more than 16GB of RAM may not be of much benefit to you at
+24 or 32 GB of RAM would be ideal for your OMERO server. If you have a separate
+database server more than 16 GB of RAM may not be of much benefit to you at
 all.
 
 CPU
 """
 
-CPU is not something that an OMERO system is usually ever limited
-by. However, when it is limited, it is almost always limited by GHz and
-not by the CPU count. Depending on hardware layout 2 × 4, 2 × 6 system core
-count should be more than enough. You are not going to get a huge OMERO
-performance increase by, for example, throwing 24 cores at the problem; a
-specification with a focus on higher clock speed is going to give you better
-performance.
+CPU is not something that an OMERO system is usually ever limited by. However,
+when it is limited, it is almost always limited by `single thread performance 
+<https://www.cpubenchmark.net/singleThread.html#server-thread>`__ and not by 
+the CPU core count. A 16 system core count should be more than enough. You are
+not going to get a huge OMERO performance increase by, for example, throwing
+24 cores at the problem; a specification with a focus on higher single thread
+performance is going to give you better performance.
 
 Further examples
 """"""""""""""""
@@ -75,11 +73,9 @@ OMERO.insight and OMERO.importer
 
 The recommended client specification is:
 
--  Single core 1.33GHz Intel or AMD CPU
--  2GB RAM
--  200MB hard drive space for OMERO.clients distribution
-
-Large imports may require 4GB RAM.
+-  Intel or AMD CPU
+-  8 GB RAM
+-  120 GB solid-state drive (SSD)
 
 .. _client_directories:
 
@@ -117,7 +113,8 @@ each directory and the environment variables for overriding their locations:
 Note that setting :envvar:`OMERO_USERDIR` will also change the default location
 for the temporary files and the local sessions.
 
-If your home directory is stored on a network, possibly NFS mounted (or similar), then these temporary files are being written and read over the
+If your home directory is stored on a network, possibly NFS mounted 
+(or similar), then these temporary files are being written and read over the
 network. This can slow access down.
 
 .. seealso::
