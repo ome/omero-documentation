@@ -47,7 +47,7 @@ A reference of reStructuredText (reST) is available at
 It is recommended to familiarise oneself with the syntax outlined there.
 
 A tutorial covering Sphinx, which enhances working with reST documents, can be
-found at `http://sphinx.pocoo.org <http://sphinx.pocoo.org/tutorial.html>`_.
+found at `https://www.sphinx-doc.org <https://www.sphinx-doc.org/en/master/>`_.
 
 Building the documentation
 ==========================
