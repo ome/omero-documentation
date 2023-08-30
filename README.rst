@@ -80,8 +80,8 @@ By default, ``make`` will build the documentation locally in the form of HTML pa
 Top-level build command
 -----------------------
 
-The top-level directory Makefile also defines targets for building both the
-OMERO and Contributing sets of documentation at once.
+The top-level directory Makefile also defines targets for building the
+OMERO documentation.
 
 To clean the build directories of any previous builds, use one of::
 
@@ -420,7 +420,7 @@ Links to the OMERO source code hosted on Github can be created using the
 ``source`` alias for single files, e.g. ``:source: `etc/grid/default.xml``` or
 the ``sourcedir`` alias for directories, e.g. ``:sourcedir: `etc```.
 
-By default, these links will point at the code under the ``develop`` branch or
+By default, these links will point at the code under the default branch e.g. ``develop``, ``master`` or ``main`` or
 https://github.com/ome/openmicroscopy. To specify a specific fork
 and/or  branch, set the SOURCE_USER and SOURCE_BRANCH environment variables,
 e.g.::
