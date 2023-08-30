@@ -13,26 +13,12 @@ Initial setup
 Sphinx
 ------
 
-Sphinx depends on the ``sphinx-build`` Python script. As such, it can be
-installed on any system with a working Python installation and PIP. On
-Windows, make sure that the ``Scripts`` directory under the Python
-installation directory (e.g. ``C:\Python26\Scripts``) is configured in your
-PATH. On OS X/Linux, ``sphinx-build`` has to be accessible from the command
-line.
-
 The Sphinx documentation system can be obtained by issuing::
 
     pip install Sphinx
 
 Most Linux distributions will also provide it in a python-sphinx package
 (or similar).
-
-Ant
----
-You will also need ant for building the documentation. This can be installed
-on Mac OSX by using homebrew::
-
-    brew install ant
 
 
 Structure and organization
@@ -41,8 +27,7 @@ Structure and organization
 The OME documentation is organized into multiple folders:
 
 * the OMERO documentation is under the ``omero`` folder,
-* the OME Contributing Developer documentation has been migrated to 
-`ome-contributing <https://github.com/ome/ome-contributing>`_,
+* the OME Contributing Developer documentation has been migrated to `ome-contributing <https://github.com/ome/ome-contributing>`_,
 * the shared configuration and themes are under the ``common`` folder.
 
 The structure of each documentation folder follows the Sphinx system
