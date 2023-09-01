@@ -13,26 +13,12 @@ Initial setup
 Sphinx
 ------
 
-Sphinx depends on the ``sphinx-build`` Python script. As such, it can be
-installed on any system with a working Python installation and PIP. On
-Windows, make sure that the ``Scripts`` directory under the Python
-installation directory (e.g. ``C:\Python26\Scripts``) is configured in your
-PATH. On OS X/Linux, ``sphinx-build`` has to be accessible from the command
-line.
-
 The Sphinx documentation system can be obtained by issuing::
 
     pip install Sphinx
 
 Most Linux distributions will also provide it in a python-sphinx package
 (or similar).
-
-Ant
----
-You will also need ant for building the documentation. This can be installed
-on Mac OSX by using homebrew::
-
-    brew install ant
 
 
 Structure and organization
@@ -41,8 +27,7 @@ Structure and organization
 The OME documentation is organized into multiple folders:
 
 * the OMERO documentation is under the ``omero`` folder,
-* the OME Contributing Developer documentation has been migrated to 
-`ome-contributing <https://github.com/ome/ome-contributing>`_,
+* the OME Contributing Developer documentation has been migrated to `ome-contributing <https://github.com/ome/ome-contributing>`_,
 * the shared configuration and themes are under the ``common`` folder.
 
 The structure of each documentation folder follows the Sphinx system
@@ -62,7 +47,7 @@ A reference of reStructuredText (reST) is available at
 It is recommended to familiarise oneself with the syntax outlined there.
 
 A tutorial covering Sphinx, which enhances working with reST documents, can be
-found at `http://sphinx.pocoo.org <http://sphinx.pocoo.org/tutorial.html>`_.
+found at `https://www.sphinx-doc.org <https://www.sphinx-doc.org/en/master/>`_.
 
 Building the documentation
 ==========================
@@ -95,8 +80,8 @@ By default, ``make`` will build the documentation locally in the form of HTML pa
 Top-level build command
 -----------------------
 
-The top-level directory Makefile also defines targets for building both the
-OMERO and Contributing sets of documentation at once.
+The top-level directory Makefile also defines targets for building the
+OMERO documentation.
 
 To clean the build directories of any previous builds, use one of::
 
@@ -435,7 +420,7 @@ Links to the OMERO source code hosted on Github can be created using the
 ``source`` alias for single files, e.g. ``:source: `etc/grid/default.xml``` or
 the ``sourcedir`` alias for directories, e.g. ``:sourcedir: `etc```.
 
-By default, these links will point at the code under the ``develop`` branch or
+By default, these links will point at the code under the default branch e.g. ``develop``, ``master`` or ``main`` or
 https://github.com/ome/openmicroscopy. To specify a specific fork
 and/or  branch, set the SOURCE_USER and SOURCE_BRANCH environment variables,
 e.g.::
