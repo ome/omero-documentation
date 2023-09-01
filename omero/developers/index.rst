@@ -30,7 +30,7 @@ from |Glencoe| OMERO is released under the `GNU General Public License (GPL)`_
 with commercial licenses and customization available from |Glencoe|. You can
 read about how OMERO has developed since the project started in the
 :doc:`/users/history`.
-We ask contributors to sign a `Contributor License Agreement (CLA) <https://drive.google.com/file/d/1ld6s678JWRF15qUT4_3LyTE4IGYh-wRZ/view?usp=sharing >`_. The agreement only needs to be sign once.
+We ask contributors to sign since one the `Contributor License Agreement (CLA) <https://drive.google.com/file/d/1ld6s678JWRF15qUT4_3LyTE4IGYh-wRZ/>`_ .
 When signed, please do send the agreement to ``contributors@openmicroscopy.org``.
 
 .. _GNU General Public License (GPL): https://www.gnu.org/licenses/licenses.html#GPL
