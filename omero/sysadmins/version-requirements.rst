@@ -291,7 +291,7 @@ OMERO support policies
       - Nov 2022
       - |Upcoming|
       - |Recommended|
-      - |Supported|
+      - |Deprecated|
     * - 11
       - Oct 2018
       - Nov 2023
