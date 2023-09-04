@@ -3,7 +3,8 @@ Webclient Plugins
 
 The webclient UI can be configured to include content from other web apps.
 This allows you to extend the webclient UI with your own functionality.
-This is used by the `webtagging app <https://github.com/MicronOxford/webtagging>`_
+This is used by the webtagging apps `autotag <https://github.com/German-BioImaging/omero-autotag>`_
+and `tagsearch <https://github.com/German-BioImaging/omero-tagsearch>`_,
 and there are also some examples in the `omero-webtest <https://github.com/ome/omero-webtest/>`_ repository.
 
 
@@ -170,7 +171,7 @@ list.
 ::
 
     $ omero config append omero.web.ui.center_plugins
-        '["Auto Tag", "webtagging/auto_tag_init.js.html", "auto_tag_panel"]'
+        '["Auto Tag", "omero_autotag/auto_tag_init.js.html", "auto_tag_panel"]'
 
 The right_plugins list includes the `Acquisition` tab and `Preview` tab by
 default. If you want to append the OMERO.webtest ROI plugin or your own plugin

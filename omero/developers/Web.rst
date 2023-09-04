@@ -70,8 +70,9 @@ It also includes utilities for creating and retrieving connections to OMERO
 -  **omero-iviewer:** The `OMERO.iviewer <https://github.com/ome/omero-iviewer>`_
    is a new (currently unreleased) image viewer that supports ROI creation and editing.
 
--  **webtagging:** The `webtagging <https://github.com/MicronOxford/webtagging>`_ app
-   was developed externally by Douglas Russell. It supports 'auto' tagging based on
+-  **webtagging:** The webtagging apps `OMERO.autotag <https://github.com/German-BioImaging/omero-autotag>`_ 
+   and `OMERO.tagsearch <https://github.com/German-BioImaging/omero-tagsearch>`_
+   were developed externally by Douglas Russell. It supports 'auto' tagging based on
    image name and Tag-based filtering of data.
 
 -  **omero-mapr:** The `OMERO.mapr <https://github.com/ome/omero-mapr/>`_ app
