@@ -269,7 +269,7 @@ of Ice installed, unpack it:
 
 .. parsed-literal::
 
-    $ unzip OMERO.server-|version_openmicroscopy|-ice36-byy.zip
+    $ unzip OMERO.server-|version_openmicroscopy|-ice36.zip
 
 If your system does not provide an :program:`unzip` command by
 default, install one of the following:
@@ -297,7 +297,7 @@ typing later, to reflect what you set :envvar:`OMERO_PREFIX` to in the
 
 .. parsed-literal::
 
-    $ ln -s OMERO.server-|version_openmicroscopy|-ice36-byy OMERO.server
+    $ ln -s OMERO.server-|version_openmicroscopy|-ice36 OMERO.server
 
 This will also ease installation of newer versions of the server at a
 later date, by simply updating the link.
