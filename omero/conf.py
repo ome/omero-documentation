@@ -303,6 +303,8 @@ omero_extlinks = {
     }
 extlinks.update(omero_extlinks)
 
+html_theme = "sphinx_rtd_theme"
+
 # Edit on GitHub prefix
 #edit_on_github_prefix = 'omero'
 
