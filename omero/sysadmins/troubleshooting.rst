@@ -155,21 +155,23 @@ Please see the :doc:`/sysadmins/server-security` page for more information.
 SSL connection issues
 ^^^^^^^^^^^^^^^^^^^^^
 
-Deployment platforms show a trend of making the transport layer security
-policy tighter by default. The recommended way to overcome SSL
-connection issues for OMERO clients connecting to the server is to
-employ the `omero-certificates
-<https://pypi.org/project/omero-certificates/>`_ plugin available from
-PyPI_:
+ - ``javax.net.ssl.SSLHandshakeException: DH ServerKeyExchange does not comply to algorithm constraints``
+ - `` javax.net.ssl.SSLHandshakeException: The server selected protocol version TLS10 is not accepted by client preferences [TLS12]``
+ - ``SSL handshake failure: The parameter is incorrect.``
+ - ``reason = SSL error occurred for new outgoing connection: remote address = XXX.XXX.XXX.XXX:4064 dh key too small```
 
-.. literalinclude:: unix/walkthrough/walkthrough_debian10.sh
-    :start-after: #start-seclevel
-    :end-before: #end-seclevel
+These errors indicate the client is unable to establish a secure connection
+with the server. Deployment platforms show a trend of making the transport
+layer security policy tighter by default.
 
-Restart the OMERO.server as normal for the changes to take effect.
+The recommended way to overcome SSL connection issues for OMERO clients
+connecting to the server is to use the
+`omero-certificates <https://pypi.org/project/omero-certificates/>`_
+plugin available from PyPI_.
 
-An alternative approach is to add the parameter ``@SECLEVEL=0`` to the
-server SSL configuration.
+Follow the instructions from :ref:`server_certificates` to create and
+configure self-signed certificates as necessary on the OMERO.server and
+restart it as normal for the changes to take effect.
 
 Server crashes with...
 ----------------------
