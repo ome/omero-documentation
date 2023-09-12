@@ -156,9 +156,9 @@ SSL connection issues
 ^^^^^^^^^^^^^^^^^^^^^
 
  - ``javax.net.ssl.SSLHandshakeException: DH ServerKeyExchange does not comply to algorithm constraints``
- - `` javax.net.ssl.SSLHandshakeException: The server selected protocol version TLS10 is not accepted by client preferences [TLS12]``
+ - ``javax.net.ssl.SSLHandshakeException: The server selected protocol version TLS10 is not accepted by client preferences [TLS12]``
  - ``SSL handshake failure: The parameter is incorrect.``
- - ``reason = SSL error occurred for new outgoing connection: remote address = XXX.XXX.XXX.XXX:4064 dh key too small```
+ - ``reason = SSL error occurred for new outgoing connection: remote address = XXX.XXX.XXX.XXX:4064 dh key too small``
 
 These errors indicate the client is unable to establish a secure connection
 with the server. Deployment platforms show a trend of making the transport

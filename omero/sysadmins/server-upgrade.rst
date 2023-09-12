@@ -333,15 +333,16 @@ at minimum, a self-signed certificate is to use the
 `OMERO server certificate management plugin <https://github.com/ome/omero-certificates>`_.
 The plugin will generate or update your self-signed certificates and configure the OMERO.server.
 For the configuration to take effect, the server needs to be restarted.
-If you prefer to configure the OMERO server certificate manually, check:doc:`/sysadmins/client-server-ssl`.
+If you prefer to configure the OMERO server certificate manually, check
+:doc:`/sysadmins/client-server-ssl`.
 
-If your server has been configured with a version of `omero-certificates` older than 0.3.0 or
-manually, the configuration may need to be upgraded in particular to
+If your server has been configured with a version of ``omero-certificates`` older than
+0.3.0 or manually, the configuration may need to be upgraded in particular to
 disallow the `deprecated TLS 1.0 and 1.1 protocols <https://datatracker.ietf.org/doc/html/rfc8996>`_.
 
-To do so, first upgrade `omero-certificates` to version 0.3.0 or later, remove the
+To do so, first upgrade ``omero-certificates`` to version 0.3.0 or later, remove the
 :property:`omero.glacier2.IceSSL.Protocols` and :property:`omero.glacier2.IceSSL.ProtocolVersionMax`
-configurations and finally re-execute the :cmd:`omero certificates` command:
+configurations and finally re-execute the :program:`omero certificates` command::
 
     $ pip install "omero-certificates>=0.3"
     $ omero config set omero.glacier2.IceSSL.Protocols
@@ -352,8 +353,8 @@ configurations and finally re-execute the :cmd:`omero certificates` command:
 
    On distributions with a recent version of OpenSSL (1.1+), `omero certificates` will also
    enable the TLS 1.3 protocol. Note that OMERO clients will need to be upgraded to depend
-   on `omero-blitz` 5.7.0 or greater (Java) or `omero-py` 5.15.0  or greater (Python) in order
-   to negotiate this protocol with the server.
+   on ``omero-blitz`` 5.7.0 or greater (Java) or ``omero-py`` 5.15.0  or greater (Python)
+   in order to negotiate this protocol with the server.
 
 Restart your server
 ^^^^^^^^^^^^^^^^^^^
