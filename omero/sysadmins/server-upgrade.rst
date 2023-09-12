@@ -351,10 +351,11 @@ configurations and finally re-execute the :program:`omero certificates` command:
 
 .. note::
 
-   On distributions with a recent version of OpenSSL (1.1+), `omero certificates` will also
-   enable the TLS 1.3 protocol. Note that OMERO clients will need to be upgraded to depend
-   on ``omero-blitz`` 5.7.0 or greater (Java) or ``omero-py`` 5.15.0  or greater (Python)
-   in order to negotiate this protocol with the server.
+   From version 0.3.0, ``omero certificates`` adds TLS 1.3 to the list of protocols
+   supported server-side for establishing the secure connection on systems where the
+   protocol is supported. In order to negotiate this protocol, clients will also need
+   to be upgraded to depend on ``omero-blitz`` 5.7.0 or greater (Java) or ``omero-py``
+   5.15.0 or greater (Python).
 
 Restart your server
 ^^^^^^^^^^^^^^^^^^^
