@@ -320,13 +320,40 @@ up to date to ensure that security updates are applied:
       $ # first, activate virtualenv where omero-py is installed. Then upgrade:
       $ pip install --upgrade 'omero-py>=\ |version_py|'
 
+.. _server_certificates:
 
 Server certificate
 ^^^^^^^^^^^^^^^^^^
-Since OMERO 5.6.2,  the recommended way to ensure that all OMERO server installations have, at minimum, a self-signed certificate is to use the `OMERO server certificate management plugin <https://github.com/ome/omero-certificates>`_. The plugin will generate or update your self-signed certificates and configure the OMERO.server. For the configuration to take effect, the server needs to be restarted.
-If you prefer to configure the OMERO server certificate manually, check
-:doc:`/sysadmins/client-server-ssl`.
-In OMERO.py version 5.13.0, the Anonymous Diffie-Hellman (ADH) default configuration has been removed. Please ensure that self-signed certificates have been generated and the OMERO.server configured accordingly.
+
+The server should be configured with at least a self-signed certificate to allow
+clients to establish secure connections.
+
+Since OMERO 5.6.2, the recommended way to ensure that all OMERO server installations have
+at minimum, a self-signed certificate is to use the
+`OMERO server certificate management plugin <https://github.com/ome/omero-certificates>`_.
+The plugin will generate or update your self-signed certificates and configure the OMERO.server.
+For the configuration to take effect, the server needs to be restarted.
+If you prefer to configure the OMERO server certificate manually, check:doc:`/sysadmins/client-server-ssl`.
+
+If your server has been configured with a version of `omero-certificates` older than 0.3.0 or
+manually, the configuration may need to be upgraded in particular to
+disallow the `deprecated TLS 1.0 and 1.1 protocols <https://datatracker.ietf.org/doc/html/rfc8996>`_.
+
+To do so, first upgrade `omero-certificates` to version 0.3.0 or later, remove the
+:property:`omero.glacier2.IceSSL.Protocols` and :property:`omero.glacier2.IceSSL.ProtocolVersionMax`
+configurations and finally re-execute the :cmd:`omero certificates` command:
+
+    $ pip install "omero-certificates>=0.3"
+    $ omero config set omero.glacier2.IceSSL.Protocols
+    $ omero config set omero.glacier2.IceSSL.ProtocolVersionMax
+    $ omero certificates
+
+.. note::
+
+   On distributions with a recent version of OpenSSL (1.1+), `omero certificates` will also
+   enable the TLS 1.3 protocol. Note that OMERO clients will need to be upgraded to depend
+   on `omero-blitz` 5.7.0 or greater (Java) or `omero-py` 5.15.0  or greater (Python) in order
+   to negotiate this protocol with the server.
 
 Restart your server
 ^^^^^^^^^^^^^^^^^^^
