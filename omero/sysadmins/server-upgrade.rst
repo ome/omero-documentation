@@ -330,7 +330,7 @@ clients to establish secure connections.
 
 Since OMERO 5.6.2, the recommended way to ensure that all OMERO server installations have
 at minimum, a self-signed certificate is to use the
-`OMERO server certificate management plugin <https://github.com/ome/omero-certificates>`_.
+`omero-certificates <https://pypi.org/project/omero-certificates/>`_ plugin.
 The plugin will generate or update your self-signed certificates and configure the OMERO.server.
 For the configuration to take effect, the server needs to be restarted.
 If you prefer to configure the OMERO server certificate manually, check
@@ -340,7 +340,8 @@ If your server has been configured with a version of ``omero-certificates`` olde
 0.3.0 or manually, the configuration may need to be upgraded in particular to
 disallow the `deprecated TLS 1.0 and 1.1 protocols <https://datatracker.ietf.org/doc/html/rfc8996>`_.
 
-To do so, first upgrade ``omero-certificates`` to version 0.3.0 or later, remove the
+To do so, activate the virtual environment where the server Python dependencies are installed,
+upgrade ``omero-certificates`` to version 0.3.0 or later, remove the
 :property:`omero.glacier2.IceSSL.Protocols` and :property:`omero.glacier2.IceSSL.ProtocolVersionMax`
 configurations and finally re-execute the :program:`omero certificates` command::
 
@@ -351,11 +352,10 @@ configurations and finally re-execute the :program:`omero certificates` command:
 
 .. note::
 
-   From version 0.3.0, ``omero certificates`` adds TLS 1.3 to the list of protocols
-   supported server-side for establishing the secure connection on systems where the
-   protocol is supported. In order to negotiate this protocol, clients will also need
-   to be upgraded to depend on ``omero-blitz`` 5.7.0 or greater (Java) or ``omero-py``
-   5.15.0 or greater (Python).
+   From version 0.3.0, the :program:`omero certificates` command adds TLS 1.3 to the list of
+   TLS protocols allowed assuming the OMERO.server enviroment supports the protocol.
+   In order to negotiate this protocol, clients will also need to be upgraded to depend
+   on ``omero-blitz`` 5.7.0 or greater (Java) or ``omero-py`` 5.15.0 or greater (Python).
 
 Restart your server
 ^^^^^^^^^^^^^^^^^^^
