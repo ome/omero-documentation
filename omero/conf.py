@@ -392,8 +392,8 @@ def copy_legacy_redirects(app, exception):
     ]
     if app.builder.name == 'html':
         for html_src_path in redirect_files:
-            target_path = (app.outdir / html_src_path)
-            src_path = (app.srcdir / html_src_path)
+            target_path = app.outdir + '/' + html_src_path
+            src_path = app.srcdir + '/' + html_src_path
             if os.path.isfile(src_path):
                 target_dir = os.path.dirname(target_path)
                 if not os.path.exists(target_dir):
