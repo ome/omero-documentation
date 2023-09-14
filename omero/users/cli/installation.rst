@@ -13,7 +13,7 @@ You can create one using either ``venv`` or ``conda`` (preferred).
 If you opt for Conda_, you will need
 to install it first, see `miniconda <https://docs.conda.io/en/latest/miniconda.html>`_ for more details.
 
-.. Note:: On Ubuntu 20.09, you may need to install ``libssl-dev`` before installing the |CLI|.
+.. Note:: On Ubuntu 20.04, you may need to install ``libssl-dev`` before installing the |CLI|.
 
 
 To install ``omero-py`` using conda (preferred)::
