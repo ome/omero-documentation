@@ -16,8 +16,9 @@ Server certificate
 
 The easiest solution is to use the `omero-certificates <https://github.com/ome/omero-certificates>`_ plugin to
 generate self-signed server certificates alongside their associated configuration.
+This workflow is described in the particular sections of :doc:`unix/server-installation` documentation.
 
-It is also possible to re-use the SSL certificates used to protect OMERO.web. First convert
+Here we describe an alternative option to the usage of the `omero-certificates <https://github.com/ome/omero-certificates>`_ plugin. This option is re-using the SSL certificates used to protect OMERO.web. First convert
 the public certificate :file:`server.pem` and private key :file:`server.key`
 to the PKCS12 format where ``secret`` is the password used to protect the combined output file :file:`server.p12`::
 
