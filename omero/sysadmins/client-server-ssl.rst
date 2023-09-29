@@ -8,14 +8,19 @@ OMERO.server and clients do not automatically support host verification, so a
 is possible.
 This may result in users inadvertently transmitting their login credentials to an attacker.
 
-This can be remedied by configuring OMERO.server with a certificate (the same certificate used for OMERO.web Nginx may work), and ensuring all OMERO clients are configured to verify the server certificate before connecting.
+This can be remedied by configuring OMERO.server with a certificate and ensuring all OMERO clients are configured to verify the server certificate before connecting.
 
 
 Server certificate
 ------------------
 
-The easiest solution is to re-use the SSL certificates used to protect OMERO.web.
-First convert the public certificate :file:`server.pem` and private key :file:`server.key` to the PKCS12 format where ``secret`` is the password used to protect the combined output file :file:`server.p12`::
+The easiest solution is to use the `omero-certificates <https://github.com/ome/omero-certificates>`_ plugin to
+generate self-signed server certificates alongside their associated configuration.
+This workflow is described in the particular sections of :doc:`unix/server-installation` documentation.
+
+Here we describe an alternative option to the usage of the `omero-certificates <https://github.com/ome/omero-certificates>`_ plugin. This option is re-using the SSL certificates used to protect OMERO.web. First convert
+the public certificate :file:`server.pem` and private key :file:`server.key`
+to the PKCS12 format where ``secret`` is the password used to protect the combined output file :file:`server.p12`::
 
     openssl pkcs12 -export -out server.p12 -in server.pem -inkey server.key -passout pass:secret
 
@@ -23,19 +28,15 @@ Copy :file:`server.p12` to the OMERO.server host, for instance to :file:`/etc/ss
 
 External access to OMERO.server is managed by the Glacier2 component which can be configured as follows::
 
-    # Enable authenticating ciphers.
-    omero config set omero.glacier2.IceSSL.Ciphers "ADH:HIGH:!LOW:!MD5:!EXP:!3DES:@STRENGTH"
+    omero config set omero.glacier2.IceSSL.Ciphers HIGH
     # Look for certificates in this directory, you can omit and use the full path to files instead
     omero config set omero.glacier2.IceSSL.DefaultDir /etc/ssl/omero/
     omero config set omero.glacier2.IceSSL.CertFile server.p12
     omero config set omero.glacier2.IceSSL.Password secret
-
-For even stronger security require TLS 1.2, disable anonymous ciphers and only allow ``HIGH``::
-
     omero config set omero.glacier2.IceSSL.Protocols tls1_2
     omero config set omero.glacier2.IceSSL.ProtocolVersionMin tls1_2
     omero config set omero.glacier2.IceSSL.ProtocolVersionMax tls1_2
-    omero config set omero.glacier2.IceSSL.Ciphers HIGH
+
 
 Restart OMERO.server.
 
