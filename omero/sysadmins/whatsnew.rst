@@ -1,6 +1,8 @@
 What's new for OMERO 5.6 for sysadmins
 ======================================
 
+- Server configuration using self-signed certificates. We recommend to read :doc:`server-upgrade`.
+
 - :doc:`version-requirements` has been updated to reflect changes in
   version support for 5.6.0 and tentative plans for 6.0.0. The biggest
   change is of course the removal of support for Python 2.
