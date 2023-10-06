@@ -489,9 +489,9 @@ on :ref:`pixelresolutionorder` useful.
 PyTables version
 ^^^^^^^^^^^^^^^^
 
-Version 3.9 of PyTables prevents its usage with Python 3.8,
-see `issue #1062 <https://github.com/PyTables/PyTables/issues/1062#issuecomment-1750388270>`_
-. To install, run:
+PyTables has dropped support for Python 3.8 in the 3.9.x line, 
+see `tag v3.9.1 <https://github.com/PyTables/PyTables/releases/tag/v3.9.1 >`_
+. To use Pytables with Python 3.8, run:
 
 .. parsed-literal::
 
