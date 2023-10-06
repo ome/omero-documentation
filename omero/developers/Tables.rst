@@ -15,7 +15,7 @@ In the same environment, you should now install PyTables_ by running::
 
     $ pip install tables 
 
-Note that if you are installing on **Ubuntu 16.04** or **Debian 9**, you will have to cap the version i.e.:
+Note that if you are installing on operating systems running Python 3.8, you will have to cap the version i.e.:
 
 .. parsed-literal::
 
