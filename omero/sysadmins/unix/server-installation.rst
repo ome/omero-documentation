@@ -210,26 +210,6 @@ latest release is available from the :zeroc:`ZeroC website
     <display/Ice36/Using+the+Python+Distribution>`
     for further details.
 
-OMERO.scripts
-^^^^^^^^^^^^^
-
-If you wish to run the "Movie Maker" script, please install :program:`mencoder`.
-
-.. list-table::
-    :header-rows: 1
-    :align: left
-
-    * - System
-      - Package
-
-    * - Debian
-      - mencoder
-
-    * - Homebrew
-      - mplayer
-
-    * - RedHat
-      - mencoder
 
 Installation
 ------------
