@@ -562,11 +562,6 @@ made to have usable settings out of the box, but if you can afford to
 provide OMERO with more memory, it will certainly improve your overall
 performance. See :ref:`jvm_memory_settings` on how to tune the JVM.
 
-Enabling movie creation from OMERO
-----------------------------------
-
-OMERO has a facility to create AVI/MPEG Movies from images. The page
-:doc:`/sysadmins/omeromovie` details how to enable it.
 
 Post-installation items
 -----------------------
