@@ -356,7 +356,6 @@ linkcheck_ignore += [
     r'https://docs.github.com/.*',
     r'https://wiki.centos.org/.*',
     r'https://royalsocietypublishing.org/.*',
-    r'https://logback.qos.ch/.*',
 ]
 
 exclude_patterns = ['sysadmins/unix/walkthrough/requirements*',
