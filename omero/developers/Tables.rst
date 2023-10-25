@@ -15,13 +15,8 @@ In the same environment, you should now install PyTables_ by running::
 
     $ pip install tables 
 
-PyTables has dropped support for Python 3.8 in the 3.9.x line, 
-see `tag v3.9.1 <https://github.com/PyTables/PyTables/releases/tag/v3.9.1 >`_
-. To use Pytables with Python 3.8, run:
-
-.. parsed-literal::
-
-    $ pip install 'tables<\ |version_tables_cap|'
+Note that PyTables has dropped support for Python 3.8 in the 3.9.x line, 
+see `tag v3.9.1 <https://github.com/PyTables/PyTables/releases/tag/v3.9.1 >`_.
 
 
 The interface
