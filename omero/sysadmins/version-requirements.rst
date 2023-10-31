@@ -86,12 +86,16 @@ NGINX
     * - 1.12
       - |Supported|
       - |Recommended|
-      - |Supported|
+      - |Deprecated|
     * - 1.14
       - |Upcoming|
       - |Supported|
-      - |Recommended|
+      - |Deprecated|
     * - 1.16
+      - |Upcoming|
+      - |Upcoming|
+      - |Deprecated|
+    * - 1.24
       - |Upcoming|
       - |Upcoming|
       - |Recommended|
