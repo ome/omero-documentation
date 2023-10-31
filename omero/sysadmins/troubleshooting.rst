@@ -490,5 +490,5 @@ PyTables version
 ^^^^^^^^^^^^^^^^
 
 Note that PyTables has dropped support for Python 3.8 in the 3.9.x line, 
-see `tag v3.9.1 <https://github.com/PyTables/PyTables/releases/tag/v3.9.1 >`_.
+see `tag v3.9.1 <https://github.com/PyTables/PyTables/releases/tag/v3.9.1 >`_ .
 
