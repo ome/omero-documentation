@@ -15,12 +15,9 @@ In the same environment, you should now install PyTables_ by running::
 
     $ pip install tables 
 
-Note that if you are installing on **Ubuntu 16.04** or **Debian 9**, you will have to cap the version i.e.:
-
-.. parsed-literal::
-
-    $ pip install 'tables<\ |version_tables_cap|'
-
+Note that PyTables has dropped support for Python 3.8 in the 3.9.x line, 
+see `tag v3.9.1 <https://github.com/PyTables/PyTables/releases/tag/v3.9.1>`_ .
+ 
 
 The interface
 -------------

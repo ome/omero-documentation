@@ -489,12 +489,6 @@ on :ref:`pixelresolutionorder` useful.
 PyTables version
 ^^^^^^^^^^^^^^^^
 
-Version 3.3 of PyTables contains a bug preventing its usage,
-see `issue #598 <https://github.com/PyTables/PyTables/issues/598#issuecomment-274154131>`_
-.
-PyTables on Debian 9 should be installed directly from PyPI_ instead of using ``python-tables``. To install, run:
-
-.. parsed-literal::
-
-    $ pip install 'tables<\ |version_tables_cap|'
+Note that PyTables has dropped support for Python 3.8 in the 3.9.x line, 
+see `tag v3.9.1 <https://github.com/PyTables/PyTables/releases/tag/v3.9.1>`_ .
 

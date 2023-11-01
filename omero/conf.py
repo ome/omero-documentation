@@ -175,9 +175,7 @@ rst_epilog += """
 .. |javaversion_recommended| replace:: 11
 .. |javaversion_min| replace:: 8
 .. |version_dropbox|  replace:: %s
-.. |version_tables_cap|  replace:: 3.6
 .. |version_openmicroscopy|  replace:: %s
-
 .. |Broken| image:: /images/broken.png
              :alt: Broken
 .. |Deprecated| image:: /images/deprecated.png
