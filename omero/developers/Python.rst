@@ -656,52 +656,62 @@ Write data
 OMERO tables
 ^^^^^^^^^^^^
 
--  **Create a name for the Original File (should be unique)**
+-  **Create some sample data. One table row per Image in Dataset**
+
+    The "Image" name is important to identify the Image ID column.
 
 ::
 
     from random import random
-    table_name = "TablesDemo:%s" % str(random())
-    col1 = omero.grid.LongColumn('Uid', 'testLong', [])
-    col2 = omero.grid.StringColumn('MyStringColumnInit', '', 64, [])
-    columns = [col1, col2]
+    dataset = conn.getObject('Dataset', dataset_id)
+    group_id = dataset.getDetails().group.id.val
+    conn.SERVICE_OPTS.setOmeroGroup(group_id)
+    column_names = ["Image", "Image_Name", "random_number"]
+    column_data = {"Image": [], "Image_Name": [], "random_number":[]}
+    for image in dataset.listChildren():
+        column_data["Image"].append(image.getId())
+        column_data["Image_Name"].append(image.name)
+        column_data["random_number"].append(random())
 
--  **Create and initialize a new table.**
+-  **Create appropriate column types with data.**
+
+::
+
+    cols = []
+    for name in column_names:
+        col_values = column_data[name]
+        if name == 'Image':
+            cols.append(ImageColumn(name, 'Description', col_values))
+        elif isinstance(col_values[0], int):
+            cols.append(LongColumn(name, 'Integer value column', col_values))
+        elif isinstance(col_values[0], float):
+            cols.append(DoubleColumn(name, '', col_values))
+        elif isinstance(col_values[0], str):
+            cols.append(StringColumn(name, '', 64, col_values))
+
+-  **Initialize table with the data**
 
 ::
 
     resources = conn.c.sf.sharedResources()
     repository_id = resources.repositories().descriptions[0].getId().getValue()
-    table = resources.newTable(repository_id, table_name)
-    table.initialize(columns)
+    table = resources.newTable(repository_id, "TablesDemo:%i" % int(random()*1e6))
+    table.initialize(cols)
+    # Upload the data
+    table.addData(cols)
+    table_file_id = table.getOriginalFile().id.val
+    table.close()
 
--  **Add data to the table**
-
-::
-
-    ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    strings = ["one", "two", "three", "four", "five",
-               "six", "seven", "eight", "nine", "ten"]
-    data1 = omero.grid.LongColumn('Uid', 'test Long', ids)
-    data2 = omero.grid.StringColumn('MyStringColumn', '', 64, strings)
-    data = [data1, data2]
-    table.addData(data)
-    orig_file = table.getOriginalFile()
-    table.close()           # when we are done, close.
-
--  **Load the table as an original file**
+-  **link the table file to the Dataset**
 
 ::
 
-    orig_file_id = orig_file.id.val
-    # ...so you can attach this data to an object e.g. Dataset
-    file_ann = omero.model.FileAnnotationI()
-    # use unloaded OriginalFileI
-    file_ann.setFile(omero.model.OriginalFileI(orig_file_id, False))
-    file_ann = conn.getUpdateService().saveAndReturnObject(file_ann)
-    link = omero.model.DatasetAnnotationLinkI()
-    link.setParent(omero.model.DatasetI(datasetId, False))
-    link.setChild(omero.model.FileAnnotationI(file_ann.getId().getValue(), False))
+    annotation = FileAnnotationI()
+    annotation.setFile(OriginalFileI(table_file_id, False))
+    annotation = conn.getUpdateService().saveAndReturnObject(annotation)
+    link = DatasetAnnotationLinkI()
+    link.setParent(DatasetI(dataset.getId(), False))
+    link.setChild(FileAnnotationI(annotation.getId().getValue(), False))
     conn.getUpdateService().saveAndReturnObject(link)
 
 -  **Table API**
