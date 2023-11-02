@@ -119,7 +119,7 @@ Linux (CentOS and RHEL)
 
 General overview for `RHEL
 <https://access.redhat.com/articles/3078>`__ and `CentOS
-<https://wiki.centos.org/About/Product>`__
+<https://www.centos.org/>`__.
 
 .. list-table::
     :header-rows: 1
@@ -130,30 +130,57 @@ General overview for `RHEL
       - OMERO 5.4
       - OMERO 5.5
       - OMERO 5.6
-      - Details
-    * - 6
+    * - `RHEL 6 <https://endoflife.date/rhel>`__
       - Nov 2010
       - Nov 2020
       - |Deprecated|
       - |Dropped|
       - |Dropped|
-      - `Reference <https://wiki.centos.org/About/Product>`__
-    * - 7
+    * - `CentOS 6 <https://endoflife.date/centos>`__
+      - Nov 2010
+      - Nov 2020
+      - |Deprecated|
+      - |Dropped|
+      - |Dropped|
+    * - `RHEL 7 <https://endoflife.date/rhel>`__
       - June 2014
       - June 2024
       - |Recommended|
       - |Recommended|
+      - |Supported|
+    * - `CentOS 7 <https://endoflife.date/centos>`__
+      - June 2014
+      - June 2024
       - |Recommended|
-      - `Reference <https://wiki.centos.org/About/Product>`__
-    * - 8
+      - |Recommended|
+      - |Supported|
+    * - `RHEL 8 <https://endoflife.date/rhel>`__
       - May 2019
-      - May 2029
-      - |Upcoming|
-      - |Upcoming|
-      - |Upcoming|
-      - `Reference <https://wiki.centos.org/About/Product>`__
+      - Dec 2029
+      - |Unsupported|
+      - |Unsupported|
+      - |Unsupported|
+    * - `CentOS 8 <https://endoflife.date/centos>`__
+      - May 2019
+      - Dec 2021
+      - |Unsupported|
+      - |Unsupported|
+      - |Unsupported|
+    * - `RHEL 9 <https://endoflife.date/rhel>`__
+      - May 2022
+      - May 2032
+      - |Unsupported|
+      - |Unsupported|
+      - |Recommended|
+    * - `Rocky 9 <https://endoflife.date/rocky-linux>`__
+      - Jul 2022
+      - May 2032
+      - |Unsupported|
+      - |Unsupported|
+      - |Recommended|
 
-RHEL/CentOS 7 is supported at present. Given the long life
+
+RHEL 9/Rocky Linux 9 are supported at present. Given the long life
 of enterprise releases, we intend to support only the latest release
 at any given time or else it ties us into very old dependencies.
 
@@ -186,20 +213,25 @@ Linux (Ubuntu)
     * - 18.04 LTS
       - Apr 2018
       - Apr 2028
-      - |Upcoming|
+      - |Unsupported|
       - |Supported|
-      - |Recommended|
+      - |Supported|
     * - 20.04 LTS
       - Apr 2020
       - Apr 2030
-      - |Upcoming|
-      - |Upcoming|
-      - |Upcoming|
+      - |Unsupported|
+      - |Unsupported|
+      - |Supported|
+    * - 22.04 LTS
+      - Apr 2022
+      - Apr 2032
+      - |Unsupported|
+      - |Unsupported|
+      - |Recommended|
 
 
 Only the LTS releases are supported due to resource limitations upon
-CI and testing. Only the last two LTS releases are supported (being a
-bit more frequent than CentOS/RHEL). There is currently no CI testing
+CI and testing. Only the last LTS releases is supported. There is currently no CI testing
 for any version.
 
 Microsoft Windows
