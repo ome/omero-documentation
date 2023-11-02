@@ -78,7 +78,9 @@ provided for several systems, with detailed step-by-step instructions.
 Reading through the :doc:`unix/server-installation` and
 :doc:`unix/install-web/web-deployment` pages first
 is recommended as this explains the entire process rather than just being a
-series of commands.
+series of commands. Users who would like to run OMERO with Docker can find
+example instructions at `Docker example OMERO
+<https://github.com/ome/docker-example-omero>`_.
 
 .. toctree::
     :maxdepth: 1

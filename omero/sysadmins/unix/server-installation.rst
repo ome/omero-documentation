@@ -13,6 +13,9 @@ This should be read in conjunction with :doc:`../version-requirements`.
 Since 5.6, a new :envvar:`OMERODIR` variable is used, you should first unset :envvar:`OMERO_HOME`
 (if set) before beginning the installation process.
 
+Users who would like to run OMERO with Docker can find
+example instructions at `Docker example OMERO
+<https://github.com/ome/docker-example-omero>`_.
 
 **Recommended:**
 
