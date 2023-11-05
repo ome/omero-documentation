@@ -295,6 +295,40 @@ These are only an introduction to using OMERO.tables and do not show its full
 potential, see :ref:`tables-going-forward` for some inspiration.
 
 
+Data viewing in OMERO.web
+-------------------------
+
+OMERO.web can display table data in a separate tab (attachment link) or in the image context, given the following setup:
+
+::
+
+    Dataset <- Table (Attachments panel > link)
+       |- Image 1 <- (Table panel > link, row values)
+       |- Image 2 <- (Table panel > link, row values)
+       |- ...
+
+The rows of the table will be rendered for each image of the dataset. The screenshot bellow shows the right-hand side panel of a selected Image in OMERO.web.
+
+.. |screenshot1| image:: /images/omero-tables-web-screenshot-dataset.png
+    :width: 300
+    :alt: OMERO.tables in OMERO.web - Dataset view
+
+.. |screenshot2| image:: /images/omero-tables-web-screenshot-image.png
+    :width: 300
+    :alt: OMERO.tables in OMERO.web - Image view
+
++--------------------------------+------------------------------------------------------+
+| |screenshot1|                  |                                        |screenshot2| |
++--------------------------------+------------------------------------------------------+
+| Dataset with an attached Table | Image panels with the row values of the parent table |
++--------------------------------+------------------------------------------------------+
+
+.. note:: The following conditions have to be fulfilled for this mechanism to work:
+
+    *  The Table needs to contain a column with the parameter ``name`` set to the value ``Image`` (case insensitive)
+    *  The column has to be of the type ``ImageColumn``, ``DoubleColumn`` or ``LongColumn``
+
+
 .. _tables-examples:
 
 Examples
@@ -302,6 +336,8 @@ Examples
 
 -  Hello World:
    :source:`examples/OmeroTables/first.py <examples/OmeroTables/first.py>`
+-  Creating an Table with example values for all Images of a Dataset in
+   :ref:`Python <python_omero_tables_code_samples>`:
 -  Creating a Measurement Table:
    :source:`examples/OmeroTables/MeasurementTable.java <examples/OmeroTables/MeasurementTable.java>`
 -  Querying a Table:
