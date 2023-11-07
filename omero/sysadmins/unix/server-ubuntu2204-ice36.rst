@@ -34,7 +34,7 @@ Installing prerequisites
 
 **The following steps are run as root.**
 
-Install Java |javaversion_recommended|, Ice |iceversion| and PostgreSQL:
+Install Java |javaversion_recommended|, Ice |iceversion| and PostgreSQL 14:
 
 To install Java |javaversion_recommended| and other dependencies:
 
