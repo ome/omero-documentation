@@ -108,14 +108,6 @@ General overview for `RHEL
       - Release date
       - Supported until
       - OMERO 5.6
-    * - `RHEL 6 <https://endoflife.date/rhel>`__
-      - Nov 2010
-      - Nov 2020
-      - |Dropped|
-    * - `CentOS 6 <https://endoflife.date/centos>`__
-      - Nov 2010
-      - Nov 2020
-      - |Dropped|
     * - `RHEL 7 <https://endoflife.date/rhel>`__
       - June 2014
       - June 2024
