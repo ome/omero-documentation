@@ -482,30 +482,19 @@ OMERO support policies
       - Release date
       - Supported until
       - OMERO 5.6
-    * - 1.6
-      - Apr 2014
-      - Apr 2015
-      - |Dropped|
-    * - 1.8
-      - Apr 2015
-      - Jan 2016
-      - |Dropped|
-    * - 1.10
-      - Apr 2016
-      - Apr 2017
-      - |Deprecated|
-    * - 1.12
-      - Apr 2017
-      - Apr 2018
+    * - 1.23
+      - Jun 2022
+      - May 2023
       - |Supported|
-    * - 1.14
-      - Apr 2018
-      - Apr 2019
-      - |Recommended|
-    * - 1.16
-      - Apr 2019
+    * - 1.24
+      - Apr 2023
       - TBA
       - |Recommended|
+    * - 1.25
+      - May 2023
+      - TBA
+      - |Upcoming|
+
 
 Version provided by distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -516,14 +505,14 @@ If no version is provided, a suitable repository is indicated.
     :align: left
 
     * - Version
-      - CentOS/RHEL
+      - RHEL/Rocky Linux
       - Ubuntu
-    * - 1.12
-      - 7 (`EPEL <https://dl.fedoraproject.org/pub/epel/7/x86_64/>`__)
-      - 14.04 (`nginx <https://launchpad.net/~nginx/+archive/ubuntu/stable>`__)
-    * - 1.14
+    * - 1.23
+      - 9 (`repo <http://nginx.org/packages/centos/9/x86_64/>`__)
       - N/A
-      - 16.04, 18.04 (`nginx <https://launchpad.net/~nginx/+archive/ubuntu/stable>`__)
+    * - 1.24
+      - 9 (`repo <http://nginx.org/packages/centos/9/x86_64/>`__)
+      - 22.04
 
 .. _support-levels:
 
