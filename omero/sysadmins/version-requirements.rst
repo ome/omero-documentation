@@ -255,23 +255,23 @@ If no version is provided, a suitable repository is indicated.
       - Homebrew
       - FreeBSD Ports
     * - 11
-      - 6 (`postgresql <https://yum.postgresql.org/11/redhat/rhel-6-x86_64/>`__), 7 (`postgresql <https://yum.postgresql.org/11/redhat/rhel-7-x86_64/>`__), 8 (`postgresql <https://yum.postgresql.org/11/redhat/rhel-8-x86_64/>`__)
-      - 16.04, 18.04, 20.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
+      - 7 (`postgresql <https://yum.postgresql.org/11/redhat/rhel-7-x86_64/>`__), 8 (`postgresql <https://yum.postgresql.org/11/redhat/rhel-8-x86_64/>`__), 9 (`postgresql <https://download.postgresql.org/pub/repos/yum/11/redhat/rhel-9-x86_64/>`__)
+      - 18.04, 20.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
       - Yes
       - Yes
     * - 12
-      - 6 (`postgresql <https://yum.postgresql.org/12/redhat/rhel-6-x86_64/>`__), 7 (`postgresql <https://yum.postgresql.org/12/redhat/rhel-7-x86_64/>`__), 8 (`postgresql <https://yum.postgresql.org/12/redhat/rhel-8-x86_64/>`__)
-      - 16.04, 18.04, 20.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
+      - 7 (`postgresql <https://yum.postgresql.org/12/redhat/rhel-7-x86_64/>`__), 8 (`postgresql <https://yum.postgresql.org/12/redhat/rhel-8-x86_64/>`__), 9 (`postgresql <https://download.postgresql.org/pub/repos/yum/12/redhat/rhel-9-x86_64/>`__)
+      - 18.04, 20.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
       - Yes
       - Yes
     * - 13
       - 7 (`postgresql <https://yum.postgresql.org/13/redhat/rhel-7-x86_64/>`__)
-      - 16.04, 18.04, 20.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
+      - 18.04, 20.04, 22.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
       - Yes
       - Yes
     * - 14
       - 7 (`postgresql <https://yum.postgresql.org/14/redhat/rhel-7-x86_64/>`__)
-      - 18.04, 20.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
+      - 18.04, 20.04, 22.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
       - Yes
       - Yes
     * - Details
