@@ -419,7 +419,7 @@ OMERO support policies
       - `Reference <https://www.oracle.com/technetwork/java/eol-135779.html>`__
     * - 8
       - Mar 2014
-      - Jun 2023
+      - Nov 2026
       - |Supported|
       - `Reference <https://access.redhat.com/articles/1299013>`__
     * - 11
@@ -427,16 +427,11 @@ OMERO support policies
       - Oct 2024
       - |Recommended|
       - `Reference <https://access.redhat.com/articles/1299013>`__
-    * - 12
+    * - 17
       - Sep 2018
-      - Oct 2024
+      - Oct 2027
       - |Supported|
-      -
-    * - 13
-      - Sep 2018
-      - Oct 2024
-      - |Supported|
-      -
+      - `Reference <https://access.redhat.com/articles/1299013>`__
 
 Version provided by distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -448,15 +443,9 @@ Version provided by distribution
     * - Version
       - CentOS/RHEL
       - Ubuntu
-    * - 7
-      - 6, 7
-      - 14.04
-    * - 8
-      - 6, 7
-      - 16.04, 18.04
     * - 11
-      - 7
-      - 18.04
+      - 9
+      - 22.04
     * - Details
       - 
       - `Reference <https://packages.ubuntu.com/search?keywords=jdk&searchon=names&suite=all&section=all>`__
