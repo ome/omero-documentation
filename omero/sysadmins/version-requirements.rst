@@ -349,51 +349,18 @@ Version provided by distribution
       - Ubuntu
       - Homebrew
       - FreeBSD Ports
-    * - 2.6
-      - 6
-      - 10.04
-      - N/A
-      - Yes
-    * - 2.7
-      - 7
-      - 14.04, 16.04, 18.04
-      - Yes
-      - Yes
-    * - 3.2
-      - N/A
-      - N/A
-      - N/A
-      - Yes
-    * - 3.3
-      - N/A
-      - N/A
-      - N/A
-      - Yes
-    * - 3.4
-      - 7 (`EPEL <https://dl.fedoraproject.org/pub/epel/7/x86_64/>`__)
-      - 14.04
-      - N/A
-      - Yes
-    * - 3.5
-      - N/A
-      - 16.04
-      - N/A
-      - Yes
     * - 3.6
       - 7 (`EPEL <https://dl.fedoraproject.org/pub/epel/7/x86_64/>`__)
       - 18.04
       - Yes
       - Yes
-    * - Details
-      - 
-      - `Python 2 <https://packages.ubuntu.com/search?keywords=python2&searchon=names&suite=all&section=all>`__
-        `Python 3 <https://packages.ubuntu.com/search?keywords=python3&searchon=names&suite=all&section=all>`__
-      - 
-      - 
+    * - 3.7
+      - 7 (`EPEL <https://dl.fedoraproject.org/pub/epel/7/x86_64/>`__)
+      - 18.04
+      - Yes
+      - Yes
 
-Python 2.7 support ends in 2020;
-
-The Django version used by OMERO.web (1.11.26) is supported on Python 3.5, 3.6 and 3.7
+The Django version used by OMERO.web (5.23.0) requires Python 3.8 or higher.
 
 .. _ice-requirements:
 
@@ -417,26 +384,17 @@ OMERO support policies
       - Mar 2013
       - Oct 2013
       - |Dropped|
-      - :zerocforum:`3.5.0 <6093/ice-3-5-0-released>`,
-        :zerocforum:`3.5.1 <6283/ice-3-5-1-released>`
+      - `Release notes <https://doc.zeroc.com/display/Ice35/Ice+Release+Notes>`__ 
     * - 3.6
       - June 2015
       - TBA
       - |Recommended|
-      - :zerocforum:`3.6.0 <6631/ice-3-6-0-and-ice-touch-3-6-0-released>`
-        (:zerocforum:`3.6.1 <45941/ice-3-6-0-and-ice-touch-3-6-1-released>` |Broken|),
-        :zerocforum:`3.6.2 <46347/ice-ice-e-and-ice-touch-3-6-2-released>`,
-        :zerocforum:`3.6.3 <46475/ice-ice-e-and-ice-touch-3-6-3-released>`,
-        :zerocforum:`3.6.4 <46550/ice-ice-e-and-ice-touch-3-6-4-released>`,
-        :zerocforum:`3.6.5 <46700/ice-3-6-5-released>`.
+      -  `Release notes <https://doc.zeroc.com/ice/3.6/ice-release-notes>`__
     * - 3.7
       - July 2017
       - TBA
       - |Unsupported|
-      - :zerocforum:`3.7.0 <46530/ice-3-7-0-and-ice-touch-3-7-0-released>`,
-        :zerocforum:`3.7.1 <46620/ice-3-7-1-released>`,
-        :zerocforum:`3.7.2 <46670/ice-3-7-2-released>`,
-        :zerocforum:`3.7.3 <46704/ice-3-7-3-released>`.
+      - `Release notes <https://doc.zeroc.com/ice/3.7/release-notes>`__
 
 
 Version provided by distribution
