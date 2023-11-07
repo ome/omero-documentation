@@ -49,6 +49,7 @@ Since 5.6, a new :envvar:`OMERODIR` variable is used, you should first unset :en
     :hidden:
 
     server-centos7-ice36
+    server-rockylinux9-ice36
     server-ubuntu1804-ice36
     server-ubuntu2004-ice36
     server-ubuntu2204-ice36

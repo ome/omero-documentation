@@ -63,8 +63,10 @@ Walkthroughs
     :hidden:
 
     walkthrough/omeroweb-install-centos7-ice3.6
+    walkthrough/omeroweb-install-rockylinux9-ice3.6
     walkthrough/omeroweb-install-ubuntu1804-ice3.6
     walkthrough/omeroweb-install-ubuntu2004-ice3.6
+    walkthrough/omeroweb-install-ubuntu2204-ice3.6
     walkthrough/omeroweb-install-debian10-ice3.6
 
 .. note:: Support for Apache deployment has been dropped in 5.3.0.
