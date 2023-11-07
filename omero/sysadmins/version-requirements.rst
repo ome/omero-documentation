@@ -300,46 +300,41 @@ OMERO support policies
       - Supported until
       - OMERO 5.6
       - Details
-    * - 2.6
-      - Oct 2008
-      - Oct 2013
-      - |Dropped|
-      - `PEP 361 <https://www.python.org/dev/peps/pep-0361/>`__
-    * - 2.7
-      - Jul 2010
-      - Jan 2020
-      - |Dropped|
-      - `PEP 373 <https://www.python.org/dev/peps/pep-0373/>`__
-    * - 3.2
-      - Feb 2011
-      - Feb 2016
-      - |Broken|
-      - `PEP 392 <https://www.python.org/dev/peps/pep-0392/>`__
-    * - 3.3
-      - Sep 2012
-      - Sep 2017
-      - |Broken|
-      - `PEP 398 <https://www.python.org/dev/peps/pep-0398/>`__
-    * - 3.4
-      - Mar 2014
-      - Mar 2019
-      - |Broken|
-      - `PEP 429 <https://www.python.org/dev/peps/pep-0429/>`__
-    * - 3.5
-      - Sep 2015
-      - Sep 2020
-      - |Upcoming|
-      - `PEP 478 <https://www.python.org/dev/peps/pep-0478/>`__
     * - 3.6
       - Dec 2016
       - Dec 2021
-      - |Recommended|
+      - |Dropped|
       - `PEP 494 <https://www.python.org/dev/peps/pep-0494/>`__
     * - 3.7
       - Jun 2018
       - Jun 2023
-      - |Supported|
+      - |Dropped|
       - `PEP 537 <https://www.python.org/dev/peps/pep-0537/>`__
+    * - 3.8
+      - Oct 2018
+      - Oct 2024
+      - |Supported|
+      - `PEP 569 <https://peps.python.org/pep-0569/>`__
+    * - 3.9
+      - Oct 2020
+      - Oct 2025
+      - |Recommended|
+      - `PEP 596 <https://peps.python.org/pep-0596/>`__
+    * - 3.10
+      - Oct 2021
+      - Oct 2026
+      - |Supported|
+      - `PEP 619 <https://peps.python.org/pep-0619/>`__
+    * - 3.11
+      - Oct 2022
+      - Oct 2027
+      - |Supported|
+      - `PEP 664 <https://peps.python.org/pep-0664/>`__
+    * - 3.12
+      - Oct 2023
+      - Oct 2028
+      - |Upcoming|
+      - `PEP 693 <https://peps.python.org/pep-0693/>`__
 
 
 Version provided by distribution
