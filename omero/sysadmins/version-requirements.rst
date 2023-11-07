@@ -243,20 +243,17 @@ If no version is provided, a suitable repository is indicated.
       - CentOS/RHEL
       - Ubuntu
     * - 11
-      - 7 (`postgresql <https://yum.postgresql.org/11/redhat/rhel-7-x86_64/>`__), 8 (`postgresql <https://yum.postgresql.org/11/redhat/rhel-8-x86_64/>`__), 9 (`postgresql <https://download.postgresql.org/pub/repos/yum/11/redhat/rhel-9-x86_64/>`__)
-      - 18.04, 20.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
+      - 9 (`postgresql <https://download.postgresql.org/pub/repos/yum/11/redhat/rhel-9-x86_64/>`__)
+      - 22.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/dists/jammy-pgdg/>`__)
     * - 12
-      - 7 (`postgresql <https://yum.postgresql.org/12/redhat/rhel-7-x86_64/>`__), 8 (`postgresql <https://yum.postgresql.org/12/redhat/rhel-8-x86_64/>`__), 9 (`postgresql <https://download.postgresql.org/pub/repos/yum/12/redhat/rhel-9-x86_64/>`__)
-      - 18.04, 20.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
+      - 9 (`postgresql <https://download.postgresql.org/pub/repos/yum/12/redhat/rhel-9-x86_64/>`__)
+      - 22.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/dists/jammy-pgdg/>`__)
     * - 13
-      - 7 (`postgresql <https://yum.postgresql.org/13/redhat/rhel-7-x86_64/>`__)
-      - 18.04, 20.04, 22.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
+      - 9
+      - 22.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/dists/jammy-pgdg/>`__)
     * - 14
-      - 7 (`postgresql <https://yum.postgresql.org/14/redhat/rhel-7-x86_64/>`__)
-      - 18.04, 20.04, 22.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
-    * - Details
-      - 
-      - `Reference <https://packages.ubuntu.com/search?keywords=postgresql&searchon=names&suite=all&section=all>`__
+      - 9 (`postgresql <https://yum.postgresql.org/14/redhat/rhel-9-x86_64/>`__)
+      - 22.04
 
 
 The PostgreSQL project provides `packages
