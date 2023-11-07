@@ -81,12 +81,6 @@ The following subsections detail the versions of each operating system
 which are supported by both its upstream developers (for security and
 general updates) and by OME for OMERO building and server deployment.
 
-UNIX (FreeBSD)
---------------
-
-It only really makes sense to support the base toolchain for major
-releases and the Ports tree (which is continually updated); these will
-be covered in the dependencies, below.
 
 Linux (CentOS and RHEL)
 -----------------------
@@ -203,10 +197,6 @@ Package lists
       - `Reference <https://download.rockylinux.org/pub/rocky/9/BaseOS/x86_64/os/Packages/>`__
     * - Ubuntu
       - `Reference <https://packages.ubuntu.com/search?keywords=foo&searchon=names&suite=all&section=all>`__
-    * - Homebrew
-      - `Reference <https://github.com/Homebrew/homebrew-core/tree/master/Formula>`__
-    * - FreeBSD Ports
-      - `Reference <https://svnweb.freebsd.org/ports/head/>`__
 
 
 PostgreSQL
@@ -252,33 +242,22 @@ If no version is provided, a suitable repository is indicated.
     * - Version
       - CentOS/RHEL
       - Ubuntu
-      - Homebrew
-      - FreeBSD Ports
     * - 11
       - 7 (`postgresql <https://yum.postgresql.org/11/redhat/rhel-7-x86_64/>`__), 8 (`postgresql <https://yum.postgresql.org/11/redhat/rhel-8-x86_64/>`__), 9 (`postgresql <https://download.postgresql.org/pub/repos/yum/11/redhat/rhel-9-x86_64/>`__)
       - 18.04, 20.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
-      - Yes
-      - Yes
     * - 12
       - 7 (`postgresql <https://yum.postgresql.org/12/redhat/rhel-7-x86_64/>`__), 8 (`postgresql <https://yum.postgresql.org/12/redhat/rhel-8-x86_64/>`__), 9 (`postgresql <https://download.postgresql.org/pub/repos/yum/12/redhat/rhel-9-x86_64/>`__)
       - 18.04, 20.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
-      - Yes
-      - Yes
     * - 13
       - 7 (`postgresql <https://yum.postgresql.org/13/redhat/rhel-7-x86_64/>`__)
       - 18.04, 20.04, 22.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
-      - Yes
-      - Yes
     * - 14
       - 7 (`postgresql <https://yum.postgresql.org/14/redhat/rhel-7-x86_64/>`__)
       - 18.04, 20.04, 22.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
-      - Yes
-      - Yes
     * - Details
       - 
       - `Reference <https://packages.ubuntu.com/search?keywords=postgresql&searchon=names&suite=all&section=all>`__
-      - 
-      - 
+
 
 The PostgreSQL project provides `packages
 <https://www.postgresql.org/download/>`__ for supported platforms
@@ -347,18 +326,12 @@ Version provided by distribution
     * - Version
       - CentOS/RHEL
       - Ubuntu
-      - Homebrew
-      - FreeBSD Ports
     * - 3.6
       - 7 (`EPEL <https://dl.fedoraproject.org/pub/epel/7/x86_64/>`__)
       - 18.04
-      - Yes
-      - Yes
     * - 3.7
       - 7 (`EPEL <https://dl.fedoraproject.org/pub/epel/7/x86_64/>`__)
       - 18.04
-      - Yes
-      - Yes
 
 The Django version used by OMERO.web (5.23.0) requires Python 3.8 or higher.
 
@@ -408,28 +381,18 @@ If no version is provided, a suitable repository is indicated.
     * - Version
       - CentOS/RHEL
       - Ubuntu
-      - Homebrew
-      - FreeBSD Ports
     * - 3.5
       - 6, 7 (`zeroc <https://zeroc.com/downloads/ice/3.5/>`__)
       - 14.04, 16.04
-      - N/A
-      - N/A
     * - 3.6
       - 6, 7 (`zeroc <https://zeroc.com/downloads/ice/3.6/>`__)
       - 14.04, 16.04 (`zeroc <https://zeroc.com/downloads/ice/3.6/>`__)
-      - Yes
-      - Yes
     * - 3.7
       - 7 (`zeroc <https://zeroc.com/downloads/ice/3.7/>`__)
       - 16.04, 18.04 (`zeroc <https://zeroc.com/downloads/ice/3.7/>`__)
-      - Yes
-      - Yes
     * - Details
       -
       - `Reference <https://packages.ubuntu.com/search?keywords=ice&searchon=names&suite=all&section=all>`__
-      -
-      -
 
 .. _version requirements java:
 
@@ -485,28 +448,18 @@ Version provided by distribution
     * - Version
       - CentOS/RHEL
       - Ubuntu
-      - Homebrew
-      - FreeBSD Ports
     * - 7
       - 6, 7
       - 14.04
-      - N/A
-      - Yes
     * - 8
       - 6, 7
       - 16.04, 18.04
-      - N/A
-      - N/A
     * - 11
       - 7
       - 18.04
-      - N/A
-      - Yes
     * - Details
       - 
       - `Reference <https://packages.ubuntu.com/search?keywords=jdk&searchon=names&suite=all&section=all>`__
-      - 
-      - 
 
 Note that all distributions provide OpenJDK due to distribution restrictions
 by Oracle. `Oracle Java
@@ -565,23 +518,12 @@ If no version is provided, a suitable repository is indicated.
     * - Version
       - CentOS/RHEL
       - Ubuntu
-      - Homebrew
-      - FreeBSD Ports
     * - 1.12
       - 7 (`EPEL <https://dl.fedoraproject.org/pub/epel/7/x86_64/>`__)
       - 14.04 (`nginx <https://launchpad.net/~nginx/+archive/ubuntu/stable>`__)
-      - N/A
-      - Yes
     * - 1.14
       - N/A
       - 16.04, 18.04 (`nginx <https://launchpad.net/~nginx/+archive/ubuntu/stable>`__)
-      - Yes
-      - Yes
-    * - Details
-      - 
-      - 
-      - `Reference <https://packages.ubuntu.com/search?keywords=nginx&searchon=names&suite=all&section=all>`__
-      - 
 
 .. _support-levels:
 
