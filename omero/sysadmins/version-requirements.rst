@@ -150,14 +150,6 @@ Linux (Ubuntu)
       - Release date
       - Supported until
       - OMERO 5.6
-    * - 14.04 LTS
-      - Apr 2014
-      - Apr 2019
-      - |Dropped|
-    * - 16.04 LTS
-      - Apr 2016
-      - Apr 2021
-      - |Dropped|
     * - 18.04 LTS
       - Apr 2018
       - Apr 2028
