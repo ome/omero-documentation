@@ -224,30 +224,10 @@ OMERO support policies
       - Release date
       - Supported until
       - OMERO 5.6
-    * - 9.3
-      - Sep 2013
-      - Sep 2018
-      - |Dropped|
-    * - 9.4
-      - Dec 2014
-      - Dec 2019
-      - |Dropped|
-    * - 9.5
-      - Jan 2016
-      - Jan 2021
-      - |Deprecated|
-    * - 9.6
-      - Sep 2016
-      - Sep 2021
-      - |Deprecated|
-    * - 10
-      - Oct 2017
-      - Nov 2022
-      - |Deprecated|
     * - 11
       - Oct 2018
       - Nov 2023
-      - |Recommended|
+      - |Supported|
     * - 12
       - Sep 2019
       - Nov 2024
@@ -255,7 +235,7 @@ OMERO support policies
     * - 13
       - Sep 2020
       - Nov 2025
-      - |Supported|
+      - |Recommended|
     * - 14
       - Sep 2021
       - Nov 2026
