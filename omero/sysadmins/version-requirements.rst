@@ -14,7 +14,7 @@ Support is limited to those environments on which OMERO is
 routinely tested.
 
 This page details the minimum version requirements for the current
-(|current_version|) release and also **possible** changes for the next release.
+(|current_version|) release.
 
 It is intended to provide a roadmap in order that sysadmins may
 plan ahead and ensure that prerequisites are in place for future upgrades.
