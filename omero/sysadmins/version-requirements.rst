@@ -67,18 +67,12 @@ NGINX
 
     * - nginx
       - OMERO 5.6
-    * - 1.8
-      - |Dropped|
-    * - 1.10
-      - |Deprecated|
-    * - 1.12
-      - |Deprecated|
-    * - 1.14
-      - |Deprecated|
-    * - 1.16
-      - |Deprecated|
+    * - 1.23
+      - |Supported|
     * - 1.24
       - |Recommended|
+    * - 1.25
+      - |Upcoming|
 
 Operating system support
 ========================
