@@ -326,12 +326,12 @@ Version provided by distribution
     * - Version
       - CentOS/RHEL
       - Ubuntu
-    * - 3.6
-      - 7 (`EPEL <https://dl.fedoraproject.org/pub/epel/7/x86_64/>`__)
-      - 18.04
-    * - 3.7
-      - 7 (`EPEL <https://dl.fedoraproject.org/pub/epel/7/x86_64/>`__)
-      - 18.04
+    * - 3.9
+      - 9
+      - 
+    * - 3.10
+      - 
+      - 22.04
 
 The Django version used by OMERO.web (5.23.0) requires Python 3.8 or higher.
 
@@ -381,18 +381,9 @@ If no version is provided, a suitable repository is indicated.
     * - Version
       - CentOS/RHEL
       - Ubuntu
-    * - 3.5
-      - 6, 7 (`zeroc <https://zeroc.com/downloads/ice/3.5/>`__)
-      - 14.04, 16.04
     * - 3.6
-      - 6, 7 (`zeroc <https://zeroc.com/downloads/ice/3.6/>`__)
-      - 14.04, 16.04 (`zeroc <https://zeroc.com/downloads/ice/3.6/>`__)
-    * - 3.7
-      - 7 (`zeroc <https://zeroc.com/downloads/ice/3.7/>`__)
-      - 16.04, 18.04 (`zeroc <https://zeroc.com/downloads/ice/3.7/>`__)
-    * - Details
-      -
-      - `Reference <https://packages.ubuntu.com/search?keywords=ice&searchon=names&suite=all&section=all>`__
+      - 9 (`zeroc-ice-rhel9-x86_64 <https://github.com/glencoesoftware/zeroc-ice-rhel9-x86_64>`__)
+      - 22.04 (`zeroc-ice-ubuntu2204-x86_64  <https://github.com/glencoesoftware/zeroc-ice-ubuntu2204-x86_64>`__)
 
 .. _version requirements java:
 
