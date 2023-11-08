@@ -29,3 +29,126 @@ either use your own values, or alternatively create :file:`settings.env` for exa
 
 .. literalinclude:: walkthrough/settings.env
    :start-after: Substitute
+
+Installing prerequisites
+------------------------
+
+**The following steps are run as root.**
+
+Install Java |javaversion_recommended|, Ice |iceversion| and PostgreSQL 15:
+
+To install Java |javaversion_recommended| and other dependencies:
+
+.. literalinclude:: walkthrough/walkthrough_rocky9.sh
+    :start-after: #start-step01
+    :end-before: #end-step01
+
+To install Ice |iceversion|:
+
+.. literalinclude:: walkthrough/walkthrough_rocky9.sh
+    :start-after: #start-recommended-ice
+    :end-before: #end-recommended-ice
+
+To install PostgreSQL 15:
+
+.. literalinclude:: walkthrough/walkthrough_rocky9.sh
+    :start-after: # install Postgres
+    :end-before: #end-step01
+
+.. Note:: if you are installing PostgreSQL in a Docker container, some of the commands above will not work. For more details check `step01_rocky9_deps.sh 
+ <hhttps://github.com/ome/omero-install/blob/develop/linux/step01_rocky9_deps.sh>`_
+
+Create a local omero-server system user, and a directory for the OMERO repository:
+
+.. literalinclude:: walkthrough/walkthrough_rocky9.sh
+    :start-after: #start-step02
+    :end-before: #end-step02
+
+Make the :file:`settings.env` available to the omero-server system user by copying in to the user home directory. The file will need to be sourced each time you switch user. You could add ``. ~/settings.env`` to the omero-server system user ``bash`` profile.
+
+Create a database user and initialize a new database for OMERO:
+
+.. literalinclude:: walkthrough/walkthrough_rocky9.sh
+    :start-after: #start-step03
+    :end-before: #end-step03
+
+Installing OMERO.server
+-----------------------
+
+**The following step is run as root.**
+
+We recommend to create a virtual environment and install the Ice Python binding and the dependencies required by the server using ``pip``:
+
+.. literalinclude:: walkthrough/walkthrough_rocky9.sh
+    :start-after: #start-step03bis
+    :end-before: #end-step03bis
+
+Download and unzip OMERO.server:
+
+.. literalinclude:: walkthrough/walkthrough_rocky9.sh
+    :start-after: #start-release-ice36
+    :end-before: #end-release-ice36
+
+Change the ownership of the OMERO.server directory and create a symlink:
+
+.. literalinclude:: walkthrough/walkthrough_rocky9.sh
+    :start-after: #end-release-ice36
+    :end-before: #end-step04-pre
+
+Configuring the OMERO.server
+----------------------------
+
+**The following steps are run as the omero-server system user.** (``su - omero-server``)
+
+The variable ``OMERODIR`` set in :download:`settings.env <walkthrough/settings.env>` above **must** point to the location where OMERO.server is installed.
+e.g. ``OMERODIR=/path_to_omero_server/OMERO.server``.
+
+Note that this script requires the same environment variables that were set
+earlier in `settings.env`, so you may need to copy and/or source this file as
+the omero user.
+
+Configure the database and the location of the data directory:
+
+.. literalinclude:: walkthrough/walkthrough_rocky9.sh
+    :start-after: #end-copy-omeroscript
+    :end-before: #end-step04
+
+.. include:: ciphers
+
+.. literalinclude:: walkthrough/walkthrough_rocky9.sh
+    :start-after: #start-seclevel
+    :end-before: #end-seclevel
+
+Running the OMERO.server
+------------------------
+
+**The following steps are run as the omero-server system user.** (``su - omero-server``)
+
+OMERO should now be set up. To start the server run::
+
+    omero admin start
+
+Should you wish to start OMERO automatically, a `systemd service file` could be created.
+An example :download:`omero-server-systemd.service <walkthrough/omero-server-systemd.service>`
+is available.
+
+Copy the ``systemd.service`` file and configure the service:
+
+.. literalinclude:: walkthrough/walkthrough_rocky9.sh
+    :start-after: #start-step06
+    :end-before: #end-step06
+
+You can then start up the service.
+
+Securing OMERO
+--------------
+
+**The following steps are run as root.**
+
+If multiple users have access to the machine running OMERO you should restrict
+access to OMERO.server's configuration and runtime directories, and optionally
+the OMERO data directory:
+
+.. literalinclude:: walkthrough/walkthrough_rocky9.sh
+    :start-after: #start-step07
+    :end-before: #end-step07
