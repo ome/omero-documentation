@@ -242,9 +242,6 @@ If no version is provided, a suitable repository is indicated.
     * - Version
       - CentOS/RHEL
       - Ubuntu
-    * - 11
-      - 9 (`postgresql <https://download.postgresql.org/pub/repos/yum/11/redhat/rhel-9-x86_64/>`__)
-      - 22.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/dists/jammy-pgdg/>`__)
     * - 12
       - 9 (`postgresql <https://download.postgresql.org/pub/repos/yum/12/redhat/rhel-9-x86_64/>`__)
       - 22.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/dists/jammy-pgdg/>`__)
