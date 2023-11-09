@@ -418,7 +418,7 @@ OMERO support policies
     * - 17
       - Sep 2018
       - Oct 2027
-      - |Supported|
+      - |Upcoming|
       - `Reference <https://access.redhat.com/articles/1299013>`__
 
 Version provided by distribution
