@@ -214,10 +214,6 @@ OMERO support policies
       - Release date
       - Supported until
       - OMERO 5.6
-    * - 11
-      - Oct 2018
-      - Nov 2023
-      - |Supported|
     * - 12
       - Sep 2019
       - Nov 2024
@@ -229,6 +225,10 @@ OMERO support policies
     * - 14
       - Sep 2021
       - Nov 2026
+      - |Supported|
+    * - 15
+      - Sep 2022
+      - Nov 2027
       - |Supported|
 
 Version provided by distribution
@@ -254,6 +254,9 @@ If no version is provided, a suitable repository is indicated.
     * - 14
       - 9 (`postgresql <https://yum.postgresql.org/14/redhat/rhel-9-x86_64/>`__)
       - 22.04
+    * - 15
+      - 9 (`postgresql <https://yum.postgresql.org/15/redhat/rhel-9-x86_64/>`__)
+      - 22.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/dists/jammy-pgdg/>`__)
 
 
 The PostgreSQL project provides `packages
