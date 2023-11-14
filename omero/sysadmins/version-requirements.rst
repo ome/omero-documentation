@@ -221,11 +221,11 @@ OMERO support policies
     * - 13
       - Sep 2020
       - Nov 2025
-      - |Recommended|
+      - |Supported|
     * - 14
       - Sep 2021
       - Nov 2026
-      - |Supported|
+      - |Recommended|
     * - 15
       - Sep 2022
       - Nov 2027
