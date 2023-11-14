@@ -7,21 +7,25 @@ yum -y install epel-release
 yum -y install unzip wget bc
 
 # install Java
-yum -y install java-11-openjdk
+dnf -y install java-11-openjdk
 
 # install dependencies
-
-yum -y install python3
-yum -y install openssl
+dnf -y install python unzip bzip2 wget bc openssl
 #end-step01
 # install Ice
 #start-recommended-ice
-dnf config-manager --set-enabled crb
-yum -y install bzip2 expat libdb-cxx
+if grep -q "Rocky" /etc/redhat-release; then
+  dnf -y install 'dnf-command(config-manager)'
+  dnf config-manager --set-enabled crb
+fi
+if grep -q "Red Hat" /etc/redhat-release; then
+  subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
+fi
+dnf -y install expat libdb-cxx
 
 cd /tmp
-wget https://github.com/sbesson/zeroc-ice-rockylinux9-x86_64/releases/download/202307018/Ice-3.6.5-rockylinux9-x86_64.tar.gz
-tar xf Ice-3.6.5-rockylinux9-x86_64.tar.gz
+wget https://github.com/glencoesoftware/zeroc-ice-rhel9-x86_64/releases/download/20230928/Ice-3.6.5-rhel9-x86_64.tar.gz
+tar xf Ice-3.6.5-rhel9-x86_64.tar.gz
 mv Ice-3.6.5 /opt/ice-3.6.5
 echo /opt/ice-3.6.5/lib64 > /etc/ld.so.conf.d/ice-x86_64.conf
 ldconfig
@@ -29,18 +33,15 @@ ldconfig
 
 
 # install Postgres
+dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-9-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+dnf -qy module disable postgresql
+dnf -y install postgresql15-server postgresql15
+PGSETUP_INITDB_OPTIONS=--encoding=UTF8  /usr/pgsql-15/bin/postgresql-15-setup initdb
 
-yum -y install postgresql-server postgresql
-
-PGSETUP_INITDB_OPTIONS=--encoding=UTF8 /usr/bin/postgresql-setup --initdb
-
-sed -i.bak -re 's/^(host.*)ident/\1md5/' /var/lib/pgsql/data/pg_hba.conf
-
+sed -i.bak -re 's/^(host.*)ident/\1md5/' /var/lib/pgsql/15/data/pg_hba.conf
+sed -i 's/ ident/ trust/g' /var/lib/pgsql/15/data/pg_hba.conf
 systemctl start postgresql
-
 systemctl enable postgresql
-
-sed -i 's/ ident/ trust/g' /var/lib/pgsql/data/pg_hba.conf
 #end-step01
 
 #start-step02: As root, create a local omero-server system user and directory for the OMERO repository
@@ -114,3 +115,12 @@ chmod go-rwx $OMERODIR/etc $OMERODIR/var
 # Optionally restrict access to the OMERO data directory
 # chmod go-rwx "$OMERO_DATA_DIR"
 #end-step07
+#start-step08: As root, configure
+cp omero-server-systemd.service /etc/systemd/system/omero-server.service
+
+systemctl daemon-reload
+
+systemctl enable omero-server.service
+firewall-cmd --zone=public --add-port=4064/tcp --permanent
+firewall-cmd --reload
+#end-step08

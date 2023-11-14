@@ -43,16 +43,16 @@ Walkthroughs
 **Recommended:**
 
 
+:doc:`walkthrough/omeroweb-install-rockylinux9-ice3.6`
+  Instructions for installing OMERO.web from scratch on RHEL 9/Rocky Linux 9 with Ice 3.6.
+
+:doc:`walkthrough/omeroweb-install-ubuntu2204-ice3.6`
+  Instructions for installing OMERO.web from scratch on Ubuntu 22.04 with Ice 3.6.
+
+**Supported:**
+
 :doc:`walkthrough/omeroweb-install-centos7-ice3.6`
   Instructions for installing OMERO.web from scratch on CentOS 7 with Ice 3.6.
-
-:doc:`walkthrough/omeroweb-install-debian10-ice3.6`
-  Instructions for installing OMERO.web from scratch on Debian 10 with Ice 3.6.
-
-:doc:`walkthrough/omeroweb-install-ubuntu1804-ice3.6`
-  Instructions for installing OMERO.web from scratch on Ubuntu 18.04 with Ice 3.6.
-
-**Upcoming:**
 
 :doc:`walkthrough/omeroweb-install-ubuntu2004-ice3.6`
   Instructions for installing OMERO.web from scratch on Ubuntu 20.04 with Ice 3.6.
@@ -63,8 +63,10 @@ Walkthroughs
     :hidden:
 
     walkthrough/omeroweb-install-centos7-ice3.6
+    walkthrough/omeroweb-install-rockylinux9-ice3.6
     walkthrough/omeroweb-install-ubuntu1804-ice3.6
     walkthrough/omeroweb-install-ubuntu2004-ice3.6
+    walkthrough/omeroweb-install-ubuntu2204-ice3.6
     walkthrough/omeroweb-install-debian10-ice3.6
 
 .. note:: Support for Apache deployment has been dropped in 5.3.0.
