@@ -99,11 +99,11 @@ General overview for `RHEL
     * - `RHEL 7 <https://endoflife.date/rhel>`__
       - June 2014
       - June 2024
-      - |Supported|
+      - |Deprecated|
     * - `CentOS 7 <https://endoflife.date/centos>`__
       - June 2014
       - June 2024
-      - |Supported|
+      - |Deprecated|
     * - `RHEL 8 <https://endoflife.date/rhel>`__
       - May 2019
       - Dec 2029
@@ -141,11 +141,11 @@ Linux (Ubuntu)
     * - 18.04 LTS
       - Apr 2018
       - Apr 2028
-      - |Supported|
+      - |Dropped|
     * - 20.04 LTS
       - Apr 2020
       - Apr 2030
-      - |Supported|
+      - |Deprecated|
     * - 22.04 LTS
       - Apr 2022
       - Apr 2032
@@ -304,7 +304,7 @@ OMERO support policies
     * - 3.11
       - Oct 2022
       - Oct 2027
-      - |Supported|
+      - |Upcoming|
       - `PEP 664 <https://peps.python.org/pep-0664/>`__
     * - 3.12
       - Oct 2023
