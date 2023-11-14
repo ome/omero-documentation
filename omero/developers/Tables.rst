@@ -307,7 +307,7 @@ OMERO.web can display table data in a separate tab (attachment link) or in the I
        |- Image 2 <- (Table panel > link, row values)
        |- ...
 
-The rows of the table will be rendered for each Image of the Dataset. The screenshot bellow shows the right-hand side panel of a selected Image in OMERO.web.
+The rows of the table will be rendered for each Image of the Dataset. The screenshot below shows the right-hand side panel of a selected Image in OMERO.web.
 
 .. |screenshot1| image:: /images/omero-tables-web-screenshot-dataset.png
     :width: 300
