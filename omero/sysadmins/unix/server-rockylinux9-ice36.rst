@@ -40,7 +40,7 @@ Install Java |javaversion_recommended|, Ice |iceversion| and PostgreSQL 15:
 To install Java |javaversion_recommended| and other dependencies:
 
 .. literalinclude:: walkthrough/walkthrough_rocky9.sh
-    :start-after: #start-step01
+    :start-after: # install Java
     :end-before: #end-step01
 
 To install Ice |iceversion|:
