@@ -1,10 +1,6 @@
 #!/bin/bash
 set -e -u -x
 
-#start-step01: As root, install dependencies
-yum -y install epel-release
-
-yum -y install unzip wget bc
 
 # install Java
 dnf -y install java-11-openjdk
