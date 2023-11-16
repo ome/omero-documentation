@@ -50,6 +50,8 @@ class :class:`omero.grid.Table`
     to work.
 
 
+.. _single-value-columns:
+
 Single value columns
 ^^^^^^^^^^^^^^^^^^^^
 
@@ -298,16 +300,15 @@ potential, see :ref:`tables-going-forward` for some inspiration.
 Data viewing in OMERO.web
 -------------------------
 
-OMERO.web can display table data in a separate tab (attachment link) or in the Image context, given the following setup:
+OMERO.web can display Table data in a separate tab by clicking on the attachment link. Furthermore it can show Table data in the Image context, given the following setup::
 
-::
+    Project            <-  Table (Attachments panel > link)
+        |- Dataset     <-  Table (Attachments panel > link)
+           |- Image 1  <-  Row values (Table panel > link to referencing Table, row values)
+           |- Image 2  <-  Row values (Table panel > link to referencing Table, row values)
+           |- ...
 
-    Dataset <- Table (Attachments panel > link)
-       |- Image 1 <- (Table panel > link, row values)
-       |- Image 2 <- (Table panel > link, row values)
-       |- ...
-
-The rows of the table will be rendered for each Image of the Dataset. The screenshot below shows the right-hand side panel of a selected Image in OMERO.web.
+The row values of the Table attached to a Dataset or Project will be rendered for each Image that is referenced in a given row. The screenshot below shows the right-hand side panels of a selected Dataset and one of its Images in OMERO.web.
 
 .. |screenshot1| image:: /images/omero-tables-web-screenshot-dataset.png
     :width: 300
@@ -320,13 +321,17 @@ The rows of the table will be rendered for each Image of the Dataset. The screen
 +--------------------------------+------------------------------------------------------+
 | |screenshot1|                  |                                        |screenshot2| |
 +--------------------------------+------------------------------------------------------+
-| Dataset with an attached Table | Image panels with the row values of the parent table |
+| Dataset with an attached Table | Image panels with the row values of the parent Table |
 +--------------------------------+------------------------------------------------------+
 
-.. note:: The following conditions have to be fulfilled for this mechanism to work:
+.. note:: The following conditions have to be fulfilled for this mechanism to work with Images:
 
-    *  The Table needs to contain a column with the parameter ``name`` set to the value ``Image`` (case insensitive)
+    *  The Table needs to contain a column with the parameter ``name`` set to the value ``Image``
     *  The column has to be of the type ``ImageColumn``, ``DoubleColumn`` or ``LongColumn``
+
+This mechanism can also be applied to the :model_doc:`Screen Plate Well <developers/screen-plate-well.html>` data objects using the respective columns listed in the previous section :ref:`Single value columns <single-value-columns>`.
+
+.. seealso:: More Table data visualisation functionality with `OMERO\.parade <https://omero-guides.readthedocs.io/en/latest/parade/docs/index.html>`_ (user guide).
 
 
 .. _tables-examples:
