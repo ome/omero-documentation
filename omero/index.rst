@@ -26,7 +26,7 @@ Additional online resources can be found at:
 
 - :downloads:`Downloads <>`
 - :secvuln:`Security Advisories <>`
-- :help:`User help website <>`
+- :help:`User guides <>`
 - `OME YouTube channel <https://www.youtube.com/channel/UCyySB9ZzNi8aBGYqcxSrauQ>`_
   for tutorials and presentations
 - `Demo server <http://qa.openmicroscopy.org.uk/registry/demo_account/>`_ -

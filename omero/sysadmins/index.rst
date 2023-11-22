@@ -5,7 +5,7 @@ System Administrator Documentation
 This documentation begins with information aimed at OS-level administrators
 and moves on to day-to-day management of OMERO for facility managers (who may
 find it useful to read the
-:help:`Facility Managers help guide <facility-manager.html>` for an overview
+:help:`Facility Managers walkthrough <example_facility_manager.html>` for an overview
 first).
 
 ***************
@@ -170,7 +170,7 @@ tasks on behalf of all users.
 
     - Command Line Interface guides for :doc:`cli/usergroup` and
       :doc:`/users/cli/chown`
-    - :help:`Facility Managers help guide <facility-manager.html>`
+    - :help:`Wlakthrough for Facility Managers <example_facility_manager.html>`
 
 ***********************
 Data Import and Storage
