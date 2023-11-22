@@ -4,6 +4,9 @@
 OMERO.server installation on Ubuntu 20.04
 =========================================
 
+.. warning::
+  We recommend to use Ubuntu 22.04. Please read :doc:`server-ubuntu2204-ice36`.
+
 This is an example walkthrough for installing OMERO on Ubuntu 20.04, using
 a dedicated local system user. You can use this as a guide
 for setting up your own test server. For production use you should also read

@@ -4,6 +4,10 @@
 OMERO.server installation on CentOS 7
 =====================================
 
+.. warning::
+  CentOS 7 will reach End Of Life on June 30, 2024. We recommend to use
+  RHEL 9/Rocky 9 instead. Please read :doc:`server-rockylinux9-ice36`.
+
 This is an example walkthrough for installing OMERO on CentOS 7, using
 a dedicated local system user. You can use this as a guide
 for setting up your own test server. For production use you should also read
