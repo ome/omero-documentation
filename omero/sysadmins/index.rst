@@ -5,7 +5,7 @@ System Administrator Documentation
 This documentation begins with information aimed at OS-level administrators
 and moves on to day-to-day management of OMERO for facility managers (who may
 find it useful to read the
-:help:`Facility Managers section <example_facility_manager.html>` for an overview
+:help:`Facility Managers walkthrough <example_facility_manager.html>` for an overview
 first).
 
 ***************
