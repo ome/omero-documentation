@@ -28,7 +28,7 @@ still a powerful user so each must be a highly trusted individual.
 
 Full administrators in OMERO can create new administrators with
 restricted privileges using the OMERO.web interface, see the
-:help:`Facility managers section <example_facility_manager.html>` in our User guides.
+:help:`Web Interface: Managing Users <introduction/docs/group-user-management.html>` in our User guides.
 OMERO.cli does not yet support easy management of
 restrictions nor does it offer the helpful :doc:`permissions mapping
 <mapping-restricted-admins>` but advanced users may :doc:`use OMERO.cli
