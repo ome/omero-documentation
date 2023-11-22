@@ -141,7 +141,7 @@ The various permission levels are:
 
 .. seealso::
 
-    :help:`Users guide for data management and sharing <data-management.html>`
+    :help:`Users guide for data management and sharing <introduction/docs/data-management.html>`
      Workflow guide describing the basics of data management and sharing with links to more detailed permissions documentation
 
 Changing group permissions
