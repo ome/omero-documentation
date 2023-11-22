@@ -4,6 +4,10 @@
 OMERO.server installation on Debian 10
 ======================================
 
+.. warning::
+  Debian 10 will reach End Of Life on June 30, 2024. We recommend to use
+  Ubuntu 22.04 instead. Please read :doc:`server-ubuntu2204-ice36`.
+
 This is an example walkthrough for installing OMERO on Debian 10, using
 a dedicated local system user. You can use this as a guide
 for setting up your own test server. For production use you should also read
