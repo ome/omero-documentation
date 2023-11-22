@@ -28,6 +28,5 @@ constraint: a Folder may *not* contain itself, even indirectly.
 The OMERO graphical clients offer very limited support for Folders. At
 present Folders may be most useful for those working with their data via
 the |OmeroApi| and its gateways or with the :doc:`OMERO.cli obj plugin
-</developers/cli/obj>`. The :help:`measurement tool
-<measurement-tool.html>` in OMERO.insight shows the Folders that ROIs
+</developers/cli/obj>`. The `measurement tool` in OMERO.insight shows the Folders that ROIs
 are in. OMERO.web is yet to provide support for Folders.

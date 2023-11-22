@@ -49,8 +49,8 @@ administrator (either a full admin or a restricted admin with the correct
 privileges) or by one of the group owners assigned by the administrator (group
 owners would typically include the PI of the lab). The group's owners or
 administrators can also choose the permission level for that group. See the
-:help:`Help guide for managing groups
-<sharing-data.html#owner>` for more information about how to administrate them
+:help:`User guides for managing groups and users
+<introduction/docs/group-user-management.html>` for more information about how to administrate them
 in OMERO.
 
 Group permission levels
@@ -101,7 +101,7 @@ The various permission levels are:
       -  Scientists submitting a publication could move data to a read-only
          group as part of the publication workflow, making them publicly
          available via a URL for reviewers and readers (see the
-         :help:`Help guide for public data <publish.html#public>`).
+         :help:`Users guide for public data <introduction/docs/data-publication.html>`).
       -  For an institutional repository where data are being archived and
          then available for other users in the institute to view; this could
          be standard storage of all original data, or for data that is
@@ -141,7 +141,7 @@ The various permission levels are:
 
 .. seealso::
 
-    :help:`Help guide for sharing data <sharing-data.html>`
+    :help:`Users guide for sharing data <introduction/docs/group-user-management.html>`
      Workflow guide covering the groups and permissions system
 
 Changing group permissions

@@ -88,9 +88,8 @@ This permits the flexible attachment of key-value pairs to
 any of the OME types which are annotatable. Such annotations
 attached to key UI elements like images and datasets will be
 presented by the clients, and can be edited with the
-appropriate permissions. See :help:`Managing Data
-<managing-data.html#keyvalue>` on :help:`OMERO User Help<>`
-for more information.
+appropriate permissions. See the section on :help:`Data Annotation
+<introduction/docs/annotate.html>` in the User guides for more information.
 See examples of creating MapAnnotations in :doc:`Java </developers/Java>`
 and :doc:`Python </developers/Python>` pages.
 

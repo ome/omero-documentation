@@ -183,10 +183,10 @@ considered "published".
    Project/Dataset/Image hierarchy prepared for the move by the author.
 #. If you have used OMERO.figure to create your figures for publication, you
    can always find the original data by using the 'info' tab, as shown in the
-   :help:`OMERO.figure Help guide <figure.html#info>` (OMERO.figure supports a
+   :help:`OMERO.figure creation guide <figure/docs/omero_figure.html>` (OMERO.figure supports a
    complete figure creation workflow, including exporting figures into image
    processing applications for final adjustments - see the
-   :help:`OMERO.figure Help guide <figure.html>` for full details).
+   :help:`OMERO.figure User guide <figure/docs/index.html>` for full details).
 #. Having all the data belong to one user simplifies the UI experience for
    public users. If necessary, ownership of data can be transferred using the
    'Chown' privilege (see :doc:`restricted-admins` and

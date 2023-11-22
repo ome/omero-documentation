@@ -30,7 +30,7 @@ can be passed as optional arguments to the :program:`omero user add` command.
 For managing the permissions of restricted administrators,
 :doc:`OMERO.cli does provide means <light-admins>` but that functionality
 is not yet offered in a friendly manner by the :program:`omero user` command.
-The :help:`OMERO.web Admin interface <facility-manager#lightadmin>` is
+The :help:`OMERO.web Admin interface <introduction/docs/group-user-management.html>` is
 recommended for this task instead.
 
 If you are using ldap as an authentication backend, you can create

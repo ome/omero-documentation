@@ -7,7 +7,7 @@ rendering images and accessing data on the OMERO server via URLs.
 .. note::
 
     The OMERO.web client also supports URLs linking to specified data in
-    OMERO. See the :help:`OMERO.web user guides <>` for more details.
+    OMERO. See the :help:`OMERO.web User guides <>` for more details.
 
 Web services
 ------------
