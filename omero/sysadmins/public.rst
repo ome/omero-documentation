@@ -182,7 +182,7 @@ considered "published".
    cuts the cross-links in the original group and preserves the
    Project/Dataset/Image hierarchy prepared for the move by the author.
 #. If you have used OMERO.figure to create your figures for publication, you
-   can always find the original data by using the 'info' tab, as shown in the
+   can always find the original data by using the 'info' tab inside the OMERO.figure app, see the
    :help:`OMERO.figure creation guide <figure/docs/omero_figure.html>` (OMERO.figure supports a
    complete figure creation workflow, including exporting figures into image
    processing applications for final adjustments - see the
