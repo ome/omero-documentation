@@ -221,7 +221,7 @@ analysis which produced the published numerical data.
 Key-Value pairs can be used to add more detailed information about the
 study and publication. For example, go to `Schleicher_etal_figure1_a <https://omero.lifesci.dundee.ac.uk/webclient/?show=project-27936>`_
 and expand the 'Key-Value Pairs' section in the right-hand pane to display
-the content (see the :help:`Managing data guide <managing-data.html#keyvalue>` for information on using Key-Value pairs).
+the content (see the :help:`Annotate User guide <introduction/docs/annotate.html>` for information on using Key-Value pairs).
 
 Configuring URLs
 ^^^^^^^^^^^^^^^^
