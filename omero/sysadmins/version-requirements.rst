@@ -153,7 +153,7 @@ Linux (Ubuntu)
 
 
 Only the LTS releases are supported due to resource limitations upon
-CI and testing. Only the last LTS releases is supported. There is currently no CI testing
+CI and testing. Only the last LTS release is supported. There is currently no CI testing
 for any version.
 
 Microsoft Windows
