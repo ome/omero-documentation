@@ -10,7 +10,7 @@ administrator privileges,
 see :doc:`/sysadmins/restricted-admins`.
 The OMERO.web user interface form for creation and editing of
 restricted administrators
-(see the :help:`creating Administrators with restricted privileges <introduction/docs/group-user-management.html>` section)
+(see the :help:`Web Interface: Managing Users <introduction/docs/group-user-management.html>` section)
 collates the server-side privileges
 into fewer options and gives the options user-friendly
 names. Here, the mapping of the OMERO.web options to the 
