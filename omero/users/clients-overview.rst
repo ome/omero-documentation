@@ -124,9 +124,8 @@ yet for OMERO.web are:
   intensity measurements of defined regions-of-interest (ROIs)
 - image import
 
-Our user assistance :help:`help website <>` features a number of
-workflow-based guides to importing, viewing, managing and exporting your data
-using OMERO.insight.
+We recommend to use OMERO.insight mainly for imports and concentrate on OMERO.web for all other workflows.
+See our :help:`User guides <>` for a number of workflows showing how to import data using OMERO.insight and how to view, manage and export data using OMERO.web.
 
 .. _omero-importer:
 
