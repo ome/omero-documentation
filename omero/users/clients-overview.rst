@@ -23,7 +23,7 @@ already included in your OS).
 Our :help:`User guides<>` provide a series of
 workflow-based guides to performing common actions in the client applications,
 such as importing and viewing data, exporting images, drawing and analyzing of ROIs.
-tool. 
+ 
 
 Our partners within the OME consortium are also producing new clients and
 modules for OMERO, integrating additional functionality, particularly for more
