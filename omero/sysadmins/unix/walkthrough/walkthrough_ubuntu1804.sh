@@ -16,7 +16,6 @@ apt-get install -y openjdk-11-jre
 # install dependencies
 
 # start-add-dependencies
-apt-get update
 apt-get -y install \
     unzip \
     wget \
