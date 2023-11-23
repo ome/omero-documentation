@@ -14,7 +14,7 @@ Support is limited to those environments on which OMERO is
 routinely tested.
 
 This page details the minimum version requirements for the current
-(|current_version|) release and also **possible** changes for the next release.
+(|current_version|) release.
 
 It is intended to provide a roadmap in order that sysadmins may
 plan ahead and ensure that prerequisites are in place for future upgrades.
@@ -52,16 +52,10 @@ Rationale: OMERO is tested on 64-bit systems only.
     :header-rows: 1
 
     * - Bitness
-      - OMERO 5.4
-      - OMERO 5.5
       - OMERO 5.6
     * - 32-bit
-      - |Deprecated| for Ice and native code [client]
-      - |Dropped|
       - |Dropped|
     * - 64-bit
-      - |Recommended|
-      - |Recommended|
       - |Recommended|
 
 NGINX
@@ -72,29 +66,13 @@ NGINX
     :align: left
 
     * - nginx
-      - OMERO 5.4
-      - OMERO 5.5
       - OMERO 5.6
-    * - 1.8
-      - |Deprecated|
-      - |Dropped|
-      - |Dropped|
-    * - 1.10
+    * - 1.23
+      - |Supported|
+    * - 1.24
       - |Recommended|
-      - |Supported|
-      - |Deprecated|
-    * - 1.12
-      - |Supported|
-      - |Recommended|
-      - |Supported|
-    * - 1.14
+    * - 1.25
       - |Upcoming|
-      - |Supported|
-      - |Recommended|
-    * - 1.16
-      - |Upcoming|
-      - |Upcoming|
-      - |Recommended|
 
 Operating system support
 ========================
@@ -103,19 +81,13 @@ The following subsections detail the versions of each operating system
 which are supported by both its upstream developers (for security and
 general updates) and by OME for OMERO building and server deployment.
 
-UNIX (FreeBSD)
---------------
-
-It only really makes sense to support the base toolchain for major
-releases and the Ports tree (which is continually updated); these will
-be covered in the dependencies, below.
 
 Linux (CentOS and RHEL)
 -----------------------
 
 General overview for `RHEL
 <https://access.redhat.com/articles/3078>`__ and `CentOS
-<https://wiki.centos.org/About/Product>`__
+<https://www.centos.org/>`__.
 
 .. list-table::
     :header-rows: 1
@@ -123,33 +95,34 @@ General overview for `RHEL
     * - Version
       - Release date
       - Supported until
-      - OMERO 5.4
-      - OMERO 5.5
       - OMERO 5.6
-      - Details
-    * - 6
-      - Nov 2010
-      - Nov 2020
-      - |Deprecated|
-      - |Dropped|
-      - |Dropped|
-      - `Reference <https://wiki.centos.org/About/Product>`__
-    * - 7
+    * - `RHEL 7 <https://endoflife.date/rhel>`__
       - June 2014
       - June 2024
-      - |Recommended|
-      - |Recommended|
-      - |Recommended|
-      - `Reference <https://wiki.centos.org/About/Product>`__
-    * - 8
+      - |Deprecated|
+    * - `CentOS 7 <https://endoflife.date/centos>`__
+      - June 2014
+      - June 2024
+      - |Deprecated|
+    * - `RHEL 8 <https://endoflife.date/rhel>`__
       - May 2019
-      - May 2029
-      - |Upcoming|
-      - |Upcoming|
-      - |Upcoming|
-      - `Reference <https://wiki.centos.org/About/Product>`__
+      - Dec 2029
+      - |Unsupported|
+    * - `CentOS 8 <https://endoflife.date/centos>`__
+      - May 2019
+      - Dec 2021
+      - |Unsupported|
+    * - `RHEL 9 <https://endoflife.date/rhel>`__
+      - May 2022
+      - May 2032
+      - |Recommended|
+    * - `Rocky 9 <https://endoflife.date/rocky-linux>`__
+      - Jul 2022
+      - May 2032
+      - |Recommended|
 
-RHEL/CentOS 7 is supported at present. Given the long life
+
+RHEL 9/Rocky Linux 9 are supported at present. Given the long life
 of enterprise releases, we intend to support only the latest release
 at any given time or else it ties us into very old dependencies.
 
@@ -164,38 +137,23 @@ Linux (Ubuntu)
     * - Version
       - Release date
       - Supported until
-      - OMERO 5.4
-      - OMERO 5.5
       - OMERO 5.6
-    * - 14.04 LTS
-      - Apr 2014
-      - Apr 2019
-      - |Supported|
-      - |Dropped|
-      - |Dropped|
-    * - 16.04 LTS
-      - Apr 2016
-      - Apr 2021
-      - |Recommended|
-      - |Recommended|
-      - |Dropped|
     * - 18.04 LTS
       - Apr 2018
       - Apr 2028
-      - |Upcoming|
-      - |Supported|
-      - |Recommended|
+      - |Dropped|
     * - 20.04 LTS
       - Apr 2020
       - Apr 2030
-      - |Upcoming|
-      - |Upcoming|
-      - |Upcoming|
+      - |Deprecated|
+    * - 22.04 LTS
+      - Apr 2022
+      - Apr 2032
+      - |Recommended|
 
 
 Only the LTS releases are supported due to resource limitations upon
-CI and testing. Only the last two LTS releases are supported (being a
-bit more frequent than CentOS/RHEL). There is currently no CI testing
+CI and testing. Only the last LTS release is supported. There is currently no CI testing
 for any version.
 
 Microsoft Windows
@@ -233,16 +191,12 @@ Package lists
 
     * - Operating system
       - Details
-    * - CentOS 6 / RHEL 6
-      - EOL
     * - CentOS 7 / RHEL 7
       - `Reference <http://mirror.centos.org/centos/7/os/x86_64/Packages/>`__
+    * - Rocky 9
+      - `Reference <https://download.rockylinux.org/pub/rocky/9/BaseOS/x86_64/os/Packages/>`__
     * - Ubuntu
       - `Reference <https://packages.ubuntu.com/search?keywords=foo&searchon=names&suite=all&section=all>`__
-    * - Homebrew
-      - `Reference <https://github.com/Homebrew/homebrew-core/tree/master/Formula>`__
-    * - FreeBSD Ports
-      - `Reference <https://svnweb.freebsd.org/ports/head/>`__
 
 
 PostgreSQL
@@ -259,62 +213,22 @@ OMERO support policies
     * - Version
       - Release date
       - Supported until
-      - OMERO 5.4
-      - OMERO 5.5
       - OMERO 5.6
-    * - 9.3
-      - Sep 2013
-      - Sep 2018
-      - |Deprecated|
-      - |Dropped|
-      - |Dropped|
-    * - 9.4
-      - Dec 2014
-      - Dec 2019
-      - |Supported|
-      - |Deprecated|
-      - |Dropped|
-    * - 9.5
-      - Jan 2016
-      - Jan 2021
-      - |Supported|
-      - |Supported|
-      - |Deprecated|
-    * - 9.6
-      - Sep 2016
-      - Sep 2021
-      - |Recommended|
-      - |Supported|
-      - |Deprecated|
-    * - 10
-      - Oct 2017
-      - Nov 2022
-      - |Upcoming|
-      - |Recommended|
-      - |Deprecated|
-    * - 11
-      - Oct 2018
-      - Nov 2023
-      - |Upcoming|
-      - |Upcoming|
-      - |Recommended|
     * - 12
       - Sep 2019
       - Nov 2024
-      - |Upcoming|
-      - |Upcoming|
       - |Supported|
     * - 13
       - Sep 2020
       - Nov 2025
-      - |Upcoming|
-      - |Upcoming|
       - |Supported|
     * - 14
       - Sep 2021
       - Nov 2026
-      - |Upcoming|
-      - |Upcoming|
+      - |Recommended|
+    * - 15
+      - Sep 2022
+      - Nov 2027
       - |Supported|
 
 Version provided by distribution
@@ -328,33 +242,19 @@ If no version is provided, a suitable repository is indicated.
     * - Version
       - CentOS/RHEL
       - Ubuntu
-      - Homebrew
-      - FreeBSD Ports
-    * - 11
-      - 6 (`postgresql <https://yum.postgresql.org/11/redhat/rhel-6-x86_64/>`__), 7 (`postgresql <https://yum.postgresql.org/11/redhat/rhel-7-x86_64/>`__), 8 (`postgresql <https://yum.postgresql.org/11/redhat/rhel-8-x86_64/>`__)
-      - 16.04, 18.04, 20.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
-      - Yes
-      - Yes
     * - 12
-      - 6 (`postgresql <https://yum.postgresql.org/12/redhat/rhel-6-x86_64/>`__), 7 (`postgresql <https://yum.postgresql.org/12/redhat/rhel-7-x86_64/>`__), 8 (`postgresql <https://yum.postgresql.org/12/redhat/rhel-8-x86_64/>`__)
-      - 16.04, 18.04, 20.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
-      - Yes
-      - Yes
+      - 9 (`postgresql <https://download.postgresql.org/pub/repos/yum/12/redhat/rhel-9-x86_64/>`__)
+      - 22.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/dists/jammy-pgdg/>`__)
     * - 13
-      - 7 (`postgresql <https://yum.postgresql.org/13/redhat/rhel-7-x86_64/>`__)
-      - 16.04, 18.04, 20.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
-      - Yes
-      - Yes
+      - 9
+      - 22.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/dists/jammy-pgdg/>`__)
     * - 14
-      - 7 (`postgresql <https://yum.postgresql.org/14/redhat/rhel-7-x86_64/>`__)
-      - 18.04, 20.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/>`__)
-      - Yes
-      - Yes
-    * - Details
-      - 
-      - `Reference <https://packages.ubuntu.com/search?keywords=postgresql&searchon=names&suite=all&section=all>`__
-      - 
-      - 
+      - 9 (`postgresql <https://yum.postgresql.org/14/redhat/rhel-9-x86_64/>`__)
+      - 22.04
+    * - 15
+      - 9 (`postgresql <https://yum.postgresql.org/15/redhat/rhel-9-x86_64/>`__)
+      - 22.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/dists/jammy-pgdg/>`__)
+
 
 The PostgreSQL project provides `packages
 <https://www.postgresql.org/download/>`__ for supported platforms
@@ -374,71 +274,43 @@ OMERO support policies
     * - Version
       - Release date
       - Supported until
-      - OMERO 5.4
-      - OMERO 5.5
       - OMERO 5.6
       - Details
-    * - 2.6
-      - Oct 2008
-      - Oct 2013
-      - |Dropped| [1]_ 
-        |Supported| [2]_ 
-      - |Dropped|
-      - |Dropped|
-      - `PEP 361 <https://www.python.org/dev/peps/pep-0361/>`__
-    * - 2.7
-      - Jul 2010
-      - Jan 2020
-      - |Recommended|
-      - |Recommended|
-      - |Dropped|
-      - `PEP 373 <https://www.python.org/dev/peps/pep-0373/>`__
-    * - 3.2
-      - Feb 2011
-      - Feb 2016
-      - |Broken|
-      - |Broken|
-      - |Broken|
-      - `PEP 392 <https://www.python.org/dev/peps/pep-0392/>`__
-    * - 3.3
-      - Sep 2012
-      - Sep 2017
-      - |Broken|
-      - |Broken|
-      - |Broken|
-      - `PEP 398 <https://www.python.org/dev/peps/pep-0398/>`__
-    * - 3.4
-      - Mar 2014
-      - Mar 2019
-      - |Broken|
-      - |Broken|
-      - |Broken|
-      - `PEP 429 <https://www.python.org/dev/peps/pep-0429/>`__
-    * - 3.5
-      - Sep 2015
-      - Sep 2020
-      - |Broken|
-      - |Broken|
-      - |Upcoming|
-      - `PEP 478 <https://www.python.org/dev/peps/pep-0478/>`__
     * - 3.6
       - Dec 2016
       - Dec 2021
-      - |Broken|
-      - |Broken|
-      - |Recommended|
+      - |Dropped|
       - `PEP 494 <https://www.python.org/dev/peps/pep-0494/>`__
     * - 3.7
       - Jun 2018
       - Jun 2023
-      - |Broken|
-      - |Broken|
-      - |Supported|
+      - |Dropped|
       - `PEP 537 <https://www.python.org/dev/peps/pep-0537/>`__
-
-.. [1] For OMERO.web, Python 2.7 is the minimum supported version.
-.. [2] For OMERO.py and OMERO.server 5.4, Python 2.6 is the minimum supported
-       version.
+    * - 3.8
+      - Oct 2018
+      - Oct 2024
+      - |Supported|
+      - `PEP 569 <https://peps.python.org/pep-0569/>`__
+    * - 3.9
+      - Oct 2020
+      - Oct 2025
+      - |Recommended|
+      - `PEP 596 <https://peps.python.org/pep-0596/>`__
+    * - 3.10
+      - Oct 2021
+      - Oct 2026
+      - |Supported|
+      - `PEP 619 <https://peps.python.org/pep-0619/>`__
+    * - 3.11
+      - Oct 2022
+      - Oct 2027
+      - |Upcoming|
+      - `PEP 664 <https://peps.python.org/pep-0664/>`__
+    * - 3.12
+      - Oct 2023
+      - Oct 2028
+      - |Upcoming|
+      - `PEP 693 <https://peps.python.org/pep-0693/>`__
 
 
 Version provided by distribution
@@ -451,53 +323,14 @@ Version provided by distribution
     * - Version
       - CentOS/RHEL
       - Ubuntu
-      - Homebrew
-      - FreeBSD Ports
-    * - 2.6
-      - 6
-      - 10.04
-      - N/A
-      - Yes
-    * - 2.7
-      - 7
-      - 14.04, 16.04, 18.04
-      - Yes
-      - Yes
-    * - 3.2
-      - N/A
-      - N/A
-      - N/A
-      - Yes
-    * - 3.3
-      - N/A
-      - N/A
-      - N/A
-      - Yes
-    * - 3.4
-      - 7 (`EPEL <https://dl.fedoraproject.org/pub/epel/7/x86_64/>`__)
-      - 14.04
-      - N/A
-      - Yes
-    * - 3.5
-      - N/A
-      - 16.04
-      - N/A
-      - Yes
-    * - 3.6
-      - 7 (`EPEL <https://dl.fedoraproject.org/pub/epel/7/x86_64/>`__)
-      - 18.04
-      - Yes
-      - Yes
-    * - Details
+    * - 3.9
+      - 9
       - 
-      - `Python 2 <https://packages.ubuntu.com/search?keywords=python2&searchon=names&suite=all&section=all>`__
-        `Python 3 <https://packages.ubuntu.com/search?keywords=python3&searchon=names&suite=all&section=all>`__
+    * - 3.10
       - 
-      - 
+      - 22.04
 
-Python 2.7 support ends in 2020;
-
-The Django version used by OMERO.web (1.11.26) is supported on Python 3.5, 3.6 and 3.7
+The Django version used by OMERO.web (5.23.0) requires Python 3.8 or higher.
 
 .. _ice-requirements:
 
@@ -515,40 +348,23 @@ OMERO support policies
     * - Version
       - Release date
       - Supported until
-      - OMERO 5.4
-      - OMERO 5.5
       - OMERO 5.6
       - Details
     * - 3.5
       - Mar 2013
       - Oct 2013
-      - |Deprecated|
       - |Dropped|
-      - |Dropped|
-      - :zerocforum:`3.5.0 <6093/ice-3-5-0-released>`,
-        :zerocforum:`3.5.1 <6283/ice-3-5-1-released>`
+      - `Release notes <https://doc.zeroc.com/display/Ice35/Ice+Release+Notes>`__ 
     * - 3.6
       - June 2015
       - TBA
       - |Recommended|
-      - |Recommended|
-      - |Recommended|
-      - :zerocforum:`3.6.0 <6631/ice-3-6-0-and-ice-touch-3-6-0-released>`
-        (:zerocforum:`3.6.1 <45941/ice-3-6-0-and-ice-touch-3-6-1-released>` |Broken|),
-        :zerocforum:`3.6.2 <46347/ice-ice-e-and-ice-touch-3-6-2-released>`,
-        :zerocforum:`3.6.3 <46475/ice-ice-e-and-ice-touch-3-6-3-released>`,
-        :zerocforum:`3.6.4 <46550/ice-ice-e-and-ice-touch-3-6-4-released>`,
-        :zerocforum:`3.6.5 <46700/ice-3-6-5-released>`.
+      -  `Release notes <https://doc.zeroc.com/ice/3.6/ice-release-notes>`__
     * - 3.7
       - July 2017
       - TBA
       - |Unsupported|
-      - |Unsupported|
-      - |Unsupported|
-      - :zerocforum:`3.7.0 <46530/ice-3-7-0-and-ice-touch-3-7-0-released>`,
-        :zerocforum:`3.7.1 <46620/ice-3-7-1-released>`,
-        :zerocforum:`3.7.2 <46670/ice-3-7-2-released>`,
-        :zerocforum:`3.7.3 <46704/ice-3-7-3-released>`.
+      - `Release notes <https://doc.zeroc.com/ice/3.7/release-notes>`__
 
 
 Version provided by distribution
@@ -562,28 +378,9 @@ If no version is provided, a suitable repository is indicated.
     * - Version
       - CentOS/RHEL
       - Ubuntu
-      - Homebrew
-      - FreeBSD Ports
-    * - 3.5
-      - 6, 7 (`zeroc <https://zeroc.com/downloads/ice/3.5/>`__)
-      - 14.04, 16.04
-      - N/A
-      - N/A
     * - 3.6
-      - 6, 7 (`zeroc <https://zeroc.com/downloads/ice/3.6/>`__)
-      - 14.04, 16.04 (`zeroc <https://zeroc.com/downloads/ice/3.6/>`__)
-      - Yes
-      - Yes
-    * - 3.7
-      - 7 (`zeroc <https://zeroc.com/downloads/ice/3.7/>`__)
-      - 16.04, 18.04 (`zeroc <https://zeroc.com/downloads/ice/3.7/>`__)
-      - Yes
-      - Yes
-    * - Details
-      -
-      - `Reference <https://packages.ubuntu.com/search?keywords=ice&searchon=names&suite=all&section=all>`__
-      -
-      -
+      - 9 (`zeroc-ice-rhel9-x86_64 <https://github.com/glencoesoftware/zeroc-ice-rhel9-x86_64>`__)
+      - 22.04 (`zeroc-ice-ubuntu2204-x86_64  <https://github.com/glencoesoftware/zeroc-ice-ubuntu2204-x86_64>`__)
 
 .. _version requirements java:
 
@@ -601,45 +398,28 @@ OMERO support policies
     * - Version
       - Release date
       - Supported until
-      - OMERO 5.4
-      - OMERO 5.5
       - OMERO 5.6
       - Details
     * - 7
       - Jul 2011
       - Apr 2015
-      - |Deprecated|
-      - |Dropped|
       - |Dropped|
       - `Reference <https://www.oracle.com/technetwork/java/eol-135779.html>`__
     * - 8
       - Mar 2014
-      - Jun 2023
-      - |Recommended|
-      - |Recommended|
+      - Nov 2026
       - |Supported|
       - `Reference <https://access.redhat.com/articles/1299013>`__
     * - 11
       - Sep 2018
       - Oct 2024
-      - |Unsupported|
-      - |Supported|
       - |Recommended|
       - `Reference <https://access.redhat.com/articles/1299013>`__
-    * - 12
+    * - 17
       - Sep 2018
-      - Oct 2024
-      - |Unsupported|
-      - |Unsupported|
-      - |Supported|
-      -
-    * - 13
-      - Sep 2018
-      - Oct 2024
-      - |Unsupported|
-      - |Unsupported|
-      - |Supported|
-      -
+      - Oct 2027
+      - |Upcoming|
+      - `Reference <https://access.redhat.com/articles/1299013>`__
 
 Version provided by distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -651,28 +431,12 @@ Version provided by distribution
     * - Version
       - CentOS/RHEL
       - Ubuntu
-      - Homebrew
-      - FreeBSD Ports
-    * - 7
-      - 6, 7
-      - 14.04
-      - N/A
-      - Yes
-    * - 8
-      - 6, 7
-      - 16.04, 18.04
-      - N/A
-      - N/A
     * - 11
-      - 7
-      - 18.04
-      - N/A
-      - Yes
+      - 9
+      - 22.04
     * - Details
       - 
       - `Reference <https://packages.ubuntu.com/search?keywords=jdk&searchon=names&suite=all&section=all>`__
-      - 
-      - 
 
 Note that all distributions provide OpenJDK due to distribution restrictions
 by Oracle. `Oracle Java
@@ -694,45 +458,20 @@ OMERO support policies
     * - Version
       - Release date
       - Supported until
-      - OMERO 5.4
-      - OMERO 5.5
       - OMERO 5.6
-    * - 1.6
-      - Apr 2014
-      - Apr 2015
-      - |Deprecated|
-      - |Dropped|
-      - |Dropped|
-    * - 1.8
-      - Apr 2015
-      - Jan 2016
+    * - 1.23
+      - Jun 2022
+      - May 2023
       - |Supported|
-      - |Deprecated|
-      - |Dropped|
-    * - 1.10
-      - Apr 2016
-      - Apr 2017
+    * - 1.24
+      - Apr 2023
+      - TBA
       - |Recommended|
-      - |Supported|
-      - |Deprecated|
-    * - 1.12
-      - Apr 2017
-      - Apr 2018
-      - |Supported|
-      - |Recommended|
-      - |Supported|
-    * - 1.14
-      - Apr 2018
-      - Apr 2019
-      - |Upcoming|
-      - |Supported|
-      - |Recommended|
-    * - 1.16
-      - Apr 2019
+    * - 1.25
+      - May 2023
       - TBA
       - |Upcoming|
-      - |Upcoming|
-      - |Recommended|
+
 
 Version provided by distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -743,25 +482,14 @@ If no version is provided, a suitable repository is indicated.
     :align: left
 
     * - Version
-      - CentOS/RHEL
+      - RHEL/Rocky Linux
       - Ubuntu
-      - Homebrew
-      - FreeBSD Ports
-    * - 1.12
-      - 7 (`EPEL <https://dl.fedoraproject.org/pub/epel/7/x86_64/>`__)
-      - 14.04 (`nginx <https://launchpad.net/~nginx/+archive/ubuntu/stable>`__)
+    * - 1.23
+      - 9 (`repo <http://nginx.org/packages/centos/9/x86_64/>`__)
       - N/A
-      - Yes
-    * - 1.14
-      - N/A
-      - 16.04, 18.04 (`nginx <https://launchpad.net/~nginx/+archive/ubuntu/stable>`__)
-      - Yes
-      - Yes
-    * - Details
-      - 
-      - 
-      - `Reference <https://packages.ubuntu.com/search?keywords=nginx&searchon=names&suite=all&section=all>`__
-      - 
+    * - 1.24
+      - 9 (`repo <http://nginx.org/packages/centos/9/x86_64/>`__)
+      - 22.04
 
 .. _support-levels:
 
