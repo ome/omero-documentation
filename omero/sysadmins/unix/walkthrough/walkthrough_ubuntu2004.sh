@@ -10,20 +10,11 @@ apt-get -y install unzip wget bc
 apt-get -y install cron
 
 # install Java
-apt-get -y install software-properties-common
-add-apt-repository ppa:openjdk-r/ppa
 apt-get update -q
-apt-get install -y openjdk-11-jre
+apt-get install -y openjdk-11-jdk
 
 # install dependencies
 
-# start-add-dependencies
-apt-get -y install \
-    unzip \
-    wget \
-    python3 \
-    python3-venv
-# end-add-dependencies
 #end-step01
 # install Ice
 #start-recommended-ice
