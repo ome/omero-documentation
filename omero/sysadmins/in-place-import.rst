@@ -291,10 +291,10 @@ Wikipedia.
 
 The semantics of hard-linking have changed recently on Linux systems
 with the "protected hardlinks" feature, which is enabled by default
-and is in use on Ubuntu 14.04, CentOS 7 and other contemporary
-systems.  When you create a hard-link to a file, Linux now requires
+and is in use on Ubuntu 22.04, RockyLinux/RHEL 9 and other contemporary
+systems. When you create a hard-link to a file, Linux now requires
 that you are either the *owner* of the file, or that you have
-*read-write permissions* to the file.  Other Unix systems, and older
+*read-write permissions* to the file. Other Unix systems, and older
 Linux systems, allow a hard-link to be made if you have *search
 access* to the file (i.e. you have appropriate read and execute
 permissions on the directory path containing the file), but do
