@@ -105,6 +105,7 @@ and installation directory.
     :maxdepth: 1
     :titlesonly:
 
+    system-migration
     python3-migration
     server-upgrade
     omeroweb-upgrade
