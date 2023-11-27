@@ -278,7 +278,7 @@ Some tests also require the installation of PyTables.
 
 Then install some additional test dependencies::
 
-    $ pip install pytest mox3 pyyaml tables
+    $ pip install pytest pytest-mock pyyaml tables
 
     # for Omeroweb tests
     $ pip install pytest-django
