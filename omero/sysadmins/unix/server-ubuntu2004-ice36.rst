@@ -68,7 +68,7 @@ To install PostgreSQL 12:
 
 Create a local omero-server system user, and a directory for the OMERO repository:
 
-.. literalinclude:: walkthrough/walkthrough_ubuntu1804.sh
+.. literalinclude:: walkthrough/walkthrough_ubuntu2004.sh
     :start-after: #start-step02
     :end-before: #end-step02
 
