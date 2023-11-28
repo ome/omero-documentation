@@ -171,7 +171,7 @@ rst_epilog += """
 .. |version_py|  replace:: %s
 .. |version_web|  replace:: %s
 .. |iceversion| replace:: 3.6.5
-.. |postgresversion| replace:: 11
+.. |postgresversion| replace:: 14
 .. |javaversion_recommended| replace:: 11
 .. |javaversion_min| replace:: 8
 .. |version_dropbox|  replace:: %s
