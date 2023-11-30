@@ -11,7 +11,7 @@ apt-get -y install cron
 
 # install Java
 apt-get update -q
-apt-get install -y openjdk-11-jdk
+apt-get install -y openjdk-11-jre
 
 # install dependencies
 
