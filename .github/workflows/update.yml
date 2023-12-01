@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install Ice Java and Python binding
-        uses: ome/action-ice@v1
+        uses: ome/action-ice@v3
       - name: Set up configuration
         run: |
           git config --global user.email github-actions@github.com
