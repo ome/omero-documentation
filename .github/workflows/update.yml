@@ -5,7 +5,7 @@ on:
     - cron: '* 0 * * *'
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     env:
       ICE_HOME: /opt/ice-3.6.5 # location where Ice is installed
     steps:
