@@ -209,26 +209,6 @@ latest release is available from the :zeroc:`ZeroC website
     <display/Ice36/Using+the+Python+Distribution>`
     for further details.
 
-OMERO.scripts
-^^^^^^^^^^^^^
-
-If you wish to run the "Movie Maker" script, please install :program:`mencoder`.
-
-.. list-table::
-    :header-rows: 1
-    :align: left
-
-    * - System
-      - Package
-
-    * - Debian
-      - mencoder
-
-    * - Homebrew
-      - mplayer
-
-    * - RedHat
-      - mencoder
 
 Installation
 ------------
@@ -581,11 +561,6 @@ made to have usable settings out of the box, but if you can afford to
 provide OMERO with more memory, it will certainly improve your overall
 performance. See :ref:`jvm_memory_settings` on how to tune the JVM.
 
-Enabling movie creation from OMERO
-----------------------------------
-
-OMERO has a facility to create AVI/MPEG Movies from images. The page
-:doc:`/sysadmins/omeromovie` details how to enable it.
 
 Post-installation items
 -----------------------
