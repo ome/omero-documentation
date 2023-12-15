@@ -33,7 +33,7 @@ with the given mechanism:
 - `Ansible roles <https://galaxy.ansible.com/ui/standalone/namespaces/5249/>`_ are available for most installation steps. 
   The primary roles, `omero-server <https://galaxy.ansible.com/ui/standalone/roles/ome/omero_server/>`_ and `omero-web <https://galaxy.ansible.com/ui/standalone/roles/ome/omero_web/>`_ allow to install respectively the OMERO.server and OMERO.web.
 
-- `Docker images <https://hub.docker.com/u/openmicroscopy>`_ are also available. Both the `omero-server`
+- `Docker images <https://hub.docker.com/u/openmicroscopy>`_ are also available. We offer production quality images of both `omero-server`
   and `omero-web` images are considered production quality.
 
 Please get in touch at https://forum.image.sc/c/data if you have any questions.
