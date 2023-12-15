@@ -60,7 +60,7 @@ On the new operating system, stop the OMERO.server.
 Restore the binary
 ~~~~~~~~~~~~~~~~~~
 
-- Remove all the directories under ``/OMERO`` e.g. ``sudo rm -rf /OMERO/ManagedRepository``.
+- Remove all the directories under ``/OMERO`` e.g. ``sudo rm -rf /OMERO/*``.
 
 - Change ownership and group of the renamed directories under ``OMERO_BINARY_BACKUP`` (exception is the backup diretory containing the ``omero.config`` i.e. ``/tmp/OMERO_BINARY_BACKUP/backup``)::
 
