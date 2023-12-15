@@ -24,7 +24,7 @@ The two recommended platforms are RHEL/RockyLinux 9 and Ubuntu 22.04.
 Installation
 ------------
 
-The installation walkthroughs provided in the documentation try to stick to a minimum installation.
+The installation walkthroughs provided in the documentation covers a minimum installation only.
 Check the main :doc:`server <unix/server-installation>` and :doc:`web <unix/install-web/web-deployment>` installation pages.
 
 However, more advanced installation mechanisms are available if you are interested and have familiarity
