@@ -11,7 +11,7 @@ Basic steps
    does not match one of the :doc:`recommended platforms <version-requirements>`,
    you may want to choose a new platform as your migration target. See
    `Choosing a platform`_ below.
-#. Install OMERO.server and OMERO.web *separately* (not necessary)
+#. If you chhose to Install OMERO.server and OMERO.web *separately* (optionally, you can install both on a single device):
    It will be preferrable to choose the same platform for both installations
    if you install OMERO.server and OMERO.web *separately*
 #. Once both have been installed, perform an OMERO.server `Backup and restore`_ procedure.
