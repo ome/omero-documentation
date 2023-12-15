@@ -25,7 +25,7 @@ Installation
 ------------
 
 The installation walkthroughs provided in the documentation covers a minimum installation only.
-Check the main :doc:`server <unix/server-installation>` and :doc:`web <unix/install-web/web-deployment>` installation pages.
+For this, check the main :doc:`server <unix/server-installation>` and :doc:`web <unix/install-web/web-deployment>` installation pages.
 
 However, more advanced installation mechanisms are available if you are interested and have familiarity
 with the given mechanism:
