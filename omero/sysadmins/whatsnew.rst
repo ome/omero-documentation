@@ -1,6 +1,8 @@
 What's new for OMERO 5.6 for sysadmins
 ======================================
 
+- Server installation instructions for RHEL 9/RockyLinux 9 and Ubuntu 22.04. See :doc:`unix/server-installation`.
+
 - Server configuration using self-signed certificates. We recommend to read :doc:`server-upgrade`.
 
 - :doc:`version-requirements` has been updated to reflect changes in
