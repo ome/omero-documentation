@@ -62,7 +62,7 @@ Restore the binary
 
 - Remove all the directories under ``/OMERO`` e.g. ``sudo rm -rf /OMERO/*``.
 
-- Change ownership and group of the renamed directories under ``OMERO_BINARY_BACKUP`` (exception is the backup diretory containing the ``omero.config`` i.e. ``/tmp/OMERO_BINARY_BACKUP/backup``)::
+- Change ownership and group of the directories under ``OMERO_BINARY_BACKUP`` (but do not change the ownership of the backup diretory containing the ``omero.config`` i.e. ``/tmp/OMERO_BINARY_BACKUP/backup``)::
 
     sudo chown -R omero-server /tmp/OMERO_BINARY_BACKUP/ManagedRepository/
     sudo chgrp -R managed_repo_group /tmp/OMERO_BINARY_BACKUP/ManagedRepository/
