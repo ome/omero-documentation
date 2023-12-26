@@ -67,7 +67,7 @@ Restore the binary
     sudo chown -R omero-server /tmp/OMERO_BINARY_BACKUP/ManagedRepository/
     sudo chgrp -R managed_repo_group /tmp/OMERO_BINARY_BACKUP/ManagedRepository/
 
-- As the ``omero-server`` user, move the renamed backup directories under ``/tmp/OMERO_BINARY_BACKUP`` (exception ``/tmp/OMERO_BINARY_BACKUP/backup``) to ``/OMERO``, for example::
+- As the ``omero-server`` user, move the backup directories under ``/tmp/OMERO_BINARY_BACKUP`` (exception ``/tmp/OMERO_BINARY_BACKUP/backup``) to ``/OMERO``, for example::
 
     sudo -u omero-server -s
     mv /tmp/OMERO_BINARY_BACKUP/ManagedRepository /OMERO/ManagedRepository
