@@ -85,7 +85,7 @@ Restore the OMERO.server configuration
 
    omero config load /tmp/OMERO_BINARY_BACKUP/backup/omero.config
 
-You should then follow the *Reconfiguration* steps of
+You should then follow the *Configuration* steps of
 :doc:`install <unix/server-installation>`.
 
 Virtual environments update
