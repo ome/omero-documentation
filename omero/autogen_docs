@@ -19,11 +19,11 @@ WORKSPACE=${WORKSPACE:-$(pwd)}
 WORKSPACE=${WORKSPACE%/}  # Remove trailing slashes
 USER=${USER:-$(whoami)}
 
-echo "Update the documentation using ome/openmicroscopy HEAD"
-echo "Retrieve model object"
-URL="https://latest-ci.openmicroscopy.org/jenkins/job/OMERO-server/lastSuccessfulBuild/artifact/EveryObject.rst"
-wget -q $URL
-mv EveryObject.rst omero/developers/Model/EveryObject.rst
+#echo "Update the documentation using ome/openmicroscopy HEAD"
+#echo "Retrieve model object"
+#URL="https://latest-ci.openmicroscopy.org/jenkins/job/OMERO-server/lastSuccessfulBuild/artifact/EveryObject.rst"
+#wget -q $URL
+#mv EveryObject.rst omero/developers/Model/EveryObject.rst
 
 echo "Copying history"
 # inject link to change log
