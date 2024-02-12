@@ -36,7 +36,7 @@ with the given mechanism:
 - `Docker images <https://hub.docker.com/u/openmicroscopy>`_ are also available. We offer production quality images of both `omero-server`
   and `omero-web`.
 
-Please get in touch at https://forum.image.sc/c/data if you have any questions.
+Please get in touch at https://forum.image.sc/tag/omero if you have any questions.
 
 
 Backup and restore
