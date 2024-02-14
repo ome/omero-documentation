@@ -67,7 +67,6 @@ Restore the binary
 - Change ownership and group of the directories under ``OMERO_BINARY_BACKUP``::
 
     sudo chown -R omero-server /tmp/OMERO_BINARY_BACKUP/
-    sudo chgrp -R managed_repo_group /tmp/OMERO_BINARY_BACKUP/
 
 - As the ``omero-server`` user, move all the backup directories under ``/tmp/OMERO_BINARY_BACKUP`` to ``/OMERO``, for example::
 
