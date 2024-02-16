@@ -1,4 +1,4 @@
-Migrate to a new operation system
+Migrate to a new operating system
 =================================
 
 This is an example walkthrough for migrating an OMERO.server to a new operating
