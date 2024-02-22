@@ -259,7 +259,7 @@ If no version is provided, a suitable repository is indicated.
       - 9 (`postgresql <https://yum.postgresql.org/15/redhat/rhel-9-x86_64/>`__)
       - 22.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/dists/jammy-pgdg/>`__)
     * - 16
-      - 9 (`postgresql <https://yum.postgresql.org/15/redhat/rhel-9-x86_64/>`__)
+      - 9 (`postgresql <https://yum.postgresql.org/16/redhat/rhel-9-x86_64/>`__)
       - 22.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/dists/jammy-pgdg/>`__)
 
 
