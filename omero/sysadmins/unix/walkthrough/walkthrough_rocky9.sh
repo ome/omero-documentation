@@ -31,13 +31,13 @@ ldconfig
 # install Postgres
 dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-9-x86_64/pgdg-redhat-repo-latest.noarch.rpm
 dnf -qy module disable postgresql
-dnf -y install postgresql14-server postgresql14
-PGSETUP_INITDB_OPTIONS=--encoding=UTF8  /usr/pgsql-14/bin/postgresql-14-setup initdb
+dnf -y install postgresql15-server postgresql15
+PGSETUP_INITDB_OPTIONS=--encoding=UTF8  /usr/pgsql-15/bin/postgresql-15-setup initdb
 
-sed -i.bak -re 's/^(host.*)ident/\1md5/' /var/lib/pgsql/14/data/pg_hba.conf
-sed -i 's/ ident/ trust/g' /var/lib/pgsql/14/data/pg_hba.conf
-systemctl start postgresql
-systemctl enable postgresql
+sed -i.bak -re 's/^(host.*)ident/\1md5/' /var/lib/pgsql/15/data/pg_hba.conf
+sed -i 's/ ident/ trust/g' /var/lib/pgsql/15/data/pg_hba.conf
+systemctl start postgresql-15
+systemctl enable postgresql-15
 #end-step01
 
 #start-step02: As root, create a local omero-server system user and directory for the OMERO repository
