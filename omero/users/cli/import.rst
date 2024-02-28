@@ -32,7 +32,7 @@ Some of the options available to the import command are:
 
 .. option:: -h, --help
 
-.. option:: -s SERVER, -p PORT, -U USERNAME, -g GROUPNAME
+.. option:: -s SERVER, -p PORT, -u USERNAME, -g GROUPNAME
 
     To avoid prompts for servername, port, username and group, use::
 
