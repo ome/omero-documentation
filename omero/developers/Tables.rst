@@ -50,6 +50,8 @@ class :class:`omero.grid.Table`
     to work.
 
 
+.. _single-value-columns:
+
 Single value columns
 ^^^^^^^^^^^^^^^^^^^^
 
@@ -295,6 +297,43 @@ These are only an introduction to using OMERO.tables and do not show its full
 potential, see :ref:`tables-going-forward` for some inspiration.
 
 
+Data viewing in OMERO.web
+-------------------------
+
+OMERO.web can display Table data in a separate tab by clicking on the attachment link. Furthermore it can show Table data in the Image context, given the following setup::
+
+    Project            <-  Table (Attachments panel > link)
+        |- Dataset     <-  Table (Attachments panel > link)
+           |- Image 1  <-  Row values (Table panel > link to referencing Table, row values)
+           |- Image 2  <-  Row values (Table panel > link to referencing Table, row values)
+           |- ...
+
+The row values of the Table attached to a Dataset or Project will be rendered for each Image that is referenced in a given row. The screenshot below shows the right-hand side panels of a selected Dataset and one of its Images in OMERO.web.
+
+.. |screenshot1| image:: /images/omero-tables-web-screenshot-dataset.png
+    :width: 300
+    :alt: OMERO.tables in OMERO.web - Dataset view
+
+.. |screenshot2| image:: /images/omero-tables-web-screenshot-image.png
+    :width: 300
+    :alt: OMERO.tables in OMERO.web - Image view
+
++--------------------------------+------------------------------------------------------+
+| |screenshot1|                  |                                        |screenshot2| |
++--------------------------------+------------------------------------------------------+
+| Dataset with an attached Table | Image panels with the row values of the parent Table |
++--------------------------------+------------------------------------------------------+
+
+.. note:: The following conditions have to be fulfilled for this mechanism to work with Images:
+
+    *  The Table needs to contain a column with the parameter ``name`` set to the value ``Image``
+    *  The column has to be of the type ``ImageColumn``, ``DoubleColumn`` or ``LongColumn``
+
+This mechanism can also be applied to the :model_doc:`Screen Plate Well <developers/screen-plate-well.html>` data objects using the respective columns listed in the previous section :ref:`Single value columns <single-value-columns>`.
+
+.. seealso:: More Table data visualisation functionality with `OMERO\.parade <https://omero-guides.readthedocs.io/en/latest/parade/docs/index.html>`_ (user guide).
+
+
 .. _tables-examples:
 
 Examples
@@ -302,6 +341,8 @@ Examples
 
 -  Hello World:
    :source:`examples/OmeroTables/first.py <examples/OmeroTables/first.py>`
+-  Creating an Table with example values for all Images of a Dataset in
+   :ref:`Python <python_omero_tables_code_samples>`:
 -  Creating a Measurement Table:
    :source:`examples/OmeroTables/MeasurementTable.java <examples/OmeroTables/MeasurementTable.java>`
 -  Querying a Table:
