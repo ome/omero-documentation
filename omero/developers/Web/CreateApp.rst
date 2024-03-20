@@ -30,24 +30,26 @@ Exploring the app
 -----------------
 
 The newly created app is well-documented within the code itself to explain how the app is working.
-Briefly, the app supports a single URL defined in
-``urls.py`` which maps to the ``index`` function
-within ``views.py``. This uses the connection to
-OMERO, ``conn`` to load the current user's name and passes this
-to the ``index.html`` template to render the page.
 
-This page also includes the static ``app.js`` and ``app.css`` files.
-JavaScript is used to load Projects from the :doc:`/developers/json-api` and
+Briefly, the app supports a single URL defined in ``urls.py`` which maps to the ``index`` function
+within ``views.py``. This uses the connection to OMERO, ``conn`` to load the current user's name and
+passes this to the ``index.html`` template to render the page.
+
+Here we are using the OMERO
+`python API <https://omero.readthedocs.io/en/latest/developers/Python.html>`_ to load data
+and render it into `html`` using Django templates.
+
+An alternative option is to use JavaScript
+to load data in the form of `JSON` and to generate html dynamically in the browser.
+
+The sample ``index.html`` page also includes the static ``app.js`` and ``app.css`` files
+to demonstrate this approach.
+JavaScript is used to load the current user's `Projects`` from the :doc:`/developers/json-api` and
 display them on the page.
 
-These represent the 2 main options you have for loading data from OMERO and displaying
-that data in the browser: In the first case, we use the OMERO
-`python API <https://omero.readthedocs.io/en/latest/developers/Python.html>`_ to load data
-and render it into `html`` using Django templates. Alternatively, we can use JavaScript
-to load data in the form of `JSON` and to generate html dynamically. You may find that
-the :doc:`/developers/json-api` or :doc:`/developers/Web/WebGateway` provide some
-of the data you wish to load, but for custom JSON data, you can add URL end-points to
-your own app that load data and return it as a JSON response.
+You may find that the :doc:`/developers/json-api` or :doc:`/developers/Web/WebGateway` provide some
+of the data you wish to load. If you wish to provide your own custom JSON api, you can add URL end-points to
+your own app and load the data you need in ``views.py`` then format it to JSON and return it as a JSON response.
 
 App settings
 ------------
