@@ -37,7 +37,7 @@ passes this to the ``index.html`` template to render the page.
 
 Here we are using the OMERO
 `python API <https://omero.readthedocs.io/en/latest/developers/Python.html>`_ to load data
-and render it into `html`` using Django templates.
+and render it into ``html`` using Django templates.
 
 An alternative option is to use JavaScript
 to load data in the form of `JSON` and to generate html dynamically in the browser.
