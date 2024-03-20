@@ -20,7 +20,8 @@ If you want to make changes to the OMERO.web code itself, go to
 Create an app using cookiecutter
 --------------------------------
 
-To get started quickly, we are going to use the "cookiecutter" template at
+Follow the instructions in `cookiecutter-omero-webapp <https://github.com/ome/cookiecutter-omero-webapp>`_ to install `cookiecutter`, create your app
+and run it within your `omero-web` python environment.
 `cookiecutter-omero-webapp <https://github.com/ome/cookiecutter-omero-webapp>`_.
 
 Please follow the instructions there to install `cookiecutter`, create your app
