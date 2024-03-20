@@ -29,7 +29,7 @@ and run it within your `omero-web` python environment.
 Exploring the app
 -----------------
 
-The newly created app template is well-documented to explain how the app is working.
+The newly created app is well-documented within the code itself to explain how the app is working.
 Briefly, the app supports a single URL defined in
 ``urls.py`` which maps to the ``index`` function
 within ``views.py``. This uses the connection to
