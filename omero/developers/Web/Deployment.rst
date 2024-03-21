@@ -21,7 +21,7 @@ Installing OMERO.web
 --------------------
 
 From OMERO 5.6.0 release, the ``omero-web`` library supports Python 3 and
-can be installed via :command:`pip`. We need to specify a location :envvar:`OMERODIR`
+can be installed via :command:`pip`. We need to specify an :envvar:`OMERODIR` location
 where `omero-web` will create log files and a :file:`config.xml` file. This can be any existing
 directory.
 
