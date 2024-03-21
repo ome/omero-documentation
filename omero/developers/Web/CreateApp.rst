@@ -40,7 +40,7 @@ Here we are using the OMERO
 and render it into ``html`` using Django templates.
 
 An alternative option is to use JavaScript
-to load data in the form of `JSON` and to generate html dynamically in the browser.
+to load data in the form of `JSON` and to generate ``html`` dynamically in the browser.
 
 The sample ``index.html`` page also includes the static ``app.js`` and ``app.css`` files
 to demonstrate this approach.
