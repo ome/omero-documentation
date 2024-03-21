@@ -23,9 +23,6 @@ Create an app using cookiecutter
 Follow the instructions in `cookiecutter-omero-webapp <https://github.com/ome/cookiecutter-omero-webapp>`_
 to install `cookiecutter`, create your app and run it within your `omero-web` python environment.
 
-Please follow the instructions there to install `cookiecutter`, create your app
-and run it within your `omero-web` python environment.
-
 Exploring the app
 -----------------
 
