@@ -11,144 +11,42 @@ Getting set up
 --------------
 
 In order to deploy OMERO.web in a development or testing environment,
-you can use Docker as described below or
-follow the install instructions under :doc:`Deployment`.
+please start by following the install instructions under :doc:`Deployment` to
+create a python environment with `omero-py` and `omero-web` installed.
 
 If you want to make changes to the OMERO.web code itself, go to
 :doc:`/developers/Web/EditingOmeroWeb`.
 
-Clone the examples repository
------------------------------
+Create an app using cookiecutter
+--------------------------------
 
-To get started quickly, we are going to use the
-`omero web apps examples <https://github.com/ome/omero-web-apps-examples>`_
-repository which contains two sample OMERO.web apps.
-Clone the repo to a location of your choice:
-
-::
-
-    $ git clone git@github.com:ome/omero-web-apps-examples.git
-
-We will run the simplest example app from the repo. This is called
-``minimal_webapp``.
-
-Run your app with locally-installed OMERO.web
----------------------------------------------
-
-If you have installed ``omero-web`` locally in a virtual environment
-as described in :doc:`Deployment`, you can simply install
-the minimal-webapp example via pip:
-
-::
-
-    $ cd omero-web-apps-examples/minimal-webapp
-    $ pip install -e .
-
-This installs the source code directly, allowing you to work on
-the installed code.
-
-You also need to add your app to the :property:`omero.web.apps` setting:
-
-.. note::
-
-    Here we use single quotes around double quotes.
-
-::
-
-    $ omero config append omero.web.apps '"minimal_webapp"'
-
-Now you can restart your omero-web server and go to
-`http://localhost:4080/minimal_webapp/ <http://localhost:4080/minimal_webapp/>`_
-in your browser.
-You should be redirected to the login screen and then back to the ``minimal_webapp``
-page which will display your Name and list your Projects.
-
-Run your app with OMERO.web in a Docker container
--------------------------------------------------
-
-The following walk-through uses `omero-web-docker <https://github.com/ome/omero-web-docker/>`_
-to run the app. Here we add ``minimal_webapp`` to the installed apps and map the
-app directory to the ``site-packages`` directory in the Docker instance so that
-python can import our ``minimal_webapp`` module.
-
-::
-
-    # You need to be in the project directory for this to work.
-    # cd omero-web-apps-examples/
-
-    # The OMERO server we want to connect to.
-    $ host=demo.openmicroscopy.org
-
-    # Path to the python module for the app.
-    $ appdir=$(pwd)/minimal-webapp/minimal_webapp
-
-    # Location within Docker instance we want to link the app, so it can be imported.
-    $ docker_appdir=/opt/omero/web/venv3/lib/python3.6/site-packages/minimal_webapp
-
-    # This example config file installs "minimal_webapp". See the file for more details.
-    $ config=$(pwd)/config.omero
-
-    # Location within Docker instance we want to mount the config.
-    $ docker_config=/opt/omero/web/config/config.omero
-
-    # Run docker container.
-    $ docker run -it --rm -e OMEROHOST=$host -p 4080:4080 -v $appdir:$docker_appdir -v $config:$docker_config openmicroscopy/omero-web-standalone
-
-This will run Docker in the foreground, showing the output in your terminal and allowing you to
-kill the container with Ctrl-C. You should see the following lines in the output, indicating
-that OMERO.web is starting and the static files from your app are being included.
-
-::
-
-    ...
-    Copying '/opt/omero/web/venv3/lib/python3.6/site-packages/minimal_webapp/static/minimal_webapp/app.css'
-    Copying '/opt/omero/web/venv3/lib/python3.6/site-packages/minimal_webapp/static/minimal_webapp/app.js'
-    ...
-    Starting OMERO.web...
-
-Now go to `http://localhost:4080/minimal_webapp/ <http://localhost:4080/minimal_webapp/>`_
-in your browser.
-You should be redirected to the login screen and then back to the ``minimal_webapp``
-page which will display your Name and list your Projects.
+Follow the instructions in `cookiecutter-omero-webapp <https://github.com/ome/cookiecutter-omero-webapp>`_
+to install `cookiecutter`, create your app and run it within your `omero-web` python environment.
 
 Exploring the app
 -----------------
 
-The `minimal_webapp code <https://github.com/ome/omero-web-apps-examples/tree/master/minimal-webapp>`_
-is well-documented to explain how the app is working.
-Briefly, the app supports a single URL defined in
-``minimal_webapp/urls.py`` which maps to the ``index`` function
-within ``minimal_webapp/views.py``. This uses the connection to
-OMERO, ``conn`` to load the current user's name and passes this
-to the ``index.html`` template to render the page.
+The working of the newly created app is well-documented within the code itself.
 
-This page also includes the static ``app.js`` and ``app.css`` files.
-JavaScript is used to load Projects from the :doc:`/developers/json-api` and
+Briefly, the app supports a single URL defined in ``urls.py`` which maps to the ``index`` function
+within ``views.py``. This uses the connection to OMERO, ``conn`` to load the current user's name and
+passes this to the ``index.html`` template to render the page.
+
+Here we are using the OMERO
+`python API <https://omero.readthedocs.io/en/latest/developers/Python.html>`_ to load data
+and render it into ``html`` using Django templates.
+
+An alternative option is to use JavaScript
+to load data in the form of `JSON` and to generate ``html`` dynamically in the browser.
+
+The sample ``index.html`` page also includes the static ``app.js`` and ``app.css`` files
+to demonstrate this approach.
+JavaScript is used to load the current user's `Projects`` from the :doc:`/developers/json-api` and
 display them on the page.
 
-Create an app from the template example
----------------------------------------
-
-If you want to create your own app, you can use the example
-as a template.
-
-Go to the template repository
-`omero-web-apps-examples <https://github.com/will-moore/omero-web-apps-examples>`_.
-Click 'Use this template' as `described here
-<https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template>`_
-and choose a name for your new repo, for example ``my_app``.
-
-Go to the directory where you want your app to live and clone it.
-Then run as above with Docker or locally-installed OMERO.web, making sure
-that your app can be imported as before.
-
-::
-
-    $ git clone https://github.com/<username>/my_app
-    $ cd my_app
-
-    # Then run as above...
-
+You may find that the :doc:`/developers/json-api` or :doc:`/developers/Web/WebGateway` provide some
+of the data you wish to load. If you wish to provide your own custom JSON api, you can add URL end-points to
+your own app and load the data you need in ``views.py`` then format it to JSON and return it as a JSON response.
 
 App settings
 ------------
