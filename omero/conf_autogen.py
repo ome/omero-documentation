@@ -1,6 +1,6 @@
 current_dbver = "OMERO5.4__0"
 previous_dbver = "OMERO5.3__1"
-version_openmicroscopy = "5.6.10"
+version_openmicroscopy = ""
 version_formats_gpl = "7.1.0"
 version_blitz = "5.7.2"
 version_server = "5.6.10"
