@@ -2051,9 +2051,7 @@ omero.security.ignore_case
 Whether to ignore the case of the username during login (`true` or
 `false`). Default: `false` (JSmith and jsmith will be considered two
 different users).
-
 .. warning::
-
    Before enabling this feature, lower the case of all usernames in OMERO
    (`omename` column in the `experimenter` table). It is the system
    administrator's responsibility to handle any username clashes.
@@ -2852,14 +2850,6 @@ omero.web.viewer.view
 Django view which handles display of, or redirection to, the desired full image viewer.
 
 Default: `omeroweb.webclient.views.image_viewer`
-
-.. property:: omero.web.webgateway_cache
-
-omero.web.webgateway_cache
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-Default: `None`
 
 .. property:: omero.web.wsgi_args
 
