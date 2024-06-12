@@ -7,7 +7,6 @@ Installing additional features
 
     grid
     mail
-    omeromovie
     installing-scripts
     client-server-ssl
     websockets
