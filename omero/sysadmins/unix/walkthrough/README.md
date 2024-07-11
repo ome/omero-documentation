@@ -2,13 +2,12 @@ Example OMERO Linux install scripts
 ===================================
 
 This directory contains examples of installing OMERO on clean
-Ubuntu 22.04, Ubuntu 20.04, Debian 10, Rocky Linux 9 64-bit systems, see
+Ubuntu 22.04, Ubuntu 20.04, Rocky Linux 9 64-bit systems, see
 https://docs.openmicroscopy.org/latest/omero/sysadmins/unix/server-installation.html
 
 Copy the files from this directory, then run one of the install scripts,
 
-	bash install_ubuntu2204.sh
-    bash install_debian10.sh
+    bash install_ubuntu2204.sh
     bash install_ubuntu2004.sh
     bash install_rocky9.sh
 
