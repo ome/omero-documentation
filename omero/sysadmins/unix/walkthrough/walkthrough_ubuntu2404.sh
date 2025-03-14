@@ -25,29 +25,28 @@ apt-get -y install \
 #end-step01
 # install Ice
 #start-recommended-ice
+apt-get update && \
 apt-get install -y -q \
-build-essential \
 db5.3-util \
-libbz2-dev \
-libdb++-dev \
-libdb-dev \
-libexpat-dev \
-libmcpp-dev \
-libssl-dev \
+bzip2 \
+libdb++ \
+libexpat1 \
+libmcpp0 \
+openssl \
 mcpp \
-zlib1g-dev
+zlib1g
 
 cd /tmp
-wget -q https://github.com/ome/zeroc-ice-ubuntu2004/releases/download/0.2.0/ice-3.6.5-0.2.0-ubuntu2004-amd64.tar.gz
-tar xf ice-3.6.5-0.2.0-ubuntu2004-amd64.tar.gz
-mv ice-3.6.5-0.2.0 ice-3.6.5
-mv ice-3.6.5 /opt
+wget -q https://github.com/glencoesoftware/zeroc-ice-ubuntu2404-x86_64/releases/download/20240619/Ice-3.6.5-ubuntu2404-x86_64.tar.gz
+tar xf Ice-3.6.5-ubuntu2404-x86_64.tar.gz
+mv Ice-3.6.5 /opt/ice-3.6.5
 echo /opt/ice-3.6.5/lib64 > /etc/ld.so.conf.d/ice-x86_64.conf
 ldconfig
 #end-recommended-ice
 
 
 # install Postgres
+apt-get update
 apt-get -y install postgresql
 service postgresql start
 #end-step01
@@ -76,7 +75,7 @@ python3 -mvenv $VENV_SERVER
 $VENV_SERVER/bin/pip install --upgrade pip
 
 # Install the Ice Python binding
-$VENV_SERVER/bin/pip install https://github.com/ome/zeroc-ice-ubuntu2004/releases/download/0.2.0/zeroc_ice-3.6.5-cp38-cp38-linux_x86_64.whl
+$VENV_SERVER/bin/pip install https://github.com/glencoesoftware/zeroc-ice-py-linux-x86_64/releases/download/20240202/zeroc_ice-3.6.5-cp312-cp312-manylinux_2_28_x86_64.whl
 
 # Install server dependencies
 $VENV_SERVER/bin/pip install omero-server

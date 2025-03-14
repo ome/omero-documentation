@@ -31,6 +31,8 @@ Install dependencies::
 
         cp nginx.repo /etc/yum.repos.d/
 
+    dnf -y install git
+
     dnf -y install unzip
 
     dnf -y install python3

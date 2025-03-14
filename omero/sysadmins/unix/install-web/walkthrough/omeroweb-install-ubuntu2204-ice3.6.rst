@@ -30,6 +30,7 @@ Installing prerequisites
 Install dependencies::
 
     apt-get update
+    apt-get -y install git
 
     apt-get -y install unzip
     apt-get -y install python3

@@ -15,6 +15,13 @@ apt-get install -y openjdk-11-jre
 
 # install dependencies
 
+# start-add-dependencies
+apt-get -y install \
+    unzip \
+    wget \
+    python3 \
+    python3-venv
+# end-add-dependencies
 #end-step01
 # install Ice
 #start-recommended-ice
