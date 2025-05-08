@@ -358,7 +358,9 @@ linkcheck_ignore += [
     r'https://java.com/.*',
     r'https://www.cpubenchmark.net/*',
     r'https://www.mathworks.com/.*',
-    r'https://stackoverflow.com/.*'
+    r'https://stackoverflow.com/.*',
+    r'https://www.nongnu.org/.*',
+    r'https://www.gnu.org/.*'
 ]
 
 exclude_patterns = ['sysadmins/unix/walkthrough/requirements*',
