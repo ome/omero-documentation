@@ -96,7 +96,7 @@ Configure OMERO.web and create the NGINX OMERO configuration file to be included
     export PATH=/opt/omero/web/venv3/bin:$PATH
 
 
-    omero web config nginx --http "${WEBPORT}" --servername "${WEBSERVER_NAME}" > /opt/omero/web/omero-web/nginx.conf.tmp
+    omero web config nginx > /opt/omero/web/omero-web/nginx.conf.tmp
 
 OMERO.web offers a number of configuration options. The configuration changes **will not be applied** until Gunicorn is restarted using ``omero web restart``. The Gunicorn workers are managed **separately** from other OMERO processes. You can check their status or stop them using ``omero web status`` or ``omero web stop``.
 
