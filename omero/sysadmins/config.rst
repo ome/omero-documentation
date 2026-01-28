@@ -2943,7 +2943,7 @@ Default: `omeroweb.webclient.views.image_viewer`
 
 omero.web.wsgi_args
 ^^^^^^^^^^^^^^^^^^^
-A string representing Gunicorn additional arguments. Check Gunicorn Documentation https://gunicorn.org/en/reference/settings/
+A string representing Gunicorn additional arguments. Check Gunicorn Documentation https://gunicorn.org/reference/settings/
 
 Default: `None`
 
@@ -2951,7 +2951,7 @@ Default: `None`
 
 omero.web.wsgi_timeout
 ^^^^^^^^^^^^^^^^^^^^^^
-Workers silent for more than this many seconds are killed and restarted. Check Gunicorn Documentation https://gunicorn.org/en/reference/settings/#timeout
+Workers silent for more than this many seconds are killed and restarted. Check Gunicorn Documentation https://gunicorn.org/reference/settings/#timeout
 
 Default: `60`
 
@@ -2959,7 +2959,7 @@ Default: `60`
 
 omero.web.wsgi_workers
 ^^^^^^^^^^^^^^^^^^^^^^
-The number of worker processes for handling requests. Check Gunicorn Documentation https://gunicorn.org/en/reference/settings/#worker-processes
+The number of worker processes for handling requests. Check Gunicorn Documentation https://gunicorn.org/reference/settings/#worker-processes
 
 Default: `5`
 
