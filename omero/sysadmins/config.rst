@@ -2855,7 +2855,7 @@ Default: `[]`
 
 omero.web.thumbnails_batch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-Number of thumbnails retrieved to prevent from loading them all at once. Make sure the size is not too big, otherwise you may exceed limit request line, see https://docs.gunicorn.org/en/latest/settings.html?highlight=limit_request_line
+Number of thumbnails retrieved to prevent from loading them all at once. Make sure the size is not too big, otherwise you may exceed limit request line, see https://gunicorn.org/reference/settings/?highlight=limit_request_line
 
 Default: `50`
 
@@ -2943,7 +2943,7 @@ Default: `omeroweb.webclient.views.image_viewer`
 
 omero.web.wsgi_args
 ^^^^^^^^^^^^^^^^^^^
-A string representing Gunicorn additional arguments. Check Gunicorn Documentation https://docs.gunicorn.org/en/latest/settings.html
+A string representing Gunicorn additional arguments. Check Gunicorn Documentation https://gunicorn.org/en/reference/settings/
 
 Default: `None`
 
@@ -2951,7 +2951,7 @@ Default: `None`
 
 omero.web.wsgi_timeout
 ^^^^^^^^^^^^^^^^^^^^^^
-Workers silent for more than this many seconds are killed and restarted. Check Gunicorn Documentation https://docs.gunicorn.org/en/stable/settings.html#timeout
+Workers silent for more than this many seconds are killed and restarted. Check Gunicorn Documentation https://gunicorn.org/en/reference/settings/#timeout
 
 Default: `60`
 
@@ -2959,7 +2959,7 @@ Default: `60`
 
 omero.web.wsgi_workers
 ^^^^^^^^^^^^^^^^^^^^^^
-The number of worker processes for handling requests. Check Gunicorn Documentation https://docs.gunicorn.org/en/stable/settings.html#workers
+The number of worker processes for handling requests. Check Gunicorn Documentation https://gunicorn.org/en/reference/settings/#worker-processes
 
 Default: `5`
 
