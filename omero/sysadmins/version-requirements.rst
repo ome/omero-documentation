@@ -364,17 +364,17 @@ OMERO support policies
       - Mar 2013
       - Oct 2013
       - |Dropped|
-      - `Release notes <https://doc.zeroc.com/display/Ice35/Ice+Release+Notes>`__ 
+      - `Release notes <https://archive.zeroc.com/display/Ice35/Ice%2BRelease%2BNotes>`__
     * - 3.6
       - June 2015
       - TBA
       - |Recommended|
-      -  `Release notes <https://doc.zeroc.com/ice/3.6/ice-release-notes>`__
+      -  `Release notes <https://archive.zeroc.com/rel/ice-releases/ice-3-6/ice-3-6-3-release-notes>`__
     * - 3.7
       - July 2017
       - TBA
       - |Unsupported|
-      - `Release notes <https://doc.zeroc.com/ice/3.7/release-notes>`__
+      - `Release notes <https://archive.zeroc.com/ice/3.7/release-notes>`__
 
 
 Version provided by distribution
