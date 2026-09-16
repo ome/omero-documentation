@@ -10,7 +10,7 @@ Developing OMERO clients
     - This page is intended for developers already familiar with
       client/server programming. If you are not, **your best starting
       point is to read the**
-      :zerocdoc:`Hello World <display/Ice/Hello+World+Application>`
+      `Hello World <https://archive.zeroc.com/ice/3.6/hello-world-application>`_
       **chapter of the Ice manual (or more)**. A deeper understanding of
       Ice might not be necessary, but certainly understanding the Ice
       basics will make reading this guide **much** easier.
@@ -1193,8 +1193,8 @@ Example: :source:`examples/OmeroClients/smartpointers.cpp`
     a boolean or integer/long context, returns 1 for true (i.e. non-null) or
     0 for false (i.e. null). Be especially careful with the RTypes.
 
-For more information, see :zerocdoc:`6.14.6 Smart Pointers for
-Classes <display/Ice/Smart+Pointers+for+Classes>` in the
+For more information, see `6.14.6 Smart Pointers for
+Classes <https://archive.zeroc.com/ice/3.6/language-mappings/c%2B%2B-mapping/client-side-slice-to-c%2B%2B-mapping/smart-pointers-for-classes>`_ in the
 Ice manual, which also describes the ``Ice.GC.Interval`` parameter which
 determines how often garbage collection runs in C++ to reap objects.
 This is necessary with the |OmeroModel| 

@@ -115,9 +115,7 @@ Server fails to start
    `netstat -a` for port 4064. If nothing is listening on 4064, you may
    need to specify which network interface to use.
    :program:`omero config set Ice.Default.Host 127.0.0.1`, for example,
-   would force OMERO to only listen on localhost. See :zerocdoc:`Proxy
-   and Endpoint Syntax
-   <ice/3.6/client-side-features/proxies/proxy-and-endpoint-syntax>`
+   would force OMERO to only listen on localhost. See `Proxy and Endpoint Syntax <https://archive.zeroc.com/ice/3.6/client-side-features/proxies/proxy-and-endpoint-syntax>`_
    for more information.
 
 .. _remote_clients_cannot_connect:

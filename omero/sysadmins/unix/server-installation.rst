@@ -192,8 +192,7 @@ latest release is available from the :zeroc:`ZeroC website
     With Ice 3.6, the Python bindings are provided separately. If
     your package manager does not provide Ice python packages, run
     ``pip install zeroc-ice`` to install the Ice Python bindings.
-    See :zerocdoc:`Using the Python Distribution
-    <display/Ice36/Using+the+Python+Distribution>`
+    See `Using the Python Distribution <https://archive.zeroc.com/ice/3.6/ice-release-notes/using-the-python-distribution>`_
     for further details.
 
 OMERO.scripts
