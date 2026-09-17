@@ -1,8 +1,7 @@
 OMERO Java language bindings
 ============================
 
-Using the :zerocdoc:`Ice Java language mapping
-<display/Ice/Hello+World+Application>` from ZeroC_, OMERO provides access to
+Using the `Ice Java language mapping <https://archive.zeroc.com/ice/3.6/hello-world-application>`_ from ZeroC_, OMERO provides access to
 your data within an :doc:`/developers/server-blitz` server from Java code.
 
 All the code examples below can be found at
@@ -42,8 +41,7 @@ Java Gateway
 ------------
 
 The Java :javadoc_gateway_java:`Gateway <omero/gateway/Gateway.html>` is a
-wrapper around the :zerocdoc:`Ice Java language mapping
-<display/Ice/Hello+World+Application>` and the :doc:`Modules/Api` which makes
+wrapper around the `Ice Java language mapping <https://archive.zeroc.com/ice/3.6/hello-world-application>`_ and the :doc:`Modules/Api` which makes
 it easier to interact with an OMERO server in Java.
 
 The :javadoc_gateway_java:`Gateway <omero/gateway/Gateway.html>` is the central object

@@ -1,8 +1,8 @@
 OMERO C++ language bindings
 ===========================
 
-Using the :zerocdoc:`Ice C++ language mapping
-<display/Ice/Hello+World+Application>` from ZeroC_, OMERO provides
+Using the `Ice C++ language mapping
+<https://archive.zeroc.com/ice/3.6/hello-world-application>`_ from ZeroC_, OMERO provides
 native access to your data from C++ code. `CMake
 <https://www.cmake.org/>`_ is used for building the C++ bindings.
 

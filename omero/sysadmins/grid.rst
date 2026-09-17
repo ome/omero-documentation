@@ -15,7 +15,7 @@ Please notice that ZeroC uses a specific naming scheme for IceGrid elements
 and actors. A *server* in the context of this document is not a host
 computer - it is a process running inside an IceGrid node, servicing
 incoming requests. A *host* is a computer on which IceGrid elements get
-deployed. For more details, see :zerocdoc:`Terminology <display/Ice/Terminology>`.
+deployed. For more details, see `Terminology <https://archive.zeroc.com/ice/3.6/ice-overview/ice-architecture/terminology>`_.
 
 Getting started
 ---------------
@@ -62,16 +62,16 @@ JAR is provided in the OMERO source code under :file:`lib/repository`.
 
 .. seealso::
 
-    :zerocdoc:`icegridadmin Command Line Tool <display/Ice/icegridadmin+Command+Line+Tool>`
+    `icegridadmin Command Line Tool <https://archive.zeroc.com/ice/3.6/ice-services/icegrid/icegridadmin-command-line-tool>`_
         Chapter of the ZeroC_ manual about the :command:`icegridadmin` CLI
-    :zerocdoc:`IceGrid GUI Tool <display/Ice/IceGrid+GUI+Tool>`
+    `IceGrid GUI Tool <https://archive.zeroc.com/ice/3.6/ice-services/icegrid/icegrid-admin-graphical-tool>`_
         Chapter of the ZeroC_ manual about the IceGrid GUI tool
 
 
 How it works
 ------------
 
-:zerocdoc:`IceGrid <display/Ice/IceGrid>` is a location and activation
+`IceGrid <https://archive.zeroc.com/ice/3.6/ice-services/icegrid>`_ is a location and activation
 service, which functions as a central registry to manage all your OMERO
 server processes. OMERO.grid provides server components
 which use the registry to communicate with one another. Other than a
@@ -307,8 +307,8 @@ Another possibility is to use the :doc:`/developers/server-blitz`
 permissions verifier, so that anyone with a proper OMERO account can
 access the server.
 
-See :zerocdoc:`Controlling Access to IceGrid Sessions
-<ice/3.6/ice-services/icegrid/resource-allocation-using-icegrid-sessions#id-.ResourceAllocationusingIceGridSessionsv3.6-ControllingAccesstoIceGridSessions>`
+See `Controlling Access to IceGrid Sessions
+<https://archive.zeroc.com/ice/3.6/ice-services/icegrid/icegrid-administrative-sessions>`_
 of the Ice manual for more information.
 
 Unique node names

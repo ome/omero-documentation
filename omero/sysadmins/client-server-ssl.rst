@@ -68,7 +68,7 @@ If you are a developer the following Ice properties can be passed to the ``omero
 
 Some platforms or languages do not support the cipher specification ``HIGH``.
 Instead you can specify a cipher family such as ``AES256`` or ``AES_256``.
-See the `IceSSL.Ciphers documentation <https://doc.zeroc.com/ice/3.6/property-reference/icessl#id-.IceSSL.*v3.6-IceSSL.Ciphers>`_.
+See the `IceSSL.Ciphers documentation <https://archive.zeroc.com/ice/3.6/property-reference/icessl?utm_source=chatgpt.com#id-.IceSSL.*v3.6-IceSSL.Ciphers>`_.
 
 If you have your own certificate authority replace ``IceSSL.UsePlatformCAs`` with:
 
@@ -88,6 +88,6 @@ Multiple ``CN`` can be specified:
 Further information
 -------------------
 
-- https://doc.zeroc.com/ice/3.6/ice-plugins/icessl/configuring-icessl
-- https://doc.zeroc.com/ice/3.6/ice-plugins/icessl/setting-up-a-certificate-authority
-- https://doc.zeroc.com/ice/3.6/property-reference/icessl
+- https://archive.zeroc.com/ice/3.6/ice-plugins/icessl/configuring-icessl
+- https://archive.zeroc.com/ice/3.6/ice-plugins/icessl/setting-up-a-certificate-authority
+- https://archive.zeroc.com/ice/3.6/property-reference/icessl
