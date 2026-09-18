@@ -563,7 +563,7 @@ Glacier2
 omero.glacier2.IceSSL
 ^^^^^^^^^^^^^^^^^^^^^
 Glacier2Template IceSSL defaults and overrides,
-see https://archive.zeroc.com/ice/3.6/property-reference/icessl.
+see https://doc.zeroc.com/ice/3.6/property-reference/icessl.
 Any property beginning ``omero.glacier2.IceSSL.`` will be used to
 update the corresponding IceSSL. property.
 
