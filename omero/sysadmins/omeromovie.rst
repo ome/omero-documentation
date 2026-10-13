@@ -27,7 +27,7 @@ the QuickTime movie.
 Installing the make movie script
 --------------------------------
 
-The make movie script currently uses the `mencoder <http://www.mplayerhq.hu/design7/dload.html>`_ utility to
+The make movie script currently uses the `mencoder <https://mplayerhq.hu/design7/dload.html>`_ utility to
 encode the movies, this command should be in the path of the
 computer (icegrid node) running the script.
 
