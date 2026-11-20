@@ -462,19 +462,7 @@ NGINX
 OMERO support policies
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. list-table::
-    :header-rows: 1
-    :align: left
-
-    * - nginx
-      - OMERO 5.6
-    * - 1.27
-      - |Dropped|
-    * - 1.28
-      - |Recommended|
-    * - 1.29
-      - |Upcoming|
-
+Latest stable version is recommended, minimum version 1.28.
 
 Version provided by distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
