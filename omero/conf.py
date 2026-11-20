@@ -347,6 +347,7 @@ linkcheck_ignore += [
     r'https://www.cpubenchmark.net/*',
     r'https://www.mathworks.com/.*',
     r'https://bugs.java.com/.*', # 403 Client Error: Forbidden for url
+    r'https://www.splunk.com/', # 403 Client Error: Forbidden for url
     r'https://www.janelia.org/.*' # behind captcha
 ]
 
