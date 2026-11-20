@@ -230,33 +230,6 @@ OMERO support policies
       - Nov 2030
       - |Upcoming|
 
-Version provided by distribution
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-If no version is provided, a suitable repository is indicated.
-
-.. list-table::
-    :header-rows: 1
-    :align: left
-
-    * - Version
-      - CentOS/RHEL
-      - Ubuntu
-    * - 12
-      - 9
-      - 24.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/dists/noble-pgdg/>`__)
-    * - 13
-      - 9
-      - 24.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/dists/noble-pgdg/>`__)
-    * - 14
-      - 9 (`postgresql <https://yum.postgresql.org/14/redhat/rhel-9-x86_64/>`__)
-      - 24.04
-    * - 15
-      - 9 (`postgresql <https://yum.postgresql.org/15/redhat/rhel-9-x86_64/>`__)
-      - 24.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/dists/noble-pgdg/>`__)
-    * - 16
-      - 9 (`postgresql <https://yum.postgresql.org/16/redhat/rhel-9-x86_64/>`__)
-      - 24.04 (`postgresql <https://apt.postgresql.org/pub/repos/apt/dists/noble-pgdg/>`__)
-
 
 The PostgreSQL project provides `packages
 <https://www.postgresql.org/download/>`__ for supported platforms
@@ -324,24 +297,6 @@ OMERO support policies
       - |Upcoming|
       - `PEP 745 <https://peps.python.org/pep-0745/>`__
 
-
-Version provided by distribution
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. list-table::
-    :header-rows: 1
-    :align: left
-
-    * - Version
-      - CentOS/RHEL
-      - Ubuntu
-    * - 3.9
-      - 9
-      - 
-    * - 3.12
-      - 9.4+
-      - 24.04
-
 .. _ice-requirements:
 
 Ice
@@ -375,22 +330,6 @@ OMERO support policies
       - TBA
       - |Unsupported|
       - `Release notes <https://archive.zeroc.com/ice/3.7/release-notes>`__
-
-
-Version provided by distribution
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-If no version is provided, a suitable repository is indicated.
-
-.. list-table::
-    :header-rows: 1
-    :align: left
-
-    * - Version
-      - CentOS/RHEL
-      - Ubuntu
-    * - 3.6
-      - 9 (`zeroc-ice-rhel9-x86_64 <https://github.com/glencoesoftware/zeroc-ice-rhel9-x86_64>`__)
-      - 24.04 (`zeroc-ice-ubuntu2404-x86_64  <https://github.com/glencoesoftware/zeroc-ice-ubuntu2404-x86_64>`__)
 
 .. _version requirements java:
 
@@ -431,23 +370,6 @@ OMERO support policies
       - |Upcoming|
       - `Reference <https://access.redhat.com/articles/1299013>`__
 
-Version provided by distribution
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. list-table::
-    :header-rows: 1
-    :align: left
-
-    * - Version
-      - CentOS/RHEL
-      - Ubuntu
-    * - 11
-      - 9
-      - 24.04
-    * - Details
-      - 
-      - `Reference <https://packages.ubuntu.com/search?keywords=jdk&searchon=names&suite=all&section=all>`__
-
 Note that all distributions provide OpenJDK due to distribution restrictions
 by Oracle. `Oracle Java
 <https://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html>`__
@@ -463,24 +385,6 @@ OMERO support policies
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Latest stable version is recommended, minimum version 1.28.
-
-Version provided by distribution
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-If no version is provided, a suitable repository is indicated.
-
-.. list-table::
-    :header-rows: 1
-    :align: left
-
-    * - Version
-      - RHEL/Rocky Linux
-      - Ubuntu
-    * - 1.23
-      - 9 (`repo <http://nginx.org/packages/centos/9/x86_64/>`__)
-      - N/A
-    * - 1.24
-      - 9 (`repo <http://nginx.org/packages/centos/9/x86_64/>`__)
-      - 24.04
 
 .. _support-levels:
 
